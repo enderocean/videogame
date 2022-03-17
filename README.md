@@ -2,9 +2,9 @@
 
 A first-person simulation game made to teach players how to control a remotely operated underwater robot. 
 
-The player has to complete tasks such as collecting plastic detritus within numerous types of polluted waters, cut ghost nets and be coordinated with his team members. 
+The player has to complete tasks such as collecting plastic detritus within numerous types of polluted waters, cut ghost nets or save animals. 
 
-This simulation is a first step before to control real underwater robots to collect plastic in real-life.
+This simulation is a first step before to control real underwater robots to collect plastic waste in real-life.
 
 
 ## Audience
