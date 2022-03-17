@@ -7,18 +7,21 @@ The player has to complete tasks such as collecting plastic detritus within nume
 This simulation is a first step before to control real underwater robots to collect plastic waste in real-life.
 
 
+## Game mechanics
+
+- Learn how to control an underwater robot and collect waste in various places around the world.
+- Earn points by collecting waste and complete your mission. 
+- Respect plants and animals.
+
+
+## Download
+
+Download video game directly on our Website: https://www.enderocean.com
+
+
 ## Audience
 
 PEGI3
-
-
-## Game mechanics
-
-Learn how to control an underwater robot and collect waste in various places around the world.
-
-Earn points by collecting waste and complete your mission. 
-
-Respect plants and animals.
 
 
 ## Special thanks
@@ -38,8 +41,6 @@ This project is published under GNU Affero GPL license.
 Do not hesitate to contribute or let us know your ideas to improve the game. 
 
 Discord : https://discord.com/invite/R7h7ASHq8v
-
-Note. If you need specific development or use engine for a specific use case, you can contact us directly with contact form here : https://www.enderocean.com
 
 
 
