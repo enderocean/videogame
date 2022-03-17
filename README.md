@@ -1,6 +1,10 @@
 # Ender Ocean - Your mission: "Clean the Ocean!"
 
-A first-person simulation game made to teach players how to control a remotely operated underwater robot. The player has to complete tasks such as collecting plastic detritus within numerous types of polluted waters, cut ghost nets and be coordinated with his team members. This simulation is a first step before to control real underwater robots to collect plastic in real-life.
+A first-person simulation game made to teach players how to control a remotely operated underwater robot. 
+
+The player has to complete tasks such as collecting plastic detritus within numerous types of polluted waters, cut ghost nets and be coordinated with his team members. 
+
+This simulation is a first step before to control real underwater robots to collect plastic in real-life.
 
 
 ## Audience
@@ -10,8 +14,10 @@ PEGI3
 
 ## Game mechanics
 
-Learn how to control an underwater robot and collect waste in various places around the world
+Learn how to control an underwater robot and collect waste in various places around the world.
+
 Earn points by collecting waste and complete your mission. 
+
 Respect plants and animals.
 
 
