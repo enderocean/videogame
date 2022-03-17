@@ -24,6 +24,7 @@ Respect plants and animals.
 ## Special thanks
 
 This video game largely inspired from great works done by BlueRobotics team here: https://github.com/bluerobotics/bluesim 
+
 Many thanks to donators and contributors!
 
 
