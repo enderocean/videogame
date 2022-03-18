@@ -1,5 +1,7 @@
 # Ender Ocean - Your mission: "Clean the Ocean!"
 
+## Overview
+
 A first-person simulation game made to teach players how to control a remotely operated underwater robot. 
 
 The player has to complete tasks such as collecting plastic detritus within numerous types of polluted waters, cut ghost nets or save animals. 
@@ -21,7 +23,7 @@ Download video game directly on our Website: https://www.enderocean.com
 
 ## Audience
 
-PEGI3
+<img src="https://pegi.info/sites/default/files/inline-images/age-3-black_0.jpg" width="50px" />
 
 
 ## Special thanks
