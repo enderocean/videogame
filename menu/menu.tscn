@@ -51,7 +51,8 @@ class LevelLoader:
 		return valid
 
 func add_status(text: String):
-	$HBoxContainer/Menu/statusLabel.text += text + \"\\n\"
+	print(text)
+#	$HBoxContainer/Menu/statusLabel.text += text + \"\\n\"
 	
 func download_file(url : String, file_name : String):
 	add_status(\"downloading \" + file_name)
@@ -237,8 +238,8 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 96.0
-margin_right = 289.0
+margin_left = 95.0
+margin_right = 288.0
 margin_bottom = 114.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -266,5 +267,6 @@ margin_right = 375.0
 margin_bottom = 106.0
 custom_fonts/font = ExtResource( 1 )
 text = "Ship Level"
+
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
