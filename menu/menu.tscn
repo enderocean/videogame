@@ -174,9 +174,6 @@ tracks/0/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -185,14 +182,6 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 300, 300 )
 stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="background" type="Sprite" parent="ViewportContainer"]
-position = Vector2( 511.779, 302.639 )
-scale = Vector2( 0.291255, 0.242412 )
-texture = ExtResource( 4 )
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1024, 600 )
@@ -220,10 +209,21 @@ anims/rotatingbluerov = SubResource( 2 )
 [node name="bluerov cleaned decimated" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, -6.55651e-07, 0, 1, 0, 6.55651e-07, 0, 1, 0.348981, 0, -0.233652 )
 
-[node name="Sprite" type="Sprite" parent="ViewportContainer"]
-position = Vector2( 238.534, 145.599 )
-scale = Vector2( 0.1, 0.1 )
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+
+[node name="Logo" type="TextureRect" parent="."]
+margin_left = 129.0
+margin_top = 82.0
+margin_right = 348.0
+margin_bottom = 210.0
 texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 47.0833
@@ -233,9 +233,6 @@ margin_bottom = 366.357
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 95.0
