@@ -1,11 +1,11 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/suspended_particles.gd" type="Script" id=1]
-[ext_resource path="res://scenery/shaders/water_shader.tres" type="Material" id=2]
+[ext_resource path="res://scenery/shaders/water_material.tres" type="Material" id=2]
 [ext_resource path="res://scripts/buoy.gd" type="Script" id=3]
 [ext_resource path="res://scripts/godrays.gd" type="Script" id=4]
 [ext_resource path="res://scripts/environment.gd" type="Script" id=5]
-[ext_resource path="res://scenery/shaders/underwater_shader.tres" type="Material" id=6]
+[ext_resource path="res://scenery/shaders/underwater_material.tres" type="Material" id=6]
 [ext_resource path="res://scenery/shaders/suspended_particle_shader.tres" type="Material" id=7]
 [ext_resource path="res://scenery/shaders/godrays.shader" type="Shader" id=9]
 
@@ -13,7 +13,7 @@
 subdivide_width = 256
 subdivide_depth = 256
 
-[sub_resource type="Skin" id=2]
+[sub_resource type="Skin" id=19]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends MeshInstance
@@ -118,7 +118,7 @@ transform = Transform( 200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 6.31718, 0 )
 layers = 2
 cast_shadow = 0
 mesh = SubResource( 1 )
-skin = SubResource( 2 )
+skin = SubResource( 19 )
 material/0 = ExtResource( 2 )
 
 [node name="underwater" type="MeshInstance" parent="."]
@@ -126,7 +126,6 @@ transform = Transform( -200, 3.01992e-05, 0, -3.01992e-05, -200, 0, 0, 0, 200, 0
 layers = 4
 cast_shadow = 0
 mesh = SubResource( 1 )
-skin = SubResource( 2 )
 material/0 = ExtResource( 6 )
 script = SubResource( 3 )
 
@@ -134,9 +133,7 @@ script = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 33.518, 0 )
 light_energy = 0.19
 
-[node name="boia" type="RigidBody" parent="." groups=[
-"buoyant",
-]]
+[node name="boia" type="RigidBody" parent="." groups=["buoyant"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.71692, -4.93734 )
 visible = false
 mass = 2.16
