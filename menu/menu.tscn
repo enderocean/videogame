@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/squareFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menu/menuEnvironment.tres" type="Environment" id=2]
 [ext_resource path="res://vehicles/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=3]
+[ext_resource path="res://assets/background.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -167,13 +169,6 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -360, 0 ) ]
 }
 
-[sub_resource type="GDScript" id=3]
-script/source = "extends CheckBox
-
-func _ready():
-	visible = not Globals.isHTML5
-"
-
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -192,6 +187,11 @@ stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="background" type="Sprite" parent="ViewportContainer"]
+position = Vector2( 511.779, 302.639 )
+scale = Vector2( 0.291255, 0.242412 )
+texture = ExtResource( 4 )
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1024, 600 )
@@ -219,11 +219,16 @@ anims/rotatingbluerov = SubResource( 2 )
 [node name="bluerov cleaned decimated" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, -6.55651e-07, 0, 1, 0, 6.55651e-07, 0, 1, 0.348981, 0, -0.233652 )
 
+[node name="Sprite" type="Sprite" parent="ViewportContainer"]
+position = Vector2( 238.534, 145.599 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 100.0
-margin_top = 211.0
-margin_right = 485.0
-margin_bottom = 317.0
+margin_left = 47.0833
+margin_top = 252.357
+margin_right = 432.083
+margin_bottom = 366.357
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -232,25 +237,27 @@ __meta__ = {
 }
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 5.0
-margin_right = 380.0
+margin_left = 96.0
+margin_right = 289.0
 margin_bottom = 114.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer/Menu"]
-margin_right = 375.0
+margin_right = 193.0
 margin_bottom = 51.0
+rect_min_size = Vector2( 111, 51 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="poolLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
-margin_right = 375.0
+margin_right = 193.0
 margin_bottom = 51.0
+rect_min_size = Vector2( 111, 51 )
 custom_fonts/font = ExtResource( 1 )
-text = "Pool"
+text = "PRACTICE"
 
 [node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
 visible = false
@@ -259,23 +266,5 @@ margin_right = 375.0
 margin_bottom = 106.0
 custom_fonts/font = ExtResource( 1 )
 text = "Ship Level"
-
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer/Menu"]
-margin_top = 55.0
-margin_right = 375.0
-margin_bottom = 79.0
-text = "Sync with SITL (only run frames when new input arrive)"
-script = SubResource( 3 )
-
-[node name="statusLabel" type="Label" parent="HBoxContainer/Menu"]
-margin_top = 83.0
-margin_right = 375.0
-margin_bottom = 114.0
-text = "Starting...
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
-[connection signal="toggled" from="HBoxContainer/Menu/CheckBox" to="." method="_on_CheckBox_toggled"]
