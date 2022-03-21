@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenery/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/settings.gd" type="Script" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://levels/baselevel.gd" type="Script" id=7]
 [ext_resource path="res://scenery/scene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://vehicles/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Square.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scripts/mission_timer.gd" type="Script" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "# Licensed under the MIT License.
@@ -339,15 +341,18 @@ func _process(delta):
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 6 )
 
-[node name="Node2D" type="Control"]
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[node name="HUD" type="Control"]
 pause_mode = 2
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ViewportCamera" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -355,9 +360,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Viewport" type="Viewport" parent="ViewportCamera"]
 size = Vector2( 1024, 600 )
@@ -372,9 +374,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7902, 0 )
 script = SubResource( 1 )
 mouse_mode = 0
 
-[node name="Camera" type="Camera" parent="ViewportCamera/Viewport/playerCamera" groups=[
-"cameras",
-]]
+[node name="Camera" type="Camera" parent="ViewportCamera/Viewport/playerCamera" groups=["cameras"]]
 far = 275.0
 
 [node name="theter" type="Spatial" parent="ViewportCamera/Viewport"]
@@ -496,9 +496,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Viewport" type="Viewport" parent="ViewportGlobal"]
 size = Vector2( 362, 248 )
@@ -507,9 +504,7 @@ render_target_update_mode = 3
 shadow_atlas_size = 512
 shadow_atlas_quad_1 = 3
 
-[node name="InterpolatedCamera" type="InterpolatedCamera" parent="ViewportGlobal/Viewport" groups=[
-"cameras",
-]]
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="ViewportGlobal/Viewport" groups=["cameras"]]
 transform = Transform( -0.995028, 0, 0.0995974, 0, 1, 0, -0.0995974, 0, -0.995028, -1.54154, 7.13712, -2.96935 )
 cull_mask = 1048573
 environment = ExtResource( 1 )
@@ -572,9 +567,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Viewport" type="Viewport" parent="Ping360Viewport"]
 size = Vector2( 296, 265 )
@@ -583,9 +575,7 @@ render_target_update_mode = 3
 shadow_atlas_size = 512
 shadow_atlas_quad_1 = 3
 
-[node name="InterpolatedCamera" type="InterpolatedCamera" parent="Ping360Viewport/Viewport" groups=[
-"cameras",
-]]
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="Ping360Viewport/Viewport" groups=["cameras"]]
 transform = Transform( -0.995028, 0, 0.0995974, 0, 1, 0, -0.0995974, 0, -0.995028, -1.54154, 7.13712, -2.96935 )
 cull_mask = 3
 environment = ExtResource( 1 )
@@ -606,6 +596,21 @@ rect_min_size = Vector2( 1024, 600 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 25.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 6 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="MissionTimer" type="Timer" parent="."]
+script = ExtResource( 11 )
+minutes = 0
+label_path = NodePath("../TimerLabel")
+
 [connection signal="toggled" from="ViewportCamera/SettingsPanel/VBoxContainer/godrayToggle" to="ViewportGlobal/Viewport/Scene" method="_on_godrayToggle_toggled"]
 [connection signal="toggled" from="ViewportCamera/SettingsPanel/VBoxContainer/dirtparticlesToggle" to="ViewportGlobal/Viewport/Scene" method="_on_dirtparticlesToggle_toggled"]
 [connection signal="toggled" from="ViewportCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportGlobal/Viewport/Scene" method="_on_fancyWaterToggle_toggled"]
