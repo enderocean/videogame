@@ -9,7 +9,7 @@
 [ext_resource path="res://levels/baselevel.gd" type="Script" id=7]
 [ext_resource path="res://scenery/scene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://vehicles/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/fonts/Square.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://scripts/mission_timer.gd" type="Script" id=11]
 
 [sub_resource type="GDScript" id=1]
@@ -608,7 +608,6 @@ valign = 1
 
 [node name="MissionTimer" type="Timer" parent="."]
 script = ExtResource( 11 )
-minutes = 0
 label_path = NodePath("../TimerLabel")
 
 [connection signal="toggled" from="ViewportCamera/SettingsPanel/VBoxContainer/godrayToggle" to="ViewportGlobal/Viewport/Scene" method="_on_godrayToggle_toggled"]
