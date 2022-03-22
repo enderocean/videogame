@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/squareFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/squareFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menu/menuEnvironment.tres" type="Environment" id=2]
 [ext_resource path="res://vehicles/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -170,7 +171,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -360, 0 ) ]
 }
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = SubResource( 1 )
@@ -235,15 +236,15 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 95.0
-margin_right = 288.0
+margin_left = 136.0
+margin_right = 247.0
 margin_bottom = 114.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer/Menu"]
-margin_right = 193.0
+margin_right = 111.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 111, 51 )
 __meta__ = {
@@ -251,10 +252,10 @@ __meta__ = {
 }
 
 [node name="poolLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
-margin_right = 193.0
+margin_right = 111.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 111, 51 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "PRACTICE"
 
 [node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
@@ -264,6 +265,19 @@ margin_right = 375.0
 margin_bottom = 106.0
 custom_fonts/font = ExtResource( 1 )
 text = "Ship Level"
+
+[node name="Licences" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -127.0
+margin_top = -68.0
+margin_right = -16.0
+margin_bottom = -17.0
+rect_min_size = Vector2( 111, 51 )
+custom_fonts/font = ExtResource( 6 )
+text = "Licences"
 
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
