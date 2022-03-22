@@ -159,20 +159,14 @@ bbcode_text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
 Published under Open Source License - Affero GPL (AGPL)
 
-Credits:
-
-Williangalvani
-[url]https://github.com/Williangalvani[/url]"
+Credits Images : Vecteezy"
 text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
 https://www.enderocean.com
 
 Published under Open Source License - Affero GPL (AGPL)
 
-Credits:
-
-Williangalvani
-https://github.com/Williangalvani"
+Credits Images : Vecteezy"
 
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
