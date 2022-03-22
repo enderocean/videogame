@@ -1,16 +1,12 @@
 extends Node
 
-const colors = {
-	"blizzard_blue": Color("#a5d6f1"),
-}
-
-export var surface_ambient = colors['blizzard_blue']
-export var deep_ambient = colors['blizzard_blue']
-export var current_ambient = colors['blizzard_blue']
+export var surface_ambient: Color = Color("#7edaf3")
+export var deep_ambient: Color = Color("#000a4e")
+export var current_ambient: Color = Color.black
 export var deep_factor = 0.0
 export var enable_godray = true
 export var fancy_water = true
-export var ping360_enabled = true
+export var ping360_enabled = false
 export var wait_SITL = false
 export var isHTML5 = false
 export var physics_rate = 60
