@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/fonts/squareFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://menu/menuEnvironment.tres" type="Environment" id=2]
 [ext_resource path="res://vehicles/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.jpg" type="Texture" id=4]
@@ -116,9 +115,9 @@ text = "PRACTICE"
 [node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
 visible = false
 margin_top = 55.0
-margin_right = 375.0
-margin_bottom = 106.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 111.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 6 )
 text = "Ship Level"
 
 [node name="Licences" type="Button" parent="."]

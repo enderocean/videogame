@@ -425,7 +425,6 @@ text = "Fancy Water"
 margin_top = 132.0
 margin_right = 158.0
 margin_bottom = 172.0
-pressed = true
 text = "Ping360"
 
 [node name="physicsRate" type="Label" parent="ViewportCamera/SettingsPanel/VBoxContainer"]
@@ -554,6 +553,7 @@ script = SubResource( 4 )
 
 [node name="Ping360Viewport" type="ViewportContainer" parent="."]
 pause_mode = 2
+visible = false
 material = SubResource( 5 )
 anchor_left = 1.0
 anchor_top = 1.0
@@ -571,7 +571,7 @@ script = ExtResource( 3 )
 [node name="Viewport" type="Viewport" parent="Ping360Viewport"]
 size = Vector2( 296, 265 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 shadow_atlas_size = 512
 shadow_atlas_quad_1 = 3
 
