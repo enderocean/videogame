@@ -9,7 +9,7 @@
 [ext_resource path="res://levels/baselevel.gd" type="Script" id=7]
 [ext_resource path="res://scenery/scene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://vehicles/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/Square.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/fonts/Square.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://scripts/mission_timer.gd" type="Script" id=11]
 
 [sub_resource type="GDScript" id=1]
