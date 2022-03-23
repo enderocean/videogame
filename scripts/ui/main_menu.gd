@@ -140,10 +140,15 @@ func _on_poolLevel_pressed():
 func _on_CheckBox_toggled(button_pressed):
 	Globals.wait_SITL = button_pressed
 
-func _on_customLevel_pressed(filename):
+# func _on_customLevel_pressed(filename):
+# 	Globals.active_vehicle = "bluerovheavy"
+# 	Globals.active_level = "res://custom_level.tscn"
+# 	ProjectSettings.load_resource_pack("res://levels/" + filename)
+# 	SceneLoader.goto_scene("res://levels/baselevel.tscn")
+
+func _on_customLevel_pressed():
 	Globals.active_vehicle = "bluerovheavy"
-	Globals.active_level = "res://custom_level.tscn"
-	ProjectSettings.load_resource_pack("res://levels/" + filename)
+	Globals.active_level = "res://levels/level_01.tscn"
 	SceneLoader.goto_scene("res://levels/baselevel.tscn")
 
 func _on_licences_pressed():

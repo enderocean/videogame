@@ -99,7 +99,7 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 111.0
-margin_bottom = 51.0
+margin_bottom = 105.0
 rect_min_size = Vector2( 111, 51 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,12 +113,12 @@ custom_fonts/font = ExtResource( 6 )
 text = "PRACTICE"
 
 [node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
-visible = false
 margin_top = 55.0
 margin_right = 111.0
-margin_bottom = 80.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = ExtResource( 6 )
-text = "Ship Level"
+text = "LEVEL 01"
 
 [node name="Licences" type="Button" parent="."]
 anchor_left = 1.0
