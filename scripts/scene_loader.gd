@@ -67,4 +67,4 @@ func update_progress() -> void:
 
 func set_new_scene(scene_resource: PackedScene) -> void:
 	current_scene = scene_resource.instance()
-	get_tree().add_child(current_scene)
+	get_node("/root").add_child(current_scene)
