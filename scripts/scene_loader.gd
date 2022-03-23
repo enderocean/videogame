@@ -11,11 +11,11 @@ var wait_frames = 0
 func show_error():
 	print("Error while loading scene")
 
-func _ready():
+func _ready() -> void:
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
 
-func goto_scene(path):
+func goto_scene(path: String) -> void:
 	loader = ResourceLoader.load_interactive(path)
 	if loader == null: 
 		show_error()
@@ -26,11 +26,12 @@ func goto_scene(path):
 	# get rid of the old scene
 	current_scene.queue_free()
 
-	get_tree().change_scene("res://scenery/misc/loading/loading.tscn")
+	var error = get_tree().change_scene("res://scenes/ui/loading.tscn")
+	if error != OK:
+		print("Error while loading scene: %s" % error)
 	wait_frames = 1
 
-func _process(time):	
-	
+func _process(_delta: float) -> void:
 	if loader == null:
 		# no need to process anymore
 		set_process(false)
@@ -59,11 +60,11 @@ func _process(time):
 			loader = null
 			break
 
-func update_progress():
+func update_progress() -> void:
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	var loading_scene = get_tree().get_current_scene()
 	loading_scene.get_node("Label").text = "Loading.. (%d %%)" % (progress * 100)
 
-func set_new_scene(scene_resource):
+func set_new_scene(scene_resource: PackedScene) -> void:
 	current_scene = scene_resource.instance()
-	get_node("/root").add_child(current_scene)
+	get_tree().add_child(current_scene)
