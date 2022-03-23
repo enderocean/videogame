@@ -77,6 +77,10 @@ enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg", "res://addons
 
 theme/custom_font="res://assets/fonts/Roboto/Roboto-Regular.tres"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/Roboto/Roboto-Regular.tres"
+
 [input]
 
 downwards={
