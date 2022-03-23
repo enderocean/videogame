@@ -21,13 +21,15 @@ _global_script_class_icons={
 [application]
 
 config/name="BlueSim"
-run/main_scene="res://menu/menu.tscn"
+run/main_scene="res://scenes/ui/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://scripts/globals.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
+LevelLoader="*res://scripts/level_loader.gd"
+SITL="*res://scripts/sitl.gd"
 
 [debug]
 
@@ -40,6 +42,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "thruster_nodes" )
+
+[gui]
+
+theme/custom_font="res://assets/fonts/Roboto/Roboto-Regular.tres"
 
 [input]
 
@@ -206,4 +212,4 @@ common/physics_fps=100
 
 [rendering]
 
-environment/default_environment="res://scenery/defaultEnvironment.tres"
+environment/default_environment="res://assets/defaultEnvironment.tres"
