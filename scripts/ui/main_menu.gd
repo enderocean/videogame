@@ -35,8 +35,8 @@ func _on_CheckBox_toggled(button_pressed):
 
 func _on_customLevel_pressed():
 	Globals.active_vehicle = "bluerovheavy"
-	Globals.active_level = "res://levels/level_01.tscn"
-	SceneLoader.goto_scene("res://levels/baselevel.tscn")
+	Globals.active_level = "res://scenes/level_01.tscn"
+	SceneLoader.goto_scene("res://scenes/baselevel.tscn")
 
 func _on_licences_pressed():
 	licences_popup.show()

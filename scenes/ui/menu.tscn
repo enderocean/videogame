@@ -117,7 +117,6 @@ margin_top = 55.0
 margin_right = 111.0
 margin_bottom = 105.0
 rect_min_size = Vector2( 0, 50 )
-custom_fonts/font = ExtResource( 6 )
 text = "LEVEL 01"
 
 [node name="Licences" type="Button" parent="."]
