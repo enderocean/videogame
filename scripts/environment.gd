@@ -1,8 +1,8 @@
 extends Spatial
 const BUOYANCY = 10.0  # newtons?
 const HEIGHT = 2.4  # TODO: get this programatically
-var underwater_env = load("res://scenery/underwaterEnvironment.tres")
-var surface_env = load("res://scenery/defaultEnvironment.tres")
+var underwater_env = load("res://assets/underwaterEnvironment.tres")
+var surface_env = load("res://assets/defaultEnvironment.tres")
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
 onready var surface_altitude = $water.global_transform.origin.y

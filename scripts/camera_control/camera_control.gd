@@ -33,17 +33,17 @@ export var max_speed = Vector3(1.0, 1.0, 1.0)
 export var local = true
 
 # Input Actions
-export var rotate_left_action = ""
-export var rotate_right_action = ""
-export var rotate_up_action = ""
-export var rotate_down_action = ""
+export var rotate_left_action = "rotate_left"
+export var rotate_right_action = "rotate_right"
+export var rotate_up_action = "rotate_up"
+export var rotate_down_action = "rotate_down"
 export var forward_action = "ui_up"
 export var backward_action = "ui_down"
 export var left_action = "ui_left"
 export var right_action = "ui_right"
 export var up_action = "ui_page_up"
 export var down_action = "ui_page_down"
-export var trigger_action = ""
+export var trigger_action = "camera_trigger"
 
 # Gui settings
 export var use_gui = true
