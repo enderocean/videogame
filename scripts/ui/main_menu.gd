@@ -30,9 +30,9 @@ func _on_CheckBox_toggled(button_pressed):
 func _on_customLevel_pressed(filename):
 	Globals.active_vehicle = "bluerovheavy"
 	Globals.active_level = "res://custom_level.tscn"
-	var error = ProjectSettings.load_resource_pack("res://levels/" + filename)
-	if error != OK:
-		print("Error while loading resource pack: %s" % error)
+	var loaded: bool = ProjectSettings.load_resource_pack("res://levels/%s" % filename)
+	if not loaded:
+		print("Error while loading resource pack: %s", filename)
 	SceneLoader.goto_scene("res://scenes/baselevel.tscn")
 
 func _on_licences_pressed():
