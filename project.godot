@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scripts/level.gd"
+}, {
 "base": "Timer",
 "class": "MissionTimer",
 "language": "GDScript",
 "path": "res://scripts/mission_timer.gd"
 } ]
 _global_script_class_icons={
+"Level": "",
 "MissionTimer": ""
 }
 

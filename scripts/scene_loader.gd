@@ -3,13 +3,13 @@ extends Node
 # Reference: https://docs.godotengine.org/en/3.0/tutorials/io/background_loading.html#doc-background-loading
 
 var current_scene = null
-var loader = null
-var time_max = 1000/16 # ms
-# Control loading scene
-var wait_frames = 0
+var loader: ResourceInteractiveLoader = null
 
-func show_error():
-	print("Error while loading scene")
+var time_max: int = 1000 / 16 # ms
+# Control loading scene
+var wait_frames: int = 0
+
+var label: Label
 
 func _ready() -> void:
 	var root = get_tree().get_root()
@@ -17,8 +17,8 @@ func _ready() -> void:
 
 func goto_scene(path: String) -> void:
 	loader = ResourceLoader.load_interactive(path)
-	if loader == null: 
-		show_error()
+	if not loader: 
+		print("Could not start to load: %s" % path)
 		return
 
 	set_process(true)
@@ -32,7 +32,7 @@ func goto_scene(path: String) -> void:
 	wait_frames = 1
 
 func _process(_delta: float) -> void:
-	if loader == null:
+	if not loader:
 		# no need to process anymore
 		set_process(false)
 		return
@@ -42,8 +42,8 @@ func _process(_delta: float) -> void:
 		wait_frames -= 1
 		return
 
-	var t = OS.get_ticks_msec()
-	while OS.get_ticks_msec() < t + time_max: # use "time_max" to control how much time we block this thread
+	var time: int = OS.get_ticks_msec()
+	while OS.get_ticks_msec() < time + time_max: # use "time_max" to control how much time we block this thread
 
 		# poll your loader
 		var err = loader.poll()
@@ -56,14 +56,18 @@ func _process(_delta: float) -> void:
 		elif err == OK:
 			update_progress()
 		else: # error during loading
-			show_error()
+			print("Error during loading scene")
 			loader = null
 			break
 
 func update_progress() -> void:
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	var loading_scene = get_tree().get_current_scene()
-	loading_scene.get_node("Label").text = "Loading.. (%d %%)" % (progress * 100)
+	
+	if not label:
+		label = loading_scene.get_node("Label")
+	
+	label.text = "Loading.. (%d %%)" % (progress * 100)
 
 func set_new_scene(scene_resource: PackedScene) -> void:
 	current_scene = scene_resource.instance()
