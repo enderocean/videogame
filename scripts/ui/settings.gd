@@ -13,7 +13,6 @@ func _ready() -> void:
 	else:
 		Globals.physics_rate = 200
 
-	Engine.iterations_per_second = Globals.physics_rate
 	physics_rate.text = "Physics: %s Hz" % Globals.physics_rate
 	physics_rate_slider.value = Globals.physics_rate
 
@@ -26,7 +25,20 @@ func _input(event: InputEvent) -> void:
 			self.hide()
 
 
-func _on_HSlider_value_changed(value):
+func _on_HSlider_value_changed(value) -> void:
 	Globals.physics_rate = value
-	Engine.iterations_per_second = value
 	physics_rate.text = "Physics: %s Hz" % Globals.physics_rate
+
+
+func _on_godrayToggle_toggled(button_pressed: bool) -> void:
+	Globals.enable_godray = button_pressed
+#	$Godrays.emitting = button_pressed
+
+
+func _on_dirtparticlesToggle_toggled(button_pressed: bool) -> void:
+#	$SuspendedParticleHolder/SuspendedParticles.emitting = button_pressed
+	pass
+
+
+func _on_fancyWaterToggle_toggled(button_pressed: bool) -> void:
+	Globals.fancy_water = button_pressed

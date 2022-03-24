@@ -116,8 +116,8 @@ func _input(event):
 			if event is InputEventMouseMotion:
 				_mouse_offset = event.relative
 				
-			_rotation_offset.x = Input.get_action_strength(rotate_right_action) - Input.get_action_strength(rotate_left_action)
-			_rotation_offset.y = Input.get_action_strength(rotate_down_action) - Input.get_action_strength(rotate_up_action)
+#			_rotation_offset.x = Input.get_action_strength(rotate_right_action) - Input.get_action_strength(rotate_left_action)
+#			_rotation_offset.y = Input.get_action_strength(rotate_down_action) - Input.get_action_strength(rotate_up_action)
 	
 		if movement and _triggered:
 			_direction.x = Input.get_action_strength(right_action) - Input.get_action_strength(left_action)
@@ -535,5 +535,6 @@ valign = 1
 script = ExtResource( 10 )
 label_path = NodePath("../TimerLabel")
 
+[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
 [connection signal="value_changed" from="ViewportMainCamera/SettingsPanel/VBoxContainer/physicsRateSlider" to="ViewportMainCamera/SettingsPanel" method="_on_HSlider_value_changed"]
