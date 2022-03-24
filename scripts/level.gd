@@ -9,6 +9,7 @@ var surface_env = load("res://assets/defaultEnvironment.tres")
 
 export var water_path: NodePath = "water"
 onready var water: MeshInstance = get_node(water_path)
+onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 
 export var sun_path: NodePath= "sun"
 onready var sun: Light = get_node(sun_path)
@@ -29,6 +30,8 @@ func _ready():
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
+	
+	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
 
 func calculate_buoyancy_and_ballast():
@@ -91,7 +94,7 @@ func update_fog():
 		underwater_env.fog_color = new_color
 		underwater_env.ambient_light_energy = 1.0 - deep_factor
 		underwater_env.ambient_light_color = new_color  #surface_ambient.linear_interpolate(deep_ambient, max(1 - depth/50, 0))
-		$sun.light_energy = max(0.3 - 0.5 * deep_factor, 0)
+		sun.light_energy = max(0.3 - 0.5 * deep_factor, 0)
 		underwater_env.background_sky.sky_energy = max(5.0 - 5 * deep_factor, 0.0)
 
 		for camera in cameras:
@@ -110,23 +113,14 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
 
-
-func _on_godrayToggle_toggled(button_pressed):
-	$Godrays.emitting = button_pressed
-
-
-func _on_dirtparticlesToggle_toggled(button_pressed):
-	$SuspendedParticleHolder/SuspendedParticles.emitting = button_pressed
-
-
-func _on_fancyWaterToggle_toggled(button_pressed):
-	Globals.fancy_water = button_pressed
-	if button_pressed:
-		$water.set_surface_material(0, fancy_water)
-		$underwater.set_surface_material(0, fancy_underwater)
+func _on_fancy_water_changed() -> void:
+	print("changed")
+	if Globals.fancy_water:
+		water.set_surface_material(0, fancy_water)
+		underwater.set_surface_material(0, fancy_underwater)
 	else:
 		# save previous materials
-		fancy_underwater = $underwater.get_surface_material(0)
-		fancy_water = $water.get_surface_material(0)
-		$water.set_surface_material(0, simple_water)
-		$underwater.set_surface_material(0, simple_water)
+		fancy_underwater = underwater.get_surface_material(0)
+		fancy_water = water.get_surface_material(0)
+		water.set_surface_material(0, simple_water)
+		underwater.set_surface_material(0, simple_water)
