@@ -49,49 +49,49 @@ surfaces/0 = {
 "vertex_count": 1106
 }
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=22]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=23]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=24]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=25]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=26]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=27]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=28]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=29]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
@@ -209,10 +209,7 @@ transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.42109e-14, 5.68434e-14, 1,
 depth = 0.05
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
 
-[node name="BlueRov" type="RigidBody" parent="." groups=[
-"buoyant",
-"vehicles",
-]]
+[node name="BlueRov" type="RigidBody" parent="." groups=["buoyant", "vehicles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )
 mass = 11.0
 can_sleep = false
@@ -222,7 +219,7 @@ script = ExtResource( 1 )
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
-material_override = SubResource( 5 )
+material_override = SubResource( 22 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -231,7 +228,7 @@ pitch_factor = false
 
 [node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
-material_override = SubResource( 6 )
+material_override = SubResource( 23 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -240,7 +237,7 @@ pitch_factor = false
 
 [node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
-material_override = SubResource( 7 )
+material_override = SubResource( 24 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -249,7 +246,7 @@ pitch_factor = false
 
 [node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
-material_override = SubResource( 8 )
+material_override = SubResource( 25 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -258,28 +255,28 @@ pitch_factor = false
 
 [node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
-material_override = SubResource( 9 )
+material_override = SubResource( 26 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
-material_override = SubResource( 10 )
+material_override = SubResource( 27 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
-material_override = SubResource( 11 )
+material_override = SubResource( 28 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
-material_override = SubResource( 12 )
+material_override = SubResource( 29 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -333,9 +330,7 @@ spot_attenuation = 6.0
 spot_angle = 71.0
 spot_angle_attenuation = 0.48
 
-[node name="Camera" type="Camera" parent="BlueRov" groups=[
-"cameras",
-]]
+[node name="Camera" type="Camera" parent="BlueRov" groups=["cameras"]]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00410311, 0.0132817, 0.378081 )
 environment = ExtResource( 4 )
 fov = 80.0

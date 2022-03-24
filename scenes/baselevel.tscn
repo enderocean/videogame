@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/baselevel.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://scenes/components/ping360.shader" type="Shader" id=8]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://scripts/mission_timer.gd" type="Script" id=10]
-[ext_resource path="res://scenes/scene.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=12]
 
 [sub_resource type="GDScript" id=1]
@@ -279,19 +278,7 @@ func _input(event):
 [sub_resource type="GDScript" id=4]
 script/source = "extends Camera
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	self.look_at(Globals.active_vehicle.transform.origin, Vector3(0,1,0))
 
 "
@@ -329,10 +316,12 @@ shadow_atlas_quad_1 = 3
 
 [node name="playerCamera" type="Spatial" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7902, 0 )
+visible = false
 script = SubResource( 1 )
 mouse_mode = 0
 
 [node name="Camera" type="Camera" parent="ViewportMainCamera/Viewport/playerCamera" groups=["cameras"]]
+visible = false
 far = 275.0
 
 [node name="theter" type="Spatial" parent="ViewportMainCamera/Viewport"]
@@ -340,7 +329,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.769269 )
 script = ExtResource( 12 )
 loops = 100
 
-[node name="cameraPosition" type="Spatial" parent="ViewportMainCamera/Viewport"]
+[node name="cameraPosition" type="Position3D" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 3 )
 
@@ -471,15 +460,6 @@ speed = 10.0
 enabled = true
 script = ExtResource( 4 )
 
-[node name="Scene" parent="ViewportExternalCamera/Viewport" instance=ExtResource( 11 )]
-transform = Transform( -0.361771, 0, -0.932267, 0, 1, 0, 0.932267, 0, -0.361771, 0.491683, 0.56816, 17.7391 )
-
-[node name="OmniLight" type="OmniLight" parent="ViewportExternalCamera/Viewport/Scene"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82227, -0.900686, 47.1526 )
-light_energy = 0.8
-light_indirect_energy = 0.7
-omni_range = 5.9
-
 [node name="ViewportExternalCamera2" type="ViewportContainer" parent="."]
 pause_mode = 2
 visible = false
@@ -542,19 +522,6 @@ speed = 10.0
 enabled = true
 script = ExtResource( 4 )
 
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.36035
-margin_top = 1.36038
-margin_right = 1.36035
-margin_bottom = 1.36035
-rect_min_size = Vector2( 1024, 600 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="TimerLabel" type="Label" parent="."]
 anchor_right = 1.0
 margin_top = 25.0
@@ -568,8 +535,5 @@ valign = 1
 script = ExtResource( 10 )
 label_path = NodePath("../TimerLabel")
 
-[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/godrayToggle" to="ViewportExternalCamera/Viewport/Scene" method="_on_godrayToggle_toggled"]
-[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/dirtparticlesToggle" to="ViewportExternalCamera/Viewport/Scene" method="_on_dirtparticlesToggle_toggled"]
-[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportExternalCamera/Viewport/Scene" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
 [connection signal="value_changed" from="ViewportMainCamera/SettingsPanel/VBoxContainer/physicsRateSlider" to="ViewportMainCamera/SettingsPanel" method="_on_HSlider_value_changed"]

@@ -30,6 +30,22 @@ anchor_bottom = 1.0
 script = ExtResource( 4 )
 licences_popup_path = NodePath("LicencesDialog")
 
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 7
+
+[node name="Logo" type="TextureRect" parent="."]
+margin_left = 129.0
+margin_top = 82.0
+margin_right = 348.0
+margin_bottom = 210.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -40,6 +56,7 @@ stretch = true
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 1024, 600 )
+transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
 
@@ -63,22 +80,6 @@ anims/rotatingbluerov = SubResource( 2 )
 
 [node name="bluerov cleaned decimated" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, -6.55651e-07, 0, 1, 0, 6.55651e-07, 0, 1, 0.348981, 0, -0.233652 )
-
-[node name="Background" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 7
-
-[node name="Logo" type="TextureRect" parent="."]
-margin_left = 129.0
-margin_top = 82.0
-margin_right = 348.0
-margin_bottom = 210.0
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 47.0833
