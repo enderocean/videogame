@@ -1,23 +1,34 @@
-extends Spatial
+extends Node
+class_name Level
+
 const BUOYANCY = 10.0  # newtons?
 const HEIGHT = 2.4  # TODO: get this programatically
+
 var underwater_env = load("res://assets/underwaterEnvironment.tres")
 var surface_env = load("res://assets/defaultEnvironment.tres")
+
+export var water_path: NodePath = "water"
+onready var water: MeshInstance = get_node(water_path)
+
+export var sun_path: NodePath= "sun"
+onready var sun: Light = get_node(sun_path)
+
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
-onready var surface_altitude = $water.global_transform.origin.y
+onready var surface_altitude = water.global_transform.origin.y
 
 var fancy_water
 var fancy_underwater
 const simple_water = preload("res://assets/maujoe.basic_water_material/materials/basic_water_material.material")
 
-onready var depth = 0
-onready var last_depth = 0
-# Called when the node enters the scene tree for the first time.
+onready var depth: float = 0
+onready var last_depth: float = 0
+
+
 func _ready():
 	set_physics_process(true)
 	update_fog()
-	underwater_env.fog_enabled = "custom" in Globals.active_level
+	underwater_env.fog_enabled = true
 
 
 func calculate_buoyancy_and_ballast():
@@ -79,7 +90,6 @@ func update_fog():
 		underwater_env.background_sky.ground_horizon_color = new_color
 		underwater_env.fog_color = new_color
 		underwater_env.ambient_light_energy = 1.0 - deep_factor
-		# underwater_env.ambient_light_color = new_color;
 		underwater_env.ambient_light_color = new_color  #surface_ambient.linear_interpolate(deep_ambient, max(1 - depth/50, 0))
 		$sun.light_energy = max(0.3 - 0.5 * deep_factor, 0)
 		underwater_env.background_sky.sky_energy = max(5.0 - 5 * deep_factor, 0.0)
@@ -93,19 +103,12 @@ func update_fog():
 				camera.cull_mask = 5
 
 
-func _process(_delta):
-	if "custom" in Globals.active_level:
-		update_fog()
+func _process(_delta: float) -> void:
+	update_fog()
 
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
-
-
-func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		OS.kill(Globals.sitl_pid)
-		get_tree().quit()
 
 
 func _on_godrayToggle_toggled(button_pressed):
