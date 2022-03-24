@@ -76,6 +76,7 @@ light_energy = 11.99
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ViewportContainer/Viewport/Spatial"]
 autoplay = "rotatingbluerov"
+playback_speed = 0.25
 anims/rotatingbluerov = SubResource( 2 )
 
 [node name="bluerov cleaned decimated" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 7 )]
