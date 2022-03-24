@@ -23,19 +23,7 @@ subdivide_depth = 256
 [sub_resource type="GDScript" id=3]
 script/source = "extends MeshInstance
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if Globals.fancy_water:
 		self.get_surface_material(0).set_shader_param(\"color\", Globals.current_ambient.darkened(-0.2))
 		self.get_surface_material(0).set_shader_param(\"alpha_factor\", Globals.deep_factor)
