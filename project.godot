@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "DeliveryArea",
+"language": "GDScript",
+"path": "res://scripts/delivery_area.gd"
+}, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/mission_timer.gd"
 } ]
 _global_script_class_icons={
+"DeliveryArea": "",
 "Level": "",
 "MissionTimer": ""
 }
