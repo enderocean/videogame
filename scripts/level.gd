@@ -7,7 +7,6 @@ const HEIGHT = 2.4  # TODO: get this programatically
 var underwater_env = load("res://assets/underwaterEnvironment.tres")
 var surface_env = load("res://assets/defaultEnvironment.tres")
 
-
 # core elements of the scene
 export var water_path: NodePath = "water"
 onready var water: MeshInstance = get_node(water_path)
@@ -16,8 +15,7 @@ onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 export var sun_path: NodePath= "sun"
 onready var sun: Light = get_node(sun_path)
 
-export var delivery_area_path: NodePath= "DeliveryArea"
-onready var delivery_area: DeliveryArea = get_node(delivery_area_path)
+onready var delivery_objects: Array = get_tree().get_nodes_in_group("delivery_objects")
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -30,16 +28,12 @@ const simple_water = preload("res://assets/maujoe.basic_water_material/materials
 onready var depth: float = 0
 onready var last_depth: float = 0
 
-
 func _ready():
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
 	
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
-	
-	if delivery_area:
-		delivery_area.connect("objects_changed", self, "_on_")
 
 
 func calculate_buoyancy_and_ballast():
@@ -134,5 +128,9 @@ func _on_fancy_water_changed() -> void:
 		underwater.set_surface_material(0, simple_water)
 
 
-func _on_DeliveryArea_objects_changed() -> void:
-	print("Delivery area objects: ", delivery_area.objects.size())
+func _on_DeliveryArea_objects_changed(objects: Array) -> void:
+	print("Delivery area objects: ", objects.size(), " / ", delivery_objects.size())
+
+
+func _on_level_finished() -> void:
+	pass
