@@ -16,8 +16,24 @@ var phys_time = 0
 
 onready var light_glows = [$light_glow, $light_glow2, $light_glow3, $light_glow4]
 
-onready var ljoint = get_tree().get_root().find_node("ljoint", true, false)
-onready var rjoint = get_tree().get_root().find_node("rjoint", true, false)
+export var ljoint_path: NodePath
+export var rjoint_path: NodePath
+onready var ljoint: HingeJoint = get_node(ljoint_path)
+onready var rjoint: HingeJoint = get_node(rjoint_path)
+
+export var l_rigidbody_path: NodePath
+export var r_rigidbody_path: NodePath
+onready var r_rigidbody: RigidBody = get_node(l_rigidbody_path)
+onready var l_rigidbody: RigidBody = get_node(r_rigidbody_path)
+
+export var carry_position_path: NodePath
+onready var carry_position: Position3D = get_node(carry_position_path)
+
+var grips: Array = [false, false]
+var carrying_body_mass: float
+var carrying_body_mask: int
+var carrying_body: RigidBody
+
 onready var wait_SITL = Globals.wait_SITL
 
 
@@ -122,6 +138,7 @@ func get_motors_table_entry(thruster):
 		lateral = 0
 	return [roll, pitch, yaw, vertical, forward, lateral]
 
+
 func calculate_motors_matrix():
 	print("Calculated Motors Matrix:")
 	var thrusters = []
@@ -134,6 +151,7 @@ func calculate_motors_matrix():
 		entry.insert(0, i)
 		i = i + 1
 		print("add_motor_raw_6dof(AP_MOTORS_MOT_%s,\t%s,\t%s,\t%s,\t%s,\t%s,\t%s);" % entry)
+
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -154,13 +172,20 @@ func _ready():
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
+
 	phys_time = phys_time + 1.0 / Globals.physics_rate
 	process_keys()
+
+	if carrying_body:
+		carrying_body.global_transform.origin = carry_position.global_transform.origin
+	
 	if Globals.isHTML5:
 		return
+	
 	calculated_acceleration = (self.linear_velocity - last_velocity) / delta
 	calculated_acceleration.y += 10
 	last_velocity = self.linear_velocity
+	
 	get_servos()
 	send_fdm()
 
@@ -307,12 +332,85 @@ func process_keys():
 	elif Input.is_action_pressed("camera_down"):
 		$Camera.rotation_degrees.x = max($Camera.rotation_degrees.x - 0.1, -45)
 
+	# Gripper
+	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
-		ljoint.set_param(6, 1)
-		rjoint.set_param(6, -1)
+		target_velocity = 1.0
+		
+		if carrying_body:
+			release_object()
+
 	elif Input.is_action_pressed("gripper_close"):
-		ljoint.set_param(6, -1)
-		rjoint.set_param(6, 1)
+		target_velocity = -1.0
+	
+	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
+	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
+
+
+func can_carry() -> bool:
+	# Check for the size of the collider
+	for i in range(grips.size()):
+		if not grips[i]:
+			return false
+	return true
+
+
+func check_carry(body: RigidBody) -> void:
+	var carrying: bool = can_carry()
+	if carrying:
+		carry_object(body)
 	else:
-		ljoint.set_param(6, 0)
-		rjoint.set_param(6, 0)
+		release_object()
+
+func carry_object(body: RigidBody) -> void:
+	carrying_body = body
+	body.gravity_scale = 0
+	carrying_body_mass = body.mass
+	
+	body.mass = 0
+	body.linear_velocity = Vector3.ZERO
+	body.angular_velocity = Vector3.ZERO
+	
+	carrying_body_mask = body.collision_mask
+	body.collision_mask = 0
+#	body.set_collision_mask_bit(1, false)
+	
+	carry_position.global_transform.origin = body.global_transform.origin
+	
+	carrying_body = body
+
+func release_object() -> void:
+	if not carrying_body:
+		return
+	
+	carrying_body.gravity_scale = 1
+	carrying_body.collision_mask = carrying_body_mask
+	carrying_body.mass = carrying_body_mass
+	carrying_body = null
+
+func _on_LeftGripArea_body_entered(body: Node) -> void:
+	if carrying_body or not body is RigidBody:
+		return
+	
+	grips[0] = true
+	check_carry(body)
+
+
+func _on_LeftGripArea_body_exited(body: Node) -> void:
+	if carrying_body or not body is RigidBody:
+		return
+	
+	grips[0] = false
+
+func _on_RightGripArea_body_entered(body: Node) -> void:
+	if carrying_body or not body is RigidBody:
+		return
+	
+	grips[1] = true
+	check_carry(body)
+
+func _on_RightGripArea_body_exited(body: Node) -> void:
+	if carrying_body or not body is RigidBody:
+		return
+	
+	grips[1] = false
