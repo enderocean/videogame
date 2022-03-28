@@ -30,9 +30,7 @@ export var carry_position_path: NodePath
 onready var carry_position: Position3D = get_node(carry_position_path)
 
 var grips: Array = [false, false]
-var carrying_body_mass: float
-var carrying_body_mask: int
-var carrying_body: RigidBody
+var carrying_object: DeliveryObject
 
 onready var wait_SITL = Globals.wait_SITL
 
@@ -176,8 +174,9 @@ func _physics_process(delta):
 	phys_time = phys_time + 1.0 / Globals.physics_rate
 	process_keys()
 
-	if carrying_body:
-		carrying_body.global_transform.origin = carry_position.global_transform.origin
+	if carrying_object:
+		carrying_object.global_transform.origin = carry_position.global_transform.origin
+		carrying_object.global_transform.basis = carry_position.global_transform.basis
 	
 	if Globals.isHTML5:
 		return
@@ -337,7 +336,7 @@ func process_keys():
 	if Input.is_action_pressed("gripper_open"):
 		target_velocity = 1.0
 		
-		if carrying_body:
+		if carrying_object:
 			release_object()
 
 	elif Input.is_action_pressed("gripper_close"):
@@ -355,41 +354,31 @@ func can_carry() -> bool:
 	return true
 
 
-func check_carry(body: RigidBody) -> void:
+func check_carry(body: DeliveryObject) -> void:
 	var carrying: bool = can_carry()
 	if carrying:
 		carry_object(body)
 	else:
 		release_object()
 
-func carry_object(body: RigidBody) -> void:
-	carrying_body = body
-	body.gravity_scale = 0
-	carrying_body_mass = body.mass
+func carry_object(body: DeliveryObject) -> void:
+	body.carried = true
 	
-	body.mass = 0
-	body.linear_velocity = Vector3.ZERO
-	body.angular_velocity = Vector3.ZERO
-	
-	carrying_body_mask = body.collision_mask
-	body.collision_mask = 0
-#	body.set_collision_mask_bit(1, false)
-	
+	# Save position and rotation of the object before "freezing" it
 	carry_position.global_transform.origin = body.global_transform.origin
+	carry_position.global_transform.basis = body.global_transform.basis
 	
-	carrying_body = body
+	carrying_object = body
 
 func release_object() -> void:
-	if not carrying_body:
+	if not carrying_object:
 		return
 	
-	carrying_body.gravity_scale = 1
-	carrying_body.collision_mask = carrying_body_mask
-	carrying_body.mass = carrying_body_mass
-	carrying_body = null
+	carrying_object.carried = false
+	carrying_object = null
 
 func _on_LeftGripArea_body_entered(body: Node) -> void:
-	if carrying_body or not body is RigidBody:
+	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[0] = true
@@ -397,20 +386,20 @@ func _on_LeftGripArea_body_entered(body: Node) -> void:
 
 
 func _on_LeftGripArea_body_exited(body: Node) -> void:
-	if carrying_body or not body is RigidBody:
+	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[0] = false
 
 func _on_RightGripArea_body_entered(body: Node) -> void:
-	if carrying_body or not body is RigidBody:
+	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[1] = true
 	check_carry(body)
 
 func _on_RightGripArea_body_exited(body: Node) -> void:
-	if carrying_body or not body is RigidBody:
+	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[1] = false
