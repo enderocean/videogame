@@ -7,6 +7,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = 0.0468221
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,6 +20,3 @@ custom_fonts/font = ExtResource( 1 )
 text = "Loading..."
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
