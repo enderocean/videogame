@@ -94,14 +94,14 @@ alignment = 1
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 136.0
 margin_right = 247.0
-margin_bottom = 159.0
+margin_bottom = 213.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 111.0
-margin_bottom = 159.0
+margin_bottom = 213.0
 rect_min_size = Vector2( 111, 51 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,6 +129,14 @@ margin_bottom = 159.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = ExtResource( 1 )
 text = "LEVEL 01"
+
+[node name="level_02" type="Button" parent="HBoxContainer/Menu/Buttons"]
+margin_top = 163.0
+margin_right = 111.0
+margin_bottom = 213.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "LEVEL 02"
 
 [node name="Licences" type="Button" parent="."]
 anchor_left = 1.0
@@ -181,5 +189,6 @@ Credits Images : Vecteezy"
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/demoLevel" to="." method="_on_customLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/level_01" to="." method="_on_level_01_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Buttons/level_02" to="." method="_on_level_02_pressed"]
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
