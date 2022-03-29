@@ -1,4 +1,4 @@
-extends Area
+extends Spatial
 class_name DeliveryArea
 
 var objects: Array

@@ -69,6 +69,7 @@ visible = false
 [node name="Cylinder" type="RigidBody" parent="." index="7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036819, -25.8965, 5.20185 )
 collision_layer = 2
+collision_mask = 3
 script = ExtResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Cylinder" index="0"]
