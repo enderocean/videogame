@@ -22,9 +22,9 @@ func _physics_process(_delta: float) -> void:
 
 
 static func format_time(time_sec: float) -> String:
-	var secs = int(time_sec) % 60
-	var mins = int(time_sec / 60) % 60
-	var hours = int(time_sec / 60) / 60
+	var secs: int = int(time_sec) % 60
+	var mins: int = int(time_sec / 60) % 60
+	var hours: int = int(time_sec / 60) / 60
 	
 	if hours >= 1:
 		return "%02d:%02d:%02d" % [hours, mins, secs]

@@ -17,8 +17,6 @@ export var wind_dir: float = 0.0
 export var wind_speed: float = 5.0
 
 var active_vehicle = null
-var active_level: String = ""
-var level_finished: bool = false
 var sitl_pid: int = 0
 
 signal fancy_water_changed

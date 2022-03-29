@@ -7,10 +7,15 @@ var active_level: Level
 
 
 func _ready():
-	active_level = load(Globals.active_level).instance()
-	add_child(active_level)
-	active_level.connect("finished", self, "_on_level_finished")
+	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
 
+
+func _on_scene_loaded(scene: Node) -> void:
+	if not scene is Level:
+		return
+	
+	active_level = scene
+	active_level.connect("finished", self, "_on_level_finished")
 
 func _on_level_finished() -> void:
 	mission_timer.paused = true
