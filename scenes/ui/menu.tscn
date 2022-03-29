@@ -114,13 +114,13 @@ rect_min_size = Vector2( 111, 51 )
 custom_fonts/font = ExtResource( 1 )
 text = "PRACTICE"
 
-[node name="01Level" type="Button" parent="HBoxContainer/Menu/Buttons"]
+[node name="demoLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
 margin_top = 55.0
 margin_right = 111.0
 margin_bottom = 105.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = ExtResource( 1 )
-text = "LEVEL 01"
+text = "DEMO"
 
 [node name="Licences" type="Button" parent="."]
 anchor_left = 1.0
@@ -171,6 +171,6 @@ Published under Open Source License - Affero GPL (AGPL)
 Credits Images : Vecteezy"
 
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
-[connection signal="pressed" from="HBoxContainer/Menu/Buttons/01Level" to="." method="_on_customLevel_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Buttons/demoLevel" to="." method="_on_customLevel_pressed"]
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]

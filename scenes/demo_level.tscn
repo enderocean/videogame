@@ -6,7 +6,7 @@
 [ext_resource path="res://terrains/level_01/pierres/Ground037_1K_Color.jpg" type="Texture" id=4]
 [ext_resource path="res://terrains/level_01/cailloux/Gravel032_1K_AmbientOcclusion.jpg" type="Texture" id=5]
 [ext_resource path="res://terrains/level_01/cailloux/Gravel032_1K_NormalGL.jpg" type="Texture" id=6]
-[ext_resource path="res://terrains/level_01/herbe/Ground039_1K_AmbientOcclusion.jpg" type="Texture" id=7]
+[ext_resource path="res://terrains/level_01/gravier/Gravel030_1K_Roughness.jpg" type="Texture" id=7]
 [ext_resource path="res://terrains/level_01/pierres/Ground037_1K_NormalGL.jpg" type="Texture" id=8]
 [ext_resource path="res://terrains/level_01/herbe/Ground039_1K_NormalGL.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/level_01/herbe/Ground039_1K_Roughness.jpg" type="Texture" id=10]
@@ -22,7 +22,7 @@ textures = [ [ ExtResource( 4 ), ExtResource( 10 ), ExtResource( 7 ), ExtResourc
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-transform = Transform( 29.6412, 0, 0, 0, 112.168, 0, 0, 0, 31.9147, -16.5661, 5.04967, -18.2683 )
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 31.915, -16.566, 5.05, -18.268 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
