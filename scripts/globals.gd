@@ -18,9 +18,8 @@ export var wind_speed: float = 5.0
 
 var active_vehicle = null
 var active_level: String = ""
+var level_finished: bool = false
 var sitl_pid: int = 0
-
-var player_data: PlayerData
 
 signal fancy_water_changed
 signal enable_godray_changed
@@ -33,7 +32,6 @@ func _ready() -> void:
 
 func set_fancy_water(value: bool) -> void:
 	fancy_water = value
-	print("ahah")
 	emit_signal("fancy_water_changed")
 
 

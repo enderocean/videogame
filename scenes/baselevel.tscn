@@ -541,3 +541,4 @@ label_path = NodePath("../TimerLabel")
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
 [connection signal="value_changed" from="ViewportMainCamera/SettingsPanel/VBoxContainer/physicsRateSlider" to="ViewportMainCamera/SettingsPanel" method="_on_HSlider_value_changed"]
+[connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]

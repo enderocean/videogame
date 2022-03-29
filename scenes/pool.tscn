@@ -103,3 +103,5 @@ material/0 = SubResource( 4 )
 shape = SubResource( 8 )
 
 [node name="DeliveryArea" parent="." index="10" instance=ExtResource( 3 )]
+
+[connection signal="objects_changed" from="DeliveryArea" to="." method="_on_DeliveryArea_objects_changed"]
