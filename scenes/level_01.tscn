@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -18,12 +18,11 @@ script = ExtResource( 1 )
 mode = 0
 textures = [ [ ExtResource( 4 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 5 ) ], [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ) ] ]
 
-[sub_resource type="CylinderMesh" id=2]
-
 [node name="level_01" type="Spatial"]
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
+transform = Transform( 29.6412, 0, 0, 0, 112.168, 0, 0, 0, 31.9147, -16.5661, 5.04967, -18.2683 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -48,8 +47,3 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = true
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
-
-[node name="CSGMesh" type="CSGMesh" parent="."]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.19767, 0 )
-use_collision = true
-mesh = SubResource( 2 )

@@ -76,6 +76,7 @@ light_energy = 11.99
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ViewportContainer/Viewport/Spatial"]
 autoplay = "rotatingbluerov"
+playback_speed = 0.25
 anims/rotatingbluerov = SubResource( 2 )
 
 [node name="bluerov cleaned decimated" parent="ViewportContainer/Viewport/Spatial" instance=ExtResource( 7 )]
@@ -113,11 +114,12 @@ rect_min_size = Vector2( 111, 51 )
 custom_fonts/font = ExtResource( 1 )
 text = "PRACTICE"
 
-[node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
+[node name="01Level" type="Button" parent="HBoxContainer/Menu/Buttons"]
 margin_top = 55.0
 margin_right = 111.0
 margin_bottom = 105.0
 rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = ExtResource( 1 )
 text = "LEVEL 01"
 
 [node name="Licences" type="Button" parent="."]
@@ -169,6 +171,6 @@ Published under Open Source License - Affero GPL (AGPL)
 Credits Images : Vecteezy"
 
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
-[connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Buttons/01Level" to="." method="_on_customLevel_pressed"]
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]

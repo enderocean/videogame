@@ -24,30 +24,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/level.gd"
 }, {
-"base": "ResourceFormatLoader",
-"class": "HTerrainDataLoader",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
-}, {
-"base": "ResourceFormatSaver",
-"class": "HTerrainDataSaver",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
-}, {
-"base": "Node",
-"class": "Level",
-"language": "GDScript",
-"path": "res://scripts/level.gd"
-}, {
 "base": "Timer",
 "class": "MissionTimer",
 "language": "GDScript",
 "path": "res://scripts/mission_timer.gd"
 } ]
 _global_script_class_icons={
-"HTerrainDataLoader": "",
-"HTerrainDataSaver": "",
-"Level": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "Level": "",
@@ -78,10 +60,6 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
-
-[gui]
-
-theme/custom_font="res://assets/fonts/Roboto/Roboto-Regular.tres"
 
 [gui]
 

@@ -2,52 +2,28 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<< HEAD
 path="res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.stex"
 metadata={
 "vram_texture": false
-=======
-path.s3tc="res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.s3tc.stex"
-path.etc2="res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.etc2.stex"
-metadata={
-"imported_formats": [ "s3tc", "etc2" ],
-"vram_texture": true
->>>>>>> f2a3e7f (Level01 Init)
 }
 
 [deps]
 
 source_file="res://terrains/level_01/pierres/Ground037_PREVIEW.jpg"
-<<<<<<< HEAD
 dest_files=[ "res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.stex" ]
 
 [params]
 
 compress/mode=0
-=======
-dest_files=[ "res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.s3tc.stex", "res://.import/Ground037_PREVIEW.jpg-5b1fa2a0abf11a01341186e5783383ba.etc2.stex" ]
-
-[params]
-
-compress/mode=2
->>>>>>> f2a3e7f (Level01 Init)
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-<<<<<<< HEAD
 flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-=======
-flags/repeat=true
-flags/filter=true
-flags/mipmaps=true
-flags/anisotropic=false
-flags/srgb=1
->>>>>>> f2a3e7f (Level01 Init)
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -55,9 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-<<<<<<< HEAD
 detect_3d=true
-=======
-detect_3d=false
->>>>>>> f2a3e7f (Level01 Init)
 svg/scale=1.0
