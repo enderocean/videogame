@@ -15,7 +15,10 @@ onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 export var sun_path: NodePath= "sun"
 onready var sun: Light = get_node(sun_path)
 
-onready var delivery_objects: Array = get_tree().get_nodes_in_group("delivery_objects")
+## TODO: Replace this when the mission system is in place
+## Objectives array, must be an array of dictionnary containing "title" and "value"
+var objectives: Array
+onready var delivery_objects: Array
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -28,12 +31,22 @@ const simple_water = preload("res://assets/maujoe.basic_water_material/materials
 onready var depth: float = 0
 onready var last_depth: float = 0
 
+signal finished
+
 func _ready():
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
 	
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
+	
+	delivery_objects = get_tree().get_nodes_in_group("delivery_objects")
+	objectives = [
+		{
+			"title": "Deliver objects",
+			"value": "%s / %s" % [0, delivery_objects.size()]
+		}
+	]
 
 
 func calculate_buoyancy_and_ballast():
@@ -130,8 +143,7 @@ func _on_fancy_water_changed() -> void:
 func _on_DeliveryArea_objects_changed(objects: Array) -> void:
 	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
 	
+	objectives[0].value = "%s / %s" % [objects.size(), delivery_objects.size()]
+	
 	if objects.size() == delivery_objects.size():
-		_on_level_finished()
-
-func _on_level_finished() -> void:
-	pass
+		emit_signal("finished")
