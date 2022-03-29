@@ -116,7 +116,6 @@ func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
 
 func _on_fancy_water_changed() -> void:
-	print("changed")
 	if Globals.fancy_water:
 		water.set_surface_material(0, fancy_water)
 		underwater.set_surface_material(0, fancy_underwater)
@@ -129,8 +128,10 @@ func _on_fancy_water_changed() -> void:
 
 
 func _on_DeliveryArea_objects_changed(objects: Array) -> void:
-	print("Delivery area objects: ", objects.size(), " / ", delivery_objects.size())
-
+	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
+	
+	if objects.size() == delivery_objects.size():
+		_on_level_finished()
 
 func _on_level_finished() -> void:
 	pass
