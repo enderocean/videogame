@@ -24,9 +24,6 @@ func set_carried(value: bool) -> void:
 		saved_mask = collision_mask
 		collision_mask = 0
 	else:
-		if mode != RigidBody.MODE_RIGID:
-			mode = RigidBody.MODE_STATIC
-		
 		# Reset to saved values
 		gravity_scale = saved_gravity
 		collision_mask = saved_mask
@@ -35,11 +32,7 @@ func set_carried(value: bool) -> void:
 		delivered = delivered
 
 func set_delivered(value: bool) -> void:
-	delivered = value
+	if carried:
+		return
 	
-	if delivered and not carried:
-		mode = RigidBody.MODE_STATIC
-#		gravity_scale = 0.0
-	else:
-		mode = RigidBody.MODE_RIGID
-#		gravity_scale = saved_gravity
+	delivered = value
