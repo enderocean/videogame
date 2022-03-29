@@ -20,7 +20,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 5.05, -18.268 )
+transform = Transform( 90.5097, 0, -90.5097, 0, 128, 0, 90.5097, 0, 90.5097, -16.566, 5.05, -18.268 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )

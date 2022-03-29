@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="BlueSim"
+config/name="EnderOcean"
 run/main_scene="res://scenes/ui/menu.tscn"
 config/icon="res://icon.png"
 
