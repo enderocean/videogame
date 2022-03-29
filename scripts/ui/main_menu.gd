@@ -21,8 +21,8 @@ func _ready():
 
 func _on_poolLevel_pressed():
 	Globals.active_vehicle = "bluerovheavy"
-	Globals.active_level = "res://scenes/pool.tscn"
-	SceneLoader.goto_scene("res://scenes/baselevel.tscn")
+	SceneLoader.load_scene("res://scenes/baselevel.tscn")
+	SceneLoader.load_scene("res://scenes/pool.tscn", true)
 
 func _on_CheckBox_toggled(button_pressed):
 	Globals.wait_SITL = button_pressed
