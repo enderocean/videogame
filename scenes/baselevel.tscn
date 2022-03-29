@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/baselevel.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/components/ping360.shader" type="Shader" id=8]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://scripts/mission_timer.gd" type="Script" id=10]
+[ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=12]
 
 [sub_resource type="GDScript" id=1]
@@ -534,6 +535,8 @@ valign = 1
 [node name="MissionTimer" type="Timer" parent="."]
 script = ExtResource( 10 )
 label_path = NodePath("../TimerLabel")
+
+[node name="MissionEndedPopup" parent="." instance=ExtResource( 11 )]
 
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
