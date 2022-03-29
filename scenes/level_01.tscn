@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
+[ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
+[ext_resource path="res://terrains/level_01/grey_sand/Ground049C_1K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://terrains/level_01/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_Color.jpg" type="Texture" id=6]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
+[ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/level.gd" type="Script" id=13]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+mode = 0
+textures = [ [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ], [ null, ExtResource( 7 ), ExtResource( 7 ) ] ]
+
+[node name="level_01" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
+script = ExtResource( 13 )
+
+[node name="water" parent="." instance=ExtResource( 11 )]
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 5.05, -18.268 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 13, -155 )
+script = ExtResource( 3 )
+map_scale = Vector3( 0.53, 0.53, 0.51 )
+_terrain_data = ExtResource( 2 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
