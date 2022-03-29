@@ -109,7 +109,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 6 )
-shader_param/timer = 14.4176
+shader_param/timer = 17.3867
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -119,7 +119,7 @@ shader_param/yaw_factor = 0.0
 shader_param/translate = Vector3( 0.37, 0, 0 )
 shader_param/head_z = -0.46
 shader_param/head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
-shader_param/tail_z = 1
+shader_param/tail_z = 1.0
 shader_param/tail_color = Color( 1, 1, 1, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
@@ -155,7 +155,6 @@ environment = SubResource( 3 )
 
 [node name="fish" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 0 )
-visible = false
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
 script = ExtResource( 3 )
