@@ -1,5 +1,7 @@
 extends Node
 
+const SEND_DATA: bool = false
+
 export var isHTML5: bool = false
 
 export var surface_ambient: Color = Color("#7edaf3")
@@ -30,6 +32,8 @@ signal physics_rate_changed
 
 
 func _ready() -> void:
+	# Ensure this node is not being paused
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	isHTML5 = OS.get_name() == "HTML5"
 
 

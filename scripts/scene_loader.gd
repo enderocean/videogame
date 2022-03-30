@@ -19,17 +19,20 @@ signal scene_loaded
 signal scenes_loaded
 
 func _ready() -> void:
+	# Ensure this node is not being paused
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	root = get_tree().get_root()
 	current_scenes.append({"path": "", "scene": root.get_child(root.get_child_count() - 1)})
 
 
 func load_scene(path: String, additive: bool = false) -> void:
 	for i in range(current_scenes.size()):
-		if current_scenes.has(current_scenes[i].path):
+		if path == current_scenes[i].path:
 			return
 	
 	for i in range(loading_queue.size()):
-		if loading_queue.has(current_scenes[i].path):
+		if path == loading_queue[i]:
 			return
 	
 	if not loading_scene:
@@ -39,13 +42,27 @@ func load_scene(path: String, additive: bool = false) -> void:
 	loading_queue.append(path)
 
 	if not additive:
-		# get rid of the old scenes
-		for i in range(current_scenes.size()):
-			current_scenes[i].scene.queue_free()
+		unload_scenes()
 
 	set_process(true)
 	wait_frames = 1
 
+func reload_scenes() -> void:
+	var scenes: Array
+	for scene in current_scenes:
+		scenes.append(scene.path)
+	unload_scenes()
+	
+	load_scene(scenes[0])
+	for i in range(1, scenes.size()):
+		load_scene(scenes[i], true)
+
+
+func unload_scenes() -> void:
+	for i in range(current_scenes.size()):
+		if current_scenes[i] and current_scenes[i].scene:
+			current_scenes[i].scene.queue_free()
+	current_scenes.clear()
 
 func _process(_delta: float) -> void:
 	# Not loading
@@ -105,7 +122,6 @@ func set_new_scene(scene_resource: PackedScene) -> void:
 	print("loaded: ", scene_resource.resource_path)
 	
 	var scene = scene_resource.instance()
-	current_scenes.append(scene)
 	root.add_child(scene)
 	
 	current_scenes.append({ "path": loading_queue[0], "scene": scene })

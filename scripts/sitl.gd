@@ -8,6 +8,9 @@ signal started
 signal stopped
 
 func _ready() -> void:
+	# Ensure this node is not being paused
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	get_tree().set_auto_accept_quit(false)
 	
 	var file: File = File.new()

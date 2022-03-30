@@ -402,12 +402,12 @@ script = SubResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="ViewportMainCamera/HelpPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 243.0
-margin_bottom = 422.0
+margin_right = 259.0
+margin_bottom = 479.0
 
 [node name="help" type="Label" parent="ViewportMainCamera/HelpPanel/VBoxContainer"]
-margin_right = 236.0
-margin_bottom = 415.0
+margin_right = 252.0
+margin_bottom = 472.0
 rect_pivot_offset = Vector2( -32, 6 )
 text = "H - Toggle Help (this)
 ESC - Graphics settings
@@ -537,6 +537,8 @@ script = ExtResource( 10 )
 label_path = NodePath("../TimerLabel")
 
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 11 )]
+pause_mode = 2
+visible = false
 
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]

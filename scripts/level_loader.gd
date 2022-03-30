@@ -3,6 +3,9 @@ extends Node
 onready var bin_path: String = OS.get_executable_path().get_base_dir()
 
 func _ready() -> void:
+	# Ensure this node is not being paused
+	pause_mode = Node.PAUSE_MODE_PROCESS
+	
 	ensure_levels_folder_exists()
 
 func ensure_levels_folder_exists() -> void:
