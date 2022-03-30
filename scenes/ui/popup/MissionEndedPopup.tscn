@@ -1,22 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/ui/mission_ended_popup.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
 
 [node name="MissionEndedPopup" type="Popup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 1 )
 script = ExtResource( 1 )
-title_label_path = NodePath("Panel/MarginContainer/VBoxContainer/Title")
-time_label_path = NodePath("Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Time")
-objectives_list_path = NodePath("Panel/MarginContainer/VBoxContainer/VBoxContainer/ScrollContainer/Objectives")
+title_label_path = NodePath("Normal/MarginContainer/VBoxContainer/Title")
+time_label_path = NodePath("Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/Time")
+objectives_list_path = NodePath("Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer/Objectives")
+normal_panel_path = NodePath("Normal")
+user_panel_path = NodePath("User")
+username_path = NodePath("User/MarginContainer/VBoxContainer/LineEdit")
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.5 )
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Normal" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -26,7 +35,7 @@ margin_top = -150.0
 margin_right = 200.0
 margin_bottom = 150.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Normal"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 10
@@ -34,73 +43,132 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Normal/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 390.0
 margin_bottom = 290.0
 custom_constants/separation = 10
 
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="Normal/MarginContainer/VBoxContainer"]
 margin_right = 380.0
-margin_bottom = 19.0
+margin_bottom = 22.0
 text = "Mission ended"
 align = 1
 valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 29.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer"]
+margin_top = 32.0
 margin_right = 380.0
-margin_bottom = 210.0
+margin_bottom = 280.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+margin_right = 380.0
+margin_bottom = 184.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_right = 380.0
-margin_bottom = 19.0
+margin_bottom = 24.0
 
-[node name="TimeLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 74.0
-margin_bottom = 19.0
+[node name="TimeLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 24.0
 custom_fonts/font = ExtResource( 4 )
 text = "Time left: "
 
-[node name="Time" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 340.0
+[node name="Time" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
+margin_left = 336.0
+margin_top = 1.0
 margin_right = 380.0
-margin_bottom = 19.0
+margin_bottom = 23.0
 size_flags_horizontal = 10
 text = "10:01"
 
-[node name="ObjectivesLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 29.0
+[node name="ObjectivesLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+margin_top = 34.0
 margin_right = 380.0
-margin_bottom = 48.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 4 )
 text = "Objectives: "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 58.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+margin_top = 68.0
 margin_right = 380.0
-margin_bottom = 181.0
+margin_bottom = 184.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Objectives" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="Objectives" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer"]
 margin_right = 380.0
 size_flags_horizontal = 3
 
-[node name="Restart" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 220.0
+[node name="Restart" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+margin_top = 188.0
 margin_right = 380.0
-margin_bottom = 245.0
+margin_bottom = 216.0
 text = "Restart"
 
-[node name="Back" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 255.0
+[node name="Back" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+margin_top = 220.0
 margin_right = 380.0
-margin_bottom = 280.0
+margin_bottom = 248.0
 text = "Back to main menu"
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[node name="User" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -150.0
+margin_right = 200.0
+margin_bottom = 150.0
+
+[node name="MarginContainer" type="MarginContainer" parent="User"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="User/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 390.0
+margin_bottom = 290.0
+custom_constants/separation = 10
+
+[node name="Title" type="Label" parent="User/MarginContainer/VBoxContainer"]
+margin_right = 380.0
+margin_bottom = 22.0
+text = "Who are you?"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="User/MarginContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 380.0
+margin_bottom = 54.0
+text = "Username"
+
+[node name="LineEdit" type="LineEdit" parent="User/MarginContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 380.0
+margin_bottom = 96.0
+size_flags_vertical = 2
+placeholder_text = "Please enter your name..."
+
+[node name="Ok" type="Button" parent="User/MarginContainer/VBoxContainer"]
+margin_top = 252.0
+margin_right = 380.0
+margin_bottom = 280.0
+text = "OK"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="User/MarginContainer/VBoxContainer/Ok" to="." method="_on_Ok_pressed"]

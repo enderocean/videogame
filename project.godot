@@ -33,19 +33,13 @@ _global_script_classes=[ {
 "class": "ObjectiveLine",
 "language": "GDScript",
 "path": "res://scripts/ui/objective_line.gd"
-}, {
-"base": "Node",
-"class": "PlayerData",
-"language": "GDScript",
-"path": "res://scripts/data/player_data.gd"
 } ]
 _global_script_class_icons={
 "DeliveryArea": "",
 "DeliveryObject": "",
 "Level": "",
 "MissionTimer": "",
-"ObjectiveLine": "",
-"PlayerData": ""
+"ObjectiveLine": ""
 }
 
 [application]
@@ -60,6 +54,7 @@ Globals="*res://scripts/globals.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
 LevelLoader="*res://scripts/level_loader.gd"
 SITL="*res://scripts/sitl.gd"
+Leaderboard="*res://scripts/server/leaderboard.gd"
 
 [debug]
 
