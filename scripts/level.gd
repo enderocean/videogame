@@ -31,6 +31,7 @@ const simple_water = preload("res://assets/maujoe.basic_water_material/materials
 onready var depth: float = 0
 onready var last_depth: float = 0
 
+var finished: bool = false
 signal finished
 
 func _ready():
@@ -141,9 +142,14 @@ func _on_fancy_water_changed() -> void:
 
 
 func _on_DeliveryArea_objects_changed(objects: Array) -> void:
+	if finished:
+		return
+	
 	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
 	
 	objectives[0].value = "%s / %s" % [objects.size(), delivery_objects.size()]
+	Globals.user_data.score = objects.size()
 	
 	if objects.size() == delivery_objects.size():
+		finished = true
 		emit_signal("finished")
