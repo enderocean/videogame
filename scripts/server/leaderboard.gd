@@ -16,6 +16,8 @@ var state = State.DONE
 signal done
 
 func _ready() -> void:
+	# Ensure this node is not being paused
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	set_use_threads(false)
 	connect("request_completed", self, "on_request_completed")
 

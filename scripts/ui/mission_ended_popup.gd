@@ -50,6 +50,7 @@ func update_objectives(objectives: Array) -> void:
 			line.value.text = str(objective.value)
 
 func _on_visibility_changed() -> void:
+	get_tree().paused = visible
 	if not visible:
 		return
 	
@@ -67,7 +68,8 @@ func _on_Ok_pressed() -> void:
 		return
 	
 	Globals.user_data.name = username.text
-	Leaderboard.send_score()
+	if Globals.SEND_DATA:
+		Leaderboard.send_score()
 	
 	normal_panel.visible = true
 	user_panel.visible = false
@@ -79,11 +81,13 @@ func check_username() -> bool:
 	return true
 
 func _on_Restart_pressed() -> void:
-	print("restart scene")
+	visible = false
+	SceneLoader.reload_scenes()
 
 
 func _on_Back_pressed() -> void:
-	print("back to main menu")
+	visible = false
+	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
 
 
 

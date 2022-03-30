@@ -106,6 +106,7 @@ margin_right = 380.0
 size_flags_horizontal = 3
 
 [node name="Restart" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+visible = false
 margin_top = 188.0
 margin_right = 380.0
 margin_bottom = 216.0
