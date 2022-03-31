@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/coca.obj-3db2ec317d37fe59d1f4502a86e43e3c.mesh"
+
+[deps]
+
+files=[ "res://.import/coca.obj-3db2ec317d37fe59d1f4502a86e43e3c.mesh" ]
+
+source_file="res://assets/obj/coca.obj"
+dest_files=[ "res://.import/coca.obj-3db2ec317d37fe59d1f4502a86e43e3c.mesh", "res://.import/coca.obj-3db2ec317d37fe59d1f4502a86e43e3c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

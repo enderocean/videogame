@@ -48,6 +48,7 @@ Globals="*res://scripts/globals.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
 LevelLoader="*res://scripts/level_loader.gd"
 SITL="*res://scripts/sitl.gd"
+Leaderboard="*res://scripts/server/leaderboard.gd"
 
 [debug]
 

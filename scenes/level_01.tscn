@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
 [ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
+[ext_resource path="res://assets/obj/tire.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/obj/barrier.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/obj/cone_worksite.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://assets/obj/cofee_cup.obj" type="ArrayMesh" id=17]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -113,7 +117,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 637.609
+shader_param/timer = 1402.47
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -137,6 +141,12 @@ shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 shader_param/texture_albedo = ExtResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.882353, 0.372549, 0.172549, 1 )
 
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
@@ -197,3 +207,34 @@ fish_twist = 0.73
 fish_s = 0.5
 fish_head_z = -0.46
 fish_head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
+
+[node name="tire" type="MeshInstance" parent="."]
+transform = Transform( 0.857074, 0.050613, 0.512703, 0.510724, -0.214287, -0.832612, 0.0677247, 0.975459, -0.209509, 15.1289, 3.02162, 4.38828 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 8 )
+
+[node name="barrier" type="MeshInstance" parent="."]
+transform = Transform( -0.190637, 0.0563377, -0.010995, 0, 0.0727218, 0.0931552, 0.0604773, 0.177588, -0.0346587, 17.358, 0.356915, -2.98545 )
+mesh = ExtResource( 15 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="cone_worksite" type="MeshInstance" parent="."]
+transform = Transform( -0.0725879, -0.0687823, 0, 0.0687823, -0.0725879, 0, 0, 0, 0.1, 10.6967, 1.64824, 7.42021 )
+mesh = ExtResource( 16 )
+material/0 = SubResource( 9 )
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="cofee_cup" type="MeshInstance" parent="."]
+transform = Transform( -0.00087978, 0.0090673, 0.00412433, -0.00796344, 0.00184708, -0.0057595, -0.00598411, -0.00379109, 0.00705819, 9.34996, 0.976971, 6.3819 )
+mesh = ExtResource( 17 )
+skeleton = NodePath("../cone_worksite")
+material/0 = null
+material/1 = null
+material/2 = null
