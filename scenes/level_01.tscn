@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://assets/obj/barrier.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/obj/cone_worksite.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://assets/obj/cofee_cup.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/obj/garbage_bin.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/newton/black_metal.tres" type="Material" id=19]
+[ext_resource path="res://assets/obj/Beets.obj" type="ArrayMesh" id=20]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -117,7 +120,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 1402.47
+shader_param/timer = 336.55
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -148,12 +151,15 @@ albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.882353, 0.372549, 0.172549, 1 )
 
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0.439216, 0.109804, 1 )
+
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 5.05, -18.268 )
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 4.95221, -18.268 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -238,3 +244,46 @@ skeleton = NodePath("../cone_worksite")
 material/0 = null
 material/1 = null
 material/2 = null
+
+[node name="garbage_bin" type="MeshInstance" parent="."]
+transform = Transform( 0.00734926, 0, 0.00678147, 0, 0.01, 0, -0.00678147, 0, 0.00734926, 22.696, 5.88362, 11.5035 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 10 )
+material/1 = ExtResource( 19 )
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Beets" type="MeshInstance" parent="."]
+transform = Transform( 0.279228, 0.109425, -0.00760685, -0.109599, 0.279169, -0.00725516, 0.00443234, 0.00953183, 0.299816, 11.6617, 2.24239, -0.00352615 )
+mesh = ExtResource( 20 )
+material/0 = null
+material/1 = null
