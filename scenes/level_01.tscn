@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -13,13 +13,17 @@
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
 [ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
-[ext_resource path="res://assets/obj/tire.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://assets/obj/barrier.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://assets/obj/cone_worksite.obj" type="ArrayMesh" id=16]
-[ext_resource path="res://assets/obj/cofee_cup.obj" type="ArrayMesh" id=17]
-[ext_resource path="res://assets/obj/garbage_bin.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/obj/waste/tire.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/obj/waste/Beets.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/obj/deco/cone_worksite.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://assets/obj/waste/cofee_cup.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/obj/deco/garbage_bin.obj" type="ArrayMesh" id=18]
 [ext_resource path="res://assets/models/newton/black_metal.tres" type="Material" id=19]
-[ext_resource path="res://assets/obj/Beets.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://assets/obj/waste/barrier.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_1.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://assets/obj/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=22]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_2.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_3.obj" type="ArrayMesh" id=24]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -120,7 +124,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 336.55
+shader_param/timer = 157.598
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -153,6 +157,15 @@ albedo_color = Color( 0.882353, 0.372549, 0.172549, 1 )
 
 [sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0, 0.439216, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 22 )
 
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
@@ -221,7 +234,7 @@ material/0 = SubResource( 8 )
 
 [node name="barrier" type="MeshInstance" parent="."]
 transform = Transform( -0.190637, 0.0563377, -0.010995, 0, 0.0727218, 0.0931552, 0.0604773, 0.177588, -0.0346587, 17.358, 0.356915, -2.98545 )
-mesh = ExtResource( 15 )
+mesh = ExtResource( 20 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -282,8 +295,25 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Beets" type="MeshInstance" parent="."]
-transform = Transform( 0.279228, 0.109425, -0.00760685, -0.109599, 0.279169, -0.00725516, 0.00443234, 0.00953183, 0.299816, 11.6617, 2.24239, -0.00352615 )
-mesh = ExtResource( 20 )
+[node name="beets_can" type="MeshInstance" parent="."]
+transform = Transform( 0.145488, -0.262288, 0.00618789, 0.262323, 0.145308, -0.00849773, 0.00443234, 0.00953183, 0.299816, 11.6617, 2.24239, -0.00352615 )
+mesh = ExtResource( 15 )
 material/0 = null
 material/1 = null
+
+[node name="matteucia_struthiopteris_1" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.8996, 1.86473, 5.54239 )
+mesh = ExtResource( 21 )
+material/0 = SubResource( 11 )
+
+[node name="matteucia_struthiopteris_2" type="MeshInstance" parent="."]
+transform = Transform( 0.0943083, 0.0332556, 0, -0.0332556, 0.0943083, 0, 0, 0, 0.1, 11.1867, 2.21341, -1.75463 )
+mesh = ExtResource( 23 )
+skeleton = NodePath("../matteucia_struthiopteris_1")
+material/0 = SubResource( 12 )
+
+[node name="matteucia_struthiopteris_3" type="MeshInstance" parent="."]
+transform = Transform( 0.0282925, 0.00997669, 0, -0.00997669, 0.0282925, 0, 0, 0, 0.03, 8.09239, 1.16291, 3.82334 )
+mesh = ExtResource( 24 )
+skeleton = NodePath("../matteucia_struthiopteris_2")
+material/0 = SubResource( 13 )
