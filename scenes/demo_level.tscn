@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/demo_level/data.hterrain" type="Resource" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/obj/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
 [ext_resource path="res://assets/obj/plants/monsterra.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/obj/plants/senecio_1.obj" type="ArrayMesh" id=15]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -28,6 +29,12 @@ albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.439216, 0.254902, 0.0784314, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.0588235, 0.466667, 0.0823529, 1 )
 
 [node name="level_01" type="Spatial"]
 script = ExtResource( 13 )
@@ -66,10 +73,29 @@ material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
 material/2 = SubResource( 4 )
 
-[node name="monsterra2" type="MeshInstance" parent="."]
-transform = Transform( 0.02, 0, 0, 0, 0.05, 0, 0, 0, 0.02, -8.51271, -2.61826, -4.23394 )
-mesh = ExtResource( 14 )
-skeleton = NodePath("../monsterra")
-material/0 = SubResource( 2 )
-material/1 = SubResource( 3 )
-material/2 = SubResource( 4 )
+[node name="senecio_1" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.77319, -2.58715, -4.12362 )
+mesh = ExtResource( 15 )
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="senecio_2" type="MeshInstance" parent="."]
+transform = Transform( 0.110841, 0.00251459, 0.0382594, 0, 0.11982, -0.00546888, -0.0459801, 0.00606178, 0.0922297, -8.93666, -2.50577, -5.51956 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="senecio_3" type="MeshInstance" parent="."]
+transform = Transform( 0.0373994, 0.00259398, 0.033084, 0.000893392, 0.0497503, -0.00491062, -0.0331735, 0.00426423, 0.0371663, -8.7081, -2.4246, -6.34672 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="senecio_4" type="MeshInstance" parent="."]
+transform = Transform( 0.0209437, 0.00145263, 0.0185271, 0.000500299, 0.0278601, -0.00274995, -0.0185772, 0.00238797, 0.0208131, -8.39247, -2.54195, -4.88695 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
