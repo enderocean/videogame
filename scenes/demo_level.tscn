@@ -44,7 +44,7 @@ albedo_color = Color( 0.262745, 0.32549, 0.388235, 1 )
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 31.915, -16.566, 2.19695, -18.268 )
+transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.22568, -20.9698 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -56,6 +56,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+ambient_wind = 0.556
+lod_scale = 5.0
 _terrain_data = ExtResource( 2 )
 chunk_size = 32
 collision_enabled = true

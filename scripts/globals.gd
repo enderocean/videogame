@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func set_fancy_water(value: bool) -> void:
 	fancy_water = value
-	print("ahah")
+	print(value)
 	emit_signal("fancy_water_changed")
 
 func set_enable_godray(value: bool) -> void:
