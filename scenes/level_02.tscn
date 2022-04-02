@@ -30,7 +30,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 5, -22 )
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -79,7 +79,7 @@ material/25 = null
 material/26 = null
 
 [node name="HTerrain" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 3, -155 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.704, -160, 3, -155 )
 script = ExtResource( 3 )
 map_scale = Vector3( 0.53, 0.53, 0.51 )
 _terrain_data = ExtResource( 12 )
