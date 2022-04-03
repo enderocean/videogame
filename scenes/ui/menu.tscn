@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/background.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=7]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -185,6 +186,10 @@ https://www.enderocean.com
 Published under Open Source License - Affero GPL (AGPL)
 
 Credits Images : Vecteezy"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/Buttons/demoLevel" to="." method="_on_customLevel_pressed"]
