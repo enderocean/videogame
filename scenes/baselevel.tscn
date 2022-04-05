@@ -538,7 +538,6 @@ label_path = NodePath("../TimerLabel")
 
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 11 )]
 pause_mode = 2
-visible = false
 
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
