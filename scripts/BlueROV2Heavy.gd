@@ -334,13 +334,13 @@ func process_keys():
 	# Gripper
 	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
-		target_velocity = 1.0
-		
+		target_velocity = -1.0
+
 		if carrying_object:
 			release_object()
 
 	elif Input.is_action_pressed("gripper_close"):
-		target_velocity = -1.0
+		target_velocity = 1.0
 	
 	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
 	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
