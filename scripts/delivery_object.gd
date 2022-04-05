@@ -21,12 +21,12 @@ func set_carried(value: bool) -> void:
 		angular_velocity = Vector3.ZERO
 
 		# Disable collision mask
-		saved_mask = collision_mask
-		collision_mask = 0
+#		saved_mask = collision_mask
+#		collision_mask = 0
 	else:
 		# Reset to saved values
 		gravity_scale = saved_gravity
-		collision_mask = saved_mask
+#		collision_mask = saved_mask
 		
 		# Refresh delivered state, if the object is dropped in the area
 		delivered = delivered

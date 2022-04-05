@@ -70,6 +70,7 @@ visible = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036819, -25.8965, 5.20185 )
 collision_layer = 2
 collision_mask = 3
+mass = 10.0
 script = ExtResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Cylinder" index="0"]
@@ -82,6 +83,7 @@ shape = SubResource( 3 )
 [node name="Cube" type="RigidBody" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54335, -25.8965, 4.23661 )
 collision_layer = 2
+mass = 10.0
 script = ExtResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Cube" index="0"]
@@ -94,6 +96,7 @@ shape = SubResource( 6 )
 [node name="Sphere" type="RigidBody" parent="." index="9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97819, -25.8965, 2.41858 )
 collision_layer = 2
+mass = 10.0
 script = ExtResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Sphere" index="0"]
