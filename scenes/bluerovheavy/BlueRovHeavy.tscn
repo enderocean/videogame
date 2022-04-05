@@ -157,7 +157,7 @@ size = Vector3( 0.1, 0.1, 0.1 )
 [node name="BlueRovHeavy" type="Spatial"]
 
 [node name="ljoint" type="HingeJoint" parent="."]
-transform = Transform( 0.238985, 0.721864, -3.15537e-08, 0, -3.60504e-08, -0.824737, -0.721864, 0.238985, -1.04464e-08, 0.390643, -0.25103, 0.0383897 )
+transform = Transform( 0.238985, 0.719117, -0.0682379, -5.79374e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.390643, -0.298199, 0.0383897 )
 nodes/node_a = NodePath("../BlueRov")
 nodes/node_b = NodePath("../GripRightRigidBody")
 params/bias = 0.99
@@ -168,7 +168,7 @@ motor/enable = true
 motor/target_velocity = 0.0
 
 [node name="rjoint" type="HingeJoint" parent="."]
-transform = Transform( 0.238985, 0.721864, -3.15537e-08, 0, -3.60504e-08, -0.824737, -0.721864, 0.238985, -1.04464e-08, 0.427163, -0.25103, -0.0440724 )
+transform = Transform( 0.238985, 0.719117, -0.0682379, -5.79374e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.427163, -0.298199, -0.0440724 )
 nodes/node_a = NodePath("../BlueRov")
 nodes/node_b = NodePath("../GripLeftRigidBody")
 params/bias = 0.99
@@ -179,7 +179,7 @@ motor/enable = true
 motor/target_velocity = 0.0
 
 [node name="GripRightRigidBody" type="RigidBody" parent="."]
-transform = Transform( 0.314291, 0.949327, -4.14964e-08, 0, -4.37114e-08, -1, -0.949327, 0.314291, -1.37381e-08, 0.452873, -0.26198, 0.0648046 )
+transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.452873, -0.309149, 0.0648046 )
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 
@@ -204,7 +204,7 @@ depth = 0.025
 polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
 
 [node name="GripLeftRigidBody" type="RigidBody" parent="."]
-transform = Transform( 0.314291, 0.949327, -4.14964e-08, 0, -4.37114e-08, -1, -0.949327, 0.314291, -1.37381e-08, 0.479113, -0.26198, -0.0272834 )
+transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
 mass = 0.5
 physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
@@ -307,7 +307,7 @@ thickness = 0.1
 height = 0.5
 
 [node name="newton" parent="BlueRov" instance=ExtResource( 2 )]
-transform = Transform( 0.303697, -0.141171, 6.1708e-09, 0, -1.46392e-08, -0.334905, 0.141171, 0.303697, -1.3275e-08, 0.218238, -0.255554, 0.0306985 )
+transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888, -0.333631, 0.141171, 0.302541, -0.0264689, 0.218238, -0.255554, 0.0306985 )
 
 [node name="cameraTarget" type="Spatial" parent="BlueRov"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.287675, -0.952809 )
