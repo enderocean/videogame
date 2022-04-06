@@ -10,8 +10,6 @@ func _ready() -> void:
 	# Ensure the timer doesn't restart itself
 	one_shot = true
 	autostart = false
-	# Start the timer with the given minutes
-	start(minutes * 60)
 
 
 func _physics_process(_delta: float) -> void:
@@ -20,6 +18,10 @@ func _physics_process(_delta: float) -> void:
 	
 	label.text = format_time(time_left)
 
+
+# Start the timer with the given minutes
+func start_timer() -> void:
+	start(minutes * 60)
 
 static func format_time(time_sec: float) -> String:
 	var secs: int = int(time_sec) % 60
