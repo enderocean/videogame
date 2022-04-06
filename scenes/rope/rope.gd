@@ -1,44 +1,50 @@
 extends Spatial
 
-const SECTION = preload("res://scenes/rope/section.tscn")
-const LINK = preload("res://scenes/rope/joint.tscn")
+const SECTION: PackedScene = preload("res://scenes/rope/section.tscn")
+# PinJoint behaviour but in a Generic6DOFJoint
+const LINK: PackedScene = preload("res://scenes/rope/joint.tscn")
+
+export var start: NodePath
+export var end: NodePath
 
 export var loops: int = 1
 
 var offset: Vector3 = Vector3(0, 0, -0.434)
-var vehicle
 
 func _ready() -> void:
-	var parent = get_parent().find_node("BlueRov", true, false)
+	var link_start: PhysicsBody = get_node(start)
+	var link_end: PhysicsBody = get_node(end)
+	var parent = link_start
+	if not parent:
+		printerr("No starting body for the rope")
+		return
+	
 	for i in range(loops):
-		var child = addSection(parent, i)
-		addLink(parent, child, i)
+		var child: RigidBody = add_section(parent, i)
+		add_link(parent, child, i)
 		parent = child
 
 
-func addSection(_parent: Spatial, i: int) -> Spatial:
-	var section = SECTION.instance()
-	section.transform.origin = -offset + Vector3(0, 0, -0.145) * i
+func add_section(parent: Spatial, i: int) -> RigidBody:
+	var section: RigidBody = SECTION.instance()
+	add_child(section)
 	
 	for child in section.get_children():
 		child.transform.origin = Vector3.ZERO
 	
-	add_child(section)
+	section.transform.origin = -offset + Vector3(0, 0, -0.145) * i
 	return section
 
 
-func addLink(parent: Spatial, child: Spatial, i) -> void:
-	var pin = LINK.instance()
-	pin.global_transform = Transform(
-		Basis(
-			Vector3(1, 0, 0),
-			Vector3(0, 1, 0),
-			Vector3(0, 0, 1)
-			),
-			-Vector3(0, 0, 0.145 / 2)
-		)
+func add_link(parent: Spatial, child: Spatial, i: int) -> void:
+	var pin: Generic6DOFJoint = LINK.instance()
+	pin.transform.origin = -Vector3(0, 0, 0.145 / 2)
+	
+	# Setting joint parameters
 	pin.set_node_a(parent.get_path())
 	pin.set_node_b(child.get_path())
+	
 	parent.add_child(pin)
+	
+	# Setting priority with rope section index
 	pin.set_solver_priority(i)
-

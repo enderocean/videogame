@@ -328,13 +328,14 @@ far = 275.0
 [node name="theter" type="Spatial" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.769269 )
 script = ExtResource( 9 )
+start = NodePath("../BlueRov")
 loops = 100
 
 [node name="cameraPosition" type="Position3D" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 6 )
 
-[node name="BlueRovHeavy" parent="ViewportMainCamera/Viewport" instance=ExtResource( 11 )]
+[node name="BlueRov" parent="ViewportMainCamera/Viewport" instance=ExtResource( 11 )]
 
 [node name="SettingsPanel" type="PanelContainer" parent="ViewportMainCamera"]
 visible = false
