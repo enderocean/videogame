@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ROV_Move_Left_Loop_01.wav-e24a67e92cac329621ea6b0509a83ddf.sample"
+
+[deps]
+
+source_file="res://assets/sounds/ROV_Move_Left_Loop_01.wav"
+dest_files=[ "res://.import/ROV_Move_Left_Loop_01.wav-e24a67e92cac329621ea6b0509a83ddf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
