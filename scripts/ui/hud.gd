@@ -16,6 +16,8 @@ func _on_scene_loaded(scene: Node) -> void:
 	
 	active_level = scene
 	active_level.connect("finished", self, "_on_level_finished")
+	
+	mission_timer.start_timer()
 
 func _on_level_finished() -> void:
 	mission_timer.paused = true

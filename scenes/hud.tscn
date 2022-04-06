@@ -606,6 +606,7 @@ align = 1
 valign = 1
 
 [node name="MissionTimer" type="Timer" parent="."]
+one_shot = true
 script = ExtResource( 4 )
 label_path = NodePath("../TimerLabel")
 
