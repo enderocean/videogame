@@ -1,17 +1,17 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
-[ext_resource path="res://scripts/baselevel.gd" type="Script" id=2]
-[ext_resource path="res://scripts/targetPos.gd" type="Script" id=3]
-[ext_resource path="res://scripts/InterpolatedCamera.gd" type="Script" id=4]
-[ext_resource path="res://scripts/ui/settings.gd" type="Script" id=5]
-[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/Ping360Viewport.gd" type="Script" id=7]
-[ext_resource path="res://scenes/components/ping360.shader" type="Shader" id=8]
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://scripts/mission_timer.gd" type="Script" id=10]
-[ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/rope/rope.gd" type="Script" id=12]
+[ext_resource path="res://scripts/InterpolatedCamera.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Ping360Viewport.gd" type="Script" id=3]
+[ext_resource path="res://scripts/mission_timer.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ui/hud.gd" type="Script" id=5]
+[ext_resource path="res://scripts/targetPos.gd" type="Script" id=6]
+[ext_resource path="res://scenes/components/ping360.shader" type="Shader" id=7]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/rope/rope.gd" type="Script" id=9]
+[ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/ui/settings.gd" type="Script" id=12]
 
 [sub_resource type="GDScript" id=1]
 script/source = "# Licensed under the MIT License.
@@ -285,20 +285,20 @@ func _process(_delta):
 "
 
 [sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 8 )
+shader = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 9 )
+font_data = ExtResource( 8 )
 
 [node name="HUD" type="Control"]
 pause_mode = 2
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 5 )
 
 [node name="ViewportMainCamera" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -327,21 +327,21 @@ far = 275.0
 
 [node name="theter" type="Spatial" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.769269 )
-script = ExtResource( 12 )
+script = ExtResource( 9 )
 loops = 100
 
 [node name="cameraPosition" type="Position3D" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 
-[node name="BlueRovHeavy" parent="ViewportMainCamera/Viewport" instance=ExtResource( 6 )]
+[node name="BlueRovHeavy" parent="ViewportMainCamera/Viewport" instance=ExtResource( 11 )]
 
 [node name="SettingsPanel" type="PanelContainer" parent="ViewportMainCamera"]
 visible = false
 margin_left = 251.0
 margin_right = 14.0
 margin_bottom = 14.0
-script = ExtResource( 5 )
+script = ExtResource( 12 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ViewportMainCamera/SettingsPanel"]
 margin_left = 7.0
@@ -459,7 +459,7 @@ far = 497.4
 target = NodePath("../../../ViewportMainCamera/Viewport/cameraPosition")
 speed = 10.0
 enabled = true
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 
 [node name="ViewportExternalCamera2" type="ViewportContainer" parent="."]
 pause_mode = 2
@@ -505,7 +505,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
-script = ExtResource( 7 )
+script = ExtResource( 3 )
 
 [node name="Viewport" type="Viewport" parent="Ping360Viewport"]
 size = Vector2( 296, 265 )
@@ -521,7 +521,7 @@ environment = ExtResource( 1 )
 target = NodePath("../../../ViewportMainCamera/Viewport/cameraPosition")
 speed = 10.0
 enabled = true
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 
 [node name="TimerLabel" type="Label" parent="."]
 anchor_right = 1.0
@@ -533,10 +533,10 @@ align = 1
 valign = 1
 
 [node name="MissionTimer" type="Timer" parent="."]
-script = ExtResource( 10 )
+script = ExtResource( 4 )
 label_path = NodePath("../TimerLabel")
 
-[node name="MissionEndedPopup" parent="." instance=ExtResource( 11 )]
+[node name="MissionEndedPopup" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
 
 [connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
