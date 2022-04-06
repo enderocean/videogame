@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/InterpolatedCamera.gd" type="Script" id=2]
@@ -256,6 +256,65 @@ func set_distance(value):
 	distance = max(0, value)
 "
 
+[sub_resource type="SpatialMaterial" id=7]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=8]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=9]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=10]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=11]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=12]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=13]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=14]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Camera
+
+func _process(_delta):
+	self.look_at(Globals.active_vehicle.transform.origin, Vector3(0,1,0))
+
+"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 7 )
+
 [sub_resource type="GDScript" id=3]
 script/source = "extends PanelContainer
 
@@ -275,17 +334,6 @@ func _input(event):
 		else:
 			self.hide()
 "
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Camera
-
-func _process(_delta):
-	self.look_at(Globals.active_vehicle.transform.origin, Vector3(0,1,0))
-
-"
-
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -328,7 +376,7 @@ far = 275.0
 [node name="theter" type="Spatial" parent="ViewportMainCamera/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.769269 )
 script = ExtResource( 9 )
-start = NodePath("../BlueRov")
+start = NodePath("../BlueRov/BlueRov")
 loops = 100
 
 [node name="cameraPosition" type="Position3D" parent="ViewportMainCamera/Viewport"]
@@ -337,101 +385,29 @@ script = ExtResource( 6 )
 
 [node name="BlueRov" parent="ViewportMainCamera/Viewport" instance=ExtResource( 11 )]
 
-[node name="SettingsPanel" type="PanelContainer" parent="ViewportMainCamera"]
-visible = false
-margin_left = 251.0
-margin_right = 14.0
-margin_bottom = 14.0
-script = ExtResource( 12 )
+[node name="t1" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="0"]
+material_override = SubResource( 7 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ViewportMainCamera/SettingsPanel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 175.0
-margin_bottom = 222.0
+[node name="t2" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="1"]
+material_override = SubResource( 8 )
 
-[node name="godrayToggle" type="CheckButton" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_right = 168.0
-margin_bottom = 40.0
-pressed = true
-text = "GodRays"
+[node name="t3" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="2"]
+material_override = SubResource( 9 )
 
-[node name="dirtparticlesToggle" type="CheckButton" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_top = 44.0
-margin_right = 168.0
-margin_bottom = 84.0
-pressed = true
-text = "Particles"
+[node name="t4" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="3"]
+material_override = SubResource( 10 )
 
-[node name="fancyWaterToggle" type="CheckButton" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_top = 88.0
-margin_right = 168.0
-margin_bottom = 128.0
-pressed = true
-text = "Fancy Water"
+[node name="t5" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="4"]
+material_override = SubResource( 11 )
 
-[node name="Ping360Toggle" type="CheckButton" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_top = 132.0
-margin_right = 168.0
-margin_bottom = 172.0
-text = "Ping360"
+[node name="t6" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="5"]
+material_override = SubResource( 12 )
 
-[node name="physicsRate" type="Label" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_top = 176.0
-margin_right = 168.0
-margin_bottom = 195.0
-rect_pivot_offset = Vector2( -32, 6 )
-text = "Physics (hz):"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="t7" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="6"]
+material_override = SubResource( 13 )
 
-[node name="physicsRateSlider" type="HSlider" parent="ViewportMainCamera/SettingsPanel/VBoxContainer"]
-margin_top = 199.0
-margin_right = 168.0
-margin_bottom = 215.0
-min_value = 60.0
-max_value = 500.0
-value = 60.0
-
-[node name="HelpPanel" type="PanelContainer" parent="ViewportMainCamera"]
-modulate = Color( 1, 1, 1, 0.619608 )
-margin_right = 250.0
-margin_bottom = 334.0
-script = SubResource( 3 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ViewportMainCamera/HelpPanel"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 259.0
-margin_bottom = 479.0
-
-[node name="help" type="Label" parent="ViewportMainCamera/HelpPanel/VBoxContainer"]
-margin_right = 252.0
-margin_bottom = 472.0
-rect_pivot_offset = Vector2( -32, 6 )
-text = "H - Toggle Help (this)
-ESC - Graphics settings
-
-C - switch camera//vehicle
-R - reset position
-
-Free camera:
-Hold left button + a/w/s/d + q/e
-
-ROV:
-Z/S: Forward/Backwards
-A/D: Yaw left/right
-Up: Rise
-Down: Dive
-Left/Right: Strafe left/right
-L/M: Camera tilt down/up
-O/P: Close/open gripper
-F3/F4: Increase/decrease lights
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="t8" parent="ViewportMainCamera/Viewport/BlueRov/BlueRov" index="7"]
+material_override = SubResource( 14 )
 
 [node name="ViewportExternalCamera" type="ViewportContainer" parent="."]
 pause_mode = 2
@@ -524,6 +500,102 @@ speed = 10.0
 enabled = true
 script = ExtResource( 2 )
 
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+visible = false
+margin_left = 251.0
+margin_right = 265.0
+margin_bottom = 14.0
+script = ExtResource( 12 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 175.0
+margin_bottom = 222.0
+
+[node name="godrayToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 40.0
+pressed = true
+text = "GodRays"
+
+[node name="dirtparticlesToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+margin_top = 44.0
+margin_right = 168.0
+margin_bottom = 84.0
+pressed = true
+text = "Particles"
+
+[node name="fancyWaterToggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+margin_top = 88.0
+margin_right = 168.0
+margin_bottom = 128.0
+pressed = true
+text = "Fancy Water"
+
+[node name="Ping360Toggle" type="CheckButton" parent="SettingsPanel/VBoxContainer"]
+margin_top = 132.0
+margin_right = 168.0
+margin_bottom = 172.0
+text = "Ping360"
+
+[node name="physicsRate" type="Label" parent="SettingsPanel/VBoxContainer"]
+margin_top = 176.0
+margin_right = 168.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( -32, 6 )
+text = "Physics (hz):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="physicsRateSlider" type="HSlider" parent="SettingsPanel/VBoxContainer"]
+margin_top = 199.0
+margin_right = 168.0
+margin_bottom = 215.0
+min_value = 60.0
+max_value = 500.0
+value = 60.0
+
+[node name="HelpPanel" type="PanelContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.619608 )
+margin_right = 266.0
+margin_bottom = 486.0
+script = SubResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HelpPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 259.0
+margin_bottom = 479.0
+
+[node name="help" type="Label" parent="HelpPanel/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 472.0
+rect_pivot_offset = Vector2( -32, 6 )
+text = "H - Toggle Help (this)
+ESC - Graphics settings
+
+C - switch camera//vehicle
+R - reset position
+
+Free camera:
+Hold left button + a/w/s/d + q/e
+
+ROV:
+Z/S: Forward/Backwards
+A/D: Yaw left/right
+Up: Rise
+Down: Dive
+Left/Right: Strafe left/right
+L/M: Camera tilt down/up
+O/P: Close/open gripper
+F3/F4: Increase/decrease lights
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TimerLabel" type="Label" parent="."]
 anchor_right = 1.0
 margin_top = 25.0
@@ -540,7 +612,9 @@ label_path = NodePath("../TimerLabel")
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
 
-[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/fancyWaterToggle" to="ViewportMainCamera/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
-[connection signal="toggled" from="ViewportMainCamera/SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
-[connection signal="value_changed" from="ViewportMainCamera/SettingsPanel/VBoxContainer/physicsRateSlider" to="ViewportMainCamera/SettingsPanel" method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/fancyWaterToggle" to="SettingsPanel" method="_on_fancyWaterToggle_toggled"]
+[connection signal="toggled" from="SettingsPanel/VBoxContainer/Ping360Toggle" to="Ping360Viewport" method="_on_Ping360Toggle_toggled"]
+[connection signal="value_changed" from="SettingsPanel/VBoxContainer/physicsRateSlider" to="SettingsPanel" method="_on_HSlider_value_changed"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
+
+[editable path="ViewportMainCamera/Viewport/BlueRov"]
