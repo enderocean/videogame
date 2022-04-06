@@ -19,10 +19,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/delivery_object.gd"
 }, {
+"base": "InterpolatedCamera",
+"class": "FollowCamera",
+"language": "GDScript",
+"path": "res://scripts/camera/follow_camera.gd"
+}, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
 "path": "res://scripts/level.gd"
+}, {
+"base": "Camera",
+"class": "LookAtCamera",
+"language": "GDScript",
+"path": "res://scripts/camera/lookat_camera.gd"
 }, {
 "base": "Timer",
 "class": "MissionTimer",
@@ -37,7 +47,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DeliveryArea": "",
 "DeliveryObject": "",
+"FollowCamera": "",
 "Level": "",
+"LookAtCamera": "",
 "MissionTimer": "",
 "ObjectiveLine": ""
 }

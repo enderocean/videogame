@@ -1,22 +1,17 @@
 extends ViewportContainer
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var sonar = null
 var img = Image.new()
 var last_points = []
 var angle = 0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func on_ping360_update(pingAngle, points):
+func on_ping360_update(pingAngle, points) -> void:
 	self.last_points = points
 	self.angle = pingAngle
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	var sonars = get_tree().get_nodes_in_group("ping360")
 	if len(sonars) == 0:
 		print("unable to find ping360")
@@ -40,8 +35,11 @@ func _ready():
 	img.create_from_data(array_width, array_heigh, false, Image.FORMAT_R8, byte_array)
 
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	visible = Globals.ping360_enabled
+	if not visible:
+		return
+	
 	img.lock()
 	for x in range(100):
 		img.set_pixel(x, angle, 0)
@@ -60,5 +58,5 @@ func _process(_delta):
 	self.get_material().set_shader_param("my_array", texture)
 
 
-func _on_Ping360Toggle_toggled(button_pressed):
+func _on_Ping360Toggle_toggled(button_pressed: bool) -> void:
 	Globals.ping360_enabled = button_pressed
