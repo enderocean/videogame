@@ -154,20 +154,22 @@ surfaces/0 = {
 "vertex_count": 1106
 }
 
-[node name="BlueRov" type="RigidBody" groups=["buoyant", "vehicles"]]
+[node name="Vehicle" type="Spatial"]
+
+[node name="BlueRov" type="RigidBody" parent="." groups=["buoyant", "vehicles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )
 mass = 11.0
 can_sleep = false
 linear_damp = 2.333
 angular_damp = 8.72
 script = ExtResource( 1 )
-ljoint_path = NodePath("Gripper/ljoint")
-rjoint_path = NodePath("Gripper/rjoint")
-l_rigidbody_path = NodePath("Gripper/GripLeftRigidBody")
-r_rigidbody_path = NodePath("Gripper/GripRightRigidBody")
-carry_position_path = NodePath("Gripper/CarryPosition")
+ljoint_path = NodePath("../ljoint")
+rjoint_path = NodePath("../rjoint")
+l_rigidbody_path = NodePath("../GripLeftRigidBody")
+r_rigidbody_path = NodePath("../GripRightRigidBody")
+carry_position_path = NodePath("CarryPosition")
 
-[node name="t1" type="ImmediateGeometry" parent="."]
+[node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
 material_override = SubResource( 22 )
 script = ExtResource( 8 )
@@ -176,7 +178,7 @@ height = 0.5
 roll_factor = false
 pitch_factor = false
 
-[node name="t2" type="ImmediateGeometry" parent="."]
+[node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
 material_override = SubResource( 23 )
 script = ExtResource( 8 )
@@ -185,7 +187,7 @@ height = 0.5
 roll_factor = false
 pitch_factor = false
 
-[node name="t3" type="ImmediateGeometry" parent="."]
+[node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
 material_override = SubResource( 24 )
 script = ExtResource( 8 )
@@ -194,7 +196,7 @@ height = 0.5
 roll_factor = false
 pitch_factor = false
 
-[node name="t4" type="ImmediateGeometry" parent="."]
+[node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
 material_override = SubResource( 25 )
 script = ExtResource( 8 )
@@ -203,45 +205,42 @@ height = 0.5
 roll_factor = false
 pitch_factor = false
 
-[node name="t5" type="ImmediateGeometry" parent="."]
+[node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
 material_override = SubResource( 26 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
-[node name="t6" type="ImmediateGeometry" parent="."]
+[node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
 material_override = SubResource( 27 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
-[node name="t7" type="ImmediateGeometry" parent="."]
+[node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
 material_override = SubResource( 28 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
-[node name="t8" type="ImmediateGeometry" parent="."]
+[node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
 material_override = SubResource( 29 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
-[node name="newton" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888, -0.333631, 0.141171, 0.302541, -0.0264689, 0.218238, -0.255554, 0.0306985 )
-
-[node name="cameraTarget" type="Spatial" parent="."]
+[node name="cameraTarget" type="Spatial" parent="BlueRov"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.287675, -0.952809 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="BlueRov"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.0931243, -0.0170105 )
 shape = SubResource( 13 )
 
-[node name="light1" type="SpotLight" parent="."]
+[node name="light1" type="SpotLight" parent="BlueRov"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.337544, -0.199193, 0.496962 )
 visible = false
 shadow_enabled = true
@@ -250,7 +249,7 @@ spot_attenuation = 6.0
 spot_angle = 72.0
 spot_angle_attenuation = 0.48
 
-[node name="light2" type="SpotLight" parent="."]
+[node name="light2" type="SpotLight" parent="BlueRov"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.389553, -0.199193, 0.496962 )
 visible = false
 shadow_enabled = true
@@ -259,7 +258,7 @@ spot_attenuation = 6.0
 spot_angle = 71.6
 spot_angle_attenuation = 0.48
 
-[node name="light4" type="SpotLight" parent="."]
+[node name="light4" type="SpotLight" parent="BlueRov"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.337544, 0.132225, 0.496962 )
 shadow_enabled = true
 shadow_bias = 0.07
@@ -269,7 +268,7 @@ spot_attenuation = 6.0
 spot_angle = 70.0
 spot_angle_attenuation = 0.48
 
-[node name="light3" type="SpotLight" parent="."]
+[node name="light3" type="SpotLight" parent="BlueRov"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.389553, 0.132225, 0.513961 )
 light_energy = 16.0
 shadow_enabled = true
@@ -280,81 +279,71 @@ spot_attenuation = 6.0
 spot_angle = 71.0
 spot_angle_attenuation = 0.48
 
-[node name="Camera" type="Camera" parent="." groups=["cameras"]]
+[node name="Camera" type="Camera" parent="BlueRov" groups=["cameras"]]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00410311, 0.0132817, 0.378081 )
 environment = ExtResource( 4 )
 fov = 80.0
 far = 640.7
 
-[node name="bluerov cleaned decimated" parent="." instance=ExtResource( 7 )]
+[node name="bluerov cleaned decimated" parent="BlueRov" instance=ExtResource( 7 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.176097, -0.0977513, -0.116651 )
 
-[node name="scatterlight" type="OmniLight" parent="."]
+[node name="scatterlight" type="OmniLight" parent="BlueRov"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00951934, 0.766427 )
 light_energy = 0.5
 omni_attenuation = 9.18959
 
-[node name="light_glow" type="MeshInstance" parent="."]
+[node name="light_glow" type="MeshInstance" parent="BlueRov"]
 transform = Transform( -0.0348938, 0, 0, 0, -0.00095478, 0.0345276, 0, 0.00653839, 0.00504197, 0.374692, 0.100628, 0.403364 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
-[node name="light_glow2" type="MeshInstance" parent="."]
+[node name="light_glow2" type="MeshInstance" parent="BlueRov"]
 transform = Transform( -0.0348938, 0, 0, 0, -0.00095478, 0.0345276, 0, 0.00653839, 0.00504197, -0.377187, 0.100628, 0.403364 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
-[node name="light_glow3" type="MeshInstance" parent="."]
+[node name="light_glow3" type="MeshInstance" parent="BlueRov"]
 transform = Transform( -0.0348938, 0, 0, 0, -0.00215846, 0.0329797, 0, 0.00624525, 0.0113983, 0.374692, -0.23366, 0.411267 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
-[node name="light_glow4" type="MeshInstance" parent="."]
+[node name="light_glow4" type="MeshInstance" parent="BlueRov"]
 transform = Transform( -0.0348938, 0, 0, 0, -0.00215846, 0.0329797, 0, 0.00624525, 0.0113983, -0.377187, -0.23366, 0.411267 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
-[node name="greenled" type="MeshInstance" parent="."]
+[node name="greenled" type="MeshInstance" parent="BlueRov"]
 transform = Transform( 0.00692338, 0, 0, 0, 0.00593798, 0, 0, 0, 0.0118189, 0.0306498, 0.0627247, 0.169972 )
 mesh = SubResource( 16 )
 material/0 = SubResource( 17 )
 
-[node name="greeledAnimation" type="AnimationPlayer" parent="greenled"]
+[node name="greeledAnimation" type="AnimationPlayer" parent="BlueRov/greenled"]
 autoplay = "green_led"
 anims/green_led = SubResource( 18 )
 
-[node name="redled" type="MeshInstance" parent="."]
+[node name="redled" type="MeshInstance" parent="BlueRov"]
 transform = Transform( 0.00692338, 0, 0, 0, 0.00593798, 0, 0, 0, 0.0118189, 0.0306498, 0.0627247, 0.13759 )
 mesh = SubResource( 16 )
 material/0 = SubResource( 19 )
 
-[node name="redledanimation" type="AnimationPlayer" parent="redled"]
+[node name="redledanimation" type="AnimationPlayer" parent="BlueRov/redled"]
 autoplay = "green_led"
 anims/green_led = SubResource( 20 )
 
-[node name="sonar" parent="." instance=ExtResource( 6 )]
+[node name="sonar" parent="BlueRov" instance=ExtResource( 6 )]
 transform = Transform( 0.0614213, 0, 0, 0, 0.0614213, 0, 0, 0, 0.0614213, -0.220256, 0.235284, -0.0282408 )
 mesh = SubResource( 21 )
 
-[node name="Gripper" type="Spatial" parent="."]
+[node name="newton" parent="BlueRov" instance=ExtResource( 2 )]
+transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888, -0.333631, 0.141171, 0.302541, -0.0264689, 0.218238, -0.255554, 0.0306985 )
 
-[node name="CarryPosition" type="Position3D" parent="Gripper"]
+[node name="CarryPosition" type="Position3D" parent="BlueRov"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00719048, -0.252294, 0.486228 )
 
-[node name="ljoint" type="HingeJoint" parent="Gripper"]
-transform = Transform( 0.721864, -0.238076, 0.0225913, -5.79374e-09, -0.0662726, -0.821599, 0.238985, 0.719117, -0.0682379, -0.0198179, -0.298199, 0.416895 )
-nodes/node_a = NodePath("../..")
-nodes/node_b = NodePath("../GripRightRigidBody")
-params/bias = 0.99
-angular_limit/enable = true
-angular_limit/upper = 0.0
-angular_limit/lower = -35.0
-motor/enable = true
-motor/target_velocity = 0.0
-
-[node name="rjoint" type="HingeJoint" parent="Gripper"]
-transform = Transform( 0.721864, -0.238076, 0.0225913, -5.79374e-09, -0.0662726, -0.821599, 0.238985, 0.719117, -0.0682379, 0.0626442, -0.298199, 0.453415 )
-nodes/node_a = NodePath("../..")
+[node name="rjoint" type="HingeJoint" parent="."]
+transform = Transform( 0.238985, 0.719117, -0.0682379, -7.09762e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.427163, -0.298199, -0.0440724 )
+nodes/node_a = NodePath("../BlueRov")
 nodes/node_b = NodePath("../GripLeftRigidBody")
 params/bias = 0.99
 angular_limit/enable = true
@@ -363,60 +352,71 @@ angular_limit/lower = 0.0
 motor/enable = true
 motor/target_velocity = 0.0
 
-[node name="GripRightRigidBody" type="RigidBody" parent="Gripper"]
-transform = Transform( 0.949327, -0.313095, 0.0273922, -7.61937e-09, -0.0871555, -0.996195, 0.314291, 0.945715, -0.082739, -0.0462328, -0.309149, 0.479125 )
+[node name="ljoint" type="HingeJoint" parent="."]
+transform = Transform( 0.238985, 0.719117, -0.0682379, -7.09762e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.390643, -0.298199, 0.0383897 )
+nodes/node_a = NodePath("../BlueRov")
+nodes/node_b = NodePath("../GripRightRigidBody")
+params/bias = 0.99
+angular_limit/enable = true
+angular_limit/upper = 0.0
+angular_limit/lower = -35.0
+motor/enable = true
+motor/target_velocity = 0.0
+
+[node name="GripRightRigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.452873, -0.309149, 0.0648046 )
 collision_mask = 2
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 
-[node name="g2" type="MeshInstance" parent="Gripper/GripRightRigidBody"]
+[node name="g2" type="MeshInstance" parent="GripRightRigidBody"]
 transform = Transform( -8.71174e-11, -0.000167007, 0.00199301, -9.47229e-11, 0.00199301, 0.000167007, -0.002, -8.71174e-11, -9.47229e-11, 0.14884, -0.515, 0.0426397 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 5 )
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Gripper/GripRightRigidBody"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="GripRightRigidBody"]
 transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.59872e-14, 6.39488e-14, 1, 0.00111248, -0.717675, 0.00447655 )
 depth = 0.05
 polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
 
-[node name="RightGripArea" type="Area" parent="Gripper/GripRightRigidBody"]
+[node name="RightGripArea" type="Area" parent="GripRightRigidBody"]
 transform = Transform( 0.334353, -0.0192142, 1.68587e-09, 0.0192142, 0.334353, 9.72922e-11, -1.68866e-09, -3.99125e-13, 0.334905, -0.0146141, 0.00138405, -0.0126117 )
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Gripper/GripRightRigidBody/RightGripArea"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="GripRightRigidBody/RightGripArea"]
 transform = Transform( 2.98101, 0.171309, -1.50558e-08, -0.171309, 2.98101, -3.64864e-12, 1.50307e-08, 8.67514e-10, 2.98592, -0.071, -2.146, 0.051 )
 depth = 0.025
 polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
 
-[node name="GripLeftRigidBody" type="RigidBody" parent="Gripper"]
-transform = Transform( 0.949327, -0.313095, 0.0273922, -7.61937e-09, -0.0871555, -0.996195, 0.314291, 0.945715, -0.082739, 0.0458552, -0.309149, 0.505365 )
+[node name="GripLeftRigidBody" type="RigidBody" parent="."]
+transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
 collision_mask = 2
 mass = 0.5
 physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
 
-[node name="g1" type="MeshInstance" parent="Gripper/GripLeftRigidBody"]
+[node name="g1" type="MeshInstance" parent="GripLeftRigidBody"]
 transform = Transform( -8.71174e-11, -0.000167007, 0.00199301, -9.47229e-11, 0.00199301, 0.000167007, -0.002, -8.71174e-11, -9.47229e-11, 0.0761745, -0.512425, 0.0426397 )
 mesh = SubResource( 4 )
 material/0 = ExtResource( 5 )
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Gripper/GripLeftRigidBody"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="GripLeftRigidBody"]
 transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.42109e-14, 5.68434e-14, 1, -0.00390352, -0.721209, -0.00389147 )
 depth = 0.05
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
 
-[node name="LeftGripArea" type="Area" parent="Gripper/GripLeftRigidBody"]
+[node name="LeftGripArea" type="Area" parent="GripLeftRigidBody"]
 transform = Transform( 0.333155, -0.0341872, 1.68586e-09, 0.0341872, 0.333155, 9.73017e-11, -1.68698e-09, 7.53018e-11, 0.334905, 0.0215025, -0.0012348, -0.00518516 )
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Gripper/GripLeftRigidBody/LeftGripArea"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="GripLeftRigidBody/LeftGripArea"]
 transform = Transform( 2.97033, 0.304805, -1.50407e-08, -0.304805, 2.97033, 6.71353e-10, 1.50307e-08, 8.67676e-10, 2.98592, -0.3, -2.131, 0.004 )
 depth = 0.025
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
 
-[connection signal="body_entered" from="Gripper/GripRightRigidBody/RightGripArea" to="." method="_on_RightGripArea_body_entered"]
-[connection signal="body_exited" from="Gripper/GripRightRigidBody/RightGripArea" to="." method="_on_RightGripArea_body_exited"]
-[connection signal="body_entered" from="Gripper/GripLeftRigidBody/LeftGripArea" to="." method="_on_LeftGripArea_body_entered"]
-[connection signal="body_exited" from="Gripper/GripLeftRigidBody/LeftGripArea" to="." method="_on_LeftGripArea_body_exited"]
+[connection signal="body_entered" from="GripRightRigidBody/RightGripArea" to="BlueRov" method="_on_RightGripArea_body_entered"]
+[connection signal="body_exited" from="GripRightRigidBody/RightGripArea" to="BlueRov" method="_on_RightGripArea_body_exited"]
+[connection signal="body_entered" from="GripLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_entered"]
+[connection signal="body_exited" from="GripLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_exited"]

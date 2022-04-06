@@ -5,7 +5,6 @@ const SECTION: PackedScene = preload("res://scenes/rope/section.tscn")
 const LINK: PackedScene = preload("res://scenes/rope/joint.tscn")
 
 export var start: NodePath
-export var end: NodePath
 
 export var loops: int = 1
 
@@ -13,7 +12,6 @@ var offset: Vector3 = Vector3(0, 0, -0.434)
 
 func _ready() -> void:
 	var link_start: PhysicsBody = get_node(start)
-	var link_end: PhysicsBody = get_node(end)
 	var parent = link_start
 	if not parent:
 		printerr("No starting body for the rope")
