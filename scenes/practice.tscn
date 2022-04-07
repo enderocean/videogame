@@ -368,7 +368,7 @@ transform = Transform( 4, 0, 0, 0, 2.46193, 3.1526, 0, -3.1526, 2.46193, 0, 33.5
 shadow_enabled = true
 
 [node name="Cylinder" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965169, -1.332, 5.20185 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965169, -1.482, 5.20185 )
 collision_layer = 2
 collision_mask = 3
 mass = 10.0
@@ -385,7 +385,7 @@ material/0 = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Cube" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.432, 4.83661 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.472, 4.83661 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 1 )
@@ -401,7 +401,7 @@ material/0 = SubResource( 3 )
 shape = SubResource( 6 )
 
 [node name="Sphere" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80654, -1.472, 4.31858 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80654, -1.482, 4.31858 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 1 )
@@ -423,6 +423,7 @@ transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 3.6, -0.5, 5.5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7902, 0 )
 visible = false
 script = SubResource( 9 )
+mouse_mode = 0
 
 [node name="Camera" type="Camera" parent="playerCamera" groups=["cameras"]]
 visible = false
