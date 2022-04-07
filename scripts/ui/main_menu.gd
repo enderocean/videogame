@@ -22,7 +22,7 @@ func _ready():
 func _on_poolLevel_pressed():
 	Globals.active_vehicle = "bluerovheavy"
 	SceneLoader.load_scene("res://scenes/hud.tscn")
-	SceneLoader.load_scene("res://scenes/pool.tscn", true)
+	SceneLoader.load_scene("res://scenes/practice.tscn", true)
 
 func _on_CheckBox_toggled(button_pressed):
 	Globals.wait_SITL = button_pressed
