@@ -429,12 +429,6 @@ mouse_mode = 0
 visible = false
 far = 275.0
 
-[node name="theter" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.769269 )
-script = ExtResource( 6 )
-start = NodePath("../BlueRov/BlueRov")
-loops = 100
-
 [node name="cameraPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 2 )
@@ -471,6 +465,11 @@ anims/green_led = SubResource( 18 )
 
 [node name="redledanimation" parent="BlueRov/BlueRov/redled" index="0"]
 anims/green_led = SubResource( 19 )
+
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 6 )
+start = NodePath("../BlueRov")
+loops = 100
 
 [connection signal="objects_changed" from="DeliveryArea" to="." method="_on_DeliveryArea_objects_changed"]
 
