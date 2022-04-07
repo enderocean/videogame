@@ -357,6 +357,7 @@ tracks/0/keys = {
 
 [node name="Practice" type="Spatial"]
 script = ExtResource( 7 )
+vehicle_path = NodePath("BlueRov")
 
 [node name="pool" parent="." instance=ExtResource( 8 )]
 
