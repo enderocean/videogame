@@ -4,8 +4,13 @@ class_name Level
 const BUOYANCY = 10.0  # newtons?
 const HEIGHT = 2.4  # TODO: get this programatically
 
-var underwater_env = load("res://assets/underwaterEnvironment.tres")
-var surface_env = load("res://assets/defaultEnvironment.tres")
+# Default Environments
+var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
+var underwater_env: Environment = load("res://assets/underwaterEnvironment.tres")
+
+## Used to override the default underwater environment
+## Must be a Environment resource
+export var underwater_env_override: Resource
 
 # core elements of the scene
 export var water_path: NodePath = "water"
@@ -14,6 +19,9 @@ onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 
 export var sun_path: NodePath= "sun"
 onready var sun: Light = get_node(sun_path)
+
+export var vehicle_path: NodePath
+onready var vehicle: Spatial = get_node(vehicle_path)
 
 ## TODO: Replace this when the mission system is in place
 ## Objectives array, must be an array of dictionnary containing "title" and "value"
@@ -35,6 +43,10 @@ var finished: bool = false
 signal finished
 
 func _ready():
+	# Replace the default underwater environment
+	if underwater_env_override and underwater_env_override is Environment:
+		underwater_env = underwater_env_override
+
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
