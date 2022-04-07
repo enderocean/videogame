@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
 [ext_resource path="res://assets/menuEnvironment.tres" type="Environment" id=3]
 [ext_resource path="res://scripts/ui/main_menu.gd" type="Script" id=4]
@@ -29,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 licences_popup_path = NodePath("LicencesDialog")
+level_buttons_path = NodePath("HBoxContainer/Menu/LevelButtons")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -99,28 +99,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/Menu"]
+[node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 111.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 111, 51 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="poolLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
-margin_right = 111.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 111, 51 )
-custom_fonts/font = ExtResource( 1 )
-text = "PRACTICE"
-
-[node name="customLevel" type="Button" parent="HBoxContainer/Menu/Buttons"]
-visible = false
-margin_top = 55.0
-margin_right = 111.0
-margin_bottom = 80.0
-custom_fonts/font = ExtResource( 1 )
-text = "Ship Level"
 
 [node name="Licences" type="Button" parent="."]
 anchor_left = 1.0
@@ -153,7 +138,7 @@ anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
-margin_bottom = -41.0
+margin_bottom = -44.0
 bbcode_enabled = true
 bbcode_text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
@@ -170,7 +155,5 @@ Published under Open Source License - Affero GPL (AGPL)
 
 Credits Images : Vecteezy"
 
-[connection signal="pressed" from="HBoxContainer/Menu/Buttons/poolLevel" to="." method="_on_poolLevel_pressed"]
-[connection signal="pressed" from="HBoxContainer/Menu/Buttons/customLevel" to="." method="_on_customLevel_pressed"]
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
