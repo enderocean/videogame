@@ -23,6 +23,8 @@ var user_data: Dictionary = {
 	"score": 0
 }
 
+var levels: Array
+
 var active_vehicle = null
 var sitl_pid: int = 0
 
@@ -35,7 +37,9 @@ func _ready() -> void:
 	# Ensure this node is not being paused
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	isHTML5 = OS.get_name() == "HTML5"
-
+	
+	# Load levels data
+	levels = LevelData.get_levels()
 
 func set_fancy_water(value: bool) -> void:
 	fancy_water = value
