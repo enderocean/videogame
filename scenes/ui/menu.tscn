@@ -101,11 +101,25 @@ __meta__ = {
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 111.0
-margin_bottom = 51.0
+margin_bottom = 90.0
 rect_min_size = Vector2( 111, 51 )
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Practice" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
+margin_right = 111.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Practice"
+
+[node name="Campaign" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
+margin_top = 50.0
+margin_right = 111.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 40 )
+text = "Campaign"
 
 [node name="Licences" type="Button" parent="."]
 anchor_left = 1.0
@@ -155,5 +169,7 @@ Published under Open Source License - Affero GPL (AGPL)
 
 Credits Images : Vecteezy"
 
+[connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
