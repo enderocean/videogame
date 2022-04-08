@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/rv_bucket.obj-a1b7af723de2426b1ecff001c45bfc1c.mesh"
+
+[deps]
+
+files=[ "res://.import/rv_bucket.obj-a1b7af723de2426b1ecff001c45bfc1c.mesh" ]
+
+source_file="res://assets/models/waste/rv_bucket.obj"
+dest_files=[ "res://.import/rv_bucket.obj-a1b7af723de2426b1ecff001c45bfc1c.mesh", "res://.import/rv_bucket.obj-a1b7af723de2426b1ecff001c45bfc1c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

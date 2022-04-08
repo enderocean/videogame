@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cola_cup.obj-b6f67adb8754c3fc100f2c7d729cf4ff.mesh"
+
+[deps]
+
+files=[ "res://.import/cola_cup.obj-b6f67adb8754c3fc100f2c7d729cf4ff.mesh" ]
+
+source_file="res://assets/models/waste/cola_cup.obj"
+dest_files=[ "res://.import/cola_cup.obj-b6f67adb8754c3fc100f2c7d729cf4ff.mesh", "res://.import/cola_cup.obj-b6f67adb8754c3fc100f2c7d729cf4ff.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

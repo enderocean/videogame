@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/yamaboushi_tan_6000_a_spr1.obj-2549d1d5be21e9ac14c532e5ebf46a2f.mesh"
+
+[deps]
+
+files=[ "res://.import/yamaboushi_tan_6000_a_spr1.obj-2549d1d5be21e9ac14c532e5ebf46a2f.mesh" ]
+
+source_file="res://assets/models/trees/yamaboushi_tan_6000_a_spr1.obj"
+dest_files=[ "res://.import/yamaboushi_tan_6000_a_spr1.obj-2549d1d5be21e9ac14c532e5ebf46a2f.mesh", "res://.import/yamaboushi_tan_6000_a_spr1.obj-2549d1d5be21e9ac14c532e5ebf46a2f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

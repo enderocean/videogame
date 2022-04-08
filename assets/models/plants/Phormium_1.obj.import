@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Phormium_1.obj-300c1803142c740716b06e974f6f6aba.mesh"
+
+[deps]
+
+files=[ "res://.import/Phormium_1.obj-300c1803142c740716b06e974f6f6aba.mesh" ]
+
+source_file="res://assets/models/plants/Phormium_1.obj"
+dest_files=[ "res://.import/Phormium_1.obj-300c1803142c740716b06e974f6f6aba.mesh", "res://.import/Phormium_1.obj-300c1803142c740716b06e974f6f6aba.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

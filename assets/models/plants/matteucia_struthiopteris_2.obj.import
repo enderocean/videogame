@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/matteucia_struthiopteris_2.obj-5512f3dd513d6279af7b866858d81a99.mesh"
+
+[deps]
+
+files=[ "res://.import/matteucia_struthiopteris_2.obj-5512f3dd513d6279af7b866858d81a99.mesh" ]
+
+source_file="res://assets/models/plants/matteucia_struthiopteris_2.obj"
+dest_files=[ "res://.import/matteucia_struthiopteris_2.obj-5512f3dd513d6279af7b866858d81a99.mesh", "res://.import/matteucia_struthiopteris_2.obj-5512f3dd513d6279af7b866858d81a99.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
