@@ -83,6 +83,8 @@ _global_script_class_icons={
 config/name="Ender Ocean"
 config/description="Your mission : \"Clean the Ocean!\""
 run/main_scene="res://scenes/ui/menu.tscn"
+boot_splash/image="res://assets/logo_ender.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
