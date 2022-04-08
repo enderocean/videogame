@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/facemask.obj-4fb11ad5c50fc37e13e8069159d9950f.mesh"
+
+[deps]
+
+files=[ "res://.import/facemask.obj-4fb11ad5c50fc37e13e8069159d9950f.mesh" ]
+
+source_file="res://assets/models/waste/facemask.obj"
+dest_files=[ "res://.import/facemask.obj-4fb11ad5c50fc37e13e8069159d9950f.mesh", "res://.import/facemask.obj-4fb11ad5c50fc37e13e8069159d9950f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

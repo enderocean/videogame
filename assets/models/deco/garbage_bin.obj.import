@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/garbage_bin.obj-2600ea9aa6776ab6dc9881fe909dc429.mesh"
+
+[deps]
+
+files=[ "res://.import/garbage_bin.obj-2600ea9aa6776ab6dc9881fe909dc429.mesh" ]
+
+source_file="res://assets/models/deco/garbage_bin.obj"
+dest_files=[ "res://.import/garbage_bin.obj-2600ea9aa6776ab6dc9881fe909dc429.mesh", "res://.import/garbage_bin.obj-2600ea9aa6776ab6dc9881fe909dc429.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

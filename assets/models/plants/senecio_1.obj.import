@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/senecio_1.obj-7214aad9fd21869d5e139a4b2669f7c7.mesh"
+
+[deps]
+
+files=[ "res://.import/senecio_1.obj-7214aad9fd21869d5e139a4b2669f7c7.mesh" ]
+
+source_file="res://assets/models/plants/senecio_1.obj"
+dest_files=[ "res://.import/senecio_1.obj-7214aad9fd21869d5e139a4b2669f7c7.mesh", "res://.import/senecio_1.obj-7214aad9fd21869d5e139a4b2669f7c7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

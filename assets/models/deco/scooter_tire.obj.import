@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/scooter_tire.obj-b3aa6f6527af151f9ae2320a4c72fad5.mesh"
+
+[deps]
+
+files=[ "res://.import/scooter_tire.obj-b3aa6f6527af151f9ae2320a4c72fad5.mesh" ]
+
+source_file="res://assets/models/deco/scooter_tire.obj"
+dest_files=[ "res://.import/scooter_tire.obj-b3aa6f6527af151f9ae2320a4c72fad5.mesh", "res://.import/scooter_tire.obj-b3aa6f6527af151f9ae2320a4c72fad5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

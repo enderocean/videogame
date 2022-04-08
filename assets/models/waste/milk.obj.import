@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/milk.obj-3bb4d40f219178f462670d54f5ee92ff.mesh"
+
+[deps]
+
+files=[ "res://.import/milk.obj-3bb4d40f219178f462670d54f5ee92ff.mesh" ]
+
+source_file="res://assets/models/waste/milk.obj"
+dest_files=[ "res://.import/milk.obj-3bb4d40f219178f462670d54f5ee92ff.mesh", "res://.import/milk.obj-3bb4d40f219178f462670d54f5ee92ff.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

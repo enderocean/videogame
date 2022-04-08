@@ -11,11 +11,11 @@
 [ext_resource path="res://terrains/demo_level/stones/Ground039_1K_NormalGL.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/demo_level/stones/Ground039_1K_Roughness.jpg" type="Texture" id=10]
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/obj/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=12]
+[ext_resource path="res://assets/models/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
-[ext_resource path="res://assets/obj/plants/monsterra.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://assets/obj/plants/senecio_1.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://assets/obj/vehicles/monocycle.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://assets/models/plants/monsterra.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/models/plants/senecio_1.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/models/vehicles/monocycle.obj" type="ArrayMesh" id=16]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
