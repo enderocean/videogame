@@ -22,6 +22,10 @@ func _on_scene_loaded(scene: Node) -> void:
 	active_level = scene
 	active_level.connect("finished", self, "_on_level_finished")
 	
+	if active_level.vehicle:
+		camera_follow.target_node = active_level.vehicle.camera_target
+		camera_lookat.target = active_level.vehicle.camera_target
+	
 	mission_timer.start_timer()
 
 func _on_level_finished() -> void:
