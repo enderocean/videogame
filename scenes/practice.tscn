@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scripts/targetPos.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=6]
 [ext_resource path="res://scripts/level.gd" type="Script" id=7]
 [ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=9]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -363,5 +364,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 4.9 )
 script = ExtResource( 6 )
 start = NodePath("../BlueRov")
 loops = 100
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 
 [connection signal="objects_changed" from="DeliveryArea" to="." method="_on_DeliveryArea_objects_changed"]
