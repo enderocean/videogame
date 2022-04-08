@@ -1,0 +1,35 @@
+# Blender MTL File: 'phormium_tenax.blend'
+# Material Count: 3
+
+newmtl leaf_A_1
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Phormium tenax\\maps\\phormium_t_leaf_2_1_diffuse_2.jpg
+
+newmtl leaf_A_2
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Phormium tenax\\maps\\phormium_t_leaf_3_1_diffuse_2.jpg
+
+newmtl leaf_A_3
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Phormium tenax\\maps\\phormium_t_leaf_1_1_diffuse_2.jpg

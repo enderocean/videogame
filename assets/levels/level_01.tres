@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+scene = "res://scenes/practice.tscn"
+title = "Practice"
+description = "You have 15 minutes to collect 20 objects."
+tools = PoolStringArray(  )
+objectives = PoolStringArray(  )

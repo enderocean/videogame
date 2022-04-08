@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/monocycle.obj-55d1330b1f5e740d1e2f9c09301e891d.mesh"
+
+[deps]
+
+files=[ "res://.import/monocycle.obj-55d1330b1f5e740d1e2f9c09301e891d.mesh" ]
+
+source_file="res://assets/obj/vehicles/monocycle.obj"
+dest_files=[ "res://.import/monocycle.obj-55d1330b1f5e740d1e2f9c09301e891d.mesh", "res://.import/monocycle.obj-55d1330b1f5e740d1e2f9c09301e891d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

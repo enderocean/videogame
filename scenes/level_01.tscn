@@ -1,0 +1,315 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
+[ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
+[ext_resource path="res://terrains/level_01/grey_sand/Ground049C_1K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://terrains/level_01/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_Color.jpg" type="Texture" id=6]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
+[ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=8]
+[ext_resource path="res://addons/fish-shader/assets/Fish Perch.tres" type="ArrayMesh" id=9]
+[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=10]
+[ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
+[ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
+[ext_resource path="res://scripts/level.gd" type="Script" id=13]
+[ext_resource path="res://assets/obj/waste/tire.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/obj/waste/Beets.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/obj/deco/cone_worksite.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://assets/obj/waste/cofee_cup.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/obj/deco/garbage_bin.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/newton/black_metal.tres" type="Material" id=19]
+[ext_resource path="res://assets/obj/waste/barrier.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_1.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://assets/obj/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=22]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_2.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://assets/obj/plants/matteucia_struthiopteris_3.obj" type="ArrayMesh" id=24]
+[ext_resource path="res://terrains/level_01/grey_sand/Ground049C_1K_Roughness.jpg" type="Texture" id=25]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=26]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+mode = 0
+textures = [ [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ], [ null, ExtResource( 7 ), ExtResource( 7 ), ExtResource( 25 ) ] ]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+// fish params
+uniform float timer;
+
+uniform float twist_factor;
+uniform float twist_factor_frequency;
+uniform float s_factor;
+uniform float s_factor_frequency;
+
+uniform float frequency;
+uniform float yaw_factor;
+uniform vec3 translate;
+
+uniform float head_z;
+uniform vec4 head_color;
+uniform float tail_z;
+uniform vec4 tail_color;
+
+// standard params
+uniform vec4 albedo : hint_color;
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float specular;
+uniform float metallic;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform sampler2D texture_metallic : hint_white;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_white;
+uniform vec4 roughness_texture_channel;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	
+	float tmult = sin( timer * frequency );
+	
+	vec3 new_pos = VERTEX;
+	vec3 tmp = VERTEX;
+	// mix
+	float dist_ht = tail_z - head_z;
+	float ranged_z = ( min( max( VERTEX.z, head_z ), tail_z ) - head_z ) / dist_ht;
+	vec4 ctrl_color = tail_color * ranged_z + head_color * (1.0-ranged_z);
+	
+	// twist
+	float twist_a = ctrl_color.r * sin( VERTEX.z + timer * twist_factor_frequency ) * twist_factor;
+	float twist_cos = cos( twist_a );
+	float twist_sin = sin( twist_a );
+	tmp.x = new_pos.x * twist_cos - new_pos.y * twist_sin;
+	tmp.y = new_pos.x * twist_sin + new_pos.y * twist_cos;
+	new_pos = tmp;
+	
+	// S factor
+	float s_a = ctrl_color.g * sin( VERTEX.z - timer * s_factor_frequency ) * s_factor;
+	new_pos.x += s_a;
+	
+	// yaw
+	float yaw_a = ctrl_color.b * tmult * yaw_factor;
+	float yaw_cos = cos( yaw_a );
+	float yaw_sin = sin( yaw_a );
+	tmp.x = new_pos.x * yaw_cos - new_pos.z * yaw_sin;
+	tmp.z = new_pos.x * yaw_sin + new_pos.z * yaw_cos;
+	new_pos = tmp;
+	
+	// translation
+	new_pos += ctrl_color.a * translate * tmult;
+
+	VERTEX = new_pos;
+	
+	// UV
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/timer = 107.363
+shader_param/twist_factor = 0.73
+shader_param/twist_factor_frequency = -3.0
+shader_param/s_factor = 0.5
+shader_param/s_factor_frequency = 3.0
+shader_param/frequency = 3.0
+shader_param/yaw_factor = 0.0
+shader_param/translate = Vector3( 0.37, 0, 0 )
+shader_param/head_z = -0.46
+shader_param/head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
+shader_param/tail_z = 1.0
+shader_param/tail_color = Color( 1, 1, 1, 1 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/roughness = 0.0
+shader_param/point_size = 1.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_albedo = ExtResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.882353, 0.372549, 0.172549, 1 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0.439216, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_texture = ExtResource( 22 )
+
+[node name="level_01" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
+script = ExtResource( 13 )
+
+[node name="water" parent="." instance=ExtResource( 11 )]
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 4.95221, -18.268 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 13, -155 )
+script = ExtResource( 3 )
+map_scale = Vector3( 0.53, 0.53, 0.51 )
+_terrain_data = ExtResource( 2 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="fish" type="MeshInstance" parent="."]
+transform = Transform( -0.0895964, -0.000213163, 0.0444122, -0.00114828, 0.0999765, -0.00183666, -0.0443979, -0.00215556, -0.0895778, 17.2114, -0.0308602, -5.3467 )
+mesh = ExtResource( 9 )
+material/0 = ExtResource( 10 )
+script = ExtResource( 8 )
+fish_translatex = 0.1
+fish_yaw = 0.25
+fish_twist = 0.8
+fish_s = 0.38
+fish_head_z = -1.16
+fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+
+[node name="fish 2" type="MeshInstance" parent="."]
+transform = Transform( -0.0951975, 0, 0.0306177, 0, 0.1, 0, -0.0306177, 0, -0.0951975, 16.9927, -0.11935, -6.07292 )
+mesh = ExtResource( 9 )
+material/0 = SubResource( 7 )
+script = ExtResource( 8 )
+frequency = 3.0
+fish_twist_frequency = -3.0
+fish_s_frequency = 3.0
+fish_translatex = 0.37
+fish_twist = 0.73
+fish_s = 0.5
+fish_head_z = -0.46
+fish_head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
+
+[node name="tire" type="MeshInstance" parent="."]
+transform = Transform( 0.857074, 0.050613, 0.512703, 0.510724, -0.214287, -0.832612, 0.0677247, 0.975459, -0.209509, 15.1289, 3.02162, 4.38828 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 8 )
+
+[node name="barrier" type="MeshInstance" parent="."]
+transform = Transform( -0.190637, 0.0563377, -0.010995, 0, 0.0727218, 0.0931552, 0.0604773, 0.177588, -0.0346587, 17.358, 0.356915, -2.98545 )
+mesh = ExtResource( 20 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="cone_worksite" type="MeshInstance" parent="."]
+transform = Transform( -0.0725879, -0.0687823, 0, 0.0687823, -0.0725879, 0, 0, 0, 0.1, 10.6967, 1.64824, 7.42021 )
+mesh = ExtResource( 16 )
+material/0 = SubResource( 9 )
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="cofee_cup" type="MeshInstance" parent="."]
+transform = Transform( -0.00087978, 0.0090673, 0.00412433, -0.00796344, 0.00184708, -0.0057595, -0.00598411, -0.00379109, 0.00705819, 9.34996, 0.976971, 6.3819 )
+mesh = ExtResource( 17 )
+skeleton = NodePath("../cone_worksite")
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="garbage_bin" type="MeshInstance" parent="."]
+transform = Transform( 0.00734926, 0, 0.00678147, 0, 0.01, 0, -0.00678147, 0, 0.00734926, 22.696, 5.88362, 11.5035 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 10 )
+material/1 = ExtResource( 19 )
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+
+[node name="beets_can" type="MeshInstance" parent="."]
+transform = Transform( 0.145488, -0.262288, 0.00618789, 0.262323, 0.145308, -0.00849773, 0.00443234, 0.00953183, 0.299816, 11.6617, 2.24239, -0.00352615 )
+mesh = ExtResource( 15 )
+material/0 = null
+material/1 = null
+
+[node name="matteucia_struthiopteris_1" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.8996, 1.86473, 5.54239 )
+mesh = ExtResource( 21 )
+material/0 = SubResource( 11 )
+
+[node name="matteucia_struthiopteris_2" type="MeshInstance" parent="."]
+transform = Transform( 0.0943083, 0.0332556, 0, -0.0332556, 0.0943083, 0, 0, 0, 0.1, 11.1867, 2.21341, -1.75463 )
+mesh = ExtResource( 23 )
+skeleton = NodePath("../matteucia_struthiopteris_1")
+material/0 = SubResource( 12 )
+
+[node name="matteucia_struthiopteris_3" type="MeshInstance" parent="."]
+transform = Transform( 0.0282925, 0.00997669, 0, -0.00997669, 0.0282925, 0, 0, 0, 0.03, 8.09239, 1.16291, 3.82334 )
+mesh = ExtResource( 24 )
+skeleton = NodePath("../matteucia_struthiopteris_2")
+material/0 = SubResource( 13 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 26 )
+autoplay = true
