@@ -63,7 +63,7 @@ vec4 wave(vec4 parameter, vec2 position, float time, inout vec3 tangent, inout v
 	float	wave_steepness	 = parameter.z;
 	float	wave_length		 = parameter.w;
 
-	float	k				 = 2.0 * 3.14159265359 / wave_length;
+	float	k				 = 5.0 * 3.14159265359 / wave_length;
 	float 	c 				 = sqrt(9.8 / k);
 	vec2	d				 = normalize(parameter.xy);
 	float 	f 				 = k * (dot(d, position) - c * time);
