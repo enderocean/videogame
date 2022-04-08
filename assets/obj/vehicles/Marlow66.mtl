@@ -1,0 +1,90 @@
+# Blender MTL File: 'Marlow66.blend'
+# Material Count: 6
+
+# DISCLOSURE:
+# This model obj or mtl files are NOT intended for commercial purposes.
+# Do not copy or sell in part or in full without explicit permission from original author
+# including accompanying textures, jpgs etc...
+# One or more textures bundled with this project have been created with images from Textures.com. 
+# These images may not be redistributed by default. Please visit www.textures.com for more information.
+#
+# AUTHOR: PapaySailor  Copyright 2020
+# WEB SITE: www.archipelagosim.com 
+
+newmtl Aluminum
+Ns 40.0
+Ka 0.2 0.2 0.2
+Kd 0.8 0.8 0.8
+Ks 0.1 0.1 0.1
+
+newmtl Black
+Ns 517.690314
+Ka 0.235955 0.235955 0.235955
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Chrome
+Ns 10
+Ka 0.05 0.05 0.1
+Kd 0.99 0.99 0.99
+Ks 1.0 1.0 1.0
+
+newmtl DarkWood
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.58 0.41 0.25
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd WoodPlanks.jpg
+
+newmtl LightBlue
+Ns 440.461707
+Ka 0.3 0.3 0.3
+Kd 0.25 1.0 1.0
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd HullTexture.png
+
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
+newmtl White
+Ka 0.38 0.39 0.38
+Kd 0.9 0.9 0.9
+Ks 0.57 0.49 0.37
+Ke 0.0 0.0 0.0
+Ns 579.0
+
+newmtl WindowShaded
+Ka 0.184744 0.184744 0.184744
+Kd 0.166368 0.218014 0.259048
+Ks 0.6283 0.5559 0.3661
+Ke 0.0 0.0 0.0
+Ns 427.451019
+Tr 0.2
+
+newmtl Wood
+Ns 50
+Ka 0.2 0.2 0.2
+Kd 0.93 0.82 0.63
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd FineWood.jpg

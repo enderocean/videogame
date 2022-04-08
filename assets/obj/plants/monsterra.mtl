@@ -1,0 +1,38 @@
+# Blender MTL File: 'monsterra.blend'
+# Material Count: 3
+
+newmtl Material__0
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.047059 0.133333 0.031373
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl Material__1
+Ns 500.071455
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.265455 0.265455 0.265455
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\Monsterra_Deliciosa_BLEND\\maps\\monsterra_deliciosa_leaf_1_normals.jpg
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\maps\\monsterra_deliciosa_leaf_1_color_c.jpg
+map_d C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\maps\\monsterra_deliciosa_leaf_1_mask_2.jpg
+
+newmtl Material__2
+Ns 646.014923
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.149091 0.149091 0.149091
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\Monsterra_Deliciosa_BLEND\\maps\\monsterra_deliciosa_leaf_1_normals.jpg
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\maps\\monsterra_deliciosa_leaf_1_color_b.jpg
+map_d C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\monsterra deliciosa\\maps\\monsterra_deliciosa_leaf_1_mask_1.jpg
