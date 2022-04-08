@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-scene = "res://scenes/practice.tscn"
+scene = "res://scenes/level_01.tscn"
 title = "Level 01"
 description = "You have 15 minutes to collect 20 objects."
 tools = PoolStringArray(  )
