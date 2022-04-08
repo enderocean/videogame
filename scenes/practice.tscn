@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scripts/targetPos.gd" type="Script" id=2]
@@ -277,84 +277,6 @@ func set_distance(value):
 	distance = max(0, value)
 "
 
-[sub_resource type="SpatialMaterial" id=20]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=21]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=22]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=23]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=24]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=25]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=26]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=27]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="Animation" id=18]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:material/0:emission_enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true ]
-}
-
-[sub_resource type="Animation" id=19]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:material/0:emission_enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.6, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true ]
-}
-
 [node name="Practice" type="Spatial"]
 script = ExtResource( 7 )
 vehicle_path = NodePath("BlueRov")
@@ -437,41 +359,9 @@ script = ExtResource( 2 )
 [node name="BlueRov" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 4.9 )
 
-[node name="t1" parent="BlueRov/BlueRov" index="0"]
-material_override = SubResource( 20 )
-
-[node name="t2" parent="BlueRov/BlueRov" index="1"]
-material_override = SubResource( 21 )
-
-[node name="t3" parent="BlueRov/BlueRov" index="2"]
-material_override = SubResource( 22 )
-
-[node name="t4" parent="BlueRov/BlueRov" index="3"]
-material_override = SubResource( 23 )
-
-[node name="t5" parent="BlueRov/BlueRov" index="4"]
-material_override = SubResource( 24 )
-
-[node name="t6" parent="BlueRov/BlueRov" index="5"]
-material_override = SubResource( 25 )
-
-[node name="t7" parent="BlueRov/BlueRov" index="6"]
-material_override = SubResource( 26 )
-
-[node name="t8" parent="BlueRov/BlueRov" index="7"]
-material_override = SubResource( 27 )
-
-[node name="greeledAnimation" parent="BlueRov/BlueRov/greenled" index="0"]
-anims/green_led = SubResource( 18 )
-
-[node name="redledanimation" parent="BlueRov/BlueRov/redled" index="0"]
-anims/green_led = SubResource( 19 )
-
 [node name="theter" type="Spatial" parent="BlueRov"]
 script = ExtResource( 6 )
 start = NodePath("../BlueRov")
 loops = 100
 
 [connection signal="objects_changed" from="DeliveryArea" to="." method="_on_DeliveryArea_objects_changed"]
-
-[editable path="BlueRov"]
