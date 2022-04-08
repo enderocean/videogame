@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
-[ext_resource path="res://scripts/moveBoat.gd" type="Script" id=2]
+[ext_resource path="res://scripts/move_boat.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=4]
 [ext_resource path="res://terrains/level_01/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_Color.jpg" type="Texture" id=6]
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
+[ext_resource path="res://scenes/rope/rope.gd" type="Script" id=8]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_Displacement.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/level_02/white_sand/Ground051_1K_NormalGL.jpg" type="Texture" id=10]
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
@@ -14,6 +15,9 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
 [ext_resource path="res://terrains/level_02/white_sand/Ground051_1K_Color.jpg" type="Texture" id=14]
 [ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=17]
+[ext_resource path="res://scripts/targetPos.gd" type="Script" id=18]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -35,6 +39,10 @@ transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
 shadow_enabled = true
+
+[node name="cameraPosition" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
+script = ExtResource( 18 )
 
 [node name="MovingBoat" type="KinematicBody" parent="."]
 transform = Transform( 0.608138, 0, -0.793831, 0, 1, 0, 0.793831, 0, 0.608138, -4.9253, 0, -129.756 )
@@ -95,3 +103,15 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="BlueRov" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 4.9 )
+
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 8 )
+start = NodePath("../BlueRov")
+loops = 100
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
