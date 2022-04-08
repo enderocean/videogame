@@ -1,6 +1,7 @@
 extends Resource
 class_name LevelData
 
+export var id: String = "level_id" 
 export(String, FILE, "*.tscn") var scene: String
 
 export var title: String = ""
@@ -10,17 +11,18 @@ export var tools: PoolStringArray
 export var objectives: PoolStringArray
 
 
-static func get_levels() -> Array:
+static func get_levels() -> Dictionary:
 	var path: String = "res://assets/levels/"
 	var files: PoolStringArray = get_files("res://assets/levels/")
-	var levels: Array
+	var levels: Dictionary
 	
 	for file in files:
 		var level: LevelData = load(path + file)
 		if not level:
 			continue
 		
-		levels.append(level)
+		if levels.has(level.id):
+			levels[level.id] = level
 	
 	return levels
 

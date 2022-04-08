@@ -23,7 +23,7 @@ var user_data: Dictionary = {
 	"score": 0
 }
 
-var levels: Array
+var levels: Dictionary
 
 var active_vehicle = null
 var sitl_pid: int = 0
