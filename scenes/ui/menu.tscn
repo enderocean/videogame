@@ -83,18 +83,18 @@ anims/rotatingbluerov = SubResource( 2 )
 transform = Transform( 1, 0, -6.55651e-07, 0, 1, 0, 6.55651e-07, 0, 1, 0.348981, 0, -0.233652 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 47.0833
-margin_top = 252.357
-margin_right = 432.083
-margin_bottom = 366.357
+margin_left = 47.0
+margin_top = 252.0
+margin_right = 432.0
+margin_bottom = 496.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 136.0
-margin_right = 247.0
-margin_bottom = 114.0
+margin_left = 137.0
+margin_right = 248.0
+margin_bottom = 244.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
