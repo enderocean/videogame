@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
 [ext_resource path="res://assets/menuEnvironment.tres" type="Environment" id=3]
 [ext_resource path="res://scripts/ui/main_menu.gd" type="Script" id=4]
@@ -154,6 +155,10 @@ https://www.enderocean.com
 Published under Open Source License - Affero GPL (AGPL)
 
 Credits Images : Vecteezy"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
