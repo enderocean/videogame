@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=1]
 [ext_resource path="res://scripts/targetPos.gd" type="Script" id=2]
@@ -13,18 +13,36 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=11]
 [ext_resource path="res://terrains/level_03/black/Ground049B_1K_Color.jpg" type="Texture" id=12]
 [ext_resource path="res://terrains/level_03/rock/Rock035_1K_NormalGL.jpg" type="Texture" id=13]
+[ext_resource path="res://assets/models/rocks/rock01.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://terrains/level_03/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=15]
+[ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://assets/models/rocks/rock03.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/models/rocks/rock04.obj" type="ArrayMesh" id=18]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
 mode = 0
 textures = [ [ ExtResource( 12 ), ExtResource( 7 ), ExtResource( 10 ) ], [ null, ExtResource( 8 ), ExtResource( 13 ) ] ]
 
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 15 )
+
 [node name="level_03" type="Spatial"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 0, 0 )
 script = ExtResource( 11 )
+underwater_env_override = ExtResource( 17 )
 
 [node name="water" parent="." instance=ExtResource( 3 )]
-transform = Transform( 407.342, 0, 0, 0, 153.6, 0, 0, 0, 547.358, 333.434, -1, -1.60167 )
+transform = Transform( -407.28, 0, 7.33651, 0, 153.6, 0, -7.10912, 0, -420.307, 360.356, -1, -58.2656 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -58,3 +76,27 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="rock01" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 16.0489, -12.2256, -100.104 )
+mesh = ExtResource( 14 )
+skeleton = NodePath("../HTerrain")
+material/0 = SubResource( 2 )
+
+[node name="rock02" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.5847, -25.8028, 90.5103 )
+mesh = ExtResource( 16 )
+skeleton = NodePath("../rock01")
+material/0 = SubResource( 3 )
+
+[node name="rock03" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, -15.5623, -16.5023, -19.2599 )
+mesh = ExtResource( 17 )
+skeleton = NodePath("../rock02")
+material/0 = SubResource( 4 )
+
+[node name="rock04" type="MeshInstance" parent="."]
+transform = Transform( 1.90893, 0, -0.894974, 0, 0.5, 0, 0.596649, 0, 2.86339, -8.31475, -13.7867, 247.393 )
+mesh = ExtResource( 18 )
+skeleton = NodePath("../rock03")
+material/0 = SubResource( 5 )
