@@ -105,7 +105,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gui]
 
