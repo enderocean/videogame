@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=1]
 [ext_resource path="res://scripts/targetPos.gd" type="Script" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://assets/models/rocks/rock03.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://assets/models/rocks/rock04.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://assets/models/rocks/rock06.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://assets/models/plants/Phormium_1.obj" type="ArrayMesh" id=22]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 5 )
@@ -36,13 +39,28 @@ albedo_texture = ExtResource( 15 )
 [sub_resource type="SpatialMaterial" id=5]
 albedo_texture = ExtResource( 15 )
 
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="CylinderMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.631373, 0.14902, 0.0862745, 1 )
+
 [node name="level_03" type="Spatial"]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 0, 0 )
 script = ExtResource( 11 )
-underwater_env_override = ExtResource( 17 )
+underwater_env_override = ExtResource( 20 )
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( -407.28, 0, 7.33651, 0, 153.6, 0, -7.10912, 0, -420.307, 360.356, -1, -58.2656 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -100,3 +118,178 @@ transform = Transform( 1.90893, 0, -0.894974, 0, 0.5, 0, 0.596649, 0, 2.86339, -
 mesh = ExtResource( 18 )
 skeleton = NodePath("../rock03")
 material/0 = SubResource( 5 )
+
+[node name="rock05" type="MeshInstance" parent="."]
+transform = Transform( 0.999887, -0.0150442, 0, 0.0150442, 0.999887, 0, 0, 0, 1, 1.99108, -10.7039, -155.401 )
+mesh = ExtResource( 20 )
+skeleton = NodePath("../HTerrain")
+material/0 = SubResource( 6 )
+
+[node name="rock06" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 0.078101, 0.599542, 0, -1.99847, 0.0234303, 10.4399, -10.4676, -335.817 )
+mesh = ExtResource( 21 )
+material/0 = SubResource( 7 )
+
+[node name="Pipe" type="MeshInstance" parent="."]
+transform = Transform( 0.65, 0, 0, 0, -1.83582e-05, -0.5, 0, 420, -2.17309e-08, 35.3882, -9.99835, -59.9507 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe3" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99835, 33.3826 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe12" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99834, -203.284 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe13" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99834, -243.284 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe14" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99834, -289.951 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe15" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99834, -343.284 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe16" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99833, -389.951 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe17" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99833, -426.617 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe4" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 80.0493 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe5" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 116.716 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe6" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 153.383 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe7" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 190.049 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe8" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 220.049 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe9" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99836, 246.716 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe10" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99837, 280.049 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Pipe11" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, -8.74228e-08, -0.7, 0, 2, -3.0598e-08, 35.3882, -9.99837, 336.716 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Phormium_1" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.149997, 0.0030369, 0, -0.00091107, 0.499991, 0.324364, -10.1508, 49.0326 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_2" type="MeshInstance" parent="."]
+transform = Transform( 0.14, 0, 0, 0, 0.119998, 0.00242952, 0, -0.000728856, 0.399993, 10.3244, -10.1508, 49.0326 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_3" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.149997, 0.0030369, 0, -0.00091107, 0.499991, 1.40349, -10.0387, 53.9904 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_4" type="MeshInstance" parent="."]
+transform = Transform( 0.482396, 0, -0.131507, 0.000798748, 0.149997, 0.00292997, 0.131505, -0.00091107, 0.482387, -20.7707, -9.79038, 1.82197 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_5" type="MeshInstance" parent="."]
+transform = Transform( 0.135071, 2.79397e-11, -0.105206, 0.000223649, 0.119998, 0.00234398, 0.0368213, -0.000728856, 0.38591, -9.09369, -9.68855, 2.08091 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_6" type="MeshInstance" parent="."]
+transform = Transform( 0.289438, 2.32831e-11, -0.105206, 0.000479249, 0.0999982, 0.00234398, 0.0789029, -0.00060738, 0.38591, -17.9628, -9.752, 7.44661 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_7" type="MeshInstance" parent="."]
+transform = Transform( 0.4, 0, 0, 0, 0.119998, 0.00182214, 0, -0.000728856, 0.299994, 5.40349, -10.0387, 53.9904 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_8" type="MeshInstance" parent="."]
+transform = Transform( 0.490511, 0, -0.096946, 0.000588831, 0.149997, 0.00297927, 0.0969442, -0.00091107, 0.490503, 0.324364, -10.1107, 122.366 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_9" type="MeshInstance" parent="."]
+transform = Transform( 0.137343, 1.39699e-11, -0.0775568, 0.000164872, 0.119998, 0.00238341, 0.0271444, -0.000728856, 0.392402, 10.3244, -10.1107, 122.366 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_12" type="MeshInstance" parent="."]
+transform = Transform( 0.490511, 0, -0.096946, 0.000588831, 0.149997, 0.00297927, 0.0969442, -0.00091107, 0.490503, 0.324364, -10.1107, 185.88 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_13" type="MeshInstance" parent="."]
+transform = Transform( 0.137343, 1.39699e-11, -0.0775568, 0.000164872, 0.119998, 0.00238341, 0.0271444, -0.000728856, 0.392402, 10.3244, -10.1107, 185.88 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_10" type="MeshInstance" parent="."]
+transform = Transform( 0.490511, 0, -0.096946, 0.000588831, 0.149997, 0.00297927, 0.0969442, -0.00091107, 0.490503, 1.40349, -9.99861, 127.324 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Phormium_11" type="MeshInstance" parent="."]
+transform = Transform( 0.392409, 1.39699e-11, -0.0581675, 0.000471063, 0.119998, 0.00178756, 0.0775553, -0.000728856, 0.294301, 5.40349, -9.99861, 127.324 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../rock06")
+material/0 = SubResource( 8 )
+
+[node name="Pipe2" type="MeshInstance" parent="."]
+transform = Transform( 0.4225, 0, 0, 0, -210, 9.18996e-06, 0, -0.00771957, -210, 58.3905, 19.9772, -4259.26 )
+mesh = SubResource( 9 )
+skeleton = NodePath("../Pipe")
+material/0 = SubResource( 10 )
