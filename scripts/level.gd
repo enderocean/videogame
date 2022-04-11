@@ -23,6 +23,9 @@ onready var sun: Light = get_node(sun_path)
 export var vehicle_path: NodePath
 onready var vehicle: Vehicle = get_node(vehicle_path)
 
+export var camera_position_path: NodePath
+onready var camera_position = get_node(camera_position_path)
+
 ## TODO: Replace this when the mission system is in place
 ## Objectives array, must be an array of dictionnary containing "title" and "value"
 var objectives: Array
@@ -30,7 +33,7 @@ onready var delivery_objects: Array
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
-onready var surface_altitude = water.global_transform.origin.y
+onready var surface_altitude: float = water.global_transform.origin.y
 
 var fancy_water
 var fancy_underwater
