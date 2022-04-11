@@ -85,6 +85,7 @@ config/description="Your mission : \"Clean the Ocean!\""
 run/main_scene="res://scenes/ui/menu.tscn"
 boot_splash/image="res://assets/logo_ender.png"
 boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]

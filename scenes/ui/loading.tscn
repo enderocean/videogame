@@ -14,14 +14,25 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="."]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-rect_scale = Vector2( 1.0011, 1.01107 )
+anchor_bottom = 0.5
+margin_top = -19.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "Loading..."
 align = 1
 valign = 1
 
-[node name="LogoEnder" type="Sprite" parent="."]
-position = Vector2( 510.129, 157.583 )
+[node name="LogoEnder" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -240.0
+margin_right = 96.0
+margin_bottom = -48.0001
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
