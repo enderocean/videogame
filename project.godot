@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/delivery_object.gd"
 }, {
-"base": "InterpolatedCamera",
+"base": "Camera",
 "class": "FollowCamera",
 "language": "GDScript",
 "path": "res://scripts/camera/follow_camera.gd"

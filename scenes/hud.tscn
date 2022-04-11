@@ -68,14 +68,13 @@ render_target_update_mode = 3
 shadow_atlas_size = 512
 shadow_atlas_quad_1 = 3
 
-[node name="FollowCamera" type="InterpolatedCamera" parent="ViewportFollowCamera/Viewport" groups=["cameras"]]
+[node name="FollowCamera" type="Camera" parent="ViewportFollowCamera/Viewport" groups=["cameras"]]
 transform = Transform( -0.995028, 0, 0.0995974, 0, 1, 0, -0.0995974, 0, -0.995028, -1.54154, 7.13712, -2.96935 )
 cull_mask = 1048573
 environment = ExtResource( 1 )
 far = 497.4
-speed = 10.0
-enabled = true
 script = ExtResource( 2 )
+speed = 2.0
 
 [node name="ViewportLookAtCamera" type="ViewportContainer" parent="."]
 pause_mode = 2
@@ -127,7 +126,6 @@ shadow_atlas_quad_1 = 3
 transform = Transform( -0.995028, 0, 0.0995974, 0, 1, 0, -0.0995974, 0, -0.995028, -1.54154, 7.13712, -2.96935 )
 cull_mask = 3
 environment = ExtResource( 1 )
-speed = 10.0
 enabled = true
 script = ExtResource( 2 )
 

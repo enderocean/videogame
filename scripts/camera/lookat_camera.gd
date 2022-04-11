@@ -2,12 +2,7 @@ extends Camera
 class_name LookAtCamera
 
 export var target_path: NodePath
-var target: Spatial
-
-
-func _ready() -> void:
-	if target_path:
-		target = get_node(target_path)
+onready var target: Spatial = get_node_or_null(target_path)
 
 
 func _physics_process(delta: float) -> void:
