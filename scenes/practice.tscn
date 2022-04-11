@@ -355,6 +355,7 @@ far = 275.0
 [node name="cameraPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 2 )
+vehicle_path = NodePath("../BlueRov")
 
 [node name="BlueRov" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 4.9 )

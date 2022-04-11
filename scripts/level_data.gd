@@ -6,6 +6,8 @@ export(String, FILE, "*.tscn") var scene: String
 export(String, FILE, "*.jpg, *.png") var thumbnail: String
 
 export var title: String = ""
+export var country: String = ""
+export var place: String = ""
 export(String, MULTILINE) var description: String = ""
 
 export var tools: PoolStringArray
@@ -22,7 +24,7 @@ static func get_levels() -> Dictionary:
 		if not level:
 			continue
 		
-		if levels.has(level.id):
+		if not levels.has(level.id):
 			levels[level.id] = level
 	
 	return levels

@@ -39,6 +39,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/camera/lookat_camera.gd"
 }, {
+"base": "Camera2D",
+"class": "MapCamera",
+"language": "GDScript",
+"path": "res://scripts/ui/map/map_camera.gd"
+}, {
+"base": "Control",
+"class": "MissionPanel",
+"language": "GDScript",
+"path": "res://scripts/ui/map/mission_panel.gd"
+}, {
+"base": "Node2D",
+"class": "MissionPoint",
+"language": "GDScript",
+"path": "res://scripts/ui/mission_point.gd"
+}, {
 "base": "Timer",
 "class": "MissionTimer",
 "language": "GDScript",
@@ -53,6 +68,11 @@ _global_script_classes=[ {
 "class": "Vehicle",
 "language": "GDScript",
 "path": "res://scripts/vehicle.gd"
+}, {
+"base": "Node2D",
+"class": "WorldMap",
+"language": "GDScript",
+"path": "res://scripts/ui/map.gd"
 } ]
 _global_script_class_icons={
 "DeliveryArea": "",
@@ -61,15 +81,22 @@ _global_script_class_icons={
 "Level": "",
 "LevelData": "",
 "LookAtCamera": "",
+"MapCamera": "",
+"MissionPanel": "",
+"MissionPoint": "",
 "MissionTimer": "",
 "ObjectiveLine": "",
-"Vehicle": ""
+"Vehicle": "",
+"WorldMap": ""
 }
 
 [application]
 
-config/name="BlueSim"
+config/name="Ender Ocean"
+config/description="Your mission : \"Clean the Ocean!\""
 run/main_scene="res://scenes/ui/menu.tscn"
+boot_splash/image="res://assets/logo_ender.png"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
