@@ -32,6 +32,7 @@ textures = [ [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource
 [node name="level_02" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
+vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )

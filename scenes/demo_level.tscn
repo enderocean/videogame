@@ -97,7 +97,9 @@ points = PoolVector3Array( -7.3641, 36.2076, -0.373147, -14.0947, 18.7921, -0.14
 points = PoolVector3Array( 8.90735, 5.04258, 2.83457, -7.13428, 5.04258, -2.89341, -7.13428, 5.95947, -2.89341, -7.13428, 5.95947, 3.06374, -6.68011, 3.95556, 1.81413, 8.48946, 3.9509, -1.6521, 8.90735, 5.95947, -2.66425, 8.44884, 5.95947, 3.06374, 6.38553, 4.1265, 2.60541, -6.7164, 3.9509, -1.6521, -7.13428, 5.04258, 3.06374, 8.44884, 5.04258, -2.89341, 8.45318, 3.95556, 1.81413, 8.44884, 5.04258, 3.06374, 8.90735, 4.1265, 2.37624, 8.44884, 5.95947, -2.89341, 8.90735, 5.04258, -2.66425, 8.90735, 5.95947, 2.83457 )
 
 [node name="demo_level" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
+vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.22568, -20.9698 )
@@ -131,14 +133,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="cameraPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 19 )
-
-[node name="BlueRov" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.999999, 0, -0.00115195, 0, 1, 0, 0.00115195, 0, -0.999999, -3.94971, -1.9, -2.1 )
-
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 17 )
-start = NodePath("../BlueRov")
-loops = 100
 
 [node name="monsterra" type="MeshInstance" parent="."]
 transform = Transform( 0.04, 0, 0, 0, 0.14, 0, 0, 0, 0.04, -10.1639, -2.39533, -5.6685 )
@@ -243,80 +237,94 @@ material/2 = SubResource( 4 )
 stream = ExtResource( 20 )
 autoplay = true
 
-[node name="RigidBody2" type="RigidBody" parent="."]
+[node name="Bicycle" type="RigidBody" parent="."]
 collision_layer = 2
+collision_mask = 3
+mode = 1
+mass = 20.0
 script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="monocycle" type="MeshInstance" parent="RigidBody2"]
+[node name="monocycle" type="MeshInstance" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 mesh = ExtResource( 16 )
 skeleton = NodePath("../../HTerrain")
 material/0 = SubResource( 7 )
 
-[node name="CollisionShape17" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape17" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 8 )
 
-[node name="CollisionShape16" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape16" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 9 )
 
-[node name="CollisionShape15" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape15" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 10 )
 
-[node name="CollisionShape14" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape14" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 11 )
 
-[node name="CollisionShape13" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape13" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 12 )
 
-[node name="CollisionShape12" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape12" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 13 )
 
-[node name="CollisionShape11" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape11" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 14 )
 
-[node name="CollisionShape10" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape10" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 15 )
 
-[node name="CollisionShape9" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape9" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 16 )
 
-[node name="CollisionShape8" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape8" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 17 )
 
-[node name="CollisionShape7" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape7" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 18 )
 
-[node name="CollisionShape6" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape6" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 19 )
 
-[node name="CollisionShape5" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape5" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 20 )
 
-[node name="CollisionShape4" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape4" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 21 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape3" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 22 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape2" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 23 )
 
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody2"]
+[node name="CollisionShape" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 24 )
+
+[node name="BlueRov" parent="." instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, -0.9, -3.1 )
+
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 17 )
+start = NodePath("../BlueRov")
+loops = 100
