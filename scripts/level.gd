@@ -23,9 +23,6 @@ onready var sun: Light = get_node(sun_path)
 export var vehicle_path: NodePath
 onready var vehicle: Vehicle = get_node(vehicle_path)
 
-export var camera_position_path: NodePath
-onready var camera_position = get_node(camera_position_path)
-
 ## TODO: Replace this when the mission system is in place
 ## Objectives array, must be an array of dictionnary containing "title" and "value"
 var objectives: Array
