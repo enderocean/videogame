@@ -99,7 +99,6 @@ points = PoolVector3Array( 8.90735, 5.04258, 2.83457, -7.13428, 5.04258, -2.8934
 [node name="demo_level" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
-vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.22568, -20.9698 )
@@ -133,6 +132,14 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="cameraPosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
 script = ExtResource( 19 )
+
+[node name="BlueRov" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 1.9 )
+
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 17 )
+start = NodePath("../BlueRov")
+loops = 100
 
 [node name="monsterra" type="MeshInstance" parent="."]
 transform = Transform( 0.04, 0, 0, 0, 0.14, 0, 0, 0, 0.04, -10.1639, -2.39533, -5.6685 )
@@ -241,7 +248,7 @@ autoplay = true
 collision_layer = 2
 collision_mask = 3
 mode = 1
-mass = 20.0
+mass = 10.0
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
@@ -320,11 +327,3 @@ shape = SubResource( 23 )
 [node name="CollisionShape" type="CollisionShape" parent="Bicycle"]
 transform = Transform( 0.0197017, 0.000851461, -0.00333433, -0.00335217, 0.000365802, -0.0197137, -0.000778286, 0.0199785, 0.000503059, -12.0781, -2.18134, -3.46175 )
 shape = SubResource( 24 )
-
-[node name="BlueRov" parent="." instance=ExtResource( 18 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, -0.9, -3.1 )
-
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 17 )
-start = NodePath("../BlueRov")
-loops = 100
