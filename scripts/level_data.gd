@@ -3,6 +3,7 @@ class_name LevelData
 
 export var id: String = "level_id" 
 export(String, FILE, "*.tscn") var scene: String
+export(String, FILE, "*.jpg, *.png") var thumbnail: String
 
 export var title: String = ""
 export(String, MULTILINE) var description: String = ""
