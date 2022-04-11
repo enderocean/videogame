@@ -11,6 +11,9 @@ export var missions_path: NodePath = "Missions"
 onready var missions: Node2D = get_node(missions_path)
 
 var mission_points: Array
+var current_point: MissionPoint
+
+signal mission_pressed
 
 func _ready() -> void:
 	for i in range(missions.get_child_count()):
@@ -23,6 +26,10 @@ func update_line() -> void:
 	for point in mission_points:
 		line.add_point(point.position)
 
+func goto_current() -> void:
+	current_point.active = true
+	camera.goto(current_point)
+
 
 func goto(id: String) -> void:
 	var mission_point: MissionPoint
@@ -33,5 +40,22 @@ func goto(id: String) -> void:
 		mission_point = point
 		break
 	
-	camera.goto(mission_point)
+	if not mission_point:
+		return
 	
+	if current_point:
+		current_point.active = false
+	
+	current_point = mission_point
+	current_point.active = true
+	
+	camera.goto(mission_point)
+
+
+func _on_mission_pressed(mission_point: MissionPoint) -> void:
+	if current_point:
+		current_point.active = false
+	
+	current_point = mission_point
+	
+	emit_signal("mission_pressed")

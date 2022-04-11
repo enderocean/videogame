@@ -15,8 +15,22 @@ func _ready() -> void:
 	if world_map.mission_points.size() == 0:
 		return
 	
-	
 	world_map.goto(current_mission.id)
+	mission_panel.show_mission(current_mission)
+
+func _on_mission_pressed() -> void:
+	var current_point: MissionPoint = world_map.current_point
+	if not Globals.levels.has(current_point.mission_id):
+		printerr("Level not found with id: ", current_point.mission_id)
+		return
+	
+	var mission: LevelData = Globals.levels[current_point.mission_id]
+	if not mission:
+		printerr("LevelData not loaded: ", current_point.mission_id)
+		return
+	
+	current_mission = mission
+	world_map.goto(mission.id)
 	mission_panel.show_mission(current_mission)
 
 func _on_StartMission_pressed() -> void:

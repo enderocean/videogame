@@ -14,6 +14,7 @@
 [node name="MissionsMap" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 10 )
 mission_panel_path = NodePath("HBoxContainer/Sidepanel")
 world_map_path = NodePath("HBoxContainer/ViewportContainer/Viewport/Map")
@@ -21,6 +22,7 @@ world_map_path = NodePath("HBoxContainer/ViewportContainer/Viewport/Map")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_constants/separation = 0
 
 [node name="Sidepanel" type="ColorRect" parent="HBoxContainer"]
@@ -152,6 +154,7 @@ text = "START MISSION"
 margin_left = 300.0
 margin_right = 1024.0
 margin_bottom = 600.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
@@ -160,7 +163,9 @@ stretch = true
 size = Vector2( 724, 600 )
 handle_input_locally = false
 render_target_update_mode = 3
+physics_object_picking = true
 
 [node name="Map" parent="HBoxContainer/ViewportContainer/Viewport" instance=ExtResource( 8 )]
 
 [connection signal="pressed" from="HBoxContainer/Sidepanel/MarginContainer/VBoxContainer/StartMission" to="." method="_on_StartMission_pressed"]
+[connection signal="mission_pressed" from="HBoxContainer/ViewportContainer/Viewport/Map" to="." method="_on_mission_pressed"]
