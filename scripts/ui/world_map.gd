@@ -27,11 +27,16 @@ func update_line() -> void:
 		line.add_point(point.position)
 
 func goto_current() -> void:
+	if not current_point:
+		printerr("Current point not set on the world map")
+		return
+	
 	current_point.active = true
 	camera.goto(current_point)
 
 
 func goto(id: String) -> void:
+	# Get the mission point with it's id
 	var mission_point: MissionPoint
 	for point in mission_points:
 		if point.mission_id != id:

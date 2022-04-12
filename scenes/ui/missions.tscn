@@ -35,7 +35,7 @@ color = Color( 0.4, 0.4, 0.4, 1 )
 script = ExtResource( 9 )
 thumbnail_path = NodePath("MarginContainer/VBoxContainer/Thumbnail")
 country_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2/Country")
-place_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2/Place")
+location_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2/Location")
 description_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer3/Description")
 objective_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer3/Objective")
 tools_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer3/Tools")
@@ -90,7 +90,7 @@ margin_bottom = 24.0
 custom_fonts/font = ExtResource( 7 )
 text = "Country"
 
-[node name="Place" type="Label" parent="HBoxContainer/Sidepanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Location" type="Label" parent="HBoxContainer/Sidepanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 margin_top = 24.0
 margin_right = 240.0
 margin_bottom = 48.0

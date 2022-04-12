@@ -9,14 +9,9 @@ export var world_map_path: NodePath
 onready var world_map: WorldMap = get_node(world_map_path)
 
 func _ready() -> void:
-	# TODO: Change this with user data or first mission
-	current_mission = Globals.levels.practice
-	
-	if world_map.mission_points.size() == 0:
-		return
-	
-	world_map.goto(current_mission.id)
-	mission_panel.show_mission(current_mission)
+	# Set the first point as current
+	world_map.current_point = world_map.mission_points[0]
+	_on_mission_pressed()
 
 func _on_mission_pressed() -> void:
 	var current_point: MissionPoint = world_map.current_point
@@ -30,7 +25,7 @@ func _on_mission_pressed() -> void:
 		return
 	
 	current_mission = mission
-	world_map.goto(mission.id)
+	world_map.goto_current()
 	mission_panel.show_mission(current_mission)
 
 func _on_StartMission_pressed() -> void:
