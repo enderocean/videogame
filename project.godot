@@ -80,11 +80,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ender Ocean"
-config/description="Your mission : \"Clean the Ocean!\""
+config/name="BlueSim"
 run/main_scene="res://scenes/ui/menu.tscn"
-boot_splash/image="res://assets/logo_ender.png"
-boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [autoload]
@@ -105,7 +102,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg" )
 
 [gui]
 
