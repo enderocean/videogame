@@ -32,5 +32,8 @@ func show_mission(level_data: LevelData) -> void:
 		objective.text += " - " + text + "\n"
 	
 	tools.text = "Tools: "
-	for text in level_data.tools:
-		tools.text += text + ", "
+	for i in range(level_data.tools.size()):
+		tools.text += level_data.tools[i]
+		
+		if i < level_data.tools.size() - 1:
+			tools.text += ", "

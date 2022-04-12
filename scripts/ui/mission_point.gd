@@ -2,8 +2,8 @@ extends Node2D
 class_name MissionPoint
 
 export var mission_id: String
+export var completed: bool = false
 export var zoom: Vector2 = Vector2(0.5, 0.5)
-export var hover_color: Color = Color.white
 
 var active: bool = false setget set_active
 

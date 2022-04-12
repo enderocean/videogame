@@ -27,12 +27,11 @@ script = ExtResource( 5 )
 [node name="Practice" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( -160, -104 )
 mission_id = "practice"
-zoom = Vector2( 0.75, 0.75 )
+completed = true
 
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 80, -168 )
 mission_id = "level_01"
-zoom = Vector2( 0.75, 0.75 )
 
 [node name="Level 02" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( -192, -240 )

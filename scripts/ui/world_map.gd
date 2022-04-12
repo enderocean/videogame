@@ -23,8 +23,19 @@ func _ready() -> void:
 
 func update_line() -> void:
 	line.clear_points()
-	for point in mission_points:
-		line.add_point(point.position)
+	# TODO: Could be improved with user save
+	# Get the last completed mission index
+	var index: int = -1
+	for i in range(mission_points.size()):
+		if not mission_points[i].completed:
+			continue
+		index = i
+	
+	# Connect all the completed points and the next one
+	for i in range(index + 2):
+		if i >= mission_points.size():
+			break
+		line.add_point(mission_points[i].position)
 
 func goto_current() -> void:
 	if not current_point:

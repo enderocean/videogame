@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
-id = "level_01"
+id = "level_02"
 scene = "res://scenes/level_01.tscn"
 thumbnail = "res://assets/background.jpg"
-title = "level_01"
-country = "Germany"
-location = "The Rhine"
+title = "level_02"
+country = "United Kingdom"
+location = "The Bristol Channel"
 description = "You have 15 minutes to collect 20 objects."
-objectives = PoolStringArray( "Keep clean.", "Have fun!" )
-tools = PoolStringArray( "Claw", "Vacuum Cleaner" )
+objectives = PoolStringArray(  )
+tools = PoolStringArray(  )

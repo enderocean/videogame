@@ -10,8 +10,8 @@ export var country: String = ""
 export var location: String = ""
 export(String, MULTILINE) var description: String = ""
 
-export var tools: PoolStringArray
 export var objectives: PoolStringArray
+export var tools: PoolStringArray
 
 
 static func get_levels() -> Dictionary:
