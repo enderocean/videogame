@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=26]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/rope/rope.gd" type="Script" id=28]
-[ext_resource path="res://scripts/targetPos.gd" type="Script" id=29]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -370,7 +369,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 17.9015
+shader_param/timer = 15.9381
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -450,10 +449,6 @@ script = SubResource( 14 )
 [node name="Camera" type="Camera" parent="playerCamera" groups=["cameras"]]
 visible = false
 far = 275.0
-
-[node name="cameraPosition" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
-script = ExtResource( 29 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.85378, 2.72722, 6.47834 )
