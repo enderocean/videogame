@@ -341,6 +341,7 @@ points = PoolVector3Array( 8.90735, 5.04258, 2.83457, -7.13428, 5.04258, -2.8934
 [node name="demo_level" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
+vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.22568, -20.9698 )
@@ -371,6 +372,14 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = true
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
+[node name="BlueRov" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 1.9 )
+
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 17 )
+start = NodePath("../BlueRov")
+loops = 100
+
 [node name="playerCamera" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7902, 0 )
 visible = false
@@ -379,14 +388,6 @@ script = SubResource( 25 )
 [node name="Camera" type="Camera" parent="playerCamera" groups=["cameras"]]
 visible = false
 far = 275.0
-
-[node name="BlueRov" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 1.9 )
-
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 17 )
-start = NodePath("../BlueRov")
-loops = 100
 
 [node name="monsterra" type="MeshInstance" parent="."]
 transform = Transform( 0.04, 0, 0, 0, 0.14, 0, 0, 0, 0.04, -10.1639, -2.39533, -5.6685 )
