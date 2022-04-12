@@ -155,14 +155,10 @@ func _ready():
 	if Engine.is_editor_hint():
 		calculate_motors_matrix()
 		return
-	if Globals.active_vehicle == "bluerovheavy":
-		$Camera.set_current(true)
+
 	_initial_position = get_global_transform().origin
 	set_physics_process(true)
-	if typeof(Globals.active_vehicle) == TYPE_STRING and Globals.active_vehicle == "bluerovheavy":
-		Globals.active_vehicle = self
-	else:
-		return
+
 	if not Globals.isHTML5:
 		connect_fmd_in()
 

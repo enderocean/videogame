@@ -25,7 +25,6 @@ var user_data: Dictionary = {
 
 var levels: Dictionary
 
-var active_vehicle = null
 var sitl_pid: int = 0
 
 signal fancy_water_changed
