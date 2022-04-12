@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://scripts/move_boat.gd" type="Script" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=17]
-[ext_resource path="res://scripts/targetPos.gd" type="Script" id=18]
 
 [sub_resource type="GDScript" id=4]
 script/source = "# Licensed under the MIT License.
@@ -292,10 +291,6 @@ script = SubResource( 4 )
 [node name="Camera" type="Camera" parent="playerCamera" groups=["cameras"]]
 visible = false
 far = 275.0
-
-[node name="cameraPosition" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21178, 10.2615, 4.21928 )
-script = ExtResource( 18 )
 
 [node name="MovingBoat" type="KinematicBody" parent="."]
 transform = Transform( 0.608138, 0, -0.793831, 0, 1, 0, 0.793831, 0, 0.608138, -4.9253, 0, -129.756 )
