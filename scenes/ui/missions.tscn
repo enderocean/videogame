@@ -167,5 +167,17 @@ physics_object_picking = true
 
 [node name="Map" parent="HBoxContainer/ViewportContainer/Viewport" instance=ExtResource( 8 )]
 
+[node name="Back" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 3 )
+text = "X"
+
 [connection signal="pressed" from="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/StartMission" to="." method="_on_StartMission_pressed"]
 [connection signal="mission_pressed" from="HBoxContainer/ViewportContainer/Viewport/Map" to="." method="_on_mission_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

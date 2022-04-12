@@ -43,3 +43,7 @@ func _on_StartMission_pressed() -> void:
 	
 	SceneLoader.load_scene("res://scenes/hud.tscn")
 	SceneLoader.load_scene(current_mission.scene, true)
+
+
+func _on_Back_pressed() -> void:
+	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
