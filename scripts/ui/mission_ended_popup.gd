@@ -49,6 +49,7 @@ func update_objectives(objectives: Array) -> void:
 		if objective.has("value"):
 			line.value.text = str(objective.value)
 
+
 func _on_visibility_changed() -> void:
 	get_tree().paused = visible
 	if not visible:
@@ -67,18 +68,20 @@ func _on_Ok_pressed() -> void:
 		username.editable = true
 		return
 	
-	Globals.user_data.name = username.text
+	SaveManager.data.name = username.text
 	if Globals.SEND_DATA:
 		Leaderboard.send_score()
 	
 	normal_panel.visible = true
 	user_panel.visible = false
 
+
 func check_username() -> bool:
 	if " " in username.text:
 		return false
 	
 	return true
+
 
 func _on_Restart_pressed() -> void:
 	visible = false
@@ -88,7 +91,3 @@ func _on_Restart_pressed() -> void:
 func _on_Back_pressed() -> void:
 	visible = false
 	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
-
-
-
-

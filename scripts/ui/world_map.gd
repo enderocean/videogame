@@ -12,6 +12,7 @@ onready var missions: Node2D = get_node(missions_path)
 
 var mission_points: Array
 var current_point: MissionPoint
+var current_point_index: int setget set_current_point
 
 signal mission_pressed
 
@@ -23,30 +24,15 @@ func _ready() -> void:
 
 func update_line() -> void:
 	line.clear_points()
-	# TODO: Could be improved with user save
-	# Get the last completed mission index
-	var index: int = -1
-	for i in range(mission_points.size()):
-		if not mission_points[i].completed:
-			continue
-		index = i
 	
 	# Connect all the completed points and the next one
-	for i in range(index + 2):
+	for i in range(current_point_index + 2):
 		if i >= mission_points.size():
 			break
 		line.add_point(mission_points[i].position)
 
-func goto_current() -> void:
-	if not current_point:
-		printerr("Current point not set on the world map")
-		return
-	
-	current_point.active = true
-	camera.goto(current_point)
 
-
-func goto(id: String) -> void:
+func goto_with_id(id: String) -> void:
 	# Get the mission point with it's id
 	var mission_point: MissionPoint
 	for point in mission_points:
@@ -68,10 +54,26 @@ func goto(id: String) -> void:
 	camera.goto(mission_point)
 
 
-func _on_mission_pressed(mission_point: MissionPoint) -> void:
+func goto(mission_point: MissionPoint) -> void:
+	if not mission_point:
+		printerr("Given point not set")
+		return
+	
 	if current_point:
 		current_point.active = false
 	
 	current_point = mission_point
+	current_point.active = true
+	camera.goto(current_point)
+
+
+func set_current_point(value: int) -> void:
+	current_point_index = value
+	current_point = mission_points[value]
+
+
+func _on_mission_pressed(mission_point: MissionPoint) -> void:
+	if current_point:
+		current_point.active = false
 	
-	emit_signal("mission_pressed")
+	emit_signal("mission_pressed", mission_point)

@@ -10,6 +10,8 @@ export var country: String = ""
 export var location: String = ""
 export(String, MULTILINE) var description: String = ""
 
+# Time in minutes
+export var time: int = 15
 export var objectives: PoolStringArray
 export var tools: PoolStringArray
 

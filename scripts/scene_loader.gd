@@ -126,9 +126,10 @@ func set_new_scene(scene_resource: PackedScene) -> void:
 	var scene = scene_resource.instance()
 	root.add_child(scene)
 	
-	current_scenes.append({ "path": loading_queue[0], "scene": scene })
+	var scene_data: Dictionary = { "path": loading_queue[0], "scene": scene }
+	current_scenes.append(scene_data)
 	loading_queue.remove(0)
 	
 	root.remove_child(loading_scene)
 	root.add_child(loading_scene)
-	emit_signal("scene_loaded", scene)
+	emit_signal("scene_loaded", scene_data)

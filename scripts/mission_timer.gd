@@ -23,6 +23,7 @@ func _physics_process(_delta: float) -> void:
 func start_timer() -> void:
 	start(minutes * 60)
 
+
 static func format_time(time_sec: float) -> String:
 	var secs: int = int(time_sec) % 60
 	var mins: int = int(time_sec / 60) % 60
