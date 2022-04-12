@@ -285,6 +285,7 @@ spot_angle_attenuation = 0.48
 [node name="Camera" type="Camera" parent="BlueRov" groups=["cameras"]]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00410311, 0.0132817, 0.378081 )
 environment = ExtResource( 4 )
+current = true
 fov = 80.0
 far = 640.7
 
