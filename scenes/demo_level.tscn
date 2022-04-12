@@ -342,6 +342,7 @@ albedo_color = Color( 0.129412, 0.345098, 0.141176, 1 )
 [node name="demo_level" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
+vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.22568, -20.9698 )
