@@ -11,5 +11,5 @@ title = "Practice"
 country = "France"
 location = "Pool"
 description = "You have 15 minutes to collect 20 objects."
-tools = PoolStringArray(  )
 objectives = PoolStringArray(  )
+tools = PoolStringArray(  )

@@ -11,6 +11,7 @@ onready var world_map: WorldMap = get_node(world_map_path)
 func _ready() -> void:
 	# Set the first point as current
 	world_map.current_point = world_map.mission_points[0]
+	world_map.update_line()
 	_on_mission_pressed()
 
 func _on_mission_pressed() -> void:
