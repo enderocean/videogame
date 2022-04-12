@@ -7,8 +7,8 @@ onready var thumbnail: TextureRect = get_node(thumbnail_path)
 export var country_path: NodePath
 onready var country: Label = get_node(country_path)
 
-export var place_path: NodePath
-onready var place: Label = get_node(place_path)
+export var location_path: NodePath
+onready var location: Label = get_node(location_path)
 
 export var description_path: NodePath
 onready var description: RichTextLabel = get_node(description_path)
@@ -24,7 +24,7 @@ func show_mission(level_data: LevelData) -> void:
 		thumbnail.texture = load(level_data.thumbnail)
 	
 	country.text = level_data.country
-	place.text = level_data.place
+	location.text = level_data.location
 	description.text = level_data.description
 	
 	objective.text = "Objective:\n"

@@ -7,7 +7,7 @@ export(String, FILE, "*.jpg, *.png") var thumbnail: String
 
 export var title: String = ""
 export var country: String = ""
-export var place: String = ""
+export var location: String = ""
 export(String, MULTILINE) var description: String = ""
 
 export var tools: PoolStringArray
