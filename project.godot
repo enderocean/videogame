@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/delivery_object.gd"
 }, {
-"base": "InterpolatedCamera",
+"base": "Camera",
 "class": "FollowCamera",
 "language": "GDScript",
 "path": "res://scripts/camera/follow_camera.gd"
@@ -80,8 +80,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="BlueSim"
+config/name="Ender Ocean"
+config/description="Your mission : \"Clean the Ocean!\""
 run/main_scene="res://scenes/ui/menu.tscn"
+boot_splash/image="res://assets/logo_ender.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -102,7 +106,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/thruster_nodes/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gui]
 
