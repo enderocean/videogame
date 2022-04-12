@@ -1,8 +1,8 @@
 extends Node
 class_name Level
 
-const BUOYANCY = 10.0  # newtons?
-const HEIGHT = 2.4  # TODO: get this programatically
+const BUOYANCY: float = 10.0  # newtons?
+const HEIGHT: float = 2.4  # TODO: get this programatically
 
 # Default Environments
 var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
@@ -27,6 +27,7 @@ onready var vehicle: Vehicle = get_node(vehicle_path)
 ## Objectives array, must be an array of dictionnary containing "title" and "value"
 var objectives: Array
 onready var delivery_objects: Array
+var score: int = 0
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -40,7 +41,7 @@ onready var depth: float = 0
 onready var last_depth: float = 0
 
 var finished: bool = false
-signal finished
+signal finished(score)
 
 func _ready():
 	# Replace the default underwater environment
@@ -162,8 +163,8 @@ func _on_DeliveryArea_objects_changed(objects: Array) -> void:
 	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
 	
 	objectives[0].value = "%s / %s" % [objects.size(), delivery_objects.size()]
-	Globals.user_data.score = objects.size()
+	score = objects.size()
 	
 	if objects.size() == delivery_objects.size():
 		finished = true
-		emit_signal("finished")
+		emit_signal("finished", score)

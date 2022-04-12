@@ -18,11 +18,6 @@ export var physics_rate: int = 60 setget set_physics_rate
 export var wind_dir: float = 0.0
 export var wind_speed: float = 5.0
 
-var user_data: Dictionary = {
-	"name": "",
-	"score": 0
-}
-
 var levels: Dictionary
 
 var sitl_pid: int = 0
