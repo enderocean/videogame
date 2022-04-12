@@ -30,7 +30,7 @@ onready var delivery_objects: Array
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
-onready var surface_altitude = water.global_transform.origin.y
+onready var surface_altitude: float = water.global_transform.origin.y
 
 var fancy_water
 var fancy_underwater
@@ -73,21 +73,23 @@ func calculate_buoyancy_and_ballast():
 		if buoys:
 			var children = buoys.get_children()
 			for buoy in children:
-				# print(buoy.transform.origin)
 				var buoyancy = (
 					vehicle.buoyancy
 					* (surface_altitude - buoy.global_transform.origin.y)
 					/ children.size()
 				)
+				
 				if buoy.global_transform.origin.y > surface_altitude:
 					buoyancy = 0
-				vehicle.add_force_local_pos(Vector3(0, buoyancy, 0), buoy.transform.origin)
+				
+				vehicle.add_force_local_pos(Vector3.UP * buoyancy, buoy.transform.origin)
 		else:
-			var buoyancy = min(
-				vehicle.buoyancy,
-				abs(vehicle.buoyancy * (vehicle.translation.y - HEIGHT / 3 - surface_altitude))
-			)
-			vehicle.add_force(Vector3(0, buoyancy, 0), vehicle.transform.basis.y * 0.07)
+			var buoyancy: float = vehicle.buoyancy
+			if vehicle.global_transform.origin.y > surface_altitude:
+				buoyancy = 0
+		
+			vehicle.add_force(Vector3.UP * buoyancy, vehicle.transform.basis.y * 0.07)
+
 		var ballasts = vehicle.find_node("ballasts")
 		if ballasts:
 			var children = ballasts.get_children()
