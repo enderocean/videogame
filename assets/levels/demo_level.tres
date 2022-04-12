@@ -4,8 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "demo_level"
 scene = "res://scenes/demo_level.tscn"
-title = "Demo level"
+thumbnail = ""
+title = "Demo Level"
+country = "World of Ender Ocean"
+location = "Demo Level"
 description = "Collect the scooter and drop it in the net"
-tools = PoolStringArray(  )
 objectives = PoolStringArray(  )
+tools = PoolStringArray(  )
