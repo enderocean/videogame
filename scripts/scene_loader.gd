@@ -29,10 +29,12 @@ func _ready() -> void:
 func load_scene(path: String, additive: bool = false) -> void:
 	for i in range(current_scenes.size()):
 		if path == current_scenes[i].path:
+			printerr("Scene already in the current scenes: ", path)
 			return
 	
 	for i in range(loading_queue.size()):
 		if path == loading_queue[i]:
+			printerr("Scene already in the loading queue: ", path)
 			return
 	
 	if not loading_scene:
