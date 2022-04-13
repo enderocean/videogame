@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/background.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=7]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -149,15 +150,15 @@ alignment = 1
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 90.0
+margin_bottom = 130.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 250.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 250, 51 )
+margin_bottom = 130.0
+rect_min_size = Vector2( 250, 120 )
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -165,15 +166,17 @@ __meta__ = {
 
 [node name="Practice" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
 margin_right = 250.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 8 )
 text = "PRACTICE"
 
 [node name="Campaign" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
-margin_top = 50.0
+margin_top = 70.0
 margin_right = 250.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 0, 40 )
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 8 )
 text = "CAMPAIGNS"
 
 [connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
