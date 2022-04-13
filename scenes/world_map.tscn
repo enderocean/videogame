@@ -6,9 +6,11 @@
 [ext_resource path="res://scenes/map/mission_point.tscn" type="PackedScene" id=6]
 
 [node name="WorldMap" type="Node2D"]
+position = Vector2( -15, 21 )
 script = ExtResource( 4 )
 
 [node name="World" type="Sprite" parent="."]
+scale = Vector2( 1, 1.24 )
 z_index = -1
 texture = ExtResource( 1 )
 
@@ -25,25 +27,25 @@ script = ExtResource( 5 )
 [node name="Missions" type="Node2D" parent="."]
 
 [node name="DemoLevel" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -160, -104 )
+position = Vector2( -39, -44 )
 mission_id = "demo_level"
 
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 80, -168 )
+position = Vector2( 52, -87 )
 mission_id = "level_01"
 
 [node name="Level 02" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -192, -240 )
+position = Vector2( -68, -132 )
 mission_id = "level_02"
 zoom = Vector2( 0.75, 0.75 )
 
 [node name="Level 03" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -8, 24 )
+position = Vector2( 13, -17 )
 mission_id = "level_03"
 zoom = Vector2( 0.75, 0.75 )
 
 [node name="Level 04" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 224, 248 )
+position = Vector2( 132, 77 )
 mission_id = "level_04"
 zoom = Vector2( 0.75, 0.75 )
 
