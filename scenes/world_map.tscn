@@ -37,17 +37,14 @@ mission_id = "level_01"
 [node name="Level 02" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( -68, -132 )
 mission_id = "level_02"
-zoom = Vector2( 0.75, 0.75 )
 
 [node name="Level 03" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 13, -17 )
 mission_id = "level_03"
-zoom = Vector2( 0.75, 0.75 )
 
 [node name="Level 04" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 132, 77 )
 mission_id = "level_04"
-zoom = Vector2( 0.75, 0.75 )
 
 [connection signal="pressed" from="Missions/Level 00" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 01" to="." method="_on_mission_pressed"]
