@@ -26,7 +26,7 @@ func update_line() -> void:
 	line.clear_points()
 	
 	# Connect all the completed points and the next one
-	for i in range(current_point_index + 2):
+	for i in range(current_point_index + 1):
 		if i >= mission_points.size():
 			break
 		line.add_point(mission_points[i].position)

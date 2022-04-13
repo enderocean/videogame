@@ -14,11 +14,20 @@ func _ready() -> void:
 	for i in range(world_map.mission_points.size()):
 		# Set the mission point completed if the level is present in the save data
 		world_map.mission_points[i].completed = SaveManager.data.levels.has(world_map.mission_points[i].mission_id)
+		world_map.mission_points[i].update_color()
 		
 		if not world_map.mission_points[i].completed:
+			# Set the next point
 			next_point = world_map.mission_points[i]
+			world_map.current_point_index = i
 			break
 	
+	# No next_point means that all the missions are completed
+	if not next_point:
+		# Get the last one
+		next_point = world_map.mission_points[world_map.mission_points.size() - 1]
+		world_map.current_point_index = world_map.mission_points.size() - 1
+		
 	world_map.goto(next_point)
 	world_map.update_line()
 	
