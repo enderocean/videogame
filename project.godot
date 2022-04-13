@@ -110,7 +110,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ender Ocean"
+config/name="ENDER OCEAN"
 config/description="Your mission : \"Clean the Ocean!\""
 run/main_scene="res://scenes/ui/menu.tscn"
 boot_splash/image="res://assets/logo_ender.png"
