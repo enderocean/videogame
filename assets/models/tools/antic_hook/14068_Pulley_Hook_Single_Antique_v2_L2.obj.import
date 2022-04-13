@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/14068_Pulley_Hook_Single_Antique_v2_L2.obj-504f50190cd67653b6be2f9bc7c0ebbf.mesh"
+
+[deps]
+
+files=[ "res://.import/14068_Pulley_Hook_Single_Antique_v2_L2.obj-504f50190cd67653b6be2f9bc7c0ebbf.mesh" ]
+
+source_file="res://assets/models/tools/antic_hook/14068_Pulley_Hook_Single_Antique_v2_L2.obj"
+dest_files=[ "res://.import/14068_Pulley_Hook_Single_Antique_v2_L2.obj-504f50190cd67653b6be2f9bc7c0ebbf.mesh", "res://.import/14068_Pulley_Hook_Single_Antique_v2_L2.obj-504f50190cd67653b6be2f9bc7c0ebbf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
