@@ -78,6 +78,7 @@ speed = 2.0
 
 [node name="ViewportLookAtCamera" type="ViewportContainer" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 361.997
 margin_bottom = 248.0
 grow_horizontal = 2
@@ -89,7 +90,7 @@ stretch = true
 [node name="Viewport" type="Viewport" parent="ViewportLookAtCamera"]
 size = Vector2( 362, 248 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 shadow_atlas_size = 512
 shadow_atlas_quad_1 = 3
 

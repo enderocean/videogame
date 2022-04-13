@@ -10,7 +10,7 @@ position = Vector2( -15, 21 )
 script = ExtResource( 4 )
 
 [node name="World" type="Sprite" parent="."]
-scale = Vector2( 1, 1.24 )
+position = Vector2( 253, 40 )
 z_index = -1
 texture = ExtResource( 1 )
 
@@ -27,23 +27,23 @@ script = ExtResource( 5 )
 [node name="Missions" type="Node2D" parent="."]
 
 [node name="Level 00" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -39, -44 )
+position = Vector2( -58, -46 )
 mission_id = "level_00"
 
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 52, -87 )
+position = Vector2( 58, -117 )
 mission_id = "level_01"
 
 [node name="Level 02" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -68, -132 )
+position = Vector2( -89, -147 )
 mission_id = "level_02"
 
 [node name="Level 03" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 13, -17 )
+position = Vector2( 7, -17 )
 mission_id = "level_03"
 
 [node name="Level 04" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 132, 77 )
+position = Vector2( 114, 91 )
 mission_id = "level_04"
 
 [connection signal="pressed" from="Missions/Level 00" to="." method="_on_mission_pressed"]
