@@ -31,13 +31,16 @@ func set_active(value: bool) -> void:
 	active_sprite.visible = active
 	update_color()
 
+
 func _on_mouse_entered() -> void:
 	active_sprite.visible = true
 	update_color()
 
+
 func _on_mouse_exited() -> void:
 	active_sprite.visible = false
 	update_color()
+
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
