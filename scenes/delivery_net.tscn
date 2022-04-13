@@ -2,10 +2,14 @@
 
 [ext_resource path="res://scripts/delivery_area.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/nets/net.glb" type="PackedScene" id=2]
-[ext_resource path="res://assets/models/nets/net_concavepolygonshape.tres" type="Shape" id=3]
 
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 1.455, 0.3, 1.492 )
+
+[sub_resource type="HeightMapShape" id=10]
+map_width = 8
+map_depth = 8
+map_data = PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.22, -0.39, -0.48, -0.44, -0.4, -0.26, 0, 0, -0.34, -0.57, -0.66, -0.65, -0.59, -0.41, 0, 0, -0.39, -0.64, -0.73, -0.73, -0.67, -0.46, 0, 0, -0.37, -0.63, -0.72, -0.72, -0.67, -0.46, 0, 0, -0.31, -0.54, -0.65, -0.65, -0.62, -0.43, 0, 0, -0.2, -0.33, -0.42, -0.43, -0.39, -0.26, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="DeliveryNet" type="Spatial"]
 script = ExtResource( 1 )
@@ -19,11 +23,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0 )
 shape = SubResource( 9 )
 
 [node name="net" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = ExtResource( 3 )
+transform = Transform( 0.436, 0, 0, 0, 1, 0, 0, 0, 0.436, 0, 0, 0 )
+shape = SubResource( 10 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area" to="." method="_on_body_exited"]
