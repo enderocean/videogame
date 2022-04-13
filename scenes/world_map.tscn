@@ -26,9 +26,9 @@ script = ExtResource( 5 )
 
 [node name="Missions" type="Node2D" parent="."]
 
-[node name="DemoLevel" parent="Missions" instance=ExtResource( 6 )]
+[node name="Level 00" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( -39, -44 )
-mission_id = "demo_level"
+mission_id = "level_00"
 
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 52, -87 )
@@ -49,7 +49,7 @@ position = Vector2( 132, 77 )
 mission_id = "level_04"
 zoom = Vector2( 0.75, 0.75 )
 
-[connection signal="pressed" from="Missions/DemoLevel" to="." method="_on_mission_pressed"]
+[connection signal="pressed" from="Missions/Level 00" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 01" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 02" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 03" to="." method="_on_mission_pressed"]
