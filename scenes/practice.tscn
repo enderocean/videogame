@@ -118,7 +118,7 @@ material/14 = null
 material/15 = null
 
 [node name="DeliveryNet" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1.85, 0, 0, 0, 2, 0, 0, 0, 2, 14.4432, 0.668856, 4.32866 )
+transform = Transform( 1.85, 0, 0, 0, 2, 0, 0, 0, 1.51077, 14.4432, 0.668856, 4.32866 )
 
 [node name="playerCamera" parent="." instance=ExtResource( 2 )]
 visible = true
