@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-id = "demo_level"
-scene = "res://scenes/demo_level.tscn"
+id = "level_00"
+scene = "res://scenes/level_00.tscn"
 thumbnail = ""
 title = "Demo Level"
 country = "FRANCE"
