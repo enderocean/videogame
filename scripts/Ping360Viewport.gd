@@ -6,12 +6,9 @@ var last_points = []
 var angle = 0
 
 
-func on_ping360_update(pingAngle, points) -> void:
-	self.last_points = points
-	self.angle = pingAngle
-
-
 func _ready() -> void:
+	Globals.connect("ping360_changed", self, "_on_ping360_changed")
+	
 	var sonars = get_tree().get_nodes_in_group("ping360")
 	if len(sonars) == 0:
 		print("unable to find ping360")
@@ -58,5 +55,10 @@ func _process(_delta: float) -> void:
 	self.get_material().set_shader_param("my_array", texture)
 
 
-func _on_Ping360Toggle_toggled(button_pressed: bool) -> void:
-	Globals.ping360_enabled = button_pressed
+func on_ping360_update(pingAngle, points) -> void:
+	self.last_points = points
+	self.angle = pingAngle
+
+
+func _on_ping360_changed() -> void:
+	visible = Globals.ping360_enabled

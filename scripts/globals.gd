@@ -11,7 +11,7 @@ export var deep_factor: float = 0.0
 
 export var enable_godray: bool = true setget set_enable_godray
 export var fancy_water: bool = true setget set_fancy_water
-export var ping360_enabled: bool = false
+export var ping360_enabled: bool = false setget set_ping360
 export var wait_SITL: bool = false
 
 export var physics_rate: int = 60 setget set_physics_rate
@@ -25,6 +25,7 @@ var sitl_pid: int = 0
 signal fancy_water_changed
 signal enable_godray_changed
 signal physics_rate_changed
+signal ping360_changed
 
 
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _ready() -> void:
 	
 	# Load levels data
 	levels = LevelData.get_levels()
+
 
 func set_fancy_water(value: bool) -> void:
 	fancy_water = value
@@ -48,3 +50,8 @@ func set_enable_godray(value: bool) -> void:
 func set_physics_rate(value: int) -> void:
 	physics_rate = value
 	Engine.iterations_per_second = value
+
+
+func set_ping360(value: bool) -> void:
+	ping360_enabled = value
+	emit_signal("ping360_changed")

@@ -1,0 +1,147 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/settings.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.5 )
+script = ExtResource( 1 )
+settings_panel_path = NodePath("Panel/SettingsPanel")
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -161.0
+margin_right = 25.0
+margin_bottom = -139.0
+text = "Pause"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -100.0
+margin_right = 150.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 190.0
+
+[node name="ReturnToGame" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 28.0
+text = "Return to game"
+
+[node name="Settings" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 280.0
+margin_bottom = 60.0
+size_flags_vertical = 2
+text = "Settings"
+
+[node name="RestartMission" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 280.0
+margin_bottom = 120.0
+size_flags_vertical = 2
+text = "Restart mission"
+
+[node name="BackToMap" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 280.0
+margin_bottom = 180.0
+text = "Back to missions map"
+
+[node name="SettingsPanel" type="PanelContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 32.0
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/SettingsPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 293.0
+margin_bottom = 257.0
+
+[node name="godrayToggle" type="CheckButton" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_right = 286.0
+margin_bottom = 40.0
+pressed = true
+text = "GodRays"
+
+[node name="dirtparticlesToggle" type="CheckButton" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 44.0
+margin_right = 286.0
+margin_bottom = 84.0
+pressed = true
+text = "Particles"
+
+[node name="fancyWaterToggle" type="CheckButton" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 88.0
+margin_right = 286.0
+margin_bottom = 128.0
+pressed = true
+text = "Fancy Water"
+
+[node name="Ping360Toggle" type="CheckButton" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 132.0
+margin_right = 286.0
+margin_bottom = 172.0
+text = "Ping360"
+
+[node name="physicsRate" type="Label" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 176.0
+margin_right = 286.0
+margin_bottom = 198.0
+rect_pivot_offset = Vector2( -32, 6 )
+text = "Physics (hz):"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="physicsRateSlider" type="HSlider" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 202.0
+margin_right = 286.0
+margin_bottom = 218.0
+size_flags_vertical = 2
+min_value = 60.0
+max_value = 500.0
+value = 60.0
+
+[node name="Back" type="Button" parent="Panel/SettingsPanel/VBoxContainer"]
+margin_top = 222.0
+margin_right = 286.0
+margin_bottom = 250.0
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ReturnToGame" to="." method="_on_ReturnToGame_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/RestartMission" to="." method="_on_RestartMission_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/BackToMap" to="." method="_on_BackToMap_pressed"]
+[connection signal="toggled" from="Panel/SettingsPanel/VBoxContainer/fancyWaterToggle" to="Panel/SettingsPanel" method="_on_fancyWaterToggle_toggled"]
+[connection signal="toggled" from="Panel/SettingsPanel/VBoxContainer/Ping360Toggle" to="." method="_on_Ping360Toggle_toggled"]
+[connection signal="value_changed" from="Panel/SettingsPanel/VBoxContainer/physicsRateSlider" to="Panel/SettingsPanel" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Panel/SettingsPanel/VBoxContainer/Back" to="." method="_on_SettingsBack_pressed"]

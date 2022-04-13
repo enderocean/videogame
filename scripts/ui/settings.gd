@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name SettingsPanel
 
 export var physics_rate_path: NodePath = "VBoxContainer/physicsRate"
 export var physics_rate_slider_path: NodePath = "VBoxContainer/physicsRateSlider"
@@ -15,14 +16,6 @@ func _ready() -> void:
 
 	physics_rate.text = "Physics: %s Hz" % Globals.physics_rate
 	physics_rate_slider.value = Globals.physics_rate
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		if not self.is_visible():
-			self.show()
-		else:
-			self.hide()
 
 
 func _on_HSlider_value_changed(value) -> void:

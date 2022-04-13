@@ -11,7 +11,7 @@ var last_velocity = Vector3(0, 0, 0)
 var calculated_acceleration = Vector3(0, 0, 0)
 
 var buoyancy = 1.6 + self.mass * 9.8  # Newtons
-var _initial_position = 0
+var _initial_position = Vector3.ZERO
 var phys_time = 0
 
 onready var light_glows = [$light_glow, $light_glow2, $light_glow3, $light_glow4]
@@ -156,7 +156,7 @@ func _ready():
 		calculate_motors_matrix()
 		return
 
-	_initial_position = get_global_transform().origin
+	_initial_position = global_transform.origin
 	set_physics_process(true)
 
 	if not Globals.isHTML5:
