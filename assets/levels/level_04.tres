@@ -4,8 +4,13 @@
 
 [resource]
 script = ExtResource( 1 )
+id = "level_04"
 scene = "res://scenes/level_04.tscn"
+thumbnail = ""
 title = "Level 04"
+country = "REPUBLIC OF MALTA"
+location = "The island of Malta"
 description = "You have 15 minutes to collect 20 objects."
-tools = PoolStringArray(  )
+time = 15
 objectives = PoolStringArray(  )
+tools = PoolStringArray(  )
