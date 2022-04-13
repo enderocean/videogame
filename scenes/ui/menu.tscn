@@ -93,31 +93,31 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 137.0
-margin_right = 248.0
+margin_left = 67.0
+margin_right = 317.0
 margin_bottom = 244.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer/Menu"]
-margin_right = 111.0
+margin_right = 250.0
 margin_bottom = 90.0
-rect_min_size = Vector2( 111, 51 )
+rect_min_size = Vector2( 250, 51 )
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Practice" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
-margin_right = 111.0
+margin_right = 250.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 text = "PRACTICE"
 
 [node name="Campaign" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
 margin_top = 50.0
-margin_right = 111.0
+margin_right = 250.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 40 )
 text = "CAMPAIGN"
