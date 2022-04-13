@@ -14,7 +14,6 @@ var active_level_data: LevelData
 func _ready():
 	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
 
-
 func _on_scene_loaded(scene_data: Dictionary) -> void:
 	if not scene_data.scene is Level:
 		return

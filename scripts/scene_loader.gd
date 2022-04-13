@@ -27,6 +27,10 @@ func _ready() -> void:
 
 
 func load_scene(path: String, additive: bool = false) -> void:
+	# Make sure the game is unpaused before loading a scene
+	if get_tree().paused:
+		get_tree().paused = false
+	
 	for i in range(current_scenes.size()):
 		if path == current_scenes[i].path:
 			printerr("Scene already in the current scenes: ", path)

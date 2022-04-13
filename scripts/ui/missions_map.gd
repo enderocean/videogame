@@ -26,6 +26,10 @@ func _ready() -> void:
 
 
 func _on_mission_pressed(mission_point: MissionPoint) -> void:
+	if not Globals.levels.has(mission_point.mission_id):
+		printerr("LevelData not found for ", mission_point.mission_id)
+		return
+	
 	var mission: LevelData = Globals.levels[mission_point.mission_id]
 	if not mission:
 		printerr("LevelData not loaded: ", mission_point.mission_id)
