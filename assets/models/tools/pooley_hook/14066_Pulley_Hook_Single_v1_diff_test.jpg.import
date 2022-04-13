@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/MetalPlates011_1K_Roughness.jpg-b41eca57344b190aa49306bda59cc467.s3tc.stex"
-path.etc2="res://.import/MetalPlates011_1K_Roughness.jpg-b41eca57344b190aa49306bda59cc467.etc2.stex"
+path.s3tc="res://.import/14066_Pulley_Hook_Single_v1_diff_test.jpg-fb4f3bf3e3efa3021dc0e8ce42a2f9f7.s3tc.stex"
+path.etc2="res://.import/14066_Pulley_Hook_Single_v1_diff_test.jpg-fb4f3bf3e3efa3021dc0e8ce42a2f9f7.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/vehicles/textures/rust/MetalPlates011_1K_Roughness.jpg"
-dest_files=[ "res://.import/MetalPlates011_1K_Roughness.jpg-b41eca57344b190aa49306bda59cc467.s3tc.stex", "res://.import/MetalPlates011_1K_Roughness.jpg-b41eca57344b190aa49306bda59cc467.etc2.stex" ]
+source_file="res://assets/models/tools/pooley_hook/14066_Pulley_Hook_Single_v1_diff_test.jpg"
+dest_files=[ "res://.import/14066_Pulley_Hook_Single_v1_diff_test.jpg-fb4f3bf3e3efa3021dc0e8ce42a2f9f7.s3tc.stex", "res://.import/14066_Pulley_Hook_Single_v1_diff_test.jpg-fb4f3bf3e3efa3021dc0e8ce42a2f9f7.etc2.stex" ]
 
 [params]
 

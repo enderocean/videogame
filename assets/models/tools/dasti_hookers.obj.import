@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/dasti_hookers.obj-181bd86f94d5844988d0fc6fcb46d7db.mesh"
+
+[deps]
+
+files=[ "res://.import/dasti_hookers.obj-181bd86f94d5844988d0fc6fcb46d7db.mesh" ]
+
+source_file="res://assets/models/tools/dasti_hookers.obj"
+dest_files=[ "res://.import/dasti_hookers.obj-181bd86f94d5844988d0fc6fcb46d7db.mesh", "res://.import/dasti_hookers.obj-181bd86f94d5844988d0fc6fcb46d7db.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
