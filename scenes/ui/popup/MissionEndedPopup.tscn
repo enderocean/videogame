@@ -8,6 +8,7 @@
 default_font = ExtResource( 2 )
 
 [node name="MissionEndedPopup" type="Popup"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 1 )
@@ -169,7 +170,6 @@ margin_right = 380.0
 margin_bottom = 280.0
 text = "OK"
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="User/MarginContainer/VBoxContainer/Ok" to="." method="_on_Ok_pressed"]

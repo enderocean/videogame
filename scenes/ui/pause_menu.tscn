@@ -3,12 +3,16 @@
 [ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ui/settings.gd" type="Script" id=2]
 
-[node name="PauseMenu" type="ColorRect"]
+[node name="PauseMenu" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+settings_panel_path = NodePath("Panel/SettingsPanel")
+
+[node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.5 )
-script = ExtResource( 1 )
-settings_panel_path = NodePath("Panel/SettingsPanel")
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -74,6 +78,7 @@ margin_bottom = 180.0
 text = "Back to missions map"
 
 [node name="SettingsPanel" type="PanelContainer" parent="Panel"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 32.0
