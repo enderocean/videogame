@@ -10,7 +10,11 @@ thumbnail = "res://assets/levels/images/level_03.jpg"
 title = "level_03"
 country = "FRANCE"
 location = "The Marseille Bay"
-description = "You have 15 minutes to collect 20 objects."
+description = "Marseille is considered the 10th most polluted coastal town in the Mediterannean sea. This issue can get problematic in
+many unexpected ways : for environment as well as human activities.
+
+We’ve been asked to localize and deal with
+a disturbance on an underwater cable in the area. These cables connect Europe with many other continents online, it would cause a lot of trouble if they were damaged."
 time = 15
-objectives = PoolStringArray(  )
-tools = PoolStringArray(  )
+objectives = PoolStringArray( "Find what cause the cable to beunstable", "Deal with the issue" )
+tools = PoolStringArray( "Vacuum Cleaner", "Gripper", "Claw" )

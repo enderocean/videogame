@@ -10,7 +10,10 @@ thumbnail = "res://assets/levels/images/level_01.jpg"
 title = "level_01"
 country = "GERMANY"
 location = "The Rhine"
-description = "You have 15 minutes to collect 20 objects."
+description = "Each day, over 191.6 million microplastics are discharged towards the North Sea from the Rhine due to the many industries set around it. It’s hard to realize what that means, so for your first mission,
+we’ll send you see it yourself.
+
+Your task will be to collect as many elements as you can in 15 minutes."
 time = 15
-objectives = PoolStringArray( "Keep clean.", "Have fun!" )
-tools = PoolStringArray( "Claw", "Vacuum Cleaner" )
+objectives = PoolStringArray( "Collect as many microplsatics as you can", "Have fun!" )
+tools = PoolStringArray( "Vacuum cleaner", "Lights" )

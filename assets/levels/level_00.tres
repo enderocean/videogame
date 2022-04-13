@@ -10,7 +10,9 @@ thumbnail = "res://assets/levels/images/level_00.jpg"
 title = "Demo Level"
 country = "FRANCE"
 location = "The Bordeaux stone quarry"
-description = "Collect as many waste as you can, and drop it into the net"
+description = "Still in 2022, many quaries near Bordeaux are invaded by savage pollution. Authorities do not know anymore how to fight against incivilities. 
+
+Please help to clean the area ! And be careful with algues..."
 time = 15
-objectives = PoolStringArray(  )
-tools = PoolStringArray(  )
+objectives = PoolStringArray( "Collect as many waste as you can", "Drop it into the net" )
+tools = PoolStringArray( "Gripper", "Lights" )

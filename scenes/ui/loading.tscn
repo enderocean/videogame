@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
+[ext_resource path="res://assets/home-bg.png" type="Texture" id=3]
 
 [node name="Loading" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = 0.0468221
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 7
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.376471 )
 
 [node name="Label" type="Label" parent="."]
 anchor_top = 0.5
@@ -25,6 +34,7 @@ align = 1
 valign = 1
 
 [node name="LogoEnder" type="TextureRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

@@ -10,7 +10,9 @@ thumbnail = "res://assets/levels/images/level_02.jpg"
 title = "level_02"
 country = "UNITED KINGDOM"
 location = "The Bristol Channel"
-description = "You have 15 minutes to collect 20 objects."
+description = "Back in 1997, the Tokio Express cargo got caught in the middle of a storm and lost most of its containers at sea. While the majority stayed intact in the sea bed, some of them were breached and leaked their content into the ocean.
+
+We’ve localized one that contained many legos and other plastic toys. Ironically, those all had a nautical theme."
 time = 15
-objectives = PoolStringArray(  )
-tools = PoolStringArray(  )
+objectives = PoolStringArray( "Find the lost container", "Clean it of the plastic it still contains" )
+tools = PoolStringArray( "Vacuum Cleaner", "Gripper", "Lights" )
