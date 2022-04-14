@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://scripts/ui/settings.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Popup"]
 anchor_right = 1.0
@@ -56,6 +69,7 @@ margin_bottom = 262.0
 margin_right = 280.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = SubResource( 1 )
 text = "RETURN TO GAME"
 
 [node name="Settings" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
@@ -64,6 +78,7 @@ margin_right = 280.0
 margin_bottom = 124.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
 text = "SETTINGS"
 
 [node name="RestartMission" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
@@ -72,6 +87,7 @@ margin_right = 280.0
 margin_bottom = 188.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 2
+custom_fonts/font = SubResource( 3 )
 text = "RESTART MISSION"
 
 [node name="BackToMap" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
@@ -79,6 +95,7 @@ margin_top = 192.0
 margin_right = 280.0
 margin_bottom = 252.0
 rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = SubResource( 4 )
 text = "BACK TO MISSION MAP"
 
 [node name="SettingsPanel" type="PanelContainer" parent="Panel"]
