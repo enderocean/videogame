@@ -51,7 +51,6 @@ func update_objectives(objectives: Array) -> void:
 
 
 func _on_visibility_changed() -> void:
-	get_tree().paused = visible
 	if not visible:
 		return
 	

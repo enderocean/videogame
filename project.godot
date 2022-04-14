@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
 }, {
+"base": "Popup",
+"class": "InstructionsPopup",
+"language": "GDScript",
+"path": "res://scripts/ui/instructions_popup.gd"
+}, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
@@ -74,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/objective_line.gd"
 }, {
+"base": "Popup",
+"class": "PauseMenu",
+"language": "GDScript",
+"path": "res://scripts/ui/pause_menu.gd"
+}, {
 "base": "PanelContainer",
 "class": "SettingsPanel",
 "language": "GDScript",
@@ -95,6 +105,7 @@ _global_script_class_icons={
 "FollowCamera": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
+"InstructionsPopup": "",
 "Level": "",
 "LevelData": "",
 "LookAtCamera": "",
@@ -103,6 +114,7 @@ _global_script_class_icons={
 "MissionPoint": "",
 "MissionTimer": "",
 "ObjectiveLine": "",
+"PauseMenu": "",
 "SettingsPanel": "",
 "Vehicle": "",
 "WorldMap": ""

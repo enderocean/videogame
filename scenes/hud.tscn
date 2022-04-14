@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/camera/follow_camera.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ui/instructions_popup.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 7 )
@@ -46,6 +47,8 @@ show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
+instructions_popup_path = NodePath("InstructionsPopup")
+pause_menu_path = NodePath("PauseMenu")
 camera_follow_path = NodePath("ViewportFollowCamera/Viewport/FollowCamera")
 camera_lookat_path = NodePath("ViewportLookAtCamera/Viewport/LookAtCamera")
 
@@ -146,7 +149,7 @@ margin_right = 252.0
 margin_bottom = 472.0
 rect_pivot_offset = Vector2( -32, 6 )
 text = "H - Toggle Help (this)
-ESC - Graphics settings
+ESC - Pause menu
 
 C - switch camera//vehicle
 R - reset position
@@ -178,13 +181,17 @@ align = 1
 valign = 1
 
 [node name="MissionTimer" type="Timer" parent="."]
+process_mode = 0
 script = ExtResource( 4 )
 label_path = NodePath("../TimerLabel")
 
+[node name="InstructionsPopup" parent="." instance=ExtResource( 11 )]
+
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 10 )]
-pause_mode = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource( 9 )]
-visible = false
 
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
+[connection signal="visibility_changed" from="InstructionsPopup" to="." method="_on_Popup_visibility_changed"]
+[connection signal="visibility_changed" from="MissionEndedPopup" to="." method="_on_Popup_visibility_changed"]
+[connection signal="visibility_changed" from="PauseMenu" to="." method="_on_Popup_visibility_changed"]
