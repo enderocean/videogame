@@ -34,6 +34,9 @@ onready var light_glows: Array = [
 
 var thrusters: Array = []
 
+export var sounds_path: NodePath
+onready var sounds: ROVSounds = get_node(sounds_path)
+
 export var ljoint_path: NodePath
 export var rjoint_path: NodePath
 onready var ljoint: HingeJoint = get_node(ljoint_path)
@@ -251,24 +254,25 @@ func actuate_servo(id: int, percentage: float) -> void:
 
 func _unhandled_input(event) -> void:
 	if event is InputEventKey:
-		# There are for debugging:
-		# Some forces:
-		if event.pressed and event.scancode == KEY_X:
-			add_central_force(Vector3(30, 0, 0))
-		if event.pressed and event.scancode == KEY_Y:
-			add_central_force(Vector3(0, 30, 0))
-		if event.pressed and event.scancode == KEY_Z:
-			add_central_force(Vector3(0, 0, 30))
-		# Reset position
-		if event.pressed and event.scancode == KEY_R:
-			set_translation(_initial_position)
-		# Some torques
-		if event.pressed and event.scancode == KEY_Q:
-			add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
-		if event.pressed and event.scancode == KEY_T:
-			add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
-		if event.pressed and event.scancode == KEY_E:
-			add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+	# 	# There are for debugging:
+	# 	# Some forces:
+	# 	if event.pressed and event.scancode == KEY_X:
+	# 		add_central_force(Vector3(30, 0, 0))
+	# 	if event.pressed and event.scancode == KEY_Y:
+	# 		add_central_force(Vector3(0, 30, 0))
+	# 	if event.pressed and event.scancode == KEY_Z:
+	# 		add_central_force(Vector3(0, 0, 30))
+	# 	# Reset position
+	# 	if event.pressed and event.scancode == KEY_R:
+	# 		set_translation(_initial_position)
+	# 	# Some torques
+	# 	if event.pressed and event.scancode == KEY_Q:
+	# 		add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
+	# 	if event.pressed and event.scancode == KEY_T:
+	# 		add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
+	# 	if event.pressed and event.scancode == KEY_E:
+	# 		add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+
 		# Some hard-coded positions (used to check accelerometer)
 		# if event.pressed and event.scancode == KEY_U:
 		# 	self.look_at(Vector3(0, 100, 0), Vector3(0, 0, 1))  # expects +X
@@ -310,18 +314,24 @@ func _unhandled_input(event) -> void:
 func process_keys() -> void:
 	if Input.is_action_pressed("forward"):
 		add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
+		sounds.play("move_forward")
 	elif Input.is_action_pressed("backwards"):
 		add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
+		sounds.play("move_forward")
 
 	if Input.is_action_pressed("strafe_right"):
 		add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
+		sounds.play("move_right")
 	elif Input.is_action_pressed("strafe_left"):
 		add_force_local(Vector3(40, 0, 0), Vector3(0, -0.05, 0))
+		sounds.play("move_left")
 
 	if Input.is_action_pressed("upwards"):
 		add_force_local(Vector3(0, 70, 0), Vector3(0, -0.05, 0))
+		sounds.play("move_up")
 	elif Input.is_action_pressed("downwards"):
 		add_force_local(Vector3(0, -70, 0), Vector3(0, -0.05, 0))
+		sounds.play("move_down")
 
 	if Input.is_action_pressed("rotate_left"):
 		add_torque(transform.basis.xform(Vector3(0, 20, 0)))
@@ -330,8 +340,10 @@ func process_keys() -> void:
 
 	if Input.is_action_pressed("camera_up"):
 		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
+		sounds.play("camera_up")
 	elif Input.is_action_pressed("camera_down"):
 		camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
+		sounds.play("camera_down")
 
 	# Gripper
 	var target_velocity: float = 0.0
@@ -341,8 +353,11 @@ func process_keys() -> void:
 		if carrying_object:
 			release_object()
 
+		sounds.play("gripper_open")
+
 	elif Input.is_action_pressed("gripper_close"):
 		target_velocity = 1.0
+		sounds.play("gripper_close")
 	
 	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
 	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)

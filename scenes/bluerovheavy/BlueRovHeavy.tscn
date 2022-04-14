@@ -168,6 +168,7 @@ can_sleep = false
 linear_damp = 2.333
 angular_damp = 8.72
 script = ExtResource( 1 )
+sounds_path = NodePath("../ROVSounds")
 ljoint_path = NodePath("../ljoint")
 rjoint_path = NodePath("../rjoint")
 l_rigidbody_path = NodePath("../GripLeftRigidBody")
