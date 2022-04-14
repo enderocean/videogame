@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/ui/instructions_popup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ui/popup/instructions_popup.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 7 )
