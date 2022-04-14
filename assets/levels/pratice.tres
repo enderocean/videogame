@@ -10,6 +10,11 @@ thumbnail = "res://assets/background.jpg"
 title = "Practice"
 country = "France"
 location = "Pool"
-description = "You have 15 minutes to collect 20 objects."
+description = "Collect red items on the floor and drop it into the net. 
+
+Use keys \"L\" and \"M\" to turn camera down / up. 
+
+Use keys \"O\" and \"P\" to open and close the gripper."
+time = 15
 objectives = PoolStringArray(  )
 tools = PoolStringArray(  )
