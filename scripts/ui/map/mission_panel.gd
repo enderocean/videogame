@@ -25,15 +25,15 @@ func show_mission(level_data: LevelData) -> void:
 	
 	country.text = level_data.country
 	location.text = level_data.location
-	description.text = level_data.description
+	description.bbcode_text = level_data.description
 	
-	objective.text = "Objective:\n"
+	objective.bbcode_text = "Objective:\n"
 	for text in level_data.objectives:
-		objective.text += " - " + text + "\n"
+		objective.bbcode_text += " - " + text + "\n"
 	
-	tools.text = "Tools: "
+	tools.bbcode_text = "Tools: "
 	for i in range(level_data.tools.size()):
-		tools.text += level_data.tools[i]
+		tools.bbcode_text += level_data.tools[i]
 		
 		if i < level_data.tools.size() - 1:
-			tools.text += ", "
+			tools.bbcode_text += ", "
