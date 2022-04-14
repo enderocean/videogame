@@ -2,7 +2,7 @@ extends Control
 
 export var licences_popup_path: NodePath
 onready var licences_popup: AcceptDialog = get_node(licences_popup_path)
-
+onready var playback_position: float
 export var level_buttons_path: NodePath
 
 
@@ -32,7 +32,6 @@ func _on_CheckBox_toggled(button_pressed):
 func _on_licences_pressed():
 	licences_popup.show()
 
-
 func _on_Practice_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/hud.tscn")
 	SceneLoader.load_scene("res://scenes/practice.tscn", true)
@@ -41,3 +40,11 @@ func _on_Practice_pressed() -> void:
 func _on_Campaign_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
 
+
+func _on_Music_pressed():
+	var audio_stream_player = get_node("AudioStreamPlayer")
+	if audio_stream_player.is_playing():
+		audio_stream_player.stop();
+		playback_position = audio_stream_player.get_playback_position();
+	else:
+		audio_stream_player.play(playback_position);
