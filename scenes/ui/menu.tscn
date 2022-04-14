@@ -122,18 +122,74 @@ margin_bottom = -44.0
 bbcode_enabled = true
 bbcode_text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
-[url]https://www.enderocean.com[/url]
+1. Video game
 
-Published under Open Source License - Affero GPL (AGPL)
+Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
+Game design : Marc Le Nestour
+Game development : 
+- Quentin Franchi - Core game
+- Paco Bonilla - Animations
+- Denis Bled - Levels design
 
-Credits Images : Vecteezy"
+2. Music & Sounds
+- Denis Bled - Composition & Arrangements / Keyboards
+- Julien Deforges - Saxophone
+- Alexandre Castera - Drums & Percussions
+
+3. Sponsors
+- BNP Paribas
+- EcoDDS
+- Région Nouvelle-Aquitaine
+
+4. Thanks to
+- BlueRobotics Team
+- Chateau Moulerens Team
+- Conservatoire de Musique de Gradignan
+- Clic-Dive Team
+- ROV Experts
+- Spielfabrique
+
+5. Mission Comittee Members
+
+6. Discover our journey
+More details are available on our website : [url]https://www.enderocean.com[/url]
+
+"
 text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
-https://www.enderocean.com
+1. Video game
 
-Published under Open Source License - Affero GPL (AGPL)
+Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
+Game design : Marc Le Nestour
+Game development : 
+- Quentin Franchi - Core game
+- Paco Bonilla - Animations
+- Denis Bled - Levels design
 
-Credits Images : Vecteezy"
+2. Music & Sounds
+- Denis Bled - Composition & Arrangements / Keyboards
+- Julien Deforges - Saxophone
+- Alexandre Castera - Drums & Percussions
+
+3. Sponsors
+- BNP Paribas
+- EcoDDS
+- Région Nouvelle-Aquitaine
+
+4. Thanks to
+- BlueRobotics Team
+- Chateau Moulerens Team
+- Conservatoire de Musique de Gradignan
+- Clic-Dive Team
+- ROV Experts
+- Spielfabrique
+
+5. Mission Comittee Members
+
+6. Discover our journey
+More details are available on our website : https://www.enderocean.com
+
+"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/textures/map/europe.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/map/europe.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/ui/world_map.gd" type="Script" id=4]
 [ext_resource path="res://scripts/ui/map/map_camera.gd" type="Script" id=5]
 [ext_resource path="res://scenes/map/mission_point.tscn" type="PackedScene" id=6]
@@ -10,7 +10,8 @@ position = Vector2( -15, 21 )
 script = ExtResource( 4 )
 
 [node name="World" type="Sprite" parent="."]
-position = Vector2( 253, 40 )
+position = Vector2( -18, 777 )
+scale = Vector2( 0.6, 0.6 )
 z_index = -1
 texture = ExtResource( 1 )
 
@@ -27,23 +28,23 @@ script = ExtResource( 5 )
 [node name="Missions" type="Node2D" parent="."]
 
 [node name="Level 00" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -58, -46 )
+position = Vector2( -29, -35 )
 mission_id = "level_00"
 
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 58, -117 )
+position = Vector2( 91, -113 )
 mission_id = "level_01"
 
 [node name="Level 02" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -89, -147 )
+position = Vector2( -80, -146 )
 mission_id = "level_02"
 
 [node name="Level 03" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 7, -17 )
+position = Vector2( 81, 3 )
 mission_id = "level_03"
 
 [node name="Level 04" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 114, 91 )
+position = Vector2( 238, 131 )
 mission_id = "level_04"
 
 [connection signal="pressed" from="Missions/Level 00" to="." method="_on_mission_pressed"]
