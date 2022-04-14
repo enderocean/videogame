@@ -53,12 +53,12 @@ var carrying_object: DeliveryObject
 onready var wait_SITL = Globals.wait_SITL
 
 
-func connect_fmd_in():
+func connect_fmd_in() -> void:
 	if interface.listen(9002) != OK:
 		print("Failed to connect fdm_in")
 
 
-func get_servos():
+func get_servos() -> void:
 	if not peer:
 		interface.set_dest_address("127.0.0.1", interface.get_packet_port())
 
@@ -85,7 +85,7 @@ func get_servos():
 		actuate_servo(i, (float(buffer.get_u16()) - 1000) / 1000)
 
 
-func send_fdm():
+func send_fdm() -> void:
 	var buffer = StreamPeerBuffer.new()
 
 	buffer.put_double((OS.get_ticks_msec() - start_time) / 1000.0)
@@ -131,8 +131,7 @@ func send_fdm():
 	interface.put_packet(buffer.data_array)
 
 
-func get_motors_table_entry(thruster):
-	
+func get_motors_table_entry(thruster) -> Array:
 	var thruster_vector = (thruster.transform.basis*Vector3(1,0,0)).normalized()
 	var roll = Vector3(0,0,-1).cross(thruster.translation).normalized().dot(thruster_vector)
 	var pitch = Vector3(1,0,0).cross(thruster.translation).normalized().dot(thruster_vector)
@@ -155,7 +154,7 @@ func get_motors_table_entry(thruster):
 	return [roll, pitch, yaw, vertical, forward, lateral]
 
 
-func calculate_motors_matrix():
+func calculate_motors_matrix() -> void:
 	print("Calculated Motors Matrix:")
 	var i = 1
 	for thruster in thrusters:
@@ -165,7 +164,7 @@ func calculate_motors_matrix():
 		print("add_motor_raw_6dof(AP_MOTORS_MOT_%s,\t%s,\t%s,\t%s,\t%s,\t%s,\t%s);" % entry)
 
 
-func _ready():
+func _ready() -> void:
 	if Engine.is_editor_hint():
 		calculate_motors_matrix()
 		return
@@ -182,7 +181,7 @@ func _ready():
 		connect_fmd_in()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
@@ -204,7 +203,7 @@ func _physics_process(delta):
 	send_fdm()
 
 
-func add_force_local(force: Vector3, pos: Vector3):
+func add_force_local(force: Vector3, pos: Vector3) -> void:
 	var pos_local: Vector3 = transform.basis.xform(pos)
 	var force_local: Vector3 = transform.basis.xform(force)
 	add_force(force_local, pos_local)
@@ -250,7 +249,7 @@ func actuate_servo(id: int, percentage: float) -> void:
 				rjoint.set_param(6, 0)
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event is InputEventKey:
 		# There are for debugging:
 		# Some forces:
@@ -308,8 +307,7 @@ func _unhandled_input(event):
 		scatterlight.light_energy = percentage * 0.5
 
 
-
-func process_keys():
+func process_keys() -> void:
 	if Input.is_action_pressed("forward"):
 		add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
 	elif Input.is_action_pressed("backwards"):
@@ -365,6 +363,7 @@ func check_carry(body: DeliveryObject) -> void:
 	else:
 		release_object()
 
+
 func carry_object(body: DeliveryObject) -> void:
 	body.carried = true
 	
@@ -374,12 +373,14 @@ func carry_object(body: DeliveryObject) -> void:
 	
 	carrying_object = body
 
+
 func release_object() -> void:
 	if not carrying_object:
 		return
 	
 	carrying_object.carried = false
 	carrying_object = null
+
 
 func _on_LeftGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
@@ -395,12 +396,14 @@ func _on_LeftGripArea_body_exited(body: Node) -> void:
 	
 	grips[0] = false
 
+
 func _on_RightGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[1] = true
 	check_carry(body)
+
 
 func _on_RightGripArea_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
