@@ -14,7 +14,25 @@ var buoyancy = 1.6 + self.mass * 9.8  # Newtons
 var _initial_position = Vector3.ZERO
 var phys_time = 0
 
-onready var light_glows = [$light_glow, $light_glow2, $light_glow3, $light_glow4]
+onready var camera: Camera = get_node("Camera")
+
+onready var lights: Array = [
+	get_node("light1"),
+	get_node("light2"),
+	get_node("light3"),
+	get_node("light4"),
+]
+
+onready var scatterlight: Light = get_node("scatterlight")
+
+onready var light_glows: Array = [
+	get_node("light_glow"),
+	get_node("light_glow2"),
+	get_node("light_glow3"),
+	get_node("light_glow4"),
+]
+
+var thrusters: Array = []
 
 export var ljoint_path: NodePath
 export var rjoint_path: NodePath
@@ -139,11 +157,7 @@ func get_motors_table_entry(thruster):
 
 func calculate_motors_matrix():
 	print("Calculated Motors Matrix:")
-	var thrusters = []
 	var i = 1
-	for child in get_children():
-		if child.get_class() ==  "Thruster":
-			thrusters.append(child)
 	for thruster in thrusters:
 		var entry = get_motors_table_entry(thruster)
 		entry.insert(0, i)
@@ -155,6 +169,11 @@ func _ready():
 	if Engine.is_editor_hint():
 		calculate_motors_matrix()
 		return
+
+	# Fill thrusters array
+	for child in get_children():
+		if child.get_class() ==  "Thruster":
+			thrusters.append(child)
 
 	_initial_position = global_transform.origin
 	set_physics_process(true)
@@ -177,57 +196,47 @@ func _physics_process(delta):
 	if Globals.isHTML5:
 		return
 	
-	calculated_acceleration = (self.linear_velocity - last_velocity) / delta
+	calculated_acceleration = (linear_velocity - last_velocity) / delta
 	calculated_acceleration.y += 10
-	last_velocity = self.linear_velocity
+	last_velocity = linear_velocity
 	
 	get_servos()
 	send_fdm()
 
 
 func add_force_local(force: Vector3, pos: Vector3):
-	var pos_local = self.transform.basis.xform(pos)
-	var force_local = self.transform.basis.xform(force)
-	self.add_force(force_local, pos_local)
+	var pos_local: Vector3 = transform.basis.xform(pos)
+	var force_local: Vector3 = transform.basis.xform(force)
+	add_force(force_local, pos_local)
 
 
-func actuate_servo(id, percentage):
+func actuate_servo(id: int, percentage: float) -> void:
 	if percentage == 0:
 		return
 
 	var force = (percentage - 0.5) * 2 * -THRUST
+
+	# Thrusters
+	if id >= 0 and id <= 8:
+		add_force_local(thrusters[id].transform.basis * Vector3(force, 0, 0), thrusters[id].translation)
+
 	match id:
-		0:
-			self.add_force_local($t1.transform.basis*Vector3(force,0,0), $t1.translation)
-		1:
-			self.add_force_local($t2.transform.basis*Vector3(force,0,0), $t2.translation)
-		2:
-			self.add_force_local($t3.transform.basis*Vector3(force,0,0), $t3.translation)
-		3:
-			self.add_force_local($t4.transform.basis*Vector3(force,0,0), $t4.translation)
-		4:
-			self.add_force_local($t5.transform.basis*Vector3(force,0,0), $t5.translation)
-		5:
-			self.add_force_local($t6.transform.basis*Vector3(force,0,0), $t6.translation)
-		6:
-			self.add_force_local($t7.transform.basis*Vector3(force,0,0), $t7.translation)
-		7:
-			self.add_force_local($t8.transform.basis*Vector3(force,0,0), $t8.translation)
 		8:
-			$Camera.rotation_degrees.x = -45 + 90 * percentage
+			camera.rotation_degrees.x = -45 + 90 * percentage
 		9:
 			percentage -= 0.1
-			$light1.light_energy = percentage * 5
-			$light2.light_energy = percentage * 5
-			$light3.light_energy = percentage * 5
-			$light4.light_energy = percentage * 5
-			$scatterlight.light_energy = percentage * 2.5
+
+			for i in range(lights.size()):
+				lights[i].light_energy = percentage * 5
+
+			scatterlight.light_energy = percentage * 2.5
+
 			if percentage < 0.01 and light_glows[0].get_parent() != null:
 				for light in light_glows:
-					self.remove_child(light)
+					remove_child(light)
 			elif percentage > 0.01 and light_glows[0].get_parent() == null:
 				for light in light_glows:
-					self.add_child(light)
+					add_child(light)
 
 		10:
 			if percentage < 0.4:
@@ -246,21 +255,21 @@ func _unhandled_input(event):
 		# There are for debugging:
 		# Some forces:
 		if event.pressed and event.scancode == KEY_X:
-			self.add_central_force(Vector3(30, 0, 0))
+			add_central_force(Vector3(30, 0, 0))
 		if event.pressed and event.scancode == KEY_Y:
-			self.add_central_force(Vector3(0, 30, 0))
+			add_central_force(Vector3(0, 30, 0))
 		if event.pressed and event.scancode == KEY_Z:
-			self.add_central_force(Vector3(0, 0, 30))
+			add_central_force(Vector3(0, 0, 30))
 		# Reset position
 		if event.pressed and event.scancode == KEY_R:
 			set_translation(_initial_position)
 		# Some torques
 		if event.pressed and event.scancode == KEY_Q:
-			self.add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
+			add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
 		if event.pressed and event.scancode == KEY_T:
-			self.add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
+			add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
 		if event.pressed and event.scancode == KEY_E:
-			self.add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+			add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
 		# Some hard-coded positions (used to check accelerometer)
 		# if event.pressed and event.scancode == KEY_U:
 		# 	self.look_at(Vector3(0, 100, 0), Vector3(0, 0, 1))  # expects +X
@@ -273,59 +282,58 @@ func _unhandled_input(event):
 		# 	mode = RigidBody.MODE_STATIC
 
 		if event.pressed and event.is_action("camera_switch"):
-			if $Camera.is_current():
-				$Camera.clear_current(true)
+			if camera.is_current():
+				camera.clear_current(true)
 			else:
-				$Camera.set_current(true)
+				camera.set_current(true)
 
 	if event.is_action("lights_up"):
-		var percentage = min(max(0, $light1.light_energy + 0.1), 5)
+		var percentage = min(max(0, lights[0].light_energy + 0.1), 5)
 		if percentage > 0:
 			for light in light_glows:
-				self.add_child(light)
-		$light1.light_energy = percentage
-		$light2.light_energy = percentage
-		$light3.light_energy = percentage
-		$light4.light_energy = percentage
-		$scatterlight.light_energy = percentage * 0.5
+				add_child(light)
+
+		for i in range(lights.size()):
+			lights[i].light_energy = percentage
+		scatterlight.light_energy = percentage * 0.5
 
 	if event.is_action("lights_down"):
-		var percentage = min(max(0, $light1.light_energy - 0.1), 5)
-		$light1.light_energy = percentage
-		$light2.light_energy = percentage
-		$light3.light_energy = percentage
-		$light4.light_energy = percentage
-		$scatterlight.light_energy = percentage * 0.5
+		var percentage: float = min(max(0, lights[0].light_energy - 0.1), 5)
 		if percentage == 0:
 			for light in light_glows:
-				self.remove_child(light)
+				remove_child(light)
+
+		for i in range(lights.size()):
+			lights[i].light_energy = percentage
+		scatterlight.light_energy = percentage * 0.5
+
 
 
 func process_keys():
 	if Input.is_action_pressed("forward"):
-		self.add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
 	elif Input.is_action_pressed("backwards"):
-		self.add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
 
 	if Input.is_action_pressed("strafe_right"):
-		self.add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
 	elif Input.is_action_pressed("strafe_left"):
-		self.add_force_local(Vector3(40, 0, 0), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(40, 0, 0), Vector3(0, -0.05, 0))
 
 	if Input.is_action_pressed("upwards"):
-		self.add_force_local(Vector3(0, 70, 0), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(0, 70, 0), Vector3(0, -0.05, 0))
 	elif Input.is_action_pressed("downwards"):
-		self.add_force_local(Vector3(0, -70, 0), Vector3(0, -0.05, 0))
+		add_force_local(Vector3(0, -70, 0), Vector3(0, -0.05, 0))
 
 	if Input.is_action_pressed("rotate_left"):
-		self.add_torque(self.transform.basis.xform(Vector3(0, 20, 0)))
+		add_torque(transform.basis.xform(Vector3(0, 20, 0)))
 	elif Input.is_action_pressed("rotate_right"):
-		self.add_torque(self.transform.basis.xform(Vector3(0, -20, 0)))
+		add_torque(transform.basis.xform(Vector3(0, -20, 0)))
 
 	if Input.is_action_pressed("camera_up"):
-		$Camera.rotation_degrees.x = min($Camera.rotation_degrees.x + 0.1, 45)
+		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
 	elif Input.is_action_pressed("camera_down"):
-		$Camera.rotation_degrees.x = max($Camera.rotation_degrees.x - 0.1, -45)
+		camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
 
 	# Gripper
 	var target_velocity: float = 0.0
