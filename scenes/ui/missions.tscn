@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/background.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Roboto/text_italic.tres" type="DynamicFont" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/world_map.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/ui/map/mission_panel.gd" type="Script" id=9]
 [ext_resource path="res://scripts/ui/missions_map.gd" type="Script" id=10]
+[ext_resource path="res://assets/home-bg.png" type="Texture" id=11]
 
 [node name="MissionsMap" type="Control"]
 anchor_right = 1.0
@@ -31,7 +32,7 @@ margin_bottom = 600.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-color = Color( 0.4, 0.4, 0.4, 1 )
+color = Color( 0.137255, 0.129412, 0.172549, 1 )
 script = ExtResource( 9 )
 thumbnail_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Thumbnail")
 country_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/VBoxContainer2/Country")
@@ -47,6 +48,15 @@ custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
+
+[node name="Background" type="TextureRect" parent="HBoxContainer/MissionPanel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 295.0
+margin_bottom = 595.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MissionPanel/MarginContainer"]
 margin_left = 5.0
