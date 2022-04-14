@@ -87,7 +87,7 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
 
-[node name="Licences" type="Button" parent="."]
+[node name="Credits" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -109,7 +109,7 @@ margin_left = -412.0
 margin_top = -200.0
 margin_right = 412.0
 margin_bottom = 200.0
-window_title = "Licences"
+window_title = "Credits"
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="LicencesDialog"]
@@ -124,17 +124,17 @@ bbcode_text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
 1. Video game
 
-Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
 Game design : Marc Le Nestour
 Game development : 
 - Quentin Franchi - Core game
 - Paco Bonilla - Animations
 - Denis Bled - Levels design
+Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
 
 2. Music & Sounds
-- Denis Bled - Composition & Arrangements / Keyboards
-- Julien Deforges - Saxophone
-- Alexandre Castera - Drums & Percussions
+- Composition & Arrangements / Keyboards - Denis Bled
+- Saxophone - Julien Deforges
+- Drums & Percussions - Alexandre Castera
 
 3. Sponsors
 - BNP Paribas
@@ -149,9 +149,9 @@ Game development :
 - ROV Experts
 - Spielfabrique
 
-5. Mission Comittee Members
+All Mission Comittee Members and contributors..
 
-6. Discover our journey
+5. Discover our journey
 More details are available on our website : [url]https://www.enderocean.com[/url]
 
 "
@@ -159,17 +159,17 @@ text = "Ender Ocean : Your mission \"Clean the Ocean\"
 
 1. Video game
 
-Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
 Game design : Marc Le Nestour
 Game development : 
 - Quentin Franchi - Core game
 - Paco Bonilla - Animations
 - Denis Bled - Levels design
+Licenses : This game is published under Open Source License - Affero GPL (AGPL). Feel free to contact us and contribute.
 
 2. Music & Sounds
-- Denis Bled - Composition & Arrangements / Keyboards
-- Julien Deforges - Saxophone
-- Alexandre Castera - Drums & Percussions
+- Composition & Arrangements / Keyboards - Denis Bled
+- Saxophone - Julien Deforges
+- Drums & Percussions - Alexandre Castera
 
 3. Sponsors
 - BNP Paribas
@@ -184,9 +184,9 @@ Game development :
 - ROV Experts
 - Spielfabrique
 
-5. Mission Comittee Members
+All Mission Comittee Members and contributors..
 
-6. Discover our journey
+5. Discover our journey
 More details are available on our website : https://www.enderocean.com
 
 "
@@ -235,7 +235,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "CAMPAIGNS"
 
-[connection signal="pressed" from="Licences" to="." method="_on_licences_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_licences_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
