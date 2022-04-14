@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Container_OBJ.obj-ed408b02c1ccf98b3053606d3906f412.mesh"
+
+[deps]
+
+files=[ "res://.import/Container_OBJ.obj-ed408b02c1ccf98b3053606d3906f412.mesh" ]
+
+source_file="res://assets/models/vehicles/Container_OBJ.obj"
+dest_files=[ "res://.import/Container_OBJ.obj-ed408b02c1ccf98b3053606d3906f412.mesh", "res://.import/Container_OBJ.obj-ed408b02c1ccf98b3053606d3906f412.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
