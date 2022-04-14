@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=6]
 [ext_resource path="res://scenes/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/music.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -98,6 +99,20 @@ margin_right = -16.0
 margin_bottom = -17.0
 rect_min_size = Vector2( 111, 51 )
 text = "Credits"
+flat = true
+
+[node name="Music" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -142.0
+margin_top = -54.0
+margin_right = 382.0
+margin_bottom = 464.0
+rect_min_size = Vector2( 50, 50 )
+rect_scale = Vector2( 0.04, 0.04 )
+icon = ExtResource( 9 )
 flat = true
 
 [node name="LicencesDialog" type="AcceptDialog" parent="."]
@@ -236,6 +251,7 @@ custom_fonts/font = ExtResource( 8 )
 text = "CAMPAIGNS"
 
 [connection signal="pressed" from="Credits" to="." method="_on_licences_pressed"]
+[connection signal="pressed" from="Music" to="." method="_on_Music_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
