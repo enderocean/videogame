@@ -20,9 +20,13 @@ static func get_levels() -> Dictionary:
 	var path: String = "res://assets/levels/"
 	var files: PoolStringArray = get_files("res://assets/levels/")
 	var levels: Dictionary
+	var file: File = File.new()
 	
-	for file in files:
-		var level: LevelData = load(path + file)
+	for file_name in files:
+		if not file.file_exists(path + file_name):
+			continue
+			
+		var level: LevelData = load(path + file_name)
 		if not level:
 			continue
 		
