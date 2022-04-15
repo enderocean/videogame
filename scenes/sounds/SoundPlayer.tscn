@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/sounds/sound_player.gd" type="Script" id=1]
 
 [node name="SoundPlayer" type="AudioStreamPlayer"]
+bus = "Sounds"
 script = ExtResource( 1 )
 
 [connection signal="finished" from="." to="." method="_on_finished"]
