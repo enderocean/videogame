@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Black shoe.obj-f94b2e2124db903243368aa7fa6073cd.mesh"
+
+[deps]
+
+files=[ "res://.import/Black shoe.obj-f94b2e2124db903243368aa7fa6073cd.mesh" ]
+
+source_file="res://assets/models/shoes/Black shoe.obj"
+dest_files=[ "res://.import/Black shoe.obj-f94b2e2124db903243368aa7fa6073cd.mesh", "res://.import/Black shoe.obj-f94b2e2124db903243368aa7fa6073cd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
