@@ -127,7 +127,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 4246.54
+shader_param/timer = 167.819
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -142,7 +142,7 @@ shader_param/tail_color = Color( 1, 1, 1, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0
-shader_param/roughness = 0.0
+shader_param/roughness = 1.0
 shader_param/point_size = 1.0
 shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
 shader_param/roughness_texture_channel = Plane( 1, 0, 0, 0 )
