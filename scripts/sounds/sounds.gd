@@ -33,6 +33,8 @@ func play(key: String) -> void:
 	else:
 		player.stream = load(sounds[key])
 
+	# Reset the volume before playing
+	player.volume_db = 0
 	player.play()
 
 
@@ -42,7 +44,7 @@ func stop(key: String) -> void:
 		return
 	if not player.playing:
 		return
-	player.stop()
+	player.stop_fade()
 
 # Stops currently playing sounds
 func stop_all() -> void:

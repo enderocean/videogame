@@ -217,5 +217,6 @@ from = NodePath("../BlueRov")
 to = NodePath("../TheterAnchor")
 
 [node name="TheterAnchor" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 5.5, 4.2 )
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryArea_objects_changed"]
