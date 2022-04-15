@@ -312,31 +312,57 @@ func _unhandled_input(event) -> void:
 
 
 func process_keys() -> void:
+	var force: Vector3 = Vector3.ZERO
+	var pos: Vector3 = Vector3(0, -0.05, 0)
+
 	if Input.is_action_pressed("forward"):
-		add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
+		force = Vector3(0, 0, 40)
 		sounds.play("move_forward")
-	elif Input.is_action_pressed("backwards"):
-		add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
+	else:
+		sounds.stop("move_forward")
+
+	if Input.is_action_pressed("backwards"):
+		force = Vector3(0, 0, -40)
 		sounds.play("move_backward")
+	else:
+		sounds.stop("move_backward")
 
 	if Input.is_action_pressed("strafe_right"):
-		add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
+		force = Vector3(-40, 0, 0)
 		sounds.play("move_right")
-	elif Input.is_action_pressed("strafe_left"):
-		add_force_local(Vector3(40, 0, 0), Vector3(0, -0.05, 0))
+	else:
+		sounds.stop("move_right")
+
+	if Input.is_action_pressed("strafe_left"):
+		force = Vector3(40, 0, 0)
 		sounds.play("move_left")
+	else:
+		sounds.stop("move_left")
 
 	if Input.is_action_pressed("upwards"):
-		add_force_local(Vector3(0, 70, 0), Vector3(0, -0.05, 0))
+		force = Vector3(0, 70, 0)
 		sounds.play("move_up")
-	elif Input.is_action_pressed("downwards"):
-		add_force_local(Vector3(0, -70, 0), Vector3(0, -0.05, 0))
-		sounds.play("move_down")
+	else:
+		sounds.stop("move_up")
 
+	if Input.is_action_pressed("downwards"):
+		force = Vector3(0, -70, 0)
+		sounds.play("move_down")
+	else:
+		sounds.stop("move_down")
+
+	if force != Vector3.ZERO:
+		add_force_local(force, pos)
+
+	var torque: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("rotate_left"):
-		add_torque(transform.basis.xform(Vector3(0, 20, 0)))
+		torque = transform.basis.xform(Vector3(0, 20, 0))
 	elif Input.is_action_pressed("rotate_right"):
-		add_torque(transform.basis.xform(Vector3(0, -20, 0)))
+		torque = transform.basis.xform(Vector3(0, -20, 0))
+
+	if torque != Vector3.ZERO:
+		add_torque(torque)
+
 
 	if Input.is_action_pressed("camera_up"):
 		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
