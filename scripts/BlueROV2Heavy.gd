@@ -34,6 +34,9 @@ onready var light_glows: Array = [
 
 var thrusters: Array = []
 
+export var sounds_path: NodePath
+onready var sounds: ROVSounds = get_node(sounds_path)
+
 export var ljoint_path: NodePath
 export var rjoint_path: NodePath
 onready var ljoint: HingeJoint = get_node(ljoint_path)
@@ -53,12 +56,12 @@ var carrying_object: DeliveryObject
 onready var wait_SITL = Globals.wait_SITL
 
 
-func connect_fmd_in():
+func connect_fmd_in() -> void:
 	if interface.listen(9002) != OK:
 		print("Failed to connect fdm_in")
 
 
-func get_servos():
+func get_servos() -> void:
 	if not peer:
 		interface.set_dest_address("127.0.0.1", interface.get_packet_port())
 
@@ -85,7 +88,7 @@ func get_servos():
 		actuate_servo(i, (float(buffer.get_u16()) - 1000) / 1000)
 
 
-func send_fdm():
+func send_fdm() -> void:
 	var buffer = StreamPeerBuffer.new()
 
 	buffer.put_double((OS.get_ticks_msec() - start_time) / 1000.0)
@@ -131,8 +134,7 @@ func send_fdm():
 	interface.put_packet(buffer.data_array)
 
 
-func get_motors_table_entry(thruster):
-	
+func get_motors_table_entry(thruster) -> Array:
 	var thruster_vector = (thruster.transform.basis*Vector3(1,0,0)).normalized()
 	var roll = Vector3(0,0,-1).cross(thruster.translation).normalized().dot(thruster_vector)
 	var pitch = Vector3(1,0,0).cross(thruster.translation).normalized().dot(thruster_vector)
@@ -155,7 +157,7 @@ func get_motors_table_entry(thruster):
 	return [roll, pitch, yaw, vertical, forward, lateral]
 
 
-func calculate_motors_matrix():
+func calculate_motors_matrix() -> void:
 	print("Calculated Motors Matrix:")
 	var i = 1
 	for thruster in thrusters:
@@ -165,7 +167,7 @@ func calculate_motors_matrix():
 		print("add_motor_raw_6dof(AP_MOTORS_MOT_%s,\t%s,\t%s,\t%s,\t%s,\t%s,\t%s);" % entry)
 
 
-func _ready():
+func _ready() -> void:
 	if Engine.is_editor_hint():
 		calculate_motors_matrix()
 		return
@@ -182,7 +184,7 @@ func _ready():
 		connect_fmd_in()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
@@ -204,7 +206,7 @@ func _physics_process(delta):
 	send_fdm()
 
 
-func add_force_local(force: Vector3, pos: Vector3):
+func add_force_local(force: Vector3, pos: Vector3) -> void:
 	var pos_local: Vector3 = transform.basis.xform(pos)
 	var force_local: Vector3 = transform.basis.xform(force)
 	add_force(force_local, pos_local)
@@ -250,26 +252,27 @@ func actuate_servo(id: int, percentage: float) -> void:
 				rjoint.set_param(6, 0)
 
 
-func _unhandled_input(event):
+func _unhandled_input(event) -> void:
 	if event is InputEventKey:
-		# There are for debugging:
-		# Some forces:
-		if event.pressed and event.scancode == KEY_X:
-			add_central_force(Vector3(30, 0, 0))
-		if event.pressed and event.scancode == KEY_Y:
-			add_central_force(Vector3(0, 30, 0))
-		if event.pressed and event.scancode == KEY_Z:
-			add_central_force(Vector3(0, 0, 30))
-		# Reset position
-		if event.pressed and event.scancode == KEY_R:
-			set_translation(_initial_position)
-		# Some torques
-		if event.pressed and event.scancode == KEY_Q:
-			add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
-		if event.pressed and event.scancode == KEY_T:
-			add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
-		if event.pressed and event.scancode == KEY_E:
-			add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+	# 	# There are for debugging:
+	# 	# Some forces:
+	# 	if event.pressed and event.scancode == KEY_X:
+	# 		add_central_force(Vector3(30, 0, 0))
+	# 	if event.pressed and event.scancode == KEY_Y:
+	# 		add_central_force(Vector3(0, 30, 0))
+	# 	if event.pressed and event.scancode == KEY_Z:
+	# 		add_central_force(Vector3(0, 0, 30))
+	# 	# Reset position
+	# 	if event.pressed and event.scancode == KEY_R:
+	# 		set_translation(_initial_position)
+	# 	# Some torques
+	# 	if event.pressed and event.scancode == KEY_Q:
+	# 		add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
+	# 	if event.pressed and event.scancode == KEY_T:
+	# 		add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
+	# 	if event.pressed and event.scancode == KEY_E:
+	# 		add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+
 		# Some hard-coded positions (used to check accelerometer)
 		# if event.pressed and event.scancode == KEY_U:
 		# 	self.look_at(Vector3(0, 100, 0), Vector3(0, 0, 1))  # expects +X
@@ -308,32 +311,65 @@ func _unhandled_input(event):
 		scatterlight.light_energy = percentage * 0.5
 
 
+func process_keys() -> void:
+	var force: Vector3 = Vector3.ZERO
+	var pos: Vector3 = Vector3(0, -0.05, 0)
 
-func process_keys():
 	if Input.is_action_pressed("forward"):
-		add_force_local(Vector3(0, 0, 40), Vector3(0, -0.05, 0))
-	elif Input.is_action_pressed("backwards"):
-		add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
+		force = Vector3(0, 0, 40)
+		sounds.play("move_forward")
+	else:
+		sounds.stop("move_forward")
+
+	if Input.is_action_pressed("backwards"):
+		force = Vector3(0, 0, -40)
+		sounds.play("move_backward")
+	else:
+		sounds.stop("move_backward")
 
 	if Input.is_action_pressed("strafe_right"):
-		add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
-	elif Input.is_action_pressed("strafe_left"):
-		add_force_local(Vector3(40, 0, 0), Vector3(0, -0.05, 0))
+		force = Vector3(-40, 0, 0)
+		sounds.play("move_right")
+	else:
+		sounds.stop("move_right")
+
+	if Input.is_action_pressed("strafe_left"):
+		force = Vector3(40, 0, 0)
+		sounds.play("move_left")
+	else:
+		sounds.stop("move_left")
 
 	if Input.is_action_pressed("upwards"):
-		add_force_local(Vector3(0, 70, 0), Vector3(0, -0.05, 0))
-	elif Input.is_action_pressed("downwards"):
-		add_force_local(Vector3(0, -70, 0), Vector3(0, -0.05, 0))
+		force = Vector3(0, 70, 0)
+		sounds.play("move_up")
+	else:
+		sounds.stop("move_up")
 
+	if Input.is_action_pressed("downwards"):
+		force = Vector3(0, -70, 0)
+		sounds.play("move_down")
+	else:
+		sounds.stop("move_down")
+
+	if force != Vector3.ZERO:
+		add_force_local(force, pos)
+
+	var torque: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("rotate_left"):
-		add_torque(transform.basis.xform(Vector3(0, 20, 0)))
+		torque = transform.basis.xform(Vector3(0, 20, 0))
 	elif Input.is_action_pressed("rotate_right"):
-		add_torque(transform.basis.xform(Vector3(0, -20, 0)))
+		torque = transform.basis.xform(Vector3(0, -20, 0))
+
+	if torque != Vector3.ZERO:
+		add_torque(torque)
+
 
 	if Input.is_action_pressed("camera_up"):
 		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
+		sounds.play("camera_up")
 	elif Input.is_action_pressed("camera_down"):
 		camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
+		sounds.play("camera_down")
 
 	# Gripper
 	var target_velocity: float = 0.0
@@ -343,8 +379,11 @@ func process_keys():
 		if carrying_object:
 			release_object()
 
+		sounds.play("gripper_open")
+
 	elif Input.is_action_pressed("gripper_close"):
 		target_velocity = 1.0
+		sounds.play("gripper_close")
 	
 	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
 	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
@@ -365,6 +404,7 @@ func check_carry(body: DeliveryObject) -> void:
 	else:
 		release_object()
 
+
 func carry_object(body: DeliveryObject) -> void:
 	body.carried = true
 	
@@ -374,12 +414,14 @@ func carry_object(body: DeliveryObject) -> void:
 	
 	carrying_object = body
 
+
 func release_object() -> void:
 	if not carrying_object:
 		return
 	
 	carrying_object.carried = false
 	carrying_object = null
+
 
 func _on_LeftGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
@@ -395,12 +437,14 @@ func _on_LeftGripArea_body_exited(body: Node) -> void:
 	
 	grips[0] = false
 
+
 func _on_RightGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 	
 	grips[1] = true
 	check_carry(body)
+
 
 func _on_RightGripArea_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
