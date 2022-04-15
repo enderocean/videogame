@@ -342,13 +342,13 @@ func process_keys() -> void:
 	if Input.is_action_pressed("upwards"):
 		force = Vector3(0, 70, 0)
 		sounds.play("move_up")
-	else:
-		sounds.stop("move_up")
-
-	if Input.is_action_pressed("downwards"):
+		sounds.stop("move_down")
+	elif Input.is_action_pressed("downwards"):
 		force = Vector3(0, -70, 0)
+		sounds.stop("move_up")
 		sounds.play("move_down")
 	else:
+		sounds.stop("move_up")
 		sounds.stop("move_down")
 
 	if force != Vector3.ZERO:
@@ -366,10 +366,15 @@ func process_keys() -> void:
 
 	if Input.is_action_pressed("camera_up"):
 		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
+		sounds.stop("camera_down")
 		sounds.play("camera_up")
 	elif Input.is_action_pressed("camera_down"):
 		camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
+		sounds.stop("camera_up")
 		sounds.play("camera_down")
+	else:
+		sounds.stop("camera_up")
+		sounds.stop("camera_down")
 
 	# Gripper
 	var target_velocity: float = 0.0
@@ -379,12 +384,16 @@ func process_keys() -> void:
 		if carrying_object:
 			release_object()
 
+		sounds.stop("gripper_close")
 		sounds.play("gripper_open")
-
 	elif Input.is_action_pressed("gripper_close"):
 		target_velocity = 1.0
+		sounds.stop("gripper_open")
 		sounds.play("gripper_close")
-	
+	else:
+		sounds.stop("gripper_open")
+		sounds.stop("gripper_close")
+
 	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
 	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
 
