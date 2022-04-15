@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/splat.png-c0c8a289582fc0f0845f1f72b9a23691.stex"
+path="res://.import/Metal022_1K_NormalGL.jpg-4ecccbad4dbd42d6f88a5f1d19d06469.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://terrains/demo_level/splat.png"
-dest_files=[ "res://.import/splat.png-c0c8a289582fc0f0845f1f72b9a23691.stex" ]
+source_file="res://assets/textures/metal/Metal022_1K_NormalGL.jpg"
+dest_files=[ "res://.import/Metal022_1K_NormalGL.jpg-4ecccbad4dbd42d6f88a5f1d19d06469.stex" ]
 
 [params]
 
@@ -23,13 +23,13 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=0
-process/fix_alpha_border=false
+flags/srgb=2
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
