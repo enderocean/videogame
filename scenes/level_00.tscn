@@ -563,3 +563,85 @@ material/8 = SubResource( 88 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
 transform = Transform( 0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0.0934429, -1.20426, 1.17002 )
 shape = SubResource( 89 )
+
+[node name="Coke2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999564, -0.0295266, 0, 0.0295266, 0.999564, -4.03483, -2.34381, -21.5294 )
+collision_layer = 2
+collision_mask = 3
+mass = 10.0
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coke2"]
+transform = Transform( 1.55, 0, 0, 0, 1.7, 0, 0, 0, 1.55, 0, -0.0467947, 0 )
+mesh = ExtResource( 23 )
+material/0 = SubResource( 28 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Coke2"]
+transform = Transform( 1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0.0454512, 0 )
+shape = SubResource( 29 )
+
+[node name="senecio_6" type="MeshInstance" parent="."]
+transform = Transform( 0.0478676, 0.00259397, 0.0142112, -0.00126234, 0.0497503, -0.00482896, -0.0143907, 0.00426424, 0.047694, -4.13793, -2.4246, -8.63862 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="senecio_7" type="MeshInstance" parent="."]
+transform = Transform( 0.0268059, 0.00145263, 0.00795829, -0.000706917, 0.0278601, -0.00270423, -0.00805883, 0.00238797, 0.0267087, -3.8223, -2.54195, -7.17885 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="senecio_8" type="MeshInstance" parent="."]
+transform = Transform( 0.499429, 0.0104775, -0.0214674, -0.0115394, 0.499252, -0.0247903, 0.0209158, 0.0252575, 0.498924, -6.38393, -2.82554, -7.97321 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("../senecio_1")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+
+[node name="monsterra10" type="MeshInstance" parent="."]
+transform = Transform( 0.0362638, 0, -0.01688, 0, 0.14, 0, 0.01688, 0, 0.0362638, -6.23383, -2.37022, -7.98604 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="monsterra11" type="MeshInstance" parent="."]
+transform = Transform( 0.0362638, 0, -0.01688, 0, 0.14, 0, 0.01688, 0, 0.0362638, -4.94691, -2.39533, -7.50626 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="monsterra12" type="MeshInstance" parent="."]
+transform = Transform( 0.0181319, 0, -0.01266, 0, 0.08, 0, 0.00844002, 0, 0.0271979, -3.79438, -2.39533, -7.9604 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="monsterra13" type="MeshInstance" parent="."]
+transform = Transform( 0.0271979, 0, -0.01688, 0, 0.11, 0, 0.01266, 0, 0.0362638, -4.94691, -2.39533, -8.93456 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="monsterra14" type="MeshInstance" parent="."]
+transform = Transform( 0.0271979, 0, -0.01688, 0, 0.11, 0, 0.01266, 0, 0.0362638, -6.94693, -2.39533, -8.93456 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="monsterra15" type="MeshInstance" parent="."]
+transform = Transform( 0.0181319, 0, -0.01688, 0, 0.11, 0, 0.00844002, 0, 0.0362638, -6.94693, -2.39533, -7.50626 )
+mesh = ExtResource( 14 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
