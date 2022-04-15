@@ -40,6 +40,8 @@ func stop(key: String) -> void:
 	var player: AudioStreamPlayer = get_node_or_null(key)
 	if not player:
 		return
+	if not player.playing:
+		return
 	player.stop()
 
 # Stops currently playing sounds

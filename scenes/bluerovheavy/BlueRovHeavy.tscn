@@ -160,6 +160,7 @@ surfaces/0 = {
 [node name="Vehicle" type="Spatial"]
 script = ExtResource( 9 )
 camera_target_path = NodePath("BlueRov/cameraTarget")
+theter_anchor_path = NodePath("BlueRov")
 
 [node name="BlueRov" type="RigidBody" parent="." groups=["buoyant", "vehicles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )

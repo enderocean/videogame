@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scripts/level.gd" type="Script" id=7]
 [ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -209,5 +211,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.9, 4.9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[node name="Theter" parent="." instance=ExtResource( 10 )]
+from = NodePath("../BlueRov")
+to = NodePath("../TheterAnchor")
+
+[node name="TheterAnchor" parent="." instance=ExtResource( 11 )]
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryArea_objects_changed"]
