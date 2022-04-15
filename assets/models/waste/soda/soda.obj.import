@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/soda.obj-f90bcf7723ebc1e5b26648ca4d1f79f9.mesh"
+
+[deps]
+
+files=[ "res://.import/soda.obj-f90bcf7723ebc1e5b26648ca4d1f79f9.mesh" ]
+
+source_file="res://assets/models/waste/soda/soda.obj"
+dest_files=[ "res://.import/soda.obj-f90bcf7723ebc1e5b26648ca4d1f79f9.mesh", "res://.import/soda.obj-f90bcf7723ebc1e5b26648ca4d1f79f9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
