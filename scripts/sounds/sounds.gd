@@ -16,12 +16,15 @@ func play(key: String) -> void:
 	if not sounds.has(key):
 		return
 
-	var children: Array = get_children()
-	for child in children:
-		if child.name == key:
+	var player: AudioStreamPlayer = get_node_or_null(key)
+	if player:
+		if player.playing:
 			return
+	else:
+		player = sound_player.instance()
+		player.name = key
+		add_child(player)
 
-	var player: AudioStreamPlayer = sound_player.instance()
 	# Indicated an array of multiple sounds for a key
 	if sounds[key] is Array:
 		# Select random sound from array
@@ -30,15 +33,18 @@ func play(key: String) -> void:
 	else:
 		player.stream = load(sounds[key])
 
-	player.name = key
-	add_child(player)
 	player.play()
 
 
-# Stops currently playing sounds
-func stop() -> void:
-	var players: Array = get_children()
+func stop(key: String) -> void:
+	var player: AudioStreamPlayer = get_node_or_null(key)
+	if not player:
+		return
+	player.stop()
 
+# Stops currently playing sounds
+func stop_all() -> void:
+	var players: Array = get_children()
 	if players.size() == 0:
 		return
 

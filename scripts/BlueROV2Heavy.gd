@@ -317,7 +317,7 @@ func process_keys() -> void:
 		sounds.play("move_forward")
 	elif Input.is_action_pressed("backwards"):
 		add_force_local(Vector3(0, 0, -40), Vector3(0, -0.05, 0))
-		sounds.play("move_forward")
+		sounds.play("move_backward")
 
 	if Input.is_action_pressed("strafe_right"):
 		add_force_local(Vector3(-40, 0, 0), Vector3(0, -0.05, 0))
