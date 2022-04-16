@@ -59,6 +59,7 @@ shadow_enabled = true
 
 [node name="MovingBoat" type="KinematicBody" parent="."]
 transform = Transform( 0.608138, 0, -0.793831, 0, 1, 0, 0.793831, 0, 0.608138, -4.9253, 0, -129.756 )
+visible = false
 axis_lock_motion_x = true
 move_lock_x = true
 script = ExtResource( 2 )

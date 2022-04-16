@@ -224,11 +224,11 @@ from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 
 [node name="Ender Station" type="MeshInstance" parent="."]
-transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -4.44855, 9.90303, 20.4913 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
 mesh = SubResource( 20 )
 material/0 = SubResource( 21 )
 
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0373197, 0.454307, -0.260605 )
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.900206, 0.0875902, 0.00625014 )
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryArea_objects_changed"]
