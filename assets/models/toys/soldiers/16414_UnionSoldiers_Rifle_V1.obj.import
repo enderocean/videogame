@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16414_UnionSoldiers_Rifle_V1.obj-815812590309a607a6f3336bf0ce0bea.mesh"
+
+[deps]
+
+files=[ "res://.import/16414_UnionSoldiers_Rifle_V1.obj-815812590309a607a6f3336bf0ce0bea.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/16414_UnionSoldiers_Rifle_V1.obj"
+dest_files=[ "res://.import/16414_UnionSoldiers_Rifle_V1.obj-815812590309a607a6f3336bf0ce0bea.mesh", "res://.import/16414_UnionSoldiers_Rifle_V1.obj-815812590309a607a6f3336bf0ce0bea.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

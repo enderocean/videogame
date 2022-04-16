@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16415_Union_Soldiers-Rifle_with_Bayonet_new.obj-23df6901a8f2b302a4d5ba1cc9c70019.mesh"
+
+[deps]
+
+files=[ "res://.import/16415_Union_Soldiers-Rifle_with_Bayonet_new.obj-23df6901a8f2b302a4d5ba1cc9c70019.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/16415_Union_Soldiers-Rifle_with_Bayonet_new.obj"
+dest_files=[ "res://.import/16415_Union_Soldiers-Rifle_with_Bayonet_new.obj-23df6901a8f2b302a4d5ba1cc9c70019.mesh", "res://.import/16415_Union_Soldiers-Rifle_with_Bayonet_new.obj-23df6901a8f2b302a4d5ba1cc9c70019.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

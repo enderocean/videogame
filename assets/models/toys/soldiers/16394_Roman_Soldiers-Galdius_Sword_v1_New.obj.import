@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj-f73d105c2f6012d152c34ba6836da6e8.mesh"
+
+[deps]
+
+files=[ "res://.import/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj-f73d105c2f6012d152c34ba6836da6e8.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj"
+dest_files=[ "res://.import/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj-f73d105c2f6012d152c34ba6836da6e8.mesh", "res://.import/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj-f73d105c2f6012d152c34ba6836da6e8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

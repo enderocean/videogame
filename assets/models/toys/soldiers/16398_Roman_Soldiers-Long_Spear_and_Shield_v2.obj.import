@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16398_Roman_Soldiers-Long_Spear_and_Shield_v2.obj-835c0a7fde54c29bf44c787ea64178ca.mesh"
+
+[deps]
+
+files=[ "res://.import/16398_Roman_Soldiers-Long_Spear_and_Shield_v2.obj-835c0a7fde54c29bf44c787ea64178ca.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/16398_Roman_Soldiers-Long_Spear_and_Shield_v2.obj"
+dest_files=[ "res://.import/16398_Roman_Soldiers-Long_Spear_and_Shield_v2.obj-835c0a7fde54c29bf44c787ea64178ca.mesh", "res://.import/16398_Roman_Soldiers-Long_Spear_and_Shield_v2.obj-835c0a7fde54c29bf44c787ea64178ca.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

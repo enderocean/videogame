@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Giraffe.OBJ-7e4f805dba13ce639f80620961381724.mesh"
+
+[deps]
+
+files=[ "res://.import/Giraffe.OBJ-7e4f805dba13ce639f80620961381724.mesh" ]
+
+source_file="res://assets/models/toys/girafe/Giraffe.OBJ"
+dest_files=[ "res://.import/Giraffe.OBJ-7e4f805dba13ce639f80620961381724.mesh", "res://.import/Giraffe.OBJ-7e4f805dba13ce639f80620961381724.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

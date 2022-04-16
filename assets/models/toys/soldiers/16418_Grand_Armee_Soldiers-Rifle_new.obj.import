@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16418_Grand_Armee_Soldiers-Rifle_new.obj-f929165ba3be70722b2caf157fc6da65.mesh"
+
+[deps]
+
+files=[ "res://.import/16418_Grand_Armee_Soldiers-Rifle_new.obj-f929165ba3be70722b2caf157fc6da65.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/16418_Grand_Armee_Soldiers-Rifle_new.obj"
+dest_files=[ "res://.import/16418_Grand_Armee_Soldiers-Rifle_new.obj-f929165ba3be70722b2caf157fc6da65.mesh", "res://.import/16418_Grand_Armee_Soldiers-Rifle_new.obj-f929165ba3be70722b2caf157fc6da65.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

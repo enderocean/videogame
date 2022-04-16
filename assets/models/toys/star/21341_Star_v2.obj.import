@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/21341_Star_v2.obj-7d2baebff36e9200cf049d9fd7b78964.mesh"
+
+[deps]
+
+files=[ "res://.import/21341_Star_v2.obj-7d2baebff36e9200cf049d9fd7b78964.mesh" ]
+
+source_file="res://assets/models/toys/star/21341_Star_v2.obj"
+dest_files=[ "res://.import/21341_Star_v2.obj-7d2baebff36e9200cf049d9fd7b78964.mesh", "res://.import/21341_Star_v2.obj-7d2baebff36e9200cf049d9fd7b78964.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
