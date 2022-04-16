@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16889_bottle_for_over-the-counter_pills_v1.obj-f84a0006549d42c7104c455210ea8faf.mesh"
+
+[deps]
+
+files=[ "res://.import/16889_bottle_for_over-the-counter_pills_v1.obj-f84a0006549d42c7104c455210ea8faf.mesh" ]
+
+source_file="res://assets/models/bottles/pills/16889_bottle_for_over-the-counter_pills_v1.obj"
+dest_files=[ "res://.import/16889_bottle_for_over-the-counter_pills_v1.obj-f84a0006549d42c7104c455210ea8faf.mesh", "res://.import/16889_bottle_for_over-the-counter_pills_v1.obj-f84a0006549d42c7104c455210ea8faf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

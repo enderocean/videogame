@@ -34,8 +34,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8538, -5.27278, 6.47834 )
 
 [node name="theter" type="Spatial" parent="BlueRov"]
 script = ExtResource( 2 )
-start = NodePath("../BlueRov")
-loops = 100
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -30, -150 )
