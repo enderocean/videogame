@@ -1,7 +1,7 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
-[ext_resource path="res://scripts/move_boat.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/vehicles/cargo.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=4]
 [ext_resource path="res://terrains/level_01/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
@@ -14,7 +14,6 @@
 [ext_resource path="res://terrains/level_02/data.hterrain" type="Resource" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
 [ext_resource path="res://terrains/level_02/white_sand/Ground051_1K_Color.jpg" type="Texture" id=14]
-[ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=17]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=18]
@@ -23,11 +22,8 @@
 [ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
-
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0, 0.321569, 0.580392, 1 )
+[ext_resource path="res://scripts/delivery_object.gd" type="Script" id=24]
+[ext_resource path="res://assets/models/toys/soldiers/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj" type="ArrayMesh" id=25]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 1 )
@@ -43,6 +39,15 @@ uv1_scale = Vector3( 3, 2, 1 )
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 19 )
 
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( 304.649, 0.00282628, -126.928, -321.266, -1.98048, 127.35, 311.076, 254.865, 128.051, -319.331, -1.16419, -128.052, 304.653, 0.000991933, 125.442, 303.464, 251.892, -126.446, -311.958, 260.134, -125.057, -311.958, 260.134, 123.569 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.109833, 0.476562, 0.141349, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.063, 0.063, 0.063 )
+
 [node name="level_02" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
@@ -57,22 +62,237 @@ shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 18 )]
 
-[node name="MovingBoat" type="KinematicBody" parent="."]
-transform = Transform( 0.608138, 0, -0.793831, 0, 1, 0, 0.793831, 0, 0.608138, -4.9253, 0, -129.756 )
-visible = false
-axis_lock_motion_x = true
-move_lock_x = true
-script = ExtResource( 2 )
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.704, -160, 3, -155 )
+script = ExtResource( 3 )
+map_scale = Vector3( 0.53, 0.53, 0.51 )
+_terrain_data = ExtResource( 12 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 2 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="MovingBoat"]
-transform = Transform( 0.742494, 0, 21.8423, 0, 3.15, 0, -1.12421, 0, 14.4259, 26.822, 6.12925, -7.068 )
-shape = SubResource( 1 )
+[node name="BlueRov" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1393, 4.34787, -16.1057 )
 
-[node name="Marlow66" type="MeshInstance" parent="MovingBoat"]
-transform = Transform( 0.608138, 0, 0.793831, 0, 1, 0, -0.793831, 0, 0.608138, 15.549, 4.9, -16.148 )
-mesh = ExtResource( 15 )
+[node name="theter" type="Spatial" parent="BlueRov"]
+script = ExtResource( 8 )
+
+[node name="Theter" parent="." instance=ExtResource( 21 )]
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 0.10687, 0, 0.169052, 0, 0.2, 0, -0.169052, 0, 0.10687, 6.34815, 5.83718, -17.784 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 22 )]
+transform = Transform( 5.99999, 0, 4.52995e-06, 0, 3.99999, 0, -6.91414e-06, 0, 3.99999, 0.235741, -0.357201, -0.394886 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
+
+[node name="Container" type="StaticBody" parent="."]
+
+[node name="Container" type="MeshInstance" parent="Container"]
+transform = Transform( 0.00413867, 0.00266628, -0.00870416, 0, 0.00956146, 0.00292889, 0.00910337, -0.00121217, 0.00395718, 18.8231, -4.13031, -25.198 )
+mesh = ExtResource( 20 )
 skeleton = NodePath("../..")
-material/0 = SubResource( 3 )
+material/0 = SubResource( 4 )
+material/1 = SubResource( 4 )
+material/2 = SubResource( 4 )
+material/3 = SubResource( 4 )
+material/4 = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Container"]
+transform = Transform( 0.00413867, 0.00266628, -0.00870416, 0, 0.00956146, 0.00292889, 0.00910337, -0.00121217, 0.00395718, 18.8231, -4.13031, -25.198 )
+shape = SubResource( 9 )
+
+[node name="Soldier01" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -21.3108 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier01"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier01"]
+shape = SubResource( 8 )
+
+[node name="Soldier02" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -21.096 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier02"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier02"]
+shape = SubResource( 8 )
+
+[node name="Soldier03" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.8825 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier03"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier03"]
+shape = SubResource( 8 )
+
+[node name="Soldier04" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.694 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier04"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier04"]
+shape = SubResource( 8 )
+
+[node name="Soldier05" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.5239 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier05"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier05"]
+shape = SubResource( 8 )
+
+[node name="Soldier06" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.3472 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier06"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier06"]
+shape = SubResource( 8 )
+
+[node name="Soldier07" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.1674 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier07"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier07"]
+shape = SubResource( 8 )
+
+[node name="Soldier08" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -20.0123 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier08"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier08"]
+shape = SubResource( 8 )
+
+[node name="Soldier09" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -19.8225 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier09"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier09"]
+shape = SubResource( 8 )
+
+[node name="Soldier10" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.738, -2.24281, -19.6675 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Soldier10"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.0348859, 0, 0 )
+mesh = ExtResource( 25 )
+material/0 = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Soldier10"]
+shape = SubResource( 8 )
+
+[node name="cargo" type="MeshInstance" parent="."]
+transform = Transform( 1.79139, 0.853066, -0.251392, -0.881718, 1.77745, -0.251471, 0.116158, 0.33607, 1.96814, 21.5062, -11.0348, -68.6208 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../Soldier10")
+material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
@@ -99,52 +319,227 @@ material/23 = null
 material/24 = null
 material/25 = null
 material/26 = null
-
-[node name="HTerrain" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.704, -160, 3, -155 )
-script = ExtResource( 3 )
-map_scale = Vector3( 0.53, 0.53, 0.51 )
-_terrain_data = ExtResource( 12 )
-chunk_size = 32
-collision_enabled = true
-collision_layer = 1
-collision_mask = 1
-shader_type = "Classic4Lite"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource( 2 )
-shader_params/u_ground_uv_scale = 20
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = false
-shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
-
-[node name="BlueRov" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9165, 4.34787, -10.5866 )
-
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 8 )
-
-[node name="Theter" parent="." instance=ExtResource( 21 )]
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-
-[node name="Ender Station" type="MeshInstance" parent="."]
-transform = Transform( 0.10687, 0, 0.169052, 0, 0.2, 0, -0.169052, 0, 0.10687, -0.112491, 5.5715, -13.997 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
-
-[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 22 )]
-transform = Transform( 6, 0, 4.64916e-06, 0, 4, 0, -8.10623e-06, 0, 4, 1.50959, -1.52611, -1.32066 )
-
-[node name="Container" type="MeshInstance" parent="."]
-transform = Transform( 0.00413867, 0.00266628, -0.00870416, 0, 0.00956146, 0.00292889, 0.00910337, -0.00121217, 0.00395718, 18.8231, -4.13031, -25.198 )
-mesh = ExtResource( 20 )
-material/0 = SubResource( 4 )
-material/1 = SubResource( 4 )
-material/2 = SubResource( 4 )
-material/3 = SubResource( 4 )
-material/4 = SubResource( 4 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 17 )
-autoplay = true
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+material/54 = null
+material/55 = null
+material/56 = null
+material/57 = null
+material/58 = null
+material/59 = null
+material/60 = null
+material/61 = null
+material/62 = null
+material/63 = null
+material/64 = null
+material/65 = null
+material/66 = null
+material/67 = null
+material/68 = null
+material/69 = null
+material/70 = null
+material/71 = null
+material/72 = null
+material/73 = null
+material/74 = null
+material/75 = null
+material/76 = null
+material/77 = null
+material/78 = null
+material/79 = null
+material/80 = null
+material/81 = null
+material/82 = null
+material/83 = null
+material/84 = null
+material/85 = null
+material/86 = null
+material/87 = null
+material/88 = null
+material/89 = null
+material/90 = null
+material/91 = null
+material/92 = null
+material/93 = null
+material/94 = null
+material/95 = null
+material/96 = null
+material/97 = null
+material/98 = null
+material/99 = null
+material/100 = null
+material/101 = null
+material/102 = null
+material/103 = null
+material/104 = null
+material/105 = null
+material/106 = null
+material/107 = null
+material/108 = null
+material/109 = null
+material/110 = null
+material/111 = null
+material/112 = null
+material/113 = null
+material/114 = null
+material/115 = null
+material/116 = null
+material/117 = null
+material/118 = null
+material/119 = null
+material/120 = null
+material/121 = null
+material/122 = null
+material/123 = null
+material/124 = null
+material/125 = null
+material/126 = null
+material/127 = null
+material/128 = null
+material/129 = null
+material/130 = null
+material/131 = null
+material/132 = null
+material/133 = null
+material/134 = null
+material/135 = null
+material/136 = null
+material/137 = null
+material/138 = null
+material/139 = null
+material/140 = null
+material/141 = null
+material/142 = null
+material/143 = null
+material/144 = null
+material/145 = null
+material/146 = null
+material/147 = null
+material/148 = null
+material/149 = null
+material/150 = null
+material/151 = null
+material/152 = null
+material/153 = null
+material/154 = null
+material/155 = null
+material/156 = null
+material/157 = null
+material/158 = null
+material/159 = null
+material/160 = null
+material/161 = null
+material/162 = null
+material/163 = null
+material/164 = null
+material/165 = null
+material/166 = null
+material/167 = null
+material/168 = null
+material/169 = null
+material/170 = null
+material/171 = null
+material/172 = null
+material/173 = null
+material/174 = null
+material/175 = null
+material/176 = null
+material/177 = null
+material/178 = null
+material/179 = null
+material/180 = null
+material/181 = null
+material/182 = null
+material/183 = null
+material/184 = null
+material/185 = null
+material/186 = null
+material/187 = null
+material/188 = null
+material/189 = null
+material/190 = null
+material/191 = null
+material/192 = null
+material/193 = null
+material/194 = null
+material/195 = null
+material/196 = null
+material/197 = null
+material/198 = null
+material/199 = null
+material/200 = null
+material/201 = null
+material/202 = null
+material/203 = null
+material/204 = null
+material/205 = null
+material/206 = null
+material/207 = null
+material/208 = null
+material/209 = null
+material/210 = null
+material/211 = null
+material/212 = null
+material/213 = null
+material/214 = null
+material/215 = null
+material/216 = null
+material/217 = null
+material/218 = null
+material/219 = null
+material/220 = null
+material/221 = null
+material/222 = null
+material/223 = null
+material/224 = null
+material/225 = null
+material/226 = null
+material/227 = null
+material/228 = null
+material/229 = null
+material/230 = null
+material/231 = null
+material/232 = null
+material/233 = null
+material/234 = null
+material/235 = null
+material/236 = null
+material/237 = null
+material/238 = null
+material/239 = null
+material/240 = null
+material/241 = null
+material/242 = null
+material/243 = null
+material/244 = null
+material/245 = null
+material/246 = null
+material/247 = null
+material/248 = null
+material/249 = null
+material/250 = null

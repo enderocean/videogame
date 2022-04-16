@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/12934_Wooden_Chess_Rook_Side_B_V2_L3.obj-fadc834f1abc96b3a378353b2e1e5de9.mesh"
+
+[deps]
+
+files=[ "res://.import/12934_Wooden_Chess_Rook_Side_B_V2_L3.obj-fadc834f1abc96b3a378353b2e1e5de9.mesh" ]
+
+source_file="res://assets/models/toys/chess/12934_Wooden_Chess_Rook_Side_B_V2_L3.obj"
+dest_files=[ "res://.import/12934_Wooden_Chess_Rook_Side_B_V2_L3.obj-fadc834f1abc96b3a378353b2e1e5de9.mesh", "res://.import/12934_Wooden_Chess_Rook_Side_B_V2_L3.obj-fadc834f1abc96b3a378353b2e1e5de9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

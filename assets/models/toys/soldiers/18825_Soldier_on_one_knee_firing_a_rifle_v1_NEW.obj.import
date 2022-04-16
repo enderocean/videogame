@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/18825_Soldier_on_one_knee_firing_a_rifle_v1_NEW.obj-a55f57716110fe6a13fed96aa95addb6.mesh"
+
+[deps]
+
+files=[ "res://.import/18825_Soldier_on_one_knee_firing_a_rifle_v1_NEW.obj-a55f57716110fe6a13fed96aa95addb6.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/18825_Soldier_on_one_knee_firing_a_rifle_v1_NEW.obj"
+dest_files=[ "res://.import/18825_Soldier_on_one_knee_firing_a_rifle_v1_NEW.obj-a55f57716110fe6a13fed96aa95addb6.mesh", "res://.import/18825_Soldier_on_one_knee_firing_a_rifle_v1_NEW.obj-a55f57716110fe6a13fed96aa95addb6.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/13511_Toy_Hand_Rake_v1_L3.obj-3f87fa9823bf4b2ea77e3bbe2b963f5f.mesh"
+
+[deps]
+
+files=[ "res://.import/13511_Toy_Hand_Rake_v1_L3.obj-3f87fa9823bf4b2ea77e3bbe2b963f5f.mesh" ]
+
+source_file="res://assets/models/toys/handrake/13511_Toy_Hand_Rake_v1_L3.obj"
+dest_files=[ "res://.import/13511_Toy_Hand_Rake_v1_L3.obj-3f87fa9823bf4b2ea77e3bbe2b963f5f.mesh", "res://.import/13511_Toy_Hand_Rake_v1_L3.obj-3f87fa9823bf4b2ea77e3bbe2b963f5f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

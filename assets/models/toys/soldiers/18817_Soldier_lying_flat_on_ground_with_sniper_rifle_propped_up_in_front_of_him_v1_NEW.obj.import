@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/18817_Soldier_lying_flat_on_ground_with_sniper_rifle_propped_up_in_front_of_him_v1_NEW.obj-7b54afc862e63875e194335062d2f37f.mesh"
+
+[deps]
+
+files=[ "res://.import/18817_Soldier_lying_flat_on_ground_with_sniper_rifle_propped_up_in_front_of_him_v1_NEW.obj-7b54afc862e63875e194335062d2f37f.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/18817_Soldier_lying_flat_on_ground_with_sniper_rifle_propped_up_in_front_of_him_v1_NEW.obj"
+dest_files=[ "res://.import/18817_Soldier_lying_flat_on_ground_with_sniper_rifle_propped_up_in_front_of_him_v1_NEW.obj-7b54afc862e63875e194335062d2f37f.mesh", "res://.import/18817_Soldier_lying_flat_on_ground_with_sniper_rifle_propped_up_in_front_of_him_v1_NEW.obj-7b54afc862e63875e194335062d2f37f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

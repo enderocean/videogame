@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/18961_Chinese_soldier_v1.obj-b800f96d5057c31d8edace3f5734ee43.mesh"
+
+[deps]
+
+files=[ "res://.import/18961_Chinese_soldier_v1.obj-b800f96d5057c31d8edace3f5734ee43.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/18961_Chinese_soldier_v1.obj"
+dest_files=[ "res://.import/18961_Chinese_soldier_v1.obj-b800f96d5057c31d8edace3f5734ee43.mesh", "res://.import/18961_Chinese_soldier_v1.obj-b800f96d5057c31d8edace3f5734ee43.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

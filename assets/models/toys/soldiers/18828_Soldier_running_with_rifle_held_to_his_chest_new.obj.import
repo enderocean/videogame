@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/18828_Soldier_running_with_rifle_held_to_his_chest_new.obj-290049737c49ece7b93bb0fa2e4e0ebb.mesh"
+
+[deps]
+
+files=[ "res://.import/18828_Soldier_running_with_rifle_held_to_his_chest_new.obj-290049737c49ece7b93bb0fa2e4e0ebb.mesh" ]
+
+source_file="res://assets/models/toys/soldiers/18828_Soldier_running_with_rifle_held_to_his_chest_new.obj"
+dest_files=[ "res://.import/18828_Soldier_running_with_rifle_held_to_his_chest_new.obj-290049737c49ece7b93bb0fa2e4e0ebb.mesh", "res://.import/18828_Soldier_running_with_rifle_held_to_his_chest_new.obj-290049737c49ece7b93bb0fa2e4e0ebb.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/10609_toy_race_car_SG_v1_Iterations-2.obj-0c9b462e8ed26602cf8911c2db82da34.mesh"
+
+[deps]
+
+files=[ "res://.import/10609_toy_race_car_SG_v1_Iterations-2.obj-0c9b462e8ed26602cf8911c2db82da34.mesh" ]
+
+source_file="res://assets/models/toys/racecar/10609_toy_race_car_SG_v1_Iterations-2.obj"
+dest_files=[ "res://.import/10609_toy_race_car_SG_v1_Iterations-2.obj-0c9b462e8ed26602cf8911c2db82da34.mesh", "res://.import/10609_toy_race_car_SG_v1_Iterations-2.obj-0c9b462e8ed26602cf8911c2db82da34.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
