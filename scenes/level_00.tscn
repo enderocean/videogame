@@ -218,7 +218,7 @@ transform = Transform( 0.309351, 0, -0.842444, 0, 1, 0, 0.905087, 0, 0.28794, -1
 [node name="playerCamera" parent="." instance=ExtResource( 22 )]
 
 [node name="BlueRov" parent="." instance=ExtResource( 18 )]
-transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -1.72744, -1.0243, -2.14888 )
+transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -12.9383, -1.0243, 5.69881 )
 
 [node name="theter" type="Spatial" parent="BlueRov"]
 script = ExtResource( 17 )
@@ -240,7 +240,7 @@ stream = ExtResource( 20 )
 autoplay = true
 
 [node name="Milk" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -4.70463, -1.61563, -1.84893 )
+transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -4.70463, -2.86407, -1.90735 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 21 )
