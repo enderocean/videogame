@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/16876_bottle_of_shampoo_v1_NEW.obj-b233e43f1b7cd470db4b89cb7a482d71.mesh"
+
+[deps]
+
+files=[ "res://.import/16876_bottle_of_shampoo_v1_NEW.obj-b233e43f1b7cd470db4b89cb7a482d71.mesh" ]
+
+source_file="res://assets/models/bottles/shampoo/16876_bottle_of_shampoo_v1_NEW.obj"
+dest_files=[ "res://.import/16876_bottle_of_shampoo_v1_NEW.obj-b233e43f1b7cd470db4b89cb7a482d71.mesh", "res://.import/16876_bottle_of_shampoo_v1_NEW.obj-b233e43f1b7cd470db4b89cb7a482d71.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

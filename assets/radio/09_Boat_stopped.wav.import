@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/09_Boat_stopped.wav-571fa584989d73fda235605482b8a65f.sample"
+
+[deps]
+
+source_file="res://assets/radio/09_Boat_stopped.wav"
+dest_files=[ "res://.import/09_Boat_stopped.wav-571fa584989d73fda235605482b8a65f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/05_Free_the_animals.wav-e8a5cf5285b2e7ecbeb940756d42d6cf.sample"
+
+[deps]
+
+source_file="res://assets/radio/05_Free_the_animals.wav"
+dest_files=[ "res://.import/05_Free_the_animals.wav-e8a5cf5285b2e7ecbeb940756d42d6cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
