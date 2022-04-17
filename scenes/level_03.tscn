@@ -462,7 +462,7 @@ skeleton = NodePath("../Rock06/rock06")
 material/0 = SubResource( 12 )
 
 [node name="Ketchup" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2358, -9.90159, 25.004 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2358, -9.90159, 39.7743 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 28 )
