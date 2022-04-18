@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tinker.obj-82f9c598c01b2e247fc71d7eaea39c56.mesh"
+
+[deps]
+
+files=[ "res://.import/tinker.obj-82f9c598c01b2e247fc71d7eaea39c56.mesh" ]
+
+source_file="res://assets/models/animals/tuna/tinker.obj"
+dest_files=[ "res://.import/tinker.obj-82f9c598c01b2e247fc71d7eaea39c56.mesh", "res://.import/tinker.obj-82f9c598c01b2e247fc71d7eaea39c56.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

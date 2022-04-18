@@ -1,0 +1,14 @@
+# Blender MTL File: 'HallAnchor.blend'
+# Material Count: 1
+
+newmtl HallAnchor_rust_mat
+Ns 225.000000
+Ka 0.500000 0.500000 0.500000
+Kd 0.255607 0.113212 0.113212
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Bump HallAnchor_rust_normal.png
+map_Ns HallAnchor_rust_rougness.png

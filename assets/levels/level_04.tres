@@ -17,4 +17,4 @@ These species must be protected from the
 many toxic wastes that could impact them."
 time = 15
 objectives = PoolStringArray( "Save 6 atrophied corals or seaanimals from litter & nets" )
-tools = PoolStringArray( "Gripper", "Shear", "Lights" )
+tools = PoolStringArray( "Shear", "Lights" )

@@ -5,7 +5,7 @@ onready var moving: bool = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var point = Vector3(0,-5,200)
+var point = Vector3(0,-5,250)
 
 func _ready():
 	

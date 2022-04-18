@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/demo_level/data.hterrain" type="Resource" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=34]
 [ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=36]
+[ext_resource path="res://assets/models/waste/cofee_cup.obj" type="ArrayMesh" id=37]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -156,6 +157,12 @@ albedo_color = Color( 0.301961, 0.14902, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.129412, 0.345098, 0.141176, 1 )
+
+[sub_resource type="SpatialMaterial" id=91]
+albedo_color = Color( 0.329412, 0.192157, 0.0862745, 1 )
+
+[sub_resource type="BoxShape" id=92]
+extents = Vector3( 0.063, 0.063, 0.063 )
 
 [node name="demo_level" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
@@ -718,3 +725,22 @@ mesh = ExtResource( 15 )
 skeleton = NodePath("../senecio_1")
 material/0 = SubResource( 5 )
 material/1 = SubResource( 6 )
+
+[node name="Coffre cup" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.472, -25.3455 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Coffre cup"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, -0.0667658, 0 )
+mesh = ExtResource( 37 )
+material/0 = SubResource( 91 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Coffre cup"]
+shape = SubResource( 92 )
