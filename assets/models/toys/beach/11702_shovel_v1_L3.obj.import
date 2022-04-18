@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/11702_shovel_v1_L3.obj-663d33ae12a531aa3ccf529747308033.mesh"
+
+[deps]
+
+files=[ "res://.import/11702_shovel_v1_L3.obj-663d33ae12a531aa3ccf529747308033.mesh" ]
+
+source_file="res://assets/models/toys/beach/11702_shovel_v1_L3.obj"
+dest_files=[ "res://.import/11702_shovel_v1_L3.obj-663d33ae12a531aa3ccf529747308033.mesh", "res://.import/11702_shovel_v1_L3.obj-663d33ae12a531aa3ccf529747308033.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

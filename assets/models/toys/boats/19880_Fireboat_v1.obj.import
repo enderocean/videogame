@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/19880_Fireboat_v1.obj-d21b10a76cee30df4f5743aa2c6602b4.mesh"
+
+[deps]
+
+files=[ "res://.import/19880_Fireboat_v1.obj-d21b10a76cee30df4f5743aa2c6602b4.mesh" ]
+
+source_file="res://assets/models/toys/boats/19880_Fireboat_v1.obj"
+dest_files=[ "res://.import/19880_Fireboat_v1.obj-d21b10a76cee30df4f5743aa2c6602b4.mesh", "res://.import/19880_Fireboat_v1.obj-d21b10a76cee30df4f5743aa2c6602b4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

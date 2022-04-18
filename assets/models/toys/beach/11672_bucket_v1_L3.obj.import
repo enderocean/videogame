@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/11672_bucket_v1_L3.obj-03931135e774bff36706b309fedcd7fd.mesh"
+
+[deps]
+
+files=[ "res://.import/11672_bucket_v1_L3.obj-03931135e774bff36706b309fedcd7fd.mesh" ]
+
+source_file="res://assets/models/toys/beach/11672_bucket_v1_L3.obj"
+dest_files=[ "res://.import/11672_bucket_v1_L3.obj-03931135e774bff36706b309fedcd7fd.mesh", "res://.import/11672_bucket_v1_L3.obj-03931135e774bff36706b309fedcd7fd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

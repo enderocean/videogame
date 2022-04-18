@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/rope/rope.gd" type="Script" id=2]
@@ -10,11 +10,22 @@
 [ext_resource path="res://terrains/level_04/black/Rock035_1K_Color.jpg" type="Texture" id=8]
 [ext_resource path="res://terrains/level_04/black/Rock035_1K_NormalGL.jpg" type="Texture" id=9]
 [ext_resource path="res://scripts/level.gd" type="Script" id=10]
+[ext_resource path="res://scripts/lemniscate.gd" type="Script" id=11]
+[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=12]
+[ext_resource path="res://assets/models/animals/tuna/TUNA.OBJ" type="ArrayMesh" id=13]
+[ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=14]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=15]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
 mode = 0
 textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492, 0, 0, 0, 0, 0, 0, 59.8376, 0, -5.30757, 0, 0, 0, 0, 0, 0, 60.4929, -0.0230522, -4.39468, 0, 0, 0, 0, 0, 0, 60.9325, 0, -3.4198, 0, 0, 0, 0, 0, 0, 61.1034, -0.163525, -2.05242, 0, 0, 0, 0, 0, 0, 60.8569, 0, -0.588137, 0, 0, 0, 0, 0, 0, 59.9131, 0, 1.71495, 0, 0, 0, 0, 0, 0, 59.2017, 0, 3.58222, 0, 0, 0, 0, 0, 0, 58.48, 0, 5.15353, 0, 0, 0, 0, 0, 0, 57.7584, 0, 6.81861, 0, 0, 0, 0, 0, 0, 57.3674, 0, 8.16722, 0, 0, 0, 0, 0, 0, 57.7269, 0, 9.84479, 0, 0, 0, 0, 0, 0, 58.2025, 0, 10.7593, 0, 0, 0, 0, 0, 0, 59.045, 0, 11.5224, 0, 0, 0, 0, 0, 0, 60.3671, 0, 12.1746, 0, 0, 0, 0, 0, 0, 61.8386, 0, 12.1732, 0, 0, 0, 0, 0, 0, 63.4187, 0, 11.762, 0, 0, 0, 0, 0, 0, 64.8213, 0, 10.9273, 0, 0, 0, 0, 0, 0, 66.0284, 0, 9.53825, 0, 0, 0, 0, 0, 0, 66.6713, 0, 7.75582, 0, 0, 0, 0, 0, 0, 66.709, 0, 5.79254, 0, 0, 0, 0, 0, 0, 66.2504, 0, 4.5985, 0, 0, 0, 0, 0, 0, 65.5009, 0, 3.33843, 0, 0, 0, 0, 0, 0, 63.5376, 0, 1.90372, 0, 0, 0, 0, 0, 0, 62.1029, 0, 1.29964, 0, 0, 0, 0, 0, 0, 57.9067, 0, 0.558241, 0, 0, 0, 0, 0, 0, 53.4191, 0, 0.469016, 0, 0, 0, 0, 0, 0, 50.0211, 0, 0.733304, 0, 0, 0, 0, 0, 0, 48.9024, 0.0087347, 0.486998, 0, 0, 0, 0, 0, 0, 48.0578, 0, -0.0218053, 0, 0, 0, 0, 0, 0, 47.416, 0, -1.07896, 0, 0, 0, 0, 0, 0, 47.416, 0, -2.24938, 0, 0, 0, 0, 0, 0, 47.718, 0, -3.26877, 0, 0, 0, 0, 0, 0, 49.0395, 0, -4.17491, 0, 0, 0, 0, 0, 0, 51.2563, 0, -4.95378, 0, 0, 0, 0, 0, 0, 53.5929, 0, -5.43308, 0, 0, 0, 0, 0, 0, 55.9295, 0, -5.85248, 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="level_04" type="Spatial"]
 script = ExtResource( 10 )
@@ -22,9 +33,11 @@ vehicle_path = NodePath("BlueRov")
 
 [node name="water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -20, 0, -20 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+visible = false
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 3 )]
@@ -51,3 +64,28 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39653, -5, -0.718958 )
+curve = SubResource( 4 )
+script = ExtResource( 11 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( -0.229835, 0, -0.973229, 0, 1, 0, 0.973229, 0, -0.229835, 57.7232, 0, -6.02492 )
+
+[node name="fish" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( -1, -8.74228e-08, 0, -8.74228e-08, 1, -8.74228e-08, 7.64274e-15, -8.74228e-08, -1, 0, 0, 0 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 12 )
+script = ExtResource( 14 )
+fish_translatex = 0.2
+fish_yaw = -0.01
+fish_twist = 0.481
+fish_s = 0.1
+fish_head_z = -1.16
+fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+autoplay = true

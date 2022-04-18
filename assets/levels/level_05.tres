@@ -15,4 +15,4 @@ description = "Still in 2022, many quaries near Bordeaux are invaded by savage p
 Please help to clean the area ! And be careful with algues..."
 time = 15
 objectives = PoolStringArray( "Collect as many waste as you can", "Drop it into the net" )
-tools = PoolStringArray( "Claw", "Lights" )
+tools = PoolStringArray( "Claw", "Gripper", "Lights" )

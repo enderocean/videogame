@@ -14,9 +14,9 @@
 [ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level.gd" type="Script" id=13]
 [ext_resource path="res://assets/models/waste/tire.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://assets/models/waste/Beets.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://scripts/lemniscate.gd" type="Script" id=15]
 [ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=16]
-[ext_resource path="res://assets/models/waste/cofee_cup.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://scripts/delivery_object.gd" type="Script" id=18]
 [ext_resource path="res://assets/models/waste/barrier.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/plants/matteucia_struthiopteris_1.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://assets/models/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=22]
@@ -25,12 +25,10 @@
 [ext_resource path="res://terrains/level_01/grey_sand/Ground049C_1K_Roughness.jpg" type="Texture" id=25]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=26]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=27]
-[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=28]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=32]
-[ext_resource path="res://assets/models/vehicles/SmallTruck_1.obj" type="ArrayMesh" id=33]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -135,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 1734.63
+shader_param/timer = 1146.88
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -175,11 +173,21 @@ albedo_texture = ExtResource( 22 )
 [sub_resource type="SpatialMaterial" id=13]
 albedo_texture = ExtResource( 22 )
 
-[sub_resource type="SpatialMaterial" id=16]
-albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+[sub_resource type="SphereMesh" id=18]
+radius = 0.063
+height = 0.125
 
-[sub_resource type="SpatialMaterial" id=17]
-albedo_color = Color( 0.211765, 0.517647, 0.870588, 1 )
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.96875, 0, 1, 1 )
+
+[sub_resource type="SphereShape" id=20]
+radius = 0.0629077
+
+[sub_resource type="Curve3D" id=21]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492, 0, 0, 0, 0, 0, 0, 59.8376, 0, -5.30757, 0, 0, 0, 0, 0, 0, 60.4929, -0.0230522, -4.39468, 0, 0, 0, 0, 0, 0, 60.9325, 0, -3.4198, 0, 0, 0, 0, 0, 0, 61.1034, -0.163525, -2.05242, 0, 0, 0, 0, 0, 0, 60.8569, 0, -0.588137, 0, 0, 0, 0, 0, 0, 59.9131, 0, 1.71495, 0, 0, 0, 0, 0, 0, 59.2017, 0, 3.58222, 0, 0, 0, 0, 0, 0, 58.48, 0, 5.15353, 0, 0, 0, 0, 0, 0, 57.7584, 0, 6.81861, 0, 0, 0, 0, 0, 0, 57.3674, 0, 8.16722, 0, 0, 0, 0, 0, 0, 57.7269, 0, 9.84479, 0, 0, 0, 0, 0, 0, 58.2025, 0, 10.7593, 0, 0, 0, 0, 0, 0, 59.045, 0, 11.5224, 0, 0, 0, 0, 0, 0, 60.3671, 0, 12.1746, 0, 0, 0, 0, 0, 0, 61.8386, 0, 12.1732, 0, 0, 0, 0, 0, 0, 63.4187, 0, 11.762, 0, 0, 0, 0, 0, 0, 64.8213, 0, 10.9273, 0, 0, 0, 0, 0, 0, 66.0284, 0, 9.53825, 0, 0, 0, 0, 0, 0, 66.6713, 0, 7.75582, 0, 0, 0, 0, 0, 0, 66.709, 0, 5.79254, 0, 0, 0, 0, 0, 0, 66.2504, 0, 4.5985, 0, 0, 0, 0, 0, 0, 65.5009, 0, 3.33843, 0, 0, 0, 0, 0, 0, 63.5376, 0, 1.90372, 0, 0, 0, 0, 0, 0, 62.1029, 0, 1.29964, 0, 0, 0, 0, 0, 0, 57.9067, 0, 0.558241, 0, 0, 0, 0, 0, 0, 53.4191, 0, 0.469016, 0, 0, 0, 0, 0, 0, 50.0211, 0, 0.733304, 0, 0, 0, 0, 0, 0, 48.9024, 0.0087347, 0.486998, 0, 0, 0, 0, 0, 0, 48.0578, 0, -0.0218053, 0, 0, 0, 0, 0, 0, 47.416, 0, -1.07896, 0, 0, 0, 0, 0, 0, 47.416, 0, -2.24938, 0, 0, 0, 0, 0, 0, 47.718, 0, -3.26877, 0, 0, 0, 0, 0, 0, 49.0395, 0, -4.17491, 0, 0, 0, 0, 0, 0, 51.2563, 0, -4.95378, 0, 0, 0, 0, 0, 0, 53.5929, 0, -5.43308, 0, 0, 0, 0, 0, 0, 55.9295, 0, -5.85248, 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
@@ -214,22 +222,19 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="playerCamera" parent="." instance=ExtResource( 29 )]
 
 [node name="BlueRov" parent="." instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.85378, 2.72722, 6.47834 )
-
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 28 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04542, 2.72722, 9.49213 )
 
 [node name="Theter" parent="." instance=ExtResource( 30 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 
 [node name="Ender Station" type="MeshInstance" parent="."]
-transform = Transform( 0.213741, 0, 0.338105, 0, 0.4, 0, -0.338105, 0, 0.213741, 18.2608, 5.5715, 5.99469 )
+transform = Transform( 0.330329, 0, 0.225572, 0, 0.4, 0, -0.225572, 0, 0.330329, 11.3377, 6.55861, 13.9939 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 31 )]
-transform = Transform( 3, 0, -5.96046e-08, 0, 2, 0, 1.19209e-07, 0, 2, -0.265728, -0.0131369, 0.275879 )
+transform = Transform( 3, 0, 0, 0, 2, 0, 1.19209e-07, 0, 2, -0.0119781, -0.0131369, -0.299009 )
 
 [node name="fish" type="MeshInstance" parent="."]
 transform = Transform( -0.0895964, -0.000213163, 0.0444122, -0.00114828, 0.0999765, -0.00183666, -0.0443979, -0.00215556, -0.0895778, 17.2114, -0.0308602, -5.3467 )
@@ -259,11 +264,13 @@ fish_head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
 
 [node name="tire" type="MeshInstance" parent="."]
 transform = Transform( 0.857074, 0.050613, 0.512703, 0.510724, -0.214287, -0.832612, 0.0677247, 0.975459, -0.209509, 15.1289, 3.02162, 4.38828 )
+visible = false
 mesh = ExtResource( 14 )
 material/0 = SubResource( 8 )
 
 [node name="barrier" type="MeshInstance" parent="."]
 transform = Transform( -0.190637, 0.0563377, -0.010995, 0, 0.0727218, 0.0931552, 0.0604773, 0.177588, -0.0346587, 17.358, 0.356915, -2.98545 )
+visible = false
 mesh = ExtResource( 20 )
 material/0 = null
 material/1 = null
@@ -273,26 +280,13 @@ material/4 = null
 
 [node name="cone_worksite" type="MeshInstance" parent="."]
 transform = Transform( -0.0725879, -0.0687823, 0, 0.0687823, -0.0725879, 0, 0, 0, 0.1, 10.6967, 1.64824, 7.42021 )
+visible = false
 mesh = ExtResource( 16 )
 material/0 = SubResource( 9 )
 material/1 = null
 material/2 = null
 material/3 = null
 material/4 = null
-
-[node name="cofee_cup" type="MeshInstance" parent="."]
-transform = Transform( -0.00087978, 0.0090673, 0.00412433, -0.00796344, 0.00184708, -0.0057595, -0.00598411, -0.00379109, 0.00705819, 9.34996, 0.976971, 6.3819 )
-mesh = ExtResource( 17 )
-skeleton = NodePath("../cone_worksite")
-material/0 = null
-material/1 = null
-material/2 = null
-
-[node name="beets_can" type="MeshInstance" parent="."]
-transform = Transform( 0.145488, -0.262288, 0.00618789, 0.262323, 0.145308, -0.00849773, 0.00443234, 0.00953183, 0.299816, 11.6617, 2.24239, -0.00352615 )
-mesh = ExtResource( 15 )
-material/0 = null
-material/1 = null
 
 [node name="matteucia_struthiopteris_1" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.8996, 1.86473, 5.54239 )
@@ -315,12 +309,671 @@ material/0 = SubResource( 13 )
 stream = ExtResource( 26 )
 autoplay = true
 
-[node name="SmallTruck_1" type="MeshInstance" parent="."]
-transform = Transform( 0.00166366, -7.49889e-05, 0.00363684, -0.000553813, 0.00394731, 0.00033473, -0.00359521, -0.000642752, 0.00163136, 18.1359, 5.97618, 13.7772 )
-visible = false
-mesh = ExtResource( 33 )
-material/0 = SubResource( 16 )
-material/1 = SubResource( 17 )
-material/2 = SubResource( 16 )
-material/3 = SubResource( 16 )
-material/4 = SubResource( 16 )
+[node name="Microplastic" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.87395 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.84678 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic2"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic2"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic3" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.81813 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic3"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic3"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic4" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.78788 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic4"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic4"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic5" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.76059 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic5"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic5"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic6" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.73106 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic6"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic6"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic19" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.5611 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic19"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic19"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic20" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.53393 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic20"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic20"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic21" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.50528 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic21"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic21"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic22" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.47504 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic22"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic22"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic23" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.44775 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic23"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic23"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic24" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 7.41822 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic24"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic24"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic25" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.62457 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic25"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic25"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic26" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.5974 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic26"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic26"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic27" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.56875 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic27"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic27"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic28" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.53851 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic28"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic28"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic29" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.51121 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic29"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic29"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic30" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50834, 2.20983, 8.48169 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic30"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic30"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic13" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.87395 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic13"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic13"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic14" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.84678 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic14"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic14"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic15" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.81813 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic15"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic15"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic16" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.78788 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic16"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic16"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic17" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.76059 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic17"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic17"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic18" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7158, 2.20983, 7.73106 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic18"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic18"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic7" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.1327 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic7"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic7"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic8" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.1055 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic8"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic8"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic9" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0769 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic9"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic9"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic10" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0467 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic10"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic10"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic11" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0194 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic11"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic11"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic12" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 11.9898 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic12"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic12"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic31" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.1327 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic31"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic31"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic32" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.1055 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic32"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic32"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic33" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0769 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic33"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic33"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic34" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0467 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic34"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic34"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic35" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0194 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic35"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic35"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Microplastic36" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 11.9898 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Microplastic36"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Microplastic36"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2, 1.5, -4 )
+curve = SubResource( 21 )
+script = ExtResource( 15 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( -0.229835, 0, -0.973229, 0, 1, 0, 0.973229, 0, -0.229835, 57.7232, 0, -6.02492 )
+
+[node name="fish" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 10 )
+script = ExtResource( 8 )
+fish_translatex = 0.1
+fish_yaw = -0.032
+fish_twist = -0.51
+fish_s = 0.38
+fish_head_z = -1.16
+fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
