@@ -9,6 +9,8 @@ var point = Vector3(0,-5,250)
 
 func _ready():
 	
+	
+	yield(get_tree().create_timer(.5), "timeout")
 	var msg_boat_started = get_node("../BoatStarted")
 
 	if (!msg_boat_started.playing):

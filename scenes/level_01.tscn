@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 1146.88
+shader_param/timer = 36.5058
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -178,7 +178,7 @@ radius = 0.063
 height = 0.125
 
 [sub_resource type="SpatialMaterial" id=19]
-albedo_color = Color( 0.96875, 0, 1, 1 )
+albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SphereShape" id=20]
 radius = 0.0629077
@@ -222,7 +222,7 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="playerCamera" parent="." instance=ExtResource( 29 )]
 
 [node name="BlueRov" parent="." instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04542, 2.72722, 9.49213 )
+transform = Transform( 0.649952, 0, 0.759975, 0, 1, 0, -0.759975, 0, 0.649952, 2.04542, 3.33352, 9.49213 )
 
 [node name="Theter" parent="." instance=ExtResource( 30 )]
 from = NodePath("../BlueRov")
