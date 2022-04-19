@@ -17,7 +17,7 @@ export var water_path: NodePath = "water"
 onready var water: MeshInstance = get_node(water_path)
 onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 
-export var sun_path: NodePath= "sun"
+export var sun_path: NodePath = "sun"
 onready var sun: Light = get_node(sun_path)
 
 export var vehicle_path: NodePath
@@ -43,6 +43,7 @@ onready var last_depth: float = 0
 var finished: bool = false
 signal finished(score)
 
+
 func _ready():
 	# Replace the default underwater environment
 	if underwater_env_override and underwater_env_override is Environment:
@@ -51,16 +52,11 @@ func _ready():
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
-	
+
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
-	
+
 	delivery_objects = get_tree().get_nodes_in_group("delivery_objects")
-	objectives = [
-		{
-			"title": "Deliver objects",
-			"value": "%s / %s" % [0, delivery_objects.size()]
-		}
-	]
+	objectives = [{"title": "Deliver objects", "value": "%s / %s" % [0, delivery_objects.size()]}]
 
 
 func calculate_buoyancy_and_ballast():
@@ -79,16 +75,16 @@ func calculate_buoyancy_and_ballast():
 					* (surface_altitude - buoy.global_transform.origin.y)
 					/ children.size()
 				)
-				
+
 				if buoy.global_transform.origin.y > surface_altitude:
 					buoyancy = 0
-				
+
 				vehicle.add_force_local_pos(Vector3.UP * buoyancy, buoy.transform.origin)
 		else:
 			var buoyancy: float = vehicle.buoyancy
 			if vehicle.global_transform.origin.y > surface_altitude:
 				buoyancy = 0
-		
+
 			vehicle.add_force(Vector3.UP * buoyancy, vehicle.transform.basis.y * 0.07)
 
 		var ballasts = vehicle.find_node("ballasts")
@@ -144,6 +140,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
 
+
 func _on_fancy_water_changed() -> void:
 	if Globals.fancy_water:
 		water.set_surface_material(0, fancy_water)
@@ -159,12 +156,12 @@ func _on_fancy_water_changed() -> void:
 func _on_DeliveryArea_objects_changed(objects: Array) -> void:
 	if finished:
 		return
-	
+
 	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
-	
+
 	objectives[0].value = "%s / %s" % [objects.size(), delivery_objects.size()]
 	score = objects.size()
-	
+
 	if objects.size() == delivery_objects.size():
 		finished = true
 		emit_signal("finished", score)
