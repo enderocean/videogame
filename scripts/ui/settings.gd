@@ -25,6 +25,8 @@ func _on_HSlider_value_changed(value) -> void:
 
 func _on_godrayToggle_toggled(button_pressed: bool) -> void:
 	Globals.enable_godray = button_pressed
+
+
 #	$Godrays.emitting = button_pressed
 
 

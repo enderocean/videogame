@@ -19,21 +19,22 @@ onready var objective: RichTextLabel = get_node(objective_path)
 export var tools_path: NodePath
 onready var tools: RichTextLabel = get_node(tools_path)
 
+
 func show_mission(level_data: LevelData) -> void:
 	if level_data.thumbnail:
 		thumbnail.texture = load(level_data.thumbnail)
-	
+
 	country.text = level_data.country
 	location.text = level_data.location
 	description.bbcode_text = level_data.description
-	
+
 	objective.bbcode_text = "Objective:\n"
 	for text in level_data.objectives:
 		objective.bbcode_text += " - " + text + "\n"
-	
+
 	tools.bbcode_text = "Tools: "
 	for i in range(level_data.tools.size()):
 		tools.bbcode_text += level_data.tools[i]
-		
+
 		if i < level_data.tools.size() - 1:
 			tools.bbcode_text += ", "
