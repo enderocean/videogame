@@ -8,11 +8,12 @@ export var level_buttons_path: NodePath
 var icon_music = preload("res://assets/music.png")
 var icon_music_off = preload("res://assets/music_off.png")
 
+
 func create_level_buttons(levels: Array) -> void:
 	for level in levels:
 		var button = Button.new()
 		button.text = level.title
-		button.connect("pressed", self, "_on_level_pressed",[level.scene])
+		button.connect("pressed", self, "_on_level_pressed", [level.scene])
 		get_node(level_buttons_path).add_child(button)
 
 
@@ -34,6 +35,7 @@ func _on_CheckBox_toggled(button_pressed):
 func _on_licences_pressed():
 	licences_popup.show()
 
+
 func _on_Practice_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/hud.tscn")
 	SceneLoader.load_scene("res://scenes/practice.tscn", true)
@@ -46,9 +48,9 @@ func _on_Campaign_pressed() -> void:
 func _on_Music_pressed():
 	var audio_stream_player = get_node("AudioStreamPlayer")
 	if audio_stream_player.is_playing():
-		audio_stream_player.stop();
+		audio_stream_player.stop()
 		get_node("Music").set_button_icon(icon_music_off)
-		playback_position = audio_stream_player.get_playback_position();
+		playback_position = audio_stream_player.get_playback_position()
 	else:
-		audio_stream_player.play(playback_position);
+		audio_stream_player.play(playback_position)
 		get_node("Music").set_button_icon(icon_music)

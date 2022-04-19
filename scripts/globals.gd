@@ -32,7 +32,7 @@ func _ready() -> void:
 	# Ensure this node is not being paused
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	isHTML5 = OS.get_name() == "HTML5"
-	
+
 	# Load levels data
 	levels = LevelData.get_levels()
 

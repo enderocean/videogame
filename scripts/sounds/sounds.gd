@@ -19,6 +19,9 @@ func play(key: String) -> void:
 	var player: AudioStreamPlayer = get_node_or_null(key)
 	if player:
 		if player.playing:
+			if player.tween.is_active():
+				player.volume_db = 0
+				player.tween.stop_all()
 			return
 	else:
 		player = sound_player.instance()
@@ -46,6 +49,7 @@ func stop(key: String) -> void:
 		return
 	player.stop_fade()
 
+
 # Stops currently playing sounds
 func stop_all() -> void:
 	var players: Array = get_children()
@@ -58,7 +62,6 @@ func stop_all() -> void:
 
 func _on_player_finished(key: String) -> void:
 	print(key, " finished")
-
 
 
 func get_sounds() -> Dictionary:
