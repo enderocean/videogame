@@ -222,6 +222,7 @@ autoplay = true
 [node name="Theter" parent="." instance=ExtResource( 10 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
+length = 300
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
