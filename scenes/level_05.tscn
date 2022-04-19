@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/demo_level/data.hterrain" type="Resource" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://assets/models/plants/monsterra.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://assets/models/plants/senecio_1.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=16]
-[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=17]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/delivery_net.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=20]
@@ -227,12 +226,10 @@ transform = Transform( 0.309351, 0, -0.842444, 0, 1, 0, 0.905087, 0, 0.28794, -1
 [node name="BlueRov" parent="." instance=ExtResource( 18 )]
 transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -12.9383, -1.0243, 5.69881 )
 
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 17 )
-
 [node name="Theter" parent="." instance=ExtResource( 34 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
+length = 200
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -10.6668, 3.71717, -22.3692 )
@@ -242,9 +239,10 @@ material/0 = SubResource( 15 )
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 35 )]
 transform = Transform( 3, 0, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, 0.124717, -0.52121 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 autoplay = true
+bus = "Sounds"
 
 [node name="Milk" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -4.70463, -2.86407, -1.90735 )

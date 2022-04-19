@@ -207,17 +207,18 @@ transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 4
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
 from = NodePath("../BlueRov")
 to = NodePath("../MovingBoat/Ender Station/TheterAnchor")
+length = 200
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
 
-[node name="BoatStarted" type="AudioStreamPlayer2D" parent="."]
+[node name="BoatStarted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
 volume_db = 24.0
 bus = "Radio"
 
-[node name="BoatStopped" type="AudioStreamPlayer2D" parent="."]
+[node name="BoatStopped" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 bus = "Radio"
 
