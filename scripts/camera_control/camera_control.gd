@@ -7,28 +7,28 @@ extends Camera
 # User settings:
 # General settings
 export var enabled = true setget set_enabled
-export (int, "Visible", "Hidden", "Caputered, Confined") var mouse_mode = 2
+export(int, "Visible", "Hidden", "Caputered, Confined") var mouse_mode = 2
 
 enum Freelook_Modes { MOUSE, INPUT_ACTION, MOUSE_AND_INPUT_ACTION }
 
 # Freelook settings
 export var freelook = true
-export (Freelook_Modes) var freelook_mode = 2
-export (float, 0.0, 1.0) var sensitivity = 0.5
-export (float, 0.0, 0.999, 0.001) var smoothness = 0.5 setget set_smoothness
-export (int, 0, 360) var yaw_limit = 360
-export (int, 0, 360) var pitch_limit = 360
+export(Freelook_Modes) var freelook_mode = 2
+export(float, 0.0, 1.0) var sensitivity = 0.5
+export(float, 0.0, 0.999, 0.001) var smoothness = 0.5 setget set_smoothness
+export(int, 0, 360) var yaw_limit = 360
+export(int, 0, 360) var pitch_limit = 360
 
 # Pivot Settings
-export (NodePath) var privot setget set_privot
+export(NodePath) var privot setget set_privot
 export var distance = 5.0 setget set_distance
 export var rotate_privot = false
 export var collisions = true setget set_collisions
 
 # Movement settings
 export var movement = true
-export (float, 0.0, 1.0) var acceleration = 1.0
-export (float, 0.0, 0.0, 1.0) var deceleration = 0.1
+export(float, 0.0, 1.0) var acceleration = 1.0
+export(float, 0.0, 0.0, 1.0) var deceleration = 0.1
 export var max_speed = Vector3(1.0, 1.0, 1.0)
 export var local = true
 

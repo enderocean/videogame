@@ -46,6 +46,7 @@ func stop(key: String) -> void:
 		return
 	player.stop_fade()
 
+
 # Stops currently playing sounds
 func stop_all() -> void:
 	var players: Array = get_children()
@@ -58,7 +59,6 @@ func stop_all() -> void:
 
 func _on_player_finished(key: String) -> void:
 	print(key, " finished")
-
 
 
 func get_sounds() -> Dictionary:

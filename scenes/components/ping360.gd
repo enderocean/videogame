@@ -54,10 +54,10 @@ func _physics_process(_delta):
 	for cur_target in target_list:
 		var result = space_state.intersect_ray(global_transform.origin, cur_target, [self])
 		#$target.global_transform.origin = cur_target
-		if 'position' in result:
-			var distance_vector = global_transform.origin - result['position']
+		if "position" in result:
+			var distance_vector = global_transform.origin - result["position"]
 			var distance = distance_vector.length() * 1000 / max_distance
-			var intensity = abs(result['normal'].dot(distance_vector.normalized()))
+			var intensity = abs(result["normal"].dot(distance_vector.normalized()))
 			last_points.append([distance, intensity])
 	last_angle = angle
 

@@ -28,24 +28,24 @@ func update_time(time: float) -> void:
 func update_objectives(objectives: Array) -> void:
 	if objectives.size() == 0:
 		return
-	
+
 	for i in range(objectives.size()):
 		var objective: Dictionary = objectives[i]
-		
+
 		# Try to get existing line
 		var line: ObjectiveLine = null
 		if i < objectives_list.get_child_count():
 			line = objectives_list.get_child(i)
-		
+
 		# Create new line
 		if not line:
 			line = objective_line.instance()
 			objectives_list.add_child(line)
-		
+
 		# Assign values
 		if objective.has("title"):
 			line.title.text = objective.title
-		
+
 		if objective.has("value"):
 			line.value.text = str(objective.value)
 
@@ -53,7 +53,7 @@ func update_objectives(objectives: Array) -> void:
 func _on_visibility_changed() -> void:
 	if not visible:
 		return
-	
+
 	normal_panel.visible = false
 	user_panel.visible = true
 	username.editable = true
@@ -61,16 +61,16 @@ func _on_visibility_changed() -> void:
 
 func _on_Ok_pressed() -> void:
 	username.editable = false
-	
+
 	var success: bool = check_username()
 	if not success:
 		username.editable = true
 		return
-	
+
 	SaveManager.data.name = username.text
 	if Globals.SEND_DATA:
 		Leaderboard.send_score()
-	
+
 	normal_panel.visible = true
 	user_panel.visible = false
 
@@ -78,7 +78,7 @@ func _on_Ok_pressed() -> void:
 func check_username() -> bool:
 	if " " in username.text:
 		return false
-	
+
 	return true
 
 
