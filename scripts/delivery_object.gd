@@ -7,12 +7,17 @@ var delivered: bool = false setget set_delivered
 onready var saved_gravity: float = gravity_scale
 onready var saved_mask: int = collision_mask
 
+
 func _ready() -> void:
 	add_to_group("delivery_objects")
+	# Set the "catchable" collision layer automatically
+	set_collision_layer_bit(1, true)
+
+
 
 func set_carried(value: bool) -> void:
 	carried = value
-	
+
 	if carried:
 		# Remove any movements
 		saved_gravity = gravity_scale
@@ -27,12 +32,13 @@ func set_carried(value: bool) -> void:
 		# Reset to saved values
 		gravity_scale = saved_gravity
 #		collision_mask = saved_mask
-		
+
 		# Refresh delivered state, if the object is dropped in the area
 		delivered = delivered
+
 
 func set_delivered(value: bool) -> void:
 	if carried:
 		return
-	
+
 	delivered = value

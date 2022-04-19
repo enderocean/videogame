@@ -5,6 +5,7 @@ extends RigidBody
 const DRAG: float = 0.3
 const LENGTH: float = 0.145
 
+
 func _physics_process(_delta: float) -> void:
 	var body_frame_speeds: Vector3 = self.transform.basis.xform_inv(self.linear_velocity)
 	var z_speed: float = body_frame_speeds.dot(Vector3(0, 0, 1))

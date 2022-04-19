@@ -2,16 +2,19 @@ extends Node
 
 onready var bin_path: String = OS.get_executable_path().get_base_dir()
 
+
 func _ready() -> void:
 	# Ensure this node is not being paused
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	
+
 	ensure_levels_folder_exists()
 
+
 func ensure_levels_folder_exists() -> void:
-	var directory = Directory.new();
+	var directory = Directory.new()
 	directory.open(bin_path)
 	directory.make_dir("levels")
+
 
 func list_available_external_levels():
 	var dir = Directory.new()
@@ -28,7 +31,7 @@ func list_available_external_levels():
 		elif not file.begins_with(".") and file.ends_with(".pck"):
 			found.append(file)
 	dir.list_dir_end()
-	
+
 	# validate .pck files
 	# They must have a custom_level.tscn file
 	var valid = {}
