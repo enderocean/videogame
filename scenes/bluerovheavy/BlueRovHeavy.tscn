@@ -12,49 +12,49 @@
 [ext_resource path="res://scripts/sounds/rov_sounds.gd" type="Script" id=10]
 [ext_resource path="res://scenes/sounds/SoundPlayer.tscn" type="PackedScene" id=11]
 
+[sub_resource type="SpatialMaterial" id=22]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=23]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=24]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=25]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=26]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=27]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
+[sub_resource type="SpatialMaterial" id=28]
+render_priority = 127
+flags_unshaded = true
+flags_no_depth_test = true
+albedo_color = Color( 1, 1, 1, 0.8 )
+
 [sub_resource type="SpatialMaterial" id=29]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=30]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=31]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=32]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=33]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=34]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=35]
-render_priority = 127
-flags_unshaded = true
-flags_no_depth_test = true
-albedo_color = Color( 1, 1, 1, 0.8 )
-
-[sub_resource type="SpatialMaterial" id=36]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
@@ -179,7 +179,7 @@ carry_position_path = NodePath("CarryPosition")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
-material_override = SubResource( 29 )
+material_override = SubResource( 22 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -188,7 +188,7 @@ pitch_factor = false
 
 [node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
-material_override = SubResource( 30 )
+material_override = SubResource( 23 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -197,7 +197,7 @@ pitch_factor = false
 
 [node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
-material_override = SubResource( 31 )
+material_override = SubResource( 24 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -206,7 +206,7 @@ pitch_factor = false
 
 [node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
-material_override = SubResource( 32 )
+material_override = SubResource( 25 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -215,28 +215,28 @@ pitch_factor = false
 
 [node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
-material_override = SubResource( 33 )
+material_override = SubResource( 26 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
-material_override = SubResource( 34 )
+material_override = SubResource( 27 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
-material_override = SubResource( 35 )
+material_override = SubResource( 28 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
-material_override = SubResource( 36 )
+material_override = SubResource( 29 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
