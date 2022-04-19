@@ -32,8 +32,8 @@
 [ext_resource path="res://assets/models/vehicles/textures/rust/MetalPlates011_1K_Color.jpg" type="Texture" id=31]
 [ext_resource path="res://assets/models/shoes/Black shoe.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/tools/washing_machine/BOSCH WLG.obj" type="ArrayMesh" id=33]
-[ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=34]
-[ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=36]
 [ext_resource path="res://assets/models/waste/cofee_cup.obj" type="ArrayMesh" id=37]
 
@@ -742,3 +742,5 @@ material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Coffre cup"]
 shape = SubResource( 92 )
+
+[connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
