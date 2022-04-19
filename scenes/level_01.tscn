@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 36.5058
+shader_param/timer = 139.311
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -305,7 +305,7 @@ mesh = ExtResource( 24 )
 skeleton = NodePath("../matteucia_struthiopteris_2")
 material/0 = SubResource( 13 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
 autoplay = true
 
