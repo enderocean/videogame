@@ -9,10 +9,6 @@ func _ready() -> void:
 	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
 
 
-func _on_finished() -> void:
-	pass
-
-
 func _on_tween_all_completed() -> void:
 	stop()
 

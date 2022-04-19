@@ -18,11 +18,11 @@
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://assets/models/rocks/rock03.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://assets/models/rocks/rock04.obj" type="ArrayMesh" id=18]
-[ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/rocks/rock06.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://assets/models/plants/Phormium_1.obj" type="ArrayMesh" id=22]
-[ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=24]
 [ext_resource path="res://scripts/move_boat.gd" type="Script" id=25]
 [ext_resource path="res://scenes/delivery_net.tscn" type="PackedScene" id=26]
@@ -207,17 +207,18 @@ transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 4
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
 from = NodePath("../BlueRov")
 to = NodePath("../MovingBoat/Ender Station/TheterAnchor")
+length = 200
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
 
-[node name="BoatStarted" type="AudioStreamPlayer2D" parent="."]
+[node name="BoatStarted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
 volume_db = 24.0
 bus = "Radio"
 
-[node name="BoatStopped" type="AudioStreamPlayer2D" parent="."]
+[node name="BoatStopped" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 bus = "Radio"
 
@@ -741,3 +742,5 @@ transform = Transform( 0.749603, 0.661888, 0, -0.661888, 0.749603, 0, 0, 0, 1, 5
 mesh = ExtResource( 38 )
 material/0 = null
 material/1 = null
+
+[connection signal="objects_changed" from="MovingBoat/Dasti net/DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]

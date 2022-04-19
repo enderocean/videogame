@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/vehicles/cargo.obj" type="ArrayMesh" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://terrains/level_01/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_Color.jpg" type="Texture" id=6]
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
-[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=8]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_Displacement.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/level_02/white_sand/Ground051_1K_NormalGL.jpg" type="Texture" id=10]
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
@@ -20,8 +19,8 @@
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/models/vehicles/textures/rust/MetalPlates011_1K_Color.jpg" type="Texture" id=19]
 [ext_resource path="res://assets/models/vehicles/Container_OBJ.obj" type="ArrayMesh" id=20]
-[ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
 [ext_resource path="res://scripts/delivery_object.gd" type="Script" id=24]
 [ext_resource path="res://assets/models/toys/soldiers/16394_Roman_Soldiers-Galdius_Sword_v1_New.obj" type="ArrayMesh" id=25]
@@ -383,12 +382,10 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="BlueRov" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1393, 4.34787, -16.1057 )
 
-[node name="theter" type="Spatial" parent="BlueRov"]
-script = ExtResource( 8 )
-
 [node name="Theter" parent="." instance=ExtResource( 21 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
+length = 200
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.10687, 0, 0.169052, 0, 0.2, 0, -0.169052, 0, 0.10687, 6.34815, 5.83718, -17.784 )
@@ -398,7 +395,7 @@ material/0 = SubResource( 6 )
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 22 )]
 transform = Transform( 5.99999, 0, 4.52995e-06, 0, 3.99999, 0, -6.91414e-06, 0, 3.99999, 0.235741, -0.357201, -0.394886 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
 

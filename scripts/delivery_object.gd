@@ -10,6 +10,9 @@ onready var saved_mask: int = collision_mask
 
 func _ready() -> void:
 	add_to_group("delivery_objects")
+	# Set the "catchable" collision layer automatically
+	set_collision_layer_bit(1, true)
+
 
 
 func set_carried(value: bool) -> void:
