@@ -8,7 +8,7 @@ var angle = 0
 
 func _ready() -> void:
 	Globals.connect("ping360_changed", self, "_on_ping360_changed")
-	
+
 	var sonars = get_tree().get_nodes_in_group("ping360")
 	if len(sonars) == 0:
 		print("unable to find ping360")
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 	visible = Globals.ping360_enabled
 	if not visible:
 		return
-	
+
 	img.lock()
 	for x in range(100):
 		img.set_pixel(x, angle, 0)

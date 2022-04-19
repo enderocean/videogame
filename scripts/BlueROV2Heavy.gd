@@ -135,20 +135,20 @@ func send_fdm() -> void:
 
 
 func get_motors_table_entry(thruster) -> Array:
-	var thruster_vector = (thruster.transform.basis*Vector3(1,0,0)).normalized()
-	var roll = Vector3(0,0,-1).cross(thruster.translation).normalized().dot(thruster_vector)
-	var pitch = Vector3(1,0,0).cross(thruster.translation).normalized().dot(thruster_vector)
-	var yaw = Vector3(0,1,0).cross(thruster.translation).normalized().dot(thruster_vector)
-	var forward = Vector3(0,0,-1).dot(thruster_vector)
-	var lateral = Vector3(1,0,0).dot(thruster_vector)
-	var vertical = Vector3(0,-1,0).dot(thruster_vector)
+	var thruster_vector = (thruster.transform.basis * Vector3(1, 0, 0)).normalized()
+	var roll = Vector3(0, 0, -1).cross(thruster.translation).normalized().dot(thruster_vector)
+	var pitch = Vector3(1, 0, 0).cross(thruster.translation).normalized().dot(thruster_vector)
+	var yaw = Vector3(0, 1, 0).cross(thruster.translation).normalized().dot(thruster_vector)
+	var forward = Vector3(0, 0, -1).dot(thruster_vector)
+	var lateral = Vector3(1, 0, 0).dot(thruster_vector)
+	var vertical = Vector3(0, -1, 0).dot(thruster_vector)
 	if abs(roll) < 0.15 or not thruster.roll_factor:
 		roll = 0
 	if abs(pitch) < 0.15 or not thruster.pitch_factor:
 		pitch = 0
 	if abs(yaw) < 0.15 or not thruster.yaw_factor:
 		yaw = 0
-	if abs(vertical) < 0.15 or not thruster.vertical_factor :
+	if abs(vertical) < 0.15 or not thruster.vertical_factor:
 		vertical = 0
 	if abs(forward) < 0.15 or not thruster.forward_factor:
 		forward = 0
@@ -174,7 +174,7 @@ func _ready() -> void:
 
 	# Fill thrusters array
 	for child in get_children():
-		if child.get_class() ==  "Thruster":
+		if child.get_class() == "Thruster":
 			thrusters.append(child)
 
 	_initial_position = global_transform.origin
@@ -194,14 +194,14 @@ func _physics_process(delta: float) -> void:
 	if carrying_object:
 		carrying_object.global_transform.origin = carry_position.global_transform.origin
 		carrying_object.global_transform.basis = carry_position.global_transform.basis
-	
+
 	if Globals.isHTML5:
 		return
-	
+
 	calculated_acceleration = (linear_velocity - last_velocity) / delta
 	calculated_acceleration.y += 10
 	last_velocity = linear_velocity
-	
+
 	get_servos()
 	send_fdm()
 
@@ -220,7 +220,9 @@ func actuate_servo(id: int, percentage: float) -> void:
 
 	# Thrusters
 	if id >= 0 and id <= 8:
-		add_force_local(thrusters[id].transform.basis * Vector3(force, 0, 0), thrusters[id].translation)
+		add_force_local(
+			thrusters[id].transform.basis * Vector3(force, 0, 0), thrusters[id].translation
+		)
 
 	match id:
 		8:
@@ -254,24 +256,24 @@ func actuate_servo(id: int, percentage: float) -> void:
 
 func _unhandled_input(event) -> void:
 	if event is InputEventKey:
-	# 	# There are for debugging:
-	# 	# Some forces:
-	# 	if event.pressed and event.scancode == KEY_X:
-	# 		add_central_force(Vector3(30, 0, 0))
-	# 	if event.pressed and event.scancode == KEY_Y:
-	# 		add_central_force(Vector3(0, 30, 0))
-	# 	if event.pressed and event.scancode == KEY_Z:
-	# 		add_central_force(Vector3(0, 0, 30))
-	# 	# Reset position
-	# 	if event.pressed and event.scancode == KEY_R:
-	# 		set_translation(_initial_position)
-	# 	# Some torques
-	# 	if event.pressed and event.scancode == KEY_Q:
-	# 		add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
-	# 	if event.pressed and event.scancode == KEY_T:
-	# 		add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
-	# 	if event.pressed and event.scancode == KEY_E:
-	# 		add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
+		# 	# There are for debugging:
+		# 	# Some forces:
+		# 	if event.pressed and event.scancode == KEY_X:
+		# 		add_central_force(Vector3(30, 0, 0))
+		# 	if event.pressed and event.scancode == KEY_Y:
+		# 		add_central_force(Vector3(0, 30, 0))
+		# 	if event.pressed and event.scancode == KEY_Z:
+		# 		add_central_force(Vector3(0, 0, 30))
+		# 	# Reset position
+		# 	if event.pressed and event.scancode == KEY_R:
+		# 		set_translation(_initial_position)
+		# 	# Some torques
+		# 	if event.pressed and event.scancode == KEY_Q:
+		# 		add_torque(self.transform.basis.xform(Vector3(15, 0, 0)))
+		# 	if event.pressed and event.scancode == KEY_T:
+		# 		add_torque(self.transform.basis.xform(Vector3(0, 15, 0)))
+		# 	if event.pressed and event.scancode == KEY_E:
+		# 		add_torque(self.transform.basis.xform(Vector3(0, 0, 15)))
 
 		# Some hard-coded positions (used to check accelerometer)
 		# if event.pressed and event.scancode == KEY_U:
@@ -363,7 +365,6 @@ func process_keys() -> void:
 	if torque != Vector3.ZERO:
 		add_torque(torque)
 
-
 	if Input.is_action_pressed("camera_up"):
 		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
 		sounds.stop("camera_down")
@@ -416,18 +417,18 @@ func check_carry(body: DeliveryObject) -> void:
 
 func carry_object(body: DeliveryObject) -> void:
 	body.carried = true
-	
+
 	# Save position and rotation of the object before "freezing" it
 	carry_position.global_transform.origin = body.global_transform.origin
 	carry_position.global_transform.basis = body.global_transform.basis
-	
+
 	carrying_object = body
 
 
 func release_object() -> void:
 	if not carrying_object:
 		return
-	
+
 	carrying_object.carried = false
 	carrying_object = null
 
@@ -435,7 +436,7 @@ func release_object() -> void:
 func _on_LeftGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
-	
+
 	grips[0] = true
 	check_carry(body)
 
@@ -443,14 +444,14 @@ func _on_LeftGripArea_body_entered(body: Node) -> void:
 func _on_LeftGripArea_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
-	
+
 	grips[0] = false
 
 
 func _on_RightGripArea_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
-	
+
 	grips[1] = true
 	check_carry(body)
 
@@ -458,5 +459,5 @@ func _on_RightGripArea_body_entered(body: Node) -> void:
 func _on_RightGripArea_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
-	
+
 	grips[1] = false
