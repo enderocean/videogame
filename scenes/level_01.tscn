@@ -26,8 +26,8 @@
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=26]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=29]
-[ext_resource path="res://scenes/components/Theter.tscn" type="PackedScene" id=30]
-[ext_resource path="res://scenes/components/TheterAnchor.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=32]
 
 [sub_resource type="Resource" id=1]
@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 36.5058
+shader_param/timer = 10.4998
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -227,6 +227,7 @@ transform = Transform( 0.649952, 0, 0.759975, 0, 1, 0, -0.759975, 0, 0.649952, 2
 [node name="Theter" parent="." instance=ExtResource( 30 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
+length = 100
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.330329, 0, 0.225572, 0, 0.4, 0, -0.225572, 0, 0.330329, 11.3377, 6.55861, 13.9939 )
@@ -305,7 +306,7 @@ mesh = ExtResource( 24 )
 skeleton = NodePath("../matteucia_struthiopteris_2")
 material/0 = SubResource( 13 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
 autoplay = true
 

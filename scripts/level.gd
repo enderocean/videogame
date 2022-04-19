@@ -153,7 +153,7 @@ func _on_fancy_water_changed() -> void:
 		underwater.set_surface_material(0, simple_water)
 
 
-func _on_DeliveryArea_objects_changed(objects: Array) -> void:
+func _on_DeliveryNet_objects_changed(objects: Array) -> void:
 	if finished:
 		return
 

@@ -19,6 +19,9 @@ func play(key: String) -> void:
 	var player: AudioStreamPlayer = get_node_or_null(key)
 	if player:
 		if player.playing:
+			if player.tween.is_active():
+				player.volume_db = 0
+				player.tween.stop_all()
 			return
 	else:
 		player = sound_player.instance()
