@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "SoftBody",
 "class": "SoftRope",
 "language": "GDScript",
-"path": "res://scripts/soft_rope.gd"
+"path": "res://scenes/net/soft_rope.gd"
 }, {
 "base": "Spatial",
 "class": "Vehicle",
