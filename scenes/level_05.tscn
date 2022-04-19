@@ -402,7 +402,7 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 shape = SubResource( 43 )
 
 [node name="Metal bar" type="RigidBody" parent="."]
-transform = Transform( 0.164428, -0.986389, 0, 0.986389, 0.164428, 0, 0, 0, 1, -18.241, 0.206197, -7.0605 )
+transform = Transform( 0.164428, -0.986389, 0, 0.986389, 0.164428, 0, 0, 0, 1, -18.241, 0.206197, -16.0645 )
 collision_layer = 2
 collision_mask = 3
 mass = 50.0
