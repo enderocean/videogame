@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -37,7 +37,6 @@
 [ext_resource path="res://assets/models/grass/Posidonia/Map__1359796413_Mix.tga" type="Texture" id=35]
 [ext_resource path="res://assets/models/grass/Posidonia/petal.jpg" type="Texture" id=36]
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=37]
-[ext_resource path="res://assets/models/deco/cone.obj" type="ArrayMesh" id=38]
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 5 )
@@ -175,7 +174,6 @@ script = ExtResource( 11 )
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 256, 0, 0, 0, 256, 0, 0, 0, 256, 256, 0, 128.701 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -735,9 +733,3 @@ mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
 material/2 = SubResource( 43 )
-
-[node name="cone" type="MeshInstance" parent="."]
-transform = Transform( 0.749603, 0.661888, 0, -0.661888, 0.749603, 0, 0, 0, 1, 54.7199, -8.49366, 68.2969 )
-mesh = ExtResource( 38 )
-material/0 = null
-material/1 = null

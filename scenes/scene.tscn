@@ -126,7 +126,6 @@ light_energy = 0.19
 
 [node name="boia" type="RigidBody" parent="." groups=["buoyant"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.71692, -4.93734 )
-visible = false
 mass = 2.16
 linear_damp = 0.664
 angular_damp = 0.869
