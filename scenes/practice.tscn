@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=12]
+[ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -232,4 +233,11 @@ material/0 = SubResource( 21 )
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
 transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.900206, 0.0875902, 0.00625014 )
 
+[node name="SoundTriggerArea" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
+sound_key = "drop_item_in_the_net"
+once = false
+
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
+
+[editable path="SoundTriggerArea"]
