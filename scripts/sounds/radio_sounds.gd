@@ -1,5 +1,4 @@
 extends "res://scripts/sounds/sounds.gd"
-class_name RadioSounds
 
 
 func get_sounds() -> Dictionary:

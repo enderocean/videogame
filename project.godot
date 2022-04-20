@@ -89,11 +89,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/sounds/rov_sounds.gd"
 }, {
-"base": "Node",
-"class": "RadioSounds",
-"language": "GDScript",
-"path": "res://scripts/sounds/radio_sounds.gd"
-}, {
 "base": "PanelContainer",
 "class": "SettingsPanel",
 "language": "GDScript",
@@ -131,7 +126,6 @@ _global_script_class_icons={
 "ObjectiveLine": "",
 "PauseMenu": "",
 "ROVSounds": "",
-"RadioSounds": "",
 "SettingsPanel": "",
 "SoftRope": "",
 "Vehicle": "",
