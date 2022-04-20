@@ -547,7 +547,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540024, 0.247706, 0.0113813
 [connection signal="body_exited" from="GripRightRigidBody/RightGripArea" to="BlueRov" method="_on_RightGripArea_body_exited"]
 [connection signal="body_entered" from="GripLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_entered"]
 [connection signal="body_exited" from="GripLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_exited"]
-[connection signal="body_entered" from="CutRightRigidBody/RightGripArea" to="BlueRov" method="_on_RightGripArea_body_entered"]
-[connection signal="body_exited" from="CutRightRigidBody/RightGripArea" to="BlueRov" method="_on_RightGripArea_body_exited"]
-[connection signal="body_entered" from="CutLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_entered"]
-[connection signal="body_exited" from="CutLeftRigidBody/LeftGripArea" to="BlueRov" method="_on_LeftGripArea_body_exited"]
