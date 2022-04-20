@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/04_Drop_item_in_the_net.wav-82e364d70b8604b4ad427365b2b3434f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/radio/04_Drop_item_in_the_net.wav"
+dest_files=[ "res://.import/04_Drop_item_in_the_net.wav-82e364d70b8604b4ad427365b2b3434f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

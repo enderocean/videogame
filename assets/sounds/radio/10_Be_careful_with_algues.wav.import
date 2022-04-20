@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/10_Be_careful_with_algues.wav-4ea52785f225359eefaf3c1bc08f6168.sample"
+
+[deps]
+
+source_file="res://assets/sounds/radio/10_Be_careful_with_algues.wav"
+dest_files=[ "res://.import/10_Be_careful_with_algues.wav-4ea52785f225359eefaf3c1bc08f6168.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

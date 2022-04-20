@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/12_Take_care_of_plants.wav-9944d589432a497406f569d2dadee84a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/radio/12_Take_care_of_plants.wav"
+dest_files=[ "res://.import/12_Take_care_of_plants.wav-9944d589432a497406f569d2dadee84a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
