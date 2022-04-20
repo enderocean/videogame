@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/11_Avoid_the_animals.wav-aa8b2b94610f66f874c8901f2b215e83.sample"
+
+[deps]
+
+source_file="res://assets/sounds/radio/11_Avoid_the_animals.wav"
+dest_files=[ "res://.import/11_Avoid_the_animals.wav-aa8b2b94610f66f874c8901f2b215e83.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
