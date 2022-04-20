@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton.tscn" type="PackedScene" id=2]
@@ -170,6 +170,8 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 1208
 }
+
+[sub_resource type="BoxShape" id=40]
 
 [sub_resource type="ArrayMesh" id=31]
 resource_name = "NEWTON-GRIPPER-ASSEM-R3-PUBLIC.022"
@@ -497,15 +499,11 @@ transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.59872e-14, 6.39488e-14, 1,
 depth = 0.05
 polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
 
-[node name="RightGripArea" type="Area" parent="CutRightRigidBody"]
-transform = Transform( 0.334353, -0.0192142, 1.68587e-09, 0.0192142, 0.334353, 9.72922e-11, -1.68866e-09, -3.99125e-13, 0.334905, -0.0146141, 0.00138405, -0.0126117 )
-collision_layer = 0
-collision_mask = 2
+[node name="RightCutArea" type="Area" parent="CutRightRigidBody"]
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="CutRightRigidBody/RightGripArea"]
-transform = Transform( 2.98101, 0.171309, -1.50558e-08, -0.171309, 2.98101, -3.64864e-12, 1.50307e-08, 8.67514e-10, 2.98592, -0.071, -2.146, 0.051 )
-depth = 0.025
-polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
+[node name="CollisionShape" type="CollisionShape" parent="CutRightRigidBody/RightCutArea"]
+transform = Transform( 0.0148376, -0.00584791, 5.11624e-05, 0.00219297, 0.0395702, 3.76039e-06, -0.000191859, 3.75996e-05, 0.00399967, 0.0352831, 0.00937858, -0.00864464 )
+shape = SubResource( 40 )
 
 [node name="CutLeftRigidBody" type="RigidBody" parent="."]
 pause_mode = 1
@@ -524,16 +522,6 @@ material/0 = ExtResource( 5 )
 [node name="CollisionPolygon" type="CollisionPolygon" parent="CutLeftRigidBody"]
 transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.42109e-14, 5.68434e-14, 1, -0.00390352, -0.721209, -0.00389147 )
 depth = 0.05
-polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
-
-[node name="LeftGripArea" type="Area" parent="CutLeftRigidBody"]
-transform = Transform( 0.333155, -0.0341872, 1.68586e-09, 0.0341872, 0.333155, 9.73017e-11, -1.68698e-09, 7.53018e-11, 0.334905, 0.0215025, -0.0012348, -0.00518516 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionPolygon" type="CollisionPolygon" parent="CutLeftRigidBody/LeftGripArea"]
-transform = Transform( 2.97033, 0.304805, -1.50407e-08, -0.304805, 2.97033, 6.71353e-10, 1.50307e-08, 8.67676e-10, 2.98592, -0.3, -2.131, 0.004 )
-depth = 0.025
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
 
 [node name="ROVSounds" type="Spatial" parent="."]
