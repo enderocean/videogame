@@ -428,8 +428,7 @@ func process_keys() -> void:
 			
 			r_cut_rigidbody.get_node("CollisionPolygon").disabled = false
 			l_cut_rigidbody.get_node("CollisionPolygon").disabled = false
-			r_cut_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = false
-			l_cut_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = false
+
 
 		elif (tool_mode == 2):
 			r_cut_rigidbody.visible = false
@@ -439,8 +438,7 @@ func process_keys() -> void:
 			
 			r_cut_rigidbody.get_node("CollisionPolygon").disabled = true
 			l_cut_rigidbody.get_node("CollisionPolygon").disabled = true
-			r_cut_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = true
-			l_cut_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = true
+
 			
 
 	# Gripper
