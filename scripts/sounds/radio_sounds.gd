@@ -1,6 +1,11 @@
 extends "res://scripts/sounds/sounds.gd"
 
 
+func _ready() -> void:
+    ._ready()
+    sound_player = load("res://scenes/sounds/SoundPlayer.tscn")
+
+
 func get_sounds() -> Dictionary:
 	return {
 		"nice": "res://assets/sounds/radio/01_Nice.wav",
