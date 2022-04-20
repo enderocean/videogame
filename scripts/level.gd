@@ -23,10 +23,16 @@ onready var sun: Light = get_node(sun_path)
 export var vehicle_path: NodePath
 onready var vehicle: Vehicle = get_node(vehicle_path)
 
-## TODO: Replace this when the mission system is in place
-## Objectives array, must be an array of dictionnary containing "title" and "value"
-var objectives: Array
-onready var delivery_objects: Array
+enum ObjectiveType {
+	GRIPPER,
+	VACUUM,
+	CUTTER,
+	GRAPPLING_HOOK,
+	MAGNET,
+}
+var objectives: Dictionary = {}
+
+var objectives_progress: Dictionary = {}
 var score: int = 0
 
 # darkest it gets
@@ -55,8 +61,13 @@ func _ready():
 
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
-	delivery_objects = get_tree().get_nodes_in_group("delivery_objects")
-	objectives = [{"title": "Deliver objects", "value": "%s / %s" % [0, delivery_objects.size()]}]
+	# Add all objectives
+	for type in ObjectiveType.keys():
+		var group: String = "objective_%s" % str(type).to_lower()
+		var objective_objects: Array = get_tree().get_nodes_in_group(group)
+
+		if objective_objects.size() > 0:
+			objectives[type] = objective_objects.size()
 
 
 func calculate_buoyancy_and_ballast():
@@ -157,11 +168,10 @@ func _on_DeliveryNet_objects_changed(objects: Array) -> void:
 	if finished:
 		return
 
-	print("Delivered: ", objects.size(), " / ", delivery_objects.size())
+	objectives_progress[ObjectiveType.GRIPPER] = objects.size()
+	score = objectives_progress[ObjectiveType.GRIPPER]
 
-	objectives[0].value = "%s / %s" % [objects.size(), delivery_objects.size()]
-	score = objects.size()
-
-	if objects.size() == delivery_objects.size():
+	print("Delivered: ", objectives_progress[ObjectiveType.GRIPPER], " / ", objectives[ObjectiveType.GRIPPER])
+	if objectives_progress[ObjectiveType.GRIPPER] == objectives[ObjectiveType.GRIPPER]:
 		finished = true
 		emit_signal("finished", score)
