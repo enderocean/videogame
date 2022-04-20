@@ -25,13 +25,11 @@ func update_time(time: float) -> void:
 	time_label.text = MissionTimer.format_time(time)
 
 
-func update_objectives(objectives: Array) -> void:
+func update_objectives(objectives: Dictionary) -> void:
 	if objectives.size() == 0:
 		return
 
-	for i in range(objectives.size()):
-		var objective: Dictionary = objectives[i]
-
+	for i in range(objectives.keys.size()):
 		# Try to get existing line
 		var line: ObjectiveLine = null
 		if i < objectives_list.get_child_count():
@@ -42,12 +40,19 @@ func update_objectives(objectives: Array) -> void:
 			line = objective_line.instance()
 			objectives_list.add_child(line)
 
-		# Assign values
-		if objective.has("title"):
-			line.title.text = objective.title
+		var title: String = ""
+		match objectives.keys[i]:
+			Level.ObjectiveType.GRIPPER:
+				title = "Delivered with the Gripper"
+			Level.ObjectiveType.VACUUM:
+				title = "Collected with the Vacuum"
+			Level.ObjectiveType.CUTTER:
+				title = "Cut off with the Cutter"
+			Level.ObjectiveType.GRAPPLING_HOOK:
+				title = "Collected with the Grappling hook"
 
-		if objective.has("value"):
-			line.value.text = str(objective.value)
+		line.title.text = title
+		line.value.text = str(objectives.values[i])
 
 
 func _on_visibility_changed() -> void:
