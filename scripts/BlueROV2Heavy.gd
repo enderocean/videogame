@@ -70,7 +70,6 @@ var tool_mode: int = 0
 
 onready var wait_SITL = Globals.wait_SITL
 
-
 func connect_fmd_in() -> void:
 	if interface.listen(9002) != OK:
 		print("Failed to connect fdm_in")
@@ -405,21 +404,43 @@ func process_keys() -> void:
 			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
 			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
 			
+			r_grip_rigidbody.get_node("CollisionPolygon").disabled = false
+			l_grip_rigidbody.get_node("CollisionPolygon").disabled = false
+			r_grip_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = false
+			l_grip_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = false
+			
 		elif (tool_mode == 1):
 			r_grip_rigidbody.visible = false
 			l_grip_rigidbody.visible = false
 			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
 			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
-
+			
+			r_grip_rigidbody.get_node("CollisionPolygon").disabled = true
+			l_grip_rigidbody.get_node("CollisionPolygon").disabled = true
+			r_grip_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = true
+			l_grip_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = true
+			
+			
 			r_cut_rigidbody.visible = true
 			l_cut_rigidbody.visible = true
 			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
 			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
+			
+			r_cut_rigidbody.get_node("CollisionPolygon").disabled = false
+			l_cut_rigidbody.get_node("CollisionPolygon").disabled = false
+			r_cut_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = false
+			l_cut_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = false
+
 		elif (tool_mode == 2):
 			r_cut_rigidbody.visible = false
 			l_cut_rigidbody.visible = false
 			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
 			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
+			
+			r_cut_rigidbody.get_node("CollisionPolygon").disabled = true
+			l_cut_rigidbody.get_node("CollisionPolygon").disabled = true
+			r_cut_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = true
+			l_cut_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = true
 			
 
 	# Gripper
