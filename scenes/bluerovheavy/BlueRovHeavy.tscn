@@ -199,10 +199,14 @@ linear_damp = 2.333
 angular_damp = 8.72
 script = ExtResource( 1 )
 sounds_path = NodePath("../ROVSounds")
-ljoint_path = NodePath("../ljointGrip")
-rjoint_path = NodePath("../rjointGrip")
-l_rigidbody_path = NodePath("../GripLeftRigidBody")
-r_rigidbody_path = NodePath("../GripRightRigidBody")
+lGripjoint_path = NodePath("../ljointGrip")
+rGripjoint_path = NodePath("../rjointGrip")
+lCutjoint_path = NodePath("../ljointCut")
+rCutjoint_path = NodePath("../rjointCut")
+l_grip_rigidbody_path = NodePath("../GripLeftRigidBody")
+r_grip_rigidbody_path = NodePath("../GripRightRigidBody")
+l_cut_rigidbody_path = NodePath("../CutLeftRigidBody")
+r_cut_rigidbody_path = NodePath("../CutRightRigidBody")
 carry_position_path = NodePath("CarryPosition")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
@@ -476,6 +480,7 @@ depth = 0.025
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
 
 [node name="CutRightRigidBody" type="RigidBody" parent="."]
+pause_mode = 1
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.452873, -0.309149, 0.0648046 )
 visible = false
 collision_mask = 2
@@ -503,6 +508,7 @@ depth = 0.025
 polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.0191476, 0.696807, -0.0151952, 0.732626, -0.0045806, 0.765062, 0.0128851, 0.790651, -0.0155926, 0.787677, -0.0394649, 0.750117, -0.0550356, 0.684003, -0.0453913, 0.634722, -0.0220332, 0.633642 )
 
 [node name="CutLeftRigidBody" type="RigidBody" parent="."]
+pause_mode = 1
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
 visible = false
 collision_mask = 2

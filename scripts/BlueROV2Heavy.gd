@@ -37,21 +37,36 @@ var thrusters: Array = []
 export var sounds_path: NodePath
 onready var sounds: ROVSounds = get_node(sounds_path)
 
-export var ljoint_path: NodePath
-export var rjoint_path: NodePath
-onready var ljoint: HingeJoint = get_node(ljoint_path)
-onready var rjoint: HingeJoint = get_node(rjoint_path)
+export var lGripjoint_path: NodePath
+export var rGripjoint_path: NodePath
 
-export var l_rigidbody_path: NodePath
-export var r_rigidbody_path: NodePath
-onready var r_rigidbody: RigidBody = get_node(l_rigidbody_path)
-onready var l_rigidbody: RigidBody = get_node(r_rigidbody_path)
+onready var ljointGrip: HingeJoint = get_node(lGripjoint_path)
+onready var rjointGrip: HingeJoint = get_node(rGripjoint_path)
+
+export var lCutjoint_path: NodePath
+export var rCutjoint_path: NodePath
+
+onready var ljointCut: HingeJoint = get_node(lCutjoint_path)
+onready var rjointCut: HingeJoint = get_node(rCutjoint_path)
+
+export var l_grip_rigidbody_path: NodePath
+export var r_grip_rigidbody_path: NodePath
+
+onready var r_grip_rigidbody: RigidBody = get_node(l_grip_rigidbody_path)
+onready var l_grip_rigidbody: RigidBody = get_node(r_grip_rigidbody_path)
+
+export var l_cut_rigidbody_path: NodePath
+export var r_cut_rigidbody_path: NodePath
+
+onready var r_cut_rigidbody: RigidBody = get_node(l_cut_rigidbody_path)
+onready var l_cut_rigidbody: RigidBody = get_node(r_cut_rigidbody_path)
 
 export var carry_position_path: NodePath
 onready var carry_position: Position3D = get_node(carry_position_path)
 
 var grips: Array = [false, false]
 var carrying_object: DeliveryObject
+var tool_mode: int = 0
 
 onready var wait_SITL = Globals.wait_SITL
 
@@ -244,14 +259,14 @@ func actuate_servo(id: int, percentage: float) -> void:
 
 		10:
 			if percentage < 0.4:
-				ljoint.set_param(6, 1)
-				rjoint.set_param(6, -1)
+				ljointGrip.set_param(6, 1)
+				rjointGrip.set_param(6, -1)
 			elif percentage > 0.6:
-				ljoint.set_param(6, -1)
-				rjoint.set_param(6, 1)
+				ljointGrip.set_param(6, -1)
+				rjointGrip.set_param(6, 1)
 			else:
-				ljoint.set_param(6, 0)
-				rjoint.set_param(6, 0)
+				ljointGrip.set_param(6, 0)
+				rjointGrip.set_param(6, 0)
 
 
 func _unhandled_input(event) -> void:
@@ -377,27 +392,77 @@ func process_keys() -> void:
 		sounds.stop("camera_up")
 		sounds.stop("camera_down")
 
+	
+	# Switch tool
+	if Input.is_action_just_pressed("switch_tool"):
+		tool_mode += 1
+		if (tool_mode == 3):
+			tool_mode = 0
+
+		if (tool_mode == 0):
+			r_grip_rigidbody.visible = true
+			l_grip_rigidbody.visible = true
+			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
+			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
+			
+		elif (tool_mode == 1):
+			r_grip_rigidbody.visible = false
+			l_grip_rigidbody.visible = false
+			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
+			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
+
+			r_cut_rigidbody.visible = true
+			l_cut_rigidbody.visible = true
+			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
+			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
+		elif (tool_mode == 2):
+			r_cut_rigidbody.visible = false
+			l_cut_rigidbody.visible = false
+			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
+			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
+			
+
 	# Gripper
-	var target_velocity: float = 0.0
-	if Input.is_action_pressed("gripper_open"):
-		target_velocity = -1.0
+	if (tool_mode == 0):
+		var target_velocity: float = 0.0
+		if Input.is_action_pressed("gripper_open"):
+			target_velocity = -1.0
 
-		if carrying_object:
-			release_object()
+			if carrying_object:
+				release_object()
 
-		sounds.stop("gripper_close")
-		sounds.play("gripper_open")
-	elif Input.is_action_pressed("gripper_close"):
-		target_velocity = 1.0
-		sounds.stop("gripper_open")
-		sounds.play("gripper_close")
-	else:
-		sounds.stop("gripper_open")
-		sounds.stop("gripper_close")
+			sounds.stop("gripper_close")
+			sounds.play("gripper_open")
+		elif Input.is_action_pressed("gripper_close"):
+			target_velocity = 1.0
+			sounds.stop("gripper_open")
+			sounds.play("gripper_close")
+		else:
+			sounds.stop("gripper_open")
+			sounds.stop("gripper_close")
 
-	ljoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
-	rjoint.set_param(ljoint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
+		ljointGrip.set_param(ljointGrip.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
+		rjointGrip.set_param(ljointGrip.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
 
+	# Cutter
+	if (tool_mode == 1):
+		var target_velocity: float = 0.0
+		if Input.is_action_pressed("gripper_open"):
+			target_velocity = -1.0
+
+			sounds.stop("gripper_close")
+			sounds.play("gripper_open")
+		elif Input.is_action_pressed("gripper_close"):
+			target_velocity = 1.0
+
+			sounds.stop("gripper_open")
+			sounds.play("gripper_close")
+		else:
+			sounds.stop("gripper_open")
+			sounds.stop("gripper_close")
+
+		ljointCut.set_param(ljointCut.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
+		rjointCut.set_param(ljointCut.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
 
 func can_carry() -> bool:
 	# Check for the size of the collider
