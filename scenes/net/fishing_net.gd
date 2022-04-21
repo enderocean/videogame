@@ -16,7 +16,9 @@ var rope_radial_segments = 16
 var rope_rings = 4
 
 
-func create_attach(pin):
+func create_attach(pin, attach):
+	var mdt2 = MeshDataTool.new()
+	
 	fish_net.set_point_pinned(pin, true)
 
 	var soft_rope_1 = SoftRope.new()
@@ -25,15 +27,16 @@ func create_attach(pin):
 	soft_rope_2.create_rope(0.01)
 	soft_rope_2.second_rope = soft_rope_1
 	soft_rope_2.fishing_net = fish_net
-	soft_rope_2.attach_np = attach1
+	soft_rope_2.attach_np = attach
 	soft_rope_2.pin = pin
 
 	add_child(soft_rope_1)
 	add_child(soft_rope_2)
+	var initial_pos = get_node(attach).global_transform.origin
 
-	var initial_pos = get_node(attach1).global_transform.origin
 	soft_rope_1.global_transform.origin = fish_net.global_transform.xform(mdt.get_vertex(pin))
 	soft_rope_2.global_transform.origin = initial_pos
+
 
 	soft_rope_2.look_at(soft_rope_1.global_transform.origin, Vector3(1, 0, 0))
 	soft_rope_2.rotate_object_local(Vector3(1, 0, 0), deg2rad(90))
@@ -47,13 +50,13 @@ func create_attach(pin):
 	soft_rope_2.global_transform.origin = new_pos
 
 	soft_rope_2.set_rope_pins()
-	mdt.create_from_surface(soft_rope_2.mesh, 0)
+	mdt2.create_from_surface(soft_rope_2.mesh, 0)
 
-	var diff = soft_rope_2.global_transform.xform(mdt.get_vertex(soft_rope_2.pins_beg[0])).distance_squared_to(
+	var diff = soft_rope_2.global_transform.xform(mdt2.get_vertex(soft_rope_2.pins_beg[0])).distance_squared_to(
 		soft_rope_1.global_transform.origin
 	)
 	var length = (
-		soft_rope_2.global_transform.xform(mdt.get_vertex(soft_rope_2.pins_end[0])).distance_squared_to(
+		soft_rope_2.global_transform.xform(mdt2.get_vertex(soft_rope_2.pins_end[0])).distance_squared_to(
 			soft_rope_1.global_transform.origin
 		)
 		- diff
@@ -70,10 +73,10 @@ func _ready():
 	mdt.create_from_surface(mesh, 0)
 
 	if !attach1.is_empty():
-		create_attach(pins[0])
+		create_attach(pins[0], attach1)
 	if !attach2.is_empty():
-		create_attach(pins[1])
+		create_attach(pins[1], attach2)
 	if !attach3.is_empty():
-		create_attach(pins[2])
+		create_attach(pins[2], attach3)
 	if !attach4.is_empty():
-		create_attach(pins[3])
+		create_attach(pins[3], attach4)
