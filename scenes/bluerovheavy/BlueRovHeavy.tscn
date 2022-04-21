@@ -119,10 +119,6 @@ tracks/0/keys = {
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( 0.1, 0.1, 0.1 )
 
-[sub_resource type="CylinderMesh" id=49]
-top_radius = 1.766
-radial_segments = 32
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 3.0
 rough = true
