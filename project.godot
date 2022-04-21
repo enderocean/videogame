@@ -10,19 +10,29 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Spatial",
+"class": "CutterTool",
+"language": "GDScript",
+"path": "res://scripts/vehicle/cutter_tool.gd"
+}, {
+"base": "Spatial",
 "class": "DeliveryArea",
 "language": "GDScript",
-"path": "res://scripts/delivery_area.gd"
+"path": "res://scripts/delivery/delivery_area.gd"
 }, {
 "base": "RigidBody",
 "class": "DeliveryObject",
 "language": "GDScript",
-"path": "res://scripts/delivery_object.gd"
+"path": "res://scripts/delivery/delivery_object.gd"
 }, {
 "base": "Camera",
 "class": "FollowCamera",
 "language": "GDScript",
 "path": "res://scripts/camera/follow_camera.gd"
+}, {
+"base": "Spatial",
+"class": "GripperTool",
+"language": "GDScript",
+"path": "res://scripts/vehicle/gripper_tool.gd"
 }, {
 "base": "ResourceFormatLoader",
 "class": "HTerrainDataLoader",
@@ -42,12 +52,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
-"path": "res://scripts/level.gd"
+"path": "res://scripts/level/level.gd"
 }, {
 "base": "Resource",
 "class": "LevelData",
 "language": "GDScript",
-"path": "res://scripts/level_data.gd"
+"path": "res://scripts/level/level_data.gd"
 }, {
 "base": "Camera",
 "class": "LookAtCamera",
@@ -107,7 +117,12 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Vehicle",
 "language": "GDScript",
-"path": "res://scripts/vehicle.gd"
+"path": "res://scripts/vehicle/vehicle.gd"
+}, {
+"base": "Spatial",
+"class": "VehicleTool",
+"language": "GDScript",
+"path": "res://scripts/vehicle/vehicle_tool.gd"
 }, {
 "base": "Node2D",
 "class": "WorldMap",
@@ -115,9 +130,11 @@ _global_script_classes=[ {
 "path": "res://scripts/ui/world_map.gd"
 } ]
 _global_script_class_icons={
+"CutterTool": "",
 "DeliveryArea": "",
 "DeliveryObject": "",
 "FollowCamera": "",
+"GripperTool": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "InstructionsPopup": "",
@@ -135,6 +152,7 @@ _global_script_class_icons={
 "SoftRope": "",
 "SoundTriggerArea": "",
 "Vehicle": "",
+"VehicleTool": "",
 "WorldMap": ""
 }
 
@@ -152,9 +170,9 @@ config/icon="res://icon.png"
 
 Globals="*res://scripts/globals.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
-LevelLoader="*res://scripts/level_loader.gd"
-SITL="*res://scripts/sitl.gd"
-Leaderboard="*res://scripts/server/leaderboard.gd"
+LevelLoader="*res://scripts/level/level_loader.gd"
+SITL="*res://scripts/networking/sitl.gd"
+Leaderboard="*res://scripts/networking/leaderboard.gd"
 SaveManager="*res://scripts/io/save_manager.gd"
 RadioSounds="*res://scripts/sounds/radio_sounds.gd"
 

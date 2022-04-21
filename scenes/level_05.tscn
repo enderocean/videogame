@@ -12,14 +12,14 @@
 [ext_resource path="res://terrains/demo_level/stones/Ground039_1K_Roughness.jpg" type="Texture" id=10]
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/models/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=12]
-[ext_resource path="res://scripts/level.gd" type="Script" id=13]
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=13]
 [ext_resource path="res://assets/models/plants/monsterra.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://assets/models/plants/senecio_1.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/delivery_net.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=20]
-[ext_resource path="res://scripts/delivery_object.gd" type="Script" id=21]
+[ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=21]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/models/waste/beverage.obj" type="ArrayMesh" id=23]
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=24]
@@ -742,5 +742,3 @@ material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Coffre cup"]
 shape = SubResource( 92 )
-
-[connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
