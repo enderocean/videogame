@@ -174,7 +174,7 @@ skeleton = NodePath("../../Net")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Turle"]
-transform = Transform( 0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 56.7645, -7.49461, 5.42019 )
+transform = Transform( 0.53, 0, 0, 0, 0.1, 0, 0, 0, 0.4, 56.765, -7.74, 5.42 )
 shape = SubResource( 19 )
 
 [node name="Attach1" type="MeshInstance" parent="."]
