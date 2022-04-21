@@ -140,6 +140,55 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Sphere"]
 shape = SubResource( 8 )
 
+[node name="Cylinder2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3652, 1.318, 5.20185 )
+collision_layer = 2
+collision_mask = 3
+mass = 10.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinder2"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cylinder2"]
+shape = SubResource( 4 )
+
+[node name="Cube2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.785, 3.79859, 4.83661 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Cube2"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube2"]
+shape = SubResource( 6 )
+
+[node name="Sphere2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2065, 2.98529, 2.95497 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Sphere2"]
+mesh = SubResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Sphere2"]
+shape = SubResource( 8 )
+
 [node name="Dasti" type="StaticBody" parent="."]
 
 [node name="dasti_hookers" type="MeshInstance" parent="Dasti"]
