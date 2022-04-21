@@ -37,41 +37,18 @@ var thrusters: Array = []
 export var sounds_path: NodePath
 onready var sounds: ROVSounds = get_node(sounds_path)
 
-export var lGripjoint_path: NodePath
-export var rGripjoint_path: NodePath
+export var gripper_path: NodePath
+onready var gripper: GripperTool = get_node(gripper_path)
 
-onready var ljointGrip: HingeJoint = get_node(lGripjoint_path)
-onready var rjointGrip: HingeJoint = get_node(rGripjoint_path)
+export var cutter_path: NodePath
+onready var cutter: CutterTool = get_node(cutter_path)
 
-export var lCutjoint_path: NodePath
-export var rCutjoint_path: NodePath
+var current_tool
 
-onready var ljointCut: HingeJoint = get_node(lCutjoint_path)
-onready var rjointCut: HingeJoint = get_node(rCutjoint_path)
-
-export var l_grip_rigidbody_path: NodePath
-export var r_grip_rigidbody_path: NodePath
-
-onready var r_grip_rigidbody: RigidBody = get_node(l_grip_rigidbody_path)
-onready var l_grip_rigidbody: RigidBody = get_node(r_grip_rigidbody_path)
-
-export var l_cut_rigidbody_path: NodePath
-export var r_cut_rigidbody_path: NodePath
-
-onready var r_cut_rigidbody: RigidBody = get_node(l_cut_rigidbody_path)
-onready var l_cut_rigidbody: RigidBody = get_node(r_cut_rigidbody_path)
-
-export var vaccum_path: NodePath
-onready var vaccum: MeshInstance = get_node(vaccum_path)
-
-export var carry_position_path: NodePath
-onready var carry_position: Position3D = get_node(carry_position_path)
-
-var grips: Array = [false, false]
-var carrying_object: DeliveryObject
 var tool_mode: int = 0
 
 onready var wait_SITL = Globals.wait_SITL
+
 
 func connect_fmd_in() -> void:
 	if interface.listen(9002) != OK:
@@ -208,10 +185,6 @@ func _physics_process(delta: float) -> void:
 	phys_time = phys_time + 1.0 / Globals.physics_rate
 	process_keys()
 
-	if carrying_object:
-		carrying_object.global_transform.origin = carry_position.global_transform.origin
-		carrying_object.global_transform.basis = carry_position.global_transform.basis
-
 	if Globals.isHTML5:
 		return
 
@@ -224,6 +197,7 @@ func _physics_process(delta: float) -> void:
 
 
 func add_force_local(force: Vector3, pos: Vector3) -> void:
+	# TODO: Change this pls
 	var pos_local: Vector3 = transform.basis.xform(pos)
 	var force_local: Vector3 = transform.basis.xform(force)
 	add_force(force_local, pos_local)
@@ -260,15 +234,18 @@ func actuate_servo(id: int, percentage: float) -> void:
 					add_child(light)
 
 		10:
+			if not current_tool:
+				return
+
 			if percentage < 0.4:
-				ljointGrip.set_param(6, 1)
-				rjointGrip.set_param(6, -1)
+				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, 1)
+				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, -1)
 			elif percentage > 0.6:
-				ljointGrip.set_param(6, -1)
-				rjointGrip.set_param(6, 1)
+				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, -1)
+				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, 1)
 			else:
-				ljointGrip.set_param(6, 0)
-				rjointGrip.set_param(6, 0)
+				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, 0)
+				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, 0)
 
 
 func _unhandled_input(event) -> void:
@@ -394,160 +371,58 @@ func process_keys() -> void:
 		sounds.stop("camera_up")
 		sounds.stop("camera_down")
 
-	
 	# Switch tool
 	if Input.is_action_just_pressed("switch_tool"):
 		tool_mode += 1
-		if (tool_mode == 3):
+		if tool_mode == 3:
 			tool_mode = 0
 
-		if (tool_mode == 0):
-			vaccum.visible = false
-			
-			r_grip_rigidbody.visible = true
-			l_grip_rigidbody.visible = true
-			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
-			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
-			
-			r_grip_rigidbody.get_node("CollisionPolygon").disabled = false
-			l_grip_rigidbody.get_node("CollisionPolygon").disabled = false
-			r_grip_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = false
-			l_grip_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = false
-			
-		elif (tool_mode == 1):
-			r_grip_rigidbody.visible = false
-			l_grip_rigidbody.visible = false
-			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
-			l_grip_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
-			
-			r_grip_rigidbody.get_node("CollisionPolygon").disabled = true
-			l_grip_rigidbody.get_node("CollisionPolygon").disabled = true
-			r_grip_rigidbody.get_node("LeftGripArea/CollisionPolygon").disabled = true
-			l_grip_rigidbody.get_node("RightGripArea/CollisionPolygon").disabled = true
-			
-			
-			r_cut_rigidbody.visible = true
-			l_cut_rigidbody.visible = true
-			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
-			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
-			
-			r_cut_rigidbody.get_node("CollisionPolygon").disabled = false
-			l_cut_rigidbody.get_node("CollisionPolygon").disabled = false
+		match tool_mode:
+			0:
+				current_tool = gripper
+			1:
+				current_tool = cutter
+			2:
+				current_tool = null
 
+		update_tools()
 
-		elif (tool_mode == 2):
-			r_cut_rigidbody.visible = false
-			l_cut_rigidbody.visible = false
-			r_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
-			l_cut_rigidbody.pause_mode = Node.PAUSE_MODE_STOP
-			
-			r_cut_rigidbody.get_node("CollisionPolygon").disabled = true
-			l_cut_rigidbody.get_node("CollisionPolygon").disabled = true
-			
-			vaccum.visible = true
-			
+	if not current_tool:
+		return
 
-	# Gripper
-	if (tool_mode == 0):
-		var target_velocity: float = 0.0
-		if Input.is_action_pressed("gripper_open"):
-			target_velocity = -1.0
+	var target_velocity: float = 0.0
+	if Input.is_action_pressed("gripper_open"):
+		target_velocity = -1.0
 
-			if carrying_object:
-				release_object()
+		if current_tool is GripperTool:
+			current_tool.release_object()
 
-			sounds.stop("gripper_close")
-			sounds.play("gripper_open")
-		elif Input.is_action_pressed("gripper_close"):
-			target_velocity = 1.0
-			sounds.stop("gripper_open")
-			sounds.play("gripper_close")
-		else:
-			sounds.stop("gripper_open")
-			sounds.stop("gripper_close")
-
-		ljointGrip.set_param(ljointGrip.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
-		rjointGrip.set_param(ljointGrip.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
-
-	# Cutter
-	if (tool_mode == 1):
-		var target_velocity: float = 0.0
-		if Input.is_action_pressed("gripper_open"):
-			target_velocity = -1.0
-
-			sounds.stop("gripper_close")
-			sounds.play("gripper_open")
-		elif Input.is_action_pressed("gripper_close"):
-			target_velocity = 1.0
-
-			sounds.stop("gripper_open")
-			sounds.play("gripper_close")
-		else:
-			sounds.stop("gripper_open")
-			sounds.stop("gripper_close")
-
-		ljointCut.set_param(ljointCut.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
-		rjointCut.set_param(ljointCut.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
-
-func can_carry() -> bool:
-	# Check for the size of the collider
-	for i in range(grips.size()):
-		if not grips[i]:
-			return false
-	return true
-
-
-func check_carry(body: DeliveryObject) -> void:
-	var carrying: bool = can_carry()
-	if carrying:
-		carry_object(body)
+		# TODO: Indicate sound on the tool itseft
+		sounds.stop("gripper_close")
+		sounds.play("gripper_open")
+	elif Input.is_action_pressed("gripper_close"):
+		target_velocity = 1.0
+		sounds.stop("gripper_open")
+		sounds.play("gripper_close")
 	else:
-		release_object()
+		sounds.stop("gripper_open")
+		sounds.stop("gripper_close")
+
+	if current_tool.left_joint:
+		current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
+
+	if current_tool.right_joint:
+		current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
 
 
-func carry_object(body: DeliveryObject) -> void:
-	body.carried = true
+func update_tools() -> void:
+	# TODO: Maybe do an array of tools?
+	# Disable all the tools
+	gripper.set_active(false)
+	cutter.set_active(false)
 
-	# Save position and rotation of the object before "freezing" it
-	carry_position.global_transform.origin = body.global_transform.origin
-	carry_position.global_transform.basis = body.global_transform.basis
-
-	carrying_object = body
-
-
-func release_object() -> void:
-	if not carrying_object:
+	if not current_tool:
 		return
 
-	carrying_object.carried = false
-	carrying_object = null
-
-
-func _on_LeftGripArea_body_entered(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
-		return
-
-	grips[0] = true
-	check_carry(body)
-
-
-func _on_LeftGripArea_body_exited(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
-		return
-
-	grips[0] = false
-
-
-func _on_RightGripArea_body_entered(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
-		return
-
-	grips[1] = true
-	check_carry(body)
-
-
-func _on_RightGripArea_body_exited(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
-		return
-
-	grips[1] = false
+	# Enable the current tool
+	current_tool.set_active(true)
