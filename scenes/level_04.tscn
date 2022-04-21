@@ -139,10 +139,11 @@ autoplay = true
 [node name="Net" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1887, -7.08459, 5.42122 )
 attach1 = NodePath("../Attach3")
-attach2 = NodePath("../Attach1")
-attach3 = NodePath("../Attach2")
+attach2 = NodePath("../Attach2")
+attach3 = NodePath("../Attach1")
 attach4 = NodePath("../Attach4")
 pins = [ 0, 680, 20, 635 ]
+real_pins = [ 0, 115, 1750, 1635 ]
 
 [node name="fishing_net" parent="Net" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343987, -0.222112, 0 )
