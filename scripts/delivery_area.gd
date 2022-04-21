@@ -5,6 +5,12 @@ var objects: Array
 
 signal objects_changed
 
+const radio_sounds: Array = [
+	"nice",
+	"good_job",
+	"well_done"
+]
+
 
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable
@@ -16,6 +22,8 @@ func _on_body_entered(body: Node) -> void:
 	var id: int = object.get_instance_id()
 	if objects.has(id):
 		return
+
+	RadioSounds.play(radio_sounds[RadioSounds.rand.randi_range(0, radio_sounds.size() - 1)])
 
 	# Make the object delivered
 	object.delivered = true
