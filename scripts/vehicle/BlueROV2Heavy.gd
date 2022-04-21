@@ -212,7 +212,7 @@ func actuate_servo(id: int, percentage: float) -> void:
 	var force = (percentage - 0.5) * 2 * -THRUST
 
 	# Thrusters
-	if id >= 0 and id <= 8:
+	if id >= 0 and id <= 7:
 		add_force_local(
 			thrusters[id].transform.basis * Vector3(force, 0, 0), thrusters[id].translation
 		)
@@ -415,8 +415,11 @@ func process_keys() -> void:
 func set_current_tool(new_tool) -> void:
 	# TODO: Maybe do an array of tools?
 	# Disable all the tools
-	gripper.set_active(false)
-	cutter.set_active(false)
+	if gripper:
+		gripper.set_active(false)
+	
+	if cutter:
+		cutter.set_active(false)
 	
 	if not new_tool:
 		return
