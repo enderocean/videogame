@@ -61,6 +61,9 @@ export var r_cut_rigidbody_path: NodePath
 onready var r_cut_rigidbody: RigidBody = get_node(l_cut_rigidbody_path)
 onready var l_cut_rigidbody: RigidBody = get_node(r_cut_rigidbody_path)
 
+export var vaccum_path: NodePath
+onready var vaccum: MeshInstance = get_node(vaccum_path)
+
 export var carry_position_path: NodePath
 onready var carry_position: Position3D = get_node(carry_position_path)
 
@@ -399,6 +402,8 @@ func process_keys() -> void:
 			tool_mode = 0
 
 		if (tool_mode == 0):
+			vaccum.visible = false
+			
 			r_grip_rigidbody.visible = true
 			l_grip_rigidbody.visible = true
 			r_grip_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
@@ -438,7 +443,8 @@ func process_keys() -> void:
 			
 			r_cut_rigidbody.get_node("CollisionPolygon").disabled = true
 			l_cut_rigidbody.get_node("CollisionPolygon").disabled = true
-
+			
+			vaccum.visible = true
 			
 
 	# Gripper
