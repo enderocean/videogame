@@ -1,15 +1,20 @@
 extends Spatial
 class_name DeliveryArea
 
-var objects: Array
-
-signal objects_changed
-
-const radio_sounds: Array = [
+# TODO: Create a nice way to select any sound with a custom inspector maybe?
+const RADIO_SOUNDS: Array = [
 	"nice",
 	"good_job",
 	"well_done"
 ]
+
+export(Level.ObjectiveType) var objective_type = Level.ObjectiveType.GRIPPER
+
+onready var group: String = "objective_%s" % str(objective_type).to_lower()
+
+var objects: Array
+
+signal objects_changed
 
 
 func _on_body_entered(body: Node) -> void:
@@ -17,13 +22,19 @@ func _on_body_entered(body: Node) -> void:
 	if not body is DeliveryObject:
 		return
 
-	# Make sure the object is not already in the area
 	var object: DeliveryObject = body
+
+	# Check if the object has the same objective_type
+	if not object.is_in_group(group):
+		return
+
+	# Make sure the object is not already in the area
 	var id: int = object.get_instance_id()
 	if objects.has(id):
 		return
 
-	RadioSounds.play(radio_sounds[RadioSounds.rand.randi_range(0, radio_sounds.size() - 1)])
+	# Play random sound from array
+	RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
 
 	# Make the object delivered
 	object.delivered = true
