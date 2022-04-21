@@ -8,6 +8,17 @@ var grips: Array = [false, false]
 var carrying_object: DeliveryObject
 
 
+func _ready() -> void:
+	._ready()
+	
+	if left_area:
+		left_area.connect("body_entered", self, "_on_left_area_body_entered")
+		left_area.connect("body_exited", self, "_on_left_area_body_exited")
+	
+	if right_area:
+		right_area.connect("body_entered", self, "_on_right_area_body_entered")
+		right_area.connect("body_exited", self, "_on_right_area_body_exited")
+
 func _physics_process(_delta: float) -> void:
 	if not carrying_object:
 		return
@@ -50,7 +61,7 @@ func release_object() -> void:
 	carrying_object = null
 
 
-func _on_LeftGripArea_body_entered(body: Node) -> void:
+func _on_left_area_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 
@@ -58,14 +69,14 @@ func _on_LeftGripArea_body_entered(body: Node) -> void:
 	check_carry(body)
 
 
-func _on_LeftGripArea_body_exited(body: Node) -> void:
+func _on_left_area_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 
 	grips[0] = false
 
 
-func _on_RightGripArea_body_entered(body: Node) -> void:
+func _on_right_area_body_entered(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 
@@ -73,7 +84,7 @@ func _on_RightGripArea_body_entered(body: Node) -> void:
 	check_carry(body)
 
 
-func _on_RightGripArea_body_exited(body: Node) -> void:
+func _on_right_area_body_exited(body: Node) -> void:
 	if carrying_object or not body is DeliveryObject:
 		return
 
