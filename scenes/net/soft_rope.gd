@@ -16,6 +16,9 @@ var pin
 var pins_beg = []
 var pins_end = []
 
+func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if (area.name == "RightCutArea"):
+		cut_rope(0.5)
 
 func set_rope_pins():
 	mdt.create_from_surface(mesh, 0)

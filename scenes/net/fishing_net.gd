@@ -67,8 +67,14 @@ func create_attach(nb_pin, attach):
 	var scale_factor = distance / length
 
 	soft_rope_2.scale.y = soft_rope_2.scale.y * (scale_factor * 2)
-	#soft_rope_2.cut_rope(0.5)
-
+	
+	var area = Area.new()
+	var collision_shape = CollisionShape.new()
+	collision_shape.shape = soft_rope_2.mesh.create_convex_shape()
+	area.add_child(collision_shape)
+	add_child(area)
+	area.global_transform = soft_rope_2.global_transform
+	area.connect("area_shape_entered", soft_rope_2, "_on_Area_area_shape_entered")
 
 func _ready():
 	var mesh = fish_net.get_mesh()
