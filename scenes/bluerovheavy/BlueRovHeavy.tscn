@@ -381,6 +381,9 @@ mesh = SubResource( 21 )
 [node name="newton" parent="BlueRov" instance=ExtResource( 2 )]
 transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888, -0.333631, 0.141171, 0.302541, -0.0264689, 0.218238, -0.255554, 0.0306985 )
 
+[node name="CarryPosition" type="Position3D" parent="BlueRov"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00719048, -0.252294, 0.486228 )
+
 [node name="ROVSounds" type="Spatial" parent="."]
 script = ExtResource( 10 )
 sound_player = ExtResource( 11 )
@@ -397,7 +400,7 @@ right_rigidbody_path = NodePath("GripRightRigidBody")
 left_rigidbody_path = NodePath("GripLeftRigidBody")
 right_area_path = NodePath("GripRightRigidBody/RightGripArea")
 left_area_path = NodePath("GripLeftRigidBody/LeftGripArea")
-carry_position_path = NodePath("CarryPosition")
+carry_position_path = NodePath("../BlueRov/CarryPosition")
 
 [node name="rjointGrip" type="HingeJoint" parent="Gripper"]
 transform = Transform( 0.238985, 0.719117, -0.0682379, -7.09762e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.427163, -0.298199, -0.0440724 )
@@ -475,9 +478,6 @@ collision_mask = 2
 transform = Transform( 2.97033, 0.304805, -1.50407e-08, -0.304805, 2.97033, 6.71353e-10, 1.50307e-08, 8.67676e-10, 2.98592, -0.3, -2.131, 0.004 )
 depth = 0.025
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
-
-[node name="CarryPosition" type="Position3D" parent="Gripper"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.459976, -0.252294, 0.0113813 )
 
 [node name="Cutter" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.86265e-09 )
