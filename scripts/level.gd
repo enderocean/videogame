@@ -62,7 +62,7 @@ func _ready():
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
 	# Add all objectives
-	for type in ObjectiveType.keys():
+	for type in ObjectiveType.values():
 		var group: String = "objective_%s" % str(type).to_lower()
 		var objective_objects: Array = get_tree().get_nodes_in_group(group)
 
