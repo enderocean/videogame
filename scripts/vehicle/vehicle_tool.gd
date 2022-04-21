@@ -71,3 +71,17 @@ func get_first_collision_from(collision: CollisionObject) -> CollisionPolygon:
 			continue
 		return child
 	return null
+
+
+func move_left(value: float) -> void:
+	if not left_joint:
+		return
+	
+	left_joint.set_param(left_joint.PARAM_MOTOR_TARGET_VELOCITY, value)
+
+
+func move_right(value: float) -> void:
+	if not right_joint:
+		return
+	
+	right_joint.set_param(right_joint.PARAM_MOTOR_TARGET_VELOCITY, value)
