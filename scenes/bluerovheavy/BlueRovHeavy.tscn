@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scripts/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton.tscn" type="PackedScene" id=2]
@@ -12,49 +12,49 @@
 [ext_resource path="res://scripts/sounds/rov_sounds.gd" type="Script" id=10]
 [ext_resource path="res://scenes/sounds/SoundPlayer.tscn" type="PackedScene" id=11]
 
-[sub_resource type="SpatialMaterial" id=32]
+[sub_resource type="SpatialMaterial" id=41]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=33]
+[sub_resource type="SpatialMaterial" id=42]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=34]
+[sub_resource type="SpatialMaterial" id=43]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=35]
+[sub_resource type="SpatialMaterial" id=44]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=36]
+[sub_resource type="SpatialMaterial" id=45]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=37]
+[sub_resource type="SpatialMaterial" id=46]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=38]
+[sub_resource type="SpatialMaterial" id=47]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=39]
+[sub_resource type="SpatialMaterial" id=48]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
@@ -116,6 +116,10 @@ tracks/0/keys = {
 
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( 0.1, 0.1, 0.1 )
+
+[sub_resource type="CylinderMesh" id=49]
+top_radius = 1.766
+radial_segments = 32
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 3.0
@@ -209,11 +213,12 @@ l_grip_rigidbody_path = NodePath("../GripLeftRigidBody")
 r_grip_rigidbody_path = NodePath("../GripRightRigidBody")
 l_cut_rigidbody_path = NodePath("../CutLeftRigidBody")
 r_cut_rigidbody_path = NodePath("../CutRightRigidBody")
+vaccum_path = NodePath("Vacuum")
 carry_position_path = NodePath("CarryPosition")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
-material_override = SubResource( 32 )
+material_override = SubResource( 41 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -222,7 +227,7 @@ pitch_factor = false
 
 [node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
-material_override = SubResource( 33 )
+material_override = SubResource( 42 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -231,7 +236,7 @@ pitch_factor = false
 
 [node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
-material_override = SubResource( 34 )
+material_override = SubResource( 43 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -240,7 +245,7 @@ pitch_factor = false
 
 [node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
-material_override = SubResource( 35 )
+material_override = SubResource( 44 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -249,28 +254,28 @@ pitch_factor = false
 
 [node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
-material_override = SubResource( 36 )
+material_override = SubResource( 45 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
-material_override = SubResource( 37 )
+material_override = SubResource( 46 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
-material_override = SubResource( 38 )
+material_override = SubResource( 47 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
-material_override = SubResource( 39 )
+material_override = SubResource( 48 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -383,6 +388,13 @@ transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888,
 
 [node name="CarryPosition" type="Position3D" parent="BlueRov"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00719048, -0.252294, 0.486228 )
+
+[node name="Vacuum" type="MeshInstance" parent="BlueRov"]
+transform = Transform( 1.91831e-10, 0.0438857, -0.00898557, 0.01, -4.37114e-09, 6.8465e-17, -3.92772e-10, -0.0898557, -0.00438857, 0.0220424, -0.291111, 0.44363 )
+visible = false
+mesh = SubResource( 49 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
 
 [node name="rjointGrip" type="HingeJoint" parent="."]
 transform = Transform( 0.238985, 0.719117, -0.0682379, -7.09762e-09, -0.0662726, -0.821599, -0.721864, 0.238076, -0.0225913, 0.427163, -0.298199, -0.0440724 )
