@@ -32,6 +32,7 @@ func can_carry() -> bool:
 	for i in range(grips.size()):
 		if not grips[i]:
 			return false
+	# Carry object
 	return true
 
 
