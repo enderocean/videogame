@@ -171,7 +171,7 @@ func _ready() -> void:
 		if child.get_class() == "Thruster":
 			thrusters.append(child)
 
-	current_tool = gripper
+	set_current_tool(gripper)
 
 	_initial_position = global_transform.origin
 	set_physics_process(true)
@@ -240,14 +240,14 @@ func actuate_servo(id: int, percentage: float) -> void:
 				return
 
 			if percentage < 0.4:
-				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, 1)
-				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, -1)
+				current_tool.move_left(1)
+				current_tool.move_right(-1)
 			elif percentage > 0.6:
-				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, -1)
-				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, 1)
+				current_tool.move_left(-1)
+				current_tool.move_right(1)
 			else:
-				current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, 0)
-				current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, 0)
+				current_tool.move_left(0)
+				current_tool.move_right(0)
 
 
 func _unhandled_input(event) -> void:
@@ -381,13 +381,11 @@ func process_keys() -> void:
 
 		match tool_mode:
 			0:
-				current_tool = gripper
+				set_current_tool(gripper)
 			1:
-				current_tool = cutter
+				set_current_tool(cutter)
 			2:
-				current_tool = null
-
-		update_tools()
+				set_current_tool(null)
 
 	if not current_tool:
 		return
@@ -410,22 +408,19 @@ func process_keys() -> void:
 		sounds.stop("gripper_open")
 		sounds.stop("gripper_close")
 
-	if current_tool.left_joint:
-		current_tool.left_joint.set_param(current_tool.left_joint.PARAM_MOTOR_TARGET_VELOCITY, target_velocity)
-
-	if current_tool.right_joint:
-		current_tool.right_joint.set_param(current_tool.right_joint.PARAM_MOTOR_TARGET_VELOCITY, -target_velocity)
+	current_tool.move_left(target_velocity)
+	current_tool.move_right(-target_velocity)
 
 
-func update_tools() -> void:
+func set_current_tool(new_tool) -> void:
 	# TODO: Maybe do an array of tools?
 	# Disable all the tools
 	gripper.set_active(false)
 	cutter.set_active(false)
-
-	if not current_tool:
+	
+	if not new_tool:
 		return
-
-	print("activating tool")
+	
 	# Enable the current tool
-	current_tool.set_active(true)
+	new_tool.set_active(true)
+	current_tool = new_tool
