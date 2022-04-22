@@ -18,12 +18,6 @@ onready var left_joint: Joint = get_node_or_null(left_joint_path)
 onready var left_rigidbody: RigidBody = get_node_or_null(left_rigidbody_path)
 onready var left_area: Area = get_node_or_null(left_area_path)
 
-# TODO: Beware in case of another type of collision is used for a tool
-var right_collision: CollisionPolygon
-var right_area_collision: CollisionPolygon
-var left_collision: CollisionPolygon
-var left_area_collision: CollisionPolygon
-
 var collisions: Dictionary = {
 	"right_rigidbody": {
 		"layer": 0,
@@ -102,32 +96,8 @@ func set_active(value: bool) -> void:
 		else:
 			right_rigidbody.collision_layer = 0
 			right_rigidbody.collision_mask = 0
-	
-#	if right_collision:
-#		right_collision.disabled = not value
-
-#	if right_area_collision:
-#		right_area_collision.disabled = not value
-
-	
-#		left_rigidbody.pause_mode = Node.PAUSE_MODE_INHERIT
-
-#	if left_collision:
-#		left_collision.disabled = not value
-#
-#	if left_area_collision:
-#		left_area_collision.disabled = not value
 
 	set_physics_process(value)
-
-
-# Helper to get the first CollisionPolygon from a given CollisionObject (in this case RigidBody or Area)
-func get_first_collision_from(collision: CollisionObject) -> CollisionPolygon:
-	for child in collision.get_children():
-		if not child is CollisionPolygon:
-			continue
-		return child
-	return null
 
 
 func move_left(value: float) -> void:
