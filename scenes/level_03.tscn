@@ -171,6 +171,13 @@ albedo_texture = ExtResource( 36 )
 [node name="level_03" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, -128 )
 script = ExtResource( 11 )
+objectives_target = {
+"cutter": 0,
+"grappling_hook": 0,
+"gripper": 4,
+"magnet": 0,
+"vacuum": 0
+}
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 256, 0, 0, 0, 256, 0, 0, 0, 256, 256, 0, 128.701 )
@@ -688,7 +695,6 @@ shape = SubResource( 37 )
 
 [node name="grass" type="MeshInstance" parent="."]
 transform = Transform( 0.03, 0, 0, 0, 0.015, 0, 0, 0, 0.03, 75.4939, -12.2449, 90.1229 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )

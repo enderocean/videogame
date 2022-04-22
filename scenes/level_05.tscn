@@ -167,6 +167,13 @@ extents = Vector3( 0.063, 0.063, 0.063 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
 vehicle_path = NodePath("BlueRov")
+objectives_target = {
+"cutter": 0,
+"grappling_hook": 0,
+"gripper": 4,
+"magnet": 0,
+"vacuum": 0
+}
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 30, 0, 0, 0, 128, 0, 0, 0, 30, -16.5923, 2.55262, -20.9698 )
