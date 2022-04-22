@@ -193,13 +193,12 @@ func _on_objects_changed(area, objects: Array) -> void:
 	if area.objective_type == ObjectiveType.GRIPPER:
 		objectives_progress[ObjectiveType.GRIPPER] = objects.size()
 		score = objectives_progress[ObjectiveType.GRIPPER]
-
-		print("Delivered: ", objectives_progress[ObjectiveType.GRIPPER], " / ", objectives[ObjectiveType.GRIPPER])
+		print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
 
 	if area.objective_type == ObjectiveType.VACUUM:
 		objectives_progress[ObjectiveType.VACUUM] = objects.size()
 		score = objectives_progress[ObjectiveType.VACUUM]
-		print("Vacuumed: ", objectives_progress[ObjectiveType.VACUUM], " / ", objectives[ObjectiveType.VACUUM])
+		print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
 	
 	check_objectives()
 
@@ -212,7 +211,7 @@ func check_objectives() -> void:
 		if not objectives_progress.has(objective):
 			continue
 		
-		if objectives_progress.get(objective) != objectives.get(objective):
+		if objectives_progress.get(objective) < objectives.get(objective):
 			finished = false
 	
 	if finished:

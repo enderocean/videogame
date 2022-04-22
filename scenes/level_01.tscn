@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 113.812
+shader_param/timer = 23.7259
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -193,6 +193,13 @@ _data = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
 vehicle_path = NodePath("Vehicle")
+objectives_target = {
+"cutter": 0,
+"grappling_hook": 0,
+"gripper": 0,
+"magnet": 0,
+"vacuum": 4
+}
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 4.95221, -18.268 )
