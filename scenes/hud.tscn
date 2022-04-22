@@ -151,21 +151,21 @@ rect_pivot_offset = Vector2( -32, 6 )
 text = "H - Toggle Help (this)
 ESC - Pause menu
 
-C - switch camera//vehicle
-R - reset position
-
-Free camera:
-Hold left button + a/w/s/d + q/e
-
 ROV:
 Z/S: Forward/Backwards
-A/D: Yaw left/right
+Q/D: Yaw left/right
 Up: Rise
 Down: Dive
 Left/Right: Strafe left/right
 L/M: Camera tilt down/up
 O/P: Close/open gripper
 F3/F4: Increase/decrease lights
+U: Change tool
+
+C - switch camera//vehicle
+
+Free camera:
+Hold left button + a/w/s/d + q/e
 "
 __meta__ = {
 "_edit_use_anchors_": false

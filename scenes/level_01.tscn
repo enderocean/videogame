@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 23.7259
+shader_param/timer = 113.143
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -198,7 +198,7 @@ objectives_target = {
 "grappling_hook": 0,
 "gripper": 0,
 "magnet": 0,
-"vacuum": 4
+"vacuum": 12
 }
 
 [node name="water" parent="." instance=ExtResource( 11 )]
@@ -774,7 +774,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic7" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.1327 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 8.00389 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -793,7 +793,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic8" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.1055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 7.97669 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -812,7 +812,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic9" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0769 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 7.94809 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -831,7 +831,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic10" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 7.91789 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -850,7 +850,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic11" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 12.0194 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 7.89059 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -869,7 +869,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic12" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19901, 2.15059, 11.9898 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.20464, 2.15059, 7.86099 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -888,7 +888,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic31" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.1327 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 8.00389 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -907,7 +907,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic32" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.1055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 7.97669 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -926,7 +926,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic33" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0769 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 7.94809 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -945,7 +945,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic34" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 7.91789 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -964,7 +964,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic35" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 12.0194 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 7.89059 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
@@ -983,7 +983,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="Microplastic36" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12358, 2.15059, 11.9898 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.12921, 2.15059, 7.86099 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 18 )
