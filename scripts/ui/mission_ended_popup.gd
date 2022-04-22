@@ -29,7 +29,7 @@ func update_objectives(objectives: Dictionary) -> void:
 	if objectives.size() == 0:
 		return
 
-	for i in range(objectives.keys.size()):
+	for i in range(objectives.keys().size()):
 		# Try to get existing line
 		var line: ObjectiveLine = null
 		if i < objectives_list.get_child_count():
@@ -41,7 +41,7 @@ func update_objectives(objectives: Dictionary) -> void:
 			objectives_list.add_child(line)
 
 		var title: String = ""
-		match objectives.keys[i]:
+		match objectives.keys()[i]:
 			Level.ObjectiveType.GRIPPER:
 				title = "Delivered with the Gripper"
 			Level.ObjectiveType.VACUUM:
@@ -52,7 +52,7 @@ func update_objectives(objectives: Dictionary) -> void:
 				title = "Collected with the Grappling hook"
 
 		line.title.text = title
-		line.value.text = str(objectives.values[i])
+		line.value.text = str(objectives.values()[i])
 
 
 func _on_visibility_changed() -> void:

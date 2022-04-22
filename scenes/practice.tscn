@@ -81,6 +81,13 @@ uv1_scale = Vector3( 3, 2, 1 )
 [node name="Practice" type="Spatial"]
 script = ExtResource( 7 )
 vehicle_path = NodePath("BlueRov")
+objectives_target = {
+"cutter": 0,
+"grappling_hook": 0,
+"gripper": 3,
+"magnet": 0,
+"vacuum": 0
+}
 
 [node name="pool" parent="." instance=ExtResource( 8 )]
 
