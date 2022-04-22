@@ -83,19 +83,19 @@ func set_active(value: bool) -> void:
 	
 	if left_area:
 		if value:
-			right_rigidbody.collision_layer = collisions["left_area"]["layer"]
-			right_rigidbody.collision_mask = collisions["left_area"]["mask"]
+			left_area.collision_layer = collisions["left_area"]["layer"]
+			left_area.collision_mask = collisions["left_area"]["mask"]
 		else:
-			right_rigidbody.collision_layer = 0
-			right_rigidbody.collision_mask = 0
+			left_area.collision_layer = 0
+			left_area.collision_mask = 0
 	
 	if right_area:
 		if value:
-			right_rigidbody.collision_layer = collisions["right_area"]["layer"]
-			right_rigidbody.collision_mask = collisions["right_area"]["mask"]
+			right_area.collision_layer = collisions["right_area"]["layer"]
+			right_area.collision_mask = collisions["right_area"]["mask"]
 		else:
-			right_rigidbody.collision_layer = 0
-			right_rigidbody.collision_mask = 0
+			right_area.collision_layer = 0
+			right_area.collision_mask = 0
 
 	set_physics_process(value)
 
