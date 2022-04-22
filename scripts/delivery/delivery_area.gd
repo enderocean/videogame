@@ -20,6 +20,10 @@ var objects: Array
 signal objects_changed
 
 
+func _ready() -> void:
+	add_to_group("objectives_nodes")
+
+
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable
 
@@ -43,7 +47,7 @@ func _on_body_entered(body: Node) -> void:
 	# Make the object delivered
 	object.delivered = true
 	objects.append(id)
-	emit_signal("objects_changed", objects)
+	emit_signal("objects_changed", self, objects)
 
 
 func _on_body_exited(body: Node) -> void:
@@ -64,4 +68,4 @@ func _on_body_exited(body: Node) -> void:
 	# Make the object not delivered
 	object.delivered = false
 	objects.remove(index)
-	emit_signal("objects_changed", objects)
+	emit_signal("objects_changed", self, objects)
