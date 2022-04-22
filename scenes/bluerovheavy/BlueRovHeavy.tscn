@@ -191,7 +191,7 @@ surfaces/0 = {
 
 [node name="Vehicle" type="Spatial"]
 script = ExtResource( 9 )
-vehicle_path = NodePath("BlueRov")
+vehicle_body_path = NodePath("BlueRov")
 camera_target_path = NodePath("BlueRov/cameraTarget")
 theter_anchor_path = NodePath("VehicleTheterAnchor")
 

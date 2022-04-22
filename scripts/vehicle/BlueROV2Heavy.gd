@@ -171,8 +171,6 @@ func _ready() -> void:
 		if child.get_class() == "Thruster":
 			thrusters.append(child)
 
-	set_current_tool(gripper)
-
 	_initial_position = global_transform.origin
 	set_physics_process(true)
 
