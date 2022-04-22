@@ -185,7 +185,7 @@ func _on_fancy_water_changed() -> void:
 func _on_DeliveryNet_objects_changed(objects: Array) -> void:
 	if finished:
 		return
-
+	print(objects)
 	objectives_progress[ObjectiveType.GRIPPER] = objects.size()
 	score = objectives_progress[ObjectiveType.GRIPPER]
 

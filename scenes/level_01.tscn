@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 665.881
+shader_param/timer = 0.840697
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -318,6 +318,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -336,6 +337,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic2"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -373,6 +375,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic4"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -391,6 +394,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic5"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -409,6 +413,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic6"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -427,6 +432,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic19"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -445,6 +451,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic20"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -463,6 +470,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic21"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -481,6 +489,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic22"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -499,6 +508,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic23"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -517,6 +527,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic24"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -535,6 +546,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic25"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -553,6 +565,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic26"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -571,6 +584,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic27"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -589,6 +603,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic28"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -607,6 +622,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic29"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -625,6 +641,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic30"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -643,6 +660,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic13"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -661,6 +679,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic14"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -679,6 +698,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic15"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -697,6 +717,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic16"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -715,6 +736,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic17"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -733,6 +755,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic18"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -751,6 +774,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic7"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -769,6 +793,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic8"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -787,6 +812,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic9"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -805,6 +831,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic10"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -823,6 +850,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic11"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -841,6 +869,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic12"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -859,6 +888,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic31"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -877,6 +907,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic32"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -895,6 +926,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic33"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -913,6 +945,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic34"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -931,6 +964,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic35"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -949,6 +983,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic36"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )

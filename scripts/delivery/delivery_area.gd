@@ -22,6 +22,7 @@ signal objects_changed
 
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable
+
 	if not body is DeliveryObject:
 		return
 
