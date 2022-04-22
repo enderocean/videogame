@@ -133,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 113.166
+shader_param/timer = 665.881
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -192,7 +192,7 @@ _data = {
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
-vehicle_path = NodePath("BlueRov")
+vehicle_path = NodePath("Vehicle")
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 4.95221, -18.268 )
@@ -221,12 +221,13 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="playerCamera" parent="." instance=ExtResource( 29 )]
 
-[node name="BlueRov" parent="." instance=ExtResource( 27 )]
-transform = Transform( 0.649952, 0, 0.759975, 0, 1, 0, -0.759975, 0, 0.649952, 2.04542, 3.33352, 9.49213 )
+[node name="Vehicle" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09859, 11.4746 )
 
 [node name="Theter" parent="." instance=ExtResource( 30 )]
-from = NodePath("../BlueRov")
+from = NodePath("../Vehicle")
 to = NodePath("../Ender Station/TheterAnchor")
+length = 100
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.330329, 0, 0.225572, 0, 0.4, 0, -0.225572, 0, 0.330329, 11.3377, 6.55861, 13.9939 )
@@ -353,6 +354,7 @@ script = ExtResource( 18 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic3"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )

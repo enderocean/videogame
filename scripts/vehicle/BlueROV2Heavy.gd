@@ -43,6 +43,9 @@ onready var gripper: GripperTool = get_node(gripper_path)
 export var cutter_path: NodePath
 onready var cutter: CutterTool = get_node(cutter_path)
 
+export var vacuum_path: NodePath
+onready var vacuum: VacuumTool = get_node(vacuum_path)
+
 var current_tool
 
 var tool_mode: int = 0
@@ -382,7 +385,7 @@ func process_keys() -> void:
 			1:
 				set_current_tool(cutter)
 			2:
-				set_current_tool(null)
+				set_current_tool(vacuum)
 
 	if not current_tool:
 		return
@@ -418,6 +421,9 @@ func set_current_tool(new_tool) -> void:
 	if cutter:
 		cutter.set_active(false)
 	
+	if vacuum:
+		vacuum.set_active(false)
+
 	if not new_tool:
 		return
 	
