@@ -199,7 +199,6 @@ func _physics_process(delta: float) -> void:
 
 
 func add_force_local(force: Vector3, pos: Vector3) -> void:
-	# TODO: Change this pls
 	var pos_local: Vector3 = transform.basis.xform(pos)
 	var force_local: Vector3 = transform.basis.xform(force)
 	add_force(force_local, pos_local)
