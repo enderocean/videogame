@@ -86,6 +86,10 @@ func _ready():
 
 #		if objective_objects.size() > 0:
 #			objectives[type] = objective_objects.size()
+	
+	
+	for node in get_tree().get_nodes_in_group("objectives_nodes"):
+		node.connect("objects_changed", self, "_on_objects_changed")
 
 
 func calculate_buoyancy_and_ballast():
@@ -182,14 +186,34 @@ func _on_fancy_water_changed() -> void:
 		underwater.set_surface_material(0, simple_water)
 
 
-func _on_DeliveryNet_objects_changed(objects: Array) -> void:
-	if finished:
+func _on_objects_changed(area, objects: Array) -> void:
+	if finished or not area:
 		return
-	print(objects)
-	objectives_progress[ObjectiveType.GRIPPER] = objects.size()
-	score = objectives_progress[ObjectiveType.GRIPPER]
+	
+	if area.objective_type == ObjectiveType.GRIPPER:
+		objectives_progress[ObjectiveType.GRIPPER] = objects.size()
+		score = objectives_progress[ObjectiveType.GRIPPER]
 
-	print("Delivered: ", objectives_progress[ObjectiveType.GRIPPER], " / ", objectives[ObjectiveType.GRIPPER])
-	if objectives_progress[ObjectiveType.GRIPPER] == objectives[ObjectiveType.GRIPPER]:
-		finished = true
+		print("Delivered: ", objectives_progress[ObjectiveType.GRIPPER], " / ", objectives[ObjectiveType.GRIPPER])
+
+	if area.objective_type == ObjectiveType.VACUUM:
+		objectives_progress[ObjectiveType.VACUUM] = objects.size()
+		score = objectives_progress[ObjectiveType.VACUUM]
+		print("Vacuumed: ", objectives_progress[ObjectiveType.VACUUM], " / ", objectives[ObjectiveType.VACUUM])
+	
+	check_objectives()
+
+func check_objectives() -> void:
+	finished = true
+	for objective in objectives.keys():
+		if not objectives.has(objective):
+			continue
+		
+		if not objectives_progress.has(objective):
+			continue
+		
+		if objectives_progress.get(objective) != objectives.get(objective):
+			finished = false
+	
+	if finished:
 		emit_signal("finished", score)

@@ -81,7 +81,7 @@ func set_active(value: bool) -> void:
 			left_rigidbody.collision_layer = 0
 			left_rigidbody.collision_mask = 0
 	
-	if left_area:
+	if left_area:	
 		if value:
 			left_area.collision_layer = collisions["left_area"]["layer"]
 			left_area.collision_mask = collisions["left_area"]["mask"]
