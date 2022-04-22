@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/vehicle/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://scenes/sounds/SoundPlayer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/vehicle/gripper_tool.gd" type="Script" id=12]
 [ext_resource path="res://scripts/vehicle/cutter_tool.gd" type="Script" id=13]
+[ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
+[ext_resource path="res://scripts/delivery/delivery_area.gd" type="Script" id=15]
 
 [sub_resource type="SpatialMaterial" id=41]
 render_priority = 127
@@ -189,6 +191,13 @@ surfaces/0 = {
 "vertex_count": 1124
 }
 
+[sub_resource type="CylinderMesh" id=49]
+top_radius = 1.6
+
+[sub_resource type="CylinderShape" id=51]
+radius = 0.0255625
+height = 0.132427
+
 [node name="Vehicle" type="Spatial"]
 script = ExtResource( 9 )
 vehicle_body_path = NodePath("BlueRov")
@@ -206,6 +215,7 @@ script = ExtResource( 1 )
 sounds_path = NodePath("../ROVSounds")
 gripper_path = NodePath("../Gripper")
 cutter_path = NodePath("../Cutter")
+vacuum_path = NodePath("../Vacuum")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
@@ -544,3 +554,53 @@ material/0 = ExtResource( 5 )
 transform = Transform( 1, 0, -8.88178e-16, 0, 1, 0, 1.42109e-14, 5.68434e-14, 1, -0.00390352, -0.721209, -0.00389147 )
 depth = 0.05
 polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089, 0.706015, 0.0298309, 0.748291, 0.0112969, 0.76717, -0.000555262, 0.790604, 0.0121952, 0.794569, 0.0379716, 0.77754, 0.0664467, 0.745172, 0.0702656, 0.701849, 0.0763837, 0.656809, 0.0675249, 0.638712, 0.0341034, 0.644531 )
+
+[node name="Vacuum" type="Spatial" parent="."]
+script = ExtResource( 14 )
+right_rigidbody_path = NodePath("VacuumRigidBody")
+
+[node name="HingeJoint" type="HingeJoint" parent="Vacuum"]
+transform = Transform( 0.238861, 0.718743, -0.06826, 5.79075e-09, -0.0662384, -0.821861, -0.721488, 0.237952, -0.0225986, 0.427, -0.298, -0.044 )
+nodes/node_a = NodePath("../../BlueRov")
+nodes/node_b = NodePath("../VacuumRigidBody")
+params/bias = 0.99
+angular_limit/enable = true
+angular_limit/upper = 35.0
+angular_limit/lower = 0.0
+motor/enable = true
+motor/target_velocity = 0.0
+
+[node name="VacuumRigidBody" type="RigidBody" parent="Vacuum"]
+pause_mode = 1
+transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
+collision_mask = 2
+mass = 0.5
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+
+[node name="g1" type="MeshInstance" parent="Vacuum/VacuumRigidBody"]
+transform = Transform( 8.2918e-10, 0.0118027, -0.0147852, -0.00130733, -0.0687352, -0.00251952, -0.0149429, 0.00601353, 0.000220429, -0.0484921, -0.0357538, -0.0241304 )
+mesh = SubResource( 49 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Vacuum/VacuumRigidBody"]
+transform = Transform( 0.981194, -0.192408, 0.0153203, 0.192411, 0.981313, 0.00134637, -0.015293, 0.00162658, 0.999876, -0.0495222, -0.0337325, -0.0252846 )
+shape = SubResource( 51 )
+
+[node name="VaccumProcess" type="Spatial" parent="Vacuum"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.577327, -0.301093, 0 )
+script = ExtResource( 15 )
+objective_type = 1
+only_enter = true
+
+[node name="Area" type="Area" parent="Vacuum/VaccumProcess"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Vacuum/VaccumProcess/Area"]
+transform = Transform( 0.981194, -0.192408, 0.0153203, 0.192411, 0.981313, 0.00134637, -0.015293, 0.00162658, 0.999876, -0.0495222, -0.0337325, -0.0252846 )
+shape = SubResource( 51 )
+
+[connection signal="body_entered" from="Vacuum/VaccumProcess/Area" to="Vacuum/VaccumProcess" method="_on_body_entered"]
+[connection signal="body_exited" from="Vacuum/VaccumProcess/Area" to="Vacuum/VaccumProcess" method="_on_body_exited"]
