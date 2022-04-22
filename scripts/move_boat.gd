@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		path_index = wrapi(path_index + 1, 0, path_points.size() - 1)
 		target = path_points[path_index]
 
-	var direction: Vector3 = (target - global_transform.origin)
+	var direction: Vector3 = (target - global_transform.origin).normalized()
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	
