@@ -205,6 +205,7 @@ transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 4
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
 from = NodePath("../BlueRov")
 to = NodePath("../MovingBoat/Ender Station/TheterAnchor")
+length = 250
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
@@ -687,6 +688,7 @@ shape = SubResource( 37 )
 
 [node name="grass" type="MeshInstance" parent="."]
 transform = Transform( 0.03, 0, 0, 0, 0.015, 0, 0, 0, 0.03, 75.4939, -12.2449, 90.1229 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -694,6 +696,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass3" type="MeshInstance" parent="."]
 transform = Transform( -0.0265257, 0, 0.0140138, 0, 0.015, 0, -0.0140138, 0, -0.0265257, 76.2201, -12.2449, 96.875 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -701,6 +704,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass2" type="MeshInstance" parent="."]
 transform = Transform( 0.0285411, 0, -0.00924162, 0, 0.015, 0, 0.00924162, 0, 0.0285411, 75.4939, -12.2449, 95.1626 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -708,6 +712,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass4" type="MeshInstance" parent="."]
 transform = Transform( 0.0113197, 0, 0.0277824, 0, 0.015, 0, -0.0277824, 0, 0.0113197, 75.4939, -12.2449, 158.36 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -715,6 +720,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass5" type="MeshInstance" parent="."]
 transform = Transform( -0.0229867, 0, -0.0192772, 0, 0.015, 0, 0.0192772, 0, -0.0229867, 76.2201, -12.2449, 165.113 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -722,6 +728,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass6" type="MeshInstance" parent="."]
 transform = Transform( 0.0193277, 0, 0.0229443, 0, 0.015, 0, -0.0229443, 0, 0.0193277, 75.4939, -12.2449, 163.4 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -729,6 +736,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass7" type="MeshInstance" parent="."]
 transform = Transform( -0.0145388, 0, 0.0262416, 0, 0.015, 0, -0.0262416, 0, -0.0145388, 77.1946, -12.2449, 120.833 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
