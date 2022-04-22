@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -29,8 +29,6 @@
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=27]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=28]
 [ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=29]
-[ext_resource path="res://assets/sounds/radio/08_Boat_started.wav" type="AudioStream" id=30]
-[ext_resource path="res://assets/sounds/radio/09_Boat_stopped.wav" type="AudioStream" id=31]
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/deco/HallAnchor.obj" type="ArrayMesh" id=33]
 [ext_resource path="res://assets/models/grass/Posidonia/grass.obj" type="ArrayMesh" id=34]
@@ -53,6 +51,12 @@ albedo_color = Color( 0, 0.321569, 0.580392, 1 )
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Curve3D" id=48]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 68.9555, 0, 54.5619, 0, 0, 0, 0, 0, 0, 71.4423, 0, 208.468 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 15 )
@@ -214,24 +218,16 @@ from = NodePath("../BlueRov")
 to = NodePath("../MovingBoat/Ender Station/TheterAnchor")
 length = 250
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
-
-[node name="BoatStarted" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 30 )
-volume_db = 24.0
-bus = "Radio"
-
-[node name="BoatStopped" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 31 )
-bus = "Radio"
 
 [node name="MovingBoat" type="KinematicBody" parent="."]
 transform = Transform( 0.608138, 0, -0.793831, 0, 1, 0, 0.793831, 0, 0.608138, 46.6838, -5, 53.8221 )
 axis_lock_motion_x = true
 move_lock_x = true
 script = ExtResource( 25 )
+boat_path = NodePath("../BoatPath")
 
 [node name="CollisionShape" type="CollisionShape" parent="MovingBoat"]
 transform = Transform( 0.742494, 0, 21.8423, 0, 3.15, 0, -1.12421, 0, 14.4259, 26.822, 6.12925, -7.068 )
@@ -301,6 +297,9 @@ material/15 = null
 
 [node name="DeliveryNet" parent="MovingBoat/Dasti net" instance=ExtResource( 26 )]
 transform = Transform( -0.994443, 0, -0.872256, 0, 1.42857, 0, 0.937116, 0, -0.925615, 6.13819, -7.84937, -0.0298462 )
+
+[node name="BoatPath" type="Path" parent="."]
+curve = SubResource( 48 )
 
 [node name="Rock01" type="StaticBody" parent="."]
 
