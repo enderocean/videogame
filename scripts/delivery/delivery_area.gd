@@ -10,6 +10,9 @@ const RADIO_SOUNDS: Array = [
 
 export(Level.ObjectiveType) var objective_type = Level.ObjectiveType.GRIPPER
 
+# Emit objects_changed signal only on enter
+export var only_enter: bool = false
+
 onready var group: String = "objective_%s" % str(objective_type).to_lower()
 
 var objects: Array
@@ -43,6 +46,9 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_body_exited(body: Node) -> void:
+	if only_enter:
+		return
+	
 	# Make sure the body is a Deliverable
 	if not body is DeliveryObject:
 		return
