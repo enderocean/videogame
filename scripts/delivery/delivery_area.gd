@@ -10,7 +10,7 @@ const RADIO_SOUNDS: Array = [
 
 export(Level.ObjectiveType) var objective_type = Level.ObjectiveType.GRIPPER
 
-# Emit objects_changed signal only on enter
+## Emit signal only when objects enter the area
 export var only_enter: bool = false
 
 onready var group: String = "objective_%s" % str(objective_type).to_lower()
