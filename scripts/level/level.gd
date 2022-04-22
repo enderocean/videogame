@@ -60,7 +60,11 @@ func _ready():
 	underwater_env.fog_enabled = true
 
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
-
+	
+	# TODO: Not proud of that but it should fix all the tools appearing at start 
+	if vehicle:
+		vehicle.vehicle_body.set_current_tool(vehicle.vehicle_body.gripper)
+	
 	# Add all objectives
 	for type in ObjectiveType.values():
 		var group: String = "objective_%s" % str(type).to_lower()
