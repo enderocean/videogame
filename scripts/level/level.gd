@@ -30,6 +30,14 @@ enum ObjectiveType {
 	GRAPPLING_HOOK,
 	MAGNET,
 }
+
+export var objectives_target: Dictionary = {
+	"gripper": 0,
+	"vacuum": 0,
+	"cutter": 0,
+	"grappling_hook": 0,
+	"magnet": 0,
+}
 var objectives: Dictionary = {}
 
 var objectives_progress: Dictionary = {}
@@ -67,11 +75,17 @@ func _ready():
 	
 	# Add all objectives
 	for type in ObjectiveType.values():
-		var group: String = "objective_%s" % str(type).to_lower()
-		var objective_objects: Array = get_tree().get_nodes_in_group(group)
+		var type_name: String = ObjectiveType.keys()[type].to_lower()
+		if not objectives_target.has(type_name):
+			continue
+		if not objectives_target.get(type_name):
+			continue
+		objectives[type] = objectives_target.get(type_name)
+#		var group: String = "objective_%s" % str(type).to_lower()
+#		var objective_objects: Array = get_tree().get_nodes_in_group(group)
 
-		if objective_objects.size() > 0:
-			objectives[type] = objective_objects.size()
+#		if objective_objects.size() > 0:
+#			objectives[type] = objective_objects.size()
 
 
 func calculate_buoyancy_and_ballast():
