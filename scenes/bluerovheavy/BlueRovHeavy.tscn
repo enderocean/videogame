@@ -16,49 +16,49 @@
 [ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
 [ext_resource path="res://scripts/delivery/delivery_area.gd" type="Script" id=15]
 
-[sub_resource type="SpatialMaterial" id=41]
+[sub_resource type="SpatialMaterial" id=53]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=42]
+[sub_resource type="SpatialMaterial" id=54]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=43]
+[sub_resource type="SpatialMaterial" id=55]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=44]
+[sub_resource type="SpatialMaterial" id=56]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=45]
+[sub_resource type="SpatialMaterial" id=57]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=46]
+[sub_resource type="SpatialMaterial" id=58]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=47]
+[sub_resource type="SpatialMaterial" id=59]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=48]
+[sub_resource type="SpatialMaterial" id=60]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
@@ -222,7 +222,7 @@ vacuum_path = NodePath("../Vacuum")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
-material_override = SubResource( 41 )
+material_override = SubResource( 53 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -231,7 +231,7 @@ pitch_factor = false
 
 [node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
-material_override = SubResource( 42 )
+material_override = SubResource( 54 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -240,7 +240,7 @@ pitch_factor = false
 
 [node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
-material_override = SubResource( 43 )
+material_override = SubResource( 55 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -249,7 +249,7 @@ pitch_factor = false
 
 [node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
-material_override = SubResource( 44 )
+material_override = SubResource( 56 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -258,28 +258,28 @@ pitch_factor = false
 
 [node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
-material_override = SubResource( 45 )
+material_override = SubResource( 57 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
-material_override = SubResource( 46 )
+material_override = SubResource( 58 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
-material_override = SubResource( 47 )
+material_override = SubResource( 59 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
-material_override = SubResource( 48 )
+material_override = SubResource( 60 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -561,6 +561,7 @@ polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089,
 [node name="Vacuum" type="Spatial" parent="."]
 script = ExtResource( 14 )
 right_rigidbody_path = NodePath("VacuumRigidBody")
+right_area_path = NodePath("VacuumRigidBody/VaccumProcess/Area")
 
 [node name="HingeJoint" type="HingeJoint" parent="Vacuum"]
 transform = Transform( 0.238861, 0.718743, -0.06826, 5.79075e-09, -0.0662384, -0.821861, -0.721488, 0.237952, -0.0225986, 0.427, -0.298, -0.044 )
