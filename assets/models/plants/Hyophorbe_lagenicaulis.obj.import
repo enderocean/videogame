@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Hyophorbe_lagenicaulis.obj-599c0a39f9cf63b91a369cb14e61f5cc.mesh"
+
+[deps]
+
+files=[ "res://.import/Hyophorbe_lagenicaulis.obj-599c0a39f9cf63b91a369cb14e61f5cc.mesh" ]
+
+source_file="res://assets/models/plants/Hyophorbe_lagenicaulis.obj"
+dest_files=[ "res://.import/Hyophorbe_lagenicaulis.obj-599c0a39f9cf63b91a369cb14e61f5cc.mesh", "res://.import/Hyophorbe_lagenicaulis.obj-599c0a39f9cf63b91a369cb14e61f5cc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

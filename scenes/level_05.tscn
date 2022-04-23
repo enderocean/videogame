@@ -1,0 +1,126 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=1]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/water.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=6]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=8]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=9]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=10]
+[ext_resource path="res://terrains/level_05/data.hterrain" type="Resource" id=11]
+[ext_resource path="res://terrains/level_05/sand/Ground033_1K_Color.jpg" type="Texture" id=12]
+[ext_resource path="res://assets/models/vehicles/RowBoat.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://terrains/level_05/wood/WoodFloor043_1K_Color.jpg" type="Texture" id=14]
+[ext_resource path="res://assets/models/buildings/Low Poly Middle East Building_obj.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/models/buildings/Textures/building11.dds" type="Texture" id=16]
+[ext_resource path="res://assets/models/plants/textures/palmtree/Hyophorbe_lagenicaulis_dif.jpg" type="Texture" id=17]
+[ext_resource path="res://assets/models/plants/Hyophorbe_lagenicaulis.obj" type="ArrayMesh" id=18]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 9 )
+mode = 0
+textures = [ [ ExtResource( 12 ) ], [ null ] ]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 16 )
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 17 )
+
+[node name="level 05" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="water" parent="." instance=ExtResource( 4 )]
+transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.0539, 0 )
+visible = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -64 )
+script = ExtResource( 10 )
+_terrain_data = ExtResource( 11 )
+chunk_size = 16
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 3 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="RowBoat" type="MeshInstance" parent="."]
+transform = Transform( 0.198243, -0.755875, -1.84102, 0.0809258, 1.85166, -0.751531, 1.9885, 0, 0.214125, 18.7908, 4.17754, -28.6008 )
+mesh = ExtResource( 13 )
+material/0 = SubResource( 4 )
+material/1 = SubResource( 4 )
+material/2 = SubResource( 4 )
+material/3 = SubResource( 4 )
+
+[node name="Low Poly Middle East Building_obj" type="MeshInstance" parent="."]
+transform = Transform( -2.18557e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-09, 31.2697, 3, -3.579 )
+mesh = ExtResource( 15 )
+skeleton = NodePath("")
+material/0 = SubResource( 5 )
+
+[node name="BlueRov" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0801811, -2.1432, -16.1057 )
+
+[node name="Theter" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+length = 200
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 0.199999, 0, 0, 0, 0.2, 0, 0, 0, 0.199999, 13.9495, 0.356864, -14.3844 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, 0.0375366, 0.092994, 0.0393524 )
+
+[node name="Hyophorbe_lagenicaulis" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 21.6903, 3, 23.3876 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 8 )
+
+[node name="Hyophorbe_lagenicaulis2" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 22.6833, 3, 28.8384 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 8 )
+
+[node name="Hyophorbe_lagenicaulis3" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 25.2836, 3, 31.746 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 8 )
+
+[node name="Hyophorbe_lagenicaulis4" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 23.9243, 3, 13.7244 )
+mesh = ExtResource( 18 )
+material/0 = SubResource( 8 )

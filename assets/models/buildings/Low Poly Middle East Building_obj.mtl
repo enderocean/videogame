@@ -1,0 +1,16 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 31.01.2021 13:09:25
+
+newmtl building11_building11
+	Ns 0.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.992157 0.992157 0.992157
+	Kd 0.992157 0.992157 0.992157
+	Ks 0.992157 0.992157 0.992157
+	Ke 0.000000 0.000000 0.000000
+	map_Ka building11.dds
+	map_Kd building11.dds
