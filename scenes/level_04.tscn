@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -18,11 +18,52 @@
 [ext_resource path="res://scenes/net/fishing_net.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://assets/models/animals/turtle/10042_Sea_Turtle_V2_iterations-2.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/vehicles/plane.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=20]
+[ext_resource path="res://assets/models/vehicles/ship.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
 mode = 0
 textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
+
+[sub_resource type="SpatialMaterial" id=24]
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_color = Color( 0.192157, 0.513726, 0.792157, 1 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_color = Color( 0.784314, 0.968627, 0.984314, 1 )
+
+[sub_resource type="SpatialMaterial" id=33]
+albedo_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=34]
+
+[sub_resource type="SpatialMaterial" id=28]
+albedo_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[sub_resource type="SpatialMaterial" id=29]
+
+[sub_resource type="SpatialMaterial" id=30]
+albedo_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_color = Color( 0.8, 0.278431, 0.0705882, 1 )
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0.996078, 1, 0.501961, 1 )
+
+[sub_resource type="CubeMesh" id=22]
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 23 )
+uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="Curve3D" id=4]
 _data = {
@@ -76,6 +117,10 @@ albedo_color = Color( 0.188235, 0.188235, 0.188235, 1 )
 metallic = 0.47
 metallic_specular = 0.66
 
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 0.0901961, 0.52549, 0, 1 )
+albedo_texture = ExtResource( 20 )
+
 [node name="level_04" type="Spatial"]
 script = ExtResource( 10 )
 objectives_target = {
@@ -88,7 +133,6 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -20, 0, -20 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -120,7 +164,45 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01314, -7.14858, 6.53576 )
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 200
+length = 400
+
+[node name="ship" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 13.2019, -1.54428, -18.067 )
+mesh = ExtResource( 21 )
+material/0 = SubResource( 24 )
+material/1 = SubResource( 24 )
+material/2 = SubResource( 24 )
+material/3 = SubResource( 24 )
+material/4 = SubResource( 24 )
+material/5 = SubResource( 25 )
+material/6 = SubResource( 25 )
+material/7 = SubResource( 24 )
+material/8 = SubResource( 25 )
+material/9 = SubResource( 25 )
+material/10 = SubResource( 26 )
+material/11 = SubResource( 27 )
+material/12 = SubResource( 33 )
+material/13 = SubResource( 26 )
+material/14 = SubResource( 34 )
+material/15 = SubResource( 26 )
+material/16 = SubResource( 27 )
+material/17 = SubResource( 28 )
+material/18 = SubResource( 29 )
+material/19 = SubResource( 30 )
+material/20 = SubResource( 29 )
+material/21 = SubResource( 29 )
+material/22 = SubResource( 31 )
+material/23 = SubResource( 28 )
+material/24 = SubResource( 32 )
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 0.399999, 0, 0, 0, 0.4, 0, 0, 0, 0.399999, 19.5168, 1.7656, -17.608 )
+mesh = SubResource( 22 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 23 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 22 )]
+transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
 
 [node name="Path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -22, 16 )
@@ -213,5 +295,10 @@ transform = Transform( 0.0501491, -0.0488115, 0.0015826, 0.040103, 0.0424532, 0.
 mesh = SubResource( 17 )
 skeleton = NodePath("../Net")
 material/0 = SubResource( 18 )
+
+[node name="plane" type="MeshInstance" parent="."]
+transform = Transform( 0.00689304, -0.00580567, -0.00433361, 0.00458669, 0.00812744, -0.00359263, 0.00560787, 0.000488722, 0.00826516, 36.7653, -32.5708, -26.9352 )
+mesh = ExtResource( 19 )
+material/0 = SubResource( 21 )
 
 [editable path="Net"]

@@ -47,8 +47,13 @@ mission_id = "level_03"
 position = Vector2( 238, 131 )
 mission_id = "level_04"
 
+[node name="Level 05" parent="Missions" instance=ExtResource( 6 )]
+position = Vector2( 543, 232 )
+mission_id = "level_05"
+
 [connection signal="pressed" from="Missions/Level 00" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 01" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 02" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 03" to="." method="_on_mission_pressed"]
 [connection signal="pressed" from="Missions/Level 04" to="." method="_on_mission_pressed"]
+[connection signal="pressed" from="Missions/Level 05" to="." method="_on_mission_pressed"]
