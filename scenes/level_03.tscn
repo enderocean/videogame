@@ -54,7 +54,7 @@ uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="Curve3D" id=48]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 68.9555, 0, 54.5619, 0, 0, 0, 0, 0, 0, 71.4423, 0, 208.468 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 68.9555, 0, 54.5619, 0, 0, 0, 0, 0, 0, 80.8165, -41.9993, 172.866 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -185,6 +185,7 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 256, 0, 0, 0, 256, 0, 0, 0, 256, 256, 0, 128.701 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -701,7 +702,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass3" type="MeshInstance" parent="."]
 transform = Transform( -0.0265257, 0, 0.0140138, 0, 0.015, 0, -0.0140138, 0, -0.0265257, 76.2201, -12.2449, 96.875 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -709,7 +709,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass2" type="MeshInstance" parent="."]
 transform = Transform( 0.0285411, 0, -0.00924162, 0, 0.015, 0, 0.00924162, 0, 0.0285411, 75.4939, -12.2449, 95.1626 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
