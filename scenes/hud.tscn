@@ -141,19 +141,19 @@ script = SubResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="HelpPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 259.0
+margin_right = 286.0
 margin_bottom = 479.0
 
 [node name="help" type="Label" parent="HelpPanel/VBoxContainer"]
-margin_right = 252.0
-margin_bottom = 472.0
+margin_right = 279.0
+margin_bottom = 447.0
 rect_pivot_offset = Vector2( -32, 6 )
 text = "H - Toggle Help (this)
 ESC - Pause menu
 
 ROV:
-Z/S: Forward/Backwards
-Q/D: Yaw left/right
+Z (or W) / S: Forward/Backwards
+Q (or A) / D: Yaw left/right
 Up: Rise
 Down: Dive
 Left/Right: Strafe left/right
@@ -162,10 +162,9 @@ O/P: Close/open gripper
 F3/F4: Increase/decrease lights
 U: Change tool
 
-C - switch camera//vehicle
-
-Free camera:
-Hold left button + a/w/s/d + q/e
+C - Free external camera <> Vehicle
+To use free external camera:
+Hold left button + A/W/S/D + Q/E
 "
 __meta__ = {
 "_edit_use_anchors_": false
