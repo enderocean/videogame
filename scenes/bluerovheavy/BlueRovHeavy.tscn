@@ -14,7 +14,7 @@
 [ext_resource path="res://scripts/vehicle/gripper_tool.gd" type="Script" id=12]
 [ext_resource path="res://scripts/vehicle/cutter_tool.gd" type="Script" id=13]
 [ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
-[ext_resource path="res://scripts/delivery/delivery_area.gd" type="Script" id=15]
+[ext_resource path="res://scripts/delivery/delivery_vaccum.gd" type="Script" id=15]
 
 [sub_resource type="SpatialMaterial" id=53]
 render_priority = 127
@@ -199,7 +199,7 @@ radius = 0.0255625
 height = 0.132427
 
 [sub_resource type="SphereShape" id=52]
-radius = 0.2
+radius = 0.160743
 
 [node name="Vehicle" type="Spatial"]
 script = ExtResource( 9 )
@@ -605,6 +605,9 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="Vacuum/VacuumRigidBody/VaccumProcess/Area"]
 transform = Transform( 0.886302, 0.119749, -0.447353, -0.0687533, 0.98931, 0.128602, 0.457973, -0.0832235, 0.885057, 0.0218141, 0.0116066, 0.0981218 )
 shape = SubResource( 52 )
+
+[node name="Position3D" type="Position3D" parent="Vacuum/VacuumRigidBody/VaccumProcess"]
+transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.49214e-13, 3.12639e-13, 4.44089e-14, 0.999999, -0.0800091, 0.0195205, 0.0417869 )
 
 [connection signal="body_entered" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_entered"]
 [connection signal="body_exited" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_exited"]
