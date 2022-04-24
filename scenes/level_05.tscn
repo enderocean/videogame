@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=2]
@@ -18,6 +18,10 @@
 [ext_resource path="res://assets/models/buildings/Textures/building11.dds" type="Texture" id=16]
 [ext_resource path="res://assets/models/plants/textures/palmtree/Hyophorbe_lagenicaulis_dif.jpg" type="Texture" id=17]
 [ext_resource path="res://assets/models/plants/Hyophorbe_lagenicaulis.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
+[ext_resource path="res://assets/models/waste/water_bottle_bis.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://scripts/buoy.gd" type="Script" id=21]
+[ext_resource path="res://scripts/bottle_buoying.gd" type="Script" id=22]
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 9 )
@@ -38,6 +42,40 @@ uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="SpatialMaterial" id=8]
 albedo_texture = ExtResource( 17 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.063, 0.063, 0.063 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 0.125, 0.125, 0.125 )
+
+[sub_resource type="SphereShape" id=12]
+radius = 0.239168
+
+[sub_resource type="SphereMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.286275, 0.647059, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.368627, 0.760784, 1, 0 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.0313726, 0.529412, 0.972549, 1 )
+
+[sub_resource type="BoxShape" id=18]
+
+[sub_resource type="ConvexPolygonShape" id=20]
+points = PoolVector3Array( 4.78251, 22.7469, 0.88203, -4.85393, 1.37971, -0.155756, -4.83223, 1.44307, 0.362415, -2.89934, 31.0768, -0.435699, 1.41749, 1.04308, -4.61676, 0.882558, 1.46265, 4.77403, -1.94977, 22.6581, 4.46523, -0.932325, 22.4723, -4.82268, 4.61127, 0.635338, 0.899905, 3.4298, 22.6373, -3.48129, 2.92098, 22.3899, 3.94443, -3.99386, 2.61388, -3.44661, 2.84885, 31.0768, 0.656834, -4.81919, 22.4687, -0.931916, -4.26749, 2.61388, 3.12049, 1.20608, 31.0768, -2.62671, 4.54373, 1.3731, -1.72294, 0.658826, 31.0768, 2.84785, -4.53273, 22.4278, 1.90513, -1.74992, 0.610388, 4.35273, -1.48938, 0.294131, -4.15244, 4.02868, 1.08889, 2.71932, -3.47849, 22.3795, -3.47949, 3.12248, 2.61388, -4.26849, 4.50254, 22.4591, -1.96633, 0.883721, 22.7449, 4.78018, 1.13392, 22.171, -4.79357, -2.35209, 31.0768, 1.75234, -1.80384, 31.0768, -2.3511, -0.412719, 1.486, -4.81852, -3.6232, 0.280562, 2.50497, 2.51093, 0.256606, 3.57738, -3.4466, 2.61388, -3.99486, 4.18386, 21.8513, 2.65169, 3.57354, 0.277067, -2.55804, -3.23059, 22.3964, 3.6918, 2.71996, 1.09573, 4.02575, -0.928782, 1.52854, 4.75145, 2.57522, 31.0768, -1.25758, 4.80924, 1.36278, -0.678354, -4.82629, 22.479, 0.880763, -4.15279, 0.292714, -1.49052, -4.24963, 22.386, -2.45793, 4.77702, 22.7386, -0.933488, -0.932726, 22.733, 4.77231, -1.95847, 22.1755, -4.53804, 4.77674, 1.45765, 0.880941, 2.14693, 21.8613, 4.44491, -0.434699, 31.0768, -2.89935, -1.25658, 31.0768, 2.57422, -1.72507, 1.34709, 4.55116, 2.41737, 22.4144, -4.268, -4.82038, 3.03375, -0.93214, -1.46578, 1.06511, -4.60975, -3.98315, 22.1112, 2.90958, 4.44464, 21.8595, 2.14439, 1.97542, 0.262771, -3.89517, -3.05808, 0.705233, -3.58636, -2.35209, 31.0768, -1.80484, 3.68995, 22.6456, 3.17571, -4.51065, 22.3938, -1.94816, -2.96607, 22.1204, 3.93715, 0.882926, 22.4808, -4.82847, 3.93763, 22.1195, -2.96576 )
+
+[sub_resource type="Curve3D" id=21]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.813532, 0, -0.436005, 0, 0, 0, 0, 0, 0, 0.512269, 0, -49.3407, 0, 0, 0, 0, 0, 0, 1.25691, 0, -89.0397, 0, 0, 0, 0, 0, 0, 1.55061, 0, -120.761 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
 
 [node name="level 05" type="Spatial"]
 script = ExtResource( 8 )
@@ -75,7 +113,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="RowBoat" type="MeshInstance" parent="."]
-transform = Transform( 0.198243, -0.755875, -1.84102, 0.0809258, 1.85166, -0.751531, 1.9885, 0, 0.214125, 18.7908, 4.17754, -28.6008 )
+transform = Transform( 0.148683, -0.566907, -1.38076, 0.0606945, 1.38875, -0.563648, 1.49138, -5.58794e-08, 0.160594, 18.7908, 3.76737, -28.6008 )
 mesh = ExtResource( 13 )
 material/0 = SubResource( 4 )
 material/1 = SubResource( 4 )
@@ -111,7 +149,7 @@ mesh = ExtResource( 18 )
 material/0 = SubResource( 8 )
 
 [node name="Hyophorbe_lagenicaulis2" type="MeshInstance" parent="."]
-transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 22.6833, 3, 28.8384 )
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, -30.5838, 3, 28.8384 )
 mesh = ExtResource( 18 )
 material/0 = SubResource( 8 )
 
@@ -121,6 +159,113 @@ mesh = ExtResource( 18 )
 material/0 = SubResource( 8 )
 
 [node name="Hyophorbe_lagenicaulis4" type="MeshInstance" parent="."]
-transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 23.9243, 3, 13.7244 )
+transform = Transform( 0.01, 0, 0, 0, 0.02, 0, 0, 0, 0.01, 30.3964, 3, 13.7244 )
 mesh = ExtResource( 18 )
 material/0 = SubResource( 8 )
+
+[node name="Bottle Juice" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.472, -18.4354 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Bottle Juice"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
+mesh = ExtResource( 20 )
+material/0 = SubResource( 9 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottle Juice"]
+transform = Transform( 0.776781, 0, 0, 0, 2.3257, 0, 0, 0, 1, 0, 0.158254, 0 )
+shape = SubResource( 10 )
+
+[node name="Bottle Water" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.804408, -1.472, -18.4354 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Bottle Water"]
+mesh = SubResource( 11 )
+material/0 = SubResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottle Water"]
+shape = SubResource( 10 )
+
+[node name="boia" type="RigidBody" parent="." groups=["buoyant"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.226, 0, -10.969 )
+visible = false
+linear_damp = 0.664
+angular_damp = 0.869
+script = ExtResource( 21 )
+
+[node name="CollisionShape" type="CollisionShape" parent="boia"]
+shape = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="boia"]
+transform = Transform( 0.236609, 0, 0, 0, 0.236609, 0, 0, 0, 0.236609, 0, 0, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="boia2" type="RigidBody" parent="." groups=["buoyant"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0370245, -0.157066, 39.3179 )
+visible = false
+linear_damp = 0.664
+angular_damp = 0.869
+script = ExtResource( 21 )
+
+[node name="MeshInstance" type="MeshInstance" parent="boia2"]
+transform = Transform( -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0, 0.01, 0.154577, 0.156008, 0 )
+mesh = ExtResource( 20 )
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+material/2 = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="boia2"]
+transform = Transform( 0.1, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.119755, 0 )
+shape = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72515, 1.25589, 61.5394 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0.158446, -1.31452, -1.64122 )
+shape = SubResource( 20 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60.2961 )
+curve = SubResource( 21 )
+script = ExtResource( 22 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+
+[node name="MeshInstance2" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( 0.00996865, 0.000791203, 3.45846e-11, 0, -4.37114e-10, 0.01, 0.000791203, -0.00996865, -4.35744e-10, -0.221, 0, 3.41245 )
+mesh = ExtResource( 20 )
+skeleton = NodePath("../../../Bottle Juice")
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+material/2 = SubResource( 17 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( 0.00994602, -0.00103765, -4.5357e-11, 0, -4.37114e-10, 0.01, -0.00103765, -0.00994602, -4.34754e-10, 4.96327, 0, -9.00738 )
+mesh = ExtResource( 20 )
+skeleton = NodePath("../../../Bottle Juice")
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+material/2 = SubResource( 17 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( 0.00960177, -0.00279393, -1.22127e-10, 0, -4.37114e-10, 0.01, -0.00279393, -0.00960177, -4.19707e-10, -3.62008, 0, -26.0279 )
+mesh = ExtResource( 20 )
+skeleton = NodePath("../../../Bottle Juice")
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+material/2 = SubResource( 17 )
