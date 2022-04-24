@@ -1,0 +1,52 @@
+# Materials for file plants6.obj
+# Created by PlantStudio http://www.kurtz-fernhout.com
+# These files must be in the same directory for the materials to be read correctly.
+newmtl 1tree-lik_Intrnd
+Ka  0.2705 0.2705 0.1294
+Kd  0.2705 0.2705 0.1294
+Ks  0.2705 0.2705 0.1294
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Intrnd
+Ka  0.2705 0.2705 0.1294
+Kd  0.2705 0.2705 0.1294
+Ks  0.2705 0.2705 0.1294
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Petiole
+Ka  0.196 0.3921 0.196
+Kd  0.196 0.3921 0.196
+Ks  0.196 0.3921 0.196
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Petiole
+Ka  0.196 0.3921 0.196
+Kd  0.196 0.3921 0.196
+Ks  0.196 0.3921 0.196
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Leaf
+Ka  0.1176 0.4745 0.1176
+Kd  0.1176 0.4745 0.1176
+Ks  0.1176 0.4745 0.1176
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Leaf
+Ka  0.1176 0.4745 0.1176
+Kd  0.1176 0.4745 0.1176
+Ks  0.1176 0.4745 0.1176
+d 1.0
+illum 1
+
+newmtl 1tree-lik_Mrstm
+Ka  0.196 0.3921 0.196
+Kd  0.196 0.3921 0.196
+Ks  0.196 0.3921 0.196
+d 1.0
+illum 1
+

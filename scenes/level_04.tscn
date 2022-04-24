@@ -123,6 +123,7 @@ albedo_texture = ExtResource( 20 )
 
 [node name="level_04" type="Spatial"]
 script = ExtResource( 10 )
+vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 4,
 "grappling_hook": 0,
