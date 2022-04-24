@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Ground033_1K_Roughness.jpg-39130a885b2d3d4dfc4769f2824b2dbe.s3tc.stex"
-path.etc2="res://.import/Ground033_1K_Roughness.jpg-39130a885b2d3d4dfc4769f2824b2dbe.etc2.stex"
+path.s3tc="res://.import/Ground037_1K_Roughness.jpg-51f4089c3489e3e86d317545975858cd.s3tc.stex"
+path.etc2="res://.import/Ground037_1K_Roughness.jpg-51f4089c3489e3e86d317545975858cd.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://terrains/level_05/sand/Ground033_1K_Roughness.jpg"
-dest_files=[ "res://.import/Ground033_1K_Roughness.jpg-39130a885b2d3d4dfc4769f2824b2dbe.s3tc.stex", "res://.import/Ground033_1K_Roughness.jpg-39130a885b2d3d4dfc4769f2824b2dbe.etc2.stex" ]
+source_file="res://terrains/level_05/grass/Ground037_1K_Roughness.jpg"
+dest_files=[ "res://.import/Ground037_1K_Roughness.jpg-51f4089c3489e3e86d317545975858cd.s3tc.stex", "res://.import/Ground037_1K_Roughness.jpg-51f4089c3489e3e86d317545975858cd.etc2.stex" ]
 
 [params]
 
