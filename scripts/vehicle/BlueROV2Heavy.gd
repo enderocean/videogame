@@ -445,17 +445,3 @@ func set_current_tool(new_tool) -> void:
 	# Enable the current tool
 	new_tool.set_active(true)
 	current_tool = new_tool
-
-
-func _on_body_entered(body: Node) -> void:
-	var parent = body.get_parent()
-	if parent is Rope:
-		return
-	is_colliding = true
-
-
-func _on_body_exited(body: Node) -> void:
-	var parent = body.get_parent()
-	if parent is Rope:
-		return
-	is_colliding = false
