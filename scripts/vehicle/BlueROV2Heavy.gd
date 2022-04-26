@@ -44,15 +44,6 @@ var thrusters: Array = []
 export var sounds_path: NodePath
 onready var sounds: ROVSounds = get_node(sounds_path)
 
-export var gripper_path: NodePath
-onready var gripper: GripperTool = get_node(gripper_path)
-
-export var cutter_path: NodePath
-onready var cutter: CutterTool = get_node(cutter_path)
-
-export var vacuum_path: NodePath
-onready var vacuum: VacuumTool = get_node(vacuum_path)
-
 var vehicle_tools: Array
 var vehicle_tool_index: int
 
