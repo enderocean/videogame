@@ -3,7 +3,7 @@ extends "res://scripts/sounds/sounds.gd"
 
 func _ready() -> void:
 	._ready()
-	sound_player = load("res://scenes/sounds/SoundPlayer.tscn")
+	sound_player = load("res://scenes/sounds/RadioSoundPlayer.tscn")
 
 
 func get_sounds() -> Dictionary:
