@@ -357,10 +357,6 @@ func process_keys() -> void:
 		sounds.stop("move_down")
 	elif Input.is_action_pressed("downwards"):
 		force.y = -speeds[speed_index].y
-		
-		# Reduce vertical force when colliding with the ground
-		if ground_check.is_colliding():
-			force.y = -speeds[speed_index].y / 10
 
 		sounds.stop("move_up")
 		sounds.play("move_down")
