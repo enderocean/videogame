@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/vehicle/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton.tscn" type="PackedScene" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://scripts/vehicle/cutter_tool.gd" type="Script" id=13]
 [ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
 [ext_resource path="res://scripts/delivery/delivery_vaccum.gd" type="Script" id=15]
+
+[sub_resource type="PhysicsMaterial" id=61]
+friction = 0.0
 
 [sub_resource type="SpatialMaterial" id=53]
 render_priority = 127
@@ -121,11 +124,8 @@ tracks/0/keys = {
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( 0.1, 0.1, 0.1 )
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 3.0
-rough = true
-bounce = 1.0
-absorbent = true
+[sub_resource type="PhysicsMaterial" id=62]
+friction = 0.0
 
 [sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
@@ -141,12 +141,6 @@ surfaces/0 = {
 "vertex_count": 911
 }
 
-[sub_resource type="PhysicsMaterial" id=3]
-friction = 3.0
-rough = true
-bounce = 1.0
-absorbent = true
-
 [sub_resource type="ArrayMesh" id=4]
 surfaces/0 = {
 "aabb": AABB( 19.9077, 220.871, -43.3869, 15.6, 76.9976, 39.5346 ),
@@ -160,6 +154,9 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 1106
 }
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
 
 [sub_resource type="ArrayMesh" id=30]
 resource_name = "NEWTON-GRIPPER-ASSEM-R3-PUBLIC.022"
@@ -176,6 +173,9 @@ surfaces/0 = {
 }
 
 [sub_resource type="BoxShape" id=40]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
 
 [sub_resource type="ArrayMesh" id=31]
 resource_name = "NEWTON-GRIPPER-ASSEM-R3-PUBLIC.022"
@@ -211,6 +211,7 @@ theter_anchor_path = NodePath("VehicleTheterAnchor")
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )
 collision_layer = 4
 mass = 11.0
+physics_material_override = SubResource( 61 )
 contacts_reported = 2
 contact_monitor = true
 can_sleep = false
@@ -443,7 +444,7 @@ motor/target_velocity = 0.0
 [node name="GripRightRigidBody" type="RigidBody" parent="Gripper"]
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.452873, -0.309149, 0.0648046 )
 collision_mask = 2
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 62 )
 gravity_scale = 0.0
 
 [node name="g2" type="MeshInstance" parent="Gripper/GripRightRigidBody"]
@@ -470,7 +471,7 @@ polygon = PoolVector2Array( -0.00219463, 0.650362, 0.00064522, 0.66482, -0.01914
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
 collision_mask = 2
 mass = 0.5
-physics_material_override = SubResource( 3 )
+physics_material_override = SubResource( 62 )
 gravity_scale = 0.0
 
 [node name="g1" type="MeshInstance" parent="Gripper/GripLeftRigidBody"]
