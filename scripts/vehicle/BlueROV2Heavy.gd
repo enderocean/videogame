@@ -328,35 +328,40 @@ func process_keys() -> void:
 		speed_index = clamp(speed_index - 1, 0, speeds.size())
 
 	if Input.is_action_pressed("forward"):
-		force = Vector3(0, 0, speeds[speed_index].x)
+		force.z = speeds[speed_index].x
 		sounds.play("move_forward")
 	else:
 		sounds.stop("move_forward")
 
 	if Input.is_action_pressed("backwards"):
-		force = Vector3(0, 0, -speeds[speed_index].x)
+		force.z = -speeds[speed_index].x
 		sounds.play("move_backward")
 	else:
 		sounds.stop("move_backward")
 
 	if Input.is_action_pressed("strafe_right"):
-		force = Vector3(-speeds[speed_index].x, 0, 0)
+		force.x = -speeds[speed_index].x
 		sounds.play("move_right")
 	else:
 		sounds.stop("move_right")
 
 	if Input.is_action_pressed("strafe_left"):
-		force = Vector3(speeds[speed_index].x, 0, 0)
+		force.x = speeds[speed_index].x
 		sounds.play("move_left")
 	else:
 		sounds.stop("move_left")
 
 	if Input.is_action_pressed("upwards"):
-		force = Vector3(0, speeds[speed_index].y, 0)
+		force.y = speeds[speed_index].y
 		sounds.play("move_up")
 		sounds.stop("move_down")
 	elif Input.is_action_pressed("downwards"):
-		force = Vector3(0, -speeds[speed_index].y, 0)
+		force.y = -speeds[speed_index].y
+		
+		# Reduce vertical force when colliding with the ground
+		if ground_check.is_colliding():
+			force.y = -speeds[speed_index].y / 10
+
 		sounds.stop("move_up")
 		sounds.play("move_down")
 	else:
@@ -372,7 +377,7 @@ func process_keys() -> void:
 	elif Input.is_action_pressed("rotate_right"):
 		torque = transform.basis.xform(Vector3(0, -20, 0))
 
-	if not is_colliding and torque != Vector3.ZERO:
+	if torque != Vector3.ZERO:
 		add_torque(torque)
 
 	if Input.is_action_pressed("camera_up"):
