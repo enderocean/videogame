@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pipe_opening.obj-2e829cc90a3356b60bad05ececf1e59c.mesh"
+
+[deps]
+
+files=[ "res://.import/pipe_opening.obj-2e829cc90a3356b60bad05ececf1e59c.mesh" ]
+
+source_file="res://assets/models/pipes/pipe_opening/pipe_opening.obj"
+dest_files=[ "res://.import/pipe_opening.obj-2e829cc90a3356b60bad05ececf1e59c.mesh", "res://.import/pipe_opening.obj-2e829cc90a3356b60bad05ececf1e59c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
