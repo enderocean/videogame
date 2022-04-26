@@ -15,6 +15,13 @@ var _initial_position = Vector3.ZERO
 var phys_time = 0
 var is_colliding: bool = false
 
+export var speeds: PoolVector2Array = [
+	Vector2(20, 50),
+	Vector2(40, 70),
+	Vector2(80, 100),
+]
+var speed_index: int = 0
+
 onready var camera: Camera = get_node("Camera")
 
 onready var lights: Array = [
@@ -314,36 +321,42 @@ func process_keys() -> void:
 	var force: Vector3 = Vector3.ZERO
 	var pos: Vector3 = Vector3(0, -0.05, 0)
 
+	if Input.is_action_just_pressed("speed_up"):
+		speed_index = clamp(speed_index + 1, 0, speeds.size())
+
+	if Input.is_action_just_pressed("speed_down"):
+		speed_index = clamp(speed_index - 1, 0, speeds.size())
+
 	if Input.is_action_pressed("forward"):
-		force = Vector3(0, 0, 40)
+		force = Vector3(0, 0, speeds[speed_index].x)
 		sounds.play("move_forward")
 	else:
 		sounds.stop("move_forward")
 
 	if Input.is_action_pressed("backwards"):
-		force = Vector3(0, 0, -40)
+		force = Vector3(0, 0, -speeds[speed_index].x)
 		sounds.play("move_backward")
 	else:
 		sounds.stop("move_backward")
 
 	if Input.is_action_pressed("strafe_right"):
-		force = Vector3(-40, 0, 0)
+		force = Vector3(-speeds[speed_index].x, 0, 0)
 		sounds.play("move_right")
 	else:
 		sounds.stop("move_right")
 
 	if Input.is_action_pressed("strafe_left"):
-		force = Vector3(40, 0, 0)
+		force = Vector3(speeds[speed_index].x, 0, 0)
 		sounds.play("move_left")
 	else:
 		sounds.stop("move_left")
 
 	if Input.is_action_pressed("upwards"):
-		force = Vector3(0, 70, 0)
+		force = Vector3(0, speeds[speed_index].y, 0)
 		sounds.play("move_up")
 		sounds.stop("move_down")
 	elif Input.is_action_pressed("downwards"):
-		force = Vector3(0, -70, 0)
+		force = Vector3(0, -speeds[speed_index].y, 0)
 		sounds.stop("move_up")
 		sounds.play("move_down")
 	else:
