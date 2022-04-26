@@ -211,6 +211,8 @@ theter_anchor_path = NodePath("VehicleTheterAnchor")
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )
 collision_layer = 4
 mass = 11.0
+contacts_reported = 2
+contact_monitor = true
 can_sleep = false
 linear_damp = 2.333
 angular_damp = 8.72
@@ -392,6 +394,11 @@ transform = Transform( 0.303697, -0.140634, 0.0123038, -2.55176e-09, -0.0291888,
 
 [node name="CarryPosition" type="Position3D" parent="BlueRov"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00719048, -0.252294, 0.486228 )
+
+[node name="GroundCheck" type="RayCast" parent="BlueRov"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.313914, 0 )
+enabled = true
+cast_to = Vector3( 0, -0.1, 0 )
 
 [node name="ROVSounds" type="Spatial" parent="."]
 script = ExtResource( 10 )
@@ -609,5 +616,7 @@ shape = SubResource( 52 )
 [node name="Position3D" type="Position3D" parent="Vacuum/VacuumRigidBody/VaccumProcess"]
 transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.49214e-13, 3.12639e-13, 4.44089e-14, 0.999999, -0.0800091, 0.0195205, 0.0417869 )
 
+[connection signal="body_entered" from="BlueRov" to="BlueRov" method="_on_body_entered"]
+[connection signal="body_exited" from="BlueRov" to="BlueRov" method="_on_body_exited"]
 [connection signal="body_entered" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_entered"]
 [connection signal="body_exited" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_exited"]

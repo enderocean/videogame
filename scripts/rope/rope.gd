@@ -1,4 +1,5 @@
 extends Spatial
+class_name Rope
 
 const SECTION: PackedScene = preload("res://scenes/rope/section.tscn")
 const SECTION_LENGTH: float = 0.145
