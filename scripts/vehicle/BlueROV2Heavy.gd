@@ -13,7 +13,6 @@ var calculated_acceleration = Vector3(0, 0, 0)
 var buoyancy = 1.6 + self.mass * 9.8  # Newtons
 var _initial_position = Vector3.ZERO
 var phys_time = 0
-var is_colliding: bool = false
 
 export var speeds: PoolVector2Array = [
 	Vector2(20, 50),
@@ -54,9 +53,8 @@ onready var cutter: CutterTool = get_node(cutter_path)
 export var vacuum_path: NodePath
 onready var vacuum: VacuumTool = get_node(vacuum_path)
 
-var current_tool
-
-var tool_mode: int = 0
+var vehicle_tools: Array
+var vehicle_tool_index: int
 
 onready var wait_SITL = Globals.wait_SITL
 
@@ -177,6 +175,15 @@ func _ready() -> void:
 		calculate_motors_matrix()
 		return
 
+	# Fill tools array
+	for child in get_parent().get_children():
+		if not child is VehicleTool:
+			continue	
+		if not child.enabled:
+			continue
+	
+		vehicle_tools.append(child)
+
 	# Fill thrusters array
 	for child in get_children():
 		if child.get_class() == "Thruster":
@@ -184,10 +191,13 @@ func _ready() -> void:
 
 	_initial_position = global_transform.origin
 	set_physics_process(true)
-
+	
 	if not Globals.isHTML5:
 		connect_fmd_in()
-
+	
+	# We need to wait before setting the default tool, idk why
+	yield(get_tree().create_timer(0.01), "timeout")
+	set_current_tool(vehicle_tool_index)
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -244,18 +254,15 @@ func actuate_servo(id: int, percentage: float) -> void:
 					add_child(light)
 
 		10:
-			if not current_tool:
-				return
-
 			if percentage < 0.4:
-				current_tool.move_left(1)
-				current_tool.move_right(-1)
+				vehicle_tools[vehicle_tool_index].move_left(1)
+				vehicle_tools[vehicle_tool_index].move_right(-1)
 			elif percentage > 0.6:
-				current_tool.move_left(-1)
-				current_tool.move_right(1)
+				vehicle_tools[vehicle_tool_index].move_left(-1)
+				vehicle_tools[vehicle_tool_index].move_right(1)
 			else:
-				current_tool.move_left(0)
-				current_tool.move_right(0)
+				vehicle_tools[vehicle_tool_index].move_left(0)
+				vehicle_tools[vehicle_tool_index].move_right(0)
 
 
 func _unhandled_input(event) -> void:
@@ -390,27 +397,15 @@ func process_keys() -> void:
 
 	# Switch tool
 	if Input.is_action_just_pressed("switch_tool"):
-		tool_mode += 1
-		if tool_mode == 3:
-			tool_mode = 0
-
-		match tool_mode:
-			0:
-				set_current_tool(gripper)
-			1:
-				set_current_tool(cutter)
-			2:
-				set_current_tool(vacuum)
-
-	if not current_tool:
-		return
+		vehicle_tool_index = (vehicle_tool_index + 1) % vehicle_tools.size()
+		set_current_tool(vehicle_tool_index)
 
 	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
 		target_velocity = -1.0
 
-		if current_tool is GripperTool:
-			current_tool.release_object()
+		if vehicle_tools[vehicle_tool_index] is GripperTool:
+			vehicle_tools[vehicle_tool_index].release_object()
 
 		# TODO: Indicate sound on the tool itseft
 		sounds.stop("gripper_close")
@@ -423,25 +418,12 @@ func process_keys() -> void:
 		sounds.stop("gripper_open")
 		sounds.stop("gripper_close")
 
-	current_tool.move_left(target_velocity)
-	current_tool.move_right(-target_velocity)
+	vehicle_tools[vehicle_tool_index].move_left(target_velocity)
+	vehicle_tools[vehicle_tool_index].move_right(-target_velocity)
 
 
-func set_current_tool(new_tool) -> void:
-	# TODO: Maybe do an array of tools?
-	# Disable all the tools
-	if gripper:
-		gripper.set_active(false)
-	
-	if cutter:
-		cutter.set_active(false)
-	
-	if vacuum:
-		vacuum.set_active(false)
+func set_current_tool(new_tool_index: int) -> void:
+	for i in range(vehicle_tools.size()):
+		vehicle_tools[i].set_active(i == new_tool_index)
 
-	if not new_tool:
-		return
-	
-	# Enable the current tool
-	new_tool.set_active(true)
-	current_tool = new_tool
+	vehicle_tool_index = new_tool_index
