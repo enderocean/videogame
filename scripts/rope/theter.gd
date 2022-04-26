@@ -1,4 +1,5 @@
 extends "res://scripts/rope/rope.gd"
+class_name Theter
 
 export var vehicle_path: NodePath
 

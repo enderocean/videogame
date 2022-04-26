@@ -13,6 +13,7 @@ var calculated_acceleration = Vector3(0, 0, 0)
 var buoyancy = 1.6 + self.mass * 9.8  # Newtons
 var _initial_position = Vector3.ZERO
 var phys_time = 0
+var is_colliding: bool = false
 
 onready var camera: Camera = get_node("Camera")
 
@@ -358,7 +359,7 @@ func process_keys() -> void:
 	elif Input.is_action_pressed("rotate_right"):
 		torque = transform.basis.xform(Vector3(0, -20, 0))
 
-	if torque != Vector3.ZERO:
+	if not is_colliding and torque != Vector3.ZERO:
 		add_torque(torque)
 
 	if Input.is_action_pressed("camera_up"):
@@ -430,3 +431,17 @@ func set_current_tool(new_tool) -> void:
 	# Enable the current tool
 	new_tool.set_active(true)
 	current_tool = new_tool
+
+
+func _on_body_entered(body: Node) -> void:
+	var parent = body.get_parent()
+	if parent is Rope:
+		return
+	is_colliding = true
+
+
+func _on_body_exited(body: Node) -> void:
+	var parent = body.get_parent()
+	if parent is Rope:
+		return
+	is_colliding = false
