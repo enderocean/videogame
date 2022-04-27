@@ -19,7 +19,7 @@ export var speeds: PoolVector2Array = [
 	Vector2(40, 70),
 	Vector2(80, 100),
 ]
-var speed_index: int = 0
+var speed_index: int = 1
 
 onready var camera: Camera = get_node("Camera")
 
