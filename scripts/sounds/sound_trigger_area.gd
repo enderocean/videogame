@@ -10,9 +10,13 @@ var triggered: bool = false
 
 func _on_body_entered(body: Node) -> void:
 	if sound_key.empty():
-		print(name, " doesn't have a sound key assigned")
+		printerr(name, " doesn't have a sound key assigned")
 		return
-
+	
+	if not RadioSounds.get_sounds().has(sound_key):
+		printerr("The sound key of ", name ,": '", sound_key, "' was not found")
+		return
+		
 	if once and triggered:
 		return
 
