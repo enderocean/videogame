@@ -59,8 +59,7 @@ func _ready() -> void:
 #		left_area_collision = get_first_collision_from(left_area)
 		collisions["left_area"]["layer"] = left_area.collision_layer
 		collisions["left_area"]["mask"] = left_area.collision_mask
-	
-	set_active(false)
+
 
 # Makes easier to disable entirely the tool
 func set_active(value: bool) -> void:
