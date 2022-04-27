@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/models/waste/tire.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=15]
 [ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=18]
 [ext_resource path="res://assets/models/waste/barrier.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/plants/matteucia_struthiopteris_1.obj" type="ArrayMesh" id=21]
@@ -133,7 +134,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 129.675
+shader_param/timer = 13.2728
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -188,6 +189,9 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492, 0, 0, 0, 0, 0, 0, 59.8376, 0, -5.30757, 0, 0, 0, 0, 0, 0, 60.4929, -0.0230522, -4.39468, 0, 0, 0, 0, 0, 0, 60.9325, 0, -3.4198, 0, 0, 0, 0, 0, 0, 61.1034, -0.163525, -2.05242, 0, 0, 0, 0, 0, 0, 60.8569, 0, -0.588137, 0, 0, 0, 0, 0, 0, 59.9131, 0, 1.71495, 0, 0, 0, 0, 0, 0, 59.2017, 0, 3.58222, 0, 0, 0, 0, 0, 0, 58.48, 0, 5.15353, 0, 0, 0, 0, 0, 0, 57.7584, 0, 6.81861, 0, 0, 0, 0, 0, 0, 57.3674, 0, 8.16722, 0, 0, 0, 0, 0, 0, 57.7269, 0, 9.84479, 0, 0, 0, 0, 0, 0, 58.2025, 0, 10.7593, 0, 0, 0, 0, 0, 0, 59.045, 0, 11.5224, 0, 0, 0, 0, 0, 0, 60.3671, 0, 12.1746, 0, 0, 0, 0, 0, 0, 61.8386, 0, 12.1732, 0, 0, 0, 0, 0, 0, 63.4187, 0, 11.762, 0, 0, 0, 0, 0, 0, 64.8213, 0, 10.9273, 0, 0, 0, 0, 0, 0, 66.0284, 0, 9.53825, 0, 0, 0, 0, 0, 0, 66.6713, 0, 7.75582, 0, 0, 0, 0, 0, 0, 66.709, 0, 5.79254, 0, 0, 0, 0, 0, 0, 66.2504, 0, 4.5985, 0, 0, 0, 0, 0, 0, 65.5009, 0, 3.33843, 0, 0, 0, 0, 0, 0, 63.5376, 0, 1.90372, 0, 0, 0, 0, 0, 0, 62.1029, 0, 1.29964, 0, 0, 0, 0, 0, 0, 57.9067, 0, 0.558241, 0, 0, 0, 0, 0, 0, 53.4191, 0, 0.469016, 0, 0, 0, 0, 0, 0, 50.0211, 0, 0.733304, 0, 0, 0, 0, 0, 0, 48.9024, 0.0087347, 0.486998, 0, 0, 0, 0, 0, 0, 48.0578, 0, -0.0218053, 0, 0, 0, 0, 0, 0, 47.416, 0, -1.07896, 0, 0, 0, 0, 0, 0, 47.416, 0, -2.24938, 0, 0, 0, 0, 0, 0, 47.718, 0, -3.26877, 0, 0, 0, 0, 0, 0, 49.0395, 0, -4.17491, 0, 0, 0, 0, 0, 0, 51.2563, 0, -4.95378, 0, 0, 0, 0, 0, 0, 53.5929, 0, -5.43308, 0, 0, 0, 0, 0, 0, 55.9295, 0, -5.85248, 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 4.19099, 2.05776, 4.32709 )
 
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
@@ -1021,3 +1025,12 @@ fish_twist = -0.51
 fish_s = 0.38
 fish_head_z = -1.16
 fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+
+[node name="BewareAlgues" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.904738, 0, -0.425969, 0, 1, 0, 0.425969, 0, 0.904738, 11.3157, 1.63732, 1.93663 )
+sound_key = "be_careful_with_algues"
+
+[node name="CollisionShape" parent="BewareAlgues" index="0"]
+shape = SubResource( 22 )
+
+[editable path="BewareAlgues"]

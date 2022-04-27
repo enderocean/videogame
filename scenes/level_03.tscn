@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=27]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=28]
 [ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=29]
+[ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/deco/HallAnchor.obj" type="ArrayMesh" id=33]
 [ext_resource path="res://assets/models/grass/Posidonia/grass.obj" type="ArrayMesh" id=34]
@@ -171,6 +172,21 @@ albedo_texture = ExtResource( 35 )
 
 [sub_resource type="SpatialMaterial" id=44]
 albedo_texture = ExtResource( 36 )
+
+[sub_resource type="BoxShape" id=49]
+extents = Vector3( 7.05669, 3.01966, 4.01756 )
+
+[sub_resource type="BoxShape" id=50]
+extents = Vector3( 8.70157, 6.1563, 16.9128 )
+
+[sub_resource type="BoxShape" id=51]
+extents = Vector3( 4.50228, 3.92124, 4.26244 )
+
+[sub_resource type="BoxShape" id=52]
+extents = Vector3( 11.0708, 9.99025, 21.7466 )
+
+[sub_resource type="BoxShape" id=53]
+extents = Vector3( 6.7108, 6.52982, 11.503 )
 
 [node name="level_03" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, -128 )
@@ -746,3 +762,30 @@ mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
 material/2 = SubResource( 43 )
+
+[node name="BewareRocks" parent="." instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3775, -9.77415, 18.7818 )
+sound_key = "beware_of_rocks"
+once = false
+
+[node name="CollisionShape" parent="BewareRocks" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7385, -1.40909, 34.8887 )
+shape = SubResource( 49 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="BewareRocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08394, 1.56717, 70.1752 )
+shape = SubResource( 50 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="BewareRocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30699, 1.56717, 108.826 )
+shape = SubResource( 51 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="BewareRocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74035, 2.79285, 179.548 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="BewareRocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74121, 0.294626, 213.663 )
+shape = SubResource( 53 )
+
+[editable path="BewareRocks"]
