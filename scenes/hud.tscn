@@ -11,7 +11,6 @@
 [ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ui/popup/instructions_popup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/fonts/Roboto/text_bold.tres" type="DynamicFont" id=12]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-BoldItalic.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Italic.ttf" type="DynamicFontData" id=15]
@@ -53,6 +52,12 @@ font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 20
@@ -212,7 +217,7 @@ margin_right = 380.0
 margin_bottom = 267.0
 custom_fonts/bold_italics_font = SubResource( 7 )
 custom_fonts/italics_font = SubResource( 8 )
-custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/bold_font = SubResource( 10 )
 custom_fonts/normal_font = SubResource( 9 )
 bbcode_enabled = true
 fit_content_height = true
