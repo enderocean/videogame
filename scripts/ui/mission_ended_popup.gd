@@ -83,4 +83,4 @@ func _on_Restart_pressed() -> void:
 
 func _on_Back_pressed() -> void:
 	visible = false
-	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
