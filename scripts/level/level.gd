@@ -197,6 +197,10 @@ func _on_objects_changed(area, objects: Array) -> void:
 	emit_signal("objectives_changed")
 
 func check_objectives() -> void:
+	# First check if all the objectives are in the progress dictionary
+	if objectives.keys().size() != objectives_progress.keys().size():
+		return
+	
 	finished = true
 	for objective in objectives.keys():
 		if not objectives.has(objective):
@@ -207,6 +211,6 @@ func check_objectives() -> void:
 		
 		if objectives_progress.get(objective) < objectives.get(objective):
 			finished = false
-	
+
 	if finished:
 		emit_signal("finished", score)
