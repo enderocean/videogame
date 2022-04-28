@@ -32,13 +32,9 @@ func _on_body_entered(body: Node) -> void:
 	if objects.has(id):
 		return
 	
-	# Play random sound from array
-	RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
-
 	# Make the object delivered
 	object.delivered = true
 	objects.append(id)
-	#emit_signal("objects_changed", self, objects)
 
 
 func _on_body_exited(body: Node) -> void:
@@ -59,4 +55,3 @@ func _on_body_exited(body: Node) -> void:
 	# Make the object not delivered
 	object.delivered = false
 	objects.remove(index)
-	#emit_signal("objects_changed", self, objects)

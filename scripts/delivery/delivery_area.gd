@@ -41,8 +41,10 @@ func _on_body_entered(body: Node) -> void:
 	if objects.has(id):
 		return
 
-	# Play random sound from array
-	RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
+	# Don't play a radio sound for the vacuum
+	if objective_type != Level.ObjectiveType.VACUUM:
+		# Play random sound from array
+		RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
 
 	# Make the object delivered
 	object.delivered = true
