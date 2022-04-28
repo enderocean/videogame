@@ -66,7 +66,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_right = 380.0
-margin_bottom = 184.0
+margin_bottom = 216.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
@@ -98,7 +98,7 @@ text = "Objectives: "
 [node name="ScrollContainer" type="ScrollContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_top = 68.0
 margin_right = 380.0
-margin_bottom = 184.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -117,7 +117,7 @@ text = "Restart"
 margin_top = 220.0
 margin_right = 380.0
 margin_bottom = 248.0
-text = "Back to main menu"
+text = "Back to missions map"
 
 [node name="User" type="Panel" parent="."]
 anchor_left = 0.5
