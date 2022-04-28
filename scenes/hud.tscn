@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/camera/follow_camera.gd" type="Script" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://scenes/ui/pause_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ui/popup/MissionEndedPopup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ui/popup/instructions_popup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/fonts/Roboto/text_bold.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-BoldItalic.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Italic.ttf" type="DynamicFontData" id=15]
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 7 )
@@ -41,6 +45,21 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
 [node name="HUD" type="Control"]
 pause_mode = 2
 show_behind_parent = true
@@ -48,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
 instructions_popup_path = NodePath("InstructionsPopup")
+objectives_text_path = NodePath("ObjectivesText")
 pause_menu_path = NodePath("PauseMenu")
 camera_follow_path = NodePath("ViewportFollowCamera/Viewport/FollowCamera")
 camera_lookat_path = NodePath("ViewportLookAtCamera/Viewport/LookAtCamera")
@@ -133,6 +153,7 @@ enabled = true
 script = ExtResource( 2 )
 
 [node name="HelpPanel" type="PanelContainer" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.619608 )
 margin_right = 266.0
 margin_bottom = 486.0
@@ -183,6 +204,19 @@ valign = 1
 process_mode = 0
 script = ExtResource( 4 )
 label_path = NodePath("../TimerLabel")
+
+[node name="ObjectivesText" type="RichTextLabel" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 380.0
+margin_bottom = 267.0
+custom_fonts/bold_italics_font = SubResource( 7 )
+custom_fonts/italics_font = SubResource( 8 )
+custom_fonts/bold_font = ExtResource( 12 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
 
 [node name="InstructionsPopup" parent="." instance=ExtResource( 11 )]
 
