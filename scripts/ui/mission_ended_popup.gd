@@ -40,18 +40,7 @@ func update_objectives(objectives: Dictionary) -> void:
 			line = objective_line.instance()
 			objectives_list.add_child(line)
 
-		var title: String = ""
-		match objectives.keys()[i]:
-			Level.ObjectiveType.GRIPPER:
-				title = "Delivered with the Gripper"
-			Level.ObjectiveType.VACUUM:
-				title = "Collected with the Vacuum"
-			Level.ObjectiveType.CUTTER:
-				title = "Cut off with the Cutter"
-			Level.ObjectiveType.GRAPPLING_HOOK:
-				title = "Collected with the Grappling hook"
-
-		line.title.text = title
+		line.title.text = Localization.get_objective_text(objectives.keys()[i])
 		line.value.text = str(objectives.values()[i])
 
 

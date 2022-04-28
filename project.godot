@@ -199,6 +199,7 @@ SITL="*res://scripts/networking/sitl.gd"
 Leaderboard="*res://scripts/networking/leaderboard.gd"
 SaveManager="*res://scripts/io/save_manager.gd"
 RadioSounds="*res://scripts/sounds/radio_sounds.gd"
+Localization="*res://scripts/localization/localization.gd"
 
 [debug]
 

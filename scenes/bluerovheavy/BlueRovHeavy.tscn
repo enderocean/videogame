@@ -217,9 +217,6 @@ linear_damp = 2.333
 angular_damp = 8.72
 script = ExtResource( 1 )
 sounds_path = NodePath("../ROVSounds")
-gripper_path = NodePath("../Gripper")
-cutter_path = NodePath("../Cutter")
-vacuum_path = NodePath("../Vacuum")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )

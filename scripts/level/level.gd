@@ -55,8 +55,9 @@ onready var depth: float = 0
 onready var last_depth: float = 0
 
 var finished: bool = false
-signal finished(score)
 
+signal objectives_changed()
+signal finished(score)
 
 func _ready():
 	# Replace the default underwater environment
@@ -77,13 +78,8 @@ func _ready():
 		if not objectives_target.get(type_name):
 			continue
 		objectives[type] = objectives_target.get(type_name)
-#		var group: String = "objective_%s" % str(type).to_lower()
-#		var objective_objects: Array = get_tree().get_nodes_in_group(group)
-
-#		if objective_objects.size() > 0:
-#			objectives[type] = objective_objects.size()
 	
-	
+	# Connect to all objective areas
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
 		node.connect("objects_changed", self, "_on_objects_changed")
 
@@ -186,17 +182,19 @@ func _on_objects_changed(area, objects: Array) -> void:
 	if finished or not area:
 		return
 	
-	if area.objective_type == ObjectiveType.GRIPPER:
-		objectives_progress[ObjectiveType.GRIPPER] = objects.size()
-		score = objectives_progress[ObjectiveType.GRIPPER]
-		print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
+	match area.objective_type:
+		ObjectiveType.GRIPPER:
+			objectives_progress[ObjectiveType.GRIPPER] = objects.size()
+			score = objectives_progress[ObjectiveType.GRIPPER]
+			print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
 
-	if area.objective_type == ObjectiveType.VACUUM:
-		objectives_progress[ObjectiveType.VACUUM] = objects.size()
-		score = objectives_progress[ObjectiveType.VACUUM]
-		print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
+		ObjectiveType.VACUUM:
+			objectives_progress[ObjectiveType.VACUUM] = objects.size()
+			score = objectives_progress[ObjectiveType.VACUUM]
+			print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
 	
 	check_objectives()
+	emit_signal("objectives_changed")
 
 func check_objectives() -> void:
 	finished = true
