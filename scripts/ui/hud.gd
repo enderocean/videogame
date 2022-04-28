@@ -77,7 +77,7 @@ func _on_level_objectives_changed() -> void:
 			continue
 		
 		if active_level.objectives_progress.has(objective_key):
-			progress_value = active_level.objectives_progress.values()[i]
+			progress_value = active_level.objectives_progress.get(objective_key)
 		else:
 			progress_value = 0
 		
