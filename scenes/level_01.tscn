@@ -134,7 +134,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 13.2728
+shader_param/timer = 25.5734
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -202,7 +202,7 @@ objectives_target = {
 "grappling_hook": 0,
 "gripper": 0,
 "magnet": 0,
-"vacuum": 12
+"vacuum": 16
 }
 
 [node name="water" parent="." instance=ExtResource( 11 )]
