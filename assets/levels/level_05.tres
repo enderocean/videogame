@@ -14,6 +14,6 @@ description = "With all of its population living accross the Nile, it’s not su
 arabic world.
 
 To help against this, we implemented a few ROVs along the most problematic parts of its delta. Try to catch everything that’ll pass!"
-time = 15
+time = 10
 objectives = PoolStringArray( "Catch 5 moving plastics beforethey get lost into the mediterranean sea" )
-tools = PoolStringArray( "Shear", "Lights" )
+tools = PoolStringArray( "Gripper", "Lights" )
