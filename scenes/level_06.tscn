@@ -445,6 +445,32 @@ transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -
 transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
 shape = SubResource( 101 )
 
+[node name="Bottle7" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8839, -1.59846, -9.90268 )
+collision_layer = 3
+mass = 10.0
+script = ExtResource( 18 )
+
+[node name="scene" parent="Bottle7" instance=ExtResource( 17 )]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -0.00740993 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottle7"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+shape = SubResource( 101 )
+
+[node name="Bottle8" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0643, -1.59846, -3.84762 )
+collision_layer = 3
+mass = 10.0
+script = ExtResource( 18 )
+
+[node name="scene" parent="Bottle8" instance=ExtResource( 17 )]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -0.00740993 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Bottle8"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+shape = SubResource( 101 )
+
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="Pipe" type="MeshInstance" parent="StaticBody"]
