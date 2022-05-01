@@ -16,10 +16,10 @@ var pin
 var pins_beg = []
 var pins_end = []
 
-func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	if (area.name == "RightCutArea"):
-		cut_rope(0.5)
-
+#func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+#	if (area.name == "RightCutArea"):
+#		cut_rope(0.5)
+#
 func set_rope_pins():
 	mdt.create_from_surface(mesh, 0)
 
@@ -51,31 +51,10 @@ func create_rope(rope_length: float):
 
 	self.mesh = rope_mesh
 
-
-func cut_rope(cut_pos: float):
-	if !second_rope or cut_pos < 0 or cut_pos > 1:
-		return
-	second_rope.scale.y = self.scale.y * (1 - cut_pos)
-	self.scale.y = self.scale.y * cut_pos
-
-	var attach_pos = get_parent().get_node(attach_np).global_transform.origin
-
-	self.global_transform.origin = attach_pos
-
-	var new_pos = self.global_transform.origin.linear_interpolate(
-		second_rope.global_transform.origin, cut_pos / 2
-	)
-	self.global_transform.origin = new_pos
-
-	new_pos = second_rope.global_transform.origin.linear_interpolate(
-		self.global_transform.origin, (((cut_pos + 1) / 2) - 1) * -1
-	)
-	second_rope.global_transform.origin = new_pos
-
+func unpin():
 	for id in range(1, pins_end.size()):
 		self.set_point_pinned(pins_end[id], false)
 		second_rope.set_point_pinned(pins_end[id], false)
-	fishing_net.set_point_pinned(pin, false)
 
 
 func _ready():
