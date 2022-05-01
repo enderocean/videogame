@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/21487_Gorgonian_Soft_Coral_v1.obj-d012a621e08f50ef8cfb90d750c63381.mesh"
+
+[deps]
+
+files=[ "res://.import/21487_Gorgonian_Soft_Coral_v1.obj-d012a621e08f50ef8cfb90d750c63381.mesh" ]
+
+source_file="res://assets/models/corals/Gorgonian/21487_Gorgonian_Soft_Coral_v1.obj"
+dest_files=[ "res://.import/21487_Gorgonian_Soft_Coral_v1.obj-d012a621e08f50ef8cfb90d750c63381.mesh", "res://.import/21487_Gorgonian_Soft_Coral_v1.obj-d012a621e08f50ef8cfb90d750c63381.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

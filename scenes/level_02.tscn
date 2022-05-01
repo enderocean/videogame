@@ -356,7 +356,7 @@ objectives_target = {
 "grappling_hook": 0,
 "gripper": 0,
 "magnet": 0,
-"vacuum": 6
+"vacuum": 18
 }
 
 [node name="water" parent="." instance=ExtResource( 11 )]
