@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Sailer.obj-a1151c3e9c39211d14f4784bed142547.mesh"
+
+[deps]
+
+files=[ "res://.import/Sailer.obj-a1151c3e9c39211d14f4784bed142547.mesh" ]
+
+source_file="res://assets/models/vehicles/Sailer.obj"
+dest_files=[ "res://.import/Sailer.obj-a1151c3e9c39211d14f4784bed142547.mesh", "res://.import/Sailer.obj-a1151c3e9c39211d14f4784bed142547.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

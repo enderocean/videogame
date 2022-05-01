@@ -94,6 +94,7 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
+<<<<<<< HEAD
 shader_param/timer = 83.7695
 shader_param/twist_factor = 0.481
 shader_param/twist_factor_frequency = -5.0
@@ -104,8 +105,20 @@ shader_param/yaw_factor = -0.01
 shader_param/translate = Vector3( 0.2, 0, 0 )
 shader_param/head_z = -1.16
 shader_param/head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+=======
+shader_param/timer = 36.106
+shader_param/twist_factor = 0.5
+shader_param/twist_factor_frequency = -5.0
+shader_param/s_factor = 0.32
+shader_param/s_factor_frequency = 5.0
+shader_param/frequency = 5.0
+shader_param/yaw_factor = 0.5
+shader_param/translate = Vector3( 0.1, 0, 0 )
+shader_param/head_z = -1.275
+shader_param/head_color = Color( 0, 0, 0, 1 )
+>>>>>>> 4b785d7d70e830d1ecd4b36ce9accf95e1702759
 shader_param/tail_z = 1.0
-shader_param/tail_color = Color( 1, 1, 1, 1 )
+shader_param/tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0

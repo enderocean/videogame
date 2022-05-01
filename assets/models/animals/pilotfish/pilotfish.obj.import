@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pilotfish.obj-f8f592ec8868655562d8d996ab4df4fe.mesh"
+
+[deps]
+
+files=[ "res://.import/pilotfish.obj-f8f592ec8868655562d8d996ab4df4fe.mesh" ]
+
+source_file="res://assets/models/animals/pilotfish/pilotfish.obj"
+dest_files=[ "res://.import/pilotfish.obj-f8f592ec8868655562d8d996ab4df4fe.mesh", "res://.import/pilotfish.obj-f8f592ec8868655562d8d996ab4df4fe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

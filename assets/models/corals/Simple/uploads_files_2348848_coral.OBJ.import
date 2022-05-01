@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/uploads_files_2348848_coral.OBJ-b3310b864659d94de6daa66616c7615b.mesh"
+
+[deps]
+
+files=[ "res://.import/uploads_files_2348848_coral.OBJ-b3310b864659d94de6daa66616c7615b.mesh" ]
+
+source_file="res://assets/models/corals/Simple/uploads_files_2348848_coral.OBJ"
+dest_files=[ "res://.import/uploads_files_2348848_coral.OBJ-b3310b864659d94de6daa66616c7615b.mesh", "res://.import/uploads_files_2348848_coral.OBJ-b3310b864659d94de6daa66616c7615b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
