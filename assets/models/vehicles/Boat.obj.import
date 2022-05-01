@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Boat.obj-2f1e0ba6c5443c484ce43467a31b8a05.mesh"
+
+[deps]
+
+files=[ "res://.import/Boat.obj-2f1e0ba6c5443c484ce43467a31b8a05.mesh" ]
+
+source_file="res://assets/models/vehicles/Boat.obj"
+dest_files=[ "res://.import/Boat.obj-2f1e0ba6c5443c484ce43467a31b8a05.mesh", "res://.import/Boat.obj-2f1e0ba6c5443c484ce43467a31b8a05.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
