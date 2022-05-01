@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "AreaRope",
+"language": "GDScript",
+"path": "res://scenes/net/area_script.gd"
+}, {
 "base": "Spatial",
 "class": "CutterTool",
 "language": "GDScript",
@@ -150,6 +155,7 @@ _global_script_classes=[ {
 "path": "res://scripts/ui/world_map.gd"
 } ]
 _global_script_class_icons={
+"AreaRope": "",
 "CutterTool": "",
 "DeliveryArea": "",
 "DeliveryObject": "",

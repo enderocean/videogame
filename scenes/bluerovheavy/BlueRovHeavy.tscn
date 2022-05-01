@@ -612,5 +612,6 @@ shape = SubResource( 52 )
 [node name="Position3D" type="Position3D" parent="Vacuum/VacuumRigidBody/VaccumProcess"]
 transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.49214e-13, 3.12639e-13, 4.44089e-14, 0.999999, -0.0800091, 0.0195205, 0.0417869 )
 
+[connection signal="area_shape_entered" from="Cutter/CutRightRigidBody/RightCutArea" to="Cutter" method="_on_RightCutArea_area_shape_entered"]
 [connection signal="body_entered" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_entered"]
 [connection signal="body_exited" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_exited"]

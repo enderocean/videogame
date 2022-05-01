@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/models/animals/tuna/TUNA.OBJ" type="ArrayMesh" id=13]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=14]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=15]
-[ext_resource path="res://scenes/net/fishing_net.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/net/fishing_net.gd" type="Script" id=16]
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://assets/models/animals/turtle/10042_Sea_Turtle_V2_iterations-2.obj" type="ArrayMesh" id=18]
 [ext_resource path="res://assets/models/vehicles/plane.obj" type="ArrayMesh" id=19]
@@ -230,18 +230,36 @@ fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
 stream = ExtResource( 15 )
 autoplay = true
 
-[node name="Net" parent="." instance=ExtResource( 16 )]
+[node name="Pospin1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6174, -36.183, 0.0314092 )
+
+[node name="Pospin2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6179, -36.185, 0.029733 )
+
+[node name="Pospin3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6236, -36.1743, -1.97196 )
+
+[node name="Pospin4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6295, -36.183, -1.96993 )
+
+[node name="Net" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.962, -35.9636, -0.969146 )
+script = ExtResource( 16 )
+pospin1 = NodePath("../Pospin1")
+pospin2 = NodePath("../Pospin2")
+pospin3 = NodePath("../Pospin3")
+pospin4 = NodePath("../Pospin4")
 attach1 = NodePath("../Attach3")
 attach2 = NodePath("../Attach2")
 attach3 = NodePath("../Attach1")
 attach4 = NodePath("../Attach4")
-pins = [ 0, 680, 20, 635 ]
-real_pins = [ 0, 115, 1750, 1635 ]
+overrite_pins = [ -1, 20, 240, -1 ]
 
-[node name="fishing_net" parent="Net" index="0"]
+[node name="fishing_net" type="SoftBody" parent="Net"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343987, -0.222112, 0 )
 mesh = SubResource( 1 )
+material/0 = null
+linear_stiffness = 0.0
 
 [node name="Rock" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2267, -28.4929, 16.6823 )
@@ -301,5 +319,3 @@ material/0 = SubResource( 18 )
 transform = Transform( 0.00689304, -0.00580567, -0.00433361, 0.00458669, 0.00812744, -0.00359263, 0.00560787, 0.000488722, 0.00826516, 36.7653, -32.5708, -26.9352 )
 mesh = ExtResource( 19 )
 material/0 = SubResource( 21 )
-
-[editable path="Net"]
