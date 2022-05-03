@@ -2,10 +2,8 @@ extends Camera2D
 class_name MapCamera
 
 export var duration: float = 0.5
-export var limits_margin: Vector2 = Vector2(500, 0)
 
-export var world_path: NodePath
-onready var world_sprite: Sprite = get_node(world_path)
+onready var world_sprite: Sprite = get_parent()
 onready var world_sprite_size: Vector2 = world_sprite.texture.get_size()
 
 onready var tween: Tween = Tween.new()
@@ -19,7 +17,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if can_move:
+	if not can_move:
 		move_camera = false
 		return
 	
@@ -27,23 +25,27 @@ func _input(event: InputEvent) -> void:
 		move_camera = event.is_pressed()
 	
 	elif event is InputEventMouseMotion and move_camera:
-		var limit: Vector2 = Vector2(
-			(world_sprite.position.x + world_sprite_size.x * world_sprite.scale.x - limits_margin.x) * zoom.x,
-			(world_sprite.position.y + world_sprite_size.y * world_sprite.scale.y - limits_margin.y) * zoom.y
-		)
-		print(limit)
+		# Stop the tween in case we are moving and don't want to click any point
+		tween.stop_all()
 		
+		var limit: Vector2 = Vector2(
+			world_sprite_size.x / 2,
+			world_sprite_size.y / 2
+		)
+		
+		# Move the camera
+		position -= event.relative
+		
+		# Make sure the camera stay in bounds of the World sprite
 		if position.x >= limit.x:
 			position.x = limit.x
 		elif position.x <= -limit.x:
 			position.x = -limit.x
+		
 		if position.y >= limit.y:
 			position.y = limit.y
 		elif position.y <= -limit.y:
 			position.y = -limit.y
-		
-		tween.stop_all()
-		position -= event.relative
 
 
 func goto(mission_point: MissionPoint) -> void:
@@ -51,7 +53,7 @@ func goto(mission_point: MissionPoint) -> void:
 		self,
 		"position",
 		position,
-		mission_point.position,
+		get_parent().to_local(mission_point.position),
 		duration,
 		Tween.TRANS_CUBIC,
 		Tween.EASE_IN_OUT
@@ -60,8 +62,8 @@ func goto(mission_point: MissionPoint) -> void:
 		self, "zoom", zoom, mission_point.zoom, duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT
 	)
 	tween.start()
-	can_move = true
+	can_move = false
 
 
 func _on_tween_all_completed() -> void:
-	can_move = false
+	can_move = true
