@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/ui/mission_ended_popup.gd" type="Script" id=1]
+[ext_resource path="res://scripts/ui/popup/mission_ended_popup.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=4]
 

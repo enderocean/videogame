@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "Popup",
 "class": "InstructionsPopup",
 "language": "GDScript",
-"path": "res://scripts/ui/instructions_popup.gd"
+"path": "res://scripts/ui/popup/instructions_popup.gd"
 }, {
 "base": "Node",
 "class": "Level",
