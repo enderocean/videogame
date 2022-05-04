@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=1]
-[ext_resource path="res://scripts/ui/licences_dialog.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ui/popup/licences_dialog.gd" type="Script" id=2]
 [ext_resource path="res://assets/menuEnvironment.tres" type="Environment" id=3]
 [ext_resource path="res://scripts/ui/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/main-home-bg.png" type="Texture" id=5]
