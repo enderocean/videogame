@@ -56,7 +56,7 @@ func _on_StartMission_pressed() -> void:
 		printerr("No mission currently selected, aborting start...")
 		return
 
-	SceneLoader.load_scene("res://scenes/hud.tscn")
+	SceneLoader.load_scene("res://scenes/ui/hud.tscn")
 	SceneLoader.load_scene(current_mission.scene, true)
 
 
