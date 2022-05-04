@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "level_08"
+scene = "res://scenes/level_08.tscn"
+thumbnail = "res://assets/levels/images/level_08.jpg"
+title = "Level 08"
+country = "SOUDAN"
+location = "Red Sea"
+description = "The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
+
+First, plastic wastes from surrounding countries all get trapped here. Then, new oil extraction projects have been started. This is a ticking bomb, as any accident would cause massive losses for the area biodiversity."
+time = 10
+objectives = PoolStringArray( "Catch 6 moving plastics beforethey get lost into the mediterranean sea", "Retrieve micro-platics spread" )
+tools = PoolStringArray( "Gripper", "Lights" )
