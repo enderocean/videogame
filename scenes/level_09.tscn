@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=1]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=2]
@@ -18,17 +18,50 @@
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=16]
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Displacement.jpg" type="Texture" id=17]
 [ext_resource path="res://assets/models/buildings/oil_platform/oil.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/vehicles/ship.obj" type="ArrayMesh" id=19]
+
+[sub_resource type="PlaneMesh" id=21]
+
+[sub_resource type="SpatialMaterial" id=8]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0.309804, 0.027451, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.784314, 0.968627, 0.984314, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[sub_resource type="SpatialMaterial" id=15]
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.8, 0.278431, 0.0705882, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.996078, 1, 0.501961, 1 )
+
+[sub_resource type="CubeMesh" id=19]
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 9 )
 mode = 0
 textures = [ [ ExtResource( 13 ), ExtResource( 15 ) ], [ ExtResource( 12 ), ExtResource( 14 ) ] ]
-
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 1 )
-uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.215686, 0.12549, 0.0117647, 1 )
@@ -47,6 +80,12 @@ albedo_color = Color( 0.266667, 0.266667, 0.266667, 1 )
 [node name="level_09" type="Spatial"]
 script = ExtResource( 16 )
 
+[node name="Plan" type="MeshInstance" parent="."]
+transform = Transform( 128, 0, 0, 0, 1, 0, 0, 0, 128, 64, 0, 64 )
+visible = false
+mesh = SubResource( 21 )
+material/0 = null
+
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, 64, 0, 64 )
 
@@ -63,8 +102,46 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1627, -1.1082, 14.0534 )
 [node name="Theter" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
 from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
+to = NodePath("../Ender Station2/TheterAnchor")
 length = 1000
+
+[node name="ship" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 13.2019, -1.54428, -18.067 )
+mesh = ExtResource( 19 )
+material/0 = SubResource( 8 )
+material/1 = SubResource( 8 )
+material/2 = SubResource( 8 )
+material/3 = SubResource( 8 )
+material/4 = SubResource( 8 )
+material/5 = SubResource( 9 )
+material/6 = SubResource( 9 )
+material/7 = SubResource( 8 )
+material/8 = SubResource( 9 )
+material/9 = SubResource( 9 )
+material/10 = SubResource( 10 )
+material/11 = SubResource( 11 )
+material/12 = SubResource( 12 )
+material/13 = SubResource( 10 )
+material/14 = SubResource( 13 )
+material/15 = SubResource( 10 )
+material/16 = SubResource( 11 )
+material/17 = SubResource( 14 )
+material/18 = SubResource( 15 )
+material/19 = SubResource( 16 )
+material/20 = SubResource( 15 )
+material/21 = SubResource( 15 )
+material/22 = SubResource( 17 )
+material/23 = SubResource( 14 )
+material/24 = SubResource( 18 )
+
+[node name="Ender Station2" type="MeshInstance" parent="."]
+transform = Transform( 0.399999, 0, 0, 0, 0.4, 0, 0, 0, 0.399999, 19.5168, 1.7656, -17.608 )
+mesh = SubResource( 19 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 20 )
+
+[node name="TheterAnchor" parent="Ender Station2" instance=ExtResource( 2 )]
+transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3, -64 )
@@ -82,14 +159,6 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
-
-[node name="Ender Station" type="MeshInstance" parent="."]
-transform = Transform( 0.232707, 0, -0.325342, 0, 0.4, 0, 0.325342, 0, 0.232707, -27.7903, 1.25107, -4.61961 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 2 )]
-transform = Transform( 3, 0, 0, 0, 2, 0, 1.19209e-07, 0, 2, -0.0119781, -0.0131369, -0.299009 )
 
 [node name="senecio_2" type="MeshInstance" parent="."]
 transform = Transform( 0.25, 0, 0, 0, 0.3, 0, 0, 0, 0.25, -6.12876, -1.98011, 20.9901 )
@@ -390,7 +459,7 @@ material/0 = SubResource( 3 )
 material/1 = SubResource( 4 )
 
 [node name="oil" type="MeshInstance" parent="."]
-transform = Transform( 3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 45.3304, -11.9796, 24.5989 )
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 74.9365, -11.9796, 45.4321 )
 mesh = ExtResource( 18 )
 material/0 = SubResource( 7 )
 material/1 = SubResource( 7 )
