@@ -12,10 +12,11 @@ code = "// NOTE: Shader automatically converted from Godot Engine 3.4.4.stable's
 shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
-uniform float time_scale: hint_range(0.0f, 2.0f) = 1.0f;
+uniform float time_scale: hint_range(0.0f, 10.0f) = 1.0f;
 uniform float side_to_side: hint_range(-1.0f, 1.0f) = 0.0f;
 uniform float wave: hint_range(-1.0f, 1.0f) = 0.0f;
 uniform float pivot: hint_range(-1.0f, 1.0f) = 0.0f;
+uniform float twist: hint_range(-1.0f, 1.0f) = 0.0f;
 
 uniform vec4 albedo : hint_color;
 uniform sampler2D texture_albedo : hint_albedo;
@@ -38,7 +39,7 @@ uniform vec3 uv2_offset;
 void vertex() {
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
 	
-	//
+	// movements
 	float time = TIME * time_scale;
 	VERTEX.x += cos(time) * side_to_side;
 	
@@ -48,6 +49,10 @@ void vertex() {
 	
 	float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
 	VERTEX.x += cos(time + body) * wave;
+	
+	float twist_angle = cos(time + body) * 0.3 * twist;
+	mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
+	VERTEX.xy = twist_matrix * VERTEX.xy;
 }
 
 void fragment() {
@@ -66,10 +71,11 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/time_scale = 1.0
-shader_param/side_to_side = 0.25
-shader_param/wave = 0.709
-shader_param/pivot = 1.0
+shader_param/time_scale = 3.0
+shader_param/side_to_side = 0.0
+shader_param/wave = 0.25
+shader_param/pivot = 0.2
+shader_param/twist = 0.75
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.1
 shader_param/metallic = 0.0

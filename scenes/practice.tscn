@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/shaders/fish.tres" type="Material" id=14]
 [ext_resource path="res://scripts/effects/fishes.gd" type="Script" id=15]
+[ext_resource path="res://scripts/effects/path_follow.gd" type="Script" id=16]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -273,14 +274,17 @@ sound_key = "drop_item_in_the_net"
 once = false
 
 [node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475772, 2.32177, 11.4441 )
 curve = SubResource( 23 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
 transform = Transform( -0.322363, -0.416985, 0.849817, 0, 0.897753, 0.440495, -0.946614, 0.142002, -0.289399, 0.622807, -0.0406928, -3.60004 )
 rotation_mode = 4
+script = ExtResource( 16 )
+speed = 0.01
 
 [node name="Fishes" type="MultiMeshInstance" parent="Path/PathFollow"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+transform = Transform( -0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0 )
 multimesh = SubResource( 22 )
 script = ExtResource( 15 )
 
