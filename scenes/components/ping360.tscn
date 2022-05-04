@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/components/ping360.gd" type="Script" id=1]
-[ext_resource path="res://scenes/components/ping360render.tres" type="Material" id=2]
+[ext_resource path="res://scripts/components/ping360.gd" type="Script" id=1]
+[ext_resource path="res://assets/shaders/ping360render.tres" type="Material" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.1, 0.1, 0.1 )

@@ -1,10 +1,10 @@
 [gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scripts/vehicle/BlueROV2Heavy.gd" type="Script" id=1]
-[ext_resource path="res://scenes/components/newton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/components/Plastic black.material" type="Material" id=3]
+[ext_resource path="res://scenes/components/newton/newton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/newton/Plastic black.material" type="Material" id=3]
 [ext_resource path="res://assets/underwaterEnvironment.tres" type="Environment" id=4]
-[ext_resource path="res://scenes/components/Metallic black.material" type="Material" id=5]
+[ext_resource path="res://scenes/components/newton/Metallic black.material" type="Material" id=5]
 [ext_resource path="res://scenes/components/ping360.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=7]
 [ext_resource path="res://addons/thruster_nodes/thruster_node.gd" type="Script" id=8]

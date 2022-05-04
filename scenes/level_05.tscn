@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=6]
@@ -25,7 +25,7 @@
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=23]
 [ext_resource path="res://assets/models/tools/wood_box/Wooden Crate 01.obj" type="ArrayMesh" id=24]
 [ext_resource path="res://assets/models/tools/wood_box/Textures/Diffuse.png" type="Texture" id=25]
-[ext_resource path="res://scenes/delivery_net.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/textures/planks/Planks016_1K_Color.jpg" type="Texture" id=27]
 [ext_resource path="res://assets/models/tools/antic_hook/14068_Pulley_Hook_Single_Antique_v2_L2.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://assets/models/tools/antic_hook/14068_Pulley_Hook_Single_Antique_v2_diff.jpg" type="Texture" id=29]
