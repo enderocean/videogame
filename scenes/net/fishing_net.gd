@@ -1,5 +1,7 @@
 extends Spatial
 
+signal net_cut
+
 export var pospin1: NodePath
 export var pospin2: NodePath
 export var pospin3: NodePath
@@ -23,6 +25,7 @@ var mdt = MeshDataTool.new()
 var rope_thickness = 0.02
 var rope_radial_segments = 16
 var rope_rings = 4
+var nb_cut = 0
 
 func get_closest_pins(rope_nb):
 	var real_pin = 0
@@ -51,6 +54,9 @@ func cut_rope(area, rope_id, cut_pos):
 	soft_ropes[rope_id][1].queue_free()
 	soft_ropes[rope_id][0].queue_free()
 	replace_attach(rope_id, cut_pos)
+	nb_cut += 1
+	if (nb_cut == 4):
+		emit_signal("net_cut")
 
 func replace_attach(rope_nb, cut_pos):
 	var soft_rope_1 = SoftRope.new()

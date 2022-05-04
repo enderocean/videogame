@@ -214,3 +214,7 @@ func check_objectives() -> void:
 
 	if finished:
 		emit_signal("finished", score)
+
+
+func _on_Net_net_cut():
+	print("Net cut")
