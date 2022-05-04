@@ -64,3 +64,7 @@ mission_id = "level_07"
 [node name="Level 08" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 623.999, 346.999 )
 mission_id = "level_08"
+
+[node name="Level 09" parent="Missions" instance=ExtResource( 6 )]
+position = Vector2( -1307, 593.999 )
+mission_id = "level_09"

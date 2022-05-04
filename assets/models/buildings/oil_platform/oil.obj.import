@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/oil.obj-d3872496a4ecf3049fd776978ff0d18c.mesh"
+
+[deps]
+
+files=[ "res://.import/oil.obj-d3872496a4ecf3049fd776978ff0d18c.mesh" ]
+
+source_file="res://assets/models/buildings/oil_platform/oil.obj"
+dest_files=[ "res://.import/oil.obj-d3872496a4ecf3049fd776978ff0d18c.mesh", "res://.import/oil.obj-d3872496a4ecf3049fd776978ff0d18c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

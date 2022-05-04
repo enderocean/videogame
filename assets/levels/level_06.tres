@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 id = "level_06"
 scene = "res://scenes/level_06.tscn"
-thumbnail = "res://assets/levels/images/level_05.jpg"
+thumbnail = "res://assets/levels/images/level_06.jpg"
 title = "Level 06"
 country = "GHANA"
 location = "Accra Coast"
