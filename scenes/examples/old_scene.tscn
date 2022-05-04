@@ -1,12 +1,12 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://scripts/suspended_particles.gd" type="Script" id=1]
-[ext_resource path="res://assets/shaders/water_material.tres" type="Material" id=2]
-[ext_resource path="res://scripts/buoy.gd" type="Script" id=3]
-[ext_resource path="res://scripts/effects/godrays.gd" type="Script" id=4]
-[ext_resource path="res://assets/shaders/underwater_material.tres" type="Material" id=6]
-[ext_resource path="res://assets/shaders/suspended_particle_shader.tres" type="Material" id=7]
-[ext_resource path="res://assets/shaders/godrays.shader" type="Shader" id=9]
+[ext_resource path="res://assets/shaders/underwater_material.tres" type="Material" id=1]
+[ext_resource path="res://assets/shaders/suspended_particle_shader.tres" type="Material" id=2]
+[ext_resource path="res://scripts/effects/godrays.gd" type="Script" id=3]
+[ext_resource path="res://scripts/suspended_particles.gd" type="Script" id=4]
+[ext_resource path="res://scripts/buoy.gd" type="Script" id=5]
+[ext_resource path="res://assets/shaders/water_material.tres" type="Material" id=6]
+[ext_resource path="res://assets/shaders/godrays.shader" type="Shader" id=7]
 
 [sub_resource type="PlaneMesh" id=1]
 subdivide_width = 256
@@ -63,7 +63,7 @@ color_ramp = SubResource( 11 )
 
 [sub_resource type="ShaderMaterial" id=13]
 render_priority = 1
-shader = ExtResource( 9 )
+shader = ExtResource( 7 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0
@@ -99,7 +99,7 @@ color_ramp = SubResource( 16 )
 hue_variation_random = 0.28
 
 [sub_resource type="QuadMesh" id=18]
-material = ExtResource( 7 )
+material = ExtResource( 2 )
 size = Vector2( 0.02, 0.025 )
 
 [node name="Spatial" type="Spatial"]
@@ -110,14 +110,14 @@ layers = 2
 cast_shadow = 0
 mesh = SubResource( 1 )
 skin = SubResource( 19 )
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 6 )
 
 [node name="underwater" type="MeshInstance" parent="."]
 transform = Transform( 200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 6.31718, 0 )
 layers = 4
 cast_shadow = 0
 mesh = SubResource( 20 )
-material/0 = ExtResource( 6 )
+material/0 = ExtResource( 1 )
 script = SubResource( 3 )
 
 [node name="sun" type="DirectionalLight" parent="."]
@@ -129,7 +129,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.71692, -4.93734 )
 mass = 2.16
 linear_damp = 0.664
 angular_damp = 0.869
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="boia"]
 shape = SubResource( 4 )
@@ -173,12 +173,12 @@ visibility_aabb = AABB( -4, -5.82476, -6.64017, 8, 11.6495, 13.2803 )
 local_coords = false
 process_material = SubResource( 12 )
 draw_pass_1 = SubResource( 14 )
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="SuspendedParticleHolder" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.144778, 5.0803, -0.538899 )
 visible = false
-script = ExtResource( 1 )
+script = ExtResource( 4 )
 
 [node name="SuspendedParticles" type="Particles" parent="SuspendedParticleHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1387, -0.153001, 2.14633 )

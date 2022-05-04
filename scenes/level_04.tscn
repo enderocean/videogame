@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/player_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=5]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=6]

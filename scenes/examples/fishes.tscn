@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/shaders/fish.tres" type="Material" id=1]
-[ext_resource path="res://scripts/effects/fishes.gd" type="Script" id=2]
-[ext_resource path="res://scripts/effects/path_follow.gd" type="Script" id=3]
+[ext_resource path="res://scripts/components/fishes.gd" type="Script" id=2]
+[ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=3]
 
 [sub_resource type="Curve3D" id=23]
 _data = {
