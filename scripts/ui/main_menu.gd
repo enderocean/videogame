@@ -37,7 +37,7 @@ func _on_licences_pressed():
 
 
 func _on_Practice_pressed() -> void:
-	SceneLoader.load_scene("res://scenes/hud.tscn")
+	SceneLoader.load_scene("res://scenes/ui/hud.tscn")
 	SceneLoader.load_scene("res://scenes/practice.tscn", true)
 
 
