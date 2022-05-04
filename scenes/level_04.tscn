@@ -319,3 +319,5 @@ material/0 = SubResource( 18 )
 transform = Transform( 0.00689304, -0.00580567, -0.00433361, 0.00458669, 0.00812744, -0.00359263, 0.00560787, 0.000488722, 0.00826516, 36.7653, -32.5708, -26.9352 )
 mesh = ExtResource( 19 )
 material/0 = SubResource( 21 )
+
+[connection signal="net_cut" from="Net" to="." method="_on_Net_net_cut"]
