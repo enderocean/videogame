@@ -27,7 +27,7 @@ func _ready() -> void:
 				)
 			)
 		)
-
+		
 		multimesh.set_instance_transform(i, position)
 		multimesh.set_instance_custom_data(i, Color(randf(), randf(), randf(), randf()))
 

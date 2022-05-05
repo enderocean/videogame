@@ -2,6 +2,7 @@ extends Spatial
 class_name VehicleTool
 
 export var enabled: bool = true
+export(Globals.ObjectiveType) var tool_type
 
 export var right_joint_path: NodePath
 export var left_joint_path: NodePath

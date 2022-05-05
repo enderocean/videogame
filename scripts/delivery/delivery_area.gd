@@ -8,7 +8,7 @@ const RADIO_SOUNDS: Array = [
 	"well_done"
 ]
 
-export(Level.ObjectiveType) var objective_type = Level.ObjectiveType.GRIPPER
+export(Globals.ObjectiveType) var objective_type = Globals.ObjectiveType.GRIPPER
 
 ## Emit signal only when objects enter the area
 export var only_enter: bool = false
@@ -42,7 +42,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	# Don't play a radio sound for the vacuum
-	if objective_type != Level.ObjectiveType.VACUUM:
+	if objective_type != Globals.ObjectiveType.VACUUM:
 		# Play random sound from array
 		RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
 

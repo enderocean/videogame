@@ -23,14 +23,6 @@ onready var sun: Light = get_node(sun_path)
 export var vehicle_path: NodePath
 onready var vehicle: Vehicle = get_node(vehicle_path)
 
-enum ObjectiveType {
-	GRIPPER,
-	VACUUM,
-	CUTTER,
-	GRAPPLING_HOOK,
-	MAGNET,
-}
-
 export var objectives_target: Dictionary = {
 	"gripper": 0,
 	"vacuum": 0,
@@ -41,9 +33,7 @@ export var objectives_target: Dictionary = {
 onready var turtle_path = get_node("Path2/PathFollow")
 var turtle_speed = 1
 var fishnet_objective = false
-
 var objectives: Dictionary = {}
-
 var objectives_progress: Dictionary = {}
 var score: int = 0
 
@@ -75,8 +65,8 @@ func _ready():
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
 	# Add all objectives
-	for type in ObjectiveType.values():
-		var type_name: String = ObjectiveType.keys()[type].to_lower()
+	for type in Globals.ObjectiveType.values():
+		var type_name: String = Globals.ObjectiveType.keys()[type].to_lower()
 		if not objectives_target.has(type_name):
 			continue
 		if not objectives_target.get(type_name):
@@ -189,15 +179,15 @@ func _on_objects_changed(area, objects: Array) -> void:
 		return
 	
 	match area.objective_type:
-		ObjectiveType.GRIPPER:
-			objectives_progress[ObjectiveType.GRIPPER] = objects.size()
-			score = objectives_progress[ObjectiveType.GRIPPER]
-			print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
+		Globals.ObjectiveType.GRIPPER:
+			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
+			score = objectives_progress[Globals.ObjectiveType.GRIPPER]
+			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
 
-		ObjectiveType.VACUUM:
-			objectives_progress[ObjectiveType.VACUUM] = objects.size()
-			score = objectives_progress[ObjectiveType.VACUUM]
-			print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
+		Globals.ObjectiveType.VACUUM:
+			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
+			score = objectives_progress[Globals.ObjectiveType.VACUUM]
+			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
 	
 	check_objectives()
 	emit_signal("objectives_changed")

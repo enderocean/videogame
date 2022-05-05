@@ -134,7 +134,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 8.6024
+shader_param/timer = 7.89798
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -234,6 +234,7 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Vehicle" parent="." instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09859, 11.4746 )
+starting_tool = 1
 
 [node name="Theter" parent="." instance=ExtResource( 30 )]
 from = NodePath("../Vehicle")
