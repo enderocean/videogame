@@ -10,6 +10,7 @@ var carrying_object: DeliveryObject
 
 func _ready() -> void:
 	._ready()
+	tool_type = Globals.ObjectiveType.GRIPPER
 	
 	if left_area:
 		left_area.connect("body_entered", self, "_on_left_area_body_entered")
@@ -18,6 +19,7 @@ func _ready() -> void:
 	if right_area:
 		right_area.connect("body_entered", self, "_on_right_area_body_entered")
 		right_area.connect("body_exited", self, "_on_right_area_body_exited")
+
 
 func _physics_process(_delta: float) -> void:
 	if not carrying_object:

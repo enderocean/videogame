@@ -1,6 +1,11 @@
 extends "res://scripts/vehicle/vehicle_tool.gd"
 class_name CutterTool
 
+
+func _ready() -> void:
+	tool_type = Globals.ObjectiveType.CUTTER
+
+
 func _on_RightCutArea_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if (area.rope_id):
 		var parent = area.get_parent()
