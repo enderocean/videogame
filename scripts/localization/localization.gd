@@ -3,12 +3,12 @@ extends Node
 # This code is temporary, waiting for the localization integration
 static func get_objective_text(objectiveType) -> String:
 	match objectiveType:
-		Level.ObjectiveType.GRIPPER:
+		Globals.ObjectiveType.GRIPPER:
 			return "Deliver objects with the Gripper"
-		Level.ObjectiveType.VACUUM:
+		Globals.ObjectiveType.VACUUM:
 			return "Collect objects with the Vacuum"
-		Level.ObjectiveType.CUTTER:
+		Globals.ObjectiveType.CUTTER:
 			return "Cut off nets with the Cutter"
-		Level.ObjectiveType.GRAPPLING_HOOK:
+		Globals.ObjectiveType.GRAPPLING_HOOK:
 			return "Collected with the Grappling hook"
 	return ""
