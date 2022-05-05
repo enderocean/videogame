@@ -229,6 +229,7 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 2 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.58316, 4.95221, -2.57201 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
