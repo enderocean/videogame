@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "level_09"
+scene = "res://scenes/level_09.tscn"
+thumbnail = "res://assets/levels/images/level_09.jpg"
+title = "Level 09"
+country = "VENEZUELA"
+location = "The Lake Maracaibo"
+description = "The Lake Maracaibo has been the subject of a lot negligence :  like many other places, the litter from surrounding towns has been trapped into it.
+
+But even worst, malfunctions from the oil extracting industry has caused leakages. The Lake has becomed a permanent black sea that affectes all plastics and leaks into the Carribean sea."
+time = 10
+objectives = PoolStringArray( "Catch 4 plastics", "Retrieve micro-platics bullets" )
+tools = PoolStringArray( "Gripper", "Lights" )
