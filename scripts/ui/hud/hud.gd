@@ -55,12 +55,10 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 			instructions_popup.title.text = active_level_data.title
 			instructions_popup.description.text = active_level_data.description
 			instructions_popup.show()
-		
-		# Set the vacuum as the current tool for Level 01
-		"level_01":
-			active_level.vehicle.vehicle_body.set_current_tool(2)
-
+	
+	# Initialize objectives text
 	_on_level_objectives_changed()
+	
 	# Start the time with the given LevelData time
 	mission_timer.start(active_level_data.time * 60)
 

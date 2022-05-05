@@ -172,7 +172,7 @@ func _ready() -> void:
 			continue	
 		if not child.enabled:
 			continue
-	
+		
 		vehicle_tools.append(child)
 
 	# Fill thrusters array
@@ -185,10 +185,7 @@ func _ready() -> void:
 	
 	if not Globals.isHTML5:
 		connect_fmd_in()
-	
-	# We need to wait before setting the default tool, idk why
-	yield(get_tree().create_timer(0.01), "timeout")
-	set_current_tool(vehicle_tool_index)
+
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -389,7 +386,7 @@ func process_keys() -> void:
 	# Switch tool
 	if Input.is_action_just_pressed("switch_tool"):
 		vehicle_tool_index = (vehicle_tool_index + 1) % vehicle_tools.size()
-		set_current_tool(vehicle_tool_index)
+		set_current_tool_from_index(vehicle_tool_index)
 
 	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
@@ -413,8 +410,20 @@ func process_keys() -> void:
 	vehicle_tools[vehicle_tool_index].move_right(-target_velocity)
 
 
-func set_current_tool(new_tool_index: int) -> void:
+func get_tool_index(tool_type: int) -> int:
 	for i in range(vehicle_tools.size()):
-		vehicle_tools[i].set_active(i == new_tool_index)
+		if vehicle_tools[i].tool_type == tool_type:
+			return i
+	return -1
 
-	vehicle_tool_index = new_tool_index
+
+func set_current_tool_from_index(index: int) -> void:
+	for i in range(vehicle_tools.size()):
+		vehicle_tools[i].set_active(i == index)
+
+	vehicle_tool_index = index
+
+
+func set_current_tool_from_type(tool_type: int) -> void:
+	var index: int = get_tool_index(tool_type)
+	set_current_tool_from_index(index)
