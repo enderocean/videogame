@@ -1,7 +1,7 @@
 extends RigidBody
 class_name DeliveryObject
 
-export(Level.ObjectiveType) var objective_type = Level.ObjectiveType.GRIPPER
+export(Globals.ObjectiveType) var objective_type = Globals.ObjectiveType.GRIPPER
 
 var carried: bool = false setget set_carried
 var delivered: bool = false setget set_delivered

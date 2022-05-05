@@ -1,5 +1,13 @@
 extends Node
 
+enum ObjectiveType {
+	GRIPPER,
+	VACUUM,
+	CUTTER,
+	GRAPPLING_HOOK,
+	MAGNET,
+}
+
 const SEND_DATA: bool = false
 
 export var isHTML5: bool = false
