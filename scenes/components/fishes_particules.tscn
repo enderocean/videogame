@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/shaders/fish.tres" type="Material" id=1]
+[ext_resource path="res://assets/shaders/fish_particles.tres" type="Material" id=2]
+[ext_resource path="res://addons/fish-shader/assets/Fish Perch.tres" type="ArrayMesh" id=3]
+
+[node name="Fishes" type="Particles"]
+transform = Transform( 0.0974992, -3.72534e-09, -0.995238, 0.511798, 0.857641, 0.0501387, 0.853565, -0.514255, 0.0836201, -3.64362, -0.103351, -0.251497 )
+material_override = ExtResource( 1 )
+amount = 100
+lifetime = 100.0
+visibility_aabb = AABB( -0.154192, -0.169316, -0.141922, 0.308385, 0.338631, 0.283844 )
+process_material = ExtResource( 2 )
+draw_pass_1 = ExtResource( 3 )
