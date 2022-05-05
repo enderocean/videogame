@@ -30,6 +30,10 @@ export var objectives_target: Dictionary = {
 	"grappling_hook": 0,
 	"magnet": 0,
 }
+onready var turtle_path = get_node("Path2/PathFollow")
+var turtle_speed = 1
+var fishnet_objective = false
+
 var objectives: Dictionary = {}
 var objectives_progress: Dictionary = {}
 var score: int = 0
@@ -155,6 +159,8 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
+	if (fishnet_objective):
+		move_turtle(_delta)
 
 
 func _on_fancy_water_changed() -> void:
@@ -206,6 +212,9 @@ func check_objectives() -> void:
 	if finished:
 		emit_signal("finished", score)
 
+func move_turtle(_delta: float):
+	turtle_path.offset += _delta * turtle_speed
 
+	
 func _on_Net_net_cut():
-	print("Net cut")
+	fishnet_objective = true
