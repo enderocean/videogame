@@ -40,7 +40,7 @@ void vertex() {
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
 	
 	// movements
-	float time = TIME * time_scale;
+	float time = (TIME * (0.5 + INSTANCE_CUSTOM.y) * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
 	VERTEX.x += cos(time) * side_to_side;
 	
 	float pivot_angle = cos(time) * 0.1 * pivot;
