@@ -5,11 +5,13 @@ var removed_bodys = []
 
 onready var end_pipe = get_node("Position3D")
 
+var vaccum_speed = 10
+
 func _physics_process(delta):
 	for id in objects.size():
 		if (removed_bodys.find(objects[id]) == -1):
 			var object = instance_from_id(objects[id])
-			object.global_transform.origin = object.global_transform.origin.linear_interpolate(end_pipe.global_transform.origin, 0.1)
+			object.global_transform.origin = object.global_transform.origin.linear_interpolate(end_pipe.global_transform.origin, (delta * vaccum_speed))
 			if (object.global_transform.origin.distance_squared_to(end_pipe.global_transform.origin) < 0.01):
 				removed_bodys.append(objects[id])
 				object.queue_free()
