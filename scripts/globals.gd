@@ -9,6 +9,11 @@ enum ObjectiveType {
 	ANIMAL,
 }
 
+enum DeliveryToolType {
+	GRAPPLING_HOOK,
+	MAGNET,
+}
+
 const SEND_DATA: bool = false
 
 export var isHTML5: bool = false

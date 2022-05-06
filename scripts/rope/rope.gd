@@ -102,8 +102,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Update rope visuals
-	for i in range(sections.size()):
-		line_renderer.points[i] = sections[i].global_transform.origin
+	if line_renderer:
+		for i in range(sections.size()):
+			line_renderer.points[i] = sections[i].global_transform.origin
 	
 	if pulling:
 		if to_body.global_transform.origin.distance_to(pulling_destination) < SECTION_LENGTH:
