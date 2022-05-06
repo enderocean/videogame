@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/delivery/delivery_object.gd"
 }, {
+"base": "RigidBody",
+"class": "DeliveryTool",
+"language": "GDScript",
+"path": "res://scripts/delivery/delivery_tool.gd"
+}, {
 "base": "Spatial",
 "class": "DeliveryTool",
 "language": "GDScript",
