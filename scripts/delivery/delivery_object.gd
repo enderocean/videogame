@@ -12,7 +12,7 @@ onready var saved_mask: int = collision_mask
 
 func _ready() -> void:
 	add_to_group("objective_%s" % str(objective_type))
-	print("Added to group: ", "objective_%s" % str(objective_type))
+#	print("Added to group: ", "objective_%s" % str(objective_type))
 	# Set the "catchable" collision layer automatically
 	set_collision_layer_bit(1, true)
 

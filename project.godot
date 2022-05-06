@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/level/level_data.gd"
 }, {
+"base": "ImmediateGeometry",
+"class": "LineRenderer",
+"language": "GDScript",
+"path": "res://scripts/rope/line_renderer.gd"
+}, {
 "base": "Camera",
 "class": "LookAtCamera",
 "language": "GDScript",
@@ -172,6 +177,7 @@ _global_script_class_icons={
 "InstructionsPopup": "",
 "Level": "",
 "LevelData": "",
+"LineRenderer": "",
 "LookAtCamera": "",
 "MapCamera": "",
 "MissionPanel": "",

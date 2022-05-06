@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=12]
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/components/pulling_theter.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -77,6 +78,28 @@ points = PoolVector3Array( 0.936788, 0.0245166, 0.340209, -0.9622, 0.0235265, -0
 [sub_resource type="SpatialMaterial" id=21]
 albedo_texture = ExtResource( 12 )
 uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CylinderMesh" id=22]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+radial_segments = 32
+rings = 0
+
+[sub_resource type="CylinderMesh" id=24]
+top_radius = 0.025
+bottom_radius = 0.025
+height = 0.025
+radial_segments = 32
+rings = 0
+
+[sub_resource type="CylinderShape" id=23]
+radius = 0.05
+height = 0.05
+
+[sub_resource type="CylinderShape" id=25]
+radius = 0.025
+height = 0.026
 
 [node name="Practice" type="Spatial"]
 script = ExtResource( 7 )
@@ -235,7 +258,10 @@ autoplay = true
 [node name="Theter" parent="." instance=ExtResource( 10 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 300
+length = 200
+
+[node name="PullingTheter" parent="." instance=ExtResource( 14 )]
+from = NodePath("../Ender Station/TheterAnchor")
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
@@ -249,6 +275,31 @@ transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.900206, 0.0875902, 0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
 sound_key = "drop_item_in_the_net"
 once = false
+
+[node name="Magnet" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965169, -1.482, -0.35815 )
+collision_layer = 2
+collision_mask = 3
+mass = 10.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Magnet"]
+mesh = SubResource( 22 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Magnet"]
+transform = Transform( -3.14315e-06, -1, 0, 1, -3.14315e-06, 0, 0, 0, 1, 0, 0.0300001, 0 )
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Magnet"]
+shape = SubResource( 23 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Magnet"]
+transform = Transform( -3.14315e-06, 1, 0, -1, -3.14315e-06, 0, 0, 0, 1, -5.96046e-08, 0.03, 0 )
+shape = SubResource( 25 )
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 
