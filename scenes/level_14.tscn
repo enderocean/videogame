@@ -1,0 +1,246 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=9]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=10]
+[ext_resource path="res://terrains/level_14/data.hterrain" type="Resource" id=11]
+[ext_resource path="res://assets/models/vehicles/workboat/Ship - boat.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/models/vehicles/shipwreck/Shipwreck.tscn" type="PackedScene" id=13]
+[ext_resource path="res://terrains/level_14/rocky/Rock045_1K_Roughness.jpg" type="Texture" id=14]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 10 )
+mode = 0
+textures = [ [ ExtResource( 14 ) ], [ null ] ]
+
+[node name="Level_14" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="water" parent="." instance=ExtResource( 5 )]
+transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 54, -0.335, -2, 6.08557 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.77108, 0, -0.636738, 0, 1, 0, 0.636738, 0, -0.77108, -23.1303, 6.46839, -30.8868 )
+visible = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="BlueRov" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24297, -5.54927, -16.7038 )
+
+[node name="Theter" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+length = 300
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -8.0733, -0.673457, 10.1452 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 8 )]
+transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, 0.0375366, 0.092994, 0.0393524 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -50, -64 )
+script = ExtResource( 9 )
+_terrain_data = ExtResource( 11 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 3 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+[node name="Workboat" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -11.6336, -4.60286, 4.30133 )
+mesh = ExtResource( 12 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+material/54 = null
+material/55 = null
+material/56 = null
+material/57 = null
+material/58 = null
+material/59 = null
+material/60 = null
+material/61 = null
+material/62 = null
+material/63 = null
+material/64 = null
+material/65 = null
+material/66 = null
+material/67 = null
+material/68 = null
+material/69 = null
+material/70 = null
+material/71 = null
+material/72 = null
+material/73 = null
+material/74 = null
+material/75 = null
+material/76 = null
+material/77 = null
+material/78 = null
+material/79 = null
+material/80 = null
+material/81 = null
+material/82 = null
+material/83 = null
+material/84 = null
+material/85 = null
+material/86 = null
+material/87 = null
+material/88 = null
+material/89 = null
+material/90 = null
+material/91 = null
+material/92 = null
+material/93 = null
+material/94 = null
+material/95 = null
+material/96 = null
+material/97 = null
+material/98 = null
+material/99 = null
+material/100 = null
+material/101 = null
+material/102 = null
+material/103 = null
+material/104 = null
+material/105 = null
+material/106 = null
+material/107 = null
+material/108 = null
+material/109 = null
+material/110 = null
+material/111 = null
+material/112 = null
+material/113 = null
+material/114 = null
+material/115 = null
+material/116 = null
+material/117 = null
+material/118 = null
+material/119 = null
+material/120 = null
+material/121 = null
+material/122 = null
+material/123 = null
+material/124 = null
+material/125 = null
+material/126 = null
+material/127 = null
+material/128 = null
+material/129 = null
+material/130 = null
+material/131 = null
+material/132 = null
+material/133 = null
+material/134 = null
+material/135 = null
+material/136 = null
+material/137 = null
+material/138 = null
+material/139 = null
+material/140 = null
+material/141 = null
+material/142 = null
+material/143 = null
+material/144 = null
+material/145 = null
+material/146 = null
+material/147 = null
+material/148 = null
+material/149 = null
+material/150 = null
+material/151 = null
+material/152 = null
+material/153 = null
+material/154 = null
+material/155 = null
+material/156 = null
+material/157 = null
+
+[node name="Shipwreck" parent="." instance=ExtResource( 13 )]
+transform = Transform( 2.51216, 0, 1.63984, 0, 3, 0, -1.63984, 0, 2.51216, -12.0024, -54.8097, 18.079 )
