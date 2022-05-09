@@ -6,9 +6,8 @@ export var area: NodePath
 var detected_object: DeliveryObject
 
 func _ready() -> void:
-	.ready()
 	objective_type = Globals.ObjectiveType.MAGNET
-	(get_node(area) as Area).connect("area_entered", self, "_on_body_entered")
+	group = "objective_%s" % str(objective_type).to_lower()
 
 
 func _on_body_entered(body: Node) -> void:
@@ -24,37 +23,10 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	# Make sure the object is not already in the area
-	var id: int = object.get_instance_id()
-	if objects.has(id):
-		return
-
-	# Don't play a radio sound for the vacuum
-	if objective_type != Globals.ObjectiveType.VACUUM:
-		# Play random sound from array
-		RadioSounds.play(RADIO_SOUNDS[RadioSounds.rand.randi_range(0, RADIO_SOUNDS.size() - 1)])
-
-	# Make the object delivered
-	object.delivered = true
-	objects.append(id)
-	emit_signal("objects_changed", self, objects)
-
-
-func _on_body_exited(body: Node) -> void:
-	if only_enter:
+	if object.get_instance_id() == detected_object.get_instance_id():
 		return
 	
-	# Make sure the body is a Deliverable
-	if not body is DeliveryObject:
-		return
-
-	# Make sure the object is in the area
-	var object: DeliveryObject = body
-	var id: int = object.get_instance_id()
-	var index: int = objects.find(id)
-	if index == -1:
-		return
-
-	# Make the object not delivered
-	object.delivered = false
-	objects.remove(index)
-	emit_signal("objects_changed", self, objects)
+	detected_object = object
+	
+	# Make the object delivered
+	detected_object.delivered = true
