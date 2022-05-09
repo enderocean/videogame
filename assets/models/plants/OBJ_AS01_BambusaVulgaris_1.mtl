@@ -1,0 +1,85 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 04.06.2020 14:44:25
+
+newmtl Bark01_SHD
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Bark01_dif_su.png
+	map_Kd D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Bark01_dif_su.png
+	map_bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Bark01_nml_su.png
+	bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Bark01_nml_su.png
+
+newmtl Branch01_SHD
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Branch01_dif_su.png
+	map_Kd D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Branch01_dif_su.png
+	map_bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Branch01_nml_su.png
+	bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Branch01_nml_su.png
+
+newmtl Leaf01_su_SHD
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf01Front_dif_su.png
+	map_Kd D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf01Front_dif_su.png
+	map_d D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf01_alp_su.png
+	map_bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf01_nml_su.png
+	bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf01_nml_su.png
+
+newmtl Leaf02_su_SHD
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf02Front_dif_su.png
+	map_Kd D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf02Front_dif_su.png
+	map_d D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf02_alp_su.png
+	map_bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf02_nml_su.png
+	bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf02_nml_su.png
+
+newmtl Leaf03_su_SHD
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf03Front_dif_su.png
+	map_Kd D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf03Front_dif_su.png
+	map_d D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf03_alp_su.png
+	map_bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf03_nml_su.png
+	bump D:\Render Imagination Dropbox\prj\xfr03\batch03\max\sceneassets\textures\AS01_BambusaVulgari\v001\VRay\AS01_Leaf03_nml_su.png
