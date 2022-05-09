@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/rope/tool_section.tscn" type="PackedScene" id=2]
+
+[node name="PullingTheter" instance=ExtResource( 1 )]
+section = ExtResource( 2 )

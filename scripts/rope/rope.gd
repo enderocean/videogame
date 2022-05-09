@@ -1,9 +1,10 @@
 extends Spatial
 class_name Rope
 
-const SECTION: PackedScene = preload("res://scenes/rope/section.tscn")
-const JOINT: PackedScene = preload("res://scenes/rope/joint.tscn")
 const SECTION_LENGTH: float = 0.145
+
+export var section: PackedScene
+export var joint: PackedScene
 
 export var from: NodePath
 export var to: NodePath
@@ -114,20 +115,20 @@ func _physics_process(delta: float) -> void:
 
 
 func add_section(parent: Spatial, i: int) -> RigidBody:
-	var section: RigidBody = SECTION.instance()
-	section.name = "Section %s" % i
-	add_child(section)
+	var part: RigidBody = section.instance()
+	part.name = "Section %s" % i
+	add_child(part)
 
-	for child in section.get_children():
+	for child in part.get_children():
 		child.transform.origin = Vector3.ZERO
 
-	section.transform.origin = -offset + Vector3(0, 0, -0.145) * i
-	return section
+	part.transform.origin = -offset + Vector3(0, 0, -0.145) * i
+	return part
 
 
 func add_link(parent: Spatial, child: Spatial, i: int) -> Joint:
 #	var pin: Generic6DOFJoint = LINK.instance()
-	var pin: PinJoint = JOINT.instance()
+	var pin: PinJoint = joint.instance()
 	pin.transform.origin = -Vector3(0, 0, 0.145 / 2)
 
 	# Setting joint parameters
