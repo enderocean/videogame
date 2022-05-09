@@ -1,0 +1,68 @@
+newmtl default
+d 1
+Ns 0.75
+Ni 0
+Ka 0 0 0
+Kd 0 0 0
+Ks 1 1 1
+Km 0
+
+newmtl default_front_door
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0
+map_Kd /Maps/bbp1d.jpg2.jpg
+
+newmtl default_front_floor
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 0.376471 0.486275 1
+Ks 1 1 1
+Km 0
+
+newmtl default_cushions
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0
+map_Kd /Maps/fgs1.jpg
+
+newmtl default_rear_floor
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0
+map_Kd /Maps/cga1.jpg
+
+newmtl default_door
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0
+map_Kd /Maps/xq1.jpg
+
+newmtl default_boat_body2
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0
+map_Kd /Maps/bbp1d.jpg2.jpg
+

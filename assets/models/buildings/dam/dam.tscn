@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/buildings/dam/uploads_files_2255303_Dam.fbx" type="PackedScene" id=1]
+
+[node name="uploads_files_2255303_Dam" instance=ExtResource( 1 )]
