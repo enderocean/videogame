@@ -406,6 +406,16 @@ material/2 = SubResource( 69 )
 material/3 = SubResource( 69 )
 material/4 = SubResource( 70 )
 
+[node name="Bambou40" type="MeshInstance" parent="."]
+transform = Transform( 0.00580688, 0, -0.00335056, 0, 0.015, 0, 0.00390898, 0, 0.00497733, -20.1717, -1.28, -2.43379 )
+mesh = ExtResource( 28 )
+skeleton = NodePath("../Bambou1")
+material/0 = SubResource( 8 )
+material/1 = SubResource( 69 )
+material/2 = SubResource( 69 )
+material/3 = SubResource( 69 )
+material/4 = SubResource( 70 )
+
 [node name="Bambou38" type="MeshInstance" parent="."]
 transform = Transform( 0.00663644, 0, -0.00502583, 0, 0.018, 0, 0.00446741, 0, 0.00746599, -19.9965, -1.28, 0.218536 )
 mesh = ExtResource( 24 )
