@@ -317,10 +317,10 @@ func process_keys() -> void:
 	var pos: Vector3 = Vector3(0, -0.05, 0)
 
 	if Input.is_action_just_pressed("speed_up"):
-		speed_index = clamp(speed_index + 1, 0, speeds.size())
+		speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
 
 	if Input.is_action_just_pressed("speed_down"):
-		speed_index = clamp(speed_index - 1, 0, speeds.size())
+		speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
 
 	if Input.is_action_pressed("forward"):
 		force.z = speeds[speed_index].x
