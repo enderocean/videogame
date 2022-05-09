@@ -1,0 +1,239 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 30.08.2016 15:32:51
+
+newmtl 13___Default
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.4500 0.4500 0.4500
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Map__45_Falloff.tga
+	map_Kd Map__45_Falloff.tga
+	map_bump P:\Autodesk 3DS\Texture\Wood\Metal\TexturesCom_DecalsRusted0023_1_alphamasked_S.png
+	map_refl Map__46_VRayMap.tga
+
+newmtl Material__206
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.6300 0.6300 0.6300
+	Ke 0.0000 0.0000 0.0000
+	map_Ka P:\Autodesk 3DS\Texture\Wood\Metal\threadplate0002_l_18957188852_o.jpg
+	map_Kd P:\Autodesk 3DS\Texture\Wood\Metal\threadplate0002_l_18957188852_o.jpg
+	map_bump P:\Autodesk 3DS\Texture\Wood\Metal\threadplate0002_l_18957188852_o.jpg
+
+newmtl wire_229154215
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.8980 0.6039 0.8431
+	Kd 0.8980 0.6039 0.8431
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__208
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.6300 0.6300 0.6300
+	Ke 0.0000 0.0000 0.0000
+	map_Ka P:\Autodesk 3DS\Texture\Wood\noyer-us-placage_27205589782_o.jpg
+	map_Kd P:\Autodesk 3DS\Texture\Wood\noyer-us-placage_27205589782_o.jpg
+
+newmtl Material__203
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_refl Map__35_Mask.tga
+
+newmtl Material__207
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0900 0.0900 0.0900
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\olymp\Downloads\Radar-screen.jpg
+	map_Kd C:\Users\olymp\Downloads\Radar-screen.jpg
+
+newmtl metal
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 1.3500 1.3500 1.3500
+	Ke 0.0000 0.0000 0.0000
+	map_refl Map__14_Mask.tga
+
+newmtl Material__139
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5000 0.5000 0.5000
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.7200 0.7200 0.7200
+	Ke 0.0000 0.0000 0.0000
+	map_Ka P:\Autodesk 3DS\Texture\Wood\palissandre_europlac_26695205124_o.jpg
+	map_Kd P:\Autodesk 3DS\Texture\Wood\palissandre_europlac_26695205124_o.jpg
+	map_bump P:\Autodesk 3DS\Texture\Wood\palissandre_europlac_26695205124_o.jpg
+
+newmtl wire_087225087
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.3412 0.8824 0.3412
+	Kd 0.3412 0.8824 0.3412
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__244
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka P:\Autodesk 3DS\Texture\TexturesCom_FabricLaceTrims0210_S.jpg
+	map_Kd P:\Autodesk 3DS\Texture\TexturesCom_FabricLaceTrims0210_S.jpg
+	map_bump P:\Autodesk 3DS\Texture\Wood\Metal\TexturesCom_DecalsRusted0023_1_alphamasked_S.png
+	bump P:\Autodesk 3DS\Texture\Wood\Metal\TexturesCom_DecalsRusted0023_1_alphamasked_S.png
+
+newmtl 02___Default
+	Ns 55.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.1333 0.1333 0.1333
+	Kd 0.1333 0.1333 0.1333
+	Ks 1.0800 1.0800 1.0800
+	Ke 0.0000 0.0000 0.0000
+	map_bump P:\Autodesk 3DS\Texture\Wood\Metal\TexturesCom_Rust0141_1_seamless_S.jpg
+
+newmtl wire_176026026
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.6902 0.1020 0.1020
+	Kd 0.6902 0.1020 0.1020
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_027177027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.1059 0.6941 0.1059
+	Kd 0.1059 0.6941 0.1059
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_153228153
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.6000 0.8941 0.6000
+	Kd 0.6000 0.8941 0.6000
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__156
+	Ns 48.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 1.0800 1.0800 1.0800
+	Ke 0.0000 0.0000 0.0000
+	map_refl Map__10_Mask.tga
+
+newmtl Material__157
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl wire_141007058
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.5529 0.0275 0.2275
+	Kd 0.5529 0.0275 0.2275
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__220
+	Ns 77.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.8550 0.8550 0.8550
+	Ke 0.0000 0.0000 0.0000
+	map_refl Map__58_Raytrace.tga
+
+newmtl wire_140088225
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.5490 0.3451 0.8824
+	Kd 0.5490 0.3451 0.8824
+	Ks 0.3500 0.3500 0.3500

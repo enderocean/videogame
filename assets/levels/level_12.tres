@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "level_12"
+scene = "res://scenes/level_12.tscn"
+thumbnail = "res://assets/levels/images/level_12.jpg"
+title = "Level 12"
+country = "CALIFORNIA"
+location = "The Lighthouse"
+description = "The area is full of little holes around 4 meters deep. 
+
+Things fall in them which attracts marine life that congregates there, but a third of them end up trapping all types of human wastes instead."
+time = 10
+objectives = PoolStringArray( "Catch 6 items" )
+tools = PoolStringArray( "Gripper", "Lights" )

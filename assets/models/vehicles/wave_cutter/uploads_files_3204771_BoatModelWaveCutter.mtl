@@ -1,0 +1,88 @@
+# Blender MTL File: 'BoatModelWaveCutter.blend'
+# Material Count: 8
+
+newmtl Brushed__Dark_Metal
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.033140 0.033140 0.033140
+Ks 0.672727 0.672727 0.672727
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Fabric
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd assets\\materials\\fabric_995e0aa0-b347-49f7-ba53-b09f2250623f\\textures\\Fabric036_2K_Color.png
+map_Ns assets\\materials\\fabric_995e0aa0-b347-49f7-ba53-b09f2250623f\\textures\\Fabric036_2K_Roughness.png
+
+newmtl Glass
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Metal_Semirough_01
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+refl assets\\materials\\metal_semirough_01_fc737726-5c4a-468f-8e78-121a4b3dace6\\textures_1k\\Metal_Semirough_01_metallic.jpg
+
+newmtl Metal_scratched.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd -s 5.000000 5.000000 5.000000 assets\\materials\\metal_scratched_4030d788-aa0c-4f8d-983c-acf2e3797c25\\textures\\Metal038_2K_Color.jpg
+map_Ns -s 5.000000 5.000000 5.000000 assets\\materials\\metal_scratched_4030d788-aa0c-4f8d-983c-acf2e3797c25\\textures\\Metal038_2K_Roughness.jpg
+refl -s 5.000000 5.000000 5.000000 assets\\materials\\metal_scratched_4030d788-aa0c-4f8d-983c-acf2e3797c25\\textures\\Metal038_2K_Metalness.jpg
+
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
+newmtl Pond_/_Ocean_Water
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Wood
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd assets\\materials\\wood_e88e8264-835e-422c-b1f1-c0f0ccf30bab\\textures\\Wood063_2K_Color.jpg
+map_Ns assets\\materials\\wood_e88e8264-835e-422c-b1f1-c0f0ccf30bab\\textures\\Wood063_2K_Roughness.jpg

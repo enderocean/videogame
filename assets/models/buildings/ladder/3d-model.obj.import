@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/3d-model.obj-4f8da1a751bcf4d1c1413af6cff74ab6.mesh"
+
+[deps]
+
+files=[ "res://.import/3d-model.obj-4f8da1a751bcf4d1c1413af6cff74ab6.mesh" ]
+
+source_file="res://assets/models/buildings/ladder/3d-model.obj"
+dest_files=[ "res://.import/3d-model.obj-4f8da1a751bcf4d1c1413af6cff74ab6.mesh", "res://.import/3d-model.obj-4f8da1a751bcf4d1c1413af6cff74ab6.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -367,6 +367,8 @@ transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.225, 9.58816, -8.32711 )
+visible = true
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.704, -160, 3, -155 )
@@ -388,6 +390,7 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1393, 4.34787, -16.1057 )
+starting_tool = 1
 
 [node name="Theter" parent="." instance=ExtResource( 21 )]
 from = NodePath("../BlueRov")
@@ -453,6 +456,7 @@ shape = SubResource( 8 )
 
 [node name="Sailboat" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.230847, 0.97299, 0, -0.97299, -0.230847, 26.8316, -1.84247, -19.8871 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 24 )
@@ -468,6 +472,7 @@ shape = SubResource( 8 )
 
 [node name="Bucket" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.472428, 0.881369, 0, -0.881369, 0.472428, 22.5971, -4.82304, -26.438 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 24 )
@@ -484,6 +489,7 @@ shape = SubResource( 107 )
 
 [node name="Rake" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.472428, 0.881369, 0, -0.881369, 0.472428, 16.5486, -3.77836, -31.2649 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 24 )
@@ -779,6 +785,7 @@ shape = SubResource( 106 )
 
 [node name="Shovel" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.472428, 0.881369, 0, -0.881369, 0.472428, 19.064, -6.5655, -32.2361 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 24 )
@@ -1389,7 +1396,7 @@ transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0 )
 shape = SubResource( 10 )
 
 [node name="Cargo" type="MeshInstance" parent="."]
-transform = Transform( 1.79139, 0.853066, -0.251392, -0.881718, 1.77745, -0.251471, 0.116158, 0.33607, 1.96814, 22.9911, -8.21626, -70.126 )
+transform = Transform( 2.23924, 1.06633, -0.31424, -1.10215, 2.22181, -0.314339, 0.145198, 0.420088, 2.46017, 22.9911, -8.21626, -70.126 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = SubResource( 11 )

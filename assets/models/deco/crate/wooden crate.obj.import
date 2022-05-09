@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wooden crate.obj-8619c7f37984e659f72846954e22092d.mesh"
+
+[deps]
+
+files=[ "res://.import/wooden crate.obj-8619c7f37984e659f72846954e22092d.mesh" ]
+
+source_file="res://assets/models/deco/crate/wooden crate.obj"
+dest_files=[ "res://.import/wooden crate.obj-8619c7f37984e659f72846954e22092d.mesh", "res://.import/wooden crate.obj-8619c7f37984e659f72846954e22092d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

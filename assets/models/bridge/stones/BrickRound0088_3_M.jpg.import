@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/BrickRound0088_3_M.jpg-e3b1ef72f6cea33fc26a5efcc406dfff.s3tc.stex"
+path.etc2="res://.import/BrickRound0088_3_M.jpg-e3b1ef72f6cea33fc26a5efcc406dfff.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/models/bridge/stones/BrickRound0088_3_M.jpg"
+dest_files=[ "res://.import/BrickRound0088_3_M.jpg-e3b1ef72f6cea33fc26a5efcc406dfff.s3tc.stex", "res://.import/BrickRound0088_3_M.jpg-e3b1ef72f6cea33fc26a5efcc406dfff.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

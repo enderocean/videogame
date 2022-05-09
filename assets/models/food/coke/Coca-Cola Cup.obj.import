@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Coca-Cola Cup.obj-5922939867d14f39b2e5568754667793.mesh"
+
+[deps]
+
+files=[ "res://.import/Coca-Cola Cup.obj-5922939867d14f39b2e5568754667793.mesh" ]
+
+source_file="res://assets/models/food/coke/Coca-Cola Cup.obj"
+dest_files=[ "res://.import/Coca-Cola Cup.obj-5922939867d14f39b2e5568754667793.mesh", "res://.import/Coca-Cola Cup.obj-5922939867d14f39b2e5568754667793.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

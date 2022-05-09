@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Old_snag.obj-192411edf05d86e17c2598e273b89ade.mesh"
+
+[deps]
+
+files=[ "res://.import/Old_snag.obj-192411edf05d86e17c2598e273b89ade.mesh" ]
+
+source_file="res://assets/models/woods/snag/Old_snag.obj"
+dest_files=[ "res://.import/Old_snag.obj-192411edf05d86e17c2598e273b89ade.mesh", "res://.import/Old_snag.obj-192411edf05d86e17c2598e273b89ade.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

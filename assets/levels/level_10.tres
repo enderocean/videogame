@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "level_10"
+scene = "res://scenes/level_10.tscn"
+thumbnail = "res://assets/levels/images/level_10.jpg"
+title = "Level 10"
+country = "CUBA"
+location = "Havana river"
+description = "The Quibú river spans over 30km in Havana and is commonly used as a trashbin along its course. Plastic accumulates so much that it even create small plastic islands before they reach the sea.
+
+We’ve been told that a barril filled with toxic chemicals has been lost in the river and couldn’t be found yet, but you might help.
+There are so much plastics and rubbish here that you will need to make your own way to progress."
+time = 10
+objectives = PoolStringArray( "Catch 8 plastics", "Remove barril from water" )
+tools = PoolStringArray( "Gripper", "Lights" )

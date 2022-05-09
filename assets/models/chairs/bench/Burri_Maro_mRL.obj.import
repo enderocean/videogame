@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Burri_Maro_mRL.obj-f835189a3e67a1e1ca86a5d7bdeafddb.mesh"
+
+[deps]
+
+files=[ "res://.import/Burri_Maro_mRL.obj-f835189a3e67a1e1ca86a5d7bdeafddb.mesh" ]
+
+source_file="res://assets/models/chairs/bench/Burri_Maro_mRL.obj"
+dest_files=[ "res://.import/Burri_Maro_mRL.obj-f835189a3e67a1e1ca86a5d7bdeafddb.mesh", "res://.import/Burri_Maro_mRL.obj-f835189a3e67a1e1ca86a5d7bdeafddb.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

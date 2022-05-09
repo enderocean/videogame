@@ -134,7 +134,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 7.89798
+shader_param/timer = 11.4023
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -231,6 +231,8 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="playerCamera" parent="." instance=ExtResource( 29 )]
+transform = Transform( -0.237324, -0.253453, 0.937784, 0.0721203, 0.958103, 0.277196, -0.96875, 0.133419, -0.209102, 16.0455, 11.1208, 5.21463 )
+visible = true
 
 [node name="Vehicle" parent="." instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09859, 11.4746 )

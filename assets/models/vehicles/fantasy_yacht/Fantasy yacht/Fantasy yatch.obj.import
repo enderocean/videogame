@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Fantasy yatch.obj-2b8cfe40cc84fe9cc98938e0543ef282.mesh"
+
+[deps]
+
+files=[ "res://.import/Fantasy yatch.obj-2b8cfe40cc84fe9cc98938e0543ef282.mesh" ]
+
+source_file="res://assets/models/vehicles/fantasy_yacht/Fantasy yacht/Fantasy yatch.obj"
+dest_files=[ "res://.import/Fantasy yatch.obj-2b8cfe40cc84fe9cc98938e0543ef282.mesh", "res://.import/Fantasy yatch.obj-2b8cfe40cc84fe9cc98938e0543ef282.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

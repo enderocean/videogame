@@ -1,0 +1,1189 @@
+[gd_scene load_steps=63 format=2]
+
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=4]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/textures/planks/Planks016_1K_Color.jpg" type="Texture" id=9]
+[ext_resource path="res://terrains/level_11/concrete/Concrete031_1K_Color.jpg" type="Texture" id=10]
+[ext_resource path="res://assets/models/chairs/bench/Burri_Maro_mRL.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/models/vehicles/fisher/obj/untitled.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/models/deco/street_lamp/one_light.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/models/vehicles/fantasy_yacht/Fantasy yacht/Fantasy yatch.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=15]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=16]
+[ext_resource path="res://terrains/level_11/data.hterrain" type="Resource" id=17]
+[ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/vehicles/yacht/3d-model.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://assets/models/vehicles/safeguards/uploads_files_642183_boat.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://terrains/level_11/ground_sand/Ground046_1K_Color.jpg" type="Texture" id=21]
+[ext_resource path="res://terrains/level_11/ground_sand/Ground046_1K_NormalGL.jpg" type="Texture" id=22]
+[ext_resource path="res://assets/models/vehicles/wave_cutter/wave_cutter.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/models/vehicles/two_boats/boat.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/models/vehicles/two_boats/boat_2.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/models/deco/street_lamp/two_lights.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/models/vehicles/seem/seem_boat.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/models/vehicles/voile/voile.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/models/waste/facemask/uploads_files_2365245_Mask+TR.obj" type="ArrayMesh" id=29]
+[ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=30]
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 16 )
+mode = 0
+textures = [ [ ExtResource( 21 ) ], [ ExtResource( 22 ) ] ]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 10 )
+uv1_scale = Vector3( 10, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 9 )
+uv1_scale = Vector3( 10, 2, 1 )
+
+[sub_resource type="CubeMesh" id=28]
+
+[sub_resource type="SpatialMaterial" id=29]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.682353, 0.247059, 0.247059, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.568627, 0.568627, 0.568627, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.321569, 0.188235, 0.188235, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 0.678431, 0.858824, 0.85098, 1 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
+[sub_resource type="SpatialMaterial" id=25]
+
+[sub_resource type="SpatialMaterial" id=26]
+
+[sub_resource type="SpatialMaterial" id=27]
+
+[sub_resource type="SpatialMaterial" id=24]
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_color = Color( 1, 0.980392, 0.466667, 1 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0, 0.321569, 0.580392, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.866667, 1, 0.996078, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.831373, 0.831373, 0.831373, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.682353, 0.682353, 0.682353, 1 )
+
+[sub_resource type="SpatialMaterial" id=30]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=31]
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderShape" id=35]
+radius = 0.05
+height = 0.124861
+
+[node name="level_11" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="water" parent="." instance=ExtResource( 7 )]
+transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.77108, 0, -0.636738, 0, 1, 0, 0.636738, 0, -0.77108, -2.13965, 6.46839, -40.4977 )
+visible = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="BlueRov" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84667, -0.519426, -21.4412 )
+
+[node name="Theter" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+length = 300
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -10, -64 )
+script = ExtResource( 15 )
+_terrain_data = ExtResource( 17 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 13 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( -0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 12.7428, 1.4, -44.83 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, 0.0375366, 0.092994, -0.544281 )
+
+[node name="Side 1" type="MeshInstance" parent="."]
+transform = Transform( 50, 0, 0, 0, 6, 0, 0, 0, 10, 0, -5, -54 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Side 2" type="MeshInstance" parent="."]
+transform = Transform( -2.79753e-06, 0, 10, 0, 6, 0, -64, 0, -4.37114e-07, 54, -5, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Pontoon 1" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 54.8342 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -0.596054 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 0.644201 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -0.596054 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 0.644201 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="Pontoon 2" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37, 0.5, -23.9755 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 29.3695 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 30.6098 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 29.3695 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 30.6098 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="Pontoon 3" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, -3.97549 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 9.36616 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance10" type="MeshInstance" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 10.6064 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance11" type="MeshInstance" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 9.36616 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance12" type="MeshInstance" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 10.6064 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="Pontoon 4" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 16.0245 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance13" type="MeshInstance" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -10.6355 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance14" type="MeshInstance" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -9.3952 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance15" type="MeshInstance" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -10.6355 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance16" type="MeshInstance" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -9.3952 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="Pontoon 5" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 36.0245 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance17" type="MeshInstance" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -30.63 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance18" type="MeshInstance" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -29.3898 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance19" type="MeshInstance" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -30.63 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="MeshInstance20" type="MeshInstance" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -29.3898 )
+mesh = SubResource( 28 )
+skeleton = NodePath("../../Pontoon 1")
+material/0 = SubResource( 29 )
+
+[node name="Burri_Maro_mRL" type="MeshInstance" parent="."]
+transform = Transform( -8.74228e-10, 0.02, 8.74228e-10, 0, -8.74228e-10, 0.02, 0.02, 8.74228e-10, 3.82137e-17, 57.4766, 1, 11.8675 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+
+[node name="Burri_Maro_mRL2" type="MeshInstance" parent="."]
+transform = Transform( -8.74228e-10, 0.02, 8.74228e-10, 0, -8.74228e-10, 0.02, 0.02, 8.74228e-10, 3.82137e-17, 57.4766, 1, 40.9275 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+
+[node name="Burri_Maro_mRL3" type="MeshInstance" parent="."]
+transform = Transform( -8.74228e-10, 0.02, 8.74228e-10, 0, -8.74228e-10, 0.02, 0.02, 8.74228e-10, 3.82137e-17, 57.4766, 0.999999, -24.4986 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+
+[node name="Burri_Maro_mRL4" type="MeshInstance" parent="."]
+transform = Transform( 0.02, 0, 0, 0, -8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, 30.3191, 0.999997, -56.4789 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+
+[node name="Burri_Maro_mRL5" type="MeshInstance" parent="."]
+transform = Transform( 0.02, 0, 0, 0, -8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, -11.8045, 0.999997, -56.4789 )
+mesh = ExtResource( 11 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+
+[node name="Safeguards" type="MeshInstance" parent="."]
+transform = Transform( -0.0798615, 0, -0.0041173, 0, 0.08, 0, 0.00470549, 0, -0.0698788, 34.8595, -1.03454, -11.4227 )
+mesh = ExtResource( 20 )
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+material/2 = SubResource( 17 )
+material/3 = SubResource( 17 )
+material/4 = SubResource( 17 )
+material/5 = SubResource( 16 )
+material/6 = SubResource( 17 )
+material/7 = SubResource( 16 )
+material/8 = SubResource( 15 )
+material/9 = SubResource( 15 )
+material/10 = SubResource( 15 )
+material/11 = SubResource( 15 )
+material/12 = SubResource( 15 )
+material/13 = SubResource( 18 )
+material/14 = SubResource( 15 )
+material/15 = SubResource( 21 )
+material/16 = SubResource( 19 )
+material/17 = SubResource( 19 )
+material/18 = SubResource( 19 )
+material/19 = SubResource( 19 )
+material/20 = SubResource( 19 )
+material/21 = SubResource( 19 )
+material/22 = SubResource( 19 )
+material/23 = SubResource( 19 )
+material/24 = SubResource( 21 )
+material/25 = SubResource( 19 )
+material/26 = SubResource( 19 )
+material/27 = SubResource( 21 )
+material/28 = SubResource( 19 )
+material/29 = SubResource( 21 )
+material/30 = SubResource( 19 )
+material/31 = SubResource( 19 )
+material/32 = SubResource( 19 )
+material/33 = SubResource( 19 )
+material/34 = SubResource( 19 )
+material/35 = SubResource( 19 )
+material/36 = SubResource( 19 )
+material/37 = SubResource( 19 )
+material/38 = SubResource( 19 )
+material/39 = SubResource( 19 )
+material/40 = SubResource( 19 )
+material/41 = SubResource( 19 )
+material/42 = SubResource( 19 )
+material/43 = SubResource( 19 )
+material/44 = SubResource( 19 )
+material/45 = SubResource( 19 )
+material/46 = SubResource( 19 )
+material/47 = SubResource( 21 )
+material/48 = SubResource( 19 )
+material/49 = SubResource( 19 )
+material/50 = SubResource( 19 )
+material/51 = SubResource( 19 )
+material/52 = SubResource( 19 )
+material/53 = SubResource( 19 )
+material/54 = SubResource( 19 )
+material/55 = SubResource( 19 )
+material/56 = SubResource( 19 )
+material/57 = SubResource( 19 )
+material/58 = SubResource( 19 )
+material/59 = SubResource( 19 )
+material/60 = SubResource( 19 )
+material/61 = SubResource( 19 )
+material/62 = SubResource( 19 )
+material/63 = SubResource( 19 )
+material/64 = SubResource( 19 )
+material/65 = SubResource( 19 )
+material/66 = SubResource( 19 )
+material/67 = SubResource( 19 )
+material/68 = SubResource( 19 )
+material/69 = SubResource( 19 )
+material/70 = SubResource( 19 )
+material/71 = SubResource( 19 )
+material/72 = SubResource( 19 )
+material/73 = SubResource( 19 )
+material/74 = SubResource( 19 )
+material/75 = SubResource( 19 )
+material/76 = SubResource( 19 )
+material/77 = SubResource( 19 )
+material/78 = SubResource( 19 )
+material/79 = SubResource( 19 )
+material/80 = SubResource( 19 )
+material/81 = SubResource( 19 )
+material/82 = SubResource( 19 )
+material/83 = SubResource( 19 )
+material/84 = SubResource( 19 )
+material/85 = SubResource( 19 )
+material/86 = SubResource( 19 )
+material/87 = SubResource( 19 )
+material/88 = SubResource( 19 )
+material/89 = SubResource( 19 )
+material/90 = SubResource( 19 )
+material/91 = SubResource( 19 )
+material/92 = SubResource( 19 )
+material/93 = SubResource( 19 )
+material/94 = SubResource( 19 )
+material/95 = SubResource( 19 )
+material/96 = SubResource( 19 )
+material/97 = SubResource( 19 )
+material/98 = SubResource( 19 )
+material/99 = SubResource( 19 )
+material/100 = SubResource( 19 )
+material/101 = SubResource( 19 )
+material/102 = SubResource( 19 )
+material/103 = SubResource( 19 )
+material/104 = SubResource( 19 )
+material/105 = SubResource( 19 )
+material/106 = SubResource( 19 )
+material/107 = SubResource( 19 )
+material/108 = SubResource( 19 )
+material/109 = SubResource( 19 )
+material/110 = SubResource( 19 )
+material/111 = SubResource( 19 )
+material/112 = SubResource( 19 )
+material/113 = SubResource( 19 )
+material/114 = SubResource( 19 )
+material/115 = SubResource( 19 )
+material/116 = SubResource( 19 )
+material/117 = SubResource( 19 )
+material/118 = SubResource( 19 )
+material/119 = SubResource( 19 )
+material/120 = SubResource( 19 )
+material/121 = SubResource( 19 )
+material/122 = SubResource( 19 )
+material/123 = SubResource( 19 )
+material/124 = SubResource( 19 )
+material/125 = SubResource( 19 )
+material/126 = SubResource( 19 )
+material/127 = SubResource( 19 )
+material/128 = SubResource( 19 )
+material/129 = SubResource( 19 )
+material/130 = SubResource( 19 )
+material/131 = SubResource( 19 )
+material/132 = SubResource( 19 )
+material/133 = SubResource( 19 )
+material/134 = SubResource( 19 )
+material/135 = SubResource( 19 )
+material/136 = SubResource( 19 )
+material/137 = SubResource( 19 )
+material/138 = SubResource( 19 )
+material/139 = SubResource( 19 )
+material/140 = SubResource( 19 )
+material/141 = SubResource( 19 )
+material/142 = SubResource( 19 )
+material/143 = SubResource( 19 )
+material/144 = SubResource( 19 )
+material/145 = SubResource( 19 )
+material/146 = SubResource( 19 )
+material/147 = SubResource( 19 )
+material/148 = SubResource( 19 )
+material/149 = SubResource( 19 )
+material/150 = SubResource( 19 )
+material/151 = SubResource( 19 )
+material/152 = SubResource( 19 )
+material/153 = SubResource( 19 )
+material/154 = SubResource( 19 )
+material/155 = SubResource( 19 )
+material/156 = SubResource( 19 )
+material/157 = SubResource( 19 )
+material/158 = SubResource( 19 )
+material/159 = SubResource( 19 )
+material/160 = SubResource( 19 )
+material/161 = SubResource( 19 )
+material/162 = SubResource( 19 )
+material/163 = SubResource( 19 )
+material/164 = SubResource( 19 )
+material/165 = SubResource( 19 )
+material/166 = SubResource( 19 )
+material/167 = SubResource( 19 )
+material/168 = SubResource( 19 )
+material/169 = SubResource( 19 )
+material/170 = SubResource( 19 )
+material/171 = SubResource( 19 )
+material/172 = SubResource( 19 )
+material/173 = SubResource( 19 )
+material/174 = SubResource( 25 )
+material/175 = SubResource( 26 )
+material/176 = SubResource( 27 )
+material/177 = SubResource( 19 )
+material/178 = SubResource( 19 )
+material/179 = SubResource( 19 )
+material/180 = SubResource( 19 )
+material/181 = SubResource( 19 )
+material/182 = SubResource( 19 )
+material/183 = SubResource( 19 )
+material/184 = SubResource( 19 )
+material/185 = SubResource( 19 )
+material/186 = SubResource( 24 )
+material/187 = SubResource( 21 )
+material/188 = SubResource( 19 )
+material/189 = SubResource( 19 )
+material/190 = SubResource( 19 )
+material/191 = SubResource( 19 )
+material/192 = SubResource( 19 )
+material/193 = SubResource( 19 )
+material/194 = SubResource( 19 )
+material/195 = SubResource( 19 )
+material/196 = SubResource( 21 )
+material/197 = SubResource( 19 )
+material/198 = SubResource( 19 )
+material/199 = SubResource( 19 )
+material/200 = SubResource( 19 )
+material/201 = SubResource( 19 )
+material/202 = SubResource( 19 )
+material/203 = SubResource( 19 )
+material/204 = SubResource( 19 )
+material/205 = SubResource( 19 )
+material/206 = SubResource( 19 )
+material/207 = SubResource( 19 )
+material/208 = SubResource( 19 )
+material/209 = SubResource( 19 )
+material/210 = SubResource( 19 )
+material/211 = SubResource( 19 )
+material/212 = SubResource( 19 )
+material/213 = SubResource( 19 )
+material/214 = SubResource( 19 )
+material/215 = SubResource( 19 )
+material/216 = SubResource( 19 )
+material/217 = SubResource( 19 )
+material/218 = SubResource( 19 )
+material/219 = SubResource( 21 )
+material/220 = SubResource( 19 )
+material/221 = SubResource( 19 )
+material/222 = SubResource( 19 )
+material/223 = SubResource( 19 )
+material/224 = SubResource( 19 )
+material/225 = SubResource( 19 )
+material/226 = SubResource( 19 )
+material/227 = SubResource( 19 )
+material/228 = SubResource( 19 )
+material/229 = SubResource( 19 )
+material/230 = SubResource( 19 )
+material/231 = SubResource( 19 )
+material/232 = SubResource( 19 )
+material/233 = SubResource( 19 )
+material/234 = SubResource( 19 )
+material/235 = SubResource( 19 )
+material/236 = SubResource( 19 )
+material/237 = SubResource( 19 )
+material/238 = SubResource( 19 )
+material/239 = SubResource( 19 )
+material/240 = SubResource( 19 )
+material/241 = SubResource( 19 )
+material/242 = SubResource( 19 )
+material/243 = SubResource( 19 )
+material/244 = SubResource( 19 )
+material/245 = SubResource( 19 )
+material/246 = SubResource( 19 )
+material/247 = SubResource( 19 )
+material/248 = SubResource( 23 )
+material/249 = SubResource( 19 )
+material/250 = SubResource( 19 )
+material/251 = SubResource( 23 )
+material/252 = SubResource( 19 )
+material/253 = SubResource( 23 )
+material/254 = SubResource( 19 )
+material/255 = SubResource( 19 )
+material/256 = SubResource( 23 )
+material/257 = SubResource( 19 )
+material/258 = SubResource( 23 )
+material/259 = SubResource( 19 )
+material/260 = SubResource( 19 )
+material/261 = SubResource( 19 )
+material/262 = SubResource( 22 )
+material/263 = SubResource( 19 )
+material/264 = SubResource( 22 )
+material/265 = SubResource( 19 )
+material/266 = SubResource( 22 )
+material/267 = SubResource( 19 )
+material/268 = SubResource( 22 )
+material/269 = SubResource( 19 )
+material/270 = SubResource( 19 )
+material/271 = SubResource( 19 )
+
+[node name="Fisher" type="MeshInstance" parent="."]
+transform = Transform( -0.999819, 0, -0.0190403, 0, 1, 0, 0.0190403, 0, -0.999819, 36.7987, 1.34851, 11.9834 )
+mesh = ExtResource( 12 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+material/54 = null
+material/55 = null
+material/56 = null
+material/57 = null
+material/58 = null
+material/59 = null
+material/60 = null
+material/61 = null
+material/62 = null
+material/63 = null
+material/64 = null
+material/65 = null
+material/66 = null
+material/67 = null
+material/68 = null
+material/69 = null
+material/70 = null
+material/71 = null
+material/72 = null
+material/73 = null
+material/74 = null
+material/75 = null
+material/76 = null
+material/77 = null
+material/78 = null
+material/79 = null
+material/80 = null
+material/81 = null
+material/82 = null
+material/83 = null
+material/84 = null
+
+[node name="Marlow66" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.5618, 0, 20.9707 )
+mesh = ExtResource( 18 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 14 )
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+
+[node name="Fantasy yatch" type="MeshInstance" parent="."]
+transform = Transform( -0.00236116, 0, -0.0699602, 0, 0.07, 0, 0.0699602, 0, -0.00236116, 35.12, -0.891051, 30.7722 )
+visible = false
+mesh = ExtResource( 14 )
+material/0 = SubResource( 6 )
+material/1 = SubResource( 7 )
+material/2 = SubResource( 8 )
+material/3 = SubResource( 9 )
+material/4 = SubResource( 10 )
+material/5 = SubResource( 11 )
+material/6 = SubResource( 12 )
+
+[node name="Yacht" type="MeshInstance" parent="."]
+transform = Transform( -0.0149975, 0, 0.000272257, 0, 0.015, 0, -0.000272257, 0, -0.0149975, 26.6395, 0, 40.7675 )
+visible = false
+mesh = ExtResource( 19 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+material/47 = null
+material/48 = null
+material/49 = null
+material/50 = null
+material/51 = null
+material/52 = null
+material/53 = null
+material/54 = null
+material/55 = null
+material/56 = null
+material/57 = null
+material/58 = null
+material/59 = null
+material/60 = null
+material/61 = null
+material/62 = null
+material/63 = null
+material/64 = null
+material/65 = null
+material/66 = null
+material/67 = null
+material/68 = null
+material/69 = null
+material/70 = null
+material/71 = null
+material/72 = null
+material/73 = null
+material/74 = null
+material/75 = null
+material/76 = null
+material/77 = null
+material/78 = null
+material/79 = null
+material/80 = null
+material/81 = null
+material/82 = null
+material/83 = null
+material/84 = null
+material/85 = null
+material/86 = null
+material/87 = null
+material/88 = null
+material/89 = null
+material/90 = null
+material/91 = null
+material/92 = null
+material/93 = null
+material/94 = null
+material/95 = null
+material/96 = null
+material/97 = null
+
+[node name="Fast boat" parent="." instance=ExtResource( 23 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 34.4101, 0.378475, -19.9343 )
+
+[node name="boat" parent="." instance=ExtResource( 24 )]
+transform = Transform( -2.84124e-08, 0, -0.7, 0, 0.7, 0, 0.65, 0, -3.0598e-08, 35.5303, 1.22174, -28.3436 )
+
+[node name="boat_2" parent="." instance=ExtResource( 25 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 35.3082, 0.533056, 1.01487 )
+
+[node name="Seem boat" parent="." instance=ExtResource( 27 )]
+transform = Transform( -2.62268e-08, 0, 0.5, 0, 0.6, 0, -0.6, 0, -2.18557e-08, 41.2184, -1.68786, 31.7295 )
+
+[node name="voile" parent="." instance=ExtResource( 28 )]
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 32.368, 0.465541, 41.4291 )
+
+[node name="light" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3517, 1, -52.975 )
+
+[node name="light2" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4264, 1, -52.975 )
+
+[node name="light3" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.035, 1, -52.975 )
+
+[node name="double_light" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622, 1, -11.363 )
+
+[node name="double_light2" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622, 1, -46.6799 )
+
+[node name="double_light3" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622, 1, 21.4321 )
+
+[node name="double_light4" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622, 1, 50.4373 )
+
+[node name="Face mask" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4547, -3.03303, -21.7511 )
+collision_layer = 2
+collision_mask = 3
+mass = 10.0
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Facemask" type="MeshInstance" parent="Face mask"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -0.0170701, -0.00714827, -0.029532 )
+mesh = ExtResource( 29 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 30 )
+material/1 = SubResource( 31 )
+material/2 = SubResource( 32 )
+material/3 = SubResource( 32 )
+material/4 = SubResource( 32 )
+material/5 = SubResource( 32 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Face mask"]
+shape = SubResource( 35 )
