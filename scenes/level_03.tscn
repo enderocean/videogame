@@ -437,7 +437,7 @@ skeleton = NodePath("../Rock06/rock06")
 material/0 = SubResource( 12 )
 
 [node name="Anchor" type="StaticBody" parent="."]
-transform = Transform( 0.905522, -0.27146, -0.326096, 0.251855, 0.962397, -0.101788, 0.341465, 0.0100422, 0.939841, 59.0895, -11.7385, 159.744 )
+transform = Transform( 0.954129, -0.23257, 0.188544, 0.178711, 0.94766, 0.264579, -0.240209, -0.218748, 0.945753, 57.0445, -11.0739, 160.423 )
 collision_layer = 2
 __meta__ = {
 "_edit_group_": true
@@ -663,6 +663,20 @@ material = SubResource( 11 )
 transform = Transform( 1, 0, 0, 0, -1.11901e-05, -1, 0, 256, -4.37114e-08, 56.814, -12.132, 126.231 )
 radius = 0.8
 sides = 32
+material = SubResource( 11 )
+
+[node name="CSGInsideJunction" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 56.814, -12.132, 159.285 )
+operation = 2
+radius = 0.7
+height = 1.96962
+sides = 32
+material = SubResource( 11 )
+
+[node name="CSGBreach" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( -0.0197521, -0.240737, -0.318835, -0.0148854, 0.319446, -0.240277, 0.399235, 0, -0.024733, 57.2798, -11.7466, 159.172 )
+operation = 2
+polygon = PoolVector2Array( 0.146408, 0.828349, 1.43333, 0.944141, 1.93115, 0.5056, 1.7076, -0.00823879, 0.99229, -0.34409, 0.364437, -0.314814, 0.143921, -0.156212, -0.0863953, 0.30755, -0.952263, 0.782509 )
 material = SubResource( 11 )
 
 [editable path="BewareRocks"]
