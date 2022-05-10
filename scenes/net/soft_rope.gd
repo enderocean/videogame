@@ -16,10 +16,7 @@ var pin
 var pins_beg = []
 var pins_end = []
 
-#func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-#	if (area.name == "RightCutArea"):
-#		cut_rope(0.5)
-#
+
 func set_rope_pins():
 	mdt.create_from_surface(mesh, 0)
 
@@ -28,16 +25,19 @@ func set_rope_pins():
 			if mdt.get_vertex(id).y < 0:
 				pins_beg.append(id)
 				self.set_point_pinned(id, true)
-				second_rope.set_point_pinned(id, true)
+				if (second_rope):
+					second_rope.set_point_pinned(id, true)
 			else:
 				pins_end.append(id)
 				set_point_pinned(id, true)
-				second_rope.set_point_pinned(id, true)
+				if (second_rope):
+					second_rope.set_point_pinned(id, true)
 				var edges = mdt.get_vertex_edges(id)
 				for i in edges.size():
 					pins_end.append(mdt.get_edge_vertex(edges[i], 1))
 					set_point_pinned(mdt.get_edge_vertex(edges[i], 1), true)
-					second_rope.set_point_pinned(mdt.get_edge_vertex(edges[i], 1), true)
+					if (second_rope):
+						second_rope.set_point_pinned(mdt.get_edge_vertex(edges[i], 1), true)
 
 
 func create_rope(rope_length: float):
@@ -54,7 +54,8 @@ func create_rope(rope_length: float):
 func unpin():
 	for id in range(1, pins_end.size()):
 		self.set_point_pinned(pins_end[id], false)
-		second_rope.set_point_pinned(pins_end[id], false)
+		if (second_rope):
+			second_rope.set_point_pinned(pins_end[id], false)
 
 
 func _ready():

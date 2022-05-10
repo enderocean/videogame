@@ -39,7 +39,6 @@ func get_closest_pins(rope_nb):
 			real_pin = id
 
 	var pos_pin = global_transform.xform(mdt.get_vertex(real_pin))
-
 	for id in mdt.get_vertex_count():
 		var tmp = global_transform.xform(fish_net.get_point_transform(id))
 		if (tmp == pos_pin):
@@ -59,62 +58,48 @@ func cut_rope(area, rope_id, cut_pos):
 		emit_signal("net_cut")
 
 func replace_attach(rope_nb, cut_pos):
-	var soft_rope_1 = SoftRope.new()
-	soft_rope_1.create_rope(0.01)
-	var soft_rope_2 = SoftRope.new()
-	soft_rope_2.create_rope(0.01)
-	soft_rope_2.second_rope = soft_rope_1
+	var soft_rope = SoftRope.new()
+	soft_rope.create_rope(0.01)
 
-	add_child(soft_rope_1)
-	add_child(soft_rope_2)
+	add_child(soft_rope)
 
-	soft_rope_1.global_transform.origin = pospins[rope_nb].global_transform.origin
-	soft_rope_2.global_transform.origin = attachs[rope_nb].global_transform.origin
+	soft_rope.global_transform.origin = attachs[rope_nb].global_transform.origin
 
-
-	var new_pos = soft_rope_2.global_transform.origin.linear_interpolate(
-		soft_rope_1.global_transform.origin, 0.5)
-	soft_rope_2.global_transform.origin = new_pos
+	var new_pos = soft_rope.global_transform.origin.linear_interpolate(
+		pospins[rope_nb].global_transform.origin, 0.5)
+	soft_rope.global_transform.origin = new_pos
 	
-	soft_rope_2.look_at(soft_rope_1.global_transform.origin, Vector3(1, 0, 0))
-	soft_rope_2.rotate_object_local(Vector3(1, 0, 0), deg2rad(90))
+	soft_rope.look_at(pospins[rope_nb].global_transform.origin, Vector3(1, 0, 0))
+	soft_rope.rotate_object_local(Vector3(1, 0, 0), deg2rad(90))
 
-	soft_rope_1.look_at(soft_rope_2.global_transform.origin, Vector3(1, 0, 0))
-	soft_rope_1.rotate_object_local(Vector3(1, 0, 0), deg2rad(90))
-	
-	soft_rope_2.set_rope_pins()
+	soft_rope.set_rope_pins()
 
 	var mdt2 = MeshDataTool.new()
-	mdt2.create_from_surface(soft_rope_2.mesh, 0)
+	mdt2.create_from_surface(soft_rope.mesh, 0)
 
-	var diff = soft_rope_2.global_transform.xform(mdt2.get_vertex(soft_rope_2.pins_beg[0])).distance_squared_to(
-		soft_rope_1.global_transform.origin
+	var diff = soft_rope.global_transform.xform(mdt2.get_vertex(soft_rope.pins_beg[0])).distance_squared_to(
+		pospins[rope_nb].global_transform.origin
 	)
 	var length = (
-		soft_rope_2.global_transform.xform(mdt2.get_vertex(soft_rope_2.pins_end[0])).distance_squared_to(
-			soft_rope_1.global_transform.origin
+		soft_rope.global_transform.xform(mdt2.get_vertex(soft_rope.pins_end[0])).distance_squared_to(
+			pospins[rope_nb].global_transform.origin
 		)
 		- diff
 	)
 	var distance = (diff * 2) + length
 	var scale_factor = distance / length
 
-	soft_rope_2.scale.y = soft_rope_2.scale.y * (scale_factor * 2)
+	soft_rope.scale.y = soft_rope.scale.y * (scale_factor * 2)
+	soft_rope.scale.y = soft_rope.scale.y * cut_pos
 	
-	#debut du bordel
-	soft_rope_1.scale.y = soft_rope_2.scale.y * (1 - cut_pos)
-	soft_rope_2.scale.y = soft_rope_2.scale.y * cut_pos
-	soft_rope_1.global_transform.origin = pospins[rope_nb].global_transform.origin
-	soft_rope_2.global_transform.origin = attachs[rope_nb].global_transform.origin
+	soft_rope.global_transform.origin = attachs[rope_nb].global_transform.origin
 	
-	new_pos = soft_rope_2.global_transform.origin.linear_interpolate(
-		soft_rope_1.global_transform.origin, cut_pos/2)
+	new_pos = soft_rope.global_transform.origin.linear_interpolate(
+		pospins[rope_nb].global_transform.origin, cut_pos/2)
 	
-	var new_pos2 = soft_rope_1.global_transform.origin.linear_interpolate(
-		soft_rope_2.global_transform.origin, (1 - cut_pos)/2)
-	soft_rope_2.global_transform.origin = new_pos
-	soft_rope_1.global_transform.origin = new_pos2
-	soft_rope_2.unpin()
+	soft_rope.global_transform.origin = new_pos
+
+	soft_rope.unpin()
 	fish_net.set_point_pinned(overrite_pins[rope_nb], false)
 
 	
@@ -136,7 +121,6 @@ func create_attach(rope_nb):
 
 	soft_rope_1.global_transform.origin = pospins[rope_nb].global_transform.origin
 	soft_rope_2.global_transform.origin = attachs[rope_nb].global_transform.origin
-
 
 	var new_pos = soft_rope_2.global_transform.origin.linear_interpolate(
 		soft_rope_1.global_transform.origin, 0.5)
@@ -175,6 +159,7 @@ func create_attach(rope_nb):
 	soft_ropes.append([soft_rope_1, soft_rope_2, soft_rope_2.scale.y])
 
 func _ready():
+	
 	var mesh = fish_net.get_mesh()
 	mdt.create_from_surface(mesh, 0)
 	for i in attachs.size():
