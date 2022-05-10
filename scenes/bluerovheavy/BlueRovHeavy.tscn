@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scripts/vehicle/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton/newton.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scripts/vehicle/cutter_tool.gd" type="Script" id=13]
 [ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
 [ext_resource path="res://scripts/delivery/delivery_vaccum.gd" type="Script" id=15]
+[ext_resource path="res://scenes/components/theter_anchor_moving.tscn" type="PackedScene" id=16]
 
 [sub_resource type="PhysicsMaterial" id=61]
 friction = 0.0
@@ -205,7 +206,7 @@ radius = 0.160743
 script = ExtResource( 9 )
 vehicle_body_path = NodePath("BlueRov")
 camera_target_path = NodePath("BlueRov/cameraTarget")
-theter_anchor_path = NodePath("VehicleTheterAnchor")
+theter_anchor_path = NodePath("TheterAnchor")
 
 [node name="BlueRov" type="RigidBody" parent="." groups=["buoyant", "vehicles"]]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0262519, 0, 0.0185718 )
@@ -612,6 +613,14 @@ shape = SubResource( 52 )
 [node name="Position3D" type="Position3D" parent="Vacuum/VacuumRigidBody/VaccumProcess"]
 transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.49214e-13, 3.12639e-13, 4.44089e-14, 0.999999, -0.0800091, 0.0195205, 0.0417869 )
 
+[node name="TheterAnchor" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.19, 0.29 )
+
+[node name="Joint" parent="TheterAnchor" index="0"]
+nodes/node_a = NodePath("../../BlueRov")
+
 [connection signal="area_shape_entered" from="Cutter/CutRightRigidBody/RightCutArea" to="Cutter" method="_on_RightCutArea_area_shape_entered"]
 [connection signal="body_entered" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_entered"]
 [connection signal="body_exited" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_exited"]
+
+[editable path="TheterAnchor"]

@@ -155,9 +155,7 @@ func get_starting_point(node) -> Vector3:
 
 # Used to get the correct target depending on the type of object given
 func get_body_from(node) -> PhysicsBody:
-	if node is Vehicle:
-		return node.vehicle_body
-	if node is DeliveryTool:
+	if node is Vehicle or node is DeliveryTool:
 		return node.theter_anchor.body
 	elif node is PhysicsBody:
 		return node
