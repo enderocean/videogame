@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=182 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -18,6 +18,148 @@
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=16]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=17]
 [ext_resource path="res://assets/models/corals/Billboard/RS04v3.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://assets/models/underwater/plant_02/tex/shanhu01_color.jpg" type="Texture" id=19]
+[ext_resource path="res://assets/models/underwater/plant_02/plant_02.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://assets/models/underwater/plant_03/tex/shanhu02_color.jpg" type="Texture" id=21]
+[ext_resource path="res://assets/models/underwater/plant_03/plant_03.obj" type="ArrayMesh" id=22]
+[ext_resource path="res://assets/models/underwater/plant_04/plant_04.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://assets/models/underwater/plant_04/aiStandard1.material" type="Material" id=24]
+[ext_resource path="res://assets/models/underwater/plant_01/plant_01.obj" type="ArrayMesh" id=25]
+[ext_resource path="res://assets/models/underwater/plant_01/aiStandard1.material" type="Material" id=26]
+[ext_resource path="res://assets/models/underwater/plant_05/plant_05.obj" type="ArrayMesh" id=27]
+[ext_resource path="res://assets/models/underwater/plant_05/aiStandard1.material" type="Material" id=28]
+[ext_resource path="res://assets/models/underwater/plant_06/aiStandard2.material" type="Material" id=29]
+[ext_resource path="res://assets/models/underwater/plant_06/plant_06.obj" type="ArrayMesh" id=30]
+[ext_resource path="res://assets/models/underwater/plant_06/aiStandard1.material" type="Material" id=31]
+[ext_resource path="res://assets/models/underwater/plant_07/plant_07.obj" type="ArrayMesh" id=32]
+[ext_resource path="res://assets/models/underwater/plant_07/sdaiStandard1.material" type="Material" id=33]
+[ext_resource path="res://assets/models/underwater/plant_08/aiStandard1.material" type="Material" id=34]
+[ext_resource path="res://assets/models/underwater/plant_08/aiStandard2.material" type="Material" id=35]
+[ext_resource path="res://assets/models/underwater/plant_09/plant_09.obj" type="ArrayMesh" id=36]
+[ext_resource path="res://assets/models/underwater/plant_09/aiStandard1.material" type="Material" id=37]
+[ext_resource path="res://assets/models/underwater/plant_08/plant_08.obj" type="ArrayMesh" id=38]
+[ext_resource path="res://assets/models/underwater/plant_10/aiStandard1.material" type="Material" id=39]
+[ext_resource path="res://assets/models/underwater/plant_10/plant_10.obj" type="ArrayMesh" id=40]
+[ext_resource path="res://assets/models/underwater/plant_11/plant_11.obj" type="ArrayMesh" id=41]
+[ext_resource path="res://assets/models/underwater/plant_11/aiStandard1.material" type="Material" id=42]
+[ext_resource path="res://assets/models/underwater/plant_12/plant_12.obj" type="ArrayMesh" id=43]
+[ext_resource path="res://assets/models/underwater/plant_13/aiStandard1.material" type="Material" id=44]
+[ext_resource path="res://assets/models/underwater/plant_15/plant_15.obj" type="ArrayMesh" id=45]
+[ext_resource path="res://assets/models/underwater/plant_14/plant_14.obj" type="ArrayMesh" id=46]
+[ext_resource path="res://assets/models/underwater/plant_14/aiStandard1.material" type="Material" id=47]
+[ext_resource path="res://assets/models/underwater/plant_13/plant_13.obj" type="ArrayMesh" id=48]
+[ext_resource path="res://assets/models/underwater/plant_15/aiStandard1.material" type="Material" id=49]
+[ext_resource path="res://assets/models/underwater/plant_12/aiStandard1.material" type="Material" id=50]
+[ext_resource path="res://assets/models/underwater/plant_16/plant_16.obj" type="ArrayMesh" id=51]
+[ext_resource path="res://assets/models/underwater/plant_16/aiStandard1.material" type="Material" id=52]
+[ext_resource path="res://assets/models/underwater/plant_17/plant_17.obj" type="ArrayMesh" id=53]
+[ext_resource path="res://assets/models/underwater/plant_17/aiStandard1.material" type="Material" id=54]
+[ext_resource path="res://assets/models/underwater/plant_17/aiStandard2.material" type="Material" id=55]
+[ext_resource path="res://assets/models/underwater/plant_18/aiStandard1.material" type="Material" id=56]
+[ext_resource path="res://assets/models/underwater/plant_18/plant_18.obj" type="ArrayMesh" id=57]
+[ext_resource path="res://assets/models/underwater/plant_19/aiStandard1.material" type="Material" id=58]
+[ext_resource path="res://assets/models/underwater/plant_19/plant_19.obj" type="ArrayMesh" id=59]
+[ext_resource path="res://assets/models/underwater/plant_20/aiStandard1.material" type="Material" id=60]
+[ext_resource path="res://assets/models/underwater/plant_20/plant_20.obj" type="ArrayMesh" id=61]
+[ext_resource path="res://assets/models/underwater/plant_21/aiStandard1.material" type="Material" id=62]
+[ext_resource path="res://assets/models/underwater/plant_21/plant_21.obj" type="ArrayMesh" id=63]
+[ext_resource path="res://assets/models/underwater/plant_22/plant_22.obj" type="ArrayMesh" id=64]
+[ext_resource path="res://assets/models/underwater/plant_22/aiStandard1.material" type="Material" id=65]
+[ext_resource path="res://assets/models/underwater/plant_23/aiStandard1.material" type="Material" id=66]
+[ext_resource path="res://assets/models/underwater/plant_23/plant_23.obj" type="ArrayMesh" id=67]
+[ext_resource path="res://assets/models/underwater/plant_24/plant_24.obj" type="ArrayMesh" id=68]
+[ext_resource path="res://assets/models/underwater/plant_24/aiStandard1.material" type="Material" id=69]
+[ext_resource path="res://assets/models/underwater/plant_25/plant_25.obj" type="ArrayMesh" id=70]
+[ext_resource path="res://assets/models/underwater/plant_25/aiStandard1.material" type="Material" id=71]
+[ext_resource path="res://assets/models/underwater/plant_26/aiStandard2.material" type="Material" id=72]
+[ext_resource path="res://assets/models/underwater/plant_26/plant_26.obj" type="ArrayMesh" id=73]
+[ext_resource path="res://assets/models/underwater/plant_26/aiStandard1.material" type="Material" id=74]
+[ext_resource path="res://assets/models/underwater/plant_28/plant_28.obj" type="ArrayMesh" id=75]
+[ext_resource path="res://assets/models/underwater/plant_28/aiStandard1.material" type="Material" id=76]
+[ext_resource path="res://assets/models/underwater/plant_27/plant_27.obj" type="ArrayMesh" id=77]
+[ext_resource path="res://assets/models/underwater/plant_27/aiStandard1.material" type="Material" id=78]
+[ext_resource path="res://assets/models/underwater/plant_29/aiStandard1.material" type="Material" id=79]
+[ext_resource path="res://assets/models/underwater/plant_29/plant_29.obj" type="ArrayMesh" id=80]
+[ext_resource path="res://assets/models/underwater/plant_30/aiStandard1.material" type="Material" id=81]
+[ext_resource path="res://assets/models/underwater/plant_30/plant_30.obj" type="ArrayMesh" id=82]
+[ext_resource path="res://assets/models/underwater/plant_31/plant_31.obj" type="ArrayMesh" id=83]
+[ext_resource path="res://assets/models/underwater/plant_32/plant_32.obj" type="ArrayMesh" id=84]
+[ext_resource path="res://assets/models/underwater/plant_32/tex/shanhu34_color.jpg" type="Texture" id=85]
+[ext_resource path="res://assets/models/underwater/plant_33/plant_33.obj" type="ArrayMesh" id=86]
+[ext_resource path="res://assets/models/underwater/plant_33/aiStandard3.material" type="Material" id=87]
+[ext_resource path="res://assets/models/underwater/plant_34/plant_34.obj" type="ArrayMesh" id=88]
+[ext_resource path="res://assets/models/underwater/plant_34/aiStandard1.material" type="Material" id=89]
+[ext_resource path="res://assets/models/underwater/plant_35/plant_35.obj" type="ArrayMesh" id=90]
+[ext_resource path="res://assets/models/underwater/plant_35/aiStandard2.material" type="Material" id=91]
+[ext_resource path="res://assets/models/underwater/plant_36/plant_36.obj" type="ArrayMesh" id=92]
+[ext_resource path="res://assets/models/underwater/plant_36/aiStandard1.material" type="Material" id=93]
+[ext_resource path="res://assets/models/animals/green_sea_turtle/grnSeatturtle1f3UVriggedf.tscn" type="PackedScene" id=94]
+[ext_resource path="res://assets/models/animals/tropical_fishes/WhaleShark/WhaleShark_Base_Color.png" type="Texture" id=95]
+[ext_resource path="res://assets/models/animals/tropical_fishes/WhaleShark/WhaleShark.obj" type="ArrayMesh" id=96]
+[ext_resource path="res://assets/models/underwater/plant_37/plant_37.obj" type="ArrayMesh" id=97]
+[ext_resource path="res://assets/models/underwater/plant_38/tex/shanhu41_emission.jpg" type="Texture" id=98]
+[ext_resource path="res://assets/models/underwater/plant_38/plant_38.obj" type="ArrayMesh" id=99]
+[ext_resource path="res://assets/models/underwater/plant_38/aiStandard2.material" type="Material" id=100]
+[ext_resource path="res://assets/models/underwater/plant_39/aiStandard1.material" type="Material" id=101]
+[ext_resource path="res://assets/models/underwater/plant_39/plant_39.obj" type="ArrayMesh" id=102]
+[ext_resource path="res://assets/models/underwater/plant_40/tex/haizhe.jpg" type="Texture" id=103]
+[ext_resource path="res://assets/models/underwater/plant_40/plant_40.obj" type="ArrayMesh" id=104]
+[ext_resource path="res://assets/models/underwater/plant_41/plant_41.obj" type="ArrayMesh" id=105]
+[ext_resource path="res://assets/models/underwater/plant_41/aiStandard1.material" type="Material" id=106]
+[ext_resource path="res://assets/models/underwater/plant_42/tex/grass_small_color.jpg" type="Texture" id=107]
+[ext_resource path="res://assets/models/underwater/plant_42/plant_42.obj" type="ArrayMesh" id=108]
+[ext_resource path="res://assets/models/underwater/plant_43/aiStandard4.material" type="Material" id=109]
+[ext_resource path="res://assets/models/underwater/plant_43/plant_43.obj" type="ArrayMesh" id=110]
+[ext_resource path="res://assets/models/underwater/plant_44/aiStandard1.material" type="Material" id=111]
+[ext_resource path="res://assets/models/underwater/plant_44/plant_44.obj" type="ArrayMesh" id=112]
+[ext_resource path="res://assets/models/underwater/plant_45/plant_45.obj" type="ArrayMesh" id=113]
+[ext_resource path="res://assets/models/underwater/plant_46/plant_46.obj" type="ArrayMesh" id=114]
+[ext_resource path="res://assets/models/underwater/plant_46/aiStandard1.material" type="Material" id=115]
+[ext_resource path="res://assets/models/underwater/plant_45/aiStandard1.material" type="Material" id=116]
+[ext_resource path="res://assets/models/underwater/plant_47/plant_47.obj" type="ArrayMesh" id=117]
+[ext_resource path="res://assets/models/underwater/plant_48/plant_48.obj" type="ArrayMesh" id=118]
+[ext_resource path="res://assets/models/underwater/plant_48/aiStandard1.material" type="Material" id=119]
+[ext_resource path="res://assets/models/underwater/plant_49/tex/shanhu48_color01.jpg" type="Texture" id=120]
+[ext_resource path="res://assets/models/underwater/plant_49/tex/shanhu48_color02.jpg" type="Texture" id=121]
+[ext_resource path="res://assets/models/underwater/plant_49/plant_49.obj" type="ArrayMesh" id=122]
+[ext_resource path="res://assets/models/underwater/plant_50/lambert2.material" type="Material" id=123]
+[ext_resource path="res://assets/models/underwater/plant_50/plant_50.obj" type="ArrayMesh" id=124]
+[ext_resource path="res://assets/models/underwater/plant_51/plant_51.obj" type="ArrayMesh" id=125]
+[ext_resource path="res://assets/models/underwater/plant_51/aiStandard1.material" type="Material" id=126]
+[ext_resource path="res://assets/models/underwater/plant_52/plant_52.obj" type="ArrayMesh" id=127]
+[ext_resource path="res://assets/models/underwater/plant_52/aiStandard1.material" type="Material" id=128]
+[ext_resource path="res://assets/models/underwater/plant_55/plant_55.obj" type="ArrayMesh" id=129]
+[ext_resource path="res://assets/models/underwater/plant_55/aiStandard1.material" type="Material" id=130]
+[ext_resource path="res://assets/models/underwater/plant_53/plant_53.obj" type="ArrayMesh" id=131]
+[ext_resource path="res://assets/models/underwater/plant_54/plant_54.obj" type="ArrayMesh" id=132]
+[ext_resource path="res://assets/models/underwater/plant_54/aiStandard1.material" type="Material" id=133]
+[ext_resource path="res://assets/models/underwater/plant_53/aiStandard1.material" type="Material" id=134]
+[ext_resource path="res://assets/models/underwater/plant_56/plant_56.obj" type="ArrayMesh" id=135]
+[ext_resource path="res://assets/models/underwater/plant_56/aiStandard1.material" type="Material" id=136]
+[ext_resource path="res://assets/models/underwater/plant_57/plant_57.obj" type="ArrayMesh" id=137]
+[ext_resource path="res://assets/models/underwater/plant_57/aiStandard1.material" type="Material" id=138]
+[ext_resource path="res://assets/models/underwater/plant_58/aiStandard1.material" type="Material" id=139]
+[ext_resource path="res://assets/models/underwater/plant_58/plant_58.obj" type="ArrayMesh" id=140]
+[ext_resource path="res://assets/models/underwater/plant_59/plant_59.obj" type="ArrayMesh" id=141]
+[ext_resource path="res://assets/models/underwater/plant_59/aiStandard1.material" type="Material" id=142]
+[ext_resource path="res://assets/models/underwater/plant_60/plant_60.obj" type="ArrayMesh" id=143]
+[ext_resource path="res://assets/models/underwater/plant_60/aiStandard1.material" type="Material" id=144]
+[ext_resource path="res://assets/models/underwater/plant_61/plant_61.obj" type="ArrayMesh" id=145]
+[ext_resource path="res://assets/models/underwater/plant_61/qq_____d1.material" type="Material" id=146]
+[ext_resource path="res://assets/models/underwater/plant_62/plant_62.obj" type="ArrayMesh" id=147]
+[ext_resource path="res://assets/models/underwater/plant_62/aiStandard1.material" type="Material" id=148]
+[ext_resource path="res://assets/models/underwater/plant_63/aiStandard1.material" type="Material" id=149]
+[ext_resource path="res://assets/models/underwater/plant_63/plant_63.obj" type="ArrayMesh" id=150]
+[ext_resource path="res://assets/models/underwater/plant_64/plant_64.obj" type="ArrayMesh" id=151]
+[ext_resource path="res://assets/models/underwater/plant_64/aiStandard1.material" type="Material" id=152]
+[ext_resource path="res://assets/models/underwater/plant_65/plant_65.obj" type="ArrayMesh" id=153]
+[ext_resource path="res://assets/models/underwater/plant_65/aiStandard1.material" type="Material" id=154]
+[ext_resource path="res://assets/models/underwater/plant_66/plant_66.obj" type="ArrayMesh" id=155]
+[ext_resource path="res://assets/models/underwater/plant_66/aiStandard1.material" type="Material" id=156]
+[ext_resource path="res://assets/models/underwater/plant_67/aiStandard1.material" type="Material" id=157]
+[ext_resource path="res://assets/models/underwater/plant_67/plant_67.obj" type="ArrayMesh" id=158]
+[ext_resource path="res://assets/models/underwater/plant_68/plant_68.obj" type="ArrayMesh" id=159]
+[ext_resource path="res://assets/models/underwater/plant_68/aiStandard1.material" type="Material" id=160]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
@@ -33,6 +175,9 @@ albedo_color = Color( 0.654902, 0.0392157, 0.0392157, 1 )
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.678431, 0.12549, 0.12549, 1 )
 
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 95 )
+
 [sub_resource type="Curve3D" id=5]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -26.7475, 3.8147e-06, -1.66514, 0, 0, 0, 0, 0, 0, -24.1113, 3.8147e-06, -9.33407, 0, 0, 0, 0, 0, 0, -20.6009, 0, -15.1633, 0, 0, 0, 0, 0, 0, -14.4151, 0, -22.2543, 0, 0, 0, 0, 0, 0, -3.98036, 3.8147e-06, -30.0641, 0, 0, 0, 0, 0, 0, 5.95267, 0, -37.4924, 0, 0, 0, 0, 0, 0, 15.6085, 0, -41.1133, 0, 0, 0, 0, 0, 0, 23.9065, 0, -41.2642, 0, 0, 0, 0, 0, 0, 33.9115, -6.19888e-06, -38.2877, 0, 0, 0, 0, 0, 0, 39.0641, -6.19888e-06, -32.536, 0, 0, 0, 0, 0, 0, 40.7416, -6.19888e-06, -24.2679, 0, 0, 0, 0, 0, 0, 39.397, 3.8147e-06, -13.7677, 0, 0, 0, 0, 0, 0, 33.1097, 0, -4.30046, 0, 0, 0, 0, 0, 0, 23.5799, 3.8147e-06, 4.68569, 0, 0, 0, 0, 0, 0, 11.0823, 0, 13.5025, 0, 0, 0, 0, 0, 0, 3.38784, 0, 19.8391, 0, 0, 0, 0, 0, 0, -7.47496, 0, 25.5723, 0, 0, 0, 0, 0, 0, -18.5993, 3.8147e-06, 24.3373, 0, 0, 0, 0, 0, 0, -27.4664, 3.8147e-06, 18.8253, 0, 0, 0, 0, 0, 0, -30.1026, 3.8147e-06, 10.7969, 0, 0, 0, 0, 0, 0, -29.0242, 3.8147e-06, 3.8469, 0, 0, 0, 0, 0, 0, -26.7475, 3.8147e-06, -1.66514 ),
@@ -45,12 +190,50 @@ albedo_color = Color( 1, 0.768627, 0.968627, 1 )
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.623529, 0.486275, 0.788235, 1 )
 
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 19 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 21 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 85 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.647059, 0.333333, 0.176471, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 98 )
+
+[sub_resource type="SpatialMaterial" id=15]
+next_pass = ExtResource( 100 )
+
+[sub_resource type="SpatialMaterial" id=16]
+next_pass = ExtResource( 101 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 103 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 107 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 120 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_texture = ExtResource( 121 )
+
 [node name="level_08" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="water" parent="." instance=ExtResource( 3 )]
-transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.58316, 4.95221, -2.57201 )
-visible = false
+transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.583, 12, -2.572 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -60,7 +243,7 @@ shadow_enabled = true
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -34.3789, 1.51891, -1.21395 )
+transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 10.123, 1.51891, 8.31215 )
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
@@ -103,11 +286,19 @@ material/1 = SubResource( 3 )
 material/2 = SubResource( 4 )
 
 [node name="Coral Billboard2" type="MeshInstance" parent="."]
-transform = Transform( -0.0312945, 0.0511923, 2.23769e-09, 0, -2.62268e-09, 0.06, 0.0511923, 0.0312945, 1.36793e-09, -38.4863, -0.430365, 31.992 )
+transform = Transform( -0.0312945, 0.0511923, 2.23769e-09, 0, -2.62268e-09, 0.06, 0.0511923, 0.0312945, 1.36793e-09, 9.928, -1.52838, 14.984 )
 mesh = ExtResource( 11 )
 material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
 material/2 = SubResource( 4 )
+
+[node name="WhaleShark" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 3.091, 6.89511, 1.1427 )
+mesh = ExtResource( 96 )
+material/0 = SubResource( 12 )
+
+[node name="grnSeatturtle1f3UVriggedf" parent="." instance=ExtResource( 94 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 22.5418, 1.0731, 23.0398 )
 
 [node name="Path" type="Path" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.3852, -0.718838, 0.905231 )
@@ -138,3 +329,434 @@ material/1 = SubResource( 7 )
 material/2 = SubResource( 7 )
 material/3 = SubResource( 7 )
 material/4 = SubResource( 7 )
+
+[node name="plant_01" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.4188, -0.612421, 15.2948 )
+mesh = ExtResource( 25 )
+skeleton = NodePath("../plant_02")
+material/0 = ExtResource( 26 )
+
+[node name="plant_02" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.342, -0.449329, 16.314 )
+mesh = ExtResource( 20 )
+material/0 = SubResource( 8 )
+
+[node name="plant_03" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.3635, -0.603717, 17.2274 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../plant_02")
+material/0 = SubResource( 9 )
+
+[node name="plant_04" type="MeshInstance" parent="."]
+transform = Transform( 0.098878, 0, -0.014938, 0, 0.1, 0, 0.014938, 0, 0.098878, 18.2258, -0.569026, 16.5028 )
+mesh = ExtResource( 23 )
+material/0 = ExtResource( 24 )
+
+[node name="plant_05" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.2145, -0.49722, 15.8958 )
+mesh = ExtResource( 27 )
+material/0 = ExtResource( 28 )
+
+[node name="plant_06" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 16.1892, -0.49963, 14.828 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_bis" type="MeshInstance" parent="."]
+transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 17.0405, -0.49963, 17.6862 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 29 )
+
+[node name="plant_07" type="MeshInstance" parent="."]
+transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 16.5179, -0.685121, 16.2814 )
+mesh = ExtResource( 32 )
+skeleton = NodePath("../plant_06_bis")
+material/0 = ExtResource( 33 )
+
+[node name="plant_08" type="MeshInstance" parent="."]
+transform = Transform( -0.0137185, 0, -0.0990545, 0, 0.1, 0, 0.0990545, 0, -0.0137185, 15.0376, -0.492972, 13.7839 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_bis" type="MeshInstance" parent="."]
+transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 14.9843, -0.354358, 17.5401 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 35 )
+
+[node name="plant_09" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.544, -2.19888, 14.1487 )
+mesh = ExtResource( 36 )
+material/0 = ExtResource( 37 )
+
+[node name="plant_10" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.0376, -1.44184, 16.0608 )
+mesh = ExtResource( 40 )
+skeleton = NodePath("../plant_09")
+material/0 = ExtResource( 39 )
+
+[node name="plant_11" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.4395, -1.44912, 17.8251 )
+mesh = ExtResource( 41 )
+skeleton = NodePath("../plant_10")
+material/0 = ExtResource( 42 )
+
+[node name="plant_12" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.558, -1.13591, 17.8459 )
+mesh = ExtResource( 43 )
+skeleton = NodePath("../plant_11")
+material/0 = ExtResource( 50 )
+
+[node name="plant_13" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.6908, -1.1588, 17.145 )
+mesh = ExtResource( 48 )
+skeleton = NodePath("../plant_12")
+material/0 = ExtResource( 44 )
+
+[node name="plant_14" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.1139, -1.26584, 18.2725 )
+mesh = ExtResource( 46 )
+skeleton = NodePath("../plant_13")
+material/0 = ExtResource( 47 )
+
+[node name="plant_15" type="MeshInstance" parent="."]
+transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 14.8998, -1.4465, 18.5468 )
+mesh = ExtResource( 45 )
+material/0 = ExtResource( 49 )
+
+[node name="plant_16" type="MeshInstance" parent="."]
+transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 10.3295, -1.88742, 20.6173 )
+mesh = ExtResource( 51 )
+skeleton = NodePath("../plant_15")
+material/0 = ExtResource( 52 )
+
+[node name="plant_17" type="MeshInstance" parent="."]
+transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 8.69934, -2.0069, 18.9411 )
+mesh = ExtResource( 53 )
+skeleton = NodePath("../plant_16")
+material/0 = ExtResource( 54 )
+
+[node name="plant_17_bis" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.0999999, 0, 0.0999625, 0, 0.00273982, 14.1776, -1.51863, 23.1473 )
+mesh = ExtResource( 53 )
+skeleton = NodePath("../plant_17")
+material/0 = ExtResource( 55 )
+
+[node name="plant_18" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 3.574, -1.9411, 13.8043 )
+mesh = ExtResource( 57 )
+skeleton = NodePath("../plant_17_bis")
+material/0 = ExtResource( 56 )
+
+[node name="plant_19" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 6.35421, -1.47139, 9.79973 )
+mesh = ExtResource( 59 )
+skeleton = NodePath("../plant_18")
+material/0 = ExtResource( 58 )
+
+[node name="plant_20" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 5.85851, -1.63345, 10.0644 )
+mesh = ExtResource( 61 )
+skeleton = NodePath("../plant_19")
+material/0 = ExtResource( 60 )
+
+[node name="plant_21" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 6.72806, -1.5491, 11.5162 )
+mesh = ExtResource( 63 )
+skeleton = NodePath("../plant_20")
+material/0 = ExtResource( 62 )
+
+[node name="plant_22" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 5.62901, -1.85757, 12.4324 )
+mesh = ExtResource( 64 )
+skeleton = NodePath("../plant_21")
+material/0 = ExtResource( 65 )
+
+[node name="plant_23" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 3.51497, -1.70326, 7.77996 )
+mesh = ExtResource( 67 )
+skeleton = NodePath("../plant_22")
+material/0 = ExtResource( 66 )
+
+[node name="plant_24" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 8.17515, -1.62107, 15.4475 )
+mesh = ExtResource( 68 )
+skeleton = NodePath("../plant_23")
+material/0 = ExtResource( 69 )
+
+[node name="plant_25" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 5.9831, -1.88728, 16.4161 )
+mesh = ExtResource( 70 )
+skeleton = NodePath("../plant_24")
+material/0 = ExtResource( 71 )
+
+[node name="plant_26" type="MeshInstance" parent="."]
+transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 10.6013, -1.34644, 14.0107 )
+mesh = ExtResource( 73 )
+skeleton = NodePath("../plant_25")
+material/0 = ExtResource( 74 )
+
+[node name="plant_26_bis" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964327, 0, 0.1, 0, 0.0964327, 0, -0.0264715, 10.6181, -1.34644, 14.6233 )
+mesh = ExtResource( 73 )
+skeleton = NodePath("../plant_25")
+material/0 = ExtResource( 72 )
+
+[node name="plant_27" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 5.85659, -2.13202, 17.172 )
+mesh = ExtResource( 77 )
+skeleton = NodePath("../plant_26_bis")
+material/0 = ExtResource( 78 )
+
+[node name="plant_28" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 16.2989, -0.996863, 20.9914 )
+mesh = ExtResource( 75 )
+skeleton = NodePath("../plant_27")
+material/0 = ExtResource( 76 )
+
+[node name="plant_29" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 5.85285, -2.30511, 18.4938 )
+mesh = ExtResource( 80 )
+skeleton = NodePath("../plant_28")
+material/0 = ExtResource( 79 )
+
+[node name="plant_30" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 15.2519, -1.07178, 19.8563 )
+mesh = ExtResource( 82 )
+skeleton = NodePath("../plant_29")
+material/0 = ExtResource( 81 )
+
+[node name="plant_31" type="MeshInstance" parent="."]
+transform = Transform( -0.0994756, 0, -0.0102289, 0, 0.1, 0, 0.0102289, 0, -0.0994756, 15.4238, -2.45793, 12.4525 )
+mesh = ExtResource( 83 )
+skeleton = NodePath("../plant_30")
+material/0 = SubResource( 10 )
+
+[node name="plant_32" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 11.5323, -1.96626, 26.8327 )
+mesh = ExtResource( 84 )
+skeleton = NodePath("../plant_31")
+material/0 = SubResource( 11 )
+
+[node name="plant_33" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 11.8898, -1.90637, 26.5748 )
+mesh = ExtResource( 86 )
+skeleton = NodePath("../plant_32")
+material/0 = ExtResource( 87 )
+
+[node name="plant_34" type="MeshInstance" parent="."]
+transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 11.1632, -2.08615, 25.8084 )
+mesh = ExtResource( 88 )
+skeleton = NodePath("../plant_33")
+material/0 = ExtResource( 89 )
+
+[node name="plant_35" type="MeshInstance" parent="."]
+transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 11.3937, -1.8603, 28.478 )
+mesh = ExtResource( 90 )
+skeleton = NodePath("../plant_34")
+material/0 = ExtResource( 91 )
+
+[node name="plant_36" type="MeshInstance" parent="."]
+transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 12.8669, -1.7781, 27.3849 )
+mesh = ExtResource( 92 )
+skeleton = NodePath("../plant_35")
+material/0 = ExtResource( 93 )
+
+[node name="plant_37" type="MeshInstance" parent="."]
+transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 3.27251, -2.17968, 16.6015 )
+mesh = ExtResource( 97 )
+skeleton = NodePath("../plant_36")
+material/0 = SubResource( 13 )
+
+[node name="plant_38" type="MeshInstance" parent="."]
+transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 3.31404, -2.19337, 16.8698 )
+mesh = ExtResource( 99 )
+skeleton = NodePath("../plant_37")
+material/0 = SubResource( 14 )
+
+[node name="plant_38_bis" type="MeshInstance" parent="."]
+transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 4.49107, -2.19337, 18.5569 )
+mesh = ExtResource( 99 )
+skeleton = NodePath("../plant_37")
+material/0 = SubResource( 15 )
+
+[node name="plant_39" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.760895, -1.7586, 6.69468 )
+mesh = ExtResource( 102 )
+material/0 = SubResource( 16 )
+
+[node name="plant_40" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.860827, -1.77553, 8.84113 )
+mesh = ExtResource( 104 )
+skeleton = NodePath("../plant_39")
+material/0 = SubResource( 17 )
+
+[node name="plant_41" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 24.4548, -2.0844, 12.1858 )
+mesh = ExtResource( 105 )
+skeleton = NodePath("../plant_40")
+material/0 = ExtResource( 106 )
+
+[node name="plant_42" type="MeshInstance" parent="."]
+transform = Transform( 0.0289917, 0, 0.0957052, 0, 0.1, 0, -0.0957052, 0, 0.0289917, 19.3857, -0.598624, 27.8928 )
+mesh = ExtResource( 108 )
+skeleton = NodePath("../plant_41")
+material/0 = SubResource( 18 )
+
+[node name="plant_43" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 20.6722, -0.805986, 29.4826 )
+mesh = ExtResource( 110 )
+material/0 = ExtResource( 109 )
+
+[node name="plant_44" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.79, -0.919206, 25.9938 )
+mesh = ExtResource( 112 )
+material/0 = ExtResource( 111 )
+
+[node name="plant_45" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.6445, -0.768257, 22.5299 )
+mesh = ExtResource( 113 )
+skeleton = NodePath("../plant_44")
+material/0 = ExtResource( 116 )
+
+[node name="plant_46" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.74732, -2.21447, 27.1038 )
+mesh = ExtResource( 114 )
+material/0 = ExtResource( 115 )
+
+[node name="plant_47" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.34078, -2.49549, 26.3226 )
+mesh = ExtResource( 117 )
+material/0 = SubResource( 19 )
+
+[node name="plant_48" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.19314, -2.22199, 23.118 )
+mesh = ExtResource( 118 )
+material/0 = ExtResource( 119 )
+
+[node name="plant_49" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.73178, -2.16289, 27.9674 )
+mesh = ExtResource( 122 )
+skeleton = NodePath("../plant_48")
+material/0 = SubResource( 20 )
+
+[node name="plant_49_bis" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.71413, -2.04886, 27.9674 )
+mesh = ExtResource( 122 )
+skeleton = NodePath("../plant_48")
+material/0 = SubResource( 21 )
+
+[node name="plant_50" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.94612, -2.41408, 26.8735 )
+mesh = ExtResource( 124 )
+material/0 = ExtResource( 123 )
+
+[node name="plant_51" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.6267, -1.76334, 27.9063 )
+mesh = ExtResource( 125 )
+skeleton = NodePath("../plant_50")
+material/0 = ExtResource( 126 )
+
+[node name="plant_52" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.20422, -2.35271, 24.481 )
+mesh = ExtResource( 127 )
+skeleton = NodePath("../plant_51")
+material/0 = ExtResource( 128 )
+
+[node name="plant_53" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.23567, -2.46495, 28.2641 )
+mesh = ExtResource( 131 )
+skeleton = NodePath("../plant_52")
+material/0 = ExtResource( 134 )
+
+[node name="plant_54" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.77782, -2.14022, 25.1023 )
+mesh = ExtResource( 132 )
+skeleton = NodePath("../plant_53")
+material/0 = ExtResource( 133 )
+
+[node name="plant_55" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.18113, -2.18997, 25.9244 )
+mesh = ExtResource( 129 )
+skeleton = NodePath("../plant_54")
+material/0 = ExtResource( 130 )
+
+[node name="plant_56" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.0202, -2.09775, 27.1893 )
+mesh = ExtResource( 135 )
+skeleton = NodePath("../plant_55")
+material/0 = ExtResource( 136 )
+
+[node name="plant_57" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.7623, -2.15372, 28.1098 )
+mesh = ExtResource( 137 )
+material/0 = ExtResource( 138 )
+
+[node name="plant_58" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.5327, -2.11098, 28.9516 )
+mesh = ExtResource( 140 )
+skeleton = NodePath("../plant_57")
+material/0 = ExtResource( 139 )
+
+[node name="plant_59" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.9912, -1.91833, 28.5145 )
+mesh = ExtResource( 141 )
+skeleton = NodePath("../plant_58")
+material/0 = ExtResource( 142 )
+
+[node name="plant_60" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.9905, -2.04673, 28.6072 )
+mesh = ExtResource( 143 )
+skeleton = NodePath("../plant_59")
+material/0 = ExtResource( 144 )
+
+[node name="plant_61" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.4637, -0.564679, 11.0743 )
+mesh = ExtResource( 145 )
+skeleton = NodePath("../plant_60")
+material/0 = ExtResource( 146 )
+
+[node name="plant_62" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.9753, -0.704676, 10.8368 )
+mesh = ExtResource( 147 )
+skeleton = NodePath("../plant_61")
+material/0 = ExtResource( 148 )
+
+[node name="plant_63" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.7481, -0.585188, 10.9048 )
+mesh = ExtResource( 150 )
+skeleton = NodePath("../plant_62")
+material/0 = ExtResource( 149 )
+
+[node name="plant_64" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.3035, -0.598596, 10.2523 )
+mesh = ExtResource( 151 )
+skeleton = NodePath("../plant_63")
+material/0 = ExtResource( 152 )
+
+[node name="plant_65" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.5913, -0.904755, 11.3885 )
+mesh = ExtResource( 153 )
+skeleton = NodePath("../plant_64")
+material/0 = ExtResource( 154 )
+
+[node name="plant_66" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.608, -0.334127, 11.4979 )
+mesh = ExtResource( 155 )
+skeleton = NodePath("../plant_65")
+material/0 = ExtResource( 156 )
+
+[node name="plant_67" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.9956, -0.550846, 10.9776 )
+mesh = ExtResource( 158 )
+skeleton = NodePath("../plant_66")
+material/0 = ExtResource( 157 )
+
+[node name="plant_68" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.1626, -0.429283, 9.85382 )
+mesh = ExtResource( 159 )
+skeleton = NodePath("../plant_67")
+material/0 = ExtResource( 160 )
