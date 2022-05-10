@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -40,6 +40,10 @@ height = 0.125
 
 [sub_resource type="SphereShape" id=8]
 radius = 0.0629077
+
+[sub_resource type="BoxShape" id=22]
+
+[sub_resource type="CubeMesh" id=23]
 
 [sub_resource type="ConvexPolygonShape" id=9]
 points = PoolVector3Array( 6.40821, -4.63758, 0.0167911, 6.1177, -4.92798, -0.0993366, 6.17582, -4.98617, -0.157452, 6.1177, -4.52144, -0.215601, 6.1177, -4.52144, 0.133021, 6.52442, -4.98617, 0.0167911, 6.40821, -4.75372, -0.215601, 6.17582, -4.98617, 0.0749061, 6.17582, -4.40513, -0.0993366, 6.40821, -4.86986, 0.133021 )
@@ -149,6 +153,21 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Sphere"]
 shape = SubResource( 8 )
 
+[node name="HeavyObject" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.377, 1.614, 5.44061 )
+mode = 1
+mass = 100.0
+gravity_scale = 0.1
+script = ExtResource( 1 )
+objective_type = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="HeavyObject"]
+shape = SubResource( 22 )
+
+[node name="MeshInstance" type="MeshInstance" parent="HeavyObject"]
+mesh = SubResource( 23 )
+material/0 = null
+
 [node name="Dasti" type="StaticBody" parent="."]
 
 [node name="dasti_hookers" type="MeshInstance" parent="Dasti"]
@@ -234,6 +253,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 stream = ExtResource( 9 )
 autoplay = true
 
+[node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.389, -0.370826, 3.031 )
+
 [node name="Theter" parent="." instance=ExtResource( 10 )]
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
@@ -241,6 +263,7 @@ length = 200
 
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
 from = NodePath("../Ender Station/TheterAnchor")
+to = NodePath("../MagnetDeliveryTool")
 length = 200
 
 [node name="Ender Station" type="MeshInstance" parent="."]
@@ -255,8 +278,6 @@ transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.900206, 0.0875902, 0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
 sound_key = "drop_item_in_the_net"
 once = false
-
-[node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 

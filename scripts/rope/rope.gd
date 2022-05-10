@@ -28,6 +28,8 @@ var from_body: PhysicsBody
 var to_body: PhysicsBody
 var to_body_origin: Vector3
 
+signal pulled
+
 func _ready() -> void:
 	if not timer:
 		timer = Timer.new()
@@ -50,12 +52,12 @@ func _ready() -> void:
 
 	from_body = get_body_from(from_node)
 	if not from_body:
-		printerr('Path "from" of "', name, '" is not a PhysicsBody or Vehicle')
+		printerr('Path "from" of "', name, '" is not a PhysicsBody, Vehicle or DeliveryTool')
 		return
 
 	to_body = get_body_from(to_node)
-	if not from_body:
-		printerr('Path "to" of "', name, '" is not a PhysicsBody or Vehicle')
+	if not to_body:
+		printerr('Path "to" of "', name, '" is not a PhysicsBody, Vehicle or DeliveryTool')
 		return
 
 	to_body_origin = to_body.global_transform.origin
@@ -110,6 +112,7 @@ func _physics_process(delta: float) -> void:
 	if pulling:
 		if to_body.global_transform.origin.distance_to(pulling_destination) < SECTION_LENGTH:
 			pulling = false
+			emit_signal("pulled")
 		
 		to_body.global_transform.origin = lerp(to_body.global_transform.origin, pulling_destination, delta * pulling_speed)
 
@@ -154,6 +157,8 @@ func get_starting_point(node) -> Vector3:
 func get_body_from(node) -> PhysicsBody:
 	if node is Vehicle:
 		return node.vehicle_body
+	if node is DeliveryTool:
+		return node.theter_anchor.body
 	elif node is PhysicsBody:
 		return node
 
