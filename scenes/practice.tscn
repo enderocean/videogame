@@ -249,22 +249,12 @@ visible = true
 [node name="BlueRov" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-autoplay = true
-
 [node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.389, -0.370826, 3.031 )
 
-[node name="Theter" parent="." instance=ExtResource( 10 )]
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-length = 200
-
-[node name="PullingTheter" parent="." instance=ExtResource( 14 )]
-from = NodePath("../Ender Station/TheterAnchor")
-to = NodePath("../MagnetDeliveryTool")
-length = 200
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
@@ -278,6 +268,16 @@ transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.900206, 0.0875902, 0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
 sound_key = "drop_item_in_the_net"
 once = false
+
+[node name="Theter" parent="." instance=ExtResource( 10 )]
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+length = 200
+
+[node name="PullingTheter" parent="." instance=ExtResource( 14 )]
+from = NodePath("../Ender Station/TheterAnchor")
+to = NodePath("../MagnetDeliveryTool")
+length = 200
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 

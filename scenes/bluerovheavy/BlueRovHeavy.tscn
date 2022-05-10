@@ -616,7 +616,7 @@ transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.4
 [node name="TheterAnchor" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.19, 0.29 )
 
-[node name="Joint" parent="TheterAnchor" index="0"]
+[node name="HingeJoint" parent="TheterAnchor" index="0"]
 nodes/node_a = NodePath("../../BlueRov")
 
 [connection signal="area_shape_entered" from="Cutter/CutRightRigidBody/RightCutArea" to="Cutter" method="_on_RightCutArea_area_shape_entered"]
