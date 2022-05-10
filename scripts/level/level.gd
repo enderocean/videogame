@@ -158,7 +158,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
-	if (fishnet_objective):
+	if (turtle_path and fishnet_objective):
 		move_turtle(_delta)
 
 
