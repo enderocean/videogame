@@ -27,6 +27,7 @@ height = 1.0
 [node name="MagnetDeliveryTool" type="Spatial"]
 script = ExtResource( 1 )
 theter_anchor_path = NodePath("TheterAnchor")
+magnet_body_path = NodePath("Magnet")
 stickpoint_path = NodePath("Magnet/Stickpoint")
 raycast_path = NodePath("Magnet/RayCast")
 
@@ -35,6 +36,8 @@ collision_layer = 2
 collision_mask = 3
 mass = 10.0
 physics_material_override = SubResource( 27 )
+gravity_scale = 0.1
+angular_damp = 0.1
 
 [node name="CollisionShape" type="CollisionShape" parent="Magnet"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -89,5 +92,5 @@ shape = SubResource( 24 )
 mesh = SubResource( 25 )
 material/0 = null
 
-[connection signal="body_entered" from="Magnet/Area" to="Magnet" method="_on_body_entered"]
-[connection signal="body_exited" from="Magnet/Area" to="Magnet" method="_on_body_exited"]
+[connection signal="body_entered" from="Magnet/Area" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Magnet/Area" to="." method="_on_body_exited"]

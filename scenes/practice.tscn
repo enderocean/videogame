@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -43,7 +43,11 @@ radius = 0.0629077
 
 [sub_resource type="BoxShape" id=22]
 
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
+
 [sub_resource type="CubeMesh" id=23]
+material = SubResource( 24 )
 
 [sub_resource type="ConvexPolygonShape" id=9]
 points = PoolVector3Array( 6.40821, -4.63758, 0.0167911, 6.1177, -4.92798, -0.0993366, 6.17582, -4.98617, -0.157452, 6.1177, -4.52144, -0.215601, 6.1177, -4.52144, 0.133021, 6.52442, -4.98617, 0.0167911, 6.40821, -4.75372, -0.215601, 6.17582, -4.98617, 0.0749061, 6.17582, -4.40513, -0.0993366, 6.40821, -4.86986, 0.133021 )
@@ -96,6 +100,7 @@ objectives_target = {
 }
 
 [node name="pool" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0375569, 4.96145, -0.166545 )
 
 [node name="water" parent="." instance=ExtResource( 5 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 6.317, -11.9919 )
@@ -155,7 +160,8 @@ shape = SubResource( 8 )
 
 [node name="HeavyObject" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.377, 1.614, 5.44061 )
-mode = 1
+collision_layer = 2
+collision_mask = 3
 mass = 100.0
 gravity_scale = 0.1
 script = ExtResource( 1 )
@@ -250,7 +256,7 @@ visible = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 
 [node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.389, -0.370826, 3.031 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.389, 2.86917, 5.931 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -276,7 +282,6 @@ length = 200
 
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
 from = NodePath("../Ender Station/TheterAnchor")
-to = NodePath("../MagnetDeliveryTool")
 length = 200
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]

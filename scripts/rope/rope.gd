@@ -155,7 +155,10 @@ func get_starting_point(node) -> Vector3:
 
 # Used to get the correct target depending on the type of object given
 func get_body_from(node) -> PhysicsBody:
-	if node is Vehicle or node is DeliveryTool:
+	if node is Vehicle:
+		return node.theter_anchor.body
+	if node is DeliveryTool:
+		node.rope = self
 		return node.theter_anchor.body
 	elif node is PhysicsBody:
 		return node
@@ -163,7 +166,7 @@ func get_body_from(node) -> PhysicsBody:
 	return null
 
 
-func pull(sections_count: int) -> void:
+func pull(sections_count: int = sections.size()) -> void:
 	pulling_distance = sections_count * SECTION_LENGTH
 	pulling_direction = to_body_origin.direction_to(global_transform.origin)
 	pulling_destination = to_body_origin - pulling_direction * pulling_distance
