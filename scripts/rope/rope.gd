@@ -59,25 +59,19 @@ func _ready() -> void:
 	if not to_body:
 		printerr('Path "to" of "', name, '" is not a PhysicsBody, Vehicle or DeliveryTool')
 		return
-
+	
+	# Connect to the catched event of the delivery tool to make the rope pull
+	if from_node is DeliveryTool:
+		from_node.connect("catched", self, "_on_delivery_tool_catched")
+	
 	to_body_origin = to_body.global_transform.origin
-	# length = from_body.global_transform.origin.distance_to(to_body.global_transform.origin) / SECTION_LENGTH
 
 	# Moves the tether node to the starting position
-	# global_transform.origin = get_starting_point(from_node)
 	global_transform.origin = from_body.global_transform.origin
 
 	# Face the "To" body to make easier to create the rope
 	look_at(to_body.global_transform.origin, Vector3.UP)
 
-	for child in get_children():
-		if child is LineRenderer:
-			line_renderer = child
-			break
-	
-	if line_renderer:
-		line_renderer.points.clear()
-	
 	# Set the first body to be the "From"
 	var parent: PhysicsBody = from_body
 	# Link each section of the rope
@@ -90,9 +84,6 @@ func _ready() -> void:
 		child.joint = add_link(parent, child, i)
 		parent = child
 		sections.append(child)
-		
-		if line_renderer:
-			line_renderer.points.append(child.global_transform.origin)
 	
 	# Moves to "To" body to the position of the last rope section
 	var original_position: Vector3 = to_body.global_transform.origin
@@ -104,11 +95,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Update rope visuals
-	if line_renderer:
-		for i in range(sections.size()):
-			line_renderer.points[i] = sections[i].global_transform.origin
-	
 	if pulling:
 		if to_body.global_transform.origin.distance_to(pulling_destination) < SECTION_LENGTH:
 			pulling = false
@@ -165,8 +151,12 @@ func get_body_from(node) -> PhysicsBody:
 	return null
 
 
-func pull(sections_count: int = sections.size()) -> void:
-	pulling_distance = sections_count * SECTION_LENGTH
+func pull() -> void:
+	pulling_distance = sections.size() * SECTION_LENGTH
 	pulling_direction = to_body_origin.direction_to(global_transform.origin)
 	pulling_destination = to_body_origin - pulling_direction * pulling_distance
 	pulling = true
+
+
+func _on_delivery_tool_catched() -> void:
+	pull()

@@ -259,7 +259,7 @@ visible = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 
 [node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, 1.14803, 5.80818 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, 1.00803, 5.80818 )
 magnet_force = 10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -272,7 +272,10 @@ mesh = SubResource( 20 )
 material/0 = SubResource( 21 )
 
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
-transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.0241106 )
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
+
+[node name="TheterAnchorPull" parent="Ender Station" instance=ExtResource( 11 )]
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.315889 )
 
 [node name="SoundTriggerArea" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
@@ -285,8 +288,8 @@ to = NodePath("../Ender Station/TheterAnchor")
 length = 200
 
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
-from = NodePath("../Ender Station/TheterAnchor")
-to = NodePath("../MagnetDeliveryTool")
+from = NodePath("../MagnetDeliveryTool")
+to = NodePath("../Ender Station/TheterAnchorPull")
 length = 200
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
