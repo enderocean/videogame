@@ -37,6 +37,7 @@ collision_mask = 3
 mass = 10.0
 physics_material_override = SubResource( 27 )
 gravity_scale = 0.1
+linear_damp = 0.1
 angular_damp = 0.1
 
 [node name="CollisionShape" type="CollisionShape" parent="Magnet"]

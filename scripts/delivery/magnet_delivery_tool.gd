@@ -34,14 +34,20 @@ func _physics_process(delta: float) -> void:
 		var distance: float = collision_point.distance_to(stickpoint.global_transform.origin)
 		if distance <= sticking_distance:
 			raycast.enabled = false
-			detected_object.mode = RigidBody.MODE_STATIC
-			var old_pos: Vector3 = detected_object.global_transform.origin
+			detected_object.mass = 1.0
 			
-			detected_object.get_parent().remove_child(detected_object)
-			magnet_body.add_child(detected_object)
+			var joint: HingeJoint = HingeJoint.new()
+			joint.set_param(HingeJoint.PARAM_BIAS, 1.0)
+			joint.set_flag(HingeJoint.FLAG_USE_LIMIT, true)
+			joint.set_param(HingeJoint.PARAM_LIMIT_UPPER, 0.0)
+			joint.set_param(HingeJoint.PARAM_LIMIT_LOWER, 0.0)
+			add_child(joint)
+			joint.global_transform.origin = collision_point
+			joint.set_node_a(magnet_body.get_path())
+			joint.set_node_b(detected_object.get_path())
 			
-			detected_object.global_transform.origin = old_pos
 			emit_signal("catched")
+
 
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable
