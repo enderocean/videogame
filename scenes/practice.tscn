@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -13,8 +13,6 @@
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=12]
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -40,14 +38,6 @@ height = 0.125
 
 [sub_resource type="SphereShape" id=8]
 radius = 0.0629077
-
-[sub_resource type="BoxShape" id=22]
-
-[sub_resource type="SpatialMaterial" id=24]
-albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
-
-[sub_resource type="CubeMesh" id=23]
-material = SubResource( 24 )
 
 [sub_resource type="ConvexPolygonShape" id=9]
 points = PoolVector3Array( 6.40821, -4.63758, 0.0167911, 6.1177, -4.92798, -0.0993366, 6.17582, -4.98617, -0.157452, 6.1177, -4.52144, -0.215601, 6.1177, -4.52144, 0.133021, 6.52442, -4.98617, 0.0167911, 6.40821, -4.75372, -0.215601, 6.17582, -4.98617, 0.0749061, 6.17582, -4.40513, -0.0993366, 6.40821, -4.86986, 0.133021 )
@@ -158,25 +148,6 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Sphere"]
 shape = SubResource( 8 )
 
-[node name="HeavyObject" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49739, -0.0496682, 5.64187 )
-collision_layer = 2
-collision_mask = 3
-mass = 100.0
-gravity_scale = 0.1
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-objective_type = 4
-
-[node name="CollisionShape" type="CollisionShape" parent="HeavyObject"]
-shape = SubResource( 22 )
-
-[node name="MeshInstance" type="MeshInstance" parent="HeavyObject"]
-mesh = SubResource( 23 )
-material/0 = null
-
 [node name="Dasti" type="StaticBody" parent="."]
 
 [node name="dasti_hookers" type="MeshInstance" parent="Dasti"]
@@ -258,10 +229,6 @@ visible = true
 [node name="BlueRov" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 
-[node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, -1.07197, -0.11182 )
-magnet_force = 10.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
@@ -274,12 +241,6 @@ material/0 = SubResource( 21 )
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
 transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
 
-[node name="TheterAnchorPull" parent="Ender Station" instance=ExtResource( 11 )]
-transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.315889 )
-
-[node name="PullDestination" type="Position3D" parent="Ender Station"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.86, 50.82, 0 )
-
 [node name="SoundTriggerArea" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
 sound_key = "drop_item_in_the_net"
@@ -289,12 +250,6 @@ once = false
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 200
-
-[node name="PullingTheter" parent="." instance=ExtResource( 14 )]
-from = NodePath("../MagnetDeliveryTool")
-to = NodePath("../Ender Station/TheterAnchorPull")
-length = 200
-destination_path = NodePath("../Ender Station/PullDestination")
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 
