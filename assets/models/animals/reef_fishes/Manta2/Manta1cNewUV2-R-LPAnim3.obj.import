@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Manta1cNewUV2-R-LPAnim3.obj-18fe5ab0b35d3d06c08a5f65fd79263a.mesh"
+
+[deps]
+
+files=[ "res://.import/Manta1cNewUV2-R-LPAnim3.obj-18fe5ab0b35d3d06c08a5f65fd79263a.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Manta2/Manta1cNewUV2-R-LPAnim3.obj"
+dest_files=[ "res://.import/Manta1cNewUV2-R-LPAnim3.obj-18fe5ab0b35d3d06c08a5f65fd79263a.mesh", "res://.import/Manta1cNewUV2-R-LPAnim3.obj-18fe5ab0b35d3d06c08a5f65fd79263a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

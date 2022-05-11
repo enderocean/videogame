@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/stingray1hUV'driggednewanim1-4.obj-ea248fcf4bf219fad9239c6d1c9b776f.mesh"
+
+[deps]
+
+files=[ "res://.import/stingray1hUV'driggednewanim1-4.obj-ea248fcf4bf219fad9239c6d1c9b776f.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Stingray/stingray1hUV'driggednewanim1-4.obj"
+dest_files=[ "res://.import/stingray1hUV'driggednewanim1-4.obj-ea248fcf4bf219fad9239c6d1c9b776f.mesh", "res://.import/stingray1hUV'driggednewanim1-4.obj-ea248fcf4bf219fad9239c6d1c9b776f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

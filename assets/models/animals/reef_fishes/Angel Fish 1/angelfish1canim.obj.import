@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/angelfish1canim.obj-a882a82e45432e63e5ae7f69d15a87bd.mesh"
+
+[deps]
+
+files=[ "res://.import/angelfish1canim.obj-a882a82e45432e63e5ae7f69d15a87bd.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Angel Fish 1/angelfish1canim.obj"
+dest_files=[ "res://.import/angelfish1canim.obj-a882a82e45432e63e5ae7f69d15a87bd.mesh", "res://.import/angelfish1canim.obj-a882a82e45432e63e5ae7f69d15a87bd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/WhiteTip1gUrptVanim2.obj-dd4a51ad8d0d9e3ca2f99da5c07a0ab4.mesh"
+
+[deps]
+
+files=[ "res://.import/WhiteTip1gUrptVanim2.obj-dd4a51ad8d0d9e3ca2f99da5c07a0ab4.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj"
+dest_files=[ "res://.import/WhiteTip1gUrptVanim2.obj-dd4a51ad8d0d9e3ca2f99da5c07a0ab4.mesh", "res://.import/WhiteTip1gUrptVanim2.obj-dd4a51ad8d0d9e3ca2f99da5c07a0ab4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ReefFish12.obj-ded9e14ea8c22da41093c68b2d42c931.mesh"
+
+[deps]
+
+files=[ "res://.import/ReefFish12.obj-ded9e14ea8c22da41093c68b2d42c931.mesh" ]
+
+source_file="res://assets/models/animals/tropical_fishes/ReefFish12/ReefFish12.obj"
+dest_files=[ "res://.import/ReefFish12.obj-ded9e14ea8c22da41093c68b2d42c931.mesh", "res://.import/ReefFish12.obj-ded9e14ea8c22da41093c68b2d42c931.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

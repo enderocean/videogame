@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/interestingfish3anim.obj-a954d37483287f0f2e0ceafc140fe442.mesh"
+
+[deps]
+
+files=[ "res://.import/interestingfish3anim.obj-a954d37483287f0f2e0ceafc140fe442.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Int Fish/interestingfish3anim.obj"
+dest_files=[ "res://.import/interestingfish3anim.obj-a954d37483287f0f2e0ceafc140fe442.mesh", "res://.import/interestingfish3anim.obj-a954d37483287f0f2e0ceafc140fe442.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

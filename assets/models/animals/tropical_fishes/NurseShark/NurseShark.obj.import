@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/NurseShark.obj-aba0d0b7fb732f7df29bf004f765d368.mesh"
+
+[deps]
+
+files=[ "res://.import/NurseShark.obj-aba0d0b7fb732f7df29bf004f765d368.mesh" ]
+
+source_file="res://assets/models/animals/tropical_fishes/NurseShark/NurseShark.obj"
+dest_files=[ "res://.import/NurseShark.obj-aba0d0b7fb732f7df29bf004f765d368.mesh", "res://.import/NurseShark.obj-aba0d0b7fb732f7df29bf004f765d368.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

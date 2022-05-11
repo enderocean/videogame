@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=2]
+[gd_scene load_steps=186 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -160,6 +160,9 @@
 [ext_resource path="res://assets/models/underwater/plant_67/plant_67.obj" type="ArrayMesh" id=158]
 [ext_resource path="res://assets/models/underwater/plant_68/plant_68.obj" type="ArrayMesh" id=159]
 [ext_resource path="res://assets/models/underwater/plant_68/aiStandard1.material" type="Material" id=160]
+[ext_resource path="res://terrains/level_14/rocky/Rock045_1K_Roughness.jpg" type="Texture" id=161]
+[ext_resource path="res://assets/models/rocks/rock01.obj" type="ArrayMesh" id=162]
+[ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=163]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
@@ -202,21 +205,6 @@ albedo_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 [sub_resource type="SpatialMaterial" id=11]
 albedo_texture = ExtResource( 85 )
 
-[sub_resource type="SpatialMaterial" id=13]
-albedo_color = Color( 0.647059, 0.333333, 0.176471, 1 )
-
-[sub_resource type="SpatialMaterial" id=14]
-albedo_texture = ExtResource( 98 )
-
-[sub_resource type="SpatialMaterial" id=15]
-next_pass = ExtResource( 100 )
-
-[sub_resource type="SpatialMaterial" id=16]
-next_pass = ExtResource( 101 )
-
-[sub_resource type="SpatialMaterial" id=17]
-albedo_texture = ExtResource( 103 )
-
 [sub_resource type="SpatialMaterial" id=18]
 albedo_texture = ExtResource( 107 )
 
@@ -229,11 +217,30 @@ albedo_texture = ExtResource( 120 )
 [sub_resource type="SpatialMaterial" id=21]
 albedo_texture = ExtResource( 121 )
 
+[sub_resource type="SpatialMaterial" id=22]
+albedo_texture = ExtResource( 161 )
+
+[sub_resource type="SpatialMaterial" id=15]
+next_pass = ExtResource( 100 )
+
+[sub_resource type="SpatialMaterial" id=16]
+next_pass = ExtResource( 101 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 103 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.647059, 0.333333, 0.176471, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 98 )
+
 [node name="level_08" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.583, 12, -2.572 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -243,7 +250,7 @@ shadow_enabled = true
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 10.123, 1.51891, 8.31215 )
+transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 1.02494, 1.51891, 15.322 )
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
@@ -285,15 +292,8 @@ material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
 material/2 = SubResource( 4 )
 
-[node name="Coral Billboard2" type="MeshInstance" parent="."]
-transform = Transform( -0.0312945, 0.0511923, 2.23769e-09, 0, -2.62268e-09, 0.06, 0.0511923, 0.0312945, 1.36793e-09, 9.928, -1.52838, 14.984 )
-mesh = ExtResource( 11 )
-material/0 = SubResource( 2 )
-material/1 = SubResource( 3 )
-material/2 = SubResource( 4 )
-
 [node name="WhaleShark" type="MeshInstance" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 3.091, 6.89511, 1.1427 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 3.091, 6.89511, -9.04062 )
 mesh = ExtResource( 96 )
 material/0 = SubResource( 12 )
 
@@ -347,67 +347,10 @@ mesh = ExtResource( 22 )
 skeleton = NodePath("../plant_02")
 material/0 = SubResource( 9 )
 
-[node name="plant_04" type="MeshInstance" parent="."]
-transform = Transform( 0.098878, 0, -0.014938, 0, 0.1, 0, 0.014938, 0, 0.098878, 18.2258, -0.569026, 16.5028 )
-mesh = ExtResource( 23 )
-material/0 = ExtResource( 24 )
-
-[node name="plant_05" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 17.2145, -0.49722, 15.8958 )
-mesh = ExtResource( 27 )
-material/0 = ExtResource( 28 )
-
-[node name="plant_06" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 16.1892, -0.49963, 14.828 )
-mesh = ExtResource( 30 )
-skeleton = NodePath("../plant_05")
-material/0 = ExtResource( 31 )
-
-[node name="plant_06_bis" type="MeshInstance" parent="."]
-transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 17.0405, -0.49963, 17.6862 )
-mesh = ExtResource( 30 )
-skeleton = NodePath("../plant_05")
-material/0 = ExtResource( 29 )
-
-[node name="plant_07" type="MeshInstance" parent="."]
-transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 16.5179, -0.685121, 16.2814 )
-mesh = ExtResource( 32 )
-skeleton = NodePath("../plant_06_bis")
-material/0 = ExtResource( 33 )
-
-[node name="plant_08" type="MeshInstance" parent="."]
-transform = Transform( -0.0137185, 0, -0.0990545, 0, 0.1, 0, 0.0990545, 0, -0.0137185, 15.0376, -0.492972, 13.7839 )
-mesh = ExtResource( 38 )
-skeleton = NodePath("../plant_07")
-material/0 = ExtResource( 34 )
-
-[node name="plant_08_bis" type="MeshInstance" parent="."]
-transform = Transform( -0.0633988, 0, -0.0773342, 0, 0.1, 0, 0.0773342, 0, -0.0633988, 14.9843, -0.354358, 17.5401 )
-mesh = ExtResource( 38 )
-skeleton = NodePath("../plant_07")
-material/0 = ExtResource( 35 )
-
-[node name="plant_09" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.544, -2.19888, 14.1487 )
-mesh = ExtResource( 36 )
-material/0 = ExtResource( 37 )
-
-[node name="plant_10" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.0376, -1.44184, 16.0608 )
-mesh = ExtResource( 40 )
-skeleton = NodePath("../plant_09")
-material/0 = ExtResource( 39 )
-
-[node name="plant_11" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.4395, -1.44912, 17.8251 )
-mesh = ExtResource( 41 )
-skeleton = NodePath("../plant_10")
-material/0 = ExtResource( 42 )
-
 [node name="plant_12" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.558, -1.13591, 17.8459 )
 mesh = ExtResource( 43 )
-skeleton = NodePath("../plant_11")
+skeleton = NodePath("../rock01/plant_11")
 material/0 = ExtResource( 50 )
 
 [node name="plant_13" type="MeshInstance" parent="."]
@@ -415,12 +358,6 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.6908, -1.1588, 17.145
 mesh = ExtResource( 48 )
 skeleton = NodePath("../plant_12")
 material/0 = ExtResource( 44 )
-
-[node name="plant_14" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.1139, -1.26584, 18.2725 )
-mesh = ExtResource( 46 )
-skeleton = NodePath("../plant_13")
-material/0 = ExtResource( 47 )
 
 [node name="plant_15" type="MeshInstance" parent="."]
 transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 14.8998, -1.4465, 18.5468 )
@@ -433,58 +370,10 @@ mesh = ExtResource( 51 )
 skeleton = NodePath("../plant_15")
 material/0 = ExtResource( 52 )
 
-[node name="plant_17" type="MeshInstance" parent="."]
-transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 8.69934, -2.0069, 18.9411 )
-mesh = ExtResource( 53 )
-skeleton = NodePath("../plant_16")
-material/0 = ExtResource( 54 )
-
-[node name="plant_17_bis" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.0999999, 0, 0.0999625, 0, 0.00273982, 14.1776, -1.51863, 23.1473 )
-mesh = ExtResource( 53 )
-skeleton = NodePath("../plant_17")
-material/0 = ExtResource( 55 )
-
-[node name="plant_18" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 3.574, -1.9411, 13.8043 )
-mesh = ExtResource( 57 )
-skeleton = NodePath("../plant_17_bis")
-material/0 = ExtResource( 56 )
-
-[node name="plant_19" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 6.35421, -1.47139, 9.79973 )
-mesh = ExtResource( 59 )
-skeleton = NodePath("../plant_18")
-material/0 = ExtResource( 58 )
-
-[node name="plant_20" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 5.85851, -1.63345, 10.0644 )
-mesh = ExtResource( 61 )
-skeleton = NodePath("../plant_19")
-material/0 = ExtResource( 60 )
-
-[node name="plant_21" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 6.72806, -1.5491, 11.5162 )
-mesh = ExtResource( 63 )
-skeleton = NodePath("../plant_20")
-material/0 = ExtResource( 62 )
-
-[node name="plant_22" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 5.62901, -1.85757, 12.4324 )
-mesh = ExtResource( 64 )
-skeleton = NodePath("../plant_21")
-material/0 = ExtResource( 65 )
-
-[node name="plant_23" type="MeshInstance" parent="."]
-transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 3.51497, -1.70326, 7.77996 )
-mesh = ExtResource( 67 )
-skeleton = NodePath("../plant_22")
-material/0 = ExtResource( 66 )
-
 [node name="plant_24" type="MeshInstance" parent="."]
 transform = Transform( 0.00273982, 0, -0.0999625, 0, 0.1, 0, 0.0999625, 0, 0.00273982, 8.17515, -1.62107, 15.4475 )
 mesh = ExtResource( 68 )
-skeleton = NodePath("../plant_23")
+skeleton = NodePath("../rock01/plant_23")
 material/0 = ExtResource( 69 )
 
 [node name="plant_25" type="MeshInstance" parent="."]
@@ -499,38 +388,14 @@ mesh = ExtResource( 73 )
 skeleton = NodePath("../plant_25")
 material/0 = ExtResource( 74 )
 
-[node name="plant_26_bis" type="MeshInstance" parent="."]
-transform = Transform( -0.0264715, 0, -0.0964327, 0, 0.1, 0, 0.0964327, 0, -0.0264715, 10.6181, -1.34644, 14.6233 )
-mesh = ExtResource( 73 )
-skeleton = NodePath("../plant_25")
-material/0 = ExtResource( 72 )
-
-[node name="plant_27" type="MeshInstance" parent="."]
-transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 5.85659, -2.13202, 17.172 )
-mesh = ExtResource( 77 )
-skeleton = NodePath("../plant_26_bis")
-material/0 = ExtResource( 78 )
-
-[node name="plant_28" type="MeshInstance" parent="."]
-transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 16.2989, -0.996863, 20.9914 )
-mesh = ExtResource( 75 )
-skeleton = NodePath("../plant_27")
-material/0 = ExtResource( 76 )
-
-[node name="plant_29" type="MeshInstance" parent="."]
-transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 5.85285, -2.30511, 18.4938 )
-mesh = ExtResource( 80 )
-skeleton = NodePath("../plant_28")
-material/0 = ExtResource( 79 )
-
 [node name="plant_30" type="MeshInstance" parent="."]
 transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 15.2519, -1.07178, 19.8563 )
 mesh = ExtResource( 82 )
-skeleton = NodePath("../plant_29")
+skeleton = NodePath("../rock01/plant_29")
 material/0 = ExtResource( 81 )
 
 [node name="plant_31" type="MeshInstance" parent="."]
-transform = Transform( -0.0994756, 0, -0.0102289, 0, 0.1, 0, 0.0102289, 0, -0.0994756, 15.4238, -2.45793, 12.4525 )
+transform = Transform( 0.00345397, 0, 0.00938457, 0, 0.01, 0, -0.00938457, 0, 0.00345397, 2.7248, 0.430188, -0.109331 )
 mesh = ExtResource( 83 )
 skeleton = NodePath("../plant_30")
 material/0 = SubResource( 10 )
@@ -547,16 +412,10 @@ mesh = ExtResource( 86 )
 skeleton = NodePath("../plant_32")
 material/0 = ExtResource( 87 )
 
-[node name="plant_34" type="MeshInstance" parent="."]
-transform = Transform( -0.0264715, 0, -0.0964328, 0, 0.1, 0, 0.0964328, 0, -0.0264715, 11.1632, -2.08615, 25.8084 )
-mesh = ExtResource( 88 )
-skeleton = NodePath("../plant_33")
-material/0 = ExtResource( 89 )
-
 [node name="plant_35" type="MeshInstance" parent="."]
 transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 11.3937, -1.8603, 28.478 )
 mesh = ExtResource( 90 )
-skeleton = NodePath("../plant_34")
+skeleton = NodePath("../rock05/plant_34")
 material/0 = ExtResource( 91 )
 
 [node name="plant_36" type="MeshInstance" parent="."]
@@ -565,39 +424,16 @@ mesh = ExtResource( 92 )
 skeleton = NodePath("../plant_35")
 material/0 = ExtResource( 93 )
 
-[node name="plant_37" type="MeshInstance" parent="."]
-transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 3.27251, -2.17968, 16.6015 )
-mesh = ExtResource( 97 )
-skeleton = NodePath("../plant_36")
-material/0 = SubResource( 13 )
-
-[node name="plant_38" type="MeshInstance" parent="."]
-transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 3.31404, -2.19337, 16.8698 )
-mesh = ExtResource( 99 )
-skeleton = NodePath("../plant_37")
-material/0 = SubResource( 14 )
-
-[node name="plant_38_bis" type="MeshInstance" parent="."]
-transform = Transform( -0.052943, 0, -0.192866, 0, 0.2, 0, 0.192866, 0, -0.052943, 4.49107, -2.19337, 18.5569 )
-mesh = ExtResource( 99 )
-skeleton = NodePath("../plant_37")
-material/0 = SubResource( 15 )
-
-[node name="plant_39" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.760895, -1.7586, 6.69468 )
-mesh = ExtResource( 102 )
-material/0 = SubResource( 16 )
-
-[node name="plant_40" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.860827, -1.77553, 8.84113 )
-mesh = ExtResource( 104 )
-skeleton = NodePath("../plant_39")
-material/0 = SubResource( 17 )
-
 [node name="plant_41" type="MeshInstance" parent="."]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 24.4548, -2.0844, 12.1858 )
+transform = Transform( 0.0460416, 0, 0.019498, 0, 0.05, 0, -0.019498, 0, 0.0460416, 32.8787, -2.0844, -6.77637 )
 mesh = ExtResource( 105 )
-skeleton = NodePath("../plant_40")
+skeleton = NodePath("../rock01/plant_40")
+material/0 = ExtResource( 106 )
+
+[node name="plant_41_bis" type="MeshInstance" parent="."]
+transform = Transform( 0.0395213, 0, -0.00616979, 0, 0.04, 0, 0.00616979, 0, 0.0395213, 28.7655, -2.0844, 5.70291 )
+mesh = ExtResource( 105 )
+skeleton = NodePath("../rock01/plant_40")
 material/0 = ExtResource( 106 )
 
 [node name="plant_42" type="MeshInstance" parent="."]
@@ -616,12 +452,6 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.79, -0.919206, 25.993
 mesh = ExtResource( 112 )
 material/0 = ExtResource( 111 )
 
-[node name="plant_45" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.6445, -0.768257, 22.5299 )
-mesh = ExtResource( 113 )
-skeleton = NodePath("../plant_44")
-material/0 = ExtResource( 116 )
-
 [node name="plant_46" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.74732, -2.21447, 27.1038 )
 mesh = ExtResource( 114 )
@@ -632,21 +462,16 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.34078, -2.49549, 26.32
 mesh = ExtResource( 117 )
 material/0 = SubResource( 19 )
 
-[node name="plant_48" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.19314, -2.22199, 23.118 )
-mesh = ExtResource( 118 )
-material/0 = ExtResource( 119 )
-
 [node name="plant_49" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.73178, -2.16289, 27.9674 )
 mesh = ExtResource( 122 )
-skeleton = NodePath("../plant_48")
+skeleton = NodePath("../rock01/plant_48")
 material/0 = SubResource( 20 )
 
 [node name="plant_49_bis" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.71413, -2.04886, 27.9674 )
 mesh = ExtResource( 122 )
-skeleton = NodePath("../plant_48")
+skeleton = NodePath("../rock01/plant_48")
 material/0 = SubResource( 21 )
 
 [node name="plant_50" type="MeshInstance" parent="."]
@@ -654,16 +479,10 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.94612, -2.41408, 26.87
 mesh = ExtResource( 124 )
 material/0 = ExtResource( 123 )
 
-[node name="plant_51" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.6267, -1.76334, 27.9063 )
-mesh = ExtResource( 125 )
-skeleton = NodePath("../plant_50")
-material/0 = ExtResource( 126 )
-
 [node name="plant_52" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.20422, -2.35271, 24.481 )
 mesh = ExtResource( 127 )
-skeleton = NodePath("../plant_51")
+skeleton = NodePath("../rock05/plant_51")
 material/0 = ExtResource( 128 )
 
 [node name="plant_53" type="MeshInstance" parent="."]
@@ -672,16 +491,10 @@ mesh = ExtResource( 131 )
 skeleton = NodePath("../plant_52")
 material/0 = ExtResource( 134 )
 
-[node name="plant_54" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.77782, -2.14022, 25.1023 )
-mesh = ExtResource( 132 )
-skeleton = NodePath("../plant_53")
-material/0 = ExtResource( 133 )
-
 [node name="plant_55" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.18113, -2.18997, 25.9244 )
 mesh = ExtResource( 129 )
-skeleton = NodePath("../plant_54")
+skeleton = NodePath("../rock01/plant_54")
 material/0 = ExtResource( 130 )
 
 [node name="plant_56" type="MeshInstance" parent="."]
@@ -713,50 +526,400 @@ mesh = ExtResource( 143 )
 skeleton = NodePath("../plant_59")
 material/0 = ExtResource( 144 )
 
-[node name="plant_61" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.4637, -0.564679, 11.0743 )
+[node name="rock01" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.3552, -1.34448, 4.47217 )
+mesh = ExtResource( 162 )
+material/0 = SubResource( 22 )
+
+[node name="plant_09_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.326406, 0, 0.37876, 0, 0.5, 0, -0.37876, 0, 0.326406, -23.6722, 6.2207, 13.0878 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 37 )
+
+[node name="plant_18" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.389167, 0, -0.456672, 0, 0.6, 0, 0.456672, 0, 0.389167, -15.6368, 12.2625, 32.9432 )
+mesh = ExtResource( 57 )
+skeleton = NodePath("../../rock05/plant_17_bis")
+material/0 = ExtResource( 56 )
+
+[node name="Coral Billboard2" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.337822, 0.495859, 2.16747e-08, 0, -2.62268e-08, 0.6, 0.495859, -0.337822, -1.47667e-08, 12.9053, 24.766, 1.0778 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="Coral Billboard3" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.467626, -0.17699, -7.73649e-09, 0, -2.18557e-08, 0.5, -0.17699, 0.467626, 2.04406e-08, -1.48899, 20.3509, 25.6128 )
+mesh = ExtResource( 11 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+
+[node name="plant_04" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.361743, 0.156762, 0.0675838, -0.130868, 0.356342, -0.12607, -0.109615, 0.0919011, 0.373549, 8.67622, 26.2024, 6.60918 )
+mesh = ExtResource( 23 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 24 )
+
+[node name="plant_05" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4397, 20.2201, -1.60904 )
+mesh = ExtResource( 27 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 28 )
+
+[node name="plant_06" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 0.984285, -0.176587, 0, 0.176587, 0.984285, 6.81051, 26.5162, 4.34134 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_ter2" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.749198, -0.662346, 9.86972e-09, 0.651937, 0.737425, -0.176587, 0.116961, 0.132298, 0.984285, -9.83852, 19.3926, 15.1127 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_ter3" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.287918, -0.529876, -0.525675, 0.126638, 0.58994, -0.525294, 0.735572, 0.105839, 0.296196, -9.55032, 20.8678, -10.1063 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_ter4" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.287918, -0.340074, -0.664419, 0.126638, 0.72407, -0.315729, 0.735572, 0.00845399, 0.314424, 2.4321, 22.0372, 27.5444 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_ter" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.469912, -0.26089, 0.592553, 0.11433, 0.754107, 0.241352, -0.637269, -0.0570849, 0.480239, -5.36936, 22.7729, -2.30355 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.608576, 0.177695, -0.773342, 0.280281, 0.959918, 1.43039e-08, 0.742345, -0.216753, -0.633988, 9.01199, 22.5522, -3.99755 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../plant_05")
+material/0 = ExtResource( 29 )
+
+[node name="plant_07" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.605746, -0.187116, -0.773342, -0.295141, 0.955454, 1.18611e-08, 0.738892, 0.228245, -0.633988, -11.9114, 20.5475, 8.36317 )
+mesh = ExtResource( 32 )
+skeleton = NodePath("../plant_06_bis")
+material/0 = ExtResource( 33 )
+
+[node name="plant_08" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.494849, 0, -0.3393, 0, 0.6, 0, 0.3393, 0, -0.494849, -3.52581, 22.6945, 3.85644 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_ter2" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.462653, -0.179213, 0.0619266, -0.174502, 0.33856, -0.323923, 0.0741709, -0.321341, -0.375818, -4.65098, 16.9269, -24.9815 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_ter3" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.155155, -0.202092, -0.430216, -0.00942816, 0.453776, -0.209759, 0.475225, -0.0569779, -0.144621, -13.9747, 19.6044, 4.0662 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_ter4" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.455967, -0.202092, -0.035393, -0.195096, 0.453776, -0.0776239, 0.0634954, -0.0569779, -0.492668, -7.63082, 22.9623, -15.5939 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_ter5" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.269346, -0.381547, 0.178534, 0.366415, 0.31675, 0.124135, -0.207828, 0.0639644, 0.45024, -4.97188, 15.7217, 36.3778 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.252851, 0.371261, 0.219617, 0.396913, 0.299926, -0.050045, -0.168897, 0.14903, -0.44639, 13.6001, 19.3836, 28.4121 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 35 )
+
+[node name="plant_10" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.352376, 0.189291, 0, -0.189291, 0.352376, 0, 0, 0, 0.4, 17.4118, 20.6268, 5.99662 )
+mesh = ExtResource( 40 )
+skeleton = NodePath("../plant_09")
+material/0 = ExtResource( 39 )
+
+[node name="plant_11" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43324, 22.7226, 5.32394 )
+mesh = ExtResource( 41 )
+skeleton = NodePath("../plant_10")
+material/0 = ExtResource( 42 )
+
+[node name="plant_19" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.0273982, 0, -0.999625, 0, 1, 0, 0.999625, 0, 0.0273982, -16.634, 16.3258, -0.954559 )
+mesh = ExtResource( 59 )
+skeleton = NodePath("../plant_18")
+material/0 = ExtResource( 58 )
+
+[node name="plant_19_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.771064, -0.368836, -0.519057, 0.431519, 0.902104, 6.91723e-09, 0.468243, -0.223983, 0.85474, 3.261, 26.6411, -1.79603 )
+mesh = ExtResource( 59 )
+skeleton = NodePath("../plant_18")
+material/0 = ExtResource( 58 )
+
+[node name="plant_19_bis3" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.771064, -0.368836, -0.519057, 0.431519, 0.902104, 6.91723e-09, 0.468243, -0.223983, 0.85474, -17.7284, 16.5635, 1.80746 )
+mesh = ExtResource( 59 )
+skeleton = NodePath("../plant_18")
+material/0 = ExtResource( 58 )
+
+[node name="plant_19_bis2" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.614732, -0.368836, -0.697184, 0.417492, 0.902104, -0.10913, 0.669183, -0.223983, 0.708538, 2.31084, 26.4194, -0.0270691 )
+mesh = ExtResource( 59 )
+skeleton = NodePath("../plant_18")
+material/0 = ExtResource( 58 )
+
+[node name="plant_20" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.0136991, 0.250812, -0.432326, 0, 0.432488, 0.250906, 0.499812, -0.00687439, 0.0118494, 16.2622, 21.067, 0.676418 )
+mesh = ExtResource( 61 )
+skeleton = NodePath("../plant_19")
+material/0 = ExtResource( 60 )
+
+[node name="plant_21" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.0164389, 0, -0.599775, 0, 0.6, 0, 0.599775, 0, 0.0164389, -9.35015, 20.6222, 23.577 )
+mesh = ExtResource( 63 )
+skeleton = NodePath("../plant_20")
+material/0 = ExtResource( 62 )
+
+[node name="plant_21_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.00547964, 0, -0.199925, 0, 0.2, 0, 0.199925, 0, 0.00547964, -10.1783, 22.6337, -6.64001 )
+mesh = ExtResource( 63 )
+skeleton = NodePath("../plant_20")
+material/0 = ExtResource( 62 )
+
+[node name="plant_26_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.117646, -0.0944088, -0.988558, 0.706195, 0.707826, 0.0164438, 0.698175, -0.700049, 0.149944, -5.07958, 18.9185, -22.9553 )
+mesh = ExtResource( 73 )
+skeleton = NodePath("../../plant_25")
+material/0 = ExtResource( 72 )
+
+[node name="plant_27" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.282251, -0.392073, -0.875566, 0.23082, 0.913616, -0.334705, 0.93116, -0.107627, 0.348368, -7.56114, 23.2781, 9.73114 )
+mesh = ExtResource( 77 )
+skeleton = NodePath("../plant_26_bis")
+material/0 = ExtResource( 78 )
+
+[node name="plant_27_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.377827, -0.301055, -0.875566, -0.0250497, 0.94199, -0.334705, 0.925539, 0.148393, 0.348368, 3.22775, 24.0034, 5.96335 )
+mesh = ExtResource( 77 )
+skeleton = NodePath("../plant_26_bis")
+material/0 = ExtResource( 78 )
+
+[node name="plant_61" type="MeshInstance" parent="rock01"]
+transform = Transform( 1.95426, -0.356693, 0.231584, 0.376421, 1.95762, -0.1613, -0.19791, 0.201198, 1.97999, -18.961, 18.1418, 5.73404 )
 mesh = ExtResource( 145 )
-skeleton = NodePath("../plant_60")
+skeleton = NodePath("../../plant_60")
 material/0 = ExtResource( 146 )
 
-[node name="plant_62" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 12.9753, -0.704676, 10.8368 )
+[node name="plant_62" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3207, 22.9732, 10.4645 )
 mesh = ExtResource( 147 )
 skeleton = NodePath("../plant_61")
 material/0 = ExtResource( 148 )
 
-[node name="plant_63" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.7481, -0.585188, 10.9048 )
+[node name="plant_63" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 0.956437, -0.291938, 0, 0.291938, 0.956437, 3.4995, 22.0818, 14.7915 )
 mesh = ExtResource( 150 )
 skeleton = NodePath("../plant_62")
 material/0 = ExtResource( 149 )
 
-[node name="plant_64" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.3035, -0.598596, 10.2523 )
+[node name="plant_64" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0921, 21.171, 2.42662 )
 mesh = ExtResource( 151 )
 skeleton = NodePath("../plant_63")
 material/0 = ExtResource( 152 )
 
-[node name="plant_65" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.5913, -0.904755, 11.3885 )
+[node name="plant_65" type="MeshInstance" parent="rock01"]
+transform = Transform( -1.89438, 0, -2.32622, 0, 3, 0, 2.32622, 0, -1.89438, -2.70446, 21.68, 34.0492 )
 mesh = ExtResource( 153 )
 skeleton = NodePath("../plant_64")
 material/0 = ExtResource( 154 )
 
-[node name="plant_66" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 15.608, -0.334127, 11.4979 )
+[node name="plant_66" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9727, 26.153, 8.04309 )
 mesh = ExtResource( 155 )
 skeleton = NodePath("../plant_65")
 material/0 = ExtResource( 156 )
 
-[node name="plant_67" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 13.9956, -0.550846, 10.9776 )
+[node name="plant_67" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.813294, 0, 0.581853, 0, 1, 0, -0.581853, 0, 0.813294, -1.78983, 24.52, -1.94542 )
 mesh = ExtResource( 158 )
 skeleton = NodePath("../plant_66")
 material/0 = ExtResource( 157 )
 
-[node name="plant_68" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 14.1626, -0.429283, 9.85382 )
+[node name="plant_68" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6432, 22.5215, 14.9804 )
 mesh = ExtResource( 159 )
 skeleton = NodePath("../plant_67")
 material/0 = ExtResource( 160 )
+
+[node name="plant_09" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.0025, 4.8893, -9.67044 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 37 )
+
+[node name="plant_09_bis2" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.433661, 0, 0.248873, 0, 0.5, 0, -0.248873, 0, 0.433661, -1.66324, 6.22071, -26.8797 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 37 )
+
+[node name="plant_22" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.0131763, -0.0037484, -0.499812, 0.136812, 0.480918, 0, 0.480738, -0.13676, 0.0136991, -4.63396, 23.6219, -12.5123 )
+mesh = ExtResource( 64 )
+skeleton = NodePath("../plant_21")
+material/0 = ExtResource( 65 )
+
+[node name="plant_23" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.0273982, 0, -0.999625, 0, 1, 0, 0.999625, 0, 0.0273982, 14.8072, 18.9742, -5.66943 )
+mesh = ExtResource( 67 )
+skeleton = NodePath("../plant_22")
+material/0 = ExtResource( 66 )
+
+[node name="plant_29" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.434001, -0.615355, -0.658015, 0.172151, 0.660283, -0.731021, 0.884313, -0.430541, -0.18063, -9.35191, 17.4657, -16.1763 )
+mesh = ExtResource( 80 )
+skeleton = NodePath("../../rock05/plant_28")
+material/0 = ExtResource( 79 )
+
+[node name="plant_38_bis" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.446405, 0, -0.400902, 0, 0.6, 0, 0.400902, 0, -0.446405, -5.74335, 22.2353, 15.2791 )
+mesh = ExtResource( 99 )
+skeleton = NodePath("../plant_37")
+material/0 = SubResource( 15 )
+
+[node name="plant_39" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.962654, 0, -0.270735, 0, 1, 0, 0.270735, 0, 0.962654, 9.71273, 20.8452, 22.2251 )
+mesh = ExtResource( 102 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 16 )
+
+[node name="plant_40" type="MeshInstance" parent="rock01"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50123, 20.7906, 35.4171 )
+mesh = ExtResource( 104 )
+skeleton = NodePath("../plant_39")
+material/0 = SubResource( 17 )
+
+[node name="plant_48" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.692483, 0.535572, -0.483353, -0.156943, 0.765778, 0.623661, 0.704156, -0.356016, 0.614343, 2.21694, 21.1803, -22.4514 )
+mesh = ExtResource( 118 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 119 )
+
+[node name="plant_08_ter" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.469124, -0.0376075, -0.168845, -0.0582185, 0.493895, 0.0517488, 0.162891, 0.0682129, -0.467775, -18.5349, 15.9417, 12.5263 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_37" type="MeshInstance" parent="rock01"]
+transform = Transform( -0.52943, -0.208193, -1.91739, 0, 1.98831, -0.215895, 1.92866, -0.0571503, -0.526336, -11.9179, 16.0674, 25.7633 )
+mesh = ExtResource( 97 )
+skeleton = NodePath("../../plant_36")
+material/0 = SubResource( 13 )
+
+[node name="plant_54" type="MeshInstance" parent="rock01"]
+transform = Transform( 0.114073, -0.444436, -0.198655, 0.473771, 0.148265, -0.0596523, 0.111931, -0.174625, 0.454948, -22.4268, 13.6288, 3.00761 )
+mesh = ExtResource( 132 )
+skeleton = NodePath("../../plant_53")
+material/0 = ExtResource( 133 )
+
+[node name="rock05" type="MeshInstance" parent="."]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 3.01198, -1.75065, 0.343076 )
+mesh = ExtResource( 163 )
+material/0 = SubResource( 22 )
+
+[node name="plant_06_ter5" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.184542, -0.0678083, 0.014002, 0.0687858, 0.18635, -0.00230689, -0.0231475, 0.0131648, 0.104775, -0.588775, 5.5504, -0.0795869 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../rock01/plant_05")
+material/0 = ExtResource( 31 )
+
+[node name="plant_06_bis2" type="MeshInstance" parent="rock05"]
+transform = Transform( -0.152144, 0.0444238, -0.193335, 0.0700703, 0.239979, 3.57597e-09, 0.0927931, -0.0270942, -0.0792485, 1.62881, 5.11559, 0.292335 )
+mesh = ExtResource( 30 )
+skeleton = NodePath("../../rock01/plant_05")
+material/0 = ExtResource( 29 )
+
+[node name="plant_08_ter6" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.104555, -0.0682152, 0.00631971, 0.067991, 0.104738, 0.00568054, -0.00419764, -0.000656983, 0.0623554, -1.86752, 5.25892, 0.0852598 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../../rock01/plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_08_ter7" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.0300612, -0.0682152, -0.100339, 0.0210778, 0.104738, -0.0648904, 0.0597433, -0.000656984, 0.0183455, -2.80328, 4.64439, -0.11695 )
+mesh = ExtResource( 38 )
+skeleton = NodePath("../../rock01/plant_07")
+material/0 = ExtResource( 34 )
+
+[node name="plant_14" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.155714, 0.0122774, -0.195198, 0, 0.249507, 0.0156933, 0.0977921, -0.00488734, 0.0777035, 1.96258, 5.01758, -1.03832 )
+mesh = ExtResource( 46 )
+skeleton = NodePath("../../plant_13")
+material/0 = ExtResource( 47 )
+
+[node name="plant_17" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.190633, 0, 0.161737, 0, 0.25, 0, -0.0808686, 0, 0.0953166, -1.12404, 4.41114, -1.60563 )
+mesh = ExtResource( 53 )
+skeleton = NodePath("../../plant_16")
+material/0 = ExtResource( 54 )
+
+[node name="plant_17_bis" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.00684955, 0, -0.249906, 0, 0.25, 0, 0.124953, 0, 0.00342477, 1.32447, 3.79534, 2.48002 )
+mesh = ExtResource( 53 )
+skeleton = NodePath("../plant_17")
+material/0 = ExtResource( 55 )
+
+[node name="plant_22_bis" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.0258965, -0.0383594, -0.116116, -0.0262905, 0.114169, -0.0435797, 0.0597143, 0.0167253, 0.00779239, -2.32932, 4.93224, 0.985301 )
+mesh = ExtResource( 64 )
+skeleton = NodePath("../../rock01/plant_21")
+material/0 = ExtResource( 65 )
+
+[node name="plant_28" type="MeshInstance" parent="rock05"]
+transform = Transform( -0.0661787, 0, -0.241082, 0, 0.25, 0, 0.120541, 0, -0.0330894, 4.15062, 4.7695, -0.679943 )
+mesh = ExtResource( 75 )
+skeleton = NodePath("../../rock01/plant_27")
+material/0 = ExtResource( 76 )
+
+[node name="plant_34" type="MeshInstance" parent="rock05"]
+transform = Transform( -0.217765, 0, -0.122795, 0, 0.25, 0, 0.0613973, 0, -0.108883, 1.06011, 2.7582, -2.42892 )
+mesh = ExtResource( 88 )
+skeleton = NodePath("../../plant_33")
+material/0 = ExtResource( 89 )
+
+[node name="plant_38" type="MeshInstance" parent="rock05"]
+transform = Transform( -0.0330893, 0, -0.120541, 0, 0.125, 0, 0.0602704, 0, -0.0165446, 0.872053, 5.26451, -0.415168 )
+mesh = ExtResource( 99 )
+skeleton = NodePath("../../rock01/plant_37")
+material/0 = SubResource( 14 )
+
+[node name="plant_45" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.125, 1.90103, 6.57898, 0.670364 )
+mesh = ExtResource( 113 )
+skeleton = NodePath("../../plant_44")
+material/0 = ExtResource( 116 )
+
+[node name="plant_51" type="MeshInstance" parent="rock05"]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.075, -1.09856, 1.16117, -4.19524 )
+mesh = ExtResource( 125 )
+skeleton = NodePath("../../plant_50")
+material/0 = ExtResource( 126 )

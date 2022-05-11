@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/plant_07.obj-161d86d3f44e41be671872fe3dce3a01.mesh"
+
+[deps]
+
+files=[ "res://.import/plant_07.obj-161d86d3f44e41be671872fe3dce3a01.mesh" ]
+
+source_file="res://assets/models/underwater/plant_07/plant_07.obj"
+dest_files=[ "res://.import/plant_07.obj-161d86d3f44e41be671872fe3dce3a01.mesh", "res://.import/plant_07.obj-161d86d3f44e41be671872fe3dce3a01.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

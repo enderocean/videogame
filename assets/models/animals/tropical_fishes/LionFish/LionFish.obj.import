@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/LionFish.obj-676027f70c25ba9c628819776fb27bc2.mesh"
+
+[deps]
+
+files=[ "res://.import/LionFish.obj-676027f70c25ba9c628819776fb27bc2.mesh" ]
+
+source_file="res://assets/models/animals/tropical_fishes/LionFish/LionFish.obj"
+dest_files=[ "res://.import/LionFish.obj-676027f70c25ba9c628819776fb27bc2.mesh", "res://.import/LionFish.obj-676027f70c25ba9c628819776fb27bc2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

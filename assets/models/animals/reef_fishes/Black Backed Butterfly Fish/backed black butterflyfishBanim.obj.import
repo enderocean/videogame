@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/backed black butterflyfishBanim.obj-8dbecd4706c2c7a1970cb74bb8b9e4bd.mesh"
+
+[deps]
+
+files=[ "res://.import/backed black butterflyfishBanim.obj-8dbecd4706c2c7a1970cb74bb8b9e4bd.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Black Backed Butterfly Fish/backed black butterflyfishBanim.obj"
+dest_files=[ "res://.import/backed black butterflyfishBanim.obj-8dbecd4706c2c7a1970cb74bb8b9e4bd.mesh", "res://.import/backed black butterflyfishBanim.obj-8dbecd4706c2c7a1970cb74bb8b9e4bd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/yellowfish2anim-5800.obj-84413a164b044fd522b2a755533ead28.mesh"
+
+[deps]
+
+files=[ "res://.import/yellowfish2anim-5800.obj-84413a164b044fd522b2a755533ead28.mesh" ]
+
+source_file="res://assets/models/animals/reef_fishes/Yellow Reef Fish/yellowfish2anim-5800.obj"
+dest_files=[ "res://.import/yellowfish2anim-5800.obj-84413a164b044fd522b2a755533ead28.mesh", "res://.import/yellowfish2anim-5800.obj-84413a164b044fd522b2a755533ead28.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
