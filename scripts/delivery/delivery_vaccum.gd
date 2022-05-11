@@ -7,6 +7,7 @@ onready var end_pipe = get_node("Position3D")
 
 var vaccum_speed = 10
 
+
 func _physics_process(delta):
 	for id in objects.size():
 		if (removed_bodys.find(objects[id]) == -1):
@@ -16,6 +17,7 @@ func _physics_process(delta):
 				removed_bodys.append(objects[id])
 				object.queue_free()
 				emit_signal("objects_changed", self, objects)
+
 
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable

@@ -259,7 +259,7 @@ visible = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 
 [node name="MagnetDeliveryTool" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, 1.00803, 5.80818 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, -1.07197, -0.11182 )
 magnet_force = 10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

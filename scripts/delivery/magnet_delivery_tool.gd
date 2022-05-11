@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not detected_object:
+	if not detected_object or carried:
 		return
 
 	if raycast.is_colliding():
@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 			joint.set_param(HingeJoint.PARAM_LIMIT_UPPER, 0.0)
 			joint.set_param(HingeJoint.PARAM_LIMIT_LOWER, 0.0)
 			add_child(joint)
+			
 			joint.global_transform.origin = collision_point
 			joint.set_node_a(magnet_body.get_path())
 			joint.set_node_b(detected_object.get_path())
