@@ -1,4 +1,5 @@
 extends RigidBody
+class_name RopeSection
 
 onready var collision: Dictionary = {"layer": collision_layer, "mask": collision_mask}
 

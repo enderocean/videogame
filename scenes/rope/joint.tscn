@@ -1,4 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 0.01
+height = 0.02
 
 [node name="joint" type="Generic6DOFJoint"]
 angular_limit_x/enabled = false
@@ -8,3 +12,7 @@ angular_limit_y/enabled = false
 angular_spring_y/enabled = true
 angular_spring_y/stiffness = 0.173
 angular_limit_z/enabled = false
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null

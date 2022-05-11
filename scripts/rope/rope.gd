@@ -9,37 +9,15 @@ export var joint: PackedScene
 export var from: NodePath
 export var to: NodePath
 export(int, 1, 1000) var length: int = 1
-export(float, 0.1, 100) var pulling_speed: float = 1.0
 
 var offset: Vector3 = Vector3(0, 0, -0.434)
 var sections: Array
-
-var pulling: bool = false
-var pulling_section
-var pulling_direction: Vector3
-var pulling_distance: float
-var pulling_destination: Vector3
-
-var timer: Timer
-var tween: Tween
-var line_renderer: LineRenderer
 
 var from_body: PhysicsBody
 var to_body: PhysicsBody
 var to_body_origin: Vector3
 
-signal pulled
-
 func _ready() -> void:
-	if not timer:
-		timer = Timer.new()
-		timer.wait_time = 1.0
-		add_child(timer)
-	
-	if not tween:
-		tween = Tween.new()
-		add_child(tween)
-	
 	var from_node = get_node_or_null(from)
 	if not from_node:
 		printerr('Path "from" of "', name, '" is not set')
@@ -59,10 +37,6 @@ func _ready() -> void:
 	if not to_body:
 		printerr('Path "to" of "', name, '" is not a PhysicsBody, Vehicle or DeliveryTool')
 		return
-	
-	# Connect to the catched event of the delivery tool to make the rope pull
-	if from_node is DeliveryTool:
-		from_node.connect("catched", self, "_on_delivery_tool_catched")
 	
 	to_body_origin = to_body.global_transform.origin
 
@@ -94,15 +68,6 @@ func _ready() -> void:
 	to_body.global_transform.origin = original_position
 
 
-func _physics_process(delta: float) -> void:
-	if pulling:
-		if to_body.global_transform.origin.distance_to(pulling_destination) < SECTION_LENGTH:
-			pulling = false
-			emit_signal("pulled")
-		
-		to_body.global_transform.origin = lerp(to_body.global_transform.origin, pulling_destination, delta * pulling_speed)
-
-
 func add_section(parent: Spatial, i: int) -> RigidBody:
 	var part: RigidBody = section.instance()
 	part.name = "Section %s" % i
@@ -116,7 +81,6 @@ func add_section(parent: Spatial, i: int) -> RigidBody:
 
 
 func add_link(parent: Spatial, child: Spatial, i: int) -> Joint:
-#	var pin: Generic6DOFJoint = LINK.instance()
 	var pin: Generic6DOFJoint = joint.instance()
 	pin.transform.origin = -Vector3(0, 0, 0.145 / 2)
 
@@ -149,14 +113,3 @@ func get_body_from(node) -> PhysicsBody:
 		return node
 
 	return null
-
-
-func pull() -> void:
-	pulling_distance = sections.size() * SECTION_LENGTH
-	pulling_direction = to_body_origin.direction_to(global_transform.origin)
-	pulling_destination = to_body_origin - pulling_direction * pulling_distance
-	pulling = true
-
-
-func _on_delivery_tool_catched() -> void:
-	pull()
