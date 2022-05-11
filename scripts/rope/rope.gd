@@ -131,7 +131,7 @@ func add_section(parent: Spatial, i: int) -> RigidBody:
 
 func add_link(parent: Spatial, child: Spatial, i: int) -> Joint:
 #	var pin: Generic6DOFJoint = LINK.instance()
-	var pin: PinJoint = joint.instance()
+	var pin: Generic6DOFJoint = joint.instance()
 	pin.transform.origin = -Vector3(0, 0, 0.145 / 2)
 
 	# Setting joint parameters
@@ -158,7 +158,6 @@ func get_body_from(node) -> PhysicsBody:
 	if node is Vehicle:
 		return node.theter_anchor.body
 	if node is DeliveryTool:
-		node.rope = self
 		return node.theter_anchor.body
 	elif node is PhysicsBody:
 		return node

@@ -65,7 +65,7 @@ func release_object() -> void:
 
 
 func _on_left_area_body_entered(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
+	if carrying_object or is_valid_body(body):
 		return
 
 	grips[0] = true
@@ -73,14 +73,14 @@ func _on_left_area_body_entered(body: Node) -> void:
 
 
 func _on_left_area_body_exited(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
+	if carrying_object or is_valid_body(body):
 		return
 
 	grips[0] = false
 
 
 func _on_right_area_body_entered(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
+	if carrying_object or is_valid_body(body):
 		return
 
 	grips[1] = true
@@ -88,7 +88,15 @@ func _on_right_area_body_entered(body: Node) -> void:
 
 
 func _on_right_area_body_exited(body: Node) -> void:
-	if carrying_object or not body is DeliveryObject:
+	if carrying_object or is_valid_body(body):
 		return
 
 	grips[1] = false
+
+
+func is_valid_body(body: Node) -> bool:
+	if body is DeliveryObject:
+		return true
+	if body.get_parent() is DeliveryTool:
+		return true
+	return false

@@ -11,62 +11,36 @@ export var raycast_path: NodePath
 onready var raycast: RayCast = get_node(raycast_path)
 
 export var sticking_distance: float = 0.01
-export var sticking_speed: float = 1.0
+export var magnet_force: float = 1.0
 
 var detected_object: DeliveryObject
 var sticked: bool = false
 var joint: HingeJoint
-var rope: Rope
+
 
 func _ready() -> void:
 	objective_type = Globals.ObjectiveType.MAGNET
 	group = "objective_%s" % str(objective_type).to_lower()
-	
-	if rope:
-		rope.connect("pulled", self, "_on_rope_pulled")
 
 
 func _physics_process(delta: float) -> void:
-	if not detected_object or sticked:
+	if not detected_object:
 		return
 
-	if not raycast.is_colliding():
-		return
-	
-	var collision_point: Vector3 = raycast.get_collision_point()
-	var collision_normal: Vector3 = raycast.get_collision_normal()
-	var distance: float = collision_point.distance_to(stickpoint.global_transform.origin)
-	print(distance)
-	if distance <= sticking_distance:
-#		mode = RigidBody.MODE_STATIC
-#		look_at(global_transform.origin - collision_normal, Vector3.UP);
+	if raycast.is_colliding():
+		var collision_point: Vector3 = raycast.get_collision_point()
+		var collision_normal: Vector3 = raycast.get_collision_normal()
 		
-		raycast.enabled = false
-		sticked = true
-		
-		print("dsqdqd")
-		if not joint:
-			joint = HingeJoint.new()
-			add_child(joint)
-		
-		joint.global_transform.origin = collision_point
-		joint.set_param(HingeJoint.PARAM_BIAS, 1.0)
-		joint.set_flag(HingeJoint.FLAG_USE_LIMIT, true)
-		joint.set_param(HingeJoint.PARAM_LIMIT_LOWER, 0.0)
-		joint.set_param(HingeJoint.PARAM_LIMIT_LOWER, 0.0)
-		
-		joint.set_node_a(magnet_body.get_path())
-		joint.set_node_b(detected_object.get_path())
-		
-		
-		if rope:
-			rope.pull()
-		else:
-			detected_object.delivered = true
-
-
-func _on_rope_pulled() -> void:
-	detected_object.delivered = true
+		var distance: float = collision_point.distance_to(stickpoint.global_transform.origin)
+		if distance <= sticking_distance:
+			raycast.enabled = false
+#			detected_object.mode = RigidBody.MODE_STATIC
+			var old_pos: Vector3 = detected_object.global_transform.origin
+			
+			detected_object.get_parent().remove_child(detected_object)
+			magnet_body.add_child(detected_object)
+			
+			detected_object.global_transform.origin = old_pos
 
 
 func _on_body_entered(body: Node) -> void:
