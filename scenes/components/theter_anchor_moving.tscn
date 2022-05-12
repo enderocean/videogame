@@ -6,7 +6,6 @@
 friction = 0.0
 
 [sub_resource type="BoxShape" id=28]
-extents = Vector3( 0.51, 1, 1 )
 
 [node name="TheterAnchor" type="Spatial"]
 script = ExtResource( 1 )
@@ -19,7 +18,7 @@ angular_limit/upper = 0.0
 angular_limit/lower = 0.0
 
 [node name="AnchorBody" type="RigidBody" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 physics_material_override = SubResource( 29 )
 gravity_scale = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=17]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -87,6 +89,12 @@ points = PoolVector3Array( 0.936788, 0.0245166, 0.340209, -0.9622, 0.0235265, -0
 [sub_resource type="SpatialMaterial" id=21]
 albedo_texture = ExtResource( 12 )
 uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Curve3D" id=25]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079, 0, 0, 0, 0, 0, 0, 8.45815, -0.784242, -1.60849, 0, 0, 0, 0, 0, 0, 10.8491, 2.03713, -4.82849, 0, 0, 0, 0, 0, 0, 7.70465, 0.924336, -15.3851, 0, 0, 0, 0, 0, 0, 1.77759, 2.78423, -16.5732, 0, 0, 0, 0, 0, 0, -4.75082, 3.61585, -15.5624, 0, 0, 0, 0, 0, 0, -8.11241, 1.64981, -6.75963, 0, 0, 0, 0, 0, 0, -5.18043, 0.784087, -1.02249, 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [node name="Example" type="Spatial"]
 script = ExtResource( 7 )
@@ -298,6 +306,17 @@ from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
 length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 25 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( -0.188561, 0.0879616, 0.978114, 0, 0.995981, -0.0895683, -0.982062, -0.0168891, -0.187803, 0.0120448, -0.0108113, 0.0132079 )
+rotation_mode = 4
+script = ExtResource( 17 )
+speed = 0.1
+
+[node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 16 )]
 
 [connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 
