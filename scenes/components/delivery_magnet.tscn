@@ -24,7 +24,7 @@ height = 1.0
 [node name="MagnetDeliveryTool" type="Spatial"]
 script = ExtResource( 1 )
 theter_anchor_path = NodePath("TheterAnchor")
-magnet_body_path = NodePath("Magnet")
+tool_body_path = NodePath("Magnet")
 stickpoint_path = NodePath("Magnet/Stickpoint")
 raycast_path = NodePath("Magnet/RayCast")
 
