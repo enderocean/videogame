@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_01/data.hterrain" type="Resource" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=8]
 [ext_resource path="res://addons/fish-shader/assets/Fish Perch.tres" type="ArrayMesh" id=9]
-[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=10]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=11]
 [ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=13]
@@ -134,7 +133,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 21.1117
+shader_param/timer = 125.73
 shader_param/twist_factor = 0.73
 shader_param/twist_factor_frequency = -3.0
 shader_param/s_factor = 0.5
@@ -254,7 +253,7 @@ transform = Transform( 3, 0, 0, 0, 2, 0, 1.19209e-07, 0, 2, -0.0119781, -0.01313
 [node name="fish" type="MeshInstance" parent="."]
 transform = Transform( -0.0895964, -0.000213163, 0.0444122, -0.00114828, 0.0999765, -0.00183666, -0.0443979, -0.00215556, -0.0895778, 17.2114, -0.0308602, -5.3467 )
 mesh = ExtResource( 9 )
-material/0 = ExtResource( 10 )
+material/0 = SubResource( 7 )
 script = ExtResource( 8 )
 fish_translatex = 0.1
 fish_yaw = 0.25
@@ -1020,7 +1019,7 @@ transform = Transform( -0.229835, 0, -0.973229, 0, 1, 0, 0.973229, 0, -0.229835,
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 mesh = ExtResource( 9 )
 skeleton = NodePath("../../..")
-material/0 = ExtResource( 10 )
+material/0 = SubResource( 7 )
 script = ExtResource( 8 )
 fish_translatex = 0.1
 fish_yaw = -0.032

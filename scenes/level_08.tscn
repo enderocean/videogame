@@ -18,6 +18,7 @@
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=16]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=17]
 [ext_resource path="res://assets/models/corals/Billboard/RS04v3.obj" type="ArrayMesh" id=18]
+
 [ext_resource path="res://assets/models/underwater/plant_02/tex/shanhu01_color.jpg" type="Texture" id=19]
 [ext_resource path="res://assets/models/underwater/plant_02/plant_02.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/underwater/plant_03/tex/shanhu02_color.jpg" type="Texture" id=21]

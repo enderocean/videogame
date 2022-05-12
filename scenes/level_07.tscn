@@ -14,7 +14,6 @@
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=13]
 [ext_resource path="res://assets/models/animals/pilotfish/pilotfish.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=16]
-[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=17]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=18]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
 [ext_resource path="res://assets/models/bottles/plastic_bottle/scene.gltf" type="PackedScene" id=20]
@@ -61,6 +60,8 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.905201, 0, 1.0843, 0, 0, 0, 0, 0, 0, -2.60029, 0, -0.25122, 0, 0, 0, 0, 0, 0, -4.19264, 0, -0.970347, 0, 0, 0, 0, 0, 0, -6.40139, 0, -1.17581, 0, 0, 0, 0, 0, 0, -9.38063, 0, -1.27854, 0, 0, 0, 0, 0, 0, -10.973, 0, -0.867614, 0, 0, 0, 0, 0, 0, -12.7708, 0, 0.211076, 0, 0, 0, 0, 0, 0, -13.9522, 0, 1.80343, 0, 0, 0, 0, 0, 0, -14.4145, 0, 4.16627, 0, 0, 0, 0, 0, 0, -14.4145, 0, 6.27229, 0, 0, 0, 0, 0, 0, -13.7981, 0, 8.58377, 0, 0, 0, 0, 0, 0, -12.3085, 0, 10.587, 0, 0, 0, 0, 0, 0, -9.81649, 0, 11.7122, 0, 0, 0, 0, 0, 0, -6.19592, 0, 11.9739, 0, 0, 0, 0, 0, 0, -3.57625, 0, 11.563, 0, 0, 0, 0, 0, 0, 2.24449, 0.28916, 11.0413, 0, 0, 0, 0, 0, 0, 7.68598, 0.933577, 10.0788, 0, 0, 0, 0, 0, 0, 10.9528, 1.74694, 8.67179, 0, 0, 0, 0, 0, 0, 12.0354, 2.30524, 7.61535, 0, 0, 0, 0, 0, 0, 12.4955, 2.73729, 6.0467, 0, 0, 0, 0, 0, 0, 11.4978, 2.60057, 3.34599, 0, 0, 0, 0, 0, 0, 9.52983, 2.15535, 1.32622, 0, 0, 0, 0, 0, 0, 7.66507, 0.392942, -0.250652, 0, 0, 0, 0, 0, 0, 4.12412, 0, -1.60923, 0, 0, 0, 0, 0, 0, 0.23407, 0, -2.62211, 0, 0, 0, 0, 0, 0, -2.55503, 0, -3.23865, 0, 0, 0, 0, 0, 0, -4.82033, 0.228943, -3.89725, 0, 0, 0, 0, 0, 0, -8.95944, -0.0706837, -4.1396, 0, 0, 0, 0, 0, 0, -11.4361, 0, -5.17634, 0, 0, 0, 0, 0, 0, -15.106, 0, -4.82403, 0, 0, 0, 0, 0, 0, -16.3664, 0, -3.12773, 0, 0, 0, 0, 0, 0, -15.0326, 0, -0.684422, 0, 0, 0, 0, 0, 0, -12.4112, 0, 2.26572, 0, 0, 0, 0, 0, 0, -10.562, 0, 6.47775, 0, 0, 0, 0, 0, 0, -9.01695, 3.8147e-05, 8.56307, 0, 0, 0, 0, 0, 0, -6.44103, 0.000312805, 10.0133, 0, 0, 0, 0, 0, 0, -3.2097, -7.24792e-05, 10.689, 0, 0, 0, 0, 0, 0, -0.905201, 0, 10.2275, 0, 0, 0, 0, 0, 0, 0.0901966, 0.000312805, 9.15575, 0, 0, 0, 0, 0, 0, 0.53305, 0, 7.60781, 0, 0, 0, 0, 0, 0, 0.687149, 0, 5.0395, 0, 0, 0, 0, 0, 0, 0.276218, 0, 2.57392, 0, 0, 0, 0, 0, 0, -0.905201, 0, 1.0843 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="ShaderMaterial" id=71]
 
 [sub_resource type="CapsuleShape" id=11]
 
@@ -226,7 +227,6 @@ uv1_scale = Vector3( 3, 2, 1 )
 
 [node name="level_07" type="Spatial"]
 script = ExtResource( 1 )
-sun_path = NodePath("")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
@@ -237,6 +237,10 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 2 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.58316, 4.95221, -2.57201 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 3 )]
 visible = true
@@ -653,7 +657,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905201, 0, 1.0843 )
 transform = Transform( -0.147498, -0.000213164, -0.0675354, 0.00259721, 0.0999765, -0.00173364, 0.135046, -0.00215556, -0.073729, 0.760641, -0.259108, 0.184198 )
 mesh = ExtResource( 15 )
 skeleton = NodePath("../../..")
-material/0 = ExtResource( 17 )
+material/0 = null
 material/1 = null
 material/2 = null
 material/3 = null
@@ -674,7 +678,7 @@ fish_tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 transform = Transform( -0.0737491, -0.000106582, -0.0337677, 0.0012986, 0.0499883, -0.000866821, 0.0675232, -0.00107778, -0.0368645, 1.78862, -0.257008, 0.227527 )
 mesh = ExtResource( 15 )
 skeleton = NodePath("../../..")
-material/0 = ExtResource( 17 )
+material/0 = SubResource( 71 )
 material/1 = null
 material/2 = null
 material/3 = null
