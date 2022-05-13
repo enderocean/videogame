@@ -263,13 +263,8 @@ attach4 = NodePath("../Attach4")
 overrite_pins = [ -1, 20, 240, -1 ]
 
 [node name="fishing_net" type="SoftBody" parent="Net"]
-<<<<<<< HEAD
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343987, -0.43306, 0 )
-mesh = SubResource( 1 )
-=======
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343987, -0.222112, 0 )
 mesh = SubResource( 57 )
->>>>>>> c293d14bf3d88c39c405f5916fa0860c2d648f97
 material/0 = null
 linear_stiffness = 0.0
 pinned_points = [ 1758 ]
