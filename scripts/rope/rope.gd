@@ -52,10 +52,11 @@ func _ready() -> void:
 	for i in range(length):
 		var child: RigidBody = add_section(parent, i)
 		
-		if i > 0:
-			child.previous_joint = parent.joint
+#		if i > 0:
+#			child.previous_joint = parent.joint
 		
-		child.joint = add_link(parent, child, i)
+#		child.joint = add_link(parent, child, i)
+		add_link(parent, child, i)
 		parent = child
 		sections.append(child)
 	

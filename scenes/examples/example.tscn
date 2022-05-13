@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=17]
+[ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -50,6 +51,14 @@ albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
 
 [sub_resource type="CubeMesh" id=23]
 material = SubResource( 24 )
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_color = Color( 0.615686, 0.533333, 0, 1 )
+
+[sub_resource type="CubeMesh" id=27]
+material = SubResource( 26 )
+
+[sub_resource type="BoxShape" id=28]
 
 [sub_resource type="ConvexPolygonShape" id=9]
 points = PoolVector3Array( 6.40821, -4.63758, 0.0167911, 6.1177, -4.92798, -0.0993366, 6.17582, -4.98617, -0.157452, 6.1177, -4.52144, -0.215601, 6.1177, -4.52144, 0.133021, 6.52442, -4.98617, 0.0167911, 6.40821, -4.75372, -0.215601, 6.17582, -4.98617, 0.0749061, 6.17582, -4.40513, -0.0993366, 6.40821, -4.86986, 0.133021 )
@@ -188,6 +197,20 @@ shape = SubResource( 22 )
 mesh = SubResource( 23 )
 material/0 = null
 
+[node name="HeavyObject2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07, -0.49, -8.54 )
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+objective_type = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="HeavyObject2"]
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="HeavyObject2"]
+shape = SubResource( 28 )
+
 [node name="Dasti" type="StaticBody" parent="."]
 
 [node name="dasti_hookers" type="MeshInstance" parent="Dasti"]
@@ -273,6 +296,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35918, -1.07197, -0.11182 )
 magnet_force = 10.0
 
+[node name="GrapplingHookDeliveryTool" parent="." instance=ExtResource( 18 )]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
@@ -283,10 +308,13 @@ mesh = SubResource( 20 )
 material/0 = SubResource( 21 )
 
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
-transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.52411 )
 
 [node name="MagnetTheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
-transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.315889 )
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.0158889 )
+
+[node name="GrapplingHookTheterAnchor" parent="Ender Station" instance=ExtResource( 11 )]
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.685889 )
 
 [node name="PullDestination" type="Position3D" parent="Ender Station"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.86, 50.82, 0 )
@@ -304,6 +332,12 @@ length = 200
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
+length = 200
+destination_path = NodePath("../Ender Station/PullDestination")
+
+[node name="PullingTheter2" parent="." instance=ExtResource( 14 )]
+from = NodePath("../GrapplingHookDeliveryTool")
+to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 
