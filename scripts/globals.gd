@@ -6,6 +6,7 @@ enum ObjectiveType {
 	CUTTER,
 	GRAPPLING_HOOK,
 	MAGNET,
+	ANIMAL,
 }
 
 const SEND_DATA: bool = false

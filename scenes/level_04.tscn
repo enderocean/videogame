@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -17,12 +17,13 @@
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=15]
 [ext_resource path="res://scenes/net/fishing_net.gd" type="Script" id=16]
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=17]
-[ext_resource path="res://assets/models/animals/turtle/10042_Sea_Turtle_V2_iterations-2.obj" type="ArrayMesh" id=18]
 [ext_resource path="res://assets/models/vehicles/plane.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=20]
 [ext_resource path="res://assets/models/vehicles/ship.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
+[ext_resource path="res://assets/models/animals/green_sea_turtle/grnSeatturtle1f3UVriggedf.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scripts/components/trap_animal.gd" type="Script" id=25]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
@@ -167,7 +168,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2133, -34.1643, -1.62699 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42839, -8.50991, -1.62699 )
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 from = NodePath("../BlueRov")
@@ -296,11 +297,14 @@ curve = SubResource( 35 )
 [node name="PathFollow" type="PathFollow" parent="Path2"]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.0127106, 0.0398941, 0.0203162 )
 
-[node name="turle" type="MeshInstance" parent="Path2/PathFollow"]
-transform = Transform( 0.01, 0, -2.27374e-13, -1.64846e-12, -0.000502094, 0.00998739, 3.63798e-12, -0.00998739, -0.000502094, 0.0663452, -0.223564, 0.179534 )
-mesh = ExtResource( 18 )
-skeleton = NodePath("../../../Net")
-material/0 = null
+[node name="grnSeatturtle1f3UVriggedf" parent="Path2/PathFollow" instance=ExtResource( 24 )]
+transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.0638313, -0.154812, 0.167665 )
+script = ExtResource( 25 )
+fish_net_path = NodePath("../../../Net")
+path_follow_path = NodePath("..")
+
+[node name="AnimationPlayer" parent="Path2/PathFollow/grnSeatturtle1f3UVriggedf" index="1"]
+reset_on_save = false
 
 [node name="Turle" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2267, -28.5181, -6.39037 )
@@ -335,8 +339,9 @@ material/0 = SubResource( 18 )
 
 [node name="plane" type="MeshInstance" parent="."]
 transform = Transform( 0.00689304, -0.00580567, -0.00433361, 0.00458669, 0.00812744, -0.00359263, 0.00560787, 0.000488722, 0.00826516, 36.7653, -32.5708, -26.9352 )
-visible = false
 mesh = ExtResource( 19 )
 material/0 = SubResource( 21 )
 
 [connection signal="net_cut" from="Net" to="." method="_on_Net_net_cut"]
+
+[editable path="Path2/PathFollow/grnSeatturtle1f3UVriggedf"]

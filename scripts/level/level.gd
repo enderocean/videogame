@@ -29,10 +29,9 @@ export var objectives_target: Dictionary = {
 	"cutter": 0,
 	"grappling_hook": 0,
 	"magnet": 0,
+	"animal": 0,
 }
-onready var turtle_path = get_node("Path2/PathFollow")
-var turtle_speed = 1
-var fishnet_objective = false
+
 var objectives: Dictionary = {}
 var objectives_progress: Dictionary = {}
 var score: int = 0
@@ -75,8 +74,10 @@ func _ready():
 	
 	# Connect to all objective areas
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
-		node.connect("objects_changed", self, "_on_objects_changed")
-
+		if node is DeliveryArea:
+			node.connect("objects_changed", self, "_on_objects_changed")
+		if node is TrapAnimal:
+			node.connect("animal_free", self, "_on_animal_free")
 
 func calculate_buoyancy_and_ballast():
 	var vehicles = get_tree().get_nodes_in_group("buoyant")
@@ -158,9 +159,6 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
-	if (turtle_path and fishnet_objective):
-		move_turtle(_delta)
-
 
 func _on_fancy_water_changed() -> void:
 	if Globals.fancy_water:
@@ -192,6 +190,18 @@ func _on_objects_changed(area, objects: Array) -> void:
 	check_objectives()
 	emit_signal("objectives_changed")
 
+func _on_animal_free(animal: TrapAnimal) -> void:
+	if (objectives_progress.has(Globals.ObjectiveType.ANIMAL)):
+		objectives_progress[Globals.ObjectiveType.ANIMAL] += 1
+	else:
+		objectives_progress[Globals.ObjectiveType.ANIMAL] = 1
+
+	score = objectives_progress[Globals.ObjectiveType.ANIMAL]
+	print("Animaled: ", objectives_progress.get(Globals.ObjectiveType.ANIMAL), " / ", objectives.get(Globals.ObjectiveType.ANIMAL))
+	
+	check_objectives()
+	emit_signal("objectives_changed")
+
 func check_objectives() -> void:
 	# First check if all the objectives are in the progress dictionary
 	if objectives.keys().size() != objectives_progress.keys().size():
@@ -210,10 +220,3 @@ func check_objectives() -> void:
 
 	if finished:
 		emit_signal("finished", score)
-
-func move_turtle(_delta: float):
-	turtle_path.offset += _delta * turtle_speed
-
-	
-func _on_Net_net_cut():
-	fishnet_objective = true
