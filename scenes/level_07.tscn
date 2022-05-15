@@ -10,11 +10,11 @@
 [ext_resource path="res://terrains/level_07/data.hterrain" type="Resource" id=8]
 [ext_resource path="res://terrains/level_07/terra/GlazedTerracotta001_1K_Color.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=10]
-[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=11]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=13]
-[ext_resource path="res://assets/models/animals/tropical_fishes/NurseShark/NurseShark.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=16]
+[ext_resource path="res://addons/fish-shader/shader/shark_grey.tres" type="Material" id=17]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=18]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
 [ext_resource path="res://assets/models/bottles/plastic_bottle/scene.gltf" type="PackedScene" id=20]
@@ -654,23 +654,10 @@ script = ExtResource( 18 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905201, 0, 1.0843 )
 
 [node name="fish" type="MeshInstance" parent="Path/PathFollow"]
-transform = Transform( -0.147498, -0.000213164, -0.0675354, 0.00259721, 0.0999765, -0.00173364, 0.135046, -0.00215556, -0.073729, 0.760641, -0.259108, 0.184198 )
-mesh = ExtResource( 14 )
+transform = Transform( -0.147498, -0.000426318, -0.135071, 0.00259722, 0.199953, -0.00346729, 0.135046, -0.00431113, -0.147458, -0.0327168, -0.259114, -0.0590663 )
+mesh = ExtResource( 15 )
 skeleton = NodePath("../../..")
-material/0 = ExtResource( 11 )
-script = ExtResource( 16 )
-fish_translatex = 0.1
-fish_yaw = 0.5
-fish_twist = 0.5
-fish_s = 0.32
-fish_head_z = -1.275
-fish_tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
-
-[node name="fish2" type="MeshInstance" parent="Path/PathFollow"]
-transform = Transform( -0.0737491, -0.000106582, -0.0337677, 0.0012986, 0.0499883, -0.000866821, 0.0675232, -0.00107778, -0.0368645, 1.78862, -0.257008, 0.227527 )
-mesh = ExtResource( 14 )
-skeleton = NodePath("../../..")
-material/0 = ExtResource( 11 )
+material/0 = ExtResource( 17 )
 script = ExtResource( 16 )
 fish_translatex = 0.1
 fish_yaw = 0.5

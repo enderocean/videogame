@@ -11,8 +11,7 @@ title = "Level 08"
 country = "SOUDAN"
 location = "Red Sea"
 description = "The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
-
-First, plastic wastes from surrounding countries all get trapped here. Then, new oil extraction projects have been started. This is a ticking bomb, as any accident would cause massive losses for the area biodiversity."
+"
 time = 10
-objectives = PoolStringArray( "Catch 6 moving plastics beforethey get lost into the mediterranean sea", "Retrieve micro-platics spread" )
+objectives = PoolStringArray( "Catch items left by divers and sailers" )
 tools = PoolStringArray( "Gripper", "Lights" )

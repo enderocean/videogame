@@ -14,5 +14,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	t += delta
-	var node = get_node("PathFollow")
+	var node = get_child(0) # get_node("PathFollow")
 	node.offset = t
