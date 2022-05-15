@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://terrains/level_01/metal_fish/Metal038_1K_Color.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/models/animals/tropical_fishes/NurseShark/NurseShark_Base_Color.png" type="Texture" id=1]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -94,18 +94,18 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/timer = 36.8504
-shader_param/twist_factor = 0.481
+shader_param/timer = 275.606
+shader_param/twist_factor = 0.5
 shader_param/twist_factor_frequency = -5.0
-shader_param/s_factor = 0.1
+shader_param/s_factor = 0.32
 shader_param/s_factor_frequency = 5.0
 shader_param/frequency = 5.0
-shader_param/yaw_factor = -0.01
-shader_param/translate = Vector3( 0.2, 0, 0 )
-shader_param/head_z = -1.16
-shader_param/head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+shader_param/yaw_factor = 0.5
+shader_param/translate = Vector3( 0.1, 0, 0 )
+shader_param/head_z = -1.275
+shader_param/head_color = Color( 0, 0, 0, 1 )
 shader_param/tail_z = 1.0
-shader_param/tail_color = Color( 1, 1, 1, 1 )
+shader_param/tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0

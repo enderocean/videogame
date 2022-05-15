@@ -133,16 +133,16 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 125.73
-shader_param/twist_factor = 0.73
-shader_param/twist_factor_frequency = -3.0
-shader_param/s_factor = 0.5
-shader_param/s_factor_frequency = 3.0
-shader_param/frequency = 3.0
-shader_param/yaw_factor = 0.0
-shader_param/translate = Vector3( 0.37, 0, 0 )
-shader_param/head_z = -0.46
-shader_param/head_color = Color( 0.558, 0.105569, 0.0944706, 0.099451 )
+shader_param/timer = 19.3368
+shader_param/twist_factor = -0.51
+shader_param/twist_factor_frequency = -5.0
+shader_param/s_factor = 0.38
+shader_param/s_factor_frequency = 5.0
+shader_param/frequency = 5.0
+shader_param/yaw_factor = -0.032
+shader_param/translate = Vector3( 0.1, 0, 0 )
+shader_param/head_z = -1.16
+shader_param/head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
 shader_param/tail_z = 1.0
 shader_param/tail_color = Color( 1, 1, 1, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -195,13 +195,13 @@ extents = Vector3( 4.19099, 2.05776, 4.32709 )
 [node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
-vehicle_path = NodePath("Vehicle")
+vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
 "gripper": 0,
 "magnet": 0,
-"vacuum": 16
+"vacuum": 20
 }
 
 [node name="water" parent="." instance=ExtResource( 11 )]
@@ -233,12 +233,12 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 transform = Transform( -0.237324, -0.253453, 0.937784, 0.0721203, 0.958103, 0.277196, -0.96875, 0.133419, -0.209102, 16.0455, 11.1208, 5.21463 )
 visible = true
 
-[node name="Vehicle" parent="." instance=ExtResource( 27 )]
+[node name="BlueRov" parent="." instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09859, 11.4746 )
 starting_tool = 1
 
 [node name="Theter" parent="." instance=ExtResource( 30 )]
-from = NodePath("../Vehicle")
+from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 100
 

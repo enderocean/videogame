@@ -191,13 +191,14 @@ vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 4,
+"gripper": 3,
 "magnet": 0,
 "vacuum": 0
 }
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 256, 0, 0, 0, 256, 0, 0, 0, 256, 256, 0, 128.701 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -492,6 +493,7 @@ shape = SubResource( 47 )
 
 [node name="Cone" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2358, -12.1077, 59.9272 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 28 )
@@ -572,7 +574,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass4" type="MeshInstance" parent="."]
 transform = Transform( 0.0113197, 0, 0.0277824, 0, 0.015, 0, -0.0277824, 0, 0.0113197, 75.4939, -12.2449, 158.36 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -580,7 +581,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass5" type="MeshInstance" parent="."]
 transform = Transform( -0.0229867, 0, -0.0192772, 0, 0.015, 0, 0.0192772, 0, -0.0229867, 76.2201, -12.2449, 165.113 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -588,7 +588,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass6" type="MeshInstance" parent="."]
 transform = Transform( 0.0193277, 0, 0.0229443, 0, 0.015, 0, -0.0229443, 0, 0.0193277, 75.4939, -12.2449, 163.4 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -596,7 +595,6 @@ material/2 = SubResource( 43 )
 
 [node name="grass7" type="MeshInstance" parent="."]
 transform = Transform( -0.0145388, 0, 0.0262416, 0, 0.015, 0, -0.0262416, 0, -0.0145388, 77.1946, -12.2449, 120.833 )
-visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -628,7 +626,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74121, 0.294626, 213.663 )
 shape = SubResource( 53 )
 
 [node name="Bottle" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 69.6557, -7.73704, 134.612 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.2151, -7.73704, 159.547 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 28 )
@@ -715,42 +713,51 @@ material = SubResource( 11 )
 
 [node name="Attach1" type="MeshInstance" parent="."]
 transform = Transform( 0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 58.9227, -11.9557, 158.335 )
+visible = false
 mesh = SubResource( 55 )
 skeleton = NodePath("../Net")
 material/0 = SubResource( 56 )
 
 [node name="Attach2" type="MeshInstance" parent="."]
 transform = Transform( 0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 58.9227, -11.9557, 160.919 )
+visible = false
 mesh = SubResource( 55 )
 skeleton = NodePath("../Net")
 material/0 = SubResource( 56 )
 
 [node name="Attach3" type="MeshInstance" parent="."]
 transform = Transform( 0.0686862, -0.0134981, 0, 0.0134981, 0.0686862, 0, 0, 0, 0.07, 56.6537, -11.1377, 160.559 )
+visible = false
 mesh = SubResource( 55 )
 skeleton = NodePath("../Net")
 material/0 = SubResource( 56 )
 
 [node name="Attach4" type="MeshInstance" parent="."]
 transform = Transform( 0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 56.8171, -11.3243, 158.335 )
+visible = false
 mesh = SubResource( 55 )
 skeleton = NodePath("../Net")
 material/0 = SubResource( 56 )
 
 [node name="Pospin1" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9705, -11.4174, 158.457 )
+visible = false
 
 [node name="Pospin2" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9791, -11.1189, 160.456 )
+visible = false
 
 [node name="Pospin3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9949, -10.8572, 160.421 )
+visible = false
 
 [node name="Pospin4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9929, -11.1394, 158.436 )
+visible = false
 
 [node name="Spatial" parent="." instance=ExtResource( 38 )]
 transform = Transform( 0.991549, 0.12973, 0, -0.128473, 0.981938, 0.138897, 0.0180191, -0.137723, 0.990307, 57.9872, -11.131, 159.446 )
+visible = false
 pospin1 = NodePath("../Pospin1")
 pospin2 = NodePath("../Pospin2")
 pospin3 = NodePath("../Pospin3")

@@ -141,14 +141,13 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -20, 0, -20 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
-visible = false
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 3 )]
+visible = true
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -30, -150 )
@@ -169,6 +168,7 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42839, -8.50991, -1.62699 )
+starting_tool = 2
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 from = NodePath("../BlueRov")

@@ -84,7 +84,7 @@ vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 3,
+"gripper": 1,
 "magnet": 0,
 "vacuum": 0
 }

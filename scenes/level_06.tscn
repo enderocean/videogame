@@ -327,7 +327,7 @@ script = ExtResource( 1 )
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 6,
+"gripper": 7,
 "magnet": 0,
 "vacuum": 0
 }

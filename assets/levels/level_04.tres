@@ -16,5 +16,5 @@ It has a very rich but fragile biodiversity that has been gravely impacted by th
 These species must be protected from the
 many toxic wastes that could impact them."
 time = 10
-objectives = PoolStringArray( "Save 6 atrophied corals or seaanimals from litter & nets" )
+objectives = PoolStringArray( "Cut fishing net to free the animal" )
 tools = PoolStringArray( "Cutter", "Lights" )

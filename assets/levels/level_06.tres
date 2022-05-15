@@ -12,5 +12,5 @@ country = "GHANA"
 location = "Accra Coast"
 description = "Ghana recently started a new oil extraction system on the side of its coast, but issues already started to occure. The numerous extraction pipes have been invaded by litter that could cause harm to this system if we do not intervene."
 time = 10
-objectives = PoolStringArray( "Catch 6 moving plastics beforethey get lost into the mediterranean sea" )
+objectives = PoolStringArray( "Catch all moving plastics beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )

@@ -10,9 +10,10 @@
 [ext_resource path="res://terrains/level_07/data.hterrain" type="Resource" id=8]
 [ext_resource path="res://terrains/level_07/terra/GlazedTerracotta001_1K_Color.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=11]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=13]
-[ext_resource path="res://assets/models/animals/pilotfish/pilotfish.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://assets/models/animals/tropical_fishes/NurseShark/NurseShark.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=16]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=18]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
@@ -60,8 +61,6 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.905201, 0, 1.0843, 0, 0, 0, 0, 0, 0, -2.60029, 0, -0.25122, 0, 0, 0, 0, 0, 0, -4.19264, 0, -0.970347, 0, 0, 0, 0, 0, 0, -6.40139, 0, -1.17581, 0, 0, 0, 0, 0, 0, -9.38063, 0, -1.27854, 0, 0, 0, 0, 0, 0, -10.973, 0, -0.867614, 0, 0, 0, 0, 0, 0, -12.7708, 0, 0.211076, 0, 0, 0, 0, 0, 0, -13.9522, 0, 1.80343, 0, 0, 0, 0, 0, 0, -14.4145, 0, 4.16627, 0, 0, 0, 0, 0, 0, -14.4145, 0, 6.27229, 0, 0, 0, 0, 0, 0, -13.7981, 0, 8.58377, 0, 0, 0, 0, 0, 0, -12.3085, 0, 10.587, 0, 0, 0, 0, 0, 0, -9.81649, 0, 11.7122, 0, 0, 0, 0, 0, 0, -6.19592, 0, 11.9739, 0, 0, 0, 0, 0, 0, -3.57625, 0, 11.563, 0, 0, 0, 0, 0, 0, 2.24449, 0.28916, 11.0413, 0, 0, 0, 0, 0, 0, 7.68598, 0.933577, 10.0788, 0, 0, 0, 0, 0, 0, 10.9528, 1.74694, 8.67179, 0, 0, 0, 0, 0, 0, 12.0354, 2.30524, 7.61535, 0, 0, 0, 0, 0, 0, 12.4955, 2.73729, 6.0467, 0, 0, 0, 0, 0, 0, 11.4978, 2.60057, 3.34599, 0, 0, 0, 0, 0, 0, 9.52983, 2.15535, 1.32622, 0, 0, 0, 0, 0, 0, 7.66507, 0.392942, -0.250652, 0, 0, 0, 0, 0, 0, 4.12412, 0, -1.60923, 0, 0, 0, 0, 0, 0, 0.23407, 0, -2.62211, 0, 0, 0, 0, 0, 0, -2.55503, 0, -3.23865, 0, 0, 0, 0, 0, 0, -4.82033, 0.228943, -3.89725, 0, 0, 0, 0, 0, 0, -8.95944, -0.0706837, -4.1396, 0, 0, 0, 0, 0, 0, -11.4361, 0, -5.17634, 0, 0, 0, 0, 0, 0, -15.106, 0, -4.82403, 0, 0, 0, 0, 0, 0, -16.3664, 0, -3.12773, 0, 0, 0, 0, 0, 0, -15.0326, 0, -0.684422, 0, 0, 0, 0, 0, 0, -12.4112, 0, 2.26572, 0, 0, 0, 0, 0, 0, -10.562, 0, 6.47775, 0, 0, 0, 0, 0, 0, -9.01695, 3.8147e-05, 8.56307, 0, 0, 0, 0, 0, 0, -6.44103, 0.000312805, 10.0133, 0, 0, 0, 0, 0, 0, -3.2097, -7.24792e-05, 10.689, 0, 0, 0, 0, 0, 0, -0.905201, 0, 10.2275, 0, 0, 0, 0, 0, 0, 0.0901966, 0.000312805, 9.15575, 0, 0, 0, 0, 0, 0, 0.53305, 0, 7.60781, 0, 0, 0, 0, 0, 0, 0.687149, 0, 5.0395, 0, 0, 0, 0, 0, 0, 0.276218, 0, 2.57392, 0, 0, 0, 0, 0, 0, -0.905201, 0, 1.0843 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="ShaderMaterial" id=71]
 
 [sub_resource type="CapsuleShape" id=11]
 
@@ -240,6 +239,7 @@ transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 1.58316, 4.95221, -2.57201 
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+visible = false
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 3 )]
@@ -655,17 +655,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905201, 0, 1.0843 )
 
 [node name="fish" type="MeshInstance" parent="Path/PathFollow"]
 transform = Transform( -0.147498, -0.000213164, -0.0675354, 0.00259721, 0.0999765, -0.00173364, 0.135046, -0.00215556, -0.073729, 0.760641, -0.259108, 0.184198 )
-mesh = ExtResource( 15 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("../../..")
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
-material/4 = null
-material/5 = null
-material/6 = null
-material/7 = null
-material/8 = null
+material/0 = ExtResource( 11 )
 script = ExtResource( 16 )
 fish_translatex = 0.1
 fish_yaw = 0.5
@@ -676,17 +668,9 @@ fish_tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 
 [node name="fish2" type="MeshInstance" parent="Path/PathFollow"]
 transform = Transform( -0.0737491, -0.000106582, -0.0337677, 0.0012986, 0.0499883, -0.000866821, 0.0675232, -0.00107778, -0.0368645, 1.78862, -0.257008, 0.227527 )
-mesh = ExtResource( 15 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("../../..")
-material/0 = SubResource( 71 )
-material/1 = null
-material/2 = null
-material/3 = null
-material/4 = null
-material/5 = null
-material/6 = null
-material/7 = null
-material/8 = null
+material/0 = ExtResource( 11 )
 script = ExtResource( 16 )
 fish_translatex = 0.1
 fish_yaw = 0.5
@@ -984,7 +968,7 @@ transform = Transform( 0.444782, -0.241266, -0.862531, 0.476806, 0.879008, 2.619
 shape = SubResource( 58 )
 
 [node name="Microplastic" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61057, 2.20983, 15.6779 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79987, 2.20983, 15.6779 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1003,7 +987,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic2" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4787, -0.338212, 15.6508 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.668, -0.338212, 15.6508 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1022,7 +1006,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic3" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4787, -0.338212, 15.6221 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.668, -0.338212, 15.6221 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1041,7 +1025,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic4" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4787, -0.338212, 15.5919 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.668, -0.338212, 15.5919 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1060,7 +1044,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic5" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4787, -0.338212, 15.5646 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.668, -0.338212, 15.5646 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1079,7 +1063,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic6" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4787, -0.338212, 15.535 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.668, -0.338212, 15.535 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1098,7 +1082,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic19" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.3651 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.3651 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1117,7 +1101,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic20" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.3379 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.3379 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1136,7 +1120,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic21" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.3093 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.3093 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1155,7 +1139,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic22" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.279 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.279 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1174,7 +1158,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic23" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.2517 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.2517 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1193,7 +1177,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic24" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 15.2222 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 15.2222 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1212,7 +1196,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic25" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.4286 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.4286 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1231,7 +1215,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic26" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.4014 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.4014 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1250,7 +1234,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic27" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.3727 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.3727 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1269,7 +1253,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic28" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.3425 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.3425 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1288,7 +1272,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic29" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.3152 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.3152 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1307,7 +1291,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic30" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3685, -0.338212, 16.2857 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5578, -0.338212, 16.2857 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1326,7 +1310,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic13" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.6779 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.6779 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1345,7 +1329,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic14" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.6508 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.6508 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1364,7 +1348,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic15" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.6221 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.6221 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1383,7 +1367,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic16" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.5919 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.5919 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1402,7 +1386,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic17" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.5646 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.5646 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1421,7 +1405,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic18" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.161, -0.338212, 15.535 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3503, -0.338212, 15.535 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1440,7 +1424,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic7" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.8079 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.8079 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1459,7 +1443,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic8" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.7807 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.7807 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1478,7 +1462,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic9" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.7521 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.7521 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1497,7 +1481,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic10" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.7219 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.7219 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1516,7 +1500,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic11" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.6946 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.6946 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1535,7 +1519,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic12" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6722, -0.397452, 15.665 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8615, -0.397452, 15.665 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1554,7 +1538,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic31" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.8079 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.8079 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1573,7 +1557,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic32" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.7807 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.7807 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1592,7 +1576,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic33" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.7521 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.7521 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1611,7 +1595,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic34" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.7219 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.7219 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1630,7 +1614,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic35" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.6946 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.6946 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )
@@ -1649,7 +1633,7 @@ transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 63 )
 
 [node name="Microplastic36" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7476, -0.397452, 15.665 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9369, -0.397452, 15.665 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 19 )

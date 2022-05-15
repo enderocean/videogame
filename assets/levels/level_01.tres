@@ -14,6 +14,6 @@ description = "Each day, over 191.6 million microplastics are discharged towards
 we’ll send you see it yourself.
 
 Your task will be to collect at least 20 elements in 3 minutes."
-time = 5
+time = 3
 objectives = PoolStringArray( "Collect as many microplsatics as you can", "Have fun!" )
 tools = PoolStringArray( "Vacuum cleaner", "Lights" )

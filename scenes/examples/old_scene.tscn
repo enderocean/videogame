@@ -51,7 +51,7 @@ extents = Vector3( 0.0336481, 0.438682, 0.0318039 )
 offsets = PoolRealArray( 0, 0.415929, 0.823009 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.946903, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=11]
+[sub_resource type="GradientTexture" id=21]
 gradient = SubResource( 10 )
 
 [sub_resource type="ParticlesMaterial" id=12]
@@ -59,9 +59,9 @@ emission_shape = 2
 emission_box_extents = Vector3( 5, 5, 0 )
 direction = Vector3( 0, 0, 0 )
 gravity = Vector3( 0, 0, 0 )
-color_ramp = SubResource( 11 )
+color_ramp = SubResource( 21 )
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=22]
 render_priority = 1
 shader = ExtResource( 7 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
@@ -75,7 +75,7 @@ shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 
 [sub_resource type="PlaneMesh" id=14]
-material = SubResource( 13 )
+material = SubResource( 22 )
 size = Vector2( 1, 10 )
 
 [sub_resource type="Gradient" id=15]
