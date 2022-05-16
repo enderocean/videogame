@@ -192,7 +192,7 @@ func _on_objects_changed(area, objects: Array) -> void:
 	check_objectives()
 	emit_signal("objectives_changed")
 
-<<<<<<< HEAD
+
 func _on_animal_free(animal: TrapAnimal) -> void:
 	if (objectives_progress.has(Globals.ObjectiveType.ANIMAL)):
 		objectives_progress[Globals.ObjectiveType.ANIMAL] += 1
@@ -204,8 +204,7 @@ func _on_animal_free(animal: TrapAnimal) -> void:
 	
 	check_objectives()
 	emit_signal("objectives_changed")
-=======
->>>>>>> 3ba3cf0 (Started delivery tools)
+
 
 func check_objectives() -> void:
 	# First check if all the objectives are in the progress dictionary
@@ -225,14 +224,3 @@ func check_objectives() -> void:
 
 	if finished:
 		emit_signal("finished", score)
-<<<<<<< HEAD
-=======
-
-
-func move_turtle(_delta: float):
-	turtle_path.offset += _delta * turtle_speed
-
-
-func _on_Net_net_cut():
-	fishnet_objective = true
->>>>>>> 3ba3cf0 (Started delivery tools)
