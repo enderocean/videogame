@@ -15,15 +15,14 @@ export var dist_tofinish: float = 50
 func _ready() -> void:
 	set_physics_process(false)
 	add_to_group("objectives_nodes")
-	fish_net.connect("net_cut", self, "_on_net_cut")
+	fish_net.connect("net_removed", self, "_on_net_removed")
 
-func _on_net_cut() -> void:
+func _on_net_removed() -> void:
 	$AnimationPlayer.play("ArmatureAction")
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
 	path_follow.offset += delta * speed
-	print(path_follow.offset)
 	if (path_follow.offset >= dist_tofinish):
 		emit_signal("animal_free", [self])
 		set_physics_process(false)

@@ -79,6 +79,8 @@ func _ready():
 			node.connect("objects_changed", self, "_on_objects_changed")
 		if node is TrapAnimal:
 			node.connect("animal_free", self, "_on_animal_free")
+		if node is FishingNet:
+			node.connect("net_cut", self, "_on_net_cut")
 
 
 func calculate_buoyancy_and_ballast():
@@ -193,8 +195,20 @@ func _on_objects_changed(area, objects: Array) -> void:
 	emit_signal("objectives_changed")
 
 
+func _on_net_cut(nb_cut: int) -> void:
+	if objectives_progress.has(Globals.ObjectiveType.CUTTER):
+		objectives_progress[Globals.ObjectiveType.CUTTER] += 1
+	else:
+		objectives_progress[Globals.ObjectiveType.CUTTER] = 1
+	
+	score = objectives_progress[Globals.ObjectiveType.CUTTER]
+	print("Cutted: ", objectives_progress.get(Globals.ObjectiveType.CUTTER), " / ", objectives.get(Globals.ObjectiveType.CUTTER))
+	
+	check_objectives()
+	emit_signal("objectives_changed")
+
 func _on_animal_free(animal: TrapAnimal) -> void:
-	if (objectives_progress.has(Globals.ObjectiveType.ANIMAL)):
+	if objectives_progress.has(Globals.ObjectiveType.ANIMAL):
 		objectives_progress[Globals.ObjectiveType.ANIMAL] += 1
 	else:
 		objectives_progress[Globals.ObjectiveType.ANIMAL] = 1

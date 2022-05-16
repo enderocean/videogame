@@ -1,6 +1,8 @@
 extends Spatial
+class_name FishingNet
 
 signal net_cut
+signal net_removed
 
 export var pospin1: NodePath
 export var pospin2: NodePath
@@ -54,8 +56,9 @@ func cut_rope(area, rope_id, cut_pos):
 	soft_ropes[rope_id][0].queue_free()
 	replace_attach(rope_id, cut_pos)
 	nb_cut += 1
+	emit_signal("net_cut", nb_cut)
 	if (nb_cut == 4):
-		emit_signal("net_cut")
+		emit_signal("net_removed")
 
 func replace_attach(rope_nb, cut_pos):
 	var soft_rope = SoftRope.new()
@@ -159,7 +162,7 @@ func create_attach(rope_nb):
 	soft_ropes.append([soft_rope_1, soft_rope_2, soft_rope_2.scale.y])
 
 func _ready():
-	
+	add_to_group("objectives_nodes")
 	var mesh = fish_net.get_mesh()
 	mdt.create_from_surface(mesh, 0)
 	for i in attachs.size():
