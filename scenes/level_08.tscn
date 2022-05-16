@@ -349,7 +349,7 @@ shadow_enabled = true
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -1.729, 19.6, 10.336 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.729, 19.6, 10.336 )
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )

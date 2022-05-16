@@ -1165,7 +1165,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56.3622, 1, 50.4373 )
 
 [node name="Face mask" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4547, -3.03303, -21.7511 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2728, -3.03303, -7.29156 )
 collision_layer = 2
 collision_mask = 3
 mass = 10.0
