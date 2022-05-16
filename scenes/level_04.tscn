@@ -293,14 +293,15 @@ curve = SubResource( 35 )
 [node name="PathFollow" type="PathFollow" parent="Path2"]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.0127106, 0.0398941, 0.0203162 )
 
-[node name="grnSeatturtle1f3UVriggedf" parent="Path2/PathFollow" instance=ExtResource( 24 )]
+[node name="grnSeatturtle" parent="Path2/PathFollow" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.0638313, -0.154812, 0.167665 )
 script = ExtResource( 25 )
 fish_net_path = NodePath("../../../Net")
 path_follow_path = NodePath("..")
 speed = 0.8
+dist_tofinish = 30.0
 
-[node name="AnimationPlayer" parent="Path2/PathFollow/grnSeatturtle1f3UVriggedf" index="1"]
+[node name="AnimationPlayer" parent="Path2/PathFollow/grnSeatturtle" index="1"]
 reset_on_save = false
 
 [node name="Turle" type="StaticBody" parent="."]
@@ -336,4 +337,4 @@ material/0 = SubResource( 18 )
 
 [connection signal="net_cut" from="Net" to="." method="_on_Net_net_cut"]
 
-[editable path="Path2/PathFollow/grnSeatturtle1f3UVriggedf"]
+[editable path="Path2/PathFollow/grnSeatturtle"]
