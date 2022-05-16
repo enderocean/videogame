@@ -492,7 +492,6 @@ polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089,
 [node name="Cutter" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.86265e-09 )
 script = ExtResource( 13 )
-tool_type = 2
 right_joint_path = NodePath("rjointCut")
 left_joint_path = NodePath("ljointCut")
 right_rigidbody_path = NodePath("CutRightRigidBody")
@@ -564,7 +563,6 @@ polygon = PoolVector2Array( 0.0100822, 0.659668, 0.0329343, 0.675215, 0.0401089,
 
 [node name="Vacuum" type="Spatial" parent="."]
 script = ExtResource( 14 )
-tool_type = 1
 right_rigidbody_path = NodePath("VacuumRigidBody")
 right_area_path = NodePath("VacuumRigidBody/VaccumProcess/Area")
 
