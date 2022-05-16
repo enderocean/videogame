@@ -8,7 +8,7 @@ rough = true
 absorbent = true
 
 [sub_resource type="BoxShape" id=30]
-extents = Vector3( 0.71, 0.19, 0.19 )
+extents = Vector3( 1.46, 0.19, 1.41 )
 
 [sub_resource type="CapsuleShape" id=31]
 radius = 0.0253337
@@ -39,7 +39,7 @@ linear_damp = 0.1
 angular_damp = 0.1
 
 [node name="Area" type="Area" parent="GrapplingHook"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, 0 )
 collision_layer = 0
 collision_mask = 2
 
@@ -47,30 +47,17 @@ collision_mask = 2
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.04, 0 )
 shape = SubResource( 30 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="GrapplingHook/Area"]
-transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0.04, 0 )
-shape = SubResource( 30 )
-
 [node name="TheterPoint" type="Position3D" parent="GrapplingHook"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="GrapplingHook"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.31323e-09, 0.12, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.31323e-09, 0.09, 0 )
 shape = SubResource( 31 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="GrapplingHook/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31134e-09, -0.03 )
 mesh = SubResource( 29 )
 skeleton = NodePath("../..")
-material/0 = null
-
-[node name="MeshInstance5" type="MeshInstance" parent="GrapplingHook"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31323e-09, 0, 0 )
-mesh = SubResource( 29 )
-material/0 = null
-
-[node name="MeshInstance6" type="MeshInstance" parent="GrapplingHook"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.31323e-09, 0, 0 )
-mesh = SubResource( 29 )
 material/0 = null
 
 [node name="CollisionShape2" type="CollisionShape" parent="GrapplingHook"]
@@ -79,6 +66,16 @@ shape = SubResource( 32 )
 [node name="CollisionShape3" type="CollisionShape" parent="GrapplingHook"]
 transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 0, 0, 0 )
 shape = SubResource( 32 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="GrapplingHook"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31323e-09, -0.03, 0 )
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="GrapplingHook"]
+transform = Transform( -4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, -9.31323e-09, -0.03, 0 )
+mesh = SubResource( 29 )
+material/0 = null
 
 [node name="TheterAnchor" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0 )
