@@ -160,8 +160,10 @@ script = ExtResource( 2 )
 [node name="HelpPanel" type="PanelContainer" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.619608 )
-margin_right = 266.0
-margin_bottom = 486.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -486.0
+margin_right = 293.0
 script = SubResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HelpPanel"]
