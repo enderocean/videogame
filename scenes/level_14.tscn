@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=10]
 [ext_resource path="res://terrains/level_14/data.hterrain" type="Resource" id=11]
 [ext_resource path="res://assets/models/vehicles/workboat/Ship - boat.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=13]
 [ext_resource path="res://terrains/level_14/rocky/Rock045_1K_Roughness.jpg" type="Texture" id=14]
+[ext_resource path="res://assets/models/vehicles/plane.obj" type="ArrayMesh" id=15]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -25,8 +27,20 @@ script = ExtResource( 10 )
 mode = 0
 textures = [ [ ExtResource( 14 ) ], [ null ] ]
 
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.0901961, 0.52549, 0, 1 )
+albedo_texture = ExtResource( 13 )
+
 [node name="Level_14" type="Spatial"]
 script = ExtResource( 1 )
+objectives_target = {
+"animal": 0,
+"cutter": 0,
+"grappling_hook": 1,
+"gripper": 0,
+"magnet": 0,
+"vacuum": 0
+}
 
 [node name="water" parent="." instance=ExtResource( 5 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 54, -0.335, -2, 6.08557 )
@@ -240,3 +254,8 @@ material/154 = null
 material/155 = null
 material/156 = null
 material/157 = null
+
+[node name="plane" type="MeshInstance" parent="."]
+transform = Transform( 0.00689304, -0.00630852, -0.0035621, 0.00458669, 0.00760603, -0.00459462, 0.00560787, 0.00153327, 0.00813639, 7.93805, -57.2866, 22.009 )
+mesh = ExtResource( 15 )
+material/0 = SubResource( 4 )

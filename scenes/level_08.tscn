@@ -472,11 +472,11 @@ skeleton = NodePath("../..")
 material/0 = SubResource( 32 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Camera"]
-transform = Transform( 0.002, 0, 0, 0, -8.74228e-11, 0.002, 0, -0.002, -8.74228e-11, 0.745547, -0.752977, -0.654491 )
+transform = Transform( 0.001, 0, 0, 0, -4.37114e-11, 0.001, 0, -0.001, -4.37114e-11, 0.745547, -0.752977, -0.654491 )
 shape = SubResource( 33 )
 
 [node name="Poulie" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91094, -0.124941, -1.0373 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91094, -0.124941, -2.92228 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 171 )

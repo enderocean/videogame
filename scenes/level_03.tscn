@@ -198,7 +198,6 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 256, 0, 0, 0, 256, 0, 0, 0, 256, 256, 0, 128.701 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -222,6 +221,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="playerCamera" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.016695, -0.226086, 0.973964, -0.00960515, 0.974091, 0.225951, -0.999814, -0.00558283, -0.018434, 104.147, 18.5217, 83.0409 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 42.2721, -9.24728, 54.2895 )

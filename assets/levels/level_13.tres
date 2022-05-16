@@ -14,5 +14,5 @@ description = "The dam of Guandi is the second most powerful dam in the world.
 
 Some items felt down in the river during construction. It's time to bring them back to the surface and clean the area."
 time = 10
-objectives = PoolStringArray( "Catch 6 items", "remove barrier with the climb gripper" )
+objectives = PoolStringArray( "Catch 4 items", "Remove barrier with the climb gripper" )
 tools = PoolStringArray( "Gripper", "Climb gripper", "Lights" )

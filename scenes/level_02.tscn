@@ -367,7 +367,7 @@ transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.225, 9.58816, -8.32711 )
+transform = Transform( -0.725506, 0, 0.688215, 0, 1, 0, -0.688215, 0, -0.725506, 31.489, 9.58816, -29.3562 )
 visible = true
 
 [node name="HTerrain" type="Spatial" parent="."]

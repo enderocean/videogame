@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://terrains/level_07/data.hterrain" type="Resource" id=8]
 [ext_resource path="res://terrains/level_07/terra/GlazedTerracotta001_1K_Color.jpg" type="Texture" id=9]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/models/animals/reef_fishes/Hammerhead Shark/hammerhead1anim1.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=13]
+[ext_resource path="res://assets/models/animals/reef_fishes/Hammerhead Shark/hammerhead2/hammerhead2_Base_Color.png" type="Texture" id=14]
 [ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=16]
 [ext_resource path="res://addons/fish-shader/shader/shark_grey.tres" type="Material" id=17]
@@ -224,6 +226,15 @@ albedo_color = Color( 0, 0.321569, 0.580392, 1 )
 albedo_texture = ExtResource( 13 )
 uv1_scale = Vector3( 3, 2, 1 )
 
+[sub_resource type="Curve3D" id=71]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -24.1547, 0, 17.6396, 0, 0, 0, 0, 0, 0, -23.822, 0, 24.2933, 0, 0, 0, 0, 0, 0, -25.929, 0, 28.3965, 0, 0, 0, 0, 0, 0, -30.3648, 0, 31.9452, 0, 0, 0, 0, 0, 0, -38.3494, 0, 31.058, 0, 0, 0, 0, 0, 0, -44.7813, 0, 25.6241, 0, 0, 0, 0, 0, 0, -45.5576, 0, 20.412, 0, 0, 0, 0, 0, 0, -41.2326, 0, 15.9761, 0, 0, 0, 0, 0, 0, -35.6879, 0, 13.7582, 0, 0, 0, 0, 0, 0, -32.7383, 0, 12.4387, 0, 0, 0, 0, 0, 0, -27.2598, 0, 9.98777, 0, 0, 0, 0, 0, 0, -25.0418, 0, 6.66089, 0, 0, 0, 0, 0, 0, -24.82, 0, 0.8943, 0, 0, 0, 0, 0, 0, -22.8239, 0, -4.31781, 0, 0, 0, 0, 0, 0, -27.4816, 0, -9.52992, 0, 0, 0, 0, 0, 0, -37.5731, 0, -11.0825, 0, 0, 0, 0, 0, 0, -40.3455, 0, -5.53766, 0, 0, 0, 0, 0, 0, -38.5711, 0, 4.88655, 0, 0, 0, 0, 0, 0, -26.7053, 0, 15.7544, 0, 0, 0, 0, 0, 0, -24.1547, 0, 17.6396 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=72]
+albedo_texture = ExtResource( 14 )
+
 [node name="level_07" type="Spatial"]
 script = ExtResource( 1 )
 objectives_target = {
@@ -243,6 +254,7 @@ visible = false
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.658541, 0.139267, 0.739546, -0.0258842, 0.986337, -0.162692, -0.7521, 0.0879964, 0.653148, -13.6597, -0.625791, 3.98035 )
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
@@ -251,6 +263,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.735, 1.519, -1.994 )
 [node name="Theter" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
 from = NodePath("../BlueRov")
+to = NodePath("../Ender Station2/TheterAnchor")
 length = 300
 
 [node name="HTerrain" type="Spatial" parent="."]
@@ -1702,3 +1715,16 @@ material/15 = null
 
 [node name="DeliveryNet" parent="Dasti net" instance=ExtResource( 26 )]
 transform = Transform( -0.994443, 0, -0.872256, 0, 1.42857, 0, 0.937116, 0, -0.925615, 6.13819, -7.84937, -0.0298462 )
+
+[node name="Path2" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.6438 )
+curve = SubResource( 71 )
+script = ExtResource( 18 )
+
+[node name="PathFollow" type="PathFollow" parent="Path2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9535, 0, 18.1869 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Path2/PathFollow"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.311844, 0, -0.098238 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 72 )

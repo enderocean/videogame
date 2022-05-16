@@ -94,7 +94,7 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/timer = 97.9064
+shader_param/timer = 2.58589
 shader_param/twist_factor = 0.5
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.32

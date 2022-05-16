@@ -111,7 +111,7 @@ transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 10 )]
-transform = Transform( -0.77108, 0, -0.636738, 0, 1, 0, 0.636738, 0, -0.77108, -23.1303, 6.46839, -30.8868 )
+transform = Transform( 0.580206, 0, -0.81447, 0, 1, 0, 0.81447, 0, 0.580206, -35.6154, 6.46839, -13.1376 )
 visible = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
