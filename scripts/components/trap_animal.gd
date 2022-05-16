@@ -18,6 +18,7 @@ func _ready() -> void:
 	fish_net.connect("net_cut", self, "_on_net_cut")
 
 func _on_net_cut() -> void:
+	$AnimationPlayer.play("ArmatureAction")
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:

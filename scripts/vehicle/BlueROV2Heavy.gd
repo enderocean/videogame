@@ -394,7 +394,9 @@ func process_keys() -> void:
 
 		if vehicle_tools[vehicle_tool_index] is GripperTool:
 			vehicle_tools[vehicle_tool_index].release_object()
-
+		if vehicle_tools[vehicle_tool_index] is CutterTool:
+			vehicle_tools[vehicle_tool_index].cuting = false
+	
 		# TODO: Indicate sound on the tool itseft
 		sounds.stop("gripper_close")
 		sounds.play("gripper_open")
@@ -402,6 +404,8 @@ func process_keys() -> void:
 		target_velocity = 1.0
 		sounds.stop("gripper_open")
 		sounds.play("gripper_close")
+		if vehicle_tools[vehicle_tool_index] is CutterTool:
+			vehicle_tools[vehicle_tool_index].cuting = true
 	else:
 		sounds.stop("gripper_open")
 		sounds.stop("gripper_close")
