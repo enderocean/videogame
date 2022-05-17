@@ -539,6 +539,11 @@ material/0 = SubResource( 2 )
 material/1 = SubResource( 3 )
 material/2 = SubResource( 4 )
 
+[node name="plant_15" type="MeshInstance" parent="."]
+transform = Transform( 0.0381267, 0, 0.0323474, 0, 0.05, 0, -0.0323474, 0, 0.0381267, 11.8044, 0.206662, 19.5548 )
+mesh = ExtResource( 45 )
+material/0 = ExtResource( 49 )
+
 [node name="Path_whale" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8957, 0, -40.2717 )
 curve = SubResource( 23 )
@@ -573,12 +578,6 @@ fish_twist = 0.5
 fish_s = 0.32
 fish_head_z = -1.275
 fish_tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
-
-[node name="plant_15" type="MeshInstance" parent="Path"]
-transform = Transform( 0.0762533, 0, 0.0646949, 0, 0.1, 0, -0.0646949, 0, 0.0762533, 6.72626, 1.851, 24.3643 )
-mesh = ExtResource( 45 )
-skeleton = NodePath("../..")
-material/0 = ExtResource( 49 )
 
 [node name="rock01" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.3552, -1.34448, 4.47217 )
@@ -1092,7 +1091,7 @@ material/0 = SubResource( 9 )
 [node name="plant_16" type="MeshInstance" parent="rock03"]
 transform = Transform( 0.508355, 0, 0.431299, 0, 0.666667, 0, -0.431299, 0, 0.508355, 6.67426, 2.5043, 21.981 )
 mesh = ExtResource( 51 )
-skeleton = NodePath("../../Path/plant_15")
+skeleton = NodePath("../../plant_15")
 material/0 = ExtResource( 52 )
 
 [node name="plant_32" type="MeshInstance" parent="rock03"]
