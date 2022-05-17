@@ -5,13 +5,12 @@
 [resource]
 script = ExtResource( 1 )
 id = "level_08"
-scene = "res://scenes/level_08.tscn"
-thumbnail = "res://assets/levels/images/level_08.jpg"
+scene = "res://scenes/level_06.tscn"
+thumbnail = "res://assets/levels/images/level_06.jpg"
 title = "Level 08"
-country = "SOUDAN"
-location = "Red Sea"
-description = "The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
-"
+country = "GHANA"
+location = "Accra Coast"
+description = "Ghana recently started a new oil extraction system on the side of its coast, but issues already started to occure. The numerous extraction pipes have been invaded by litter that could cause harm to this system if we do not intervene."
 time = 10
-objectives = PoolStringArray( "Catch items left by divers and sailers" )
+objectives = PoolStringArray( "Catch all moving plastics beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )
