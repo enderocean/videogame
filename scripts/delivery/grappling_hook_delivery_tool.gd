@@ -1,17 +1,13 @@
 extends "res://scripts/delivery/delivery_tool.gd"
 class_name GrapplingHookDeliveryTool
 
-export var raycast_path: NodePath
-onready var raycast: RayCast = get_node(raycast_path)
-
-
 var detected_object: DeliveryObject
 var sticked: bool = false
 var joint: HingeJoint
 
 
 func _ready() -> void:
-	objective_type = Globals.ObjectiveType.MAGNET
+	objective_type = Globals.ObjectiveType.GRAPPLING_HOOK
 	group = "objective_%s" % str(objective_type).to_lower()
 
 
@@ -20,6 +16,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if not joint:
+		detected_object.mass = 1.0
+		
 		joint = HingeJoint.new()
 		joint.set_param(HingeJoint.PARAM_BIAS, 1.0)
 		joint.set_flag(HingeJoint.FLAG_USE_LIMIT, true)
@@ -31,28 +29,12 @@ func _physics_process(delta: float) -> void:
 		joint.set_node_a(tool_body.get_path())
 		joint.set_node_b(detected_object.get_path())
 		emit_signal("catched")
-
-#	if raycast.is_colliding():
-#		var collision_point: Vector3 = raycast.get_collision_point()
-#		var collision_normal: Vector3 = raycast.get_collision_normal()
-#
-#		var distance: float = collision_point.distance_to(stickpoint.global_transform.origin)
-#		if distance <= sticking_distance:
-#			raycast.enabled = false
-#			detected_object.mass = 1.0
-#
-#			var joint: HingeJoint = HingeJoint.new()
-#			joint.set_param(HingeJoint.PARAM_BIAS, 1.0)
-#			joint.set_flag(HingeJoint.FLAG_USE_LIMIT, true)
-#			joint.set_param(HingeJoint.PARAM_LIMIT_UPPER, 0.0)
-#			joint.set_param(HingeJoint.PARAM_LIMIT_LOWER, 0.0)
-#			add_child(joint)
-#
-#			joint.global_transform.origin = collision_point
-#			joint.set_node_a(tool_body.get_path())
-#			joint.set_node_b(detected_object.get_path())
-
-#			emit_signal("catched")
+	
+	var level: Level = get_tree().current_scene
+	if detected_object.global_transform.origin.y > level.surface_altitude:
+		emit_signal("delivered")
+		detected_object.queue_free()
+		queue_free()
 
 
 func _on_body_entered(body: Node) -> void:
@@ -71,6 +53,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 	
 	detected_object = object
+	print()
 
 
 func _on_body_exited(body: Node) -> void:

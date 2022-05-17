@@ -112,8 +112,9 @@ __meta__ = {
 }
 vehicle_path = NodePath("BlueRov")
 objectives_target = {
+"animal": 0,
 "cutter": 0,
-"grappling_hook": 0,
+"grappling_hook": 1,
 "gripper": 3,
 "magnet": 1,
 "vacuum": 0
@@ -201,7 +202,11 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07, -0.49, -8.54 )
 collision_layer = 2
 collision_mask = 3
+mass = 100.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 objective_type = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="HeavyObject2"]

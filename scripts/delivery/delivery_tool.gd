@@ -12,3 +12,4 @@ var carried: bool = false
 var group: String
 
 signal catched
+signal delivered

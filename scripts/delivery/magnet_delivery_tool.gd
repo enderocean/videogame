@@ -46,6 +46,12 @@ func _physics_process(delta: float) -> void:
 			
 			emit_signal("catched")
 
+	var level: Level = get_tree().current_scene
+	if detected_object.global_transform.origin.y > level.surface_altitude:
+		emit_signal("delivered")
+		detected_object.queue_free()
+		queue_free()
+
 
 func _on_body_entered(body: Node) -> void:
 	# Make sure the body is a Deliverable
