@@ -5,14 +5,15 @@
 [resource]
 script = ExtResource( 1 )
 id = "level_02"
-scene = "res://scenes/level_02.tscn"
-thumbnail = "res://assets/levels/images/level_02.jpg"
+scene = "res://scenes/level_01.tscn"
+thumbnail = "res://assets/levels/images/level_01.jpg"
 title = "level_02"
-country = "UNITED KINGDOM"
-location = "The Bristol Channel"
-description = "Back in 1997, the Tokio Express cargo got caught in the middle of a storm and lost most of its containers at sea. While the majority stayed intact in the sea bed, some of them were breached and leaked their content into the ocean.
+country = "GERMANY"
+location = "The Rhine"
+description = "Each day, over 191.6 million microplastics are discharged towards the North Sea from the Rhine due to the many industries set around it. It’s hard to realize what that means, so for your first mission,
+we’ll send you see it yourself.
 
-We’ve localized one that contained many legos and other plastic toys. Ironically, those all had a nautical theme."
+Your task will be to collect at least 20 elements in 3 minutes."
 time = 3
-objectives = PoolStringArray( "Find the lost container", "Clean it of the plastic it still contains" )
-tools = PoolStringArray( "Vacuum Cleaner", "Lights" )
+objectives = PoolStringArray( "Collect as many microplsatics as you can", "Have fun!" )
+tools = PoolStringArray( "Vacuum cleaner", "Lights" )
