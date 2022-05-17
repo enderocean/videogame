@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -23,8 +23,10 @@
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=22]
 [ext_resource path="res://addons/fish-shader/shader/fish_interesting.tres" type="Material" id=23]
+[ext_resource path="res://addons/fish-shader/shader/manta.tres" type="Material" id=24]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=25]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=26]
+[ext_resource path="res://assets/models/animals/reef_fishes/Manta2/Manta1cNewUV2-R-LPAnim3.obj" type="ArrayMesh" id=27]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -351,7 +353,6 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, -32, 0, -32 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -986,21 +987,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0503, -0.0197496, -23.9623
 transform = Transform( -0.0942537, 0, -0.592551, 0, 0.6, 0, 0.592551, 0, -0.0942537, 0, -2, 0 )
 
 [node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path/PathFollow/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 22 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 23 )
 script = ExtResource( 25 )
 frequency = 3.0
 fish_twist_frequency = -3.0
-fish_s_frequency = 4.0
+fish_s_frequency = 3.0
 fish_translatex = 0.15
 fish_yaw = 0.06
-fish_twist = 0.01
+fish_twist = -0.01
 fish_s = 0.03
 
 [node name="CollisionShape" type="CollisionShape" parent="Path/PathFollow/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 103 )
 
 [node name="Path2" type="Path" parent="."]
@@ -1015,7 +1014,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406832, 0, 0.851761 )
 transform = Transform( -0.599973, 0, -0.00571747, 0, 0.6, 0, 0.00571747, 0, -0.599973, -0.0279276, -0.283651, -0.0503902 )
 
 [node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path2/PathFollow/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 22 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 23 )
@@ -1030,5 +1028,18 @@ fish_s = 0.03
 fish_tail_z = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 103 )
+
+[node name="Manta" type="MeshInstance" parent="."]
+transform = Transform( 0.045399, 0, -0.296545, 0, 0.3, 0, 0.296545, 0, 0.045399, -43.1755, -2.11704, -20.7823 )
+visible = false
+mesh = ExtResource( 27 )
+material/0 = ExtResource( 24 )
+script = ExtResource( 25 )
+fish_translatey = 0.05
+fish_translatez = 0.075
+fish_yaw = 0.057
+fish_twist = 0.038
+fish_s = 0.057
+fish_head_z = 2.144
+fish_tail_z = 5.0
