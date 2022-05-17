@@ -78,6 +78,7 @@ func _ready():
 		if node is DeliveryArea:
 			node.connect("objects_changed", self, "_on_objects_changed")
 		if node is DeliveryTool:
+			node.surface_altitude = surface_altitude
 			node.connect("delivered", self, "_on_tool_delivered")
 		if node is TrapAnimal:
 			node.connect("animal_free", self, "_on_animal_free")
@@ -197,14 +198,14 @@ func _on_objects_changed(area, objects: Array) -> void:
 	emit_signal("objectives_changed")
 
 
-func _on_tool_delivered(tool_type) -> void:
-	if objectives_progress.has(tool_type):
-		objectives_progress[tool_type] += 1
+func _on_tool_delivered(objective_type) -> void:
+	if objectives_progress.has(objective_type):
+		objectives_progress[objective_type] += 1
 	else:
-		objectives_progress[tool_type] = 1
+		objectives_progress[objective_type] = 1
 	
-	score = objectives_progress[tool_type]
-	print("Tool delivered: ", objectives_progress.get(tool_type), " / ", objectives.get(tool_type))
+	score = objectives_progress[objective_type]
+	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
 	
 	check_objectives()
 	emit_signal("objectives_changed")

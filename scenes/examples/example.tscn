@@ -46,17 +46,17 @@ radius = 0.0629077
 
 [sub_resource type="BoxShape" id=22]
 
-[sub_resource type="SpatialMaterial" id=24]
+[sub_resource type="SpatialMaterial" id=30]
 albedo_color = Color( 0.360784, 0.360784, 0.360784, 1 )
 
 [sub_resource type="CubeMesh" id=23]
-material = SubResource( 24 )
+material = SubResource( 30 )
 
-[sub_resource type="SpatialMaterial" id=26]
+[sub_resource type="SpatialMaterial" id=29]
 albedo_color = Color( 0.615686, 0.533333, 0, 1 )
 
 [sub_resource type="CubeMesh" id=27]
-material = SubResource( 26 )
+material = SubResource( 29 )
 
 [sub_resource type="BoxShape" id=28]
 
@@ -356,7 +356,5 @@ script = ExtResource( 17 )
 speed = 0.1
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 16 )]
-
-[connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 
 [editable path="SoundTriggerArea"]
