@@ -4,11 +4,11 @@ extends Node
 static func get_objective_text(objectiveType) -> String:
 	match objectiveType:
 		Globals.ObjectiveType.GRIPPER:
-			return "Deliver objects with the Gripper"
+			return "Delivered objects with the Gripper"
 		Globals.ObjectiveType.VACUUM:
-			return "Collect objects with the Vacuum"
+			return "Collected objects with the Vacuum"
 		Globals.ObjectiveType.CUTTER:
-			return "Cut off nets with the Cutter"
+			return "Cut nets ropes with the Cutter"
 		Globals.ObjectiveType.GRAPPLING_HOOK:
 			return "Collected with the Grappling hook"
 		Globals.ObjectiveType.ANIMAL:
