@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 			joint.set_node_b(detected_object.get_path())
 			
 			emit_signal("catched")
+	
+	check_delivered(detected_object)
 
 
 func _on_body_entered(body: Node) -> void:

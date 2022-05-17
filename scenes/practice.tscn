@@ -96,6 +96,7 @@ albedo_texture = ExtResource( 15 )
 script = ExtResource( 7 )
 vehicle_path = NodePath("BlueRov")
 objectives_target = {
+"animal": 0,
 "cutter": 0,
 "grappling_hook": 0,
 "gripper": 1,
@@ -279,7 +280,5 @@ material/0 = SubResource( 23 )
 transform = Transform( 3.01992e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 4, 7.54979e-08, -6.60024e-15, 19.348, 3, -10.0963 )
 mesh = SubResource( 22 )
 material/0 = SubResource( 25 )
-
-[connection signal="objects_changed" from="DeliveryNet" to="." method="_on_DeliveryNet_objects_changed"]
 
 [editable path="SoundTriggerArea"]

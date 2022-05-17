@@ -69,10 +69,14 @@ func release_object() -> void:
 		return
 	
 	if carrying_object is DeliveryObject:
+		carrying_object.linear_velocity = Vector3.ZERO
+		carrying_object.angular_velocity = Vector3.ZERO
 		carrying_object.carried = false
 	
 	var delivery_tool: DeliveryTool = get_delivery_tool(carrying_object)
 	if delivery_tool:
+		delivery_tool.tool_body.linear_velocity = Vector3.ZERO
+		delivery_tool.tool_body.angular_velocity = Vector3.ZERO
 		delivery_tool.carried = false
 	
 	carrying_object = null
@@ -111,11 +115,16 @@ func _on_right_area_body_exited(body: Node) -> void:
 func is_valid_body(body: Node) -> bool:
 	if not body:
 		return false
+	
 	if body is DeliveryObject:
+		if not body.is_in_group("objective_%s" % str(tool_type).to_lower()):
+			return false
 		return true
+	
 	var delivery_tool: DeliveryTool = get_delivery_tool(body)
 	if delivery_tool:
 		return true
+	
 	return false
 
 

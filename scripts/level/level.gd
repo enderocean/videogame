@@ -77,6 +77,9 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
 		if node is DeliveryArea:
 			node.connect("objects_changed", self, "_on_objects_changed")
+		if node is DeliveryTool:
+			node.surface_altitude = surface_altitude
+			node.connect("delivered", self, "_on_tool_delivered")
 		if node is TrapAnimal:
 			node.connect("animal_free", self, "_on_animal_free")
 		if node is FishingNet:
@@ -195,6 +198,19 @@ func _on_objects_changed(area, objects: Array) -> void:
 	emit_signal("objectives_changed")
 
 
+func _on_tool_delivered(objective_type) -> void:
+	if objectives_progress.has(objective_type):
+		objectives_progress[objective_type] += 1
+	else:
+		objectives_progress[objective_type] = 1
+	
+	score = objectives_progress[objective_type]
+	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
+	
+	check_objectives()
+	emit_signal("objectives_changed")
+
+
 func _on_net_cut(nb_cut: int) -> void:
 	if objectives_progress.has(Globals.ObjectiveType.CUTTER):
 		objectives_progress[Globals.ObjectiveType.CUTTER] += 1
@@ -206,6 +222,7 @@ func _on_net_cut(nb_cut: int) -> void:
 	
 	check_objectives()
 	emit_signal("objectives_changed")
+
 
 func _on_animal_free(animal: TrapAnimal) -> void:
 	if objectives_progress.has(Globals.ObjectiveType.ANIMAL):
