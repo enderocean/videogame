@@ -111,11 +111,16 @@ func _on_right_area_body_exited(body: Node) -> void:
 func is_valid_body(body: Node) -> bool:
 	if not body:
 		return false
+	
 	if body is DeliveryObject:
+		if not body.is_in_group("objective_%s" % str(tool_type).to_lower()):
+			return false
 		return true
+	
 	var delivery_tool: DeliveryTool = get_delivery_tool(body)
 	if delivery_tool:
 		return true
+	
 	return false
 
 
