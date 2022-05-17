@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=129 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -21,6 +21,10 @@
 [ext_resource path="res://assets/models/waste/cylinder/uploads_files_2306193_cylinder+final.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=22]
+[ext_resource path="res://addons/fish-shader/shader/fish_interesting.tres" type="Material" id=23]
+[ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=25]
+[ext_resource path="res://scripts/lemniscate.gd" type="Script" id=26]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -319,6 +323,21 @@ points = PoolVector3Array( 0.365373, 7.91245, 0.191045, -0.284691, 2, -0.283693,
 [sub_resource type="ConvexPolygonShape" id=100]
 points = PoolVector3Array( 0.936788, 0.0245166, 0.340209, -0.9622, 0.0235265, -0.256424, -0.969087, 0.0162462, 0.233718, -0.248638, 2, 0.276736, 0.233718, 1.98424, -0.969087, 0.45117, 1.98148, 0.887308, 0.233718, 0.0162462, -0.969087, -0.969087, 1.98424, 0.233718, -0.313025, 0.0158003, 0.945033, 0.945033, 1.98466, -0.313025, -0.524432, 1.97122, -0.848157, -0.470363, 1.97061, 0.877052, 0.768976, 0.0309705, -0.631745, -0.418031, 0.0267518, -0.905019, 0.45117, 0.0191658, 0.887308, 0.829597, 1.9779, 0.557917, -0.848157, 1.97122, -0.524432, -0.7908, 0.0343539, 0.605166, 0.605166, 1.96712, -0.7908, 0.945033, 0.0158003, -0.313025, -0.848157, 0.0300126, -0.524432, -0.256424, 1.97736, -0.9622, 0.340209, 1.97642, 0.936788, -0.7908, 1.96712, 0.605166, 0.936788, 1.97642, 0.340209, -0.9622, 1.97736, -0.256424, -0.313025, 1.98466, 0.945033, 0.829597, 0.0229504, 0.557917, 0.398338, 0.0149519, -0.915543, -0.631745, 0.0309705, 0.768976, 0.340209, 0.0245166, 0.936788, -0.256424, 0.0235265, -0.9622, 0.877052, 1.97061, -0.470363, 0.557917, 0.0229504, 0.829597, -0.915543, 0.0149519, 0.398338, -0.25, 2.0056, -0.25, -0.524432, 0.0300126, -0.848157, 0.557917, 1.9779, 0.829597, 0.605166, 0.0343539, -0.7908, 0.398338, 1.98547, -0.915543, -0.915543, 1.98547, 0.398338, 0.276736, 2, 0.276736, 0.768976, 1.97032, -0.631745, -0.631745, 1.97032, 0.768976, -0.905019, 1.97431, -0.418031 )
 
+[sub_resource type="Curve3D" id=102]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623, 0, 0, 0, 0, 0, 0, -51.9883, 0.023159, -23.1684, 0, 0, 0, 0, 0, 0, -52.972, -0.0197449, -18.6959, 0, 0, 0, 0, 0, 0, -50.69, 0, -14.2812, 0, 0, 0, 0, 0, 0, -34.1275, 0, -11.132, 0, 0, 0, 0, 0, 0, -22.8137, 0, -11.5986, 0, 0, 0, 0, 0, 0, -13.5993, 0, -6.34991, 0, 0, 0, 0, 0, 0, -7.88409, 0, -4.95026, 0, 0, 0, 0, 0, 0, -4.85152, 0, -7.16637, 0, 0, 0, 0, 0, 0, -4.1517, 0, -11.3653, 0, 0, 0, 0, 0, 0, -6.3678, 0, -13.2315, 0, 0, 0, 0, 0, 0, -24.1178, -0.00930289, -18.2861, 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="ConvexPolygonShape" id=103]
+points = PoolVector3Array( 0.0551706, 0.345274, 3.1348, -0.00820696, -0.657398, -3.2374, -0.00820696, -0.657398, -3.10403, -0.943258, -0.256395, 1.23685, -0.00820696, 1.34622, -4.63938, 0.926844, -0.356695, 0.970108, -0.00820696, 1.37972, -0.13296, -0.943258, -0.356695, 0.970108, 0.926844, -0.256395, 1.4377, -0.0731159, 0.0198699, 2.84605, -0.00820696, 0.778317, -4.47305, -0.234693, 0.247666, 2.95913, 0.21842, 0.247417, 2.99986, -0.809627, -0.0896923, 1.63775, 0.926844, -0.222895, 1.27059, 0.0249262, 1.21242, -4.6739, -0.0415232, 0.911719, -4.47305, 0.82653, -0.122794, 1.6048, -0.881746, -0.301931, 1.33963, 0.902864, -0.305644, 1.31876, -0.0401358, 0.345109, 3.17411, 0.0563957, -0.00997947, 2.75541, 0.057791, 0.278634, 3.29196, 0.273313, 0.282766, 2.68521, -0.909759, -0.223094, 1.47065, -0.0415232, 1.07882, -4.53974, -0.105075, 0.247719, 3.18402, -0.259271, 0.282621, 2.75481, 0.057114, 0.0512004, 2.92385, -0.943258, -0.289895, 1.03679, 0.14942, 0.313665, 3.02577, 0.893162, -0.189594, 1.50438, -0.907584, -0.329307, 1.19668, -0.164794, 0.313979, 2.97046, -0.00820696, 1.37972, -0.233382, -0.0406792, 0.247076, 3.23948, -0.0725331, -0.00940598, 2.75013, 0.0233175, 0.376822, 3.06164, 0.179001, 0.314145, 2.92609, -0.0408363, 0.0506454, 2.93028, -0.169755, 0.247772, 3.08569 )
+
+[sub_resource type="Curve3D" id=104]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.406832, 0, 0.851761, 0, 0, 0, 0, 0, 0, -0.108683, -9.53674e-07, -22.6689, 0, 0, 0, 0, 0, 0, -3.99556, 0.876876, -30.6277, 0, 0, 0, 0, 0, 0, -10.6588, -9.53674e-07, -31.9234, 0, 0, 0, 0, 0, 0, -15.1009, -9.53674e-07, -28.0365, 0, 0, 0, 0, 0, 0, -15.1009, -9.53674e-07, -20.6329, 0, 0, 0, 0, 0, 0, -11.9544, -9.53674e-07, -11.9337, 0, 0, 0, 0, 0, 0, -13.4351, -9.53674e-07, -4.34503, 0, 0, 0, 0, 0, 0, -18.6176, 0, 11.0174, 0, 0, 0, 0, 0, 0, -27.1317, 0, 13.2384, 0, 0, 0, 0, 0, 0, -32.1291, 0, 8.9814, 0, 0, 0, 0, 0, 0, -34.1651, 0, 1.94801, 0, 0, 0, 0, 0, 0, -28.2423, -9.53674e-07, -3.2345, 0, 0, 0, 0, 0, 0, -21.9492, -9.53674e-07, -3.60468, 0, 0, 0, 0, 0, 0, -14.5456, 0, -0.273058, 0, 0, 0, 0, 0, 0, -6.03153, 0, 3.42872, 0, 0, 0, 0, 0, 0, 0.406832, 0, 0.851761 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="level_12" type="Spatial"]
 script = ExtResource( 1 )
 objectives_target = {
@@ -332,6 +351,7 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, -32, 0, -32 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -346,7 +366,7 @@ stream = ExtResource( 3 )
 autoplay = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1967, -0.519426, -22.0287 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8643, -0.519426, -19.0137 )
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
@@ -954,3 +974,61 @@ shape = SubResource( 100 )
 
 [node name="DeliveryNet" parent="." instance=ExtResource( 21 )]
 transform = Transform( -0.784861, 0, 0.641368, 0, 1.2, 0, -0.784916, 0, -0.641323, -36.3331, -2.76472, -29.416 )
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 102 )
+script = ExtResource( 26 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0503, -0.0197496, -23.9623 )
+
+[node name="StaticBody" type="StaticBody" parent="Path/PathFollow"]
+transform = Transform( -0.0942537, 0, -0.592551, 0, 0.6, 0, 0.592551, 0, -0.0942537, 0, -2, 0 )
+
+[node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path/PathFollow/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 23 )
+script = ExtResource( 25 )
+frequency = 3.0
+fish_twist_frequency = -3.0
+fish_s_frequency = 4.0
+fish_translatex = 0.15
+fish_yaw = 0.06
+fish_twist = 0.01
+fish_s = 0.03
+
+[node name="CollisionShape" type="CollisionShape" parent="Path/PathFollow/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 103 )
+
+[node name="Path2" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67325, -1.24435, -25.0325 )
+curve = SubResource( 104 )
+script = ExtResource( 26 )
+
+[node name="PathFollow" type="PathFollow" parent="Path2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406832, 0, 0.851761 )
+
+[node name="StaticBody" type="StaticBody" parent="Path2/PathFollow"]
+transform = Transform( -0.599973, 0, -0.00571747, 0, 0.6, 0, 0.00571747, 0, -0.599973, -0.0279276, -0.283651, -0.0503902 )
+
+[node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path2/PathFollow/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 22 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 23 )
+script = ExtResource( 25 )
+frequency = 3.0
+fish_twist_frequency = -3.0
+fish_s_frequency = 4.0
+fish_translatex = 0.15
+fish_yaw = 0.06
+fish_twist = -0.01
+fish_s = 0.03
+fish_tail_z = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 103 )

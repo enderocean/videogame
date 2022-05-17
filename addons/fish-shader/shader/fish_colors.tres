@@ -1,7 +1,5 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://assets/models/animals/angelfish/13009_Coral_Beauty_Angelfish_v1_diff - Copy (2).jpg" type="Texture" id=1]
-
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
@@ -92,9 +90,13 @@ void fragment() {
 }
 "
 
+[sub_resource type="StreamTexture" id=2]
+flags = 23
+load_path = "res://.import/13009_Coral_Beauty_Angelfish_v1_diff - Copy (2).jpg-4c4021cdfbfeb9d24cf3913c3cb33864.s3tc.stex"
+
 [resource]
 shader = SubResource( 1 )
-shader_param/timer = 6.06125
+shader_param/timer = 110.638
 shader_param/twist_factor = 0.5
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.32
@@ -117,4 +119,4 @@ shader_param/uv1_scale = Vector3( 1, 1, 1 )
 shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
-shader_param/texture_albedo = ExtResource( 1 )
+shader_param/texture_albedo = SubResource( 2 )
