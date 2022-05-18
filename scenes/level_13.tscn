@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://assets/models/deco/ring.obj" type="ArrayMesh" id=23]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=24]
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/models/vehicles/fiat.tscn" type="PackedScene" id=28]
 
 [sub_resource type="CubeMesh" id=1]
@@ -102,6 +104,15 @@ points = PoolVector3Array( 0.365373, 7.91245, 0.191045, -0.284691, 2, -0.283693,
 
 [node name="Level_13" type="Spatial"]
 script = ExtResource( 15 )
+vehicle_path = NodePath("BlueRov")
+objectives_target = {
+"animal": 0,
+"cutter": 0,
+"grappling_hook": 0,
+"gripper": 0,
+"magnet": 1,
+"vacuum": 0
+}
 
 [node name="water" parent="." instance=ExtResource( 4 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 54, -0.335, -2, 6.08557 )
@@ -134,6 +145,15 @@ material/0 = SubResource( 2 )
 
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 8 )]
 transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, 0.0375366, 0.092994, 0.0393524 )
+
+[node name="MagnetTheterAnchor" parent="Ender Station" instance=ExtResource( 8 )]
+transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, -0.737465, 0.0929942, 0.0393524 )
+
+[node name="PullDestination" type="Position3D" parent="Ender Station/MagnetTheterAnchor"]
+transform = Transform( 1, 0, -1.56762e-06, 0, 1, 0, 1.56762e-06, 0, 1, 0, 139.938, 0 )
+__meta__ = {
+"_editor_description_": "Pulling destination of the Magnet theter"
+}
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0.5, -64 )
@@ -668,4 +688,13 @@ mesh = SubResource( 28 )
 material/0 = SubResource( 7 )
 
 [node name="fiat" parent="." instance=ExtResource( 28 )]
-transform = Transform( 0.0481405, 0, -0.013509, 0, 0.05, 0, 0.013509, 0, 0.0481405, -41.6087, -6.42181, 10.0639 )
+transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -41.609, -6.422, 10.064 )
+
+[node name="MagnetDeliveryTool" parent="." instance=ExtResource( 27 )]
+transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -20.2987, -7.42181, -5.6361 )
+
+[node name="MagnetTheter" parent="." instance=ExtResource( 26 )]
+from = NodePath("../MagnetDeliveryTool")
+to = NodePath("../Ender Station/MagnetTheterAnchor")
+length = 350
+destination_path = NodePath("../Ender Station/MagnetTheterAnchor/PullDestination")
