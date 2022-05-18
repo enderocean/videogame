@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_FILE: String = "user://save"
 
-var data: Dictionary = {"name": "", "levels": {}}
+var data: Dictionary = {"name": "", "levels": {}, "collectibles": {}}
 
 
 func _ready() -> void:

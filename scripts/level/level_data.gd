@@ -18,7 +18,7 @@ export var tools: PoolStringArray
 
 static func get_levels() -> Dictionary:
 	var path: String = "res://assets/levels/"
-	var files: PoolStringArray = get_files("res://assets/levels/")
+	var files: PoolStringArray = Globals.get_files(path)
 	var levels: Dictionary = {}
 	var file: File = File.new()
 
@@ -34,23 +34,3 @@ static func get_levels() -> Dictionary:
 			levels[level.id] = level
 
 	return levels
-
-
-static func get_files(path: String) -> PoolStringArray:
-	var files: PoolStringArray = []
-	var dir: Directory = Directory.new()
-
-	var error: int = dir.open(path)
-	if error != OK:
-		return files
-
-	error = dir.list_dir_begin(true)
-	if error != OK:
-		return files
-
-	var file: String = dir.get_next()
-	while file != "":
-		files.append(file)
-		file = dir.get_next()
-
-	return files

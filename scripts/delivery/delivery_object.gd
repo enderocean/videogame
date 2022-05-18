@@ -9,6 +9,8 @@ var delivered: bool = false setget set_delivered
 onready var saved_gravity: float = gravity_scale
 onready var saved_mask: int = collision_mask
 
+signal delivered
+
 
 func _ready() -> void:
 	add_to_group("objective_%s" % str(objective_type))
@@ -45,3 +47,5 @@ func set_delivered(value: bool) -> void:
 		return
 
 	delivered = value
+	if delivered:
+		emit_signal("delivered")

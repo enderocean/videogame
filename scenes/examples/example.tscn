@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=17]
 [ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/collectible_tag.tscn" type="PackedScene" id=19]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -150,6 +151,7 @@ shape = SubResource( 4 )
 [node name="Cube" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.472, 4.83661 )
 collision_layer = 2
+collision_mask = 3
 mass = 10.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -163,9 +165,13 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Cube"]
 shape = SubResource( 6 )
 
+[node name="CollectibleTag" parent="Cube" instance=ExtResource( 19 )]
+id = "example_collectible"
+
 [node name="Sphere" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80654, -1.482, 4.31858 )
 collision_layer = 2
+collision_mask = 3
 mass = 10.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -189,7 +195,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-objective_type = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="HeavyObject"]
 shape = SubResource( 22 )
@@ -207,7 +212,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-objective_type = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="HeavyObject2"]
 mesh = SubResource( 27 )

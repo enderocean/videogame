@@ -33,6 +33,7 @@ export var wind_dir: float = 0.0
 export var wind_speed: float = 5.0
 
 var levels: Dictionary
+var collectibles: Dictionary
 
 var sitl_pid: int = 0
 
@@ -49,6 +50,7 @@ func _ready() -> void:
 
 	# Load levels data
 	levels = LevelData.get_levels()
+	collectibles = CollectibleData.get_collectibles()
 
 
 func set_fancy_water(value: bool) -> void:
@@ -69,3 +71,23 @@ func set_physics_rate(value: int) -> void:
 func set_ping360(value: bool) -> void:
 	ping360_enabled = value
 	emit_signal("ping360_changed")
+
+
+static func get_files(path: String) -> PoolStringArray:
+	var files: PoolStringArray = []
+	var dir: Directory = Directory.new()
+
+	var error: int = dir.open(path)
+	if error != OK:
+		return files
+
+	error = dir.list_dir_begin(true)
+	if error != OK:
+		return files
+
+	var file: String = dir.get_next()
+	while file != "":
+		files.append(file)
+		file = dir.get_next()
+
+	return files

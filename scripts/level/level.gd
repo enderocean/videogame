@@ -167,6 +167,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
 
+
 func _on_fancy_water_changed() -> void:
 	if Globals.fancy_water:
 		water.set_surface_material(0, fancy_water)
