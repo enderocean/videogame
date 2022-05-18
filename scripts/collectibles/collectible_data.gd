@@ -5,7 +5,7 @@ export var id: String = "collectible_id"
 
 export var title: String = ""
 export(String, MULTILINE) var description: String = ""
-export(String, FILE, "*.jpg, *.png") var thumbnail: String
+export(String, FILE, "*.jpg, *.png") var image: String
 
 
 static func get_collectibles() -> Dictionary:

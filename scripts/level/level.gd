@@ -51,7 +51,7 @@ var finished: bool = false
 
 signal objectives_changed()
 signal finished(score)
-
+signal collectible_obtained(id)
 
 func _ready():
 	# Replace the default underwater environment
@@ -84,6 +84,11 @@ func _ready():
 			node.connect("animal_free", self, "_on_animal_free")
 		if node is FishingNet:
 			node.connect("net_cut", self, "_on_net_cut")
+	
+	# Connect to all objective areas
+	for node in get_tree().get_nodes_in_group("collectible_tags"):
+		if node is CollectibleTag:
+			node.connect("obtained", self, "_on_collectible_obtained")
 
 
 func calculate_buoyancy_and_ballast():
@@ -256,3 +261,7 @@ func check_objectives() -> void:
 
 	if finished:
 		emit_signal("finished", score)
+
+
+func _on_collectible_obtained(id: String) -> void:
+	emit_signal("collectible_obtained", id)

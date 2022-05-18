@@ -11,8 +11,6 @@ onready var physics_rate_slider: Slider = get_node(physics_rate_slider_path)
 func _ready() -> void:
 	if Globals.isHTML5:
 		Globals.physics_rate = 60
-	else:
-		Globals.physics_rate = 200
 
 	physics_rate.text = "Physics: %s Hz" % Globals.physics_rate
 	physics_rate_slider.value = Globals.physics_rate

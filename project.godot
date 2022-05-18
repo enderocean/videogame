@@ -19,7 +19,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/collectibles/collectible_data.gd"
 }, {
-"base": "Spatial",
+"base": "Popup",
+"class": "CollectiblePopup",
+"language": "GDScript",
+"path": "res://scripts/ui/popup/collectible_popup.gd"
+}, {
+"base": "Node",
 "class": "CollectibleTag",
 "language": "GDScript",
 "path": "res://scripts/collectibles/collectible_tag.gd"
@@ -207,6 +212,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AreaRope": "",
 "CollectibleData": "",
+"CollectiblePopup": "",
 "CollectibleTag": "",
 "CutterTool": "",
 "DeliveryArea": "",
@@ -472,7 +478,6 @@ switch_tool={
 
 [physics]
 
-common/physics_fps=100
 3d/physics_engine="Bullet"
 
 [rendering]

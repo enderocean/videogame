@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 id = "example_collectible"
 title = "The Red Cube"
 description = "The best cube you can ever get!"
-thumbnail = ""
+image = ""

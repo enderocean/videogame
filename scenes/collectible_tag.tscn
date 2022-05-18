@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=1]
 
-[node name="CollectibleTag" type="Spatial"]
+[node name="CollectibleTag" type="Node"]
 script = ExtResource( 1 )

@@ -6,6 +6,9 @@ onready var mission_timer: MissionTimer = get_node("MissionTimer")
 export var instructions_popup_path: NodePath
 onready var instructions_popup: InstructionsPopup = get_node(instructions_popup_path)
 
+export var collectible_popup_path: NodePath
+onready var collectible_popup: CollectiblePopup = get_node(collectible_popup_path)
+
 export var objectives_text_path: NodePath
 onready var objectives_text: RichTextLabel = get_node(objectives_text_path)
 
@@ -41,26 +44,28 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 
 	if not active_level_data:
 		printerr("LevelData not found for ", scene_data.path)
+	else:
+		match active_level_data.id:
+			# Show the instruction popup only on the practice level
+			"practice":
+				instructions_popup.title.text = active_level_data.title
+				instructions_popup.description.text = active_level_data.description
+				instructions_popup.show()
 
 	active_level.connect("finished", self, "_on_level_finished")
 	active_level.connect("objectives_changed", self, "_on_level_objectives_changed")
-
+	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
+	
 	if active_level.vehicle:
 		camera_follow.target = active_level.vehicle.camera_target
 		camera_lookat.target = active_level.vehicle.camera_target
 
-	match active_level_data.id:
-		# Show the instruction popup only on the practice level
-		"practice":
-			instructions_popup.title.text = active_level_data.title
-			instructions_popup.description.text = active_level_data.description
-			instructions_popup.show()
-	
 	# Initialize objectives text
 	_on_level_objectives_changed()
 	
 	# Start the time with the given LevelData time
-	mission_timer.start(active_level_data.time * 60)
+	if active_level_data:
+		mission_timer.start(active_level_data.time * 60)
 
 
 func _on_level_objectives_changed() -> void:
@@ -93,6 +98,7 @@ func _on_level_objectives_changed() -> void:
 
 	objectives_text.bbcode_text = text
 
+
 func _on_MissionTimer_timeout() -> void:
 	_on_level_finished(active_level.score)
 
@@ -111,6 +117,19 @@ func _on_level_finished(score: int) -> void:
 	show_popup()
 
 
+func _on_collectible_obtained(id: String) -> void:
+	var collectible: CollectibleData = Globals.collectibles.get(id)
+	if not collectible:
+		return
+	
+	collectible_popup.title.text = collectible.title
+	collectible_popup.description.bbcode_text = collectible.description
+	if collectible.image:
+		collectible_popup.image.texture = load(collectible.image)
+	
+	collectible_popup.show()
+
+
 func _input(event: InputEvent) -> void:
 	# Pause
 	if event.is_action_pressed("ui_cancel"):
@@ -125,7 +144,8 @@ func _on_Popup_visibility_changed() -> void:
 
 	if instructions_popup.visible:
 		pause = true
-
+	if collectible_popup.visible:
+		pause = true
 	if mission_ended_popup.visible:
 		pause = true
 	if pause_menu.visible:
