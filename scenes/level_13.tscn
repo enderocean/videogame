@@ -119,6 +119,7 @@ transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 54, -0.335, -2, 6.08557 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+visible = false
 shadow_enabled = true
 
 [node name="playerCamera" parent="." instance=ExtResource( 10 )]
@@ -136,7 +137,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4003, 3.29379, -18.992 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 300
+length = 450
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -13.92, 1.85129, -38.2299 )
@@ -688,7 +689,7 @@ mesh = SubResource( 28 )
 material/0 = SubResource( 7 )
 
 [node name="fiat" parent="." instance=ExtResource( 28 )]
-transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -41.609, -6.422, 10.064 )
+transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -32.7183, -5.05275, -21.6188 )
 
 [node name="MagnetDeliveryTool" parent="." instance=ExtResource( 27 )]
 transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -20.2987, -7.42181, -5.6361 )

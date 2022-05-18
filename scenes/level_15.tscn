@@ -1,0 +1,137 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://terrains/level_15/data.hterrain" type="Resource" id=8]
+[ext_resource path="res://terrains/level_00/grass/Ground037_1K_Color.jpg" type="Texture" id=9]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_Displacement.jpg" type="Texture" id=10]
+[ext_resource path="res://terrains/level_00/grass/Ground037_1K_Displacement.jpg" type="Texture" id=11]
+[ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://terrains/level_15_bis/data.hterrain" type="Resource" id=13]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_Color.jpg" type="Texture" id=14]
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=15]
+[ext_resource path="res://terrains/level_01/grass/Ground037_1K_Roughness.jpg" type="Texture" id=16]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0.321569, 0.580392, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="ConvexPolygonShape" id=7]
+points = PoolVector3Array( -152.502, 164.307, -106.435, 113.017, 43.6827, 80.6325, 106.443, 152.087, 152.404, -104.978, 73.5729, 312.455, -64.1603, 2.40405, -277.858, 107.618, 176.761, -167.77, -79.0719, 204.893, 198.193, -128.203, 25.7179, 225.061, 79.5987, 110.098, 336.988, -68.5475, 177.209, -242.257, 84.6059, 42.5907, -237.576, 69.9476, 14.3453, 151.77, -122.784, 19.199, -258.438, -130.143, 122.331, 302.339, 58.5968, 206.493, -136.487, -127.803, 206.066, 134.327, -13.5996, 66.784, -295.731, 84.1661, 73.44, 313.617, -159.317, 116.486, -68.5422, -73.8014, 7.92138, 182.413, 62.9589, 186.779, 132.539, -104.007, 206.323, -82.0195, 99.8585, 14.3267, 80.1095, -125.519, 4.22003, -202.966, -118.825, 110.089, -264.618, 40.4436, 146.17, 315.463, 106.878, 49.7573, -196.849, -140.224, 31.7758, 212.951, -146.446, 146.221, 195.128, -68.0782, 19.4806, 237.675, 82.6402, 200.392, -39.9546, -75.3666, 134.822, 323.166, 57.846, 20.4927, -212.544, 96.9854, 134.654, -213.215, 113.555, 176.682, -143.354, -159.317, 173.592, -74.8755, -56.9813, 72.8998, 330.801, -19.765, 3.37949, -56.7543, -78.8003, 210.372, 91.1253, 95.8874, 67.4942, 275.894, 87.0338, 151.519, 245.727, -97.9714, 1.75305, -39.881, 4.82236, 36.3108, -293.422, 28.0054, 193.649, 157.662, -87.2284, 171.387, -243.424, -79.011, 204.812, -139.756, -134.624, 19.4053, -136.936, 100.852, 19.5918, 146.865, -1.29262, 134.77, 334.917, 105.955, 20.2481, 8.2943, 69.1291, 204.826, -50.8861, -123.554, 24.6282, 240.061, 88.0977, 116.007, 319.91, -152.113, 176.174, -100.057, 53.936, 73.2628, -262.213, 34.6221, 19.4195, -251.703, 16.5281, 206.834, -149.164, -38.0467, 146.645, 319.046, -98.3211, 140.252, 310.343, -122.672, 206.909, 153.374, -118.11, 97.8484, 315.343, 113.189, 31.5104, 74.6164, 101.165, 43.559, -215.528, -87.7151, 17.4999, -276.226 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+mode = 0
+textures = [ [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 16 ) ], [ null, null, null ] ]
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+mode = 0
+textures = [ [ ExtResource( 10 ), ExtResource( 14 ) ], [ null, null ] ]
+
+[node name="level_15" type="Spatial"]
+script = ExtResource( 15 )
+
+[node name="water" parent="." instance=ExtResource( 6 )]
+transform = Transform( 128, 0, 0, 0, 64, 0, 0, 0, 128, 0.443, 16.0103, -0.292 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+visible = false
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 5 )]
+visible = true
+
+[node name="BlueRov" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0511, 9.97577, -17.6328 )
+
+[node name="Theter" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
+from = NodePath("../BlueRov")
+length = 900
+
+[node name="Marlow66" type="MeshInstance" parent="."]
+transform = Transform( -0.548497, 0, -0.836152, 0, 1, 0, 0.836152, 0, -0.548497, 26.8788, 15.8954, -25.5959 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="rock02" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.00397991, -0.00435532, -0.08964, 0.000549428, 0.0498099, -0.00783619, 0.199959, -5.01762e-05, 0.00180569, 41.3159, -4.61061, 3.67094 )
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../HTerrain")
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.00397991, -0.00435532, -0.08964, 0.000549428, 0.0498099, -0.00783619, 0.199959, -5.01762e-05, 0.00180569, 41.3159, -4.61061, 3.67094 )
+shape = SubResource( 7 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -128, -17.1611, -128 )
+script = ExtResource( 1 )
+_terrain_data = ExtResource( 8 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 2 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="HTerrain2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -10 )
+script = ExtResource( 1 )
+_terrain_data = ExtResource( 13 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 4 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )

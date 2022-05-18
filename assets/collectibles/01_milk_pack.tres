@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/collectibles/collectible_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "01_milk_pack"
+title = "Milk pack"
+description = "Food envelopes are one of the most common waste you can find in underwater areas. Milk pack is part of it."
+image = "res://assets/collectibles/images/01_milk_pack.png"

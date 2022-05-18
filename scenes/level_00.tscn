@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_00/data.hterrain" type="Resource" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=36]
 [ext_resource path="res://assets/models/waste/cofee_cup.obj" type="ArrayMesh" id=37]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=38]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -283,6 +284,10 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Milk"]
 transform = Transform( 1, 0, 0, 0, 2.57769, 0, 0, 0, 1, 0, 0.109181, 0 )
 shape = SubResource( 27 )
+
+[node name="CollectibleTag" type="Node" parent="Milk"]
+script = ExtResource( 38 )
+id = "01_milk_pack"
 
 [node name="Coke" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999564, -0.0295266, 0, 0.0295266, 0.999564, -4.03483, -3.01369, 1.14805 )

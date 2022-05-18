@@ -154,11 +154,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/rope/rope.gd"
 }, {
-"base": "RigidBody",
-"class": "RopeSection",
-"language": "GDScript",
-"path": "res://scripts/rope/section.gd"
-}, {
 "base": "PanelContainer",
 "class": "SettingsPanel",
 "language": "GDScript",
@@ -239,7 +234,6 @@ _global_script_class_icons={
 "PauseMenu": "",
 "ROVSounds": "",
 "Rope": "",
-"RopeSection": "",
 "SettingsPanel": "",
 "SoftRope": "",
 "SoundTriggerArea": "",
