@@ -195,6 +195,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="HeavyObject"]
 shape = SubResource( 22 )
@@ -208,10 +209,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07, -0.49, -8.54 )
 collision_layer = 2
 collision_mask = 3
 mass = 100.0
+gravity_scale = 0.1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+objective_type = 3
 
 [node name="MeshInstance" type="MeshInstance" parent="HeavyObject2"]
 mesh = SubResource( 27 )
@@ -326,7 +329,7 @@ transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0
 transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.685889 )
 
 [node name="PullDestination" type="Position3D" parent="Ender Station"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 73.86, 50.82, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16722, 50.82, 0 )
 
 [node name="SoundTriggerArea" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3064, 0.7289, 4.22336 )
