@@ -1,7 +1,8 @@
-extends Path
+extends Spatial
 class_name Rope
 
-export var enabled: bool = true
+const SECTION_LENGTH: float = 0.145
+
 export var section: PackedScene
 export var joint: PackedScene
 
@@ -17,9 +18,6 @@ var to_body: PhysicsBody
 var to_body_origin: Vector3
 
 func _ready() -> void:
-	if not enabled:
-		return
-
 	var from_node = get_node_or_null(from)
 	if not from_node:
 		printerr('Path "from" of "', name, '" is not set')
@@ -39,53 +37,39 @@ func _ready() -> void:
 	if not to_body:
 		printerr('Path "to" of "', name, '" is not a PhysicsBody, Vehicle or DeliveryTool')
 		return
-
-	# Add points to "connect" the bodies to the rope 
-	curve.add_point(from_body.global_transform.origin, Vector3.ZERO, Vector3.ZERO, 0)
-	curve.add_point(to_body.global_transform.origin)
 	
-	# Get the rope length from the path
-	var points: PoolVector3Array = curve.get_baked_points()
-	length = 0
-	for i in range(points.size() - 1):
-		var distance: float = points[i].distance_to(points[i + 1])
-		var section_count: int = floor(distance / RopeSection.LENGTH)
-		length += section_count
-	
-	print(name, " is ", length, " sections")
+	to_body_origin = to_body.global_transform.origin
 
-	# Create the rope
+	# Moves the tether node to the starting position
+	global_transform.origin = from_body.global_transform.origin
+
+	# Face the "To" body to make easier to create the rope
+	look_at(to_body.global_transform.origin, Vector3.UP)
+
 	# Set the first body to be the "From"
 	var parent: PhysicsBody = from_body
 	# Link each section of the rope
 	for i in range(length):
-		var child: RigidBody = add_section(i)
-		if parent:
-			add_link(parent, child, i)
+		var child: RigidBody = add_section(parent, i)
+		
+#		if i > 0:
+#			child.previous_joint = parent.joint
+		
+#		child.joint = add_link(parent, child, i)
+		add_link(parent, child, i)
 		parent = child
 		sections.append(child)
 	
-	# Joining the last section with the to_body
-	var last_pin: Generic6DOFJoint = joint.instance()
-	last_pin.global_transform.origin = to_body.global_transform.origin
-	parent.global_transform.origin = to_body.global_transform.origin
-	# Setting joint parameters
-	last_pin.set_node_a(parent.get_path())
-	last_pin.set_node_b(to_body.get_path())
-	parent.add_child(last_pin)
+	# Moves to "To" body to the position of the last rope section
+	var original_position: Vector3 = to_body.global_transform.origin
+	to_body.global_transform.origin = parent.global_transform.origin
+
+	# Link the last section to the "To" body
+	add_link(parent, to_body, 0)
+	to_body.global_transform.origin = original_position
 
 
-	# Make the rope follow the path
-	for i in range(points.size() - 1):
-		var direction: Vector3 = points[i].direction_to(points[i + 1])
-		var distance: float = points[i].distance_to(points[i + 1])
-		var section_count: int = ceil(distance / RopeSection.LENGTH)
-		
-		for j in range(section_count - 1):
-			sections[i + j].global_transform.origin = points[i] -offset + (direction * -RopeSection.LENGTH) * j
-
-
-func add_section(i: int) -> RigidBody:
+func add_section(parent: Spatial, i: int) -> RigidBody:
 	var part: RigidBody = section.instance()
 	part.name = "Section %s" % i
 	add_child(part)
@@ -93,13 +77,13 @@ func add_section(i: int) -> RigidBody:
 	for child in part.get_children():
 		child.transform.origin = Vector3.ZERO
 
-	part.transform.origin = -offset + Vector3(0, 0, -RopeSection.LENGTH) * i
+	part.transform.origin = -offset + Vector3(0, 0, -0.145) * i
 	return part
 
 
 func add_link(parent: Spatial, child: Spatial, i: int) -> Joint:
 	var pin: Generic6DOFJoint = joint.instance()
-	pin.transform.origin = -Vector3(0, 0, RopeSection.LENGTH / 2)
+	pin.transform.origin = -Vector3(0, 0, 0.145 / 2)
 
 	# Setting joint parameters
 	pin.set_node_a(parent.get_path())

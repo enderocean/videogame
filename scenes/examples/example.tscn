@@ -342,12 +342,14 @@ to = NodePath("../Ender Station/TheterAnchor")
 length = 200
 
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
+enabled = false
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
 length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 
 [node name="PullingTheter2" parent="." instance=ExtResource( 14 )]
+enabled = false
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 length = 200
