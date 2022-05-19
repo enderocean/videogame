@@ -447,6 +447,7 @@ id = "02_plastic_soldier"
 
 [node name="Camera" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.472428, 0.881369, 0, -0.881369, 0.472428, 23.5151, -2.53658, -19.8039 )
+visible = false
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 24 )

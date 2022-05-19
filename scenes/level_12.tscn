@@ -353,7 +353,6 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, -32, 0, -32 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -547,7 +546,7 @@ mass = 10.0
 script = ExtResource( 14 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Sailboat"]
-transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 7.9155e-05, -0.0141811, 0.00778389 )
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 42.9601, 41.1183, 0.00778651 )
 mesh = ExtResource( 15 )
 material/0 = SubResource( 10 )
 

@@ -10,10 +10,9 @@ thumbnail = "res://assets/levels/images/level_16.jpg"
 title = "Level 16"
 country = "JAPAN"
 location = "Osaka"
-description = "Local researchers estimate that Osaka Bay contains as many as 3 million
-plastic bags, the dire impact of using single-use plastics for everything.
+description = "Local researchers estimate that Osaka Bay contains as many as 3 million plastic bags, the dire impact of using single-use plastics for everything.
 
 "
-time = 5
+time = 10
 objectives = PoolStringArray( "Collect 100 plastics" )
 tools = PoolStringArray( "Vaccum cleaner", "Lights" )

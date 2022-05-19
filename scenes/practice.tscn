@@ -99,7 +99,7 @@ objectives_target = {
 "animal": 0,
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 1,
+"gripper": 3,
 "magnet": 0,
 "vacuum": 0
 }
