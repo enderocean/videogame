@@ -1,17 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/rope/rope.gd" type="Script" id=1]
 [ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Curve3D" id=1]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.56639, 1.66078, 2.91794, 0, 0, 0, 0, 0, 0, 4.09735, 0.901594, -1.44344, 0, 0, 0, 0, 0, 0, 8.78593, 1.70901, -3.24713, 0, 0, 0, 0, 0, 0, 13.5778, 4.37374, -4.28965, 0, 0, 0, 0, 0, 0, 16.7142, 7.28569, -4.80169, 0, 0, 0, 0, 0, 0, 18.156, 9.62331, -4.89139 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
-}
-
 [node name="Theter" type="Path"]
-curve = SubResource( 1 )
 script = ExtResource( 1 )
 section = ExtResource( 2 )
 joint = ExtResource( 3 )
