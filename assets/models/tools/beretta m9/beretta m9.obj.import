@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/beretta m9.obj-05aaa36e4c6ab9128860fed214f72850.mesh"
+
+[deps]
+
+files=[ "res://.import/beretta m9.obj-05aaa36e4c6ab9128860fed214f72850.mesh" ]
+
+source_file="res://assets/models/tools/beretta m9/beretta m9.obj"
+dest_files=[ "res://.import/beretta m9.obj-05aaa36e4c6ab9128860fed214f72850.mesh", "res://.import/beretta m9.obj-05aaa36e4c6ab9128860fed214f72850.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
