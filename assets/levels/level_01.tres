@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 id = "level_01"
-scene = "res://scenes/level_02.tscn"
+scene = "res://scenes/level_01.tscn"
 thumbnail = "res://assets/levels/images/level_02.jpg"
 title = "level_01"
 country = "UNITED KINGDOM"

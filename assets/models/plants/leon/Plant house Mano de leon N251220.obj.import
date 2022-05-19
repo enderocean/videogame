@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Plant house Mano de leon N251220.obj-16dd018bc56811034274431997d4e46e.mesh"
+
+[deps]
+
+files=[ "res://.import/Plant house Mano de leon N251220.obj-16dd018bc56811034274431997d4e46e.mesh" ]
+
+source_file="res://assets/models/plants/leon/Plant house Mano de leon N251220.obj"
+dest_files=[ "res://.import/Plant house Mano de leon N251220.obj-16dd018bc56811034274431997d4e46e.mesh", "res://.import/Plant house Mano de leon N251220.obj-16dd018bc56811034274431997d4e46e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

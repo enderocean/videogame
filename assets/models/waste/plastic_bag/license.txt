@@ -1,0 +1,8 @@
+Model Information:
+* title:	Plastic Bag
+* source:	https://sketchfab.com/3d-models/plastic-bag-d1a74a4f33704542814307a37d374dcb
+* author:	Elephai (https://sketchfab.com/elephai)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

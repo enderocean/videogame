@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/collectibles/collectible_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "05_sailboat_pulley"
+title = "Sailboat pulley"
+description = "Materials lost by sailers as well as floating buoys are unfortunately part of items you may find underwater..."
+image = "res://assets/collectibles/images/04_tire.png"

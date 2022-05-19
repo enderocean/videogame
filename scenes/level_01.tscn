@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/vehicles/cargo.obj" type="ArrayMesh" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://terrains/level_02/brown_sand/Ground049B_1K_Color.jpg" type="Texture" id=5]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_Color.jpg" type="Texture" id=6]
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=8]
 [ext_resource path="res://terrains/level_01/grass/Ground037_1K_Displacement.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/level_01/white_sand/Ground051_1K_NormalGL.jpg" type="Texture" id=10]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=11]
@@ -439,6 +440,10 @@ material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Soldier01"]
 shape = SubResource( 8 )
+
+[node name="CollectibleTag" type="Node" parent="Soldier01"]
+script = ExtResource( 8 )
+id = "02_plastic_soldier"
 
 [node name="Camera" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.472428, 0.881369, 0, -0.881369, 0.472428, 23.5151, -2.53658, -19.8039 )

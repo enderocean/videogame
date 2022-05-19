@@ -16,3 +16,4 @@ func _process(delta):
 	t += delta
 	var node = get_child(0) # get_node("PathFollow")
 	node.offset = t
+	

@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 id = "01_milk_pack"
 title = "Milk pack"
-description = "Food envelopes are one of the most common waste you can find in underwater areas. Milk pack is part of it."
+description = "Some words about milk pack..."
 image = "res://assets/collectibles/images/01_milk_pack.png"

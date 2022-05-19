@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/collectibles/collectible_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "01_plastic_soldier"
+title = "Plastic soldier"
+description = "Many plastic toys are found underwater. Plastic soldier is a good example of plastic industry extension during the eighties."
+image = "res://assets/collectibles/images/02_plastic_soldier.png"
