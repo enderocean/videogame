@@ -41,17 +41,12 @@ func _ready() -> void:
 	
 	var from_origin: Vector3 = from_body.global_transform.origin
 	var to_origin: Vector3 = to_body.global_transform.origin
-	var points: PoolVector3Array = curve.get_baked_points()
 	
 	# Add points to "connect" the bodies to the rope 
 	curve.add_point(from_body.global_transform.origin, Vector3.ZERO, Vector3.ZERO, 0)
 	curve.add_point(to_body.global_transform.origin)
 	
-	var csg: CSGPolygon = CSGPolygon.new()
-	csg.scale = Vector3.ONE / 10
-	csg.mode = CSGPolygon.MODE_PATH
-	csg.path_node = get_path()
-	
+	var points: PoolVector3Array = curve.get_baked_points()
 	# Get the rope length from the path
 	length = 0
 	for i in range(points.size() - 1):

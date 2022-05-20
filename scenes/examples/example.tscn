@@ -354,6 +354,19 @@ from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 200
 
+[node name="CSGPolygon" type="CSGPolygon" parent="Theter"]
+polygon = PoolVector2Array( 0, 0, 0, 0.1, 0.1, 0.1, 0.1, 0 )
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
 [node name="PullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 1 )
 enabled = false
