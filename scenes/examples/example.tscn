@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -102,13 +102,19 @@ uv1_scale = Vector3( 3, 2, 1 )
 
 [sub_resource type="Curve3D" id=31]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.00800356, 0.0390458, 0.0204983, 0, 0, 0, 0, 0, 0, 4.54074, 0.976052, 0.273717, 0, 0, 0, 0, 0, 0, 8.59325, 2.27515, -0.579258, 0, 0, 0, 0, 0, 0, 12.5161, 3.94922, -1.41391, 0, 0, 0, 0, 0, 0, 16.7728, 5.8291, -1.83124, 0, 0, 0, 0, 0, 0, 19.6084, 10.1517, -2.97513 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.43277, 3.50615, 3.34166, 0, 0, 0, 0, 0, 0, 4.54074, 0.976052, 0.273717, 0, 0, 0, 0, 0, 0, 8.59325, 2.27515, -0.579258, 0, 0, 0, 0, 0, 0, 12.5161, 3.94922, -1.41391, 0, 0, 0, 0, 0, 0, 16.7728, 5.8291, -1.83124, 0, 0, 0, 0, 0, 0, 19.6084, 10.1517, -2.97513 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=32]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.05979, 0.586911, -5.87773, 0, 0, 0, 0, 0, 0, 2.33784, 1.21829, -3.20154, 0, 0, 0, 0, 0, 0, 8.32598, 1.98479, -1.51673, 0, 0, 0, 0, 0, 0, 12.7982, 4.12061, -2.4221, 0, 0, 0, 0, 0, 0, 16.7893, 7.33286, -2.79143, 0, 0, 0, 0, 0, 0, 18.3207, 9.85962, -2.90651 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.56639, 1.66078, 2.91794, 0, 0, 0, 0, 0, 0, 4.09735, 0.901594, -1.44344, 0, 0, 0, 0, 0, 0, 8.78593, 1.70901, -3.24713, 0, 0, 0, 0, 0, 0, 13.5778, 4.37374, -4.28965, 0, 0, 0, 0, 0, 0, 16.7142, 7.28569, -4.80169, 0, 0, 0, 0, 0, 0, 18.156, 9.62331, -4.89139 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.43995, 1.12234, -1.02707, 0, 0, 0, 0, 0, 0, -0.0515473, 0.334841, -1.48994, 0, 0, 0, 0, 0, 0, 8.6791, 0.925259, -4.46248, 0, 0, 0, 0, 0, 0, 13.3184, 2.10549, -5.20297, 0, 0, 0, 0, 0, 0, 17.1501, 6.69412, -3.80941, 0, 0, 0, 0, 0, 0, 18.827, 9.73852, -3.32027 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
@@ -354,30 +360,15 @@ from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 200
 
-[node name="CSGPolygon" type="CSGPolygon" parent="Theter"]
-polygon = PoolVector2Array( 0, 0, 0, 0.1, 0.1, 0.1, 0.1, 0 )
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-
-[node name="PullingTheter" parent="." instance=ExtResource( 14 )]
-curve = SubResource( 1 )
-enabled = false
+[node name="MagnetPullingTheter" parent="." instance=ExtResource( 14 )]
+curve = SubResource( 32 )
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
 length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 
-[node name="PullingTheter2" parent="." instance=ExtResource( 14 )]
+[node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 1 )
-enabled = false
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 length = 200

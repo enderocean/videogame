@@ -54,17 +54,18 @@ func _ready() -> void:
 		var section_count: int = floor(distance / RopeSection.LENGTH)
 		length += section_count
 	
-	print(name, " created ", length, " sections.")
+#	print(name, " created ", length, " sections.")
 
 	# Create the rope
 	# Set the first body to be the "From"
-	var parent: RigidBody = add_section(0)
-	joint(from_body, parent)
-	
+	var parent: RigidBody = from_body
 	# Link each section of the rope
 	for i in range(length):
 		var child: RigidBody = add_section(i)
-		add_link(parent, child, i)
+		# Please don't judge me for this
+		if i == 0:
+			child.get_node("MeshInstance").visible = false
+		add_link(parent, child, i, i == 0)
 		parent = child
 		sections.append(child)
 	
@@ -81,6 +82,7 @@ func _ready() -> void:
 	
 	from_body.global_transform.origin = from_origin
 
+
 func add_section(i: int) -> RigidBody:
 	var part: RigidBody = section.instance()
 	part.name = "Section %s" % i
@@ -93,16 +95,22 @@ func add_section(i: int) -> RigidBody:
 	return part
 
 
-func add_link(parent: RigidBody, current: RigidBody, i: int) -> Joint:
+func add_link(parent: RigidBody, current: RigidBody, i: int, move_to_end: bool = false) -> Joint:
+	var current_original_position: Vector3 = current.global_transform.origin
 	var pin: Generic6DOFJoint = joint.instance()
+	parent.add_child(pin)
+	
 	pin.transform.origin = -Vector3(0, 0, RopeSection.LENGTH / 2)
-
+	
+	if move_to_end:
+		current.global_transform.origin = pin.global_transform.origin + Vector3(0, 0, RopeSection.LENGTH)
+	
 	# Setting joint parameters
 	pin.set_node_a(parent.get_path())
 	pin.set_node_b(current.get_path())
-
-	parent.add_child(pin)
-
+	
+	current.global_transform.origin = current_original_position
+	
 	# Setting priority with rope section index
 	pin.set_solver_priority(i)
 	return pin
