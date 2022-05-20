@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if destination and pulling:
-		if to_body.global_transform.origin.distance_to(destination.global_transform.origin) < SECTION_LENGTH:
+		if to_body.global_transform.origin.distance_to(destination.global_transform.origin) < RopeSection.LENGTH:
 			pulling = false
 			emit_signal("pulled")
 		
