@@ -3,6 +3,9 @@ extends RigidBody
 
 const THRUST = 50
 
+signal speed_changed(index)
+signal tool_changed(index)
+
 var interface = PacketPeerUDP.new()  # UDP socket for fdm in (server)
 var peer = null
 var start_time = OS.get_ticks_msec()
@@ -318,9 +321,11 @@ func process_keys() -> void:
 
 	if Input.is_action_just_pressed("speed_up"):
 		speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
+		emit_signal("speed_changed", speed_index)
 
 	if Input.is_action_just_pressed("speed_down"):
 		speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
+		emit_signal("speed_changed", speed_index)
 
 	if Input.is_action_pressed("forward"):
 		force.z = speeds[speed_index].x
@@ -426,6 +431,7 @@ func set_current_tool_from_index(index: int) -> void:
 		vehicle_tools[i].set_active(i == index)
 
 	vehicle_tool_index = index
+	emit_signal("tool_changed", index)
 
 
 func set_current_tool_from_type(tool_type: int) -> void:

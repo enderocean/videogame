@@ -265,3 +265,15 @@ func check_objectives() -> void:
 
 func _on_collectible_obtained(id: String) -> void:
 	emit_signal("collectible_obtained", id)
+
+
+func get_vehicle_orientation() -> float:
+	return vehicle.vehicle_body.rotation_degrees.y
+
+
+func get_vehicle_depth() -> float:
+	return vehicle.vehicle_body.global_transform.origin.y - surface_altitude
+
+
+func get_vehicle_speed() -> int:
+	return vehicle.vehicle_body.speed_index
