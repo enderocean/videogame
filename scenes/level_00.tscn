@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_00/data.hterrain" type="Resource" id=2]
@@ -43,6 +43,12 @@
 script = ExtResource( 1 )
 mode = 0
 textures = [ [ ExtResource( 4 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 5 ) ], [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ) ] ]
+
+[sub_resource type="Curve3D" id=97]
+_data = {
+"points": PoolVector3Array(  ),
+"tilts": PoolRealArray(  )
+}
 
 [sub_resource type="CubeMesh" id=90]
 
@@ -250,6 +256,7 @@ visible = true
 transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -12.9383, -1.0243, 5.69881 )
 
 [node name="Theter" parent="." instance=ExtResource( 34 )]
+curve = SubResource( 97 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 300

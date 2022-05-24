@@ -138,7 +138,8 @@ func update_fog():
 		depth = rov_camera.global_transform.origin.y - surface_altitude
 		last_depth = depth
 
-		var fog_distance = max(50 + 1 * depth, 20)
+		# var fog_distance = max(50 + 1 * depth, 20)
+		var fog_distance = max(5 + 1 * depth, 20)
 		underwater_env.fog_depth_end = fog_distance
 		var deep_factor = min(max(-depth / 50, 0), 1.0)
 		Globals.deep_factor = deep_factor

@@ -390,7 +390,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="BlueRov" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1393, 4.34787, -16.1057 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37259, 4.34787, -5.67305 )
 starting_tool = 1
 
 [node name="Theter" parent="." instance=ExtResource( 21 )]

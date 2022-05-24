@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=2]
+[gd_scene load_steps=129 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -23,10 +23,8 @@
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=22]
 [ext_resource path="res://addons/fish-shader/shader/fish_interesting.tres" type="Material" id=23]
-[ext_resource path="res://addons/fish-shader/shader/manta.tres" type="Material" id=24]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=25]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=26]
-[ext_resource path="res://assets/models/animals/reef_fishes/Manta2/Manta1cNewUV2-R-LPAnim3.obj" type="ArrayMesh" id=27]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -327,7 +325,7 @@ points = PoolVector3Array( 0.936788, 0.0245166, 0.340209, -0.9622, 0.0235265, -0
 
 [sub_resource type="Curve3D" id=102]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623, 1.7265, 0, -0.787609, -1.7265, 0, 0.787609, -51.5201, 0, -23.4743, -0.0108871, 2.6077e-08, -1.87002, 0.0108871, -2.6077e-08, 1.87002, -52.972, -0.0197449, -18.6959, -1.10063, 0, -0.472476, 1.10063, 0, 0.472476, -50.69, 0, -14.2812, -4.01181, 0, -0.283362, 4.01181, 0, 0.283362, -34.1275, 0, -11.132, -3.52652, 0, -0.281123, 3.52652, 0, 0.281123, -22.8137, 0, -11.5986, -0.643848, 0, -0.293308, 0.643848, 0, 0.293308, -13.5993, 0, -6.34991, -1.37505, 0, 0.0604196, 1.37505, 0, -0.0604196, -7.88409, 0, -4.95026, -0.293399, 0, 0.67502, 0.293399, 0, -0.67502, -4.85152, 0, -7.16637, 0.514542, 0, 0.974594, -0.514542, 0, -0.974594, -4.1517, 0, -11.3653, -1.52012, 0, -0.774967, 1.52012, 0, 0.774967, -6.6382, 0, -13.3998, -2.7547, -4.9714e-06, -0.700081, 2.7547, 4.9714e-06, 0.700081, -24.1178, -0.00930289, -18.2861, 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623, 1.7265, 0, -0.787609, -1.7265, 0, 0.787609, -51.5201, 0, -23.4743, -0.0108871, 2.6077e-08, -1.87002, 0.0108871, -2.6077e-08, 1.87002, -52.972, -0.0197449, -18.6959, -1.10063, 0, -0.472476, 1.10063, 0, 0.472476, -50.69, 0, -14.2812, -4.01181, 0, -0.283362, 4.01181, 0, 0.283362, -34.1275, 0, -11.132, -3.52652, 0, -0.281123, 3.52652, 0, 0.281123, -22.8137, 0, -11.5986, -0.643848, 0, -0.293308, 0.643848, 0, 0.293308, -13.5993, 0, -6.34991, -1.37505, 0, 0.0604196, 1.37505, 0, -0.0604196, -7.88409, 0, -4.95026, -0.293399, 0, 0.67502, 0.293399, 0, -0.67502, -4.85152, 0, -7.16637, 0.514542, 0, 0.974594, -0.514542, 0, -0.974594, -4.1517, 0, -11.3653, -1.52012, 0, -0.774967, 1.52012, 0, 0.774967, -6.6382, 0, -13.3998, 3.05836, -1.02874e-05, -0.56937, -3.05836, 1.02874e-05, 0.56937, -24.1178, -0.00930289, -18.2861, 0, 0, 0, 0, 0, 0, -44.0503, -0.0197496, -23.9623 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
@@ -353,6 +351,7 @@ objectives_target = {
 
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, -32, 0, -32 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -981,10 +980,11 @@ curve = SubResource( 102 )
 script = ExtResource( 26 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0503, -0.0197496, -23.9623 )
+transform = Transform( -0.0460654, 0.00339071, -0.998933, 0, 0.999994, 0.00339431, 0.998938, 0.00015636, -0.0460651, -44.0503, -0.0197496, -23.9623 )
+rotation_mode = 4
 
 [node name="StaticBody" type="StaticBody" parent="Path/PathFollow"]
-transform = Transform( -0.0942537, 0, -0.592551, 0, 0.6, 0, 0.592551, 0, -0.0942537, 0, -2, 0 )
+transform = Transform( 0.596138, 0, -0.067974, 7.27596e-12, 0.6, -2.63753e-11, 0.067974, -8.00355e-11, 0.596138, 0, -2, 3.8147e-06 )
 
 [node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path/PathFollow/StaticBody"]
 mesh = ExtResource( 22 )
@@ -1008,10 +1008,11 @@ curve = SubResource( 104 )
 script = ExtResource( 26 )
 
 [node name="PathFollow" type="PathFollow" parent="Path2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.406832, 0, 0.851761 )
+transform = Transform( -0.999334, 3.96809e-08, 0.0364898, 0, 1, -1.08745e-06, -0.0364898, -1.08673e-06, -0.999334, 0.406832, 0, 0.851761 )
+rotation_mode = 4
 
 [node name="StaticBody" type="StaticBody" parent="Path2/PathFollow"]
-transform = Transform( -0.599973, 0, -0.00571747, 0, 0.6, 0, 0.00571747, 0, -0.599973, -0.0279276, -0.283651, -0.0503902 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.0279274, -0.283651, -0.0503902 )
 
 [node name="WhiteTip1gUrptVanim2" type="MeshInstance" parent="Path2/PathFollow/StaticBody"]
 mesh = ExtResource( 22 )
@@ -1028,18 +1029,5 @@ fish_s = 0.03
 fish_tail_z = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/StaticBody"]
+transform = Transform( 1, 1.77636e-15, 1.86265e-09, -1.77636e-15, 1, 0, 0, -1.13687e-13, 1, 0, 0, 0 )
 shape = SubResource( 103 )
-
-[node name="Manta" type="MeshInstance" parent="."]
-transform = Transform( 0.045399, 0, -0.296545, 0, 0.3, 0, 0.296545, 0, 0.045399, -43.1755, -2.11704, -20.7823 )
-visible = false
-mesh = ExtResource( 27 )
-material/0 = ExtResource( 24 )
-script = ExtResource( 25 )
-fish_translatey = 0.05
-fish_translatez = 0.075
-fish_yaw = 0.057
-fish_twist = 0.038
-fish_s = 0.057
-fish_head_z = 2.144
-fish_tail_z = 5.0

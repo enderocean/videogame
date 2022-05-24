@@ -106,7 +106,7 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="MeshInstance" type="MeshInstance" parent="."]
 
 [node name="Workboat" type="MeshInstance" parent="."]
-transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -11.6336, -4.60286, 4.30133 )
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -11.6336, -2.33596, 4.30133 )
 mesh = ExtResource( 13 )
 material/0 = null
 material/1 = null
