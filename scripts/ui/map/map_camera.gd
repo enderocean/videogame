@@ -5,6 +5,7 @@ export var zoom_min: float = 0.5
 export var zoom_max: float = 1.0
 export(float, 0.0, 1.0) var zoom_factor: float = 0.1
 var zoom_level: float = 1.0 setget _set_zoom_level
+
 export var duration: float = 0.5
 
 onready var world_sprite: Sprite = get_parent()
@@ -45,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		)
 		
 		# Move the camera
-		position -= event.relative * zoom.x
+		position -= event.relative * zoom_level
 		
 		# Make sure the camera stay in bounds of the World sprite
 		if position.x >= limit.x:
@@ -66,9 +67,9 @@ func _set_zoom_level(value: float) -> void:
 		"zoom",
 		zoom,
 		Vector2(zoom_level, zoom_level),
-		duration,
-		tween.TRANS_SINE,
-		tween.EASE_OUT
+		duration / 2,
+		Tween.TRANS_SINE,
+		Tween.EASE_OUT
 	)
 	tween.start()
 
@@ -86,6 +87,7 @@ func goto(mission_point: MissionPoint) -> void:
 	tween.interpolate_property(
 		self, "zoom", zoom, mission_point.zoom, duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT
 	)
+	zoom_level = mission_point.zoom.x
 	tween.start()
 	can_move = false
 
