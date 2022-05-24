@@ -19,6 +19,11 @@ export var speed_indicators_parent_path: NodePath
 onready var speed_indicators_parent: Control = get_node(speed_indicators_parent_path)
 
 
+func _ready() -> void:
+	get_tree().connect("screen_resized", self, "_on_screen_resized")
+	_on_screen_resized()
+
+
 func create_speed_indicators(count: int) -> void:
 	for i in range(count):
 		var indicator: ColorRect = speed_indicator_scene.instance()
@@ -32,3 +37,7 @@ func set_current_speed(index: int) -> void:
 		if i > index:
 			value = speed_indicator_color_off
 		speed_indicators_parent.get_child(i).self_modulate = value
+
+
+func _on_screen_resized() -> void:
+	compass_texture.rect_pivot_offset = compass_texture.rect_size / 2
