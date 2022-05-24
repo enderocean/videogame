@@ -2,6 +2,7 @@
 
 [ext_resource path="res://scripts/delivery/grappling_hook_delivery_tool.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter_anchor_moving.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/models/tools/grappling_hook/grappling_hook.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=27]
 rough = true
@@ -11,18 +12,11 @@ absorbent = true
 extents = Vector3( 1.46, 0.19, 1.41 )
 
 [sub_resource type="CapsuleShape" id=31]
-radius = 0.0253337
-height = 0.252192
+radius = 0.0154741
+height = 0.128489
 
-[sub_resource type="CapsuleMesh" id=29]
-radius = 0.025
-mid_height = 0.25
-radial_segments = 4
-rings = 2
-
-[sub_resource type="CapsuleShape" id=32]
-radius = 0.0250342
-height = 0.239616
+[sub_resource type="ConvexPolygonShape" id=32]
+points = PoolVector3Array( -0.100794, 0.838853, -20.6121, -0.684824, 1.07362, -19.5478, -17.5861, 0.838853, 13.7682, 2.36352, -1.27348, 0.864104, 18.7947, 0.838853, 11.8946, -12.2489, 1.69274, 9.71957, 0.383352, 1.68629, -14.2752, -1.97396, -1.27348, -0.0777743, 0.155746, -1.2148, 3.41327, 17.3809, 1.42548, 10.1299, -15.5882, 1.54287, 11.541, 13.7414, 1.77764, 8.37193, 17.154, 1.28635, 11.8093, -17.1124, 0.838853, 14.1252, 0.380033, 1.48381, -17.4584, -15.2694, 1.28759, 13.5498, 1.77593, -1.27348, -0.547013, 5.65047, 1.77793, 3.56053, -0.736259, 1.48223, -17.1065, 0.37491, 1.05394, -19.9603, -14.454, 1.49766, 12.3815, -16.6459, 1.30839, 12.1258, -2.44403, -1.27348, 1.09872, -0.605272, 1.6835, -13.9187, -0.88302, 1.28046, -18.6664, 15.5407, 1.49695, 10.7887, -0.332269, -1.27348, -1.13186, 0.375465, 1.28059, -19.2345, 17.9685, 1.3081, 10.6025, 1.73087, -1.2148, 2.73648, -1.6488, -1.2148, 2.73648, 16.4443, 1.54287, 9.54503, -12.6215, 1.59755, 11.4414, 0.711909, 1.58165, -15.8702, 0.823845, 1.36494, -18.0422, -0.725463, 1.5833, -15.7766, -16.0735, 1.28745, 13.5475, -1.50745, -1.27348, -0.662623, 0.372839, -1.27348, -1.13186, -11.037, 1.69383, 10.0636, 0.823555, 1.47465, -17.021, -0.409245, -1.2148, 3.29884, -0.309287, 1.28248, -19.2638, -16.535, 1.2875, 13.0883, -0.0653721, 1.58952, -16.2776, -14.4937, 1.38737, 12.9919, 17.609, 1.28623, 11.4647 )
 
 [node name="GrapplingHookDeliveryTool" type="Spatial"]
 script = ExtResource( 1 )
@@ -51,31 +45,15 @@ shape = SubResource( 30 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="GrapplingHook"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.31323e-09, 0.12, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.31323e-09, 0.195041, 0 )
 shape = SubResource( 31 )
 
-[node name="MeshInstance4" type="MeshInstance" parent="GrapplingHook/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77636e-15, 0 )
-mesh = SubResource( 29 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="CollisionShape2" type="CollisionShape" parent="GrapplingHook"]
-shape = SubResource( 32 )
-
 [node name="CollisionShape3" type="CollisionShape" parent="GrapplingHook"]
-transform = Transform( -3.14315e-06, 0, 1, 0, 1, 0, -1, 0, -3.14315e-06, 0, 0, 0 )
+transform = Transform( 0.00612397, 0, 0, 0, -0.0606486, 9.24693e-10, 0, -9.15768e-09, -0.00612397, -0.000117714, 0.0525444, 0.00760752 )
 shape = SubResource( 32 )
 
-[node name="MeshInstance5" type="MeshInstance" parent="GrapplingHook"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31323e-09, -0.03, 0 )
-mesh = SubResource( 29 )
-material/0 = null
-
-[node name="MeshInstance6" type="MeshInstance" parent="GrapplingHook"]
-transform = Transform( -4.37115e-08, 0, -1, 0, 1, 0, 1, 0, -4.37115e-08, -9.31323e-09, -0.03, 0 )
-mesh = SubResource( 29 )
-material/0 = null
+[node name="grappling_hook" parent="GrapplingHook" instance=ExtResource( 3 )]
+transform = Transform( 0.015, 0, 0, 0, -0.015, 2.26494e-09, 0, -2.26494e-09, -0.015, 0.00637705, 0.252167, -0.00545176 )
 
 [node name="TheterAnchor" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0 )
