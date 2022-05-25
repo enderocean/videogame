@@ -4,7 +4,13 @@ class_name Level
 const BUOYANCY: float = 10.0  # newtons?
 const HEIGHT: float = 2.4  # TODO: get this programatically
 
+export var depth_max: float = 100.0
+export var fog_depth_min: float = 5.0
+
 # Default Environments
+var surface_ambient: Dictionary
+var underwater_color: Color
+
 var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
 var underwater_env: Environment = load("res://assets/underwaterEnvironment.tres")
 var underwater_mesh_scene: PackedScene = load("res://scenes/components/underwater_mesh.tscn")
@@ -67,7 +73,7 @@ func _ready() -> void:
 		if not camera:
 			continue
 		
-		# Disable any cull mask
+		# Disable any cull mask reserved for the meshes
 		for j in range(cameras.size()):
 			camera.set_cull_mask_bit(10 + j, false)
 		
@@ -75,8 +81,16 @@ func _ready() -> void:
 		add_child(underwater_mesh)
 		underwater_meshes.append(underwater_mesh)
 		underwater_mesh.target = camera.get_path()
+		
+		# Set the same cull mask on the mesh and the camera
 		camera.set_cull_mask_bit(10 + i, true)
 		underwater_mesh.set_layer_mask_bit(10 + i, true)
+	
+	# Get base surface values
+	surface_ambient = {
+		"color": underwater_env.fog_color,
+		"depth_end": underwater_env.fog_depth_end,
+	}
 	
 	set_physics_process(true)
 	update_fog()
@@ -154,32 +168,33 @@ func update_fog():
 		if not vehicle is RigidBody:
 			push_warning("Component %s does not inherit RigidBody." % vehicle.name)
 			continue
+		
 		var rov_camera = get_node(str(vehicle.get_path()) + "/Camera")
 		depth = rov_camera.global_transform.origin.y - surface_altitude
 		last_depth = depth
+		var normalized_depth: float = clamp(1.0 - ((depth_max - abs(depth)) / depth_max), 0.0, 1.0)
+		var new_color: Color = surface_ambient.color.darkened(normalized_depth)
 
-		# var fog_distance = max(50 + 1 * depth, 20)
-		var fog_distance = max(5 + 1 * depth, 20)
-		underwater_env.fog_depth_end = fog_distance
-		var deep_factor = min(max(-depth / 50, 0), 1.0)
-		Globals.deep_factor = deep_factor
-		var new_color = Globals.surface_ambient.linear_interpolate(
-			Globals.deep_ambient, deep_factor
-		)
-		Globals.current_ambient = new_color.darkened(0.5)
+		underwater_env.fog_depth_end = max(fog_depth_min, surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end))
+		print("max(", fog_depth_min, ",", surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end),")")
 		underwater_env.background_color = new_color
 		
 		if underwater_env.background_sky:
 			underwater_env.background_sky.sky_horizon_color = new_color
 			underwater_env.background_sky.ground_bottom_color = new_color
 			underwater_env.background_sky.ground_horizon_color = new_color
-			underwater_env.background_sky.sky_energy = max(5.0 - 5 * deep_factor, 0.0)
+			underwater_env.background_sky.sky_energy = max(5.0 - 5 * normalized_depth, 0.0)
 		
-		underwater_env.fog_color = new_color
-		underwater_env.ambient_light_energy = 1.0 - deep_factor
-		underwater_env.ambient_light_color = new_color  #surface_ambient.linear_interpolate(deep_ambient, max(1 - depth/50, 0))
-		sun.light_energy = max(0.3 - 0.5 * deep_factor, 0)
+		if underwater_env.fog_enabled:
+			underwater_env.fog_color = new_color
+		
+		if sun:
+			sun.light_energy = max(0, 0.3 - 0.5 * normalized_depth)
 
+		underwater_env.ambient_light_energy = 1.0 - normalized_depth
+		underwater_env.ambient_light_color = new_color
+		
+		# Underwater effects
 		for camera in cameras:
 			depth = camera.global_transform.origin.y - surface_altitude
 			camera.environment = surface_env if depth > 0 else underwater_env

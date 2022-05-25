@@ -29,10 +29,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Globals.fancy_water:
-		self.get_surface_material(0).set_shader_param(\"color\", Globals.current_ambient.darkened(-0.2))
-		self.get_surface_material(0).set_shader_param(\"alpha_factor\", Globals.deep_factor)
+#func _process(_delta):
+#	if Globals.fancy_water:
+#		self.get_surface_material(0).set_shader_param(\"color\", Globals.current_ambient.darkened(-0.2))
+#		self.get_surface_material(0).set_shader_param(\"alpha_factor\", Globals.deep_factor)
 "
 
 [node name="water" type="MeshInstance"]
