@@ -7,10 +7,8 @@ const HEIGHT: float = 2.4  # TODO: get this programatically
 # Default Environments
 var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
 var underwater_env: Environment = load("res://assets/underwaterEnvironment.tres")
-
-## Used to override the default underwater environment
-## Must be a Environment resource
-export var underwater_env_override: Resource
+var underwater_mesh_scene: PackedScene = load("res://scenes/components/underwater_mesh.tscn")
+var underwater_meshes: Array
 
 # core elements of the scene
 export var water_path: NodePath = "water"
@@ -52,16 +50,31 @@ signal objectives_changed()
 signal finished(score)
 signal collectible_obtained(id)
 
-func _ready():
-	# Replace the default underwater environment
-	if underwater_env_override and underwater_env_override is Environment:
-		underwater_env = underwater_env_override
-	
-	# Assign vehicle node automatically
+func _ready() -> void:
 	for node in get_children():
+		# Replace the default underwater environment by the one in the scene
+		if node is WorldEnvironment:
+			underwater_env = node.environment
+		# Assign vehicle node automatically
 		if node is Vehicle:
 			vehicle = node
-			break
+	
+	# Add the underwater meshes for each camera
+	for i in range(cameras.size()):
+		var camera: Camera = cameras[i]
+		if not camera:
+			continue
+		
+		# Disable any cull mask
+		for j in range(cameras.size()):
+			camera.set_cull_mask_bit(10 + j, false)
+		
+		var underwater_mesh: UnderwaterMesh = underwater_mesh_scene.instance()
+		add_child(underwater_mesh)
+		underwater_meshes.append(underwater_mesh)
+		underwater_mesh.target = camera.get_path()
+		camera.set_cull_mask_bit(10 + i, true)
+		underwater_mesh.set_layer_mask_bit(10 + i, true)
 	
 	set_physics_process(true)
 	update_fog()
@@ -166,9 +179,9 @@ func update_fog():
 			depth = camera.global_transform.origin.y - surface_altitude
 			camera.environment = surface_env if depth > 0 else underwater_env
 			if depth > 0:
-				camera.cull_mask = 3
+				camera.set_cull_mask_bit(3, false)
 			else:
-				camera.cull_mask = 5
+				camera.set_cull_mask_bit(3, true)
 
 
 func _process(_delta: float) -> void:
@@ -177,6 +190,11 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	calculate_buoyancy_and_ballast()
+	
+	for underwater_mesh in underwater_meshes:
+		if not underwater_mesh._target:
+			continue
+		underwater_mesh.visible = underwater_mesh._target.global_transform.origin.y < surface_altitude
 
 
 func _on_fancy_water_changed() -> void:
