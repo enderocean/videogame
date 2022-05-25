@@ -104,7 +104,6 @@ points = PoolVector3Array( 0.365373, 7.91245, 0.191045, -0.284691, 2, -0.283693,
 
 [node name="Level_13" type="Spatial"]
 script = ExtResource( 15 )
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "animal": 0,
 "cutter": 0,

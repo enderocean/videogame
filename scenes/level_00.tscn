@@ -186,7 +186,6 @@ extents = Vector3( 2.88053, 1.55012, 4.17198 )
 [node name="level_00" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.03865, 0, 0 )
 script = ExtResource( 13 )
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,
