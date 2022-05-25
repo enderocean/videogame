@@ -54,6 +54,8 @@ func _ready() -> void:
 	for node in get_children():
 		# Replace the default underwater environment by the one in the scene
 		if node is WorldEnvironment:
+			if not node.environment:
+				continue
 			underwater_env = node.environment
 		# Assign vehicle node automatically
 		if node is Vehicle:
@@ -166,14 +168,17 @@ func update_fog():
 		)
 		Globals.current_ambient = new_color.darkened(0.5)
 		underwater_env.background_color = new_color
-		underwater_env.background_sky.sky_horizon_color = new_color
-		underwater_env.background_sky.ground_bottom_color = new_color
-		underwater_env.background_sky.ground_horizon_color = new_color
+		
+		if underwater_env.background_sky:
+			underwater_env.background_sky.sky_horizon_color = new_color
+			underwater_env.background_sky.ground_bottom_color = new_color
+			underwater_env.background_sky.ground_horizon_color = new_color
+			underwater_env.background_sky.sky_energy = max(5.0 - 5 * deep_factor, 0.0)
+		
 		underwater_env.fog_color = new_color
 		underwater_env.ambient_light_energy = 1.0 - deep_factor
 		underwater_env.ambient_light_color = new_color  #surface_ambient.linear_interpolate(deep_ambient, max(1 - depth/50, 0))
 		sun.light_energy = max(0.3 - 0.5 * deep_factor, 0)
-		underwater_env.background_sky.sky_energy = max(5.0 - 5 * deep_factor, 0.0)
 
 		for camera in cameras:
 			depth = camera.global_transform.origin.y - surface_altitude
