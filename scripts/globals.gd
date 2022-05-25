@@ -18,11 +18,6 @@ const SEND_DATA: bool = false
 
 export var isHTML5: bool = false
 
-export var surface_ambient: Color = Color("#7edaf3")
-export var deep_ambient: Color = Color("#000a4e")
-export var current_ambient: Color = Color.black
-export var deep_factor: float = 0.0
-
 export var enable_godray: bool = true setget set_enable_godray
 export var fancy_water: bool = true setget set_fancy_water
 export var ping360_enabled: bool = false setget set_ping360
