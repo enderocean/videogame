@@ -20,8 +20,7 @@ onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 export var sun_path: NodePath = "sun"
 onready var sun: Light = get_node(sun_path)
 
-export var vehicle_path: NodePath
-onready var vehicle: Vehicle = get_node(vehicle_path)
+var vehicle: Vehicle
 
 export var objectives_target: Dictionary = {
 	"gripper": 0,
@@ -57,7 +56,13 @@ func _ready():
 	# Replace the default underwater environment
 	if underwater_env_override and underwater_env_override is Environment:
 		underwater_env = underwater_env_override
-
+	
+	# Assign vehicle node automatically
+	for node in get_children():
+		if node is Vehicle:
+			vehicle = node
+			break
+	
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
