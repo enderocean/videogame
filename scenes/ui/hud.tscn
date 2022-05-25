@@ -65,7 +65,7 @@ anchor_bottom = 1.0
 script = ExtResource( 5 )
 instructions_popup_path = NodePath("InstructionsPopup")
 collectible_popup_path = NodePath("CollectiblePopup")
-objectives_text_path = NodePath("HBoxContainer/GameView/VBoxContainer/ObjectivesText")
+objectives_text_path = NodePath("HBoxContainer/GameView/VBoxContainer/MarginContainer/ObjectivesText")
 pause_menu_path = NodePath("PauseMenu")
 informations_panel_path = NodePath("HBoxContainer/InformationsPanel")
 camera_follow_path = NodePath("HBoxContainer/GameView/ViewportFollowCamera/Viewport/FollowCamera")
@@ -175,24 +175,29 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/GameView"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -298.0
-margin_bottom = -342.0
+mouse_filter = 2
 
 [node name="Logo" type="TextureRect" parent="HBoxContainer/GameView/VBoxContainer"]
 margin_right = 300.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 300, 50 )
+mouse_filter = 2
 size_flags_horizontal = 0
 texture = ExtResource( 22 )
 expand = true
 stretch_mode = 6
 
-[node name="ObjectivesText" type="RichTextLabel" parent="HBoxContainer/GameView/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/GameView/VBoxContainer"]
 margin_top = 54.0
-margin_right = 566.0
-margin_bottom = 248.0
+margin_right = 874.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+custom_constants/margin_left = 20
+
+[node name="ObjectivesText" type="RichTextLabel" parent="HBoxContainer/GameView/VBoxContainer/MarginContainer"]
+margin_left = 20.0
+margin_right = 874.0
+margin_bottom = 546.0
 mouse_filter = 2
 size_flags_vertical = 3
 custom_fonts/bold_italics_font = SubResource( 7 )

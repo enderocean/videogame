@@ -192,7 +192,6 @@ transform_array = PoolVector3Array( -0.02, 0, 0, 0, 0.02, 0, 0, 0, -0.02, -37.67
 
 [node name="level 05" type="Spatial"]
 script = ExtResource( 8 )
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,

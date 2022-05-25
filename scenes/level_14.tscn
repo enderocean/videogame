@@ -2027,7 +2027,7 @@ curve = SubResource( 12 )
 script = ExtResource( 26 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.984825, -1.73214e-08, -0.173552, 1.77636e-15, 1, -9.98055e-08, 0.173552, 9.82909e-08, 0.984825, 79.0641, 3.33786e-06, 95.5428 )
+transform = Transform( 0.984152, -1.73119e-08, -0.177328, 1.77636e-15, 1, -9.76265e-08, 0.177328, 9.60793e-08, 0.984152, 79.0641, 3.33786e-06, 95.5428 )
 rotation_mode = 4
 
 [node name="Ray" type="MeshInstance" parent="Path/PathFollow"]

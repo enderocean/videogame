@@ -351,7 +351,6 @@ albedo_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 [node name="level_02" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "cutter": 0,
 "grappling_hook": 0,

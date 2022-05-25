@@ -124,7 +124,6 @@ metallic_specular = 0.66
 
 [node name="level_04" type="Spatial"]
 script = ExtResource( 10 )
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "animal": 1,
 "cutter": 4,
