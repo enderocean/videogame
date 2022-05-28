@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_02/data.hterrain" type="Resource" id=2]
@@ -30,6 +30,11 @@
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=32]
+
+[sub_resource type="Environment" id=24]
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 0.792157, 0.921569, 0.772549, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -134,7 +139,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 80.6341
+shader_param/timer = 3.4917
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
@@ -205,6 +210,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 20
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 24 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -16.566, 4.95221, -18.268 )

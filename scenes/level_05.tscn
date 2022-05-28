@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=2]
@@ -35,6 +35,13 @@
 [ext_resource path="res://terrains/level_05/grass/Ground037_1K_Color.jpg" type="Texture" id=33]
 [ext_resource path="res://assets/models/bottles/plastic_bottle/scene.gltf" type="PackedScene" id=34]
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=35]
+[ext_resource path="res://assets/models/tools/fork.obj" type="ArrayMesh" id=36]
+
+[sub_resource type="Environment" id=64]
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
+fog_color = Color( 1, 1, 0.94902, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 9 )
@@ -190,6 +197,12 @@ transform_array = PoolVector3Array( -0.02, 0, 0, 0, 0.02, 0, 0, 0, -0.02, -37.67
 
 [sub_resource type="CapsuleShape" id=61]
 
+[sub_resource type="SpatialMaterial" id=62]
+albedo_color = Color( 1, 0.360784, 0.0470588, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=63]
+points = PoolVector3Array( 6.14879, 0.0460908, 1.18156, 7.29521, 0.22694, -1.5276, 6.93391, 0.166547, -1.46719, -11.9091, 0.166547, 0.217994, 11.508, 1.67142, 1.06074, 11.508, 1.67142, -1.04582, -11.124, 0.106154, -0.865189, -1.07252, 1.24982, 0.338514, -11.124, 0.166547, 0.819996, 8.91678, 0.652989, 1.44329, 5.72727, -0.0143021, -0.925299, -10.5022, 0.0459475, 0.202955, 9.46067, 0.828559, -1.46719, -1.26241, 1.19653, -0.228666, 7.47586, 0.34723, 1.54282, 10.1231, 1.1292, 1.36189, 5.97045, -0.0143021, 0.880406, -10.5252, 0.0844504, 0.837618, 10.4862, 1.12255, 0.330899, -11.8443, 0.166547, -0.383107, 8.19284, 0.419643, 1.1473, 11.3274, 1.49041, -1.16634, 6.63283, 0.106484, 1.36189, 9.63952, 0.828559, -1.0788, 11.7512, 1.67142, 1.00063, 8.61996, 0.648205, -1.5276, -10.6718, 0.0781213, -0.829461, 9.76175, 1.00891, -1.40708, 6.27153, 0.0460908, -1.22645, 9.64086, 0.828559, 1.09417, -10.5895, 0.0436031, -0.0760822, -11.6475, 0.0633909, 0.213342, 8.8565, 0.594402, -1.13499, 6.45218, 0.0460908, 1.18126, 11.0263, 1.49041, -1.16634, -11.6057, 0.166547, 0.639365, -0.577269, 1.2497, -0.176404, 10.7252, 1.37011, 1.24137, 9.95614, 0.946026, 1.27314, 7.9511, 0.361614, -1.13126, 11.7512, 1.67142, -0.98571, 7.53607, 0.407458, -1.5276, -11.6361, 0.0641444, -0.256646, 5.97045, -0.0143021, -0.865189, 8.8553, 0.594434, 1.14976, 7.89584, 0.361429, 1.38028, 10.7252, 1.24966, -1.28656, -1.86438, 1.14796, -0.178334, -10.3147, 0.0515277, -0.352591, 10.4797, 1.12237, -0.374817, 8.61814, 0.535915, -1.3102, -11.7864, 0.166547, 0.458734, 7.94974, 0.361693, 1.14599, -11.4853, 0.106154, -0.744669, 11.2908, 1.478, 1.10027, -11.3648, 0.166547, 0.759886, 9.22337, 0.711421, 1.3282, 10.3733, 1.12269, 1.27374, 8.18931, 0.419817, -1.19023, 8.37569, 0.477659, 1.38228 )
+
 [node name="level 05" type="Spatial"]
 script = ExtResource( 8 )
 objectives_target = {
@@ -199,6 +212,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 0
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 64 )
 
 [node name="water" parent="." instance=ExtResource( 4 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0 )
@@ -596,3 +612,21 @@ transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -
 [node name="CollisionShape" type="CollisionShape" parent="Bottle3"]
 transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
 shape = SubResource( 61 )
+
+[node name="Fork" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.54895, 0 )
+script = ExtResource( 19 )
+
+[node name="fork" type="MeshInstance" parent="Fork"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0489244, -0.0155947, 0.00589648 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 62 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Fork"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0489244, -0.0155947, 0.00589648 )
+shape = SubResource( 63 )
+
+[node name="CollectibleTag" type="Node" parent="Fork"]
+script = ExtResource( 35 )
+id = "10_plastic_cutlery"
