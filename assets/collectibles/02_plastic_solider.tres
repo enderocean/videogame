@@ -6,5 +6,7 @@
 script = ExtResource( 1 )
 id = "02_plastic_soldier"
 title = "Plastic soldier"
-description = "Many plastic toys are found underwater. Plastic soldier is a good example of plastic industry extension during the eighties."
+description = "Sometimes, as a result of boat accidents, cargo ends up in the water and is never recovered. It is therefore not surprising that you find this little soldier. The poor must feel alone without his brothers in arms. 
+
+The Barbie doll made its appearance in the late 1950s. Its sales have now exceeded the billion!"
 image = "res://assets/collectibles/images/02_plastic_soldier.png"

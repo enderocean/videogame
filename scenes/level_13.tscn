@@ -108,7 +108,7 @@ objectives_target = {
 "animal": 0,
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 8,
+"gripper": 5,
 "magnet": 1,
 "vacuum": 0
 }
@@ -300,52 +300,52 @@ transform = Transform( -0.190637, 0.0603452, -0.00199775, -6.97714e-10, 0.013213
 shape = SubResource( 10 )
 
 [node name="senecio_2" type="MeshInstance" parent="."]
-transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -21.4873, -7.7, 2.45348 )
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -21.4873, -8.52906, 4.71918 )
 mesh = ExtResource( 20 )
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_3" type="MeshInstance" parent="."]
-transform = Transform( 0.2, 0, 0, 0, 0.6, 0, 0, 0, 0.2, -23.065, -7.7, 1.007 )
+transform = Transform( 0.2, 0, 0, 0, 0.6, 0, 0, 0, 0.2, -23.065, -7.87269, 3.2727 )
 mesh = ExtResource( 21 )
 skeleton = NodePath("../senecio_2")
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_4" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -20.4144, -7.7, 3.57558 )
+transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -20.4144, -8.52906, 5.84128 )
 mesh = ExtResource( 20 )
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_5" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -21.5863, -7.7, 1.007 )
+transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -21.5863, -8.20857, 3.2727 )
 mesh = ExtResource( 21 )
 skeleton = NodePath("../senecio_2")
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_6" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -19.1418, -7.7, 5.54484 )
+transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -19.1418, -8.52906, 7.81054 )
 mesh = ExtResource( 20 )
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_7" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -20.0528, -7.7, 1.007 )
+transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -20.0528, -8.52906, 3.2727 )
 mesh = ExtResource( 21 )
 skeleton = NodePath("../senecio_2")
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_8" type="MeshInstance" parent="."]
-transform = Transform( 0.4, 0, 0, 0, 1, 0, 0, 0, 0.3, -18.1016, -7.7, 5.29329 )
+transform = Transform( 0.4, 0, 0, 0, 1, 0, 0, 0, 0.3, -18.1016, -8.52906, 7.55899 )
 mesh = ExtResource( 20 )
 material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="senecio_9" type="MeshInstance" parent="."]
-transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -18.6383, -7.7, 2.33934 )
+transform = Transform( 0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, -18.6383, -8.52906, 4.60504 )
 mesh = ExtResource( 21 )
 skeleton = NodePath("../senecio_2")
 material/0 = SubResource( 11 )
@@ -522,7 +522,6 @@ shape = SubResource( 13 )
 
 [node name="Bottle4" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8842, -0.464986, -8.46851 )
-visible = false
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -535,7 +534,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle5" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5999, -0.879632, -17.9337 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5999, -3.18558, -17.9337 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -548,7 +547,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle6" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1086, -0.552686, -15.6349 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1086, -3.53511, -15.6349 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -561,7 +560,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle7" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8824, -0.642966, -24.2292 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1524, -4.25428, -24.2292 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -574,7 +573,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle8" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3772, -0.642966, -24.52 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3772, -5.29834, -24.52 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )

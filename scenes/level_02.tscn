@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_02/data.hterrain" type="Resource" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://terrains/level_02/grass/Ground037_1K_NormalGL.jpg" type="Texture" id=7]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=8]
 [ext_resource path="res://addons/fish-shader/assets/Fish Perch.tres" type="ArrayMesh" id=9]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=10]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=11]
 [ext_resource path="res://terrains/level_02/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=12]
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=13]
@@ -133,7 +134,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
-shader_param/timer = 0.947541
+shader_param/timer = 80.6341
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
@@ -182,6 +183,8 @@ albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="SphereShape" id=20]
 radius = 0.0629077
+
+[sub_resource type="SpatialMaterial" id=23]
 
 [sub_resource type="Curve3D" id=21]
 _data = {
@@ -373,11 +376,15 @@ objective_type = 1
 [node name="MeshInstance" type="MeshInstance" parent="Microplastic3"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+material/0 = SubResource( 23 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Microplastic3"]
 transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 20 )
+
+[node name="CollectibleTag" type="Node" parent="Microplastic3"]
+script = ExtResource( 10 )
+id = "04_tampon"
 
 [node name="Microplastic4" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39808, 2.20983, 7.78788 )

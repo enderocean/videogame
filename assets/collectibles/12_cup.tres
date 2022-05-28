@@ -4,7 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-id = "04_tire"
-title = "Tire"
-description = ""
+id = "12_cup"
+title = "Cup"
+description = "How many cups of water are there in all the oceans of Earth?
+Answer : too many
+
+https://www.quora.com/How-many-cups-of-water-are-there-in-all-the-oceans-of-Earth"
 image = "res://assets/collectibles/images/04_tire.png"

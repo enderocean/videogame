@@ -6,5 +6,10 @@
 script = ExtResource( 1 )
 id = "03_plastic_bag"
 title = "Plastic bag"
-description = "Plastic bag is a pledge for animals and biodiversity."
+description = "Turtles often mistakenly confuse plastic bags with jellyfish, which are part of their diet. Limiting their use saves them and limits the pollution of our oceans.
+
+Alternatives: 
+    • A multi-purpose fabric bag
+    • Reusable packaging
+    • Favour biodegradable bags"
 image = "res://assets/collectibles/images/03_plastic_bag.png"
