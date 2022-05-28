@@ -6,5 +6,7 @@
 script = ExtResource( 1 )
 id = "01_milk_pack"
 title = "Milk pack"
-description = "Some words about milk pack..."
+description = "The brick is recycling...and it’s very good. So it’s a shame to find it at the bottom of our oceans. 
+
+Generally, it consists of 75% cardboard, 20% plastic (polyethylene) and 5% aluminum. So go to the recycling bin (yellow) and forget the garbage bin (grey). "
 image = "res://assets/collectibles/images/01_milk_pack.png"

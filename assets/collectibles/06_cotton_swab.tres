@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/collectibles/collectible_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "06_cotton_swab"
+title = "Cotton swab"
+description = "A cotton swab? Fish don’t have ears! How do they get to our beaches?
+
+Unfortunately, many of us throw them in the toilet bowl instead of putting them in a garbage can. In the same way as condoms, sanitary napkins or tampon applicators, they are flushed and held at the entrance of the treatment plants."
+image = "res://assets/collectibles/images/04_tire.png"

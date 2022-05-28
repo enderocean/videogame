@@ -6,5 +6,7 @@
 script = ExtResource( 1 )
 id = "05_sailboat_pulley"
 title = "Sailboat pulley"
-description = "Materials lost by sailers as well as floating buoys are unfortunately part of items you may find underwater..."
+description = "Oh oh… A traveller who is going to be disappointed when he realizes that he is missing an important object on his sailboat. We hope for his sake that he has a spare to tie his guy wires.
+
+In 2020, the number of pleasure craft registered in marine waters was 1.041 million, up 0.7% from 2019. The fleet remained largely dominated by 773,333 engine units, accounting for 74%."
 image = "res://assets/collectibles/images/04_tire.png"
