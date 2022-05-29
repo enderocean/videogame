@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/05_shipboat_pulley.png-38f608eddbd5983eedbcd3f526f9f214.stex"
+path="res://.import/05_sailboat_pulley.png-c97cc6e3214a8fcd386fb626a4093b5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/collectibles/images/05_shipboat_pulley.png"
-dest_files=[ "res://.import/05_shipboat_pulley.png-38f608eddbd5983eedbcd3f526f9f214.stex" ]
+source_file="res://assets/collectibles/images/05_sailboat_pulley.png"
+dest_files=[ "res://.import/05_sailboat_pulley.png-c97cc6e3214a8fcd386fb626a4093b5d.stex" ]
 
 [params]
 
