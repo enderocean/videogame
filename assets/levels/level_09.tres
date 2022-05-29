@@ -13,6 +13,6 @@ location = "The Lake Maracaibo"
 description = "The Lake Maracaibo has been the subject of a lot negligence :  like many other places, the litter from surrounding towns has been trapped into it.
 
 But even worst, malfunctions from the oil extracting industry has caused leakages. The Lake has becomed a permanent black sea that affectes all plastics and leaks into the Carribean sea."
-time = 10
+time = 6
 objectives = PoolStringArray( "Catch 4 plastics", "Retrieve micro-platics bullets" )
 tools = PoolStringArray( "Gripper", "Lights" )
