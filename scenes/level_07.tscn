@@ -247,7 +247,7 @@ objectives_target = {
 "grappling_hook": 0,
 "gripper": 5,
 "magnet": 0,
-"vacuum": 30
+"vacuum": 18
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
