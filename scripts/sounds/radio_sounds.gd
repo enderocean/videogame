@@ -21,4 +21,5 @@ func get_sounds() -> Dictionary:
 		"avoid_the_animals": "res://assets/sounds/radio/11_Avoid_the_animals.wav",
 		"take_care_of_plants": "res://assets/sounds/radio/12_Take_care_of_plants.wav",
 		"well_done": "res://assets/sounds/radio/13_Well_done.wav",
+		"take_care_of_reef": "res://assets/sounds/radio/14_Take_care_of_reef.wav",
 	}

@@ -12,6 +12,6 @@ country = "SOUDAN"
 location = "Red Sea"
 description = "The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
 "
-time = 10
+time = 5
 objectives = PoolStringArray( "Catch items left by divers and sailers" )
 tools = PoolStringArray( "Gripper", "Lights" )

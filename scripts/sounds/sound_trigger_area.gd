@@ -22,3 +22,4 @@ func _on_body_entered(body: Node) -> void:
 
 	triggered = true
 	RadioSounds.play(sound_key)
+
