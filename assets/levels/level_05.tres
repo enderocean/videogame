@@ -10,10 +10,9 @@ thumbnail = "res://assets/levels/images/level_05.jpg"
 title = "Level 05"
 country = "EGYPT"
 location = "The Nile Delta (Alexandria)"
-description = "With all of its population living accross the Nile, it’s not surprising to see that Egypt is one of the main source of plastic pollution of the mediterranean sea, especially with the biggest plastic production of the
-arabic world.
+description = "With all of its population living accross the Nile, it’s not surprising to see that Egypt is one of the main source of plastic pollution of the mediterranean sea, especially with the biggest plastic production of the arabic world.
 
-To help against this, we implemented a few ROVs along the most problematic parts of its delta. Try to catch everything that’ll pass!"
-time = 10
+To help against this, we implemented a few ROVs along the most problematic parts of its delta. Try to catch everything every plastic you'll find!"
+time = 5
 objectives = PoolStringArray( "Catch 4 moving items beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )

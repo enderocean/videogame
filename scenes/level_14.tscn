@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -32,10 +32,13 @@
 [ext_resource path="res://terrains/level_00/sand/Ground049A_1K_Color.jpg" type="Texture" id=30]
 [ext_resource path="res://assets/models/rocks/rock04.obj" type="ArrayMesh" id=31]
 
+[sub_resource type="Environment" id=16]
+ambient_light_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="Curve3D" id=15]
 _data = {
-"points": PoolVector3Array(  ),
-"tilts": PoolRealArray(  )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 107.967, 1.15705, 111.233, 0, 0, 0, 0, 0, 0, 95.839, 0, 114.063, 0, 0, 0, 0, 0, 0, 87.5333, 0, 115.974, 0, 0, 0, 0, 0, 0, 85.0342, 0, 124.574, 0, 0, 0, 0, 0, 0, 86.0632, 0, 131.997, 0, 0, 0, 0, 0, 0, 92.3844, 0, 132.438, 0, 0, 0, 0, 0, 0, 92.5314, 0, 128.249 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="CubeMesh" id=1]
@@ -91,6 +94,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 40
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 16 )
 
 [node name="water" parent="." instance=ExtResource( 5 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, 128, 0, 128 )

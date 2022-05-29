@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/vehicles/cargo.obj" type="ArrayMesh" id=2]
@@ -30,6 +30,12 @@
 [ext_resource path="res://assets/models/toys/beach/13511_Toy_Hand_Rake_v1_L3.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://assets/models/toys/beach/11672_bucket_v1_L3.obj" type="ArrayMesh" id=29]
 [ext_resource path="res://assets/models/toys/boats/15211_Wakeboard_v1_NEW.obj" type="ArrayMesh" id=30]
+
+[sub_resource type="Environment" id=108]
+ambient_light_color = Color( 0.768627, 0.768627, 0.6, 1 )
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_depth_end = 20.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 1 )
@@ -348,7 +354,7 @@ albedo_texture = ExtResource( 19 )
 [sub_resource type="SpatialMaterial" id=12]
 albedo_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 
-[node name="level_02" type="Spatial"]
+[node name="level_01" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
 objectives_target = {
@@ -358,6 +364,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 18
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 108 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )

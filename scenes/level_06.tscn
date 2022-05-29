@@ -184,10 +184,9 @@
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=182]
 
 [sub_resource type="Environment" id=56]
-ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 0.0823529, 0.160784, 0.282353, 1 )
+ambient_light_energy = 0.0
 fog_enabled = true
-fog_color = Color( 1, 1, 1, 1 )
-fog_sun_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=29]
 albedo_color = Color( 0, 0.321569, 0.580392, 1 )

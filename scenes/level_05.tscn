@@ -38,10 +38,10 @@
 [ext_resource path="res://assets/models/tools/fork.obj" type="ArrayMesh" id=36]
 
 [sub_resource type="Environment" id=64]
-ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 0.658824, 0.658824, 0.658824, 1 )
 fog_enabled = true
-fog_color = Color( 1, 1, 0.94902, 1 )
-fog_sun_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 0.764706, 0.945098, 0.964706, 1 )
+fog_depth_begin = 20.0
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 9 )

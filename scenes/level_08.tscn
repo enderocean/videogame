@@ -322,7 +322,7 @@ albedo_color = Color( 0, 0.321569, 0.580392, 1 )
 albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 3, 2, 1 )
 
-[node name="level_06" type="Spatial"]
+[node name="level_08" type="Spatial"]
 script = ExtResource( 1 )
 objectives_target = {
 "cutter": 0,
