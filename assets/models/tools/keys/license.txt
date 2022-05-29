@@ -1,0 +1,11 @@
+Model Information:
+* title:	Key4
+* source:	https://sketchfab.com/3d-models/key4-96517c1c7be642c78ee4645f0fd741ff
+* author:	eucocker (https://sketchfab.com/eucocker)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Key4" (https://sketchfab.com/3d-models/key4-96517c1c7be642c78ee4645f0fd741ff) by eucocker (https://sketchfab.com/eucocker) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

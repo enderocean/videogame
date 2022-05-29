@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -23,8 +23,10 @@
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/models/animals/reef_fishes/White Tip Reef Shark/WhiteTip1gUrptVanim2.obj" type="ArrayMesh" id=22]
 [ext_resource path="res://addons/fish-shader/shader/fish_interesting.tres" type="Material" id=23]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=24]
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=25]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=26]
+[ext_resource path="res://assets/models/bottles/wine/13220_wine_bottle_v2.obj" type="ArrayMesh" id=27]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -337,6 +339,11 @@ _data = {
 "points": PoolVector3Array( -0.151008, 4.29153e-06, 3.64644, 0.151008, -4.29153e-06, -3.64644, 0.406832, 0, 0.851761, 0.259825, -3.33786e-06, 2.60677, -0.259825, 3.33786e-06, -2.60677, -0.108683, -9.53674e-07, -22.6689, 1.8151, -3.45707e-06, 1.86931, -1.8151, 3.45707e-06, -1.86931, -3.99556, 0.876876, -30.6277, 2.74385, -3.33786e-06, -1.24613, -2.74385, 3.33786e-06, 1.24613, -10.7637, -4.29153e-06, -32.5355, 1.45146, -3.33786e-06, -3.74667, -1.45146, 3.33786e-06, 3.74667, -15.1009, -9.53674e-07, -28.0365, -0.805476, -3.33786e-06, -3.12092, 0.805476, 3.33786e-06, 3.12092, -15.1009, -9.53674e-07, -20.6329, 0.0180597, -3.33786e-06, -2.99783, -0.0180597, 3.33786e-06, 2.99783, -11.9544, -9.53674e-07, -11.9337, 0, 0, 0, 0, 0, 0, -13.4351, -9.53674e-07, -4.34503, 1.88004, -4.29153e-06, -1.64149, -1.88004, 4.29153e-06, 1.64149, -18.6176, 0, 11.0174, 2.45408, -4.29153e-06, 0.233576, -2.45408, 4.29153e-06, -0.233576, -27.1317, 0, 13.2384, 0.710199, -4.29153e-06, 1.05667, -0.710199, 4.29153e-06, -1.05667, -32.1291, 0, 8.9814, -0.595142, -4.29153e-06, 2.57564, 0.595142, 4.29153e-06, -2.57564, -34.1651, 0, 1.94801, -2.79997, -3.33786e-06, 1.20445, 2.79997, 3.33786e-06, -1.20445, -28.2423, -9.53674e-07, -3.2345, -1.15479, -3.33786e-06, -0.245418, 1.15479, 3.33786e-06, 0.245418, -21.9492, -9.53674e-07, -3.60468, -1.75084, -4.29153e-06, -0.937782, 1.75084, 4.29153e-06, 0.937782, -14.5456, 0, -0.273058, -3.45914, -4.29153e-06, -0.10238, 3.45914, 4.29153e-06, 0.10238, -6.03153, 0, 3.42872, -0.563954, -4.29153e-06, 2.78822, 0.563954, 4.29153e-06, -2.78822, 0.406832, 0, 0.851761 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="SpatialMaterial" id=105]
+albedo_color = Color( 0.0941176, 0.337255, 0.160784, 1 )
+
+[sub_resource type="CapsuleShape" id=106]
 
 [node name="level_12" type="Spatial"]
 script = ExtResource( 1 )
@@ -1030,3 +1037,22 @@ fish_tail_z = 2.0
 [node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/StaticBody"]
 transform = Transform( 1, 1.77636e-15, 1.86265e-09, -1.77636e-15, 1, 0, 0, -1.13687e-13, 1, 0, 0, 0 )
 shape = SubResource( 103 )
+
+[node name="Wine" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0167, -1.425, -50 )
+collision_layer = 3
+mass = 10.0
+script = ExtResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wine"]
+transform = Transform( 0.014, 0, 0, 0, -6.11959e-10, 0.014, 0, -0.014, -6.11959e-10, -0.0104265, -0.138848, -0.0236006 )
+mesh = ExtResource( 27 )
+material/0 = SubResource( 105 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wine"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+shape = SubResource( 106 )
+
+[node name="CollectibleTag" type="Node" parent="Wine"]
+script = ExtResource( 24 )
+id = "15_glass_bottle"
