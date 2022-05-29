@@ -11,6 +11,6 @@ title = "Level 07"
 country = "SOUTH AFRICA"
 location = "Cape Town"
 description = "Our ROV isn’t always fit for all types of environements. The area isn’t only polluted, but also has a large amount of algaes that could entangle our ROV. Collect plastics and micro-plastics while taking care of plants."
-time = 7
+time = 10
 objectives = PoolStringArray( "Catch 6 moving plastics beforethey get lost into the mediterranean sea", "Retrieve micro-platics spread" )
 tools = PoolStringArray( "Gripper", "Vaccum cleaner", "Lights" )

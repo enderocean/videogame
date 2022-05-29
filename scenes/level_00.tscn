@@ -42,8 +42,10 @@
 [sub_resource type="Environment" id=98]
 ambient_light_color = Color( 1, 1, 1, 1 )
 fog_enabled = true
-fog_color = Color( 0.792157, 0.921569, 0.772549, 1 )
+fog_color = Color( 0.576471, 0.854902, 0.819608, 1 )
 fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 5.0
+fog_depth_end = 20.0
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )

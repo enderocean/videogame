@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -22,6 +22,12 @@
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
 [ext_resource path="res://assets/models/animals/green_sea_turtle/grnSeatturtle1f3UVriggedf.tscn" type="PackedScene" id=24]
 [ext_resource path="res://scripts/components/trap_animal.gd" type="Script" id=25]
+
+[sub_resource type="Environment" id=58]
+fog_enabled = true
+fog_color = Color( 0.682353, 0.768627, 0.972549, 1 )
+fog_depth_begin = 20.0
+fog_depth_end = 50.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
@@ -132,6 +138,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 0
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 58 )
 
 [node name="water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -20, 0, -20 )
