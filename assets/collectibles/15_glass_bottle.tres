@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-id = "15çglass_bottle"
+id = "15_glass_bottle"
 title = "Glass bottle"
 description = "A bottle in the sea ! Did you look inside ? Maybe we can find a hidden message...
 

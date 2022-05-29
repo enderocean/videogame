@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -37,6 +37,16 @@
 [ext_resource path="res://assets/models/waste/beverage.obj" type="ArrayMesh" id=35]
 [ext_resource path="res://assets/models/shoes/crocs.obj" type="ArrayMesh" id=36]
 [ext_resource path="res://assets/models/tools/bucket_2.obj" type="ArrayMesh" id=37]
+[ext_resource path="res://assets/models/tools/keys/scene.gltf" type="PackedScene" id=38]
+
+[sub_resource type="Environment" id=66]
+ambient_light_color = Color( 1, 0.988235, 0.654902, 1 )
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_color = Color( 0.619608, 0.729412, 0.792157, 1 )
+fog_sun_color = Color( 0.917647, 0.917647, 0.917647, 1 )
+fog_depth_begin = 20.0
+fog_depth_end = 40.0
 
 [sub_resource type="CylinderMesh" id=39]
 
@@ -215,6 +225,10 @@ points = PoolVector3Array( 294.21, 154.906, -66.8856, 320.942, 163.97, -14.8843,
 [sub_resource type="ConvexPolygonShape" id=64]
 points = PoolVector3Array( 208.09, 163.505, -40.0313, 257.352, 163.728, -73.4893, 264.287, 161.812, -13.9377, 202.123, 154.906, -13.9377, 264.287, 154.906, -73.7901, 264.287, 154.906, -13.9377, 225.15, 154.906, -64.5835, 205.855, 164.275, -12.8561, 265.184, 164.243, -69.8563, 219.504, 163.694, -56.5244, 211.336, 154.906, -50.7704, 202.123, 154.906, -30.057, 238.957, 154.906, -71.496, 236.023, 163.49, -67.9013, 202.199, 163.775, -16.2324, 245.867, 154.906, -73.7901, 205.535, 163.59, -33.8007, 261.957, 163.782, -73.856, 242.212, 163.575, -70.4137 )
 
+[sub_resource type="CapsuleShape" id=65]
+radius = 0.453914
+height = 1.38124
+
 [node name="level_11" type="Spatial"]
 script = ExtResource( 1 )
 objectives_target = {
@@ -225,6 +239,9 @@ objectives_target = {
 "magnet": 0,
 "vacuum": 0
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 66 )
 
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0 )
@@ -1441,3 +1458,14 @@ shape = SubResource( 63 )
 [node name="CollisionShape" type="CollisionShape" parent="Seau"]
 transform = Transform( 0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, 0, 0, 0 )
 shape = SubResource( 64 )
+
+[node name="Keys" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.28828, 0.957546, 0, -0.957546, 0.28828, 39.6188, -8.79236, 0 )
+script = ExtResource( 30 )
+
+[node name="scene" parent="Keys" instance=ExtResource( 38 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Keys"]
+transform = Transform( 0.1, 0, 0, 0, -0.000574209, 0.0999983, 0, -0.0999983, -0.000574209, 0, 0.0447822, -0.000257144 )
+shape = SubResource( 65 )

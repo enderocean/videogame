@@ -14,6 +14,6 @@ description = "The Quibú river spans over 30km in Havana and is commonly used a
 
 We’ve been told that a barril filled with toxic chemicals has been lost in the river and couldn’t be found yet, but you might help.
 There are so much plastics and rubbish here that you will need to make your own way to progress."
-time = 10
+time = 7
 objectives = PoolStringArray( "Catch 8 plastics", "Remove barril from water" )
 tools = PoolStringArray( "Gripper", "Lights" )
