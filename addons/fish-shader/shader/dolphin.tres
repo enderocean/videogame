@@ -1,5 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
+[ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottlenoseDolphin_Base_Color.png" type="Texture" id=1]
+
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
@@ -38,16 +40,16 @@ uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
 void vertex() {
-	
+
 	float tmult = sin( timer * frequency );
-	
+
 	vec3 new_pos = VERTEX;
 	vec3 tmp = VERTEX;
 	// mix
 	float dist_ht = tail_z - head_z;
 	float ranged_z = ( min( max( VERTEX.z, head_z ), tail_z ) - head_z ) / dist_ht;
 	vec4 ctrl_color = tail_color * ranged_z + head_color * (1.0-ranged_z);
-	
+
 	// twist
 	float twist_a = ctrl_color.r * sin( VERTEX.z + timer * twist_factor_frequency ) * twist_factor;
 	float twist_cos = cos( twist_a );
@@ -55,11 +57,11 @@ void vertex() {
 	tmp.x = new_pos.x * twist_cos - new_pos.y * twist_sin;
 	tmp.y = new_pos.x * twist_sin + new_pos.y * twist_cos;
 	new_pos = tmp;
-	
+
 	// S factor
 	float s_a = ctrl_color.g * sin( VERTEX.z - timer * s_factor_frequency ) * s_factor;
 	new_pos.x += s_a;
-	
+
 	// yaw
 	float yaw_a = ctrl_color.b * tmult * yaw_factor;
 	float yaw_cos = cos( yaw_a );
@@ -67,15 +69,15 @@ void vertex() {
 	tmp.x = new_pos.x * yaw_cos - new_pos.z * yaw_sin;
 	tmp.z = new_pos.x * yaw_sin + new_pos.z * yaw_cos;
 	new_pos = tmp;
-	
+
 	// translation
 	new_pos += ctrl_color.a * translate * tmult;
 
 	VERTEX = new_pos;
-	
+
 	// UV
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
-	
+
 }
 
 void fragment() {
@@ -90,24 +92,20 @@ void fragment() {
 }
 "
 
-[sub_resource type="StreamTexture" id=2]
-flags = 23
-load_path = "res://.import/13009_Coral_Beauty_Angelfish_v1_diff - Copy (2).jpg-4c4021cdfbfeb9d24cf3913c3cb33864.s3tc.stex"
-
 [resource]
 shader = SubResource( 1 )
-shader_param/timer = 50.3397
-shader_param/twist_factor = 0.5
-shader_param/twist_factor_frequency = -5.0
-shader_param/s_factor = 0.32
+shader_param/timer = 21.9531
+shader_param/twist_factor = 0.0
+shader_param/twist_factor_frequency = -1.0
+shader_param/s_factor = 0.1
 shader_param/s_factor_frequency = 5.0
 shader_param/frequency = 5.0
-shader_param/yaw_factor = 0.5
-shader_param/translate = Vector3( 0.1, 0, 0 )
-shader_param/head_z = -1.275
-shader_param/head_color = Color( 0, 0, 0, 1 )
+shader_param/yaw_factor = -0.01
+shader_param/translate = Vector3( 0.2, 0, 0 )
+shader_param/head_z = -5.0
+shader_param/head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
 shader_param/tail_z = 1.0
-shader_param/tail_color = Color( 0.278431, 0.278431, 0.278431, 1 )
+shader_param/tail_color = Color( 1, 1, 1, 1 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/specular = 0.5
 shader_param/metallic = 0.0
@@ -119,4 +117,4 @@ shader_param/uv1_scale = Vector3( 1, 1, 1 )
 shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
-shader_param/texture_albedo = SubResource( 2 )
+shader_param/texture_albedo = ExtResource( 1 )

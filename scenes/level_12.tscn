@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -31,7 +31,14 @@
 [sub_resource type="Environment" id=107]
 ambient_light_color = Color( 1, 1, 1, 1 )
 fog_enabled = true
+fog_depth_enabled = false
 fog_depth_end = 60.0
+
+[sub_resource type="Curve3D" id=108]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -42.1354, 4.36691, -23.6523, 0, 0, 0, 0, 0, 0, -37.7588, 0, -15.2647, 0, 0, 0, 0, 0, 0, -28.1019, 0, -10.539, 0, 0, 0, 0, 0, 0, -26.9345, 1.76074, -2.70062, 0, 0, 0, 0, 0, 0, -38.4558, 0, -4.69729, 0, 0, 0, 0, 0, 0, -46.4175, 0, -6.08417, 0, 0, 0, 0, 0, 0, -46.9312, 0, -8.70384 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -384,6 +391,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8643, -0.519426, -19.0137 
 
 [node name="Theter" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
+curve = SubResource( 108 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
 length = 300

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -31,14 +31,24 @@
 [ext_resource path="res://assets/models/rocks/rock01.obj" type="ArrayMesh" id=29]
 [ext_resource path="res://terrains/level_00/sand/Ground049A_1K_Color.jpg" type="Texture" id=30]
 [ext_resource path="res://assets/models/rocks/rock04.obj" type="ArrayMesh" id=31]
+[ext_resource path="res://assets/models/animals/tropical_fishes/SeaSnake/seasnake.obj" type="ArrayMesh" id=32]
+[ext_resource path="res://assets/models/animals/tropical_fishes/SeaSnake/SeaSnake_Base_Color.png" type="Texture" id=33]
+[ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish_Base_Color.png" type="Texture" id=34]
+[ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish.obj" type="ArrayMesh" id=35]
+[ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.obj" type="ArrayMesh" id=36]
+[ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottlenoseDolphin_Base_Color.png" type="Texture" id=37]
 
 [sub_resource type="Environment" id=16]
 ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_color = Color( 0.647059, 0.768627, 0.886275, 1 )
+fog_depth_begin = 0.0
 
 [sub_resource type="Curve3D" id=15]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 107.967, 1.15705, 111.233, 0, 0, 0, 0, 0, 0, 95.839, 0, 114.063, 0, 0, 0, 0, 0, 0, 87.5333, 0, 115.974, 0, 0, 0, 0, 0, 0, 85.0342, 0, 124.574, 0, 0, 0, 0, 0, 0, 86.0632, 0, 131.997, 0, 0, 0, 0, 0, 0, 92.3844, 0, 132.438, 0, 0, 0, 0, 0, 0, 92.5314, 0, 128.249 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 107.967, 1.15705, 111.233, 0, 0, 0, 0, 0, 0, 68.0505, 0, 114.462, 0, 0, 0, 0, 0, 0, 92.728, 0, 127.808 ),
+"tilts": PoolRealArray( 0, 0, 0 )
 }
 
 [sub_resource type="CubeMesh" id=1]
@@ -83,6 +93,71 @@ albedo_texture = ExtResource( 25 )
 
 [sub_resource type="SpatialMaterial" id=14]
 albedo_texture = ExtResource( 30 )
+
+[sub_resource type="Curve3D" id=17]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0428696, 0, 0, 0, 0, 0, 0, 0, 0, 0.0428696, 0, 15.7749, 0, 0, 0, 0, 0, 0, 11.9808, 0, 33.8002, 0, 0, 0, 0, 0, 0, 17.3761, 0, 46.4951, 0, 0, 0, 0, 0, 0, 13.7264, 0, 49.6688, 0, 0, 0, 0, 0, 0, 1.03146, 0, 45.8603, 0, 0, 0, 0, 0, 0, -6.58548, 0, 29.9917, 0, 0, 0, 0, 0, 0, -9.75921, 0, 6.18877, 0, 0, 0, 0, 0, 0, -5.1573, 0, -6.34745, 0, 0, 0, 0, 0, 0, 0.0793457, 0, -7.14088, 0, 0, 0, 0, 0, 0, 2.14227, 0, -4.12584, 0, 0, 0, 0, 0, 0, -0.0428696, 0, 0 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Shader" id=18]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.4.stable's SpatialMaterial.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : hint_color;
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float specular;
+uniform float metallic;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	METALLIC = metallic;
+	ROUGHNESS = roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_albedo = ExtResource( 33 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 34 )
+
+[sub_resource type="Curve3D" id=21]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163, 0, 0, 0, 0, 0, 0, -0.63549, -6.4373e-06, 18.7016, -6.90297, 0, -6.02858, 6.90297, 0, 6.02858, 12.3175, -6.4373e-06, 51.2738, -3.95834, 0, 1.86924, 3.95834, 0, -1.86924, 35.0975, -6.4373e-06, 56.9331, 0, 0, 0, 0, 0, 0, 43.385, 1.42083, 48.8697, -0.689804, -5.60284e-06, 3.95174, 0.689804, 5.60284e-06, -3.95174, 50.1756, 1.73323, 36.6135, 3.21907, 9.53674e-07, 2.25499, -3.21907, -9.53674e-07, -2.25499, 49.8352, 2.53078, 20.2131, 0, 0, 0, 0, 0, 0, 37.4793, 2.54168, 22.615, 0, 0, 0, 0, 0, 0, 23.9349, 1.97059, 28.2267, 4.798, 0, -2.23011, -4.798, 0, 2.23011, 10.9013, -6.4373e-06, 37.9672, 5.86126, 0, 0.42989, -5.86126, 0, -0.42989, -10.0098, -6.4373e-06, 41.6619, 2.89587, 0, 2.22253, -2.89587, 0, -2.22253, -36.1993, -6.4373e-06, 33.1113, 0, 0, 0, 0, 0, 0, -47.6468, -6.4373e-06, 21.5576, 1.01555, 0, 4.29055, -1.01555, 0, -4.29055, -54.0549, -6.4373e-06, 7.99339, -2.25957, 0, 5.44868, 2.25957, 0, -5.44868, -53.4023, -6.4373e-06, -8.65426, -5.27285, 0, 5.9681, 5.27285, 0, -5.9681, -35.9955, -6.4373e-06, -37.6065, 0, 0, 0, 0, 0, 0, -25.5719, -6.4373e-06, -44.6382, -2.93489, 0, -0.449471, 2.93489, 0, 0.449471, -16.6706, -6.4373e-06, -44.8546, 0, 0, 0, 0, 0, 0, -8.02563, -6.4373e-06, -39.842, 0, 0, 0, 0, 0, 0, -4.96864, -6.4373e-06, -34.2234, 0, 0, 0, 0, 0, 0, -3.24528, -6.4373e-06, -28.5379, 0, 0, 0, 0, 0, 0, -2.31333, -6.4373e-06, -16.483, 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_texture = ExtResource( 37 )
 
 [node name="level_14" type="Spatial"]
 script = ExtResource( 1 )
@@ -2039,7 +2114,7 @@ curve = SubResource( 12 )
 script = ExtResource( 26 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.984152, -1.73119e-08, -0.177328, 1.77636e-15, 1, -9.76265e-08, 0.177328, 9.60793e-08, 0.984152, 79.0641, 3.33786e-06, 95.5428 )
+transform = Transform( 0.984152, -1.73119e-08, -0.177328, 1.77636e-15, 1, -9.76264e-08, 0.177328, 9.60793e-08, 0.984151, 79.0641, 3.33786e-06, 95.5428 )
 rotation_mode = 4
 
 [node name="Ray" type="MeshInstance" parent="Path/PathFollow"]
@@ -2388,3 +2463,40 @@ transform = Transform( 1.2367, 0, -1.11729, 0, 5, 0, 0.670375, 0, 0.742023, 10.7
 mesh = ExtResource( 28 )
 skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
+
+[node name="Path2" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.8023, 0, 90 )
+curve = SubResource( 17 )
+script = ExtResource( 26 )
+
+[node name="PathFollow" type="PathFollow" parent="Path2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0428696, 0, 0 )
+
+[node name="SeaSnake" type="MeshInstance" parent="Path2/PathFollow"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 32 )
+material/0 = SubResource( 19 )
+
+[node name="LionFish" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 101.965, -1.66416, 123.535 )
+mesh = ExtResource( 35 )
+material/0 = SubResource( 20 )
+
+[node name="Path3" type="Path" parent="."]
+transform = Transform( 0.57329, 0, -0.819352, 0, 1, 0, 0.819352, 0, 0.57329, 99.2264, -0.721956, 77.9497 )
+curve = SubResource( 21 )
+script = ExtResource( 26 )
+
+[node name="PathFollow" type="PathFollow" parent="Path3"]
+transform = Transform( 0.999497, 0, -0.0317029, 0, 1, 0, 0.0317029, 0, 0.999497, -0.0443039, -6.4373e-06, 0.0633163 )
+rotation_mode = 4
+
+[node name="Dolphin" type="MeshInstance" parent="Path3/PathFollow"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+mesh = ExtResource( 36 )
+material/0 = SubResource( 22 )
+
+[node name="Dolphin2" type="MeshInstance" parent="Path3/PathFollow"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9446, -0.616067, -2.57196 )
+mesh = ExtResource( 36 )
+material/0 = SubResource( 22 )
