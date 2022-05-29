@@ -13,6 +13,6 @@ location = "Guandi dam"
 description = "The dam of Guandi is the second most powerful dam in the world.
 
 Some items felt down in the river during construction. It's time to bring them back to the surface and clean the area."
-time = 10
+time = 9
 objectives = PoolStringArray( "Put the magnet on the car to remove it" )
 tools = PoolStringArray( "Magnet", "Lights" )
