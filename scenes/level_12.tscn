@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=2]
+[gd_scene load_steps=134 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -27,6 +27,11 @@
 [ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=25]
 [ext_resource path="res://scripts/lemniscate.gd" type="Script" id=26]
 [ext_resource path="res://assets/models/bottles/wine/13220_wine_bottle_v2.obj" type="ArrayMesh" id=27]
+
+[sub_resource type="Environment" id=107]
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
+fog_depth_end = 60.0
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -356,6 +361,9 @@ objectives_target = {
 "vacuum": 0
 }
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 107 )
+
 [node name="water" parent="." instance=ExtResource( 7 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, -32, 0, -32 )
 
@@ -545,13 +553,13 @@ material/133 = null
 material/134 = null
 
 [node name="Sailboat" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.230847, 0.97299, 0, -0.97299, -0.230847, -55.0398, -1.84247, -15.0296 )
+transform = Transform( 1, 0, 0, 0, -0.230847, 0.97299, 0, -0.97299, -0.230847, -45.5407, -3.46349, -23.3882 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 14 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Sailboat"]
-transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 42.9601, 41.1183, 0.00778651 )
+transform = Transform( 0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0 )
 mesh = ExtResource( 15 )
 material/0 = SubResource( 10 )
 
@@ -887,7 +895,7 @@ shape = SubResource( 101 )
 
 [node name="Diving air" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.9073, -5.15995, -27.811 )
-mass = 500.0
+mass = 50.0
 script = ExtResource( 14 )
 
 [node name="uploads_files_2306193_cylinder+final" type="MeshInstance" parent="Diving air"]
@@ -1039,7 +1047,7 @@ transform = Transform( 1, 1.77636e-15, 1.86265e-09, -1.77636e-15, 1, 0, 0, -1.13
 shape = SubResource( 103 )
 
 [node name="Wine" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0167, -1.425, -50 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0425, -15.1199, -47.7555 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 14 )

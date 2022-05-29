@@ -10,9 +10,7 @@ thumbnail = "res://assets/levels/images/level_12.jpg"
 title = "Level 12"
 country = "CALIFORNIA"
 location = "The Lighthouse"
-description = "The area is full of little holes around 4 meters deep. 
-
-Things fall in them which attracts marine life that congregates there, but a third of them end up trapping all types of human wastes instead."
-time = 10
-objectives = PoolStringArray( "Catch 6 items" )
+description = "The area is full of little holes around 4 meters deep. Things fall in them which attracts marine life that congregates there, but a third of them end up trapping all types of human wastes instead."
+time = 9
+objectives = PoolStringArray( "Catch 5 items" )
 tools = PoolStringArray( "Gripper", "Lights" )
