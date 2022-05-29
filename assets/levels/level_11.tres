@@ -11,6 +11,6 @@ title = "Level 11"
 country = "FLORIDA"
 location = "Miami"
 description = "So many boats are going to Miami harbour. The place needs to be cleaned regularly in order to avoid accumulation of waste in the area."
-time = 10
+time = 6
 objectives = PoolStringArray( "Catch 10 plastics" )
 tools = PoolStringArray( "Gripper", "Lights" )
