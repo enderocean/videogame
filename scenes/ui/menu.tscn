@@ -227,7 +227,7 @@ alignment = 1
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 200.0
+margin_bottom = 130.0
 rect_min_size = Vector2( 250, 120 )
 custom_constants/separation = 10
 __meta__ = {
@@ -249,7 +249,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "CAMPAIGNS"
 
-<<<<<<< HEAD
 [node name="LevelButtons2" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 254.0
 margin_right = 504.0
@@ -261,18 +260,11 @@ __meta__ = {
 }
 
 [node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons2"]
-=======
-[node name="Collectibles" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
-margin_top = 140.0
->>>>>>> 8395f6a (Added collectible menu)
 margin_right = 250.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "COLLECTIBLES"
-
-[node name="CollectiblesMenu" parent="." instance=ExtResource( 10 )]
-visible = false
+text = "BOOK SESSION"
 
 [node name="Collectibles" type="Button" parent="HBoxContainer/LevelButtons2"]
 margin_top = 70.0
@@ -281,6 +273,9 @@ margin_bottom = 130.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "COLLECTIBLES"
+
+[node name="CollectiblesMenu" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [node name="CollectiblesMenu" parent="." instance=ExtResource( 10 )]
 visible = false
