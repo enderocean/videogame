@@ -58,14 +58,9 @@ func _on_Music_pressed():
 		get_node("Music").set_button_icon(icon_music)
 
 
-<<<<<<< HEAD
 func _on_book_session_pressed() -> void:
 	OS.shell_open("https://www.enderocean.com/en/training-center/")
 
 
 func _on_collectibles_pressed() -> void:
 	collectibles_menu.show()
-=======
-func _on_Book_session_pressed():
-	OS.shell_open("https://www.enderocean.com/en/training-center/")
->>>>>>> 1862593 (Buttons)
