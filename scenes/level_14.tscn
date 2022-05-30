@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -35,8 +35,6 @@
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaSnake/SeaSnake_Base_Color.png" type="Texture" id=33]
 [ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish_Base_Color.png" type="Texture" id=34]
 [ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish.obj" type="ArrayMesh" id=35]
-[ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.obj" type="ArrayMesh" id=36]
-[ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottlenoseDolphin_Base_Color.png" type="Texture" id=37]
 [ext_resource path="res://assets/models/animals/reef_fishes/Red Starfish/redstarfish1UV.obj" type="ArrayMesh" id=38]
 [ext_resource path="res://assets/models/animals/reef_fishes/Red Starfish/redstarfish1/redstarfish1_Base_Color.png" type="Texture" id=39]
 [ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.tscn" type="PackedScene" id=40]
@@ -45,7 +43,6 @@
 [sub_resource type="Environment" id=16]
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.5
-fog_enabled = true
 fog_color = Color( 0.647059, 0.768627, 0.886275, 1 )
 fog_depth_begin = 0.0
 
@@ -156,12 +153,9 @@ albedo_texture = ExtResource( 34 )
 
 [sub_resource type="Curve3D" id=21]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163, 0, 0, 0, 0, 0, 0, -0.63549, -6.4373e-06, 18.7016, -6.90297, 0, -6.02858, 6.90297, 0, 6.02858, 12.3175, -6.4373e-06, 51.2738, -3.95834, 0, 1.86924, 3.95834, 0, -1.86924, 35.0975, -6.4373e-06, 56.9331, 0, 0, 0, 0, 0, 0, 43.385, 1.42083, 48.8697, -0.689804, -5.60284e-06, 3.95174, 0.689804, 5.60284e-06, -3.95174, 50.1756, 1.73323, 36.6135, 3.21907, 9.53674e-07, 2.25499, -3.21907, -9.53674e-07, -2.25499, 49.8352, 2.53078, 20.2131, 0, 0, 0, 0, 0, 0, 37.4793, 2.54168, 22.615, 0, 0, 0, 0, 0, 0, 23.9349, 1.97059, 28.2267, 4.798, 0, -2.23011, -4.798, 0, 2.23011, 10.9013, -6.4373e-06, 37.9672, 5.86126, 0, 0.42989, -5.86126, 0, -0.42989, -10.0098, -6.4373e-06, 41.6619, 2.89587, 0, 2.22253, -2.89587, 0, -2.22253, -36.1993, -6.4373e-06, 33.1113, 0, 0, 0, 0, 0, 0, -47.6468, -6.4373e-06, 21.5576, 1.01555, 0, 4.29055, -1.01555, 0, -4.29055, -54.0549, -6.4373e-06, 7.99339, -2.25957, 0, 5.44868, 2.25957, 0, -5.44868, -53.4023, -6.4373e-06, -8.65426, -5.27285, 0, 5.9681, 5.27285, 0, -5.9681, -35.9955, -6.4373e-06, -37.6065, 0, 0, 0, 0, 0, 0, -25.5719, -6.4373e-06, -44.6382, -2.93489, 0, -0.449471, 2.93489, 0, 0.449471, -16.6706, -6.4373e-06, -44.8546, 0, 0, 0, 0, 0, 0, -8.02563, -6.4373e-06, -39.842, 0, 0, 0, 0, 0, 0, -4.96864, -6.4373e-06, -34.2234, 0, 0, 0, 0, 0, 0, -3.24528, -6.4373e-06, -28.5379, 0, 0, 0, 0, 0, 0, -2.31333, -6.4373e-06, -16.483, 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163, -0.669365, 0, -4.68456, 0.669365, 0, 4.68456, -0.163963, -1.35899e-05, 18.0555, -6.90297, 0, -6.02858, 6.90297, 0, 6.02858, 12.3175, -6.4373e-06, 51.2738, -3.95834, 0, 1.86924, 3.95834, 0, -1.86924, 35.0975, -6.4373e-06, 56.9331, 0, 0, 0, 0, 0, 0, 45.1918, 0.119845, 50.1338, -0.689804, -5.60284e-06, 3.95174, 0.689804, 5.60284e-06, -3.95174, 50.3709, -0.0516188, 36.7501, 3.21907, 9.53674e-07, 2.25499, -3.21907, -9.53674e-07, -2.25499, 49.6036, 0.119845, 20.051, 0, 0, 0, 0, 0, 0, 37.6709, -0.0516188, 22.749, 3.80039, -7.27177e-06, -2.81942, -3.80039, 7.27177e-06, 2.81942, 23.9102, 0.0341113, 28.2094, 4.798, 0, -2.23011, -4.798, 0, 2.23011, 10.9013, -6.4373e-06, 37.9672, 5.86126, 0, 0.42989, -5.86126, 0, -0.42989, -10.0098, -6.4373e-06, 41.6619, 2.89587, 0, 2.22253, -2.89587, 0, -2.22253, -36.1993, -6.4373e-06, 33.1113, 0, 0, 0, 0, 0, 0, -47.6468, -6.4373e-06, 21.5576, 1.01555, 0, 4.29055, -1.01555, 0, -4.29055, -54.0549, -6.4373e-06, 7.99339, -2.25957, 0, 5.44868, 2.25957, 0, -5.44868, -53.4023, -6.4373e-06, -8.65426, -5.27285, 0, 5.9681, 5.27285, 0, -5.9681, -35.9955, -6.4373e-06, -37.6065, 0, 0, 0, 0, 0, 0, -25.5719, -6.4373e-06, -44.6382, -2.93489, 0, -0.449471, 2.93489, 0, 0.449471, -16.6706, -6.4373e-06, -44.8546, -1.60895, -7.15256e-06, -2.41341, 1.60895, 7.15256e-06, 2.41341, -4.96864, -6.4373e-06, -34.2234, 2.81562, -7.15256e-06, -7.72828, -2.81562, 7.15256e-06, 7.72828, -2.31333, -6.4373e-06, -16.483, 0, 0, 0, 0, 0, 0, -0.0443039, -6.4373e-06, 0.0633163 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="SpatialMaterial" id=22]
-albedo_texture = ExtResource( 37 )
 
 [sub_resource type="SpatialMaterial" id=23]
 albedo_texture = ExtResource( 39 )
@@ -2490,7 +2484,7 @@ mesh = ExtResource( 35 )
 material/0 = SubResource( 20 )
 
 [node name="Path3" type="Path" parent="."]
-transform = Transform( 0.57329, 0, -0.819352, 0, 1, 0, 0.819352, 0, 0.57329, 99.2264, -0.721956, 77.9497 )
+transform = Transform( 0.57329, 0, -0.819352, 0, 1, 0, 0.819352, 0, 0.57329, 69.3979, -0.721956, 72.2488 )
 curve = SubResource( 21 )
 script = ExtResource( 26 )
 
@@ -2499,19 +2493,16 @@ transform = Transform( 0.999497, 0, -0.0317029, 0, 1, 0, 0.0317029, 0, 0.999497,
 rotation_mode = 4
 
 [node name="BottleNoseDolphin" parent="Path3/PathFollow" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.58487, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.58487, 4.41967 )
 script = ExtResource( 41 )
 
-[node name="Dolphin" type="MeshInstance" parent="Path3/PathFollow"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-visible = false
-mesh = ExtResource( 36 )
-material/0 = SubResource( 22 )
+[node name="BottleNoseDolphin2" parent="Path3/PathFollow" instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52647, -1.0336, -7.62939e-06 )
+script = ExtResource( 41 )
 
-[node name="Dolphin2" type="MeshInstance" parent="Path3/PathFollow"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.9446, -0.616067, -2.57196 )
-mesh = ExtResource( 36 )
-material/0 = SubResource( 22 )
+[node name="BottleNoseDolphin3" parent="Path3/PathFollow" instance=ExtResource( 40 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.940651, -1.0336, -5.81493 )
+script = ExtResource( 41 )
 
 [node name="redstarfish1UV" type="MeshInstance" parent="."]
 transform = Transform( -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0, 0, 0.1, 99.8735, -2.21449, 124.406 )
