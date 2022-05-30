@@ -54,3 +54,7 @@ func _on_Music_pressed():
 	else:
 		audio_stream_player.play(playback_position)
 		get_node("Music").set_button_icon(icon_music)
+
+
+func _on_Book_session_pressed():
+	OS.shell_open("https://www.enderocean.com/en/training-center/")

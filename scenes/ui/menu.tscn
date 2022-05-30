@@ -225,14 +225,14 @@ alignment = 1
 
 [node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 130.0
+margin_bottom = 200.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer/Menu"]
 margin_right = 250.0
-margin_bottom = 130.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 250, 120 )
 custom_constants/separation = 10
 __meta__ = {
@@ -254,8 +254,17 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "CAMPAIGNS"
 
+[node name="Book session" type="Button" parent="HBoxContainer/Menu/LevelButtons"]
+margin_top = 140.0
+margin_right = 250.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 8 )
+text = "BOOK SESSION"
+
 [connection signal="pressed" from="Credits" to="." method="_on_licences_pressed"]
 [connection signal="pressed" from="Music" to="." method="_on_Music_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/LevelButtons/Book session" to="." method="_on_Book_session_pressed"]
