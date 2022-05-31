@@ -56,6 +56,7 @@ var finished: bool = false
 signal objectives_changed()
 signal finished(score)
 signal collectible_obtained(id)
+signal penality_added()
 
 func _ready() -> void:
 	for node in get_children():
@@ -337,18 +338,7 @@ func add_penalty(reason: String, points: int) -> void:
 	}
 	penalties.append(penalty)
 	print("Added penalty: ", penalty.reason, ", removed ", penalty.points, " points.")
-	check_score()
-
-
-# Count every penalty points
-func check_score() -> void:
-	score = 5000
-	for penalty in penalties:
-		score -= penalty.points
-	
-	print(score)
-	if score <= 0:
-		emit_signal("finished", 0)
+	emit_signal("penality_added")
 
 
 func get_vehicle_orientation() -> float:

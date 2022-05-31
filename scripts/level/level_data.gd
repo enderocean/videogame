@@ -17,7 +17,7 @@ export var tools: PoolStringArray
 
 export var stars_enabled: bool = true
 # Must be an array of 5 intergers, which indicates the time elapsed in seconds for each stars
-# e.g. The first star would be the largest value
+# e.g. The player needs to complete the level in 60 seconds to have 5 stars (without any penalities)
 export var stars: PoolIntArray = [900, 600, 300, 180, 60]
 
 static func get_levels() -> Dictionary:

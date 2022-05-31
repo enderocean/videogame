@@ -29,9 +29,35 @@ var active_level_data: LevelData
 
 func show_popup() -> void:
 	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
-	mission_ended_popup.update_objectives(active_level.objectives)
+	mission_ended_popup.update_objectives(active_level.objectives, active_level.objectives_progress)
 	mission_ended_popup.update_time(mission_timer.time_left)
 	mission_ended_popup.show()
+
+
+func update_score() -> void:
+	if not active_level_data.stars_enabled:
+		return
+	
+	var elapsed_time: float = 500 #(active_level_data.time * 60) - mission_timer.time_left
+	# Check the time
+	for i in range(active_level_data.stars.size()):
+		var index: int = (active_level_data.stars.size() - 1) - i 
+		active_level.score = (index + 1) * 1000
+		
+		if elapsed_time <= active_level_data.stars[index]:
+			break
+		
+		if index == 0:
+			active_level.score = 0
+
+
+	# Check the penalities
+	for penalty in active_level.penalties:
+		active_level.score -= penalty.points
+	
+	print("Score in stars: ", float(active_level.score / 1000.0))
+	if active_level.score <= 0:
+		_on_level_finished(active_level.score)
 
 
 func _ready():
@@ -74,6 +100,8 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 	active_level.connect("objectives_changed", self, "_on_level_objectives_changed")
 # warning-ignore:return_value_discarded
 	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
+# warning-ignore:return_value_discarded
+	active_level.connect("penality_added", self, "_on_penality_added")
 	
 	if active_level.vehicle:
 	# warning-ignore:return_value_discarded
@@ -99,7 +127,6 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 	if active_level_data:
 		mission_timer.paused = false
 		mission_timer.start(active_level_data.time * 60)
-
 		match active_level_data.id:
 			# Show the instruction popup only on the practice level
 			"practice":
@@ -149,8 +176,7 @@ func _on_MissionTimer_timeout() -> void:
 
 func _on_level_finished(score: int) -> void:
 	mission_timer.paused = true
-	active_level.check_score()
-	
+
 	# Save the level score
 	SaveManager.data.levels[active_level_data.id] = {
 		"score": score,
@@ -160,6 +186,10 @@ func _on_level_finished(score: int) -> void:
 	SaveManager.save_data()
 
 	show_popup()
+
+
+func _on_penality_added() -> void:
+	update_score()
 
 
 func _on_collectible_obtained(id: String) -> void:

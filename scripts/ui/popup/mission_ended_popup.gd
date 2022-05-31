@@ -40,10 +40,11 @@ func update_stars(score: int, stars_enabled: bool) -> void:
 	var score_stars: float = score / 1000.0
 	for i in range(stars.get_child_count()):
 		var star: TextureRect = stars.get_child(i)
-		var cut_value: float = 0.0
-		if i >= score_stars:
-			cut_value = 1.0 - (score_stars - int(score_stars))
-		
+		var cut_value: float = 1.0
+		# Set the cut value of a star in case the stars score is not a plain value (e.g 2.5 stars)
+		if (i + 1) > score_stars:
+			cut_value = 1.0 - clamp((float(i + 1) - score_stars), 0.0, 1.0)
+
 		star.material.set_shader_param("cut", cut_value)
 
 
@@ -51,7 +52,7 @@ func update_time(time: float) -> void:
 	time_label.text = MissionTimer.format_time(time)
 
 
-func update_objectives(objectives: Dictionary) -> void:
+func update_objectives(objectives: Dictionary, objectives_progress: Dictionary) -> void:
 	if objectives.size() == 0:
 		return
 
@@ -65,9 +66,14 @@ func update_objectives(objectives: Dictionary) -> void:
 		if not line:
 			line = objective_line.instance()
 			objectives_list.add_child(line)
-
+		
+		# Set the progress of the objective
+		var value: int = 0
+		if objectives_progress.has(objectives.keys()[i]):
+			value = objectives_progress.get(objectives.keys()[i])
+		
 		line.title.text = Localization.get_objective_text(objectives.keys()[i])
-		line.value.text = str(objectives.values()[i])
+		line.value.text = "%s / %s" % [value, objectives.values()[i]]
 
 
 func _on_visibility_changed() -> void:
