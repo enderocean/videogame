@@ -81,6 +81,8 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 		informations_panel.create_speed_indicators(active_level.vehicle.vehicle_body.speeds.size())
 		# Show the current speed
 		_on_vehicle_speed_changed(active_level.get_vehicle_speed())
+		# Initialize tool text
+		_on_vehicle_tool_changed(active_level.vehicle.vehicle_body.vehicle_tool_index)
 
 	# Initialize objectives text
 	_on_level_objectives_changed()

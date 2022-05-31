@@ -18,7 +18,7 @@
 [ext_resource path="res://assets/logo_ecodds.png" type="Texture" id=16]
 
 [sub_resource type="Environment" id=28]
-ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 0.494118, 0.854902, 0.952941, 1 )
 ambient_light_energy = 1.52
 fog_enabled = true
 fog_sun_color = Color( 1, 1, 1, 1 )
