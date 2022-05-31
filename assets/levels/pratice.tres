@@ -16,3 +16,5 @@ Press \"H\" to discover useful keys."
 time = 15
 objectives = PoolStringArray(  )
 tools = PoolStringArray(  )
+stars_enabled = true
+stars = PoolIntArray( 900, 600, 300, 180, 60 )

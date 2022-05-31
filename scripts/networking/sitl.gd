@@ -98,6 +98,7 @@ func download_file(url: String, file_name: String):
 	add_child(http)
 	http.set_download_file(file_name)
 	http.request(url)
+# warning-ignore:return_value_discarded
 	http.connect("request_completed", self, "_on_download_finished", [file_name])
 
 

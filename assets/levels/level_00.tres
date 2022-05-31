@@ -16,3 +16,5 @@ Please help to clean the area ! And be careful with algues..."
 time = 4
 objectives = PoolStringArray( "Collect 4 waste", "Drop it into the net" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 900, 600, 300, 180, 60 )

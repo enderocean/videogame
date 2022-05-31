@@ -6,6 +6,7 @@ var tween: Tween
 func _ready() -> void:
 	tween = Tween.new()
 	add_child(tween)
+# warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
 
 

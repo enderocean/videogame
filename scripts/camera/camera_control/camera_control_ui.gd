@@ -56,6 +56,7 @@ func _ready():
 		mouse.add_item("Captured")
 		mouse.add_item("Confined")
 		mouse.select(camera.mouse_mode)
+	# warning-ignore:return_value_discarded
 		mouse.connect("item_selected", self, "_on_opt_mouse_item_selected")
 
 		# Freelook
@@ -63,6 +64,7 @@ func _ready():
 		freelook.set_text("Freelook")
 		freelook.set_toggle_mode(true)
 		freelook.set_pressed(camera.freelook)
+	# warning-ignore:return_value_discarded
 		freelook.connect("toggled", self, "_on_btn_freelook_toggled")
 
 		var lbl_sensitivity = Label.new()
@@ -71,6 +73,7 @@ func _ready():
 		var sensitivity = HScrollBar.new()
 		sensitivity.set_max(1)
 		sensitivity.set_value(camera.sensitivity)
+	# warning-ignore:return_value_discarded
 		sensitivity.connect("value_changed", self, "_on_hsb_sensitivity_value_changed")
 
 		var lbl_smoothless = Label.new()
@@ -80,6 +83,7 @@ func _ready():
 		smoothness.set_max(0.999)
 		smoothness.set_min(0.5)
 		smoothness.set_value(camera.smoothness)
+	# warning-ignore:return_value_discarded
 		smoothness.connect("value_changed", self, "_on_hsb_smoothness_value_changed")
 
 		var lbl_privot = Label.new()
@@ -88,13 +92,16 @@ func _ready():
 		privot = OptionButton.new()
 		privot.set_text("Privot")
 		_update_privots(privot)
+	# warning-ignore:return_value_discarded
 		privot.connect("item_selected", self, "_on_opt_privot_item_selected")
+	# warning-ignore:return_value_discarded
 		privot.connect("pressed", self, "_on_opt_privot_pressed")
 
 		var btn_rot_privot = CheckButton.new()
 		btn_rot_privot.set_text("Rotate Privot")
 		btn_rot_privot.set_toggle_mode(true)
 		btn_rot_privot.set_pressed(camera.rotate_privot)
+	# warning-ignore:return_value_discarded
 		btn_rot_privot.connect("toggled", self, "_on_btn_rot_privot_toggled")
 
 		var lbl_distance = Label.new()
@@ -102,6 +109,7 @@ func _ready():
 
 		var distance = SpinBox.new()
 		distance.set_value(camera.distance)
+	# warning-ignore:return_value_discarded
 		distance.connect("value_changed", self, "_on_box_distance_value_changed")
 
 		var lbl_yaw = Label.new()
@@ -110,6 +118,7 @@ func _ready():
 		var yaw = SpinBox.new()
 		yaw.set_max(360)
 		yaw.set_value(camera.yaw_limit)
+	# warning-ignore:return_value_discarded
 		yaw.connect("value_changed", self, "_on_box_yaw_value_changed")
 
 		var lbl_pitch = Label.new()
@@ -118,12 +127,14 @@ func _ready():
 		var pitch = SpinBox.new()
 		pitch.set_max(360)
 		pitch.set_value(camera.pitch_limit)
+	# warning-ignore:return_value_discarded
 		pitch.connect("value_changed", self, "_on_box_pitch_value_changed")
 
 		var collisions = CheckButton.new()
 		collisions.set_text("Collisions")
 		collisions.set_toggle_mode(true)
 		collisions.set_pressed(camera.collisions)
+	# warning-ignore:return_value_discarded
 		collisions.connect("toggled", self, "_on_btn_collisions_toggled")
 
 		# Movement
@@ -132,6 +143,7 @@ func _ready():
 
 		var movement = CheckButton.new()
 		movement.set_pressed(camera.movement)
+	# warning-ignore:return_value_discarded
 		movement.connect("toggled", self, "_on_btn_movement_toggled")
 
 		var lbl_speed = Label.new()
@@ -140,6 +152,7 @@ func _ready():
 		var speed = HScrollBar.new()
 		speed.set_max(MAX_SPEED)
 		speed.set_value(camera.max_speed.x)
+	# warning-ignore:return_value_discarded
 		speed.connect("value_changed", self, "_on_hsb_speed_value_changed")
 
 		var lbl_acceleration = Label.new()
@@ -148,6 +161,7 @@ func _ready():
 		var acceleration = HScrollBar.new()
 		acceleration.set_max(1.0)
 		acceleration.set_value(camera.acceleration)
+	# warning-ignore:return_value_discarded
 		acceleration.connect("value_changed", self, "_in_hsb_acceleration_value_changed")
 
 		var lbl_deceleration = Label.new()
@@ -156,6 +170,7 @@ func _ready():
 		var deceleration = HScrollBar.new()
 		deceleration.set_max(1.0)
 		deceleration.set_value(camera.deceleration)
+	# warning-ignore:return_value_discarded
 		deceleration.connect("value_changed", self, "_in_hsb_deceleration_value_changed")
 
 		add_child(panel)
@@ -187,9 +202,13 @@ func _ready():
 		container.add_child(deceleration)
 
 		if DRAGGABLE:
+		# warning-ignore:return_value_discarded
 			panel.connect("mouse_entered", self, "_panel_entered")
+		# warning-ignore:return_value_discarded
 			panel.connect("mouse_exited", self, "_panel_exited")
+		# warning-ignore:return_value_discarded
 			container.connect("mouse_entered", self, "_panel_entered")
+		# warning-ignore:return_value_discarded
 			container.connect("mouse_exited", self, "_panel_exited")
 
 		self.hide()

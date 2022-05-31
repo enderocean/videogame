@@ -20,6 +20,7 @@ signal mission_pressed
 func _ready() -> void:
 	for i in range(missions.get_child_count()):
 		var mission_point: MissionPoint = missions.get_child(i)
+	# warning-ignore:return_value_discarded
 		mission_point.connect("pressed", self, "_on_mission_pressed")
 		mission_points.append(mission_point)
 

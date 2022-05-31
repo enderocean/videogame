@@ -15,6 +15,10 @@ export var time: int = 15
 export var objectives: PoolStringArray
 export var tools: PoolStringArray
 
+export var stars_enabled: bool = true
+# Must be an array of 5 intergers, which indicates the time elapsed in seconds for each stars
+# e.g. The first star would be the largest value
+export var stars: PoolIntArray = [900, 600, 300, 180, 60]
 
 static func get_levels() -> Dictionary:
 	var path: String = "res://assets/levels/"

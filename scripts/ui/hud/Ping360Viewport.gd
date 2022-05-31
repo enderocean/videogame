@@ -7,6 +7,7 @@ var angle = 0
 
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	Globals.connect("ping360_changed", self, "_on_ping360_changed")
 
 	var sonars = get_tree().get_nodes_in_group("ping360")
@@ -14,6 +15,7 @@ func _ready() -> void:
 		print("unable to find ping360")
 		return
 	self.sonar = sonars[0]
+# warning-ignore:return_value_discarded
 	self.sonar.connect("updatePing360Display", self, "on_ping360_update")
 
 	# You'll have to get thoose the way you want

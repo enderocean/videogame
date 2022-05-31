@@ -15,6 +15,7 @@ export var dist_tofinish: float = 50
 func _ready() -> void:
 	set_physics_process(false)
 	add_to_group("objectives_nodes")
+# warning-ignore:return_value_discarded
 	fish_net.connect("net_removed", self, "_on_net_removed")
 
 func _on_net_removed() -> void:

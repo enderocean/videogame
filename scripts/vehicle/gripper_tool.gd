@@ -13,11 +13,15 @@ func _ready() -> void:
 	tool_type = Globals.ObjectiveType.GRIPPER
 	
 	if left_area:
+	# warning-ignore:return_value_discarded
 		left_area.connect("body_entered", self, "_on_left_area_body_entered")
+	# warning-ignore:return_value_discarded
 		left_area.connect("body_exited", self, "_on_left_area_body_exited")
 	
 	if right_area:
+	# warning-ignore:return_value_discarded
 		right_area.connect("body_entered", self, "_on_right_area_body_entered")
+	# warning-ignore:return_value_discarded
 		right_area.connect("body_exited", self, "_on_right_area_body_exited")
 
 

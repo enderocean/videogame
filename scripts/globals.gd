@@ -67,7 +67,6 @@ func set_ping360(value: bool) -> void:
 	ping360_enabled = value
 	emit_signal("ping360_changed")
 
-
 static func get_files(path: String) -> PoolStringArray:
 	var files: PoolStringArray = []
 	var dir: Directory = Directory.new()

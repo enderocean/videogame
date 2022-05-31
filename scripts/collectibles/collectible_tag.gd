@@ -16,6 +16,7 @@ func _ready() -> void:
 
 	add_to_group("collectible_tags")
 	var delivery_object: DeliveryObject = get_parent()
+# warning-ignore:return_value_discarded
 	delivery_object.connect("delivered", self, "_on_delivered")
 
 

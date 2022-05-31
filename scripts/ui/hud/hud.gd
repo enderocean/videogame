@@ -28,6 +28,7 @@ var active_level_data: LevelData
 
 
 func show_popup() -> void:
+	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
 	mission_ended_popup.update_objectives(active_level.objectives)
 	mission_ended_popup.update_time(mission_timer.time_left)
 	mission_ended_popup.show()
@@ -35,6 +36,7 @@ func show_popup() -> void:
 
 func _ready():
 	set_physics_process(false)
+# warning-ignore:return_value_discarded
 	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
 
 
@@ -66,13 +68,17 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 
 		active_level_data = level_data
 		break
-
+# warning-ignore:return_value_discarded
 	active_level.connect("finished", self, "_on_level_finished")
+# warning-ignore:return_value_discarded
 	active_level.connect("objectives_changed", self, "_on_level_objectives_changed")
+# warning-ignore:return_value_discarded
 	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
 	
 	if active_level.vehicle:
+	# warning-ignore:return_value_discarded
 		active_level.vehicle.vehicle_body.connect("speed_changed", self, "_on_vehicle_speed_changed")
+	# warning-ignore:return_value_discarded
 		active_level.vehicle.vehicle_body.connect("tool_changed", self, "_on_vehicle_tool_changed")
 		camera_follow.target = active_level.vehicle.camera_target
 		camera_lookat.target = active_level.vehicle.camera_target
@@ -100,6 +106,8 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 				instructions_popup.title.text = active_level_data.title
 				instructions_popup.description.text = active_level_data.description
 				instructions_popup.show()
+				active_level.add_penalty("ez", 2500)
+				active_level.emit_signal("finished", 0)
 	else:
 		printerr("LevelData not found for ", scene_data.path)
 
@@ -141,7 +149,8 @@ func _on_MissionTimer_timeout() -> void:
 
 func _on_level_finished(score: int) -> void:
 	mission_timer.paused = true
-
+	active_level.check_score()
+	
 	# Save the level score
 	SaveManager.data.levels[active_level_data.id] = {
 		"score": score,

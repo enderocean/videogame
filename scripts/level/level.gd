@@ -37,6 +37,7 @@ export var objectives_target: Dictionary = {
 
 var objectives: Dictionary = {}
 var objectives_progress: Dictionary = {}
+var penalties: Array = []
 var score: int = 0
 
 # darkest it gets
@@ -66,7 +67,9 @@ func _ready() -> void:
 		# Assign vehicle node automatically
 		if node is Vehicle:
 			vehicle = node
-	
+		# warning-ignore:return_value_discarded
+			vehicle.vehicle_body.connect("body_entered", self, "_on_vehicle_body_entered")
+			
 	# Add the underwater meshes for each camera
 	for i in range(cameras.size()):
 		var camera: Camera = cameras[i]
@@ -95,7 +98,8 @@ func _ready() -> void:
 	set_physics_process(true)
 	update_fog()
 	underwater_env.fog_enabled = true
-
+	
+# warning-ignore:return_value_discarded
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
 	# Add all objectives
@@ -110,13 +114,17 @@ func _ready() -> void:
 	# Connect to all objective areas
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
 		if node is DeliveryArea:
+		# warning-ignore:return_value_discarded
 			node.connect("objects_changed", self, "_on_objects_changed")
 		if node is DeliveryTool:
 			node.surface_altitude = surface_altitude
+		# warning-ignore:return_value_discarded
 			node.connect("delivered", self, "_on_tool_delivered")
 		if node is TrapAnimal:
+		# warning-ignore:return_value_discarded
 			node.connect("animal_free", self, "_on_animal_free")
 		if node is FishingNet:
+		# warning-ignore:return_value_discarded
 			node.connect("net_cut", self, "_on_net_cut")
 	
 	# Connect to all objective areas
@@ -235,12 +243,10 @@ func _on_objects_changed(area, objects: Array) -> void:
 	match area.objective_type:
 		Globals.ObjectiveType.GRIPPER:
 			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
-			score = objectives_progress[Globals.ObjectiveType.GRIPPER]
 			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
 
 		Globals.ObjectiveType.VACUUM:
 			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
-			score = objectives_progress[Globals.ObjectiveType.VACUUM]
 			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
 	
 	check_objectives()
@@ -253,7 +259,6 @@ func _on_tool_delivered(objective_type) -> void:
 	else:
 		objectives_progress[objective_type] = 1
 	
-	score = objectives_progress[objective_type]
 	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
 	
 	check_objectives()
@@ -266,7 +271,6 @@ func _on_net_cut(nb_cut: int) -> void:
 	else:
 		objectives_progress[Globals.ObjectiveType.CUTTER] = 1
 	
-	score = objectives_progress[Globals.ObjectiveType.CUTTER]
 	print("Cutted: ", objectives_progress.get(Globals.ObjectiveType.CUTTER), " / ", objectives.get(Globals.ObjectiveType.CUTTER))
 	
 	check_objectives()
@@ -279,11 +283,30 @@ func _on_animal_free(animal: TrapAnimal) -> void:
 	else:
 		objectives_progress[Globals.ObjectiveType.ANIMAL] = 1
 
-	score = objectives_progress[Globals.ObjectiveType.ANIMAL]
 	print("Animaled: ", objectives_progress.get(Globals.ObjectiveType.ANIMAL), " / ", objectives.get(Globals.ObjectiveType.ANIMAL))
 	
 	check_objectives()
 	emit_signal("objectives_changed")
+
+
+func _on_collectible_obtained(id: String) -> void:
+	emit_signal("collectible_obtained", id)
+
+
+func _on_vehicle_body_entered(body: Node) -> void:
+	var collision_tag: PenaltyCollisionTag = null
+	for child in body.get_children():
+		if child is PenaltyCollisionTag:
+			collision_tag = child
+			break
+	
+	if not collision_tag:
+		return
+	
+	# TODO: Add screen effect
+	# TODO: Add collision sound
+	
+	add_penalty("Collided with %s" % body.name, collision_tag.points)
 
 
 func check_objectives() -> void:
@@ -306,8 +329,26 @@ func check_objectives() -> void:
 		emit_signal("finished", score)
 
 
-func _on_collectible_obtained(id: String) -> void:
-	emit_signal("collectible_obtained", id)
+# Add a penalty with a reason which could be used
+func add_penalty(reason: String, points: int) -> void:
+	var penalty: Dictionary = {
+		"reason": reason,
+		"points": points
+	}
+	penalties.append(penalty)
+	print("Added penalty: ", penalty.reason, ", removed ", penalty.points, " points.")
+	check_score()
+
+
+# Count every penalty points
+func check_score() -> void:
+	score = 5000
+	for penalty in penalties:
+		score -= penalty.points
+	
+	print(score)
+	if score <= 0:
+		emit_signal("finished", 0)
 
 
 func get_vehicle_orientation() -> float:

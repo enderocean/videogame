@@ -13,6 +13,7 @@ func create_level_buttons(levels: Array) -> void:
 	for level in levels:
 		var button = Button.new()
 		button.text = level.title
+	# warning-ignore:return_value_discarded
 		button.connect("pressed", self, "_on_level_pressed", [level.scene])
 		get_node(level_buttons_path).add_child(button)
 

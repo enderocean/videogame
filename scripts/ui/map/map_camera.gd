@@ -18,6 +18,7 @@ var can_move: bool = false
 
 func _ready() -> void:
 	add_child(tween)
+# warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
 
 

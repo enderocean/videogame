@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	# Connect to the catched event of the delivery tool to make the rope pull
 	if from_node is DeliveryTool:
+	# warning-ignore:return_value_discarded
 		from_node.connect("catched", self, "_on_delivery_tool_catched")
 
 

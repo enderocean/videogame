@@ -20,6 +20,32 @@ onready var user_panel: Panel = get_node(user_panel_path)
 export var username_path: NodePath
 onready var username: LineEdit = get_node(username_path)
 
+export var stars_path: NodePath
+onready var stars: HBoxContainer = get_node(stars_path)
+
+
+func _ready() -> void:
+	# Make stars materials unique
+	for star in stars.get_children():
+		var material: ShaderMaterial = star.material
+#		star.material.shader = material.shader.duplicate() 
+		star.material = star.material.duplicate()
+
+func update_stars(score: int, stars_enabled: bool) -> void:
+	stars.visible = stars_enabled
+	
+	if not stars_enabled:
+		return
+	
+	var score_stars: float = score / 1000.0
+	for i in range(stars.get_child_count()):
+		var star: TextureRect = stars.get_child(i)
+		var cut_value: float = 0.0
+		if i >= score_stars:
+			cut_value = 1.0 - (score_stars - int(score_stars))
+		
+		star.material.set_shader_param("cut", cut_value)
+
 
 func update_time(time: float) -> void:
 	time_label.text = MissionTimer.format_time(time)
@@ -53,7 +79,7 @@ func _on_visibility_changed() -> void:
 	username.editable = true
 
 
-func _on_Ok_pressed() -> void:
+func _on_ok_pressed() -> void:
 	username.editable = false
 
 	var success: bool = check_username()
@@ -76,11 +102,11 @@ func check_username() -> bool:
 	return true
 
 
-func _on_Restart_pressed() -> void:
+func _on_restart_pressed() -> void:
 	visible = false
 	SceneLoader.reload_scenes()
 
 
-func _on_Back_pressed() -> void:
+func _on_back_pressed() -> void:
 	visible = false
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")

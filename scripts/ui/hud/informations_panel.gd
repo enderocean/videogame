@@ -20,6 +20,7 @@ onready var speed_indicators_parent: Control = get_node(speed_indicators_parent_
 
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	_on_screen_resized()
 

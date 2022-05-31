@@ -150,6 +150,11 @@ _global_script_classes=[ {
 "path": "res://scripts/ui/pause_menu.gd"
 }, {
 "base": "Node",
+"class": "PenaltyCollisionTag",
+"language": "GDScript",
+"path": "res://scripts/penalty_collision_tag.gd"
+}, {
+"base": "Node",
 "class": "ROVSounds",
 "language": "GDScript",
 "path": "res://scripts/sounds/rov_sounds.gd"
@@ -248,6 +253,7 @@ _global_script_class_icons={
 "MissionTimer": "",
 "ObjectiveLine": "",
 "PauseMenu": "",
+"PenaltyCollisionTag": "",
 "ROVSounds": "",
 "Rope": "",
 "RopeSection": "",

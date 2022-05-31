@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/shaders/star.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/obtained = Color( 0.968627, 1, 0, 1 )
+shader_param/not_obtained = Color( 0, 0, 0, 1 )
+shader_param/cut = 1.0
