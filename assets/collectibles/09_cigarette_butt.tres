@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 id = "09_cigarette_butt"
 title = "Cigarette butt"
 description = "Did you know that a single cigarette butt can pollute up to 500 litres of water? It alone contains a hundred harmful substances, even carcinogens, which contaminate water, air and soil. In addition to the damage caused by deforestation, CO2 emissions and soil acidification, cigarette butts are the main source of pollution in the oceans."
-image = "res://assets/collectibles/images/04_tire.png"
+image = "res://assets/collectibles/images/09_cigarette_butt.png"
