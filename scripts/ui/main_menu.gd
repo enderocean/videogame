@@ -4,6 +4,8 @@ export var licences_popup_path: NodePath
 onready var licences_popup: AcceptDialog = get_node(licences_popup_path)
 onready var playback_position: float
 export var level_buttons_path: NodePath
+export var collectibles_menu_path: NodePath
+onready var collectibles_menu: Control = get_node(collectibles_menu_path)
 
 var icon_music = preload("res://assets/music.png")
 var icon_music_off = preload("res://assets/music_off.png")
@@ -56,5 +58,9 @@ func _on_Music_pressed():
 		get_node("Music").set_button_icon(icon_music)
 
 
-func _on_Book_session_pressed():
+func _on_book_session_pressed() -> void:
 	OS.shell_open("https://www.enderocean.com/en/training-center/")
+
+
+func _on_collectibles_pressed() -> void:
+	collectibles_menu.show()

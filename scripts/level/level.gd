@@ -176,7 +176,6 @@ func update_fog():
 		var new_color: Color = surface_ambient.color.darkened(normalized_depth)
 
 		underwater_env.fog_depth_end = max(fog_depth_min, surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end))
-		print("max(", fog_depth_min, ",", surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end),")")
 		underwater_env.background_color = new_color
 		
 		if underwater_env.background_sky:
