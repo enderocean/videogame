@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/home-bg.png" type="Texture" id=9]
 
 [node name="CollectiblesMenu" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -87,6 +88,7 @@ margin_right = 260.0
 margin_bottom = 258.0
 custom_fonts/font = ExtResource( 8 )
 text = "title"
+autowrap = true
 
 [node name="Description" type="RichTextLabel" parent="HBoxContainer/Sidebar/MarginContainer/ScrollContainer/VBoxContainer/CollectiblePanel"]
 margin_top = 278.0

@@ -8,6 +8,8 @@ onready var mission_panel: MissionPanel = get_node(mission_panel_path)
 export var world_map_path: NodePath
 onready var world_map: WorldMap = get_node(world_map_path)
 
+export var collectibles_menu_path: NodePath
+onready var collectibles_menu: Control = get_node(collectibles_menu_path)
 
 func _ready() -> void:
 	var next_point: MissionPoint
@@ -62,3 +64,7 @@ func _on_StartMission_pressed() -> void:
 
 func _on_Back_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+
+
+func _on_collectibles_pressed() -> void:
+	collectibles_menu.show()
