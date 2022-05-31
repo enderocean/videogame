@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -16,6 +16,11 @@
 [ext_resource path="res://terrains/level_16/data.hterrain" type="Resource" id=14]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=15]
 [ext_resource path="res://assets/models/waste/plastic_bag/scene.gltf" type="PackedScene" id=16]
+
+[sub_resource type="Environment" id=10]
+ambient_light_color = Color( 1, 1, 0.772549, 1 )
+fog_color = Color( 0.21167, 0.37146, 0.53125, 1 )
+fog_depth_end = 60.0
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -53,6 +58,9 @@ objectives_target = {
 "vacuum": 100
 }
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+
 [node name="water" parent="." instance=ExtResource( 10 )]
 transform = Transform( 64, 0, 0, 0, 64, 0, 0, 0, 54, -0.335, 0, 6.086 )
 
@@ -87,7 +95,7 @@ material/0 = SubResource( 2 )
 transform = Transform( 2, 0, 3.13525e-06, 0, 2, 0, -3.13525e-06, 0, 2, 0.0375366, 0.092994, 0.0393524 )
 
 [node name="HTerrain" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -29.3423, -64 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -15, -64 )
 script = ExtResource( 2 )
 _terrain_data = ExtResource( 14 )
 chunk_size = 32
@@ -272,7 +280,7 @@ transform = Transform( 0.5, 0.263319, -1.91851, -0.0170369, 1.98195, 0.267586, 1
 visible = false
 
 [node name="Plastic_bag" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59645, -30.6962, 15.2567 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38207, -23.7139, 18.6067 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -295,7 +303,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag2" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -10.1978, -30.6976, 15.2567 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -1.98342, -23.7153, 18.6067 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -318,7 +326,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag3" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -8.89362, -30.62, 15.9225 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -0.679239, -23.6377, 19.2725 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -341,7 +349,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag4" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -9.32918, -30.62, 15.7002 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -1.1148, -23.6377, 19.0502 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -364,7 +372,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag5" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -4.75017, -30.62, 13.4001 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, 3.46421, -23.6377, 16.7501 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -387,7 +395,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag6" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -7.14572, -30.62, 16.4754 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 1.06866, -23.6377, 19.8254 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -410,7 +418,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag7" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -5.84151, -30.62, 17.1411 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 2.37287, -23.6377, 20.4911 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -433,7 +441,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag8" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -8.12243, -30.2116, 18.5868 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 0.0919514, -23.2293, 21.9368 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -456,7 +464,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag9" type="RigidBody" parent="."]
-transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 2.35661, -30.62, 35.5401 )
+transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 10.571, -23.6377, 38.8901 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -479,7 +487,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag10" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 1.75522, -30.62, 35.5401 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 9.9696, -23.6377, 38.8901 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -502,7 +510,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag11" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 3.05943, -30.62, 36.2058 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -1.58766, -22.6249, 18.4741 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -525,7 +533,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag12" type="RigidBody" parent="."]
-transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, 2.62388, -30.62, 35.9835 )
+transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, -2.02321, -22.6249, 18.2518 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -548,7 +556,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag13" type="RigidBody" parent="."]
-transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 7.20289, -30.62, 33.6834 )
+transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 2.5558, -22.6249, 15.9517 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -571,7 +579,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag14" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 4.80734, -30.62, 36.7587 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 0.16025, -22.6249, 19.027 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -594,7 +602,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag15" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 6.11155, -30.62, 37.4245 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 12.2032, -23.9389, 26.2667 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -617,7 +625,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag16" type="RigidBody" parent="."]
-transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 3.83062, -30.2116, 38.8701 )
+transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 9.9223, -23.5305, 27.7123 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -640,7 +648,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag17" type="RigidBody" parent="."]
-transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, -21.9848, -30.62, 31.6464 )
+transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, -15.8931, -23.9389, 20.4886 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -663,7 +671,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag18" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -22.5862, -30.62, 31.6464 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -16.4945, -23.9389, 20.4886 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -686,7 +694,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag19" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -21.2819, -30.62, 32.3122 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -15.1902, -23.9389, 21.1544 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -709,7 +717,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag20" type="RigidBody" parent="."]
-transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, -21.7175, -30.62, 32.0898 )
+transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, -15.6258, -23.9389, 20.932 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -732,7 +740,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag21" type="RigidBody" parent="."]
-transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, -17.1385, -30.62, 33.6834 )
+transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, -14.4659, -12.0947, 8.98215 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -755,7 +763,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag22" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -19.534, -30.62, 36.7587 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -16.8614, -12.0947, 12.0575 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -778,7 +786,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag23" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -18.2298, -30.62, 37.4245 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -15.5572, -12.0947, 12.7233 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -801,7 +809,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag24" type="RigidBody" parent="."]
-transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, -20.5108, -30.2116, 38.8701 )
+transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, -17.8382, -11.6863, 14.1688 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -824,7 +832,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag25" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59645, -30.6962, -4.51799 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92388, -12.1709, -29.2192 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -847,7 +855,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag26" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -10.1978, -30.6976, -4.51799 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -7.52523, -12.1723, -29.2192 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -870,7 +878,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag27" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -2.1443, -24.1286, -5.74922 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 0.528272, 1.04598, 2.20195 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -893,7 +901,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag28" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7709, -11.9963, -11.2035 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401839, -22.8086, 14.2095 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -916,7 +924,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag29" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -39.3723, -11.9977, -11.2035 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -0.199559, -22.81, 14.2095 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -939,7 +947,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag30" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -38.0681, -11.9201, -10.5377 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 1.10464, -22.7324, 14.8753 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -962,7 +970,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag31" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -38.5037, -11.9201, -10.7601 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, 4.47709, -20.8378, 8.41746 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -985,7 +993,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag32" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -33.9246, -11.9201, -13.0601 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -94.4684, -23.3536, 193.981 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1008,7 +1016,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag33" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -36.3202, -11.9201, -9.98486 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -0.103137, -23.3536, 14.3317 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1031,7 +1039,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag34" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -35.016, -11.9201, -9.31909 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 19.8764, -23.3536, -0.14081 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1054,7 +1062,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag35" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -37.2969, -11.5117, -7.87344 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 2.46293, -21.3342, 3.87654 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1077,7 +1085,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag36" type="RigidBody" parent="."]
-transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, -26.8179, -11.9201, 9.07982 )
+transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, -8.42571, 12.6333, 0.796318 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1100,7 +1108,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag37" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -27.4193, -11.9201, 9.07982 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -9.02711, 12.6333, 0.796318 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1123,7 +1131,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag38" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -26.115, -11.9201, 9.74557 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -7.72282, 12.6333, 1.46207 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1146,7 +1154,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag39" type="RigidBody" parent="."]
-transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, -26.5506, -11.9201, 9.52325 )
+transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, -8.15842, 12.6333, 1.23975 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1169,7 +1177,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag40" type="RigidBody" parent="."]
-transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, -21.9716, -11.9201, 7.22321 )
+transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, -3.57941, 12.6333, -1.06029 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1192,7 +1200,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag41" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -24.3671, -11.9201, 10.2985 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -5.97491, 12.6333, 2.015 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1215,7 +1223,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag42" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -23.0629, -11.9201, 10.9642 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -4.67072, 12.6333, 2.6807 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1238,7 +1246,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag43" type="RigidBody" parent="."]
-transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, -25.3439, -11.5117, 12.4099 )
+transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, -6.95171, 13.0417, 4.1264 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1261,7 +1269,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag44" type="RigidBody" parent="."]
-transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, -51.1592, -11.9201, 5.18617 )
+transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, 32.4258, -5.4892, -3.09733 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1284,7 +1292,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag45" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -51.7606, -11.9201, 5.18617 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, 31.8244, -5.4892, -3.09733 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1307,7 +1315,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag46" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -50.4564, -11.9201, 5.85193 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -32.0642, 12.6333, -2.43157 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1330,7 +1338,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag47" type="RigidBody" parent="."]
-transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, -50.892, -11.9201, 5.62961 )
+transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, 32.693, -5.4892, -2.65389 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1353,7 +1361,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag48" type="RigidBody" parent="."]
-transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, -46.313, -11.9201, 7.22321 )
+transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, 37.272, -5.4892, -1.06029 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1376,7 +1384,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag49" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -48.7085, -11.9201, 10.2985 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, 34.8765, -5.4892, 2.015 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1399,7 +1407,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag50" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -47.4043, -11.9201, 10.9642 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, 36.1807, -5.4892, 2.6807 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1422,7 +1430,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag68" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07803, -30.6962, -16.1126 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0859, -12.0654, -17.9359 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1445,7 +1453,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag69" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 1.47664, -30.6976, -16.1126 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 16.4845, -12.0668, -17.9359 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1468,7 +1476,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag70" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 2.78086, -30.62, -15.4469 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 21.173, -6.06658, -23.7304 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1491,7 +1499,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag71" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, 2.3453, -30.62, -15.6692 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, 20.7375, -6.06658, -23.9527 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1514,7 +1522,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag72" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, 6.92431, -30.62, -17.9693 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, 21.9322, -11.9892, -19.7926 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1537,7 +1545,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag73" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 4.52876, -30.62, -14.894 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 22.9209, -6.06658, -23.1775 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1560,7 +1568,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag74" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 5.83298, -30.62, -14.2282 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 24.2252, -6.06658, -22.5117 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1583,7 +1591,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag75" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 3.55205, -30.2116, -12.7826 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 21.9442, -5.65817, -21.0661 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1606,7 +1614,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag76" type="RigidBody" parent="."]
-transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 14.0311, -30.62, 4.17069 )
+transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 32.4233, -6.06658, -4.11281 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1629,7 +1637,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag77" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 13.4297, -30.62, 4.17069 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 31.8219, -6.06658, -4.11281 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1652,7 +1660,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag78" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 14.7339, -30.62, 4.83644 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 33.1261, -6.06658, -3.44706 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1675,7 +1683,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag79" type="RigidBody" parent="."]
-transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, 14.2984, -30.62, 4.61412 )
+transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, 32.6906, -6.06658, -3.66938 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1698,7 +1706,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag80" type="RigidBody" parent="."]
-transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 18.8774, -30.62, 2.31408 )
+transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 37.2696, -6.06658, -5.96942 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1721,7 +1729,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag81" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 16.4818, -30.62, 5.38933 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 34.874, -6.06658, -2.89417 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1744,7 +1752,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag82" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 17.786, -30.62, 6.0551 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 36.1782, -6.06658, -2.2284 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1767,7 +1775,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag83" type="RigidBody" parent="."]
-transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 15.5051, -30.2116, 7.50076 )
+transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 33.8973, -5.65817, -0.782742 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1790,7 +1798,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag84" type="RigidBody" parent="."]
-transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, -10.3103, -30.62, 0.277042 )
+transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, 8.08189, -6.06658, -8.00646 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1813,7 +1821,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag85" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -10.9117, -30.62, 0.277042 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, 7.48048, -6.06658, -8.00646 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1836,7 +1844,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag86" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -9.60746, -30.62, 0.942799 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, 8.78473, -6.06658, -7.3407 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1859,7 +1867,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag87" type="RigidBody" parent="."]
-transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, -10.043, -30.62, 0.720478 )
+transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, 8.34919, -6.06658, -7.56302 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1882,7 +1890,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag88" type="RigidBody" parent="."]
-transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, -5.46401, -30.62, 2.31408 )
+transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, 12.9282, -6.06658, -5.96942 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1905,7 +1913,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag89" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -7.85956, -30.62, 5.38933 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, 10.5326, -6.06658, -2.89417 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1928,7 +1936,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag90" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -6.55535, -30.62, 6.0551 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, 11.8368, -6.06658, -2.2284 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1951,7 +1959,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag91" type="RigidBody" parent="."]
-transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, -8.83628, -30.2116, 7.50076 )
+transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, 9.5559, -5.65817, -0.782742 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1974,7 +1982,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag92" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07803, -30.6962, -35.8874 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.9704, -42.1297, -26.7091 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -1997,7 +2005,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag93" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 1.47664, -30.6976, -35.8874 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 56.369, -42.1311, -26.7091 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2020,7 +2028,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag94" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 9.53018, -24.1286, -37.1186 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 64.4225, -35.5621, -27.9403 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2043,7 +2051,7 @@ visible = false
 shape = SubResource( 6 )
 
 [node name="Plastic_bag95" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0964, -11.9963, -42.5729 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1173, -12.7781, -33.3946 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2066,7 +2074,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag96" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -27.6978, -11.9977, -42.5729 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 17.5159, -12.7795, -33.3946 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2089,7 +2097,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag97" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -26.3936, -11.9201, -41.9071 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 18.8201, -12.7019, -32.7288 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2112,7 +2120,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag98" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -26.8292, -11.9201, -42.1294 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, 28.0632, -23.3536, -32.9511 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2135,7 +2143,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag99" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -22.2502, -11.9201, -44.4295 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, 32.6422, -23.3536, -35.2512 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2158,7 +2166,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag100" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -24.6457, -11.9201, -41.3542 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 20.568, -12.7019, -32.1759 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2181,7 +2189,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag101" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -23.3415, -11.9201, -40.6885 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 21.8722, -12.7019, -31.5102 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2204,7 +2212,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag102" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -25.6224, -11.5117, -39.2428 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 19.5913, -12.2935, -30.0645 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2227,7 +2235,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag103" type="RigidBody" parent="."]
-transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, -15.1434, -11.9201, -22.2895 )
+transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, -12.4481, -20.4122, 23.8055 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2250,7 +2258,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag104" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -15.7448, -11.9201, -22.2895 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -13.0495, -20.4122, 23.8055 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2273,7 +2281,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag105" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -14.4406, -11.9201, -21.6238 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, -11.7453, -20.4122, 24.4712 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2296,7 +2304,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag106" type="RigidBody" parent="."]
-transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, -14.8761, -11.9201, -21.8461 )
+transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, -12.1808, -20.4122, 24.2489 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2319,7 +2327,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag107" type="RigidBody" parent="."]
-transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, -10.2971, -11.9201, -24.1462 )
+transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, -25.4684, -15.8332, 27.3694 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2342,7 +2350,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag108" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -12.6927, -11.9201, -21.0709 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -9.99739, -20.4122, 25.0241 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2365,7 +2373,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag109" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -11.3884, -11.9201, -20.4051 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, -26.5597, -15.8332, 31.1105 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2388,7 +2396,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag110" type="RigidBody" parent="."]
-transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, -13.6694, -11.5117, -18.9595 )
+transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, -10.9741, -20.0038, 27.1355 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2410,31 +2418,8 @@ transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 
 visible = false
 shape = SubResource( 9 )
 
-[node name="Plastic_bag111" type="RigidBody" parent="."]
-transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, -39.4848, -11.9201, -26.1832 )
-collision_layer = 2
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-objective_type = 1
-
-[node name="scene" parent="Plastic_bag111" instance=ExtResource( 16 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.198174, -0.0913277, 0.165031 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Plastic_bag111"]
-transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
-visible = false
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Plastic_bag111"]
-transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
-visible = false
-shape = SubResource( 9 )
-
 [node name="Plastic_bag112" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -40.0862, -11.9201, -26.1832 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, 25.2287, -23.3536, -17.0049 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2457,7 +2442,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag113" type="RigidBody" parent="."]
-transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, -38.7819, -11.9201, -25.5174 )
+transform = Transform( 0.434288, 0, -0.900774, 0, 1, 0, 0.900774, 0, 0.434288, 26.533, -23.3536, -16.3391 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2480,7 +2465,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag114" type="RigidBody" parent="."]
-transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, -39.2175, -11.9201, -25.7398 )
+transform = Transform( 0.995087, 0.0786616, 0.0601121, -0.0868954, 0.984919, 0.149607, -0.0474373, -0.154096, 0.986916, 32.2742, -16.0245, -16.5615 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2503,7 +2488,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag115" type="RigidBody" parent="."]
-transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, -34.6385, -11.9201, -24.1462 )
+transform = Transform( 0.383054, 0, -0.923726, 0, 1, 0, 0.923726, 0, 0.383054, 36.8532, -16.0245, -14.9679 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2526,7 +2511,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag116" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -37.034, -11.9201, -21.0709 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, 34.4577, -16.0245, -11.8926 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2549,7 +2534,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag117" type="RigidBody" parent="."]
-transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -35.7298, -11.9201, -20.4051 )
+transform = Transform( -0.078807, 0, -0.99689, 0, 1, 0, 0.99689, 0, -0.078807, -16.4352, -13.083, 25.6899 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2572,7 +2557,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag51" type="RigidBody" parent="."]
-transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, -49.6852, -11.5117, 12.4099 )
+transform = Transform( 0.889796, 0.0786616, -0.449527, 0.00033517, 0.984919, 0.173012, 0.456358, -0.154096, 0.876351, -20.3184, 13.0417, 4.1264 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2595,7 +2580,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag52" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7709, -11.9963, -30.9782 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0961, -23.4298, -21.7999 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2618,7 +2603,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag53" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -39.3723, -11.9977, -30.9782 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 26.4947, -23.4312, -21.7999 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2641,7 +2626,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag54" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -38.0681, -11.9201, -30.3125 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 27.7989, -23.3536, -21.1342 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2664,7 +2649,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag55" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -38.5037, -11.9201, -30.5348 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, 17.6846, -12.7019, -21.3565 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2687,7 +2672,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag56" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -33.9246, -11.9201, -32.8348 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, 22.2637, -12.7019, -23.6565 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2710,7 +2695,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag57" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -36.3202, -11.9201, -29.7596 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 19.8681, -12.7019, -20.5813 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2733,7 +2718,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag58" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -35.016, -11.9201, -29.0938 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, 21.1723, -12.7019, -19.9155 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2756,7 +2741,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag59" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -37.2969, -11.5117, -27.6482 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, 18.8914, -12.2935, -18.4699 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2779,7 +2764,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag60" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7709, -11.9963, 27.9154 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.40409, 12.5571, 19.6319 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2802,7 +2787,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag61" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -39.3723, -11.9977, 27.9154 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -10.0055, 12.5557, 19.6319 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2825,7 +2810,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag62" type="RigidBody" parent="."]
-transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -38.0681, -11.9201, 28.5811 )
+transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, -19.6759, 12.6333, 20.2976 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2848,7 +2833,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag63" type="RigidBody" parent="."]
-transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -38.5037, -11.9201, 28.3588 )
+transform = Transform( 0.75608, 0.0786616, 0.649734, -0.159687, 0.98492, 0.0665826, -0.634699, -0.154096, 0.75724, -20.1115, 12.6333, 20.0753 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2871,7 +2856,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag64" type="RigidBody" parent="."]
-transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -33.9246, -11.9201, 26.0587 )
+transform = Transform( 0.863748, 0, -0.503925, 0, 1, 0, 0.503925, 0, 0.863748, -15.5324, 12.6333, 17.7752 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2894,7 +2879,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag65" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -36.3202, -11.9201, 29.134 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -17.928, 12.6333, 20.8505 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2917,7 +2902,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag66" type="RigidBody" parent="."]
-transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -35.016, -11.9201, 29.7998 )
+transform = Transform( 0.540196, 0, -0.841539, 0, 1, 0, 0.841539, 0, 0.540196, -16.6238, 12.6333, 21.5163 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2940,7 +2925,7 @@ visible = false
 shape = SubResource( 9 )
 
 [node name="Plastic_bag67" type="RigidBody" parent="."]
-transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -37.2969, -11.5117, 31.2454 )
+transform = Transform( 0.98048, 0.0786616, 0.180199, -0.104377, 0.98492, 0.137981, -0.166628, -0.154096, 0.973904, -18.9047, 13.0417, 22.9619 )
 collision_layer = 2
 script = ExtResource( 15 )
 __meta__ = {
@@ -2958,6 +2943,29 @@ mesh = SubResource( 7 )
 material/0 = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Plastic_bag67"]
+transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
+visible = false
+shape = SubResource( 9 )
+
+[node name="Plastic_bag111" type="RigidBody" parent="."]
+transform = Transform( 0.796351, 0, -0.604835, 0, 1, 0, 0.604835, 0, 0.796351, 0, -15.6175, 0 )
+collision_layer = 2
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+objective_type = 1
+
+[node name="scene" parent="Plastic_bag111" instance=ExtResource( 16 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.198174, -0.0913277, 0.165031 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Plastic_bag111"]
+transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
+visible = false
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Plastic_bag111"]
 transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
 visible = false
 shape = SubResource( 9 )
