@@ -38,7 +38,7 @@ func update_score() -> void:
 	if not active_level_data.stars_enabled:
 		return
 	
-	var elapsed_time: float = 500 #(active_level_data.time * 60) - mission_timer.time_left
+	var elapsed_time: float = (active_level_data.time * 60) - mission_timer.time_left
 	# Check the time
 	for i in range(active_level_data.stars.size()):
 		var index: int = (active_level_data.stars.size() - 1) - i 
@@ -133,8 +133,6 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 				instructions_popup.title.text = active_level_data.title
 				instructions_popup.description.text = active_level_data.description
 				instructions_popup.show()
-				active_level.add_penalty("ez", 2500)
-				active_level.emit_signal("finished", 0)
 	else:
 		printerr("LevelData not found for ", scene_data.path)
 
