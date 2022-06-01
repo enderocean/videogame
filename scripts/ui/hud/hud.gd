@@ -23,6 +23,9 @@ onready var camera_follow: FollowCamera = get_node(camera_follow_path)
 export var camera_lookat_path: NodePath
 onready var camera_lookat: LookAtCamera = get_node(camera_lookat_path)
 
+export var vignette_path: NodePath
+onready var vignette: VignetteEffect = get_node(vignette_path)
+
 var active_level: Level
 var active_level_data: LevelData
 
@@ -80,6 +83,9 @@ func _input(event: InputEvent) -> void:
 			pause_menu.hide()
 		else:
 			pause_menu.show()
+	
+	if event.is_action_released("gripper_open"):
+		_on_vehicle_collided()
 
 
 func _on_scene_loaded(scene_data: Dictionary) -> void:
@@ -102,6 +108,8 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 # warning-ignore:return_value_discarded
 	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
 # warning-ignore:return_value_discarded
+	active_level.connect("vehicle_collided", self, "_on_vehicle_collided")
+# warning-ignore:return_value_discarded
 	active_level.connect("penality_added", self, "_on_penality_added")
 	
 	if active_level.vehicle:
@@ -109,6 +117,7 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 		active_level.vehicle.vehicle_body.connect("speed_changed", self, "_on_vehicle_speed_changed")
 	# warning-ignore:return_value_discarded
 		active_level.vehicle.vehicle_body.connect("tool_changed", self, "_on_vehicle_tool_changed")
+
 		camera_follow.target = active_level.vehicle.camera_target
 		camera_lookat.target = active_level.vehicle.camera_target
 		
@@ -192,6 +201,9 @@ func _on_level_finished(update_score: bool = true) -> void:
 
 func _on_penality_added() -> void:
 	update_score()
+
+func _on_vehicle_collided() -> void:
+	vignette.start()
 
 
 func _on_collectible_obtained(id: String) -> void:

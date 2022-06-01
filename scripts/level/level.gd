@@ -57,6 +57,7 @@ signal objectives_changed()
 signal finished()
 signal collectible_obtained(id)
 signal penality_added()
+signal vehicle_collided()
 
 func _ready() -> void:
 	for node in get_children():
@@ -306,7 +307,7 @@ func _on_vehicle_body_entered(body: Node) -> void:
 	
 	# TODO: Add screen effect
 	# TODO: Add collision sound
-	
+	emit_signal("vehicle_collided")
 	add_penalty("Collided with %s" % body.name, collision_tag.points)
 
 
