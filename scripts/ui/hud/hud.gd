@@ -39,6 +39,7 @@ func update_score() -> void:
 		return
 	
 	var elapsed_time: float = (active_level_data.time * 60) - mission_timer.time_left
+	
 	# Check the time
 	for i in range(active_level_data.stars.size()):
 		var index: int = (active_level_data.stars.size() - 1) - i 
@@ -57,7 +58,7 @@ func update_score() -> void:
 	
 	print("Score in stars: ", float(active_level.score / 1000.0))
 	if active_level.score <= 0:
-		_on_level_finished(active_level.score)
+		_on_level_finished(false)
 
 
 func _ready():
@@ -169,15 +170,18 @@ func _on_level_objectives_changed() -> void:
 
 
 func _on_MissionTimer_timeout() -> void:
-	_on_level_finished(active_level.score)
+	_on_level_finished()
 
 
-func _on_level_finished(score: int) -> void:
+func _on_level_finished(update_score: bool = true) -> void:
 	mission_timer.paused = true
-
+	
+	if update_score:
+		update_score()
+	
 	# Save the level score
 	SaveManager.data.levels[active_level_data.id] = {
-		"score": score,
+		"score": active_level.score,
 		# Save the time it took to finish the mission
 		"time": (mission_timer.minutes * 60) - mission_timer.time_left
 	}

@@ -54,7 +54,7 @@ onready var last_depth: float = 0
 var finished: bool = false
 
 signal objectives_changed()
-signal finished(score)
+signal finished()
 signal collectible_obtained(id)
 signal penality_added()
 
@@ -327,7 +327,7 @@ func check_objectives() -> void:
 			finished = false
 
 	if finished:
-		emit_signal("finished", score)
+		emit_signal("finished")
 
 
 # Add a penalty with a reason which could be used
