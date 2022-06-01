@@ -83,9 +83,6 @@ func _input(event: InputEvent) -> void:
 			pause_menu.hide()
 		else:
 			pause_menu.show()
-	
-	if event.is_action_released("gripper_open"):
-		_on_vehicle_collided()
 
 
 func _on_scene_loaded(scene_data: Dictionary) -> void:
@@ -201,6 +198,7 @@ func _on_level_finished(update_score: bool = true) -> void:
 
 func _on_penality_added() -> void:
 	update_score()
+
 
 func _on_vehicle_collided() -> void:
 	vignette.start()
