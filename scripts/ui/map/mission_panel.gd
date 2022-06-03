@@ -19,11 +19,14 @@ onready var objective: RichTextLabel = get_node(objective_path)
 export var tools_path: NodePath
 onready var tools: RichTextLabel = get_node(tools_path)
 
+export var start_button_path: NodePath
+onready var start_button: Button = get_node(start_button_path)
 
-func show_mission(level_data: LevelData) -> void:
+
+func show_mission(level_data: LevelData, can_start: bool) -> void:
 	if level_data.thumbnail:
 		thumbnail.texture = load(level_data.thumbnail)
-
+	
 	country.text = level_data.country
 	location.text = level_data.location
 	description.bbcode_text = level_data.description
@@ -38,3 +41,5 @@ func show_mission(level_data: LevelData) -> void:
 
 		if i < level_data.tools.size() - 1:
 			tools.bbcode_text += ", "
+
+	start_button.disabled = not can_start

@@ -1,6 +1,7 @@
 extends Control
 
 var current_mission: LevelData
+var next_point: MissionPoint
 
 export var mission_panel_path: NodePath
 onready var mission_panel: MissionPanel = get_node(mission_panel_path)
@@ -12,7 +13,6 @@ export var collectibles_menu_path: NodePath
 onready var collectibles_menu: Control = get_node(collectibles_menu_path)
 
 func _ready() -> void:
-	var next_point: MissionPoint
 	for i in range(world_map.mission_points.size()):
 		# Set the mission point completed if the level is present in the save data
 		world_map.mission_points[i].completed = SaveManager.data.levels.has(
@@ -50,7 +50,13 @@ func _on_mission_pressed(mission_point: MissionPoint) -> void:
 
 	current_mission = mission
 	world_map.goto(mission_point)
-	mission_panel.show_mission(current_mission)
+	
+	# Check if the player can start the selected mission
+	var can_start: bool = mission_point.completed
+	if not mission_point.completed and mission_point.mission_id == next_point.mission_id:
+		can_start = true
+	
+	mission_panel.show_mission(current_mission, can_start)
 
 
 func _on_StartMission_pressed() -> void:
