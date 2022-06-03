@@ -17,3 +17,5 @@ Your task will be to collect at least 20 elements in 3 minutes."
 time = 4
 objectives = PoolStringArray( "Collect as many microplsatics as you can", "Have fun!" )
 tools = PoolStringArray( "Vacuum cleaner", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 240, 200, 160, 120, 80 )

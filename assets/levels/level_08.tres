@@ -14,3 +14,5 @@ description = "Ghana recently started a new oil extraction system on the side of
 time = 6
 objectives = PoolStringArray( "Catch all moving plastics beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 340, 300, 260, 220, 180 )

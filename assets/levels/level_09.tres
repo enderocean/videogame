@@ -16,3 +16,5 @@ But even worst, malfunctions from the oil extracting industry has caused leakage
 time = 6
 objectives = PoolStringArray( "Catch 4 plastics", "Retrieve micro-platics bullets" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 340, 300, 260, 220, 180 )

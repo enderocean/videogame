@@ -14,3 +14,5 @@ description = "So many boats are going to Miami harbour. The place needs to be c
 time = 6
 objectives = PoolStringArray( "Catch 10 plastics" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 340, 300, 260, 220, 180 )

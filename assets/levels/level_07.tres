@@ -14,3 +14,5 @@ description = "Our ROV isn’t always fit for all types of environements. The ar
 time = 6
 objectives = PoolStringArray( "Catch 6 moving plastics beforethey get lost into the mediterranean sea", "Retrieve micro-platics spread" )
 tools = PoolStringArray( "Gripper", "Vaccum cleaner", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 340, 300, 260, 220, 180 )

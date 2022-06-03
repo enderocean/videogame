@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -20,17 +20,9 @@
 [ext_resource path="res://assets/models/tools/beretta m9/textures/M9_BaseColor.png" type="Texture" id=18]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=20]
-[ext_resource path="res://assets/models/grass/Posidonia/grass.obj" type="ArrayMesh" id=21]
-[ext_resource path="res://assets/models/grass/Posidonia/petal.jpg" type="Texture" id=22]
 [ext_resource path="res://terrains/level_03/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=23]
-[ext_resource path="res://assets/models/grass/Posidonia/Map__1359796413_Mix.tga" type="Texture" id=24]
-[ext_resource path="res://assets/models/plants/matteucia_struthiopteris_3.obj" type="ArrayMesh" id=25]
 [ext_resource path="res://assets/models/underwater/plant_53/aiStandard1.material" type="Material" id=26]
-[ext_resource path="res://assets/models/underwater/plant_57/plant_57.obj" type="ArrayMesh" id=27]
 [ext_resource path="res://assets/models/underwater/plant_53/plant_53.obj" type="ArrayMesh" id=28]
-[ext_resource path="res://assets/models/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=29]
-[ext_resource path="res://assets/models/underwater/plant_57/aiStandard1.material" type="Material" id=30]
-[ext_resource path="res://assets/models/plants/senecio_2.obj" type="ArrayMesh" id=31]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
 
@@ -38,7 +30,7 @@
 ambient_light_color = Color( 0.705882, 0.705882, 0.705882, 1 )
 fog_enabled = true
 fog_depth_begin = 15.0
-fog_depth_end = 30.0
+fog_depth_end = 50.0
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0, 0.321569, 0.580392, 1 )
@@ -128,21 +120,6 @@ points = PoolVector3Array( 0.882906, 3.0427, -2.30978, 0.743528, 5.16925, 1.1578
 [sub_resource type="ConvexPolygonShape" id=32]
 points = PoolVector3Array( 0.251472, 5.40788, -0.775777, -3.55923, -0.0744628, -1.25625, -3.66931, 0.0624533, -1.72472, -4.22378, 2.79285, 2.38135, 0.521027, 0.266817, 2.46527, 0.472258, 0.431558, -1.59887, -2.83555, 2.9107, -3.0218, 0.483148, 4.09686, 1.9521, -2.96765, 0.38714, 3.06709, -2.83369, 5.03402, 0.760641, 0.516355, 4.95436, -2.10238, -3.4472, 0.630888, -3.54514, -4.72904, 2.08409, 1.35493, -3.92679, 0.031434, 1.97975, -1.07711, 5.24116, -1.69826, -0.223857, 2.07986, 2.91005, -0.695102, 4.58217, 1.96572, -0.697347, 0.172398, -2.32553, -0.563933, 0.0277196, 2.70379, 0.492718, 5.17273, 1.127, -1.65442, 5.62561, 0.288685, -4.17185, 1.22855, 2.94827, 0.492593, 0.055134, -0.419435, -3.36214, 4.25365, -0.0736524, -3.88098, 1.16361, -2.93624, -4.74437, 1.2462, 1.48351, 0.352553, 3.26488, -2.30625, -2.24454, 5.04236, 1.4754, -3.32033, 2.43476, 2.80455, -2.83736, 1.36938, -3.5034, 0.517926, 0.870615, 2.8225, -3.32232, 0.160597, -3.17237, -4.12996, 0.199182, -0.0654523, -1.06369, 1.02176, -2.7799, -2.48455, -0.0763937, 1.37166, -0.816346, 5.65179, -0.896067, -0.922192, 1.34755, 3.07085, -2.01458, 4.69915, -1.53121, -3.28161, 4.64201, 0.740042, -4.52811, 1.11128, 2.46167, 0.426287, 2.44506, 2.71632, -3.75571, 1.41394, -3.06178, 0.535075, 0.132351, 2.23802, -3.07158, 1.72929, -3.4919, -2.36134, 4.79268, 1.69922, -0.827138, 5.27353, -1.83582, -4.1477, 0.0571833, 1.24438, -0.81147, 5.66243, 0.0567581, 0.24998, 1.36752, -2.08238, -0.434275, 0.133067, 2.84154, -2.71965, 5.04879, 1.1241, -3.32097, -0.0756663, 1.84935, -2.816, 3.13776, -2.82998, -3.45109, 1.10632, 3.07229, -4.2735, 2.55512, 2.56301, -1.76803, 0.160799, -2.81335, -1.66959, 5.53452, -0.185312, -3.54279, 0.313005, -3.13427, -4.47868, 2.67564, 1.69908, -4.65558, 2.21807, 1.19476, 0.499429, 5.29827, -1.25518, -4.25245, 0.429979, -0.0650651, -3.2606, 4.60839, 0.381896, -2.24621, 2.07323, 2.94184 )
 
-[sub_resource type="SpatialMaterial" id=23]
-albedo_texture = ExtResource( 24 )
-
-[sub_resource type="SpatialMaterial" id=24]
-albedo_texture = ExtResource( 22 )
-
-[sub_resource type="SpatialMaterial" id=33]
-albedo_texture = ExtResource( 29 )
-
-[sub_resource type="SpatialMaterial" id=34]
-albedo_texture = ExtResource( 29 )
-
-[sub_resource type="SpatialMaterial" id=35]
-albedo_texture = ExtResource( 29 )
-
 [sub_resource type="SpatialMaterial" id=36]
 albedo_texture = ExtResource( 33 )
 
@@ -171,7 +148,7 @@ shadow_enabled = true
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0511, 9.97577, -38.3468 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6379, -9.306, -46.2558 )
 
 [node name="Theter" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
@@ -359,17 +336,17 @@ transform = Transform( -0.414154, 0.0125004, 0.0439463, 0.0125004, 0.416479, -0.
 shape = SubResource( 22 )
 
 [node name="rock11" type="MeshInstance" parent="StaticBody2"]
-transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691737, -0.742469, 0.0236134, -0.377658, -7.86701, 14.1325, 11.7063 )
+transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691738, -0.742469, 0.0236134, -0.377659, 8.03996, 2.09826, -7.1647 )
 mesh = ExtResource( 20 )
 skeleton = NodePath("../../HTerrain")
 material/0 = SubResource( 10 )
 
 [node name="CollisionShape14" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691737, -0.742469, 0.0236134, -0.377658, -7.86701, 14.1325, 11.7063 )
+transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691738, -0.742469, 0.0236134, -0.377659, 8.03996, 2.09826, -7.1647 )
 shape = SubResource( 25 )
 
 [node name="CollisionShape13" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691737, -0.742469, 0.0236134, -0.377658, -7.86701, 14.1325, 11.7063 )
+transform = Transform( -0.377205, 0.0197605, 0.742813, 0.0300037, 0.832764, -0.00691738, -0.742469, 0.0236134, -0.377659, 8.03996, 2.09826, -7.1647 )
 shape = SubResource( 26 )
 
 [node name="rock12" type="MeshInstance" parent="StaticBody2"]
@@ -401,74 +378,18 @@ transform = Transform( -0.182185, -0.107761, 0.133028, -0.116087, 0.220538, 0.01
 shape = SubResource( 30 )
 
 [node name="rock14" type="MeshInstance" parent="StaticBody2"]
-transform = Transform( -0.520133, 0.0244058, 0.650623, 0.0321541, 0.832694, -0.0055303, -0.650286, 0.0216525, -0.520676, -4.72659, 11.6889, 17.6501 )
+transform = Transform( -0.520133, 0.0244058, 0.650623, 0.0321541, 0.832695, -0.00553031, -0.650287, 0.0216525, -0.520677, -16.8954, 1.93447, 3.98152 )
 mesh = ExtResource( 20 )
 skeleton = NodePath("../../HTerrain")
 material/0 = SubResource( 10 )
 
 [node name="CollisionShape20" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( -0.520133, 0.0244058, 0.650623, 0.0321541, 0.832694, -0.0055303, -0.650286, 0.0216525, -0.520676, -4.72659, 11.6889, 17.6501 )
+transform = Transform( -0.520134, 0.0244058, 0.650623, 0.0321541, 0.832695, -0.00553031, -0.650287, 0.0216525, -0.520677, -16.8954, 1.93447, 3.98152 )
 shape = SubResource( 31 )
 
 [node name="CollisionShape19" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( -0.520133, 0.0244058, 0.650623, 0.0321541, 0.832694, -0.0055303, -0.650286, 0.0216525, -0.520676, -4.72659, 11.6889, 17.6501 )
+transform = Transform( -0.520133, 0.0244058, 0.650623, 0.0321541, 0.832695, -0.00553031, -0.650287, 0.0216525, -0.520677, -16.8954, 1.93447, 3.98152 )
 shape = SubResource( 32 )
-
-[node name="grass5" type="MeshInstance" parent="."]
-transform = Transform( 0.0199914, -0.000193274, 0.000440729, 0.000441215, 0.0099108, -0.00262865, -0.000385994, 0.00131862, 0.0198216, -17.0142, -12.4039, -42.3135 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass6" type="MeshInstance" parent="."]
-transform = Transform( 0.00134099, -0.00109504, -0.0298899, 0.00299437, 0.01489, -0.00204767, 0.02982, -0.00144593, 0.00154974, 31.0273, -13.3704, -62.6029 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass7" type="MeshInstance" parent="."]
-transform = Transform( -0.0173143, -0.00151102, 0.0243122, -0.000788359, 0.0149121, 0.00314575, -0.0244866, 0.000588331, -0.0172923, 36.1386, 4.96893, -8.34764 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass8" type="MeshInstance" parent="."]
-transform = Transform( 0.00134099, -0.00109504, -0.0298899, 0.00299437, 0.01489, -0.00204767, 0.02982, -0.00144593, 0.00154974, 21.8745, -13.3704, -41.1042 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass9" type="MeshInstance" parent="."]
-transform = Transform( 0.0266159, -0.000540994, 0.0137994, 0.00141549, 0.0149821, -0.000380722, -0.0137692, 0.000494435, 0.0266351, 26.3628, -12.7009, 12.5666 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass10" type="MeshInstance" parent="."]
-transform = Transform( 0.00134099, -0.00109504, -0.0298899, 0.00299437, 0.01489, -0.00204767, 0.02982, -0.00144593, 0.00154974, 51.5553, -13.3704, -47.3681 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
-
-[node name="grass11" type="MeshInstance" parent="."]
-transform = Transform( 0.00134099, -0.00109504, -0.0298899, 0.000337961, 0.0149595, -0.00217704, 0.0299681, -0.000119703, 0.00136204, 61.1007, -13.3704, -49.8183 )
-visible = false
-mesh = ExtResource( 21 )
-material/0 = SubResource( 23 )
-material/1 = SubResource( 24 )
-material/2 = SubResource( 23 )
 
 [node name="plant_53" type="MeshInstance" parent="."]
 transform = Transform( 0.0322691, 0, -0.19738, 0, 0.2, 0, 0.19738, 0, 0.0322691, 29.0051, -10.8348, -40.0874 )
@@ -501,43 +422,126 @@ mesh = ExtResource( 28 )
 material/0 = ExtResource( 26 )
 
 [node name="plant_59" type="MeshInstance" parent="."]
-transform = Transform( -0.821617, 0.0246243, 1.00714, 0.144433, 1.28907, 0.0863099, -0.997038, 0.166445, -0.817443, 31.2165, -11.4928, -27.0802 )
-mesh = ExtResource( 27 )
-material/0 = ExtResource( 30 )
+transform = Transform( 0.0322691, 0, -0.19738, 0, 0.2, 0, 0.19738, 0, 0.0322691, 25.8812, -10.0156, -38.317 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
 
-[node name="matteucia_struthiopteris_3" type="MeshInstance" parent="."]
-transform = Transform( 0.199895, 0.00647753, 0, -0.00647753, 0.199895, 0, 0, 0, 0.2, 30.2294, -12.309, -41.4423 )
-mesh = ExtResource( 25 )
-material/0 = SubResource( 33 )
+[node name="plant_60" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 24.3938, -10.2114, -39.1542 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
 
-[node name="matteucia_struthiopteris_4" type="MeshInstance" parent="."]
-transform = Transform( 0.199895, 0.00647753, 0, -0.00647753, 0.199895, 0, 0, 0, 0.2, 39.8474, -12.309, -59.5251 )
-mesh = ExtResource( 25 )
-material/0 = SubResource( 33 )
+[node name="plant_61" type="MeshInstance" parent="."]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 24.7381, -9.90102, -38.6464 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
 
-[node name="senecio_2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.995861, -0.0908933, 0, 0.0908933, 0.995861, 23.61, -9.99842, -37.8431 )
-mesh = ExtResource( 31 )
-material/0 = SubResource( 34 )
-material/1 = SubResource( 35 )
+[node name="plant_62" type="MeshInstance" parent="."]
+transform = Transform( -0.0162103, 0, -0.199342, 0, 0.2, 0, 0.199342, 0, -0.0162103, 25.2345, -10.5952, -38.7311 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
 
-[node name="senecio_3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999737, 0.0229491, 0, -0.0229491, 0.999737, 48.9131, -11.1133, -4.70487 )
-mesh = ExtResource( 31 )
-material/0 = SubResource( 34 )
-material/1 = SubResource( 35 )
+[node name="plant_63" type="MeshInstance" parent="."]
+transform = Transform( -0.0297446, -0.0209191, -0.0931539, -0.0420746, 0.0904567, -0.00687868, 0.0857029, 0.0371481, -0.0357076, 25.8812, -9.78912, -38.0619 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_64" type="MeshInstance" parent="."]
+transform = Transform( -0.139031, 0.0274334, -0.0742825, 0.0410351, 0.153326, -0.0201781, 0.0677245, -0.0365848, -0.140267, 25.8812, -10.0757, -38.5806 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_65" type="MeshInstance" parent="."]
+transform = Transform( 0.0322691, 0, -0.19738, 0, 0.2, 0, 0.19738, 0, 0.0322691, 25.8673, -8.47183, -52.3662 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_66" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 24.2553, -8.63234, -52.8983 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_67" type="MeshInstance" parent="."]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 24.5895, -8.07955, -52.3905 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_68" type="MeshInstance" parent="."]
+transform = Transform( -0.0162103, 0, -0.199342, 0, 0.2, 0, 0.199342, 0, -0.0162103, 25.0243, -8.6022, -52.8477 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_77" type="MeshInstance" parent="."]
+transform = Transform( -0.0615246, 0, -0.190302, 0, 0.2, 0, 0.190302, 0, -0.0615246, 24.9087, -8.47183, -51.1373 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_78" type="MeshInstance" parent="."]
+transform = Transform( 0.177882, 0, -0.0914227, 0, 0.2, 0, 0.0914227, 0, 0.177882, 23.2967, -8.63234, -51.6694 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_79" type="MeshInstance" parent="."]
+transform = Transform( 0.133411, 0, -0.068567, 0, 0.15, 0, 0.068567, 0, 0.133411, 23.6308, -8.07955, -51.1616 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_80" type="MeshInstance" parent="."]
+transform = Transform( -0.105539, 0, -0.169887, 0, 0.2, 0, 0.169887, 0, -0.105539, 24.0657, -8.6022, -51.6189 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_69" type="MeshInstance" parent="."]
+transform = Transform( -0.0297446, -0.0209191, -0.0931539, -0.0420746, 0.0904567, -0.00687868, 0.0857029, 0.0371481, -0.0357076, 25.4557, -8.35935, -52.1373 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_70" type="MeshInstance" parent="."]
+transform = Transform( -0.139031, 0.0274334, -0.0742825, 0.0410351, 0.153326, -0.0201781, 0.0677245, -0.0365848, -0.140267, 26.199, -8.50186, -52.3463 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_71" type="MeshInstance" parent="."]
+transform = Transform( 0.0322691, 0, -0.19738, 0, 0.2, 0, 0.19738, 0, 0.0322691, 22.6087, -8.49248, -51.4198 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_72" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 21.1213, -8.68828, -52.2571 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_73" type="MeshInstance" parent="."]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 21.4656, -8.37788, -51.7493 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_74" type="MeshInstance" parent="."]
+transform = Transform( -0.0162103, 0, -0.199342, 0, 0.2, 0, 0.199342, 0, -0.0162103, 21.962, -9.07208, -51.8339 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_75" type="MeshInstance" parent="."]
+transform = Transform( -0.0297446, -0.0209191, -0.0931539, -0.0420746, 0.0904567, -0.00687868, 0.0857029, 0.0371481, -0.0357076, 22.6087, -8.26598, -51.1647 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
+
+[node name="plant_76" type="MeshInstance" parent="."]
+transform = Transform( -0.139031, 0.0274334, -0.0742825, 0.0410351, 0.153326, -0.0201781, 0.0677245, -0.0365848, -0.140267, 22.6087, -8.55258, -51.6834 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 26 )
 
 [node name="SeaHorse2" type="MeshInstance" parent="."]
-transform = Transform( -0.0827634, -0.00436288, -0.0395809, 0, 0.0665476, -0.00823735, 0.0561268, -0.00643343, -0.0583652, 24.4987, -7.86692, -36.6871 )
+transform = Transform( -0.0413817, -0.00325588, -0.0278739, 0, 0.0496624, -0.00580094, 0.0280634, -0.00480106, -0.0411023, 22.0288, -7.5743, -51.5885 )
 mesh = ExtResource( 32 )
 material/0 = SubResource( 36 )
 
 [node name="SeaHorse3" type="MeshInstance" parent="."]
-transform = Transform( 0.13822, 0, -0.058218, 0, 0.1, 0, 0.0989706, 0, 0.081306, 24.9793, -8.42204, -38.7346 )
+transform = Transform( 0.040653, 0, -0.029109, 0, 0.05, 0, 0.029109, 0, 0.040653, 25.8864, -8.94565, -38.2764 )
 mesh = ExtResource( 32 )
 material/0 = SubResource( 36 )
 
 [node name="SeaHorse" type="MeshInstance" parent="."]
-transform = Transform( 0.0920648, 0, 0.0887751, 0, 0.1, 0, -0.17755, 0, 0.0460324, 22.5614, -7.88996, -37.9509 )
+transform = Transform( 0.0230162, 0, 0.0443875, 0, 0.05, 0, -0.0443875, 0, 0.0230162, 25.188, -9.33379, -38.3724 )
 mesh = ExtResource( 32 )
 material/0 = SubResource( 36 )

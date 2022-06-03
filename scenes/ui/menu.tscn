@@ -225,7 +225,7 @@ alignment = 1
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 130.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 250, 120 )
 custom_constants/separation = 10
 __meta__ = {

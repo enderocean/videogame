@@ -17,4 +17,4 @@ time = 4
 objectives = PoolStringArray( "Find the lost container", "Clean it of the plastic it still contains" )
 tools = PoolStringArray( "Vacuum Cleaner", "Lights" )
 stars_enabled = true
-stars = PoolIntArray( 900, 600, 300, 180, 60 )
+stars = PoolIntArray( 240, 200, 160, 120, 80 )

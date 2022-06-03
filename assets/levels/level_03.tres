@@ -17,3 +17,5 @@ a disturbance on an underwater cable in the area. These cables connect Europe wi
 time = 4
 objectives = PoolStringArray( "Find what cause the cable to beunstable", "Deal with the issue" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 240, 230, 220, 210, 200 )

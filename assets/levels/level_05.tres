@@ -16,3 +16,5 @@ To help against this, we implemented a few ROVs along the most problematic parts
 time = 5
 objectives = PoolStringArray( "Catch 4 moving items beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 360, 300, 240, 180, 120 )

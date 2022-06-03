@@ -16,3 +16,5 @@ description = "Local researchers estimate that Osaka Bay contains as many as 3 m
 time = 10
 objectives = PoolStringArray( "Collect 100 plastics" )
 tools = PoolStringArray( "Vaccum cleaner", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 600, 420, 360, 300, 240 )

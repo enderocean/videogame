@@ -18,3 +18,5 @@ many toxic wastes that could impact them."
 time = 5
 objectives = PoolStringArray( "Cut the top of 4 fishing net ropes to free the animal" )
 tools = PoolStringArray( "Cutter", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 360, 300, 280, 260, 240 )

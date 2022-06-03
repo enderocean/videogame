@@ -129,7 +129,6 @@ script = ExtResource( 7 )
 __meta__ = {
 "_editor_description_": "A scene to showcase and test differents gameplay elements"
 }
-vehicle_path = NodePath("BlueRov")
 objectives_target = {
 "animal": 0,
 "cutter": 0,

@@ -184,7 +184,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/sounds/sound_trigger_area.gd"
 }, {
-"base": "Path",
+"base": "Spatial",
 "class": "Theter",
 "language": "GDScript",
 "path": "res://scripts/rope/theter.gd"
@@ -284,7 +284,8 @@ run/main_scene="res://scenes/ui/menu.tscn"
 boot_splash/image="res://assets/logo_ender.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.129412, 0.121569, 0.164706, 1 )
-config/icon="res://icon.png"
+config/icon="res://assets/logo_ender.png"
+config/windows_native_icon="res://assets/logo_ender.ico"
 
 [autoload]
 

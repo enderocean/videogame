@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=2]
+[gd_scene load_steps=238 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -185,10 +185,11 @@
 [ext_resource path="res://scripts/sounds/sound_trigger_area.gd" type="Script" id=183]
 [ext_resource path="res://assets/models/animals/tropical_fishes/GiantGrouper/GiantGrouper.obj" type="ArrayMesh" id=184]
 [ext_resource path="res://assets/models/animals/tropical_fishes/GiantGrouper/GiantGrouper_Base_Color.png" type="Texture" id=185]
+[ext_resource path="res://scripts/penalty_collision_tag.gd" type="Script" id=186]
 
 [sub_resource type="Environment" id=56]
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.5
+ambient_light_energy = 0.8
 fog_enabled = true
 fog_color = Color( 0.431373, 0.635294, 0.831373, 1 )
 fog_depth_begin = 20.0
@@ -923,6 +924,9 @@ mesh = ExtResource( 132 )
 skeleton = NodePath("../../../plant_53")
 material/0 = ExtResource( 133 )
 
+[node name="PenaltyCollisionTag" type="Node" parent="StaticBody/rock01"]
+script = ExtResource( 186 )
+
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 11.3552, -1.34448, 4.47217 )
 shape = SubResource( 53 )
@@ -1018,6 +1022,9 @@ transform = Transform( 0.00863492, 0, 0.0234614, 0, 0.025, 0, -0.0117307, 0, 0.0
 mesh = ExtResource( 83 )
 skeleton = NodePath("../../../StaticBody3/rock03/plant_30")
 material/0 = SubResource( 10 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="StaticBody2/rock05"]
+script = ExtResource( 186 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 3.01198, -1.75065, 0.343076 )
@@ -1173,6 +1180,9 @@ mesh = ExtResource( 143 )
 skeleton = NodePath("../../../plant_59")
 material/0 = ExtResource( 144 )
 
+[node name="PenaltyCollisionTag" type="Node" parent="StaticBody3/rock03"]
+script = ExtResource( 186 )
+
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 11.1699, -1.82781, 18.0192 )
 shape = SubResource( 55 )
@@ -1264,7 +1274,7 @@ material/0 = SubResource( 45 )
 
 [node name="Diving air" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2537, 0.235137, 23.3177 )
-mass = 500.0
+mass = 5.0
 script = ExtResource( 171 )
 
 [node name="uploads_files_2306193_cylinder+final" type="MeshInstance" parent="Diving air"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -35,10 +35,13 @@
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaSnake/SeaSnake_Base_Color.png" type="Texture" id=33]
 [ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish_Base_Color.png" type="Texture" id=34]
 [ext_resource path="res://assets/models/animals/tropical_fishes/LionFish/LionFish.obj" type="ArrayMesh" id=35]
+[ext_resource path="res://scripts/lemniscate_x2.gd" type="Script" id=36]
+[ext_resource path="res://scripts/lemniscate_slow.gd" type="Script" id=37]
 [ext_resource path="res://assets/models/animals/reef_fishes/Red Starfish/redstarfish1UV.obj" type="ArrayMesh" id=38]
 [ext_resource path="res://assets/models/animals/reef_fishes/Red Starfish/redstarfish1/redstarfish1_Base_Color.png" type="Texture" id=39]
 [ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.tscn" type="PackedScene" id=40]
 [ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.gd" type="Script" id=41]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=42]
 
 [sub_resource type="Environment" id=16]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -147,6 +150,12 @@ shader_param/uv1_offset = Vector3( 0, 0, 0 )
 shader_param/uv2_scale = Vector3( 1, 1, 1 )
 shader_param/uv2_offset = Vector3( 0, 0, 0 )
 shader_param/texture_albedo = ExtResource( 33 )
+
+[sub_resource type="Curve3D" id=24]
+_data = {
+"points": PoolVector3Array( -1.52588e-05, -0.0134099, -0.104301, 1.52588e-05, 0.0134099, 0.104301, 7.62939e-06, -0.125159, 0.181778, 0, -0.0759891, 0.00745392, 0, 0.0759891, -0.00745392, 2.28882e-05, 0.0372496, 0.345673, 0, -0.0148998, 0.0938721, 0, 0.0148998, -0.0938721, 2.28882e-05, 0.134099, 0.168365, 0, 0.0238397, 0.0700226, 0, -0.0238397, -0.0700226, 2.28882e-05, 0.116219, 0.00298309, 0, 0.0536394, 0.0283127, 0, -0.0536394, -0.0283127, 2.28882e-05, 0.0506594, -0.141548, 0, 0, 0, 0, 0, 0, 2.28882e-05, -0.0461895, -0.128136, 0, 0.0148998, -0.0983429, 0, -0.0148998, 0.0983429, 2.28882e-05, -0.126649, 0.0402298, 0, 0, 0, 0, 0, 0, 7.62939e-06, -0.125159, 0.181778 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [sub_resource type="SpatialMaterial" id=20]
 albedo_texture = ExtResource( 34 )
@@ -1212,6 +1221,10 @@ transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 
 visible = false
 shape = SubResource( 11 )
 
+[node name="CollectibleTag" type="Node" parent="Plastic_bag"]
+script = ExtResource( 42 )
+id = "03_plastic_bag"
+
 [node name="Plastic_bag2" type="RigidBody" parent="."]
 transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 89.9633, -2.07689, 109.977 )
 collision_layer = 2
@@ -1374,7 +1387,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag9" type="RigidBody" parent="."]
-transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 102.518, -1.99926, 130.261 )
+transform = Transform( 0.838832, 0, -0.54439, 0, 1, 0, 0.54439, 0, 0.838832, 101.484, -1.95792, 131.854 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1397,7 +1410,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag10" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 101.916, -1.99926, 130.261 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 101.916, -1.99926, 133.004 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1420,7 +1433,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag11" type="RigidBody" parent="."]
-transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 103.221, -1.99926, 130.926 )
+transform = Transform( 0.499607, 0, -0.866252, 0, 1, 0, 0.866252, 0, 0.499607, 103.221, -1.99926, 133.669 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1443,7 +1456,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag12" type="RigidBody" parent="."]
-transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, 102.785, -1.99926, 130.704 )
+transform = Transform( 0.987933, 0.0786616, 0.133415, -0.0977038, 0.98492, 0.142784, -0.120172, -0.154096, 0.980721, 102.785, -1.99926, 133.447 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1466,7 +1479,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag13" type="RigidBody" parent="."]
-transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 107.364, -1.99926, 128.404 )
+transform = Transform( 0.450208, 0, -0.892924, 0, 1, 0, 0.892924, 0, 0.450208, 107.364, -1.37735, 131.147 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1489,7 +1502,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag14" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 104.968, -1.99926, 131.479 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 104.968, -1.99926, 134.222 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1512,7 +1525,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag15" type="RigidBody" parent="."]
-transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 106.273, -1.99926, 132.145 )
+transform = Transform( -0.00499155, 0, -0.999987, 0, 1, 0, 0.999987, 0, -0.00499155, 106.273, -1.99926, 134.888 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -1535,7 +1548,7 @@ visible = false
 shape = SubResource( 11 )
 
 [node name="Plastic_bag16" type="RigidBody" parent="."]
-transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 103.992, -1.59091, 133.591 )
+transform = Transform( 0.920556, 0.0786616, -0.382607, -0.0124392, 0.984919, 0.172564, 0.390411, -0.154096, 0.907653, 103.992, -1.59091, 136.334 )
 collision_layer = 2
 script = ExtResource( 23 )
 __meta__ = {
@@ -2115,7 +2128,7 @@ curve = SubResource( 12 )
 script = ExtResource( 26 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.984152, -1.73119e-08, -0.177328, 1.77636e-15, 1, -9.76264e-08, 0.177328, 9.60793e-08, 0.98415, 79.0641, 3.33786e-06, 95.5428 )
+transform = Transform( 0.984152, -1.73119e-08, -0.177328, 1.77636e-15, 1, -9.76263e-08, 0.177328, 9.60793e-08, 0.98415, 79.0641, 3.33786e-06, 95.5428 )
 rotation_mode = 4
 
 [node name="Ray" type="MeshInstance" parent="Path/PathFollow"]
@@ -2124,7 +2137,7 @@ mesh = ExtResource( 24 )
 material/0 = SubResource( 13 )
 
 [node name="rock01" type="MeshInstance" parent="."]
-transform = Transform( -0.0178354, 0, -0.0402043, 0, 0.01, 0, 0.0241226, 0, -0.0297257, 101.71, -2.22405, 124.05 )
+transform = Transform( -0.0178354, 0, -0.0402043, 0, 0.01, 0, 0.0241226, 0, -0.0297257, 101.71, -1.82576, 124.364 )
 mesh = ExtResource( 29 )
 material/0 = SubResource( 14 )
 
@@ -2207,7 +2220,7 @@ skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
 
 [node name="rock02" type="MeshInstance" parent="."]
-transform = Transform( 0.0205356, 0, 0.0364496, 0, 0.01, 0, -0.0218698, 0, 0.0342261, 104.549, -2.22405, 124.206 )
+transform = Transform( 0.0205356, 0, 0.0364496, 0, 0.01, 0, -0.0218698, 0, 0.0342261, 104.549, -1.82576, 124.52 )
 mesh = ExtResource( 31 )
 material/0 = SubResource( 14 )
 
@@ -2300,7 +2313,7 @@ skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
 
 [node name="rock03" type="MeshInstance" parent="."]
-transform = Transform( 0.0193273, 0, 0.038241, 0, 0.01, 0, -0.0229446, 0, 0.0322122, 105.177, -2.22405, 129.311 )
+transform = Transform( 0.014278, 0.000119053, -0.04397, -0.00232464, 0.00996587, -0.00142225, 0.0262818, 0.00081681, 0.0237616, 104.425, -1.62299, 128.976 )
 mesh = ExtResource( 29 )
 material/0 = SubResource( 14 )
 
@@ -2317,7 +2330,7 @@ skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
 
 [node name="plant_53" type="MeshInstance" parent="rock03"]
-transform = Transform( 0.983732, 0, -1.34538, 0, 5, 0, 0.807228, 0, 0.590239, 16.7681, 6.1321, -9.75781 )
+transform = Transform( 0.983733, -6.70552e-08, -1.34538, -8.9407e-08, 5.00001, 1.19209e-07, 0.807228, 0, 0.590239, 12.3682, 26.2728, -5.89441 )
 mesh = ExtResource( 28 )
 skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
@@ -2377,13 +2390,13 @@ skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
 
 [node name="plant_63" type="MeshInstance" parent="rock03"]
-transform = Transform( 1.2367, 0, -1.11729, 0, 5, 0, 0.670375, 0, 0.742023, 10.7327, -0.835236, 5.01245 )
+transform = Transform( 1.2367, -2.23517e-08, -1.11729, -2.98023e-08, 5, 1.49012e-08, 0.670375, 0, 0.742023, 10.7334, 22.4894, 5.0127 )
 mesh = ExtResource( 28 )
 skeleton = NodePath("../../../StaticBody3/rock03/plant_50")
 material/0 = ExtResource( 27 )
 
 [node name="rock04" type="MeshInstance" parent="."]
-transform = Transform( 0.0306004, 0, 0.0242695, 0, 0.01, 0, -0.0169886, 0, 0.0437149, 99.2834, -2.22405, 120.171 )
+transform = Transform( 0.0306004, 0, 0.0242695, 0, 0.01, 0, -0.0169886, 0, 0.0437149, 99.2834, -1.82576, 120.485 )
 mesh = ExtResource( 29 )
 material/0 = SubResource( 14 )
 
@@ -2478,30 +2491,40 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 32 )
 material/0 = SubResource( 19 )
 
-[node name="LionFish" type="MeshInstance" parent="."]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 101.965, -1.66416, 123.535 )
+[node name="Path4" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.814, -0.981536, 123.365 )
+curve = SubResource( 24 )
+script = ExtResource( 37 )
+
+[node name="PathFollow" type="PathFollow" parent="Path4"]
+transform = Transform( 1, -4.65921e-06, 9.44255e-05, -3.63798e-12, 0.998785, 0.0492828, -9.45404e-05, -0.0492828, 0.998785, 7.62939e-06, -0.125159, 0.181778 )
+rotation_mode = 2
+
+[node name="LionFish" type="MeshInstance" parent="Path4/PathFollow"]
+transform = Transform( 0.05, 8.52651e-14, -3.18323e-12, 8.52651e-14, 0.05, -1.16415e-09, 2.72848e-12, 0, 0.05, -0.0713806, 0.0702143, -0.0506897 )
 mesh = ExtResource( 35 )
+skeleton = NodePath("../../..")
 material/0 = SubResource( 20 )
 
 [node name="Path3" type="Path" parent="."]
-transform = Transform( 0.57329, 0, -0.819352, 0, 1, 0, 0.819352, 0, 0.57329, 69.3979, -0.721956, 72.2488 )
+transform = Transform( 0.57329, 0, -0.819352, 0, 1, 0, 0.819352, 0, 0.57329, 65.0706, -0.4318, 75.2766 )
 curve = SubResource( 21 )
-script = ExtResource( 26 )
+script = ExtResource( 36 )
 
 [node name="PathFollow" type="PathFollow" parent="Path3"]
-transform = Transform( 0.999497, 0, -0.0317029, 0, 1, 0, 0.0317029, 0, 0.999497, -0.0443039, -6.4373e-06, 0.0633163 )
+transform = Transform( 0.99835, -3.0536e-08, -0.0574135, 0, 1, -5.3186e-07, 0.0574135, 5.30983e-07, 0.99835, -0.0443039, -6.4373e-06, 0.0633163 )
 rotation_mode = 4
 
 [node name="BottleNoseDolphin" parent="Path3/PathFollow" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.58487, 4.41967 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -1.58487, 4.41967 )
 script = ExtResource( 41 )
 
 [node name="BottleNoseDolphin2" parent="Path3/PathFollow" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52647, -1.0336, -7.62939e-06 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 4.52647, -1.0336, -7.62939e-06 )
 script = ExtResource( 41 )
 
 [node name="BottleNoseDolphin3" parent="Path3/PathFollow" instance=ExtResource( 40 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.940651, -1.0336, -5.81493 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.940651, -1.0336, -5.81493 )
 script = ExtResource( 41 )
 
 [node name="redstarfish1UV" type="MeshInstance" parent="."]

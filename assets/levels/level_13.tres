@@ -16,3 +16,5 @@ Some items felt down in the river during construction. It's time to bring them b
 time = 9
 objectives = PoolStringArray( "Put the magnet on the car to remove it" )
 tools = PoolStringArray( "Magnet", "Lights" )
+stars_enabled = true
+stars = PoolIntArray( 420, 360, 300, 240, 180 )

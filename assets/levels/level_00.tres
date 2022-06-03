@@ -13,8 +13,8 @@ location = "The Bordeaux stone quarry"
 description = "Still in 2022, many quaries near Bordeaux are invaded by savage pollution. Authorities do not know anymore how to fight against incivilities. 
 
 Please help to clean the area ! And be careful with algues..."
-time = 4
+time = 5
 objectives = PoolStringArray( "Collect 4 waste", "Drop it into the net" )
 tools = PoolStringArray( "Gripper", "Lights" )
 stars_enabled = true
-stars = PoolIntArray( 900, 600, 300, 180, 60 )
+stars = PoolIntArray( 300, 240, 180, 120, 60 )

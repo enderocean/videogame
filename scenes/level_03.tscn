@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://terrains/level_03/rock/Rock035_1K_Color.jpg" type="Texture" id=10]
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=11]
 [ext_resource path="res://terrains/level_03/black/Ground049B_1K_Color.jpg" type="Texture" id=12]
-[ext_resource path="res://assets/models/waste/Beets.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://scripts/penalty_collision_tag.gd" type="Script" id=13]
 [ext_resource path="res://assets/models/rocks/rock01.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://terrains/level_03/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=15]
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=16]
@@ -28,7 +28,7 @@
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=27]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=28]
-[ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=29]
+[ext_resource path="res://assets/models/food/tin_can/tin_can.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/models/bottles/plastic_bottle/scene.gltf" type="PackedScene" id=31]
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=32]
@@ -38,7 +38,6 @@
 [ext_resource path="res://assets/models/grass/Posidonia/petal.jpg" type="Texture" id=36]
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=37]
 [ext_resource path="res://scenes/net/fishing_net.tscn" type="PackedScene" id=38]
-[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=39]
 
 [sub_resource type="Environment" id=58]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -111,15 +110,6 @@ albedo_texture = ExtResource( 37 )
 
 [sub_resource type="BoxShape" id=47]
 extents = Vector3( 0.757509, 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=15]
-albedo_color = Color( 0.992157, 0.286275, 0.0980392, 1 )
-
-[sub_resource type="ConvexPolygonShape" id=40]
-points = PoolVector3Array( -0.0395435, 1.81175, -0.163156, 0.434641, -0.996289, 1.23656, -0.431587, -0.996289, 1.23656, -0.467671, -1.12594, -1.19387, 1.17129, -0.996289, -0.843121, -1.23327, -0.996289, 0.477895, 1.13282, -1.12599, 0.812847, -1.16823, -0.996289, -0.842879, 0.0628767, 1.84817, 0.145173, -1.00581, -1.17519, 1.00886, 0.833871, -1.12565, -1.12956, -0.142792, 1.85492, 0.0633539, 1.23656, -0.996289, 0.434861, -0.669963, -0.996289, -1.21109, -1.03816, -1.19143, -0.886155, 0.889634, -1.19143, 1.0197, 0.6515, -0.996289, -1.21157, 0.145542, 1.85167, -0.0597614, 1.08474, -0.996289, 0.998178, -1.05992, -0.996289, 1.04121, 0.982051, -1.16655, -0.979055, 1.04122, -0.996289, -1.05999, -1.23327, -0.996289, -0.474667, 1.23656, -0.996289, -0.431391, -1.05992, -0.996289, -1.03798, 0.889634, -0.996289, 1.14977, -0.843305, -0.996289, 1.17104, -0.143169, 1.8588, -0.0602873, 0.477916, -0.996289, -1.23333, -1.16823, -0.996289, 0.846107, 0.0631847, 1.85562, -0.142668, -0.0601756, 1.85143, 0.14549, 1.17129, -0.996289, 0.824831, 0.166351, 1.81121, 0.0218573, -0.47462, -0.996289, -1.23333, -1.19379, -1.12592, 0.470941, 1.19707, -1.1259, -0.425061, -0.423889, -1.09982, 1.21462, -0.843305, -0.996289, -1.16781, 0.846359, -0.996289, -1.1683, 0.6515, -0.996289, 1.2148, -0.0604913, 1.859, -0.142996, -1.19381, -1.12595, -0.467721, 0.639541, -1.09887, 1.19248, 0.0218914, 1.81126, 0.166328, 1.2148, -0.996289, 0.651484, 1.2148, -0.996289, -0.648015, -0.648446, -0.996289, 1.21432, 0.144286, 1.818, 0.0829609, -1.02675, -1.17431, -0.983532, -1.21151, -0.996289, -0.669532, 0.47096, -1.12592, -1.19385, 1.19705, -1.12587, 0.42852, 0.997943, -0.996289, 1.08473, -1.21151, -0.996289, 0.651242, 1.14918, -1.09813, -0.827155, -0.163294, 1.81128, -0.0395652, -0.929856, -0.996289, -1.12454, 0.103439, 1.83784, 0.123447, 1.14953, -0.996289, 0.889866, -0.83091, -1.12582, -1.12946, 1.00471, -1.10437, 1.04758, -1.14815, -1.10073, 0.831611, -0.827459, -1.09835, 1.14911 )
-
-[sub_resource type="SpatialMaterial" id=23]
-albedo_color = Color( 0.141176, 0.376471, 0.0784314, 1 )
 
 [sub_resource type="CylinderShape" id=24]
 radius = 0.05
@@ -233,7 +223,7 @@ transform = Transform( -0.016695, -0.226086, 0.973964, -0.00960515, 0.974091, 0.
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, 42.2721, -9.24728, 54.2895 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.272, -9.247, 54.29 )
 
 [node name="Theter" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
@@ -336,6 +326,9 @@ material/0 = SubResource( 4 )
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 49.3735, -10.7259, 126.831 )
 shape = SubResource( 17 )
 
+[node name="PenaltyCollisionTag" type="Node" parent="Rock01"]
+script = ExtResource( 13 )
+
 [node name="Rock02" type="StaticBody" parent="."]
 
 [node name="rock02" type="MeshInstance" parent="Rock02"]
@@ -347,6 +340,9 @@ material/0 = SubResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="Rock02"]
 transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 46.8272, -14.9349, 86.973 )
 shape = SubResource( 18 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="Rock02"]
+script = ExtResource( 13 )
 
 [node name="Rock03" type="StaticBody" parent="."]
 
@@ -360,6 +356,9 @@ material/0 = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3273, -21.0839, 201.573 )
 shape = SubResource( 19 )
 
+[node name="PenaltyCollisionTag" type="Node" parent="Rock03"]
+script = ExtResource( 13 )
+
 [node name="Rock04" type="StaticBody" parent="."]
 
 [node name="rock04" type="MeshInstance" parent="Rock04"]
@@ -371,6 +370,9 @@ material/0 = SubResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="Rock04"]
 transform = Transform( 0.477232, 0, -0.149162, 0, 0.5, 0, 0.149162, 0, 0.477232, 47.4709, -14.0616, 232.911 )
 shape = SubResource( 20 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="Rock04"]
+script = ExtResource( 13 )
 
 [node name="Rock05" type="StaticBody" parent="."]
 
@@ -384,6 +386,9 @@ material/0 = SubResource( 8 )
 transform = Transform( 0.999887, -0.0150442, 0, 0.0150442, 0.999887, 0, 0, 0, 1, 66.1002, -15.081, 53.408 )
 shape = SubResource( 21 )
 
+[node name="PenaltyCollisionTag" type="Node" parent="Rock05"]
+script = ExtResource( 13 )
+
 [node name="Rock06" type="StaticBody" parent="."]
 
 [node name="rock06" type="MeshInstance" parent="Rock06"]
@@ -395,6 +400,9 @@ material/0 = SubResource( 9 )
 [node name="CollisionShape" type="CollisionShape" parent="Rock06"]
 transform = Transform( 1, 0, 0, 0, 0.0390506, 0.999237, 0, -0.999237, 0.0390506, 43.9316, -22.3168, 15.1044 )
 shape = SubResource( 22 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="Rock06"]
+script = ExtResource( 13 )
 
 [node name="Phormium_1" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.0999982, 0.000607381, 0, -0.000607381, 0.0999982, 73.5798, -12.0196, 62.0405 )
@@ -500,29 +508,6 @@ material/4 = SubResource( 46 )
 transform = Transform( 1.62823, 0.0869843, 0.0786844, -0.79862, 0.176146, -0.0531906, -0.25422, 0.00376275, 0.671053, 1.49389, -0.732766, -0.819115 )
 shape = SubResource( 47 )
 
-[node name="Cone" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.2358, -12.1077, 59.9272 )
-visible = false
-collision_layer = 2
-mass = 10.0
-script = ExtResource( 28 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="MeshInstance" type="MeshInstance" parent="Cone"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.13811, 0.292813, 0 )
-mesh = ExtResource( 29 )
-material/0 = SubResource( 15 )
-material/1 = SubResource( 15 )
-material/2 = SubResource( 15 )
-material/3 = SubResource( 15 )
-material/4 = SubResource( 15 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Cone"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.13811, 0.292813, 0 )
-shape = SubResource( 40 )
-
 [node name="Can" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.2321, -10.9662, 93.394 )
 collision_layer = 2
@@ -533,15 +518,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="Can"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-mesh = ExtResource( 13 )
-material/0 = SubResource( 23 )
-material/1 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="Can"]
 transform = Transform( 1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0 )
 shape = SubResource( 24 )
+
+[node name="scene" parent="Can" instance=ExtResource( 29 )]
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.0771017, 0 )
 
 [node name="Chips" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.235, -11.7443, 82.3705 )
@@ -560,19 +542,17 @@ material/0 = SubResource( 38 )
 [node name="CollisionShape" type="CollisionShape" parent="Chips"]
 shape = SubResource( 39 )
 
-[node name="CollectibleTag" type="Node" parent="Chips"]
-script = ExtResource( 39 )
-id = "03_plastic_bag"
-
 [node name="grass" type="MeshInstance" parent="."]
 transform = Transform( 0.03, 0, 0, 0, 0.015, 0, 0, 0, 0.03, 75.4939, -12.2449, 90.1229 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
 material/2 = SubResource( 43 )
 
 [node name="grass3" type="MeshInstance" parent="."]
-transform = Transform( -0.0265257, 0, 0.0140138, 0, 0.015, 0, -0.0140138, 0, -0.0265257, 76.2201, -12.2449, 96.875 )
+transform = Transform( -0.0265257, 0, 0.0140138, 0, 0.015, 0, -0.0140138, 0, -0.0265257, 78.0515, -12.2449, 93.4085 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -580,6 +560,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass2" type="MeshInstance" parent="."]
 transform = Transform( 0.0285411, 0, -0.00924162, 0, 0.015, 0, 0.00924162, 0, 0.0285411, 75.4939, -12.2449, 95.1626 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -594,6 +575,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass5" type="MeshInstance" parent="."]
 transform = Transform( -0.0229867, 0, -0.0192772, 0, 0.015, 0, 0.0192772, 0, -0.0229867, 76.2201, -12.2449, 165.113 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -601,6 +583,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass6" type="MeshInstance" parent="."]
 transform = Transform( 0.0193277, 0, 0.0229443, 0, 0.015, 0, -0.0229443, 0, 0.0193277, 75.4939, -12.2449, 163.4 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
@@ -608,6 +591,7 @@ material/2 = SubResource( 43 )
 
 [node name="grass7" type="MeshInstance" parent="."]
 transform = Transform( -0.0145388, 0, 0.0262416, 0, 0.015, 0, -0.0262416, 0, -0.0145388, 77.1946, -12.2449, 120.833 )
+visible = false
 mesh = ExtResource( 34 )
 material/0 = SubResource( 43 )
 material/1 = SubResource( 44 )
