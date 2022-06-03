@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_00/data.hterrain" type="Resource" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=36]
 [ext_resource path="res://assets/models/waste/cofee_cup.obj" type="ArrayMesh" id=37]
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=38]
+[ext_resource path="res://scripts/penalty_collision_tag.gd" type="Script" id=39]
 
 [sub_resource type="Environment" id=98]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -530,6 +531,9 @@ material/0 = SubResource( 32 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Big stone"]
 shape = SubResource( 34 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="Big stone"]
+script = ExtResource( 39 )
 
 [node name="Washing machine" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.207878, 0.978155, 0, -0.978155, 0.207878, -20.844, -1.63372, -18.3548 )

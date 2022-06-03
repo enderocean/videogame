@@ -185,7 +185,7 @@ margin_right = 360.0
 margin_bottom = 272.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "BACK TO MISSIONS"
+text = "NEXT MISSION"
 
 [node name="User" type="Panel" parent="."]
 visible = false
