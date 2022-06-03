@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/components/fishes.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/animals/tuna/Atlantic bluefin tuna.obj" type="ArrayMesh" id=2]
 
+
 [sub_resource type="MultiMesh" id=22]
 mesh = ExtResource( 2 )
 

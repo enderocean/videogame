@@ -47,7 +47,7 @@ textures = [ [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource
 albedo_texture = ExtResource( 32 )
 uv1_scale = Vector3( 3, 2, 1 )
 
-[sub_resource type="Shader" id=6]
+[sub_resource type="Shader" id=25]
 code = "shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
@@ -138,8 +138,8 @@ void fragment() {
 "
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
-shader_param/timer = 38.2997
+shader = SubResource( 25 )
+shader_param/timer = 14.4707
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
