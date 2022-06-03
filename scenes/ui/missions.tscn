@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/background.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Roboto/text_italic.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scripts/ui/missions_map.gd" type="Script" id=10]
 [ext_resource path="res://assets/home-bg.png" type="Texture" id=11]
 [ext_resource path="res://scenes/ui/collectible/collectibles_menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scripts/ui/map/viewport_container.gd" type="Script" id=13]
 
 [node name="MissionsMap" type="Control"]
 anchor_right = 1.0
@@ -191,10 +192,11 @@ text = "MAIN MENU"
 margin_left = 300.0
 margin_right = 1024.0
 margin_bottom = 600.0
-mouse_filter = 2
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
+script = ExtResource( 13 )
 
 [node name="Viewport" type="Viewport" parent="HBoxContainer/ViewportContainer"]
 size = Vector2( 724, 600 )
@@ -209,4 +211,6 @@ physics_object_picking = true
 [connection signal="pressed" from="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/StartMission" to="." method="_on_StartMission_pressed"]
 [connection signal="pressed" from="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/Collectibles" to="." method="_on_collectibles_pressed"]
 [connection signal="pressed" from="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/ViewportContainer" to="HBoxContainer/ViewportContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/ViewportContainer" to="HBoxContainer/ViewportContainer" method="_on_mouse_exited"]
 [connection signal="mission_pressed" from="HBoxContainer/ViewportContainer/Viewport/Map" to="." method="_on_mission_pressed"]

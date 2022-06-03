@@ -305,8 +305,7 @@ func _on_vehicle_body_entered(body: Node) -> void:
 	if not collision_tag:
 		return
 	
-	# TODO: Add screen effect
-	# TODO: Add collision sound
+	vehicle.vehicle_body.sounds.play("collision")
 	emit_signal("vehicle_collided")
 	add_penalty("Collided with %s" % body.name, collision_tag.points)
 

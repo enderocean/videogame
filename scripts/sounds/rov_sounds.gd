@@ -59,4 +59,10 @@ func get_sounds() -> Dictionary:
 		[
 			"res://assets/sounds/Rov_Claw_Close_01.wav",
 		],
+		"collision":
+		[
+			"res://assets/sounds/collision_penalty_01.wav",
+			"res://assets/sounds/collision_penalty_02.wav",
+			"res://assets/sounds/collision_penalty_03.wav",
+		]
 	}
