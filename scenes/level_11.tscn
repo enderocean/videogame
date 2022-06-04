@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -39,7 +39,7 @@
 [ext_resource path="res://assets/models/tools/bucket_2.obj" type="ArrayMesh" id=37]
 [ext_resource path="res://assets/models/tools/keys/scene.gltf" type="PackedScene" id=38]
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=39]
-[ext_resource path="res://assets/models/bottles/wine/13220_wine_bottle_v2.obj" type="ArrayMesh" id=40]
+[ext_resource path="res://assets/models/waste/ballon_tige.obj" type="ArrayMesh" id=40]
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=41]
 
 [sub_resource type="Environment" id=66]
@@ -239,9 +239,28 @@ albedo_color = Color( 1, 0, 0, 1 )
 extents = Vector3( 0.063, 0.063, 0.063 )
 
 [sub_resource type="SpatialMaterial" id=69]
-albedo_color = Color( 0, 0.372549, 0.203922, 1 )
+
+[sub_resource type="SpatialMaterial" id=71]
+
+[sub_resource type="SpatialMaterial" id=72]
+
+[sub_resource type="SpatialMaterial" id=73]
+
+[sub_resource type="SpatialMaterial" id=74]
+
+[sub_resource type="SpatialMaterial" id=75]
+albedo_color = Color( 0.686275, 0.682353, 0.247059, 1 )
+
+[sub_resource type="SpatialMaterial" id=76]
+
+[sub_resource type="SpatialMaterial" id=77]
 
 [sub_resource type="CapsuleShape" id=70]
+height = 8.80305
+
+[sub_resource type="CapsuleShape" id=78]
+radius = 0.139895
+height = 0.340111
 
 [node name="level_11" type="Spatial"]
 script = ExtResource( 1 )
@@ -249,7 +268,7 @@ objectives_target = {
 "animal": 0,
 "cutter": 0,
 "grappling_hook": 0,
-"gripper": 4,
+"gripper": 6,
 "magnet": 0,
 "vacuum": 0
 }
@@ -1501,20 +1520,31 @@ material/0 = SubResource( 67 )
 [node name="CollisionShape" type="CollisionShape" parent="Chips"]
 shape = SubResource( 68 )
 
-[node name="Wine" type="RigidBody" parent="."]
-transform = Transform( 0.965418, 0, -0.260707, 0, 1, 0, 0.260707, 0, 0.965418, 20.6612, -9.50968, -32.2402 )
+[node name="Ballon" type="RigidBody" parent="."]
+transform = Transform( 0.965418, -0.0354316, -0.258288, 0, 0.990722, -0.135906, 0.260707, 0.131206, 0.956461, 20.6612, -9.50968, -32.2402 )
 collision_layer = 3
 script = ExtResource( 30 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Wine"]
-transform = Transform( 0.01, 0, -1.38778e-17, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, -0.115227, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="Ballon"]
+transform = Transform( 0.0106474, 1.16415e-10, 0, -2.91038e-11, -2.91038e-10, 0.00915666, 2.32831e-10, -0.00767407, -3.49246e-10, 1.90735e-06, -0.115227, 1.14441e-05 )
 mesh = ExtResource( 40 )
 material/0 = SubResource( 69 )
+material/1 = SubResource( 71 )
+material/2 = SubResource( 72 )
+material/3 = SubResource( 73 )
+material/4 = SubResource( 74 )
+material/5 = SubResource( 75 )
+material/6 = SubResource( 76 )
+material/7 = SubResource( 77 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Wine"]
-transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+[node name="CollisionShape" type="CollisionShape" parent="Ballon"]
+transform = Transform( 0.053237, 0, 3.72529e-09, -1.97906e-09, 0.0458798, -0.00109502, -2.79397e-09, 0.000396379, 0.126742, -0.000905991, -0.114628, 0.536945 )
 shape = SubResource( 70 )
 
-[node name="CollectibleTag" type="Node" parent="Wine"]
+[node name="CollisionShape2" type="CollisionShape" parent="Ballon"]
+transform = Transform( 1.06474, 1.11759e-08, 1.19209e-07, 0, 0.915667, 0, 1.78814e-07, -3.72529e-08, 1.26657, 9.53674e-06, -0.10578, -0.355854 )
+shape = SubResource( 78 )
+
+[node name="CollectibleTag" type="Node" parent="Ballon"]
 script = ExtResource( 41 )
-id = "15_glass_bottle"
+id = "14_balloon"
