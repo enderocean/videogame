@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -20,20 +20,67 @@
 [ext_resource path="res://assets/models/tools/beretta m9/textures/M9_BaseColor.png" type="Texture" id=18]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=19]
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://scripts/effects/godrays.gd" type="Script" id=21]
+[ext_resource path="res://assets/shaders/godrays.shader" type="Shader" id=22]
 [ext_resource path="res://terrains/level_03/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=23]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=24]
+[ext_resource path="res://assets/models/tools/double_hook/14069_Pulley_Hook_ Double_fixed_eyelet_v2_L2.obj" type="ArrayMesh" id=25]
 [ext_resource path="res://assets/models/underwater/plant_53/aiStandard1.material" type="Material" id=26]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/models/underwater/plant_53/plant_53.obj" type="ArrayMesh" id=28]
+[ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
 
 [sub_resource type="Environment" id=37]
-ambient_light_color = Color( 0.705882, 0.705882, 0.705882, 1 )
-fog_enabled = true
+ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
+fog_color = Color( 0.14902, 0.333333, 0.592157, 1 )
 fog_depth_begin = 15.0
 fog_depth_end = 50.0
 
+[sub_resource type="Gradient" id=38]
+offsets = PoolRealArray( 0, 0.415929, 0.823009 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.946903, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=39]
+gradient = SubResource( 38 )
+
+[sub_resource type="ParticlesMaterial" id=40]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 0 )
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+color_ramp = SubResource( 39 )
+
+[sub_resource type="ShaderMaterial" id=41]
+render_priority = 1
+shader = ExtResource( 22 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+
+[sub_resource type="PlaneMesh" id=42]
+material = SubResource( 41 )
+size = Vector2( 1, 10 )
+
+[sub_resource type="CubeMesh" id=43]
+
+[sub_resource type="SpatialMaterial" id=44]
+albedo_texture = ExtResource( 24 )
+uv1_scale = Vector3( 3, 2, 1 )
+
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0, 0.321569, 0.580392, 1 )
+
+[sub_resource type="CylinderMesh" id=45]
+
+[sub_resource type="SpatialMaterial" id=46]
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 10 )
@@ -137,6 +184,17 @@ objectives_target = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 37 )
 
+[node name="Godrays" type="Particles" parent="."]
+transform = Transform( 10, 0, 0, 0, -4.37114e-08, 5, 0, -1, -2.18557e-07, -5.02057, 10, -33.8473 )
+amount = 60
+explosiveness = 0.05
+fract_delta = false
+visibility_aabb = AABB( -4, -5.82476, -6.64017, 8, 11.6495, 13.2803 )
+local_coords = false
+process_material = SubResource( 40 )
+draw_pass_1 = SubResource( 42 )
+script = ExtResource( 21 )
+
 [node name="water" parent="." instance=ExtResource( 6 )]
 transform = Transform( 128, 0, 0, 0, 64, 0, 0, 0, 128, 0.443, 16.0103, -0.292 )
 
@@ -148,16 +206,25 @@ shadow_enabled = true
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6379, -9.306, -46.2558 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67016, 14.0371, -46.2558 )
 
 [node name="Theter" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
 from = NodePath("../BlueRov")
-to = NodePath("../BlueRov")
+to = NodePath("../Ender Station2/TheterAnchor")
 length = 900
 
+[node name="Ender Station2" type="MeshInstance" parent="."]
+transform = Transform( 0.243255, 0, 0.317532, 0, 0.4, 0, -0.317532, 0, 0.243255, 15.8811, 16.6353, -43.6873 )
+mesh = SubResource( 43 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 44 )
+
+[node name="TheterAnchor" parent="Ender Station2" instance=ExtResource( 27 )]
+transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
+
 [node name="Marlow66" type="MeshInstance" parent="."]
-transform = Transform( -0.548497, 0, -0.836152, 0, 1, 0, 0.836152, 0, -0.548497, 26.8788, 15.8954, -25.5959 )
+transform = Transform( -0.548497, 0, -0.836152, 0, 1, 0, 0.836152, 0, -0.548497, 7.11073, 15.8954, -49.4326 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 1 )
@@ -187,6 +254,36 @@ material/23 = null
 material/24 = null
 material/25 = null
 material/26 = null
+
+[node name="Rope" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, 11.8, 0, 0, 0, 0.01, 15.568, 3.74905, -43.059 )
+mesh = SubResource( 45 )
+material/0 = SubResource( 46 )
+
+[node name="Hook_Down" type="MeshInstance" parent="."]
+transform = Transform( 0.0103204, -0.0489223, -0.000307043, -0.000293535, 0.000251875, -0.0499985, 0.0489224, 0.0103219, -0.00023522, 15.5691, -8.0332, -43.0538 )
+mesh = ExtResource( 25 )
+skeleton = NodePath("../Ender Station2")
+material/0 = null
+
+[node name="Hook_up" type="MeshInstance" parent="."]
+transform = Transform( 0.0103204, -0.0489223, -0.000307043, -0.000293535, 0.000251875, -0.0499985, 0.0489224, 0.0103219, -0.00023522, 15.5717, 16.1981, -43.0647 )
+mesh = ExtResource( 25 )
+skeleton = NodePath("../Ender Station2")
+material/0 = null
+
+[node name="Barre1" type="MeshInstance" parent="."]
+transform = Transform( 0.00771069, 0, -1.24167, 0, 0.01, 0, 0.00636751, 0, 1.50358, 15.5642, -8.67035, -43.0516 )
+mesh = SubResource( 45 )
+material/0 = SubResource( 46 )
+
+[node name="Barre2" type="MeshInstance" parent="."]
+transform = Transform( 0.00694658, 0, 1.40271, 0, 0.01, 0, -0.0071934, 0, 1.35458, 15.5642, -8.67035, -43.0516 )
+mesh = SubResource( 45 )
+material/0 = SubResource( 46 )
+
+[node name="DeliveryNet" parent="." instance=ExtResource( 29 )]
+transform = Transform( -0.0550601, 0, 0.888816, 0, 0.999999, 0, -0.954907, 0, -0.0512493, 15.5567, -8.64052, -43.0542 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
@@ -39,6 +39,8 @@
 [ext_resource path="res://assets/models/tools/bucket_2.obj" type="ArrayMesh" id=37]
 [ext_resource path="res://assets/models/tools/keys/scene.gltf" type="PackedScene" id=38]
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=39]
+[ext_resource path="res://assets/models/bottles/wine/13220_wine_bottle_v2.obj" type="ArrayMesh" id=40]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=41]
 
 [sub_resource type="Environment" id=66]
 ambient_light_color = Color( 1, 0.988235, 0.654902, 1 )
@@ -235,6 +237,11 @@ albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="BoxShape" id=68]
 extents = Vector3( 0.063, 0.063, 0.063 )
+
+[sub_resource type="SpatialMaterial" id=69]
+albedo_color = Color( 0, 0.372549, 0.203922, 1 )
+
+[sub_resource type="CapsuleShape" id=70]
 
 [node name="level_11" type="Spatial"]
 script = ExtResource( 1 )
@@ -1493,3 +1500,21 @@ material/0 = SubResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Chips"]
 shape = SubResource( 68 )
+
+[node name="Wine" type="RigidBody" parent="."]
+transform = Transform( 0.965418, 0, -0.260707, 0, 1, 0, 0.260707, 0, 0.965418, 20.6612, -9.50968, -32.2402 )
+collision_layer = 3
+script = ExtResource( 30 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wine"]
+transform = Transform( 0.01, 0, -1.38778e-17, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, -0.115227, 0 )
+mesh = ExtResource( 40 )
+material/0 = SubResource( 69 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wine"]
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+shape = SubResource( 70 )
+
+[node name="CollectibleTag" type="Node" parent="Wine"]
+script = ExtResource( 41 )
+id = "15_glass_bottle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=2]
@@ -41,7 +41,6 @@
 [ext_resource path="res://assets/models/animals/reef_fishes/Red Starfish/redstarfish1/redstarfish1_Base_Color.png" type="Texture" id=39]
 [ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.tscn" type="PackedScene" id=40]
 [ext_resource path="res://assets/models/animals/tropical_fishes/BottlenoseDolphin/BottleNoseDolphin.gd" type="Script" id=41]
-[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=42]
 
 [sub_resource type="Environment" id=16]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -177,7 +176,7 @@ objectives_target = {
 "grappling_hook": 0,
 "gripper": 0,
 "magnet": 0,
-"vacuum": 40
+"vacuum": 35
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1220,10 +1219,6 @@ material/0 = SubResource( 9 )
 transform = Transform( 0.00996913, 0, -0.000785113, 0, 0.01, 0, 0.000785113, 0, 0.00996913, 0.19088, -0.107101, 0.160095 )
 visible = false
 shape = SubResource( 11 )
-
-[node name="CollectibleTag" type="Node" parent="Plastic_bag"]
-script = ExtResource( 42 )
-id = "03_plastic_bag"
 
 [node name="Plastic_bag2" type="RigidBody" parent="."]
 transform = Transform( 0.890666, 0, -0.454659, 0, 1, 0, 0.454659, 0, 0.890666, 89.9633, -2.07689, 109.977 )
@@ -2493,15 +2488,18 @@ material/0 = SubResource( 19 )
 
 [node name="Path4" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 101.814, -0.981536, 123.365 )
+visible = false
 curve = SubResource( 24 )
 script = ExtResource( 37 )
 
 [node name="PathFollow" type="PathFollow" parent="Path4"]
 transform = Transform( 1, -4.65921e-06, 9.44255e-05, -3.63798e-12, 0.998785, 0.0492828, -9.45404e-05, -0.0492828, 0.998785, 7.62939e-06, -0.125159, 0.181778 )
+visible = false
 rotation_mode = 2
 
 [node name="LionFish" type="MeshInstance" parent="Path4/PathFollow"]
 transform = Transform( 0.05, 8.52651e-14, -3.18323e-12, 8.52651e-14, 0.05, -1.16415e-09, 2.72848e-12, 0, 0.05, -0.0713806, 0.0702143, -0.0506897 )
+visible = false
 mesh = ExtResource( 35 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 20 )
