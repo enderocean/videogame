@@ -445,13 +445,13 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 101 )
 
 [node name="Bottle6" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0422, -1.50818, 3.2437 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4914, -1.50818, 3.2437 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 18 )
 
 [node name="scene" parent="Bottle6" instance=ExtResource( 17 )]
-transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -0.00740993 )
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -0.00741005 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Bottle6"]
 transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )

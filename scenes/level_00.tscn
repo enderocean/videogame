@@ -286,7 +286,7 @@ autoplay = true
 bus = "Sounds"
 
 [node name="Milk" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -4.70463, -2.86407, -1.90735 )
+transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -3.42986, -2.49292, -2.59516 )
 collision_layer = 2
 mass = 10.0
 script = ExtResource( 21 )
@@ -308,7 +308,7 @@ script = ExtResource( 38 )
 id = "01_milk_pack"
 
 [node name="Coke" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999564, -0.0295266, 0, 0.0295266, 0.999564, -4.03483, -3.01369, 1.14805 )
+transform = Transform( 1, 0, 0, 0, 0.999564, -0.0295266, 0, 0.0295266, 0.999564, -3.03542, -3.0318, 1.76125 )
 collision_layer = 2
 collision_mask = 3
 mass = 10.0
@@ -521,6 +521,9 @@ material/0 = SubResource( 32 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Small stone"]
 shape = SubResource( 33 )
+
+[node name="PenaltyCollisionTag" type="Node" parent="Small stone"]
+script = ExtResource( 39 )
 
 [node name="Big stone" type="StaticBody" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, -7.12955, -3.73343, 0.00424671 )

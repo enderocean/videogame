@@ -16,4 +16,4 @@ time = 5
 objectives = PoolStringArray( "Catch items left by divers and sailers" )
 tools = PoolStringArray( "Gripper", "Lights" )
 stars_enabled = true
-stars = PoolIntArray( 300, 280, 260, 240, 180 )
+stars = PoolIntArray( 300, 250, 220, 190, 160 )

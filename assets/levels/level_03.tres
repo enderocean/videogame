@@ -15,7 +15,7 @@ description = "Marseille is considered the 10th most polluted coastal town in th
 We’ve been asked to localize and deal with
 a disturbance on an underwater cable in the area. These cables connect Europe with many other continents online, it would cause a lot of trouble if they were damaged."
 time = 4
-objectives = PoolStringArray( "Find what cause the cable to beunstable", "Deal with the issue" )
+objectives = PoolStringArray( "Find what cause the cable to beunstable", "Collect items on the way" )
 tools = PoolStringArray( "Gripper", "Lights" )
 stars_enabled = true
-stars = PoolIntArray( 240, 230, 220, 210, 200 )
+stars = PoolIntArray( 240, 225, 210, 180, 150 )
