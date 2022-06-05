@@ -6,7 +6,7 @@ export var margin: float = 1.0
 export var count: int = 20
 export var range_position: Vector2 = Vector2(1, 20)
 
-onready var material: ShaderMaterial = multimesh.mesh.surface_get_material(0)
+# onready var material: ShaderMaterial = multimesh.mesh.surface_get_material(0)
 
 func _ready() -> void:
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
@@ -34,5 +34,5 @@ func _ready() -> void:
 		meshes_positions.append(position.origin)
 
 
-func _physics_process(delta: float) -> void:
-	material.set_shader_param("time_scale", 1)
+# func _physics_process(delta: float) -> void:
+# 	material.set_shader_param("time_scale", 1)

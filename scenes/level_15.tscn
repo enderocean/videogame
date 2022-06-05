@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -29,8 +29,12 @@
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/models/underwater/plant_53/plant_53.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/models/animals/tropical_fishes/ReefFish7/ReefFish7.obj" type="ArrayMesh" id=30]
+[ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=31]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
+[ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=34]
+[ext_resource path="res://assets/models/animals/tropical_fishes/ReefFish7/ReefFish7_Base_Color.png" type="Texture" id=35]
 
 [sub_resource type="Environment" id=37]
 ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -68,6 +72,12 @@ shader_param/uv2_offset = Vector3( 0, 0, 0 )
 [sub_resource type="PlaneMesh" id=42]
 material = SubResource( 41 )
 size = Vector2( 1, 10 )
+
+[sub_resource type="Curve3D" id=47]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 60.3509, 5.72205e-06, -36.7662, 0, 0, 0, 0, 0, 0, 67.1769, 5.72205e-06, -30.7769, 0, 0, 0, 0, 0, 0, 63.0372, 5.72205e-06, -25.4042, 0, 0, 0, 0, 0, 0, 52.9083, 5.72205e-06, -24.5674, 0, 0, 0, 0, 0, 0, 42.6032, 5.72205e-06, -27.9584, 0, 0, 0, 0, 0, 0, 36.9662, 5.72205e-06, -36.0175, 0, 0, 0, 0, 0, 0, 38.5516, 5.72205e-06, -39.3205 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
 
 [sub_resource type="CubeMesh" id=43]
 
@@ -170,6 +180,18 @@ points = PoolVector3Array( 0.251472, 5.40788, -0.775777, -3.55923, -0.0744628, -
 [sub_resource type="SpatialMaterial" id=36]
 albedo_texture = ExtResource( 33 )
 
+[sub_resource type="Curve3D" id=48]
+_data = {
+"points": PoolVector3Array( -2.03497, 0.139937, 0.0120468, 2.03497, -0.139937, -0.0120468, 3.94491, 1.8465, -1.46452, -1.52307, -0.226814, 0.706051, 1.52307, 0.226814, -0.706051, 8.45816, 1.8465, -1.75423, 0.624756, 0.0880756, 1.49729, -0.624756, -0.0880756, -1.49729, 10.8491, 1.62236, -5.40586, 2.32825, -0.132114, 2.77439, -2.32825, 0.132114, -2.77439, 7.65098, 2.06274, -12.9364, 2.51825, -4.52995e-06, -0.309109, -2.51825, 4.52995e-06, 0.309109, 1.77759, 2.08615, -16.1933, 2.33638, -5.24521e-06, -1.43974, -2.33638, 5.24521e-06, 1.43974, -5.16924, 2.31872, -14.4996, -0.652824, 8.34465e-07, -3.17275, 0.652824, -8.34465e-07, 3.17275, -8.11241, 1.64981, -6.75963, -1.5565, 2.86102e-06, -1.38443, 1.5565, -2.86102e-06, 1.38443, -4.76241, 1.8465, -1.30267, -2.24675, -8.07736e-06, 0.119829, 2.24675, 8.07736e-06, -0.119829, 0.643244, 1.8465, -1.20557, -2.24675, -8.07736e-06, 0.119829, 2.24675, 8.07736e-06, -0.119829, 3.94491, 1.8465, -1.46452 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=50]
+albedo_texture = ExtResource( 35 )
+
+[sub_resource type="MultiMesh" id=49]
+mesh = ExtResource( 30 )
+
 [node name="level_15" type="Spatial"]
 script = ExtResource( 15 )
 objectives_target = {
@@ -197,6 +219,7 @@ script = ExtResource( 21 )
 
 [node name="water" parent="." instance=ExtResource( 6 )]
 transform = Transform( 128, 0, 0, 0, 64, 0, 0, 0, 128, 0.443, 16.0103, -0.292 )
+visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
@@ -210,6 +233,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67016, 14.0371, -46.2558 )
 
 [node name="Theter" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
+curve = SubResource( 47 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station2/TheterAnchor")
 length = 900
@@ -331,17 +355,17 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="DeliveryObject" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6833, -10.4886, 10.7119 )
+[node name="Gun" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4606, -10.4886, 17.5391 )
 script = ExtResource( 19 )
 
-[node name="beretta m9" type="MeshInstance" parent="DeliveryObject"]
+[node name="beretta m9" type="MeshInstance" parent="Gun"]
 transform = Transform( 0.00201112, -0.00979568, 0, 0.00979568, 0.00201112, 0, 0, 0, 0.01, 0.248459, -0.589478, -0.157973 )
 mesh = ExtResource( 17 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 8 )
 
-[node name="CollisionShape" type="CollisionShape" parent="DeliveryObject"]
+[node name="CollisionShape" type="CollisionShape" parent="Gun"]
 transform = Transform( 0.00201112, -0.00979568, 0, 0.00979568, 0.00201112, 0, 0, 0, 0.01, 0.248459, -0.589478, -0.157973 )
 shape = SubResource( 9 )
 
@@ -642,3 +666,18 @@ material/0 = SubResource( 36 )
 transform = Transform( 0.0230162, 0, 0.0443875, 0, 0.05, 0, -0.0443875, 0, 0.0230162, 25.188, -9.33379, -38.3724 )
 mesh = ExtResource( 32 )
 material/0 = SubResource( 36 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74216, -10.4848, -37.1934 )
+curve = SubResource( 48 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+rotation_mode = 4
+script = ExtResource( 31 )
+speed = 0.03
+
+[node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 34 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+material_override = SubResource( 50 )
+multimesh = SubResource( 49 )
