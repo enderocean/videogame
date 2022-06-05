@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_delivery_tool_catched() -> void:
+	RadioSounds.play("boat_started")
 	pull()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -35,6 +35,9 @@
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
 [ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=34]
 [ext_resource path="res://addons/fish-shader/shader/fish_reef.tres" type="Material" id=35]
+[ext_resource path="res://assets/models/waste/barrier.obj" type="ArrayMesh" id=36]
+[ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=37]
+[ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=38]
 
 [sub_resource type="Environment" id=37]
 ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -77,6 +80,12 @@ size = Vector2( 1, 10 )
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 60.3509, 5.72205e-06, -36.7662, 0, 0, 0, 0, 0, 0, 67.1769, 5.72205e-06, -30.7769, 0, 0, 0, 0, 0, 0, 63.0372, 5.72205e-06, -25.4042, 0, 0, 0, 0, 0, 0, 52.9083, 5.72205e-06, -24.5674, 0, 0, 0, 0, 0, 0, 42.6032, 5.72205e-06, -27.9584, 0, 0, 0, 0, 0, 0, 36.9662, 5.72205e-06, -36.0175, 0, 0, 0, 0, 0, 0, 38.5516, 5.72205e-06, -39.3205 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=51]
+_data = {
+"points": PoolVector3Array(  ),
+"tilts": PoolRealArray(  )
 }
 
 [sub_resource type="CubeMesh" id=43]
@@ -189,12 +198,23 @@ _data = {
 [sub_resource type="MultiMesh" id=49]
 mesh = ExtResource( 30 )
 
+[sub_resource type="ConvexPolygonShape" id=50]
+points = PoolVector3Array( 5.29885, 7.92881, 0.0869772, 5.30628, 7.93441, -0.116382, 5.50603, -0.0286217, -1.20679, 5.45442, -0.0286217, 1.17753, -5.32587, -0.0286217, 1.17753, -5.37863, 7.7467, -0.170068, -5.37748, -0.0286217, -1.20679, -5.32587, 0.956961, 1.17753, 5.50603, 0.956961, -1.20679, -5.18597, 7.94061, 0.0872814, 5.45442, 0.956961, 1.17753, 5.86958, 6.86495, 0.140808, -5.37748, 0.956961, -1.20679, -5.71872, 6.88013, 0.0365187, 5.50717, 7.69479, 0.140808, 5.73959, 2.6084, 0.0857628, 5.82017, 6.8148, -0.116448, -5.19097, 7.94437, -0.116639, 5.55878, 1.06, 1.07367, 5.73959, 2.6084, -0.115023, -5.29037, 7.78792, 0.087315, 5.47137, 7.63584, -0.116607 )
+
+[sub_resource type="SpatialMaterial" id=52]
+albedo_color = Color( 0.615686, 0.533333, 0, 1 )
+
+[sub_resource type="CubeMesh" id=53]
+material = SubResource( 52 )
+
+[sub_resource type="BoxShape" id=54]
+
 [node name="level_15" type="Spatial"]
 script = ExtResource( 15 )
 objectives_target = {
 "animal": 0,
 "cutter": 0,
-"grappling_hook": 0,
+"grappling_hook": 1,
 "gripper": 1,
 "magnet": 0,
 "vacuum": 0
@@ -228,21 +248,39 @@ visible = true
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67016, 14.0371, -46.2558 )
 
+[node name="GrapplingHookDeliveryTool" parent="." instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9124, -10.9615, -49.5022 )
+
 [node name="Theter" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
 curve = SubResource( 47 )
 from = NodePath("../BlueRov")
-to = NodePath("../Ender Station2/TheterAnchor")
+to = NodePath("../Ender Station/TheterAnchor")
 length = 900
 
-[node name="Ender Station2" type="MeshInstance" parent="."]
+[node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8932, -10.7531, -49.5049 )
+curve = SubResource( 51 )
+from = NodePath("../GrapplingHookDeliveryTool")
+to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
+length = 200
+destination_path = NodePath("../Ender Station/PullDestination")
+pulling_speed = 50.0
+
+[node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.243255, 0, 0.317532, 0, 0.4, 0, -0.317532, 0, 0.243255, 15.8811, 16.6353, -43.6873 )
 mesh = SubResource( 43 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 44 )
 
-[node name="TheterAnchor" parent="Ender Station2" instance=ExtResource( 27 )]
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 27 )]
 transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
+
+[node name="GrapplingHookTheterAnchor" parent="Ender Station" instance=ExtResource( 27 )]
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, -0.685889 )
+
+[node name="PullDestination" type="Position3D" parent="Ender Station"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 36.0832, 168.12, 39.7151 )
 
 [node name="Marlow66" type="MeshInstance" parent="."]
 transform = Transform( -0.548497, 0, -0.836152, 0, 1, 0, 0.836152, 0, -0.548497, 7.11073, 15.8954, -49.4326 )
@@ -284,13 +322,13 @@ material/0 = SubResource( 46 )
 [node name="Hook_Down" type="MeshInstance" parent="."]
 transform = Transform( 0.0103204, -0.0489223, -0.000307043, -0.000293535, 0.000251875, -0.0499985, 0.0489224, 0.0103219, -0.00023522, 15.5691, -8.0332, -43.0538 )
 mesh = ExtResource( 25 )
-skeleton = NodePath("../Ender Station2")
+skeleton = NodePath("../Ender Station")
 material/0 = null
 
 [node name="Hook_up" type="MeshInstance" parent="."]
 transform = Transform( 0.0103204, -0.0489223, -0.000307043, -0.000293535, 0.000251875, -0.0499985, 0.0489224, 0.0103219, -0.00023522, 15.5717, 16.1981, -43.0647 )
 mesh = ExtResource( 25 )
-skeleton = NodePath("../Ender Station2")
+skeleton = NodePath("../Ender Station")
 material/0 = null
 
 [node name="Barre1" type="MeshInstance" parent="."]
@@ -353,7 +391,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Gun" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4606, -10.4886, 17.5391 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3792, -10.4886, 7.93496 )
 script = ExtResource( 19 )
 
 [node name="beretta m9" type="MeshInstance" parent="Gun"]
@@ -669,12 +707,55 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74216, -10.4848, -37.1934 )
 curve = SubResource( 48 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.00101864, 0.0688855, 0.997623, 0, 0.997625, -0.0688854, -1, 7.01693e-05, 0.00101622, 3.94491, 1.8465, -1.46452 )
+transform = Transform( 0.00101923, 0.0688855, 0.997621, 0, 0.997625, -0.0688853, -1, 7.02104e-05, 0.00101681, 3.94491, 1.8465, -1.46452 )
 rotation_mode = 4
 script = ExtResource( 31 )
 speed = 0.03
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 34 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
 material_override = ExtResource( 35 )
 multimesh = SubResource( 49 )
+
+[node name="Barrier" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.095, -8.24358, -45.6407 )
+collision_layer = 2
+collision_mask = 3
+mass = 100.0
+gravity_scale = 0.1
+script = ExtResource( 19 )
+objective_type = 3
+
+[node name="barrier" type="MeshInstance" parent="Barrier"]
+transform = Transform( -0.190637, 0.0603452, -0.00199775, -6.97714e-10, 0.0132132, 0.0997816, 0.0604774, 0.19022, -0.00629733, -0.223871, -0.498489, -1.13277 )
+mesh = ExtResource( 36 )
+skeleton = NodePath("../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Barrier"]
+transform = Transform( -0.190637, 0.0603452, -0.00199775, -6.97714e-10, 0.0132132, 0.0997816, 0.0604774, 0.19022, -0.00629733, -0.223869, -0.498489, -1.13277 )
+shape = SubResource( 50 )
+
+[node name="HeavyObject2" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1538, -10.8342, -45.2427 )
+visible = false
+collision_layer = 2
+collision_mask = 3
+mass = 100.0
+gravity_scale = 0.1
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+objective_type = 3
+
+[node name="MeshInstance" type="MeshInstance" parent="HeavyObject2"]
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="HeavyObject2"]
+shape = SubResource( 54 )
