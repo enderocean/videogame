@@ -36,3 +36,4 @@ func _ready() -> void:
 
 # func _physics_process(delta: float) -> void:
 # 	material.set_shader_param("time_scale", 1)
+

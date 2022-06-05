@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -34,7 +34,7 @@
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
 [ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=34]
-[ext_resource path="res://assets/models/animals/tropical_fishes/ReefFish7/ReefFish7_Base_Color.png" type="Texture" id=35]
+[ext_resource path="res://addons/fish-shader/shader/fish_reef.tres" type="Material" id=35]
 
 [sub_resource type="Environment" id=37]
 ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -185,9 +185,6 @@ _data = {
 "points": PoolVector3Array( -2.03497, 0.139937, 0.0120468, 2.03497, -0.139937, -0.0120468, 3.94491, 1.8465, -1.46452, -1.52307, -0.226814, 0.706051, 1.52307, 0.226814, -0.706051, 8.45816, 1.8465, -1.75423, 0.624756, 0.0880756, 1.49729, -0.624756, -0.0880756, -1.49729, 10.8491, 1.62236, -5.40586, 2.32825, -0.132114, 2.77439, -2.32825, 0.132114, -2.77439, 7.65098, 2.06274, -12.9364, 2.51825, -4.52995e-06, -0.309109, -2.51825, 4.52995e-06, 0.309109, 1.77759, 2.08615, -16.1933, 2.33638, -5.24521e-06, -1.43974, -2.33638, 5.24521e-06, 1.43974, -5.16924, 2.31872, -14.4996, -0.652824, 8.34465e-07, -3.17275, 0.652824, -8.34465e-07, 3.17275, -8.11241, 1.64981, -6.75963, -1.5565, 2.86102e-06, -1.38443, 1.5565, -2.86102e-06, 1.38443, -4.76241, 1.8465, -1.30267, -2.24675, -8.07736e-06, 0.119829, 2.24675, 8.07736e-06, -0.119829, 0.643244, 1.8465, -1.20557, -2.24675, -8.07736e-06, 0.119829, 2.24675, 8.07736e-06, -0.119829, 3.94491, 1.8465, -1.46452 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="SpatialMaterial" id=50]
-albedo_texture = ExtResource( 35 )
 
 [sub_resource type="MultiMesh" id=49]
 mesh = ExtResource( 30 )
@@ -672,12 +669,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74216, -10.4848, -37.1934 )
 curve = SubResource( 48 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 0.00101864, 0.0688855, 0.997623, 0, 0.997625, -0.0688854, -1, 7.01693e-05, 0.00101622, 3.94491, 1.8465, -1.46452 )
 rotation_mode = 4
 script = ExtResource( 31 )
 speed = 0.03
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 34 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
-material_override = SubResource( 50 )
+material_override = ExtResource( 35 )
 multimesh = SubResource( 49 )

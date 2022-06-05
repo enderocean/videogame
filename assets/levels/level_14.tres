@@ -15,4 +15,4 @@ time = 6
 objectives = PoolStringArray( "Retrieve 40 plastic bags" )
 tools = PoolStringArray( "Gripper", "Climb gripper", "Lights" )
 stars_enabled = true
-stars = PoolIntArray( 300, 240, 180, 120, 60 )
+stars = PoolIntArray( 300, 270, 240, 210, 180 )
