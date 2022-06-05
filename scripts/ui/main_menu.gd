@@ -59,3 +59,16 @@ func _on_Music_pressed():
 
 func _on_book_session_pressed() -> void:
 	OS.shell_open("https://www.enderocean.com/en/training-center/")
+
+
+func _on_show_events_pressed():
+	OS.shell_open("https://www.enderocean.com/events/")
+
+
+func _on_Introduction_pressed() -> void:
+	SceneLoader.load_scene("res://scenes/ui/introduction.tscn")
+
+
+
+func _on_Back_pressed():
+	SceneLoader.load_scene("res://scenes/ui/menu.tscn")

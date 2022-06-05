@@ -82,11 +82,11 @@ transform = Transform( 1, 0, -6.55651e-07, 0, 1, 0, 6.55651e-07, 0, 1, 0.348981,
 [node name="MarginContainer" type="MarginContainer" parent="ViewportContainer"]
 margin_left = 220.0
 margin_right = 380.0
-margin_bottom = 400.0
+margin_bottom = 300.0
 
 [node name="Logo" type="TextureRect" parent="ViewportContainer/MarginContainer"]
 margin_right = 160.0
-margin_bottom = 400.0
+margin_bottom = 300.0
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 6
@@ -216,7 +216,7 @@ bus = "Music"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 350.0
-margin_top = 600.0
+margin_top = 620.0
 margin_right = 245.0
 margin_bottom = 200.0
 grow_horizontal = 2
@@ -225,32 +225,40 @@ alignment = 1
 
 [node name="LevelButtons" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 200.0
+margin_bottom = 270.0
 rect_min_size = Vector2( 250, 120 )
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Practice" type="Button" parent="HBoxContainer/LevelButtons"]
+[node name="Introduction" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_right = 250.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "PRACTICE"
+text = "HOW IT WORKS"
 
-[node name="Campaign" type="Button" parent="HBoxContainer/LevelButtons"]
+[node name="Practice" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 70.0
 margin_right = 250.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "CAMPAIGNS"
+text = "PRACTICE"
 
-[node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
+[node name="Campaign" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 140.0
 margin_right = 250.0
 margin_bottom = 200.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = ExtResource( 8 )
+text = "VIRTUAL TOUR"
+
+[node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
+margin_top = 210.0
+margin_right = 250.0
+margin_bottom = 270.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "BOOK SESSION"
@@ -258,6 +266,7 @@ text = "BOOK SESSION"
 [connection signal="pressed" from="Credits" to="." method="_on_licences_pressed"]
 [connection signal="pressed" from="Music" to="." method="_on_Music_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
+[connection signal="pressed" from="HBoxContainer/LevelButtons/Introduction" to="." method="_on_Introduction_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/BookSession" to="." method="_on_book_session_pressed"]
