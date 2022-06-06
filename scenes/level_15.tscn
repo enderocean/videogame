@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://assets/models/waste/barrier.obj" type="ArrayMesh" id=36]
 [ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=37]
 [ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=38]
+[ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=39]
 
 [sub_resource type="Environment" id=37]
 ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
@@ -403,6 +404,10 @@ material/0 = SubResource( 8 )
 [node name="CollisionShape" type="CollisionShape" parent="Gun"]
 transform = Transform( 0.00201112, -0.00979568, 0, 0.00979568, 0.00201112, 0, 0, 0, 0.01, 0.248459, -0.589478, -0.157973 )
 shape = SubResource( 9 )
+
+[node name="CollectibleTag" type="Node" parent="Gun"]
+script = ExtResource( 39 )
+id = "11_gun"
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 transform = Transform( 0.709998, -0.0106826, 0.967362, 0.018053, 1.19986, 0, -0.967252, 0.0145532, 0.710078, 24.8075, -16.3882, -38.908 )

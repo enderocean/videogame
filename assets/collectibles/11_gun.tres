@@ -6,7 +6,5 @@
 script = ExtResource( 1 )
 id = "11_gun"
 title = "Gun"
-description = "Sometimes, in depth, we find strange objects from crime scenes. In order to hide the evidence, the thugs get rid of their weapons and throw them into the sea in order to never get caught. Be careful, maybe next time you’ll find something else. 
-
-In Marseille, it is not uncommon to make this kind of find. In 2011, a diver recovered a batch of firearms, submerged at a depth of 4 metres. In this type of situation, it is recommended to contact the maritime gendarmerie services."
+description = "Sometimes we find strange objects from crime scenes underwater. In order to hide evidences and never get caught, thugs often get rid of their weapons into the sea. In 2011, a diver recovered a batch of firearms, submerged at a depth of 4 metres. In this type of situation, it is recommended to contact the maritime gendarmerie services."
 image = "res://assets/collectibles/images/11_gun.png"
