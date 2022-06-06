@@ -296,6 +296,7 @@ material/0 = SubResource( 9 )
 
 [node name="Barrier" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7227, -2.99807, -22.1236 )
+visible = false
 script = ExtResource( 17 )
 
 [node name="barrier" type="MeshInstance" parent="Barrier"]
@@ -495,7 +496,7 @@ material/0 = SubResource( 11 )
 material/1 = SubResource( 12 )
 
 [node name="Bottle" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8577, -1.29678, -4.98661 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8577, -4.48124, -4.98661 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -521,7 +522,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle3" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9069, -0.837656, -23.7534 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9069, -5.69571, -23.7534 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -534,7 +535,7 @@ transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09,
 shape = SubResource( 13 )
 
 [node name="Bottle4" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8842, -0.464986, -8.46851 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8842, -3.33222, -8.46851 )
 collision_layer = 3
 mass = 10.0
 script = ExtResource( 17 )
@@ -543,7 +544,7 @@ script = ExtResource( 17 )
 transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.140848, -0.13612, -0.00740993 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Bottle4"]
-transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.00981188, 0.0152969, -0.0256344 )
+transform = Transform( 0.05, 0, 0, 0, -2.18557e-09, 0.1, 0, -0.05, -4.37114e-09, -0.0098114, 0.0152969, -0.0256348 )
 shape = SubResource( 13 )
 
 [node name="Bottle5" type="RigidBody" parent="."]

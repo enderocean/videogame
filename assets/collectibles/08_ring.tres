@@ -7,6 +7,5 @@ script = ExtResource( 1 )
 id = "08_ring"
 title = "Ring"
 description = "It is not uncommon to find any type of jewels on the coasts. Tourists are passing through and losing them in spite of themselves.
--
 Sunglasses, books, headphones, jewelry or more serious, doudou, many are those who forget an object on the beaches during the holidays. Every year, thousands of objects are found on the beaches of France. "
 image = "res://assets/collectibles/images/08_ring.png"
