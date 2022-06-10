@@ -527,6 +527,7 @@ motor/target_velocity = 0.0
 [node name="CutRightRigidBody" type="RigidBody" parent="Cutter"]
 pause_mode = 1
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.452873, -0.309149, 0.0648046 )
+collision_layer = 0
 collision_mask = 2
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
@@ -552,6 +553,7 @@ shape = SubResource( 40 )
 [node name="CutLeftRigidBody" type="RigidBody" parent="Cutter"]
 pause_mode = 1
 transform = Transform( 0.314291, 0.945715, -0.082739, -7.61937e-09, -0.0871555, -0.996195, -0.949327, 0.313095, -0.0273922, 0.479113, -0.309149, -0.0272834 )
+collision_layer = 0
 collision_mask = 2
 mass = 0.5
 physics_material_override = SubResource( 3 )

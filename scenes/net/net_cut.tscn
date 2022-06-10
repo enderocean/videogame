@@ -7,6 +7,7 @@ radial_segments = 4
 rings = 1
 
 [sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape" id=3]
