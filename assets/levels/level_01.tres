@@ -9,7 +9,7 @@ scene = "res://scenes/level_01.tscn"
 thumbnail = "res://assets/levels/images/level_01.jpg"
 title = "level_01"
 country = "UNITED KINGDOM"
-location = "The Bristol Channel"
+location = "#2 - The Bristol Channel"
 description = "Back in 1997, the Tokio Express cargo got caught in the middle of a storm and lost most of its containers at sea. While the majority stayed intact in the sea bed, some of them were breached and leaked their content into the ocean.
 
 We’ve localized one that contained many legos and other plastic toys. Ironically, most of them had a nautical theme."

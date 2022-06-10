@@ -9,7 +9,7 @@ scene = "res://scenes/level_10.tscn"
 thumbnail = "res://assets/levels/images/level_10.jpg"
 title = "Level 10"
 country = "CUBA"
-location = "Havana river"
+location = "#11 - Havana river"
 description = "The Quibú river spans over 30km in Havana and is commonly used as a trashbin along its course. Plastic accumulates so much that it even create small plastic islands before they reach the sea.
 
 We’ve been told that a barril filled with toxic chemicals has been lost in the river and couldn’t be found yet, but you might help.

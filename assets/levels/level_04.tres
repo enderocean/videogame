@@ -9,7 +9,7 @@ scene = "res://scenes/level_04.tscn"
 thumbnail = "res://assets/levels/images/level_04.jpg"
 title = "Level 04"
 country = "REPUBLIC OF MALTA"
-location = "The island of Malta"
+location = "#5 - The island of Malta"
 description = "Malta was a late adopter of recycling, its gestion of plastic waste has been shown to be one of the worst in europe.
 It has a very rich but fragile biodiversity that has been gravely impacted by the pollution.
 

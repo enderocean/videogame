@@ -9,7 +9,7 @@ scene = "res://scenes/level_00.tscn"
 thumbnail = "res://assets/levels/images/level_00.jpg"
 title = "level_00"
 country = "FRANCE"
-location = "The Bordeaux stone quarry"
+location = "#1 - Bordeaux stone quarry"
 description = "Still in 2022, many quaries near Bordeaux are invaded by savage pollution. Authorities do not know anymore how to fight against incivilities. 
 
 Please help to clean the area ! And be careful with algues..."

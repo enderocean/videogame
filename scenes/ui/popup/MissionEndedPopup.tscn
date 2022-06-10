@@ -137,31 +137,30 @@ custom_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_right = 360.0
-margin_bottom = 24.0
+margin_bottom = 22.0
 
 [node name="TimeLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
-margin_right = 91.0
-margin_bottom = 24.0
+margin_right = 82.0
+margin_bottom = 22.0
 custom_fonts/font = ExtResource( 4 )
 text = "Time left: "
 
 [node name="Time" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
 margin_left = 316.0
-margin_top = 1.0
 margin_right = 360.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 size_flags_horizontal = 10
 text = "10:01"
 
 [node name="ObjectivesLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
-margin_top = 34.0
+margin_top = 32.0
 margin_right = 360.0
-margin_bottom = 58.0
+margin_bottom = 54.0
 custom_fonts/font = ExtResource( 4 )
 text = "Objectives: "
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
-margin_top = 68.0
+margin_top = 64.0
 margin_right = 360.0
 margin_bottom = 144.0
 size_flags_horizontal = 3
@@ -171,21 +170,21 @@ size_flags_vertical = 3
 margin_right = 360.0
 size_flags_horizontal = 3
 
-[node name="Restart" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+[node name="Back" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_top = 148.0
 margin_right = 360.0
 margin_bottom = 208.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "RESTART"
+text = "NEXT MISSION"
 
-[node name="Back" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+[node name="Restart" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_top = 212.0
 margin_right = 360.0
 margin_bottom = 272.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
-text = "NEXT MISSION"
+text = "RESTART"
 
 [node name="User" type="Panel" parent="."]
 visible = false
@@ -242,6 +241,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "BACK TO MISSIONS"
 
-[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="User/MarginContainer/VBoxContainer/Ok" to="." method="_on_ok_pressed"]

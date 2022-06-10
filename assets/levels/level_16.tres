@@ -9,7 +9,7 @@ scene = "res://scenes/level_16.tscn"
 thumbnail = "res://assets/levels/images/level_16.jpg"
 title = "Level 16"
 country = "JAPAN"
-location = "Osaka"
+location = "#17 - Osaka"
 description = "Local researchers estimate that Osaka Bay contains as many as 3 million plastic bags, the dire impact of using single-use plastics for everything.
 
 "

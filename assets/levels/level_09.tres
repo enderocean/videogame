@@ -9,7 +9,7 @@ scene = "res://scenes/level_09.tscn"
 thumbnail = "res://assets/levels/images/level_09.jpg"
 title = "Level 09"
 country = "VENEZUELA"
-location = "The Lake Maracaibo"
+location = "#10 - The Lake Maracaibo"
 description = "The Lake Maracaibo has been the subject of a lot negligence :  like many other places, the litter from surrounding towns has been trapped into it.
 
 But even worst, malfunctions from the oil extracting industry has caused leakages. The Lake has becomed a permanent black sea that affectes all plastics and leaks into the Carribean sea."

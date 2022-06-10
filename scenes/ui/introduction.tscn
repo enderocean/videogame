@@ -146,7 +146,7 @@ margin_top = 34.0
 margin_right = 240.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
-text = "2 - Virtual tour"
+text = "2 - World tour"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_top = 67.0
@@ -190,7 +190,7 @@ margin_right = 220.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 220, 60 )
 custom_fonts/font = ExtResource( 4 )
-text = "VIRTUAL TOUR"
+text = "WORLD TOUR"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 488.0

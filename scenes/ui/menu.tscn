@@ -253,7 +253,7 @@ margin_right = 250.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "VIRTUAL TOUR"
+text = "PLAY"
 
 [node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 210.0
