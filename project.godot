@@ -139,6 +139,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/mission_timer.gd"
 }, {
+"base": "SoftBody",
+"class": "NewFishingNet",
+"language": "GDScript",
+"path": "res://scripts/components/new_fishing_net.gd"
+}, {
 "base": "HBoxContainer",
 "class": "ObjectiveLine",
 "language": "GDScript",
@@ -256,6 +261,7 @@ _global_script_class_icons={
 "MissionPanel": "",
 "MissionPoint": "",
 "MissionTimer": "",
+"NewFishingNet": "",
 "ObjectiveLine": "",
 "PauseMenu": "",
 "PenaltyCollisionTag": "",
@@ -500,6 +506,7 @@ switch_tool={
 3d_physics/layer_2="DeliveryObject"
 3d_physics/layer_3="Vehicle"
 3d_physics/layer_4="DeliveryTool"
+3d_physics/layer_5="CutArea"
 
 [physics]
 
@@ -507,4 +514,5 @@ switch_tool={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
 environment/default_environment="res://assets/defaultEnvironment.tres"

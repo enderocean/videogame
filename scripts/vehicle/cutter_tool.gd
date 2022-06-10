@@ -7,14 +7,10 @@ func _ready() -> void:
 	tool_type = Globals.ObjectiveType.CUTTER
 
 
-func _on_RightCutArea_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	if (cuting and area.rope_id):
-		var parent = area.get_parent()
-
-		var node_point = get_node("CutRightRigidBody/RightCutArea")
-		var d1 = parent.pospins[area.rope_id - 1].global_transform.origin.distance_squared_to(node_point.global_transform.origin)
-		var d2 = parent.attachs[area.rope_id - 1].global_transform.origin.distance_squared_to(node_point.global_transform.origin)
+func _on_RightCutArea_area_entered(area: Area) -> void:
+	if not cuting:
+		return
 	
-		var cut_pos = d2 / (d1 + d2)
-		parent.cut_rope(area, (area.rope_id - 1), cut_pos)
-
+	var parent = area.get_parent()
+	if parent is NewFishingNet:
+		parent.cut(area)
