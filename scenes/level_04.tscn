@@ -226,7 +226,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6295, -36.183, -1.96993 )
 [node name="new_fishing_net" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.618, -36.1522, -0.969146 )
 skeleton = NodePath("")
-to_cut_indices = [ [ 547, 379 ] ]
 
 [node name="Rock" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2267, -28.4929, 16.6823 )
