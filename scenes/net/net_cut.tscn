@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.02
+mid_height = 0.25
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.08
+height = 0.248799
+
+[node name="NetCut" type="Area"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=17]
 [ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/collectible_tag.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/net/new_fishing_net.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CylinderMesh" id=2]
 top_radius = 0.05
@@ -123,6 +124,17 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079, 0, 0, 0, 0, 0, 0, 8.45815, -0.784242, -1.60849, 0, 0, 0, 0, 0, 0, 10.8491, 2.03713, -4.82849, 0, 0, 0, 0, 0, 0, 7.70465, 0.924336, -15.3851, 0, 0, 0, 0, 0, 0, 1.77759, 2.78423, -16.5732, 0, 0, 0, 0, 0, 0, -4.75082, 3.61585, -15.5624, 0, 0, 0, 0, 0, 0, -8.11241, 1.64981, -6.75963, 0, 0, 0, 0, 0, 0, -5.18043, 0.784087, -1.02249, 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
+
+[sub_resource type="CubeMesh" id=34]
+
+[sub_resource type="SpatialMaterial" id=35]
+albedo_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+
+[sub_resource type="BoxShape" id=36]
+
+[sub_resource type="SphereMesh" id=37]
+
+[sub_resource type="SphereShape" id=38]
 
 [node name="Example" type="Spatial"]
 script = ExtResource( 7 )
@@ -383,5 +395,30 @@ script = ExtResource( 17 )
 speed = 0.1
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 16 )]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58, -0.55, 3.29 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 34 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 35 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0 )
+shape = SubResource( 36 )
+
+[node name="StaticBody2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58, -1.58, 5.98 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
+mesh = SubResource( 37 )
+material/0 = SubResource( 35 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
+transform = Transform( 1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.02, 0, 0, 0 )
+shape = SubResource( 38 )
+
+[node name="new_fishing_net" parent="." instance=ExtResource( 20 )]
 
 [editable path="SoundTriggerArea"]

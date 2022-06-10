@@ -392,6 +392,10 @@ func process_keys() -> void:
 	if Input.is_action_just_pressed("switch_tool"):
 		vehicle_tool_index = (vehicle_tool_index + 1) % vehicle_tools.size()
 		set_current_tool_from_index(vehicle_tool_index)
+	
+	# Cut only when the close button is pressed
+	if vehicle_tools[vehicle_tool_index] is CutterTool:
+		vehicle_tools[vehicle_tool_index].cuting = Input.is_action_pressed("gripper_close")
 
 	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
@@ -399,8 +403,6 @@ func process_keys() -> void:
 
 		if vehicle_tools[vehicle_tool_index] is GripperTool:
 			vehicle_tools[vehicle_tool_index].release_object()
-		if vehicle_tools[vehicle_tool_index] is CutterTool:
-			vehicle_tools[vehicle_tool_index].cuting = false
 	
 		# TODO: Indicate sound on the tool itseft
 		sounds.stop("gripper_close")
@@ -409,8 +411,6 @@ func process_keys() -> void:
 		target_velocity = 1.0
 		sounds.stop("gripper_open")
 		sounds.play("gripper_close")
-		if vehicle_tools[vehicle_tool_index] is CutterTool:
-			vehicle_tools[vehicle_tool_index].cuting = true
 	else:
 		sounds.stop("gripper_open")
 		sounds.stop("gripper_close")
