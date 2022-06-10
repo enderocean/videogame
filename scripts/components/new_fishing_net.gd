@@ -9,7 +9,10 @@ export var floating: bool = false
 export var net_cut_scene: PackedScene
 
 export var to_cut_indices: Array = [
-	[883, 899],
+	[17, 147],
+	[111, 275],
+	[1619, 1745],
+	[1491, 1649],
 ]
 
 var mesh_data_tool: MeshDataTool = MeshDataTool.new()
