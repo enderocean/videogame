@@ -72,3 +72,7 @@ func _on_Introduction_pressed() -> void:
 
 func _on_Back_pressed():
 	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+
+
+func _on_Close_pressed():
+	get_tree().quit()
