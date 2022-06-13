@@ -395,7 +395,7 @@ func process_keys() -> void:
 	
 	# Cut only when the close button is pressed
 	if vehicle_tools[vehicle_tool_index] is CutterTool:
-		vehicle_tools[vehicle_tool_index].cuting = Input.is_action_pressed("gripper_close")
+		vehicle_tools[vehicle_tool_index].cutting = Input.is_action_pressed("gripper_close")
 
 	var target_velocity: float = 0.0
 	if Input.is_action_pressed("gripper_open"):
