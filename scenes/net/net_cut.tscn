@@ -11,7 +11,7 @@ flags_unshaded = true
 albedo_color = Color( 1, 0, 0, 1 )
 
 [sub_resource type="CapsuleShape" id=3]
-radius = 0.08
+radius = 0.04
 height = 0.248799
 
 [node name="NetCut" type="Area"]

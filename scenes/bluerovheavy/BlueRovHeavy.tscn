@@ -174,7 +174,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="BoxShape" id=40]
-extents = Vector3( 1, 1, 3.7874 )
+extents = Vector3( 1.43041, 1.47078, 2.98586 )
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -627,6 +627,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.19, 0.29 )
 nodes/node_a = NodePath("../../BlueRov")
 
 [connection signal="area_entered" from="Cutter/CutRightRigidBody/RightCutArea" to="Cutter" method="_on_RightCutArea_area_entered"]
+[connection signal="area_exited" from="Cutter/CutRightRigidBody/RightCutArea" to="Cutter" method="_on_RightCutArea_area_exited"]
 [connection signal="body_entered" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_entered"]
 [connection signal="body_exited" from="Vacuum/VacuumRigidBody/VaccumProcess/Area" to="Vacuum/VacuumRigidBody/VaccumProcess" method="_on_body_exited"]
 

@@ -32,6 +32,7 @@ func net_removed() -> void:
 	emit_signal("net_removed")
 
 
+# TODO: Improve this part by counting objects instead of having a counter
 func cut(area: Area) -> void:
 	if removed:
 		return
@@ -83,7 +84,7 @@ func _ready() -> void:
 		var shape: CapsuleShape = collision_shape.shape
 		var distance: float = positions[0].distance_to(positions[1])
 		mesh.mid_height = distance
-		shape.height = distance / 2
+		shape.height = distance
 		
 		net_cut.look_at_from_position(mid_position, positions[0], Vector3.UP)
 		add_child(net_cut)
