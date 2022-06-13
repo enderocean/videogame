@@ -15,8 +15,8 @@
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/rope/pulling_theter.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scripts/components/path_follow.gd" type="Script" id=17]
+[ext_resource path="res://scenes/components/fishes_particules.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/components/fishes_path_follow.gd" type="Script" id=17]
 [ext_resource path="res://scenes/components/delivery_grappling_hook.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/collectible_tag.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/net/new_fishing_net.tscn" type="PackedScene" id=20]
@@ -121,7 +121,7 @@ _data = {
 
 [sub_resource type="Curve3D" id=25]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079, 0, 0, 0, 0, 0, 0, 8.45815, -0.784242, -1.60849, 0, 0, 0, 0, 0, 0, 10.8491, 2.03713, -4.82849, 0, 0, 0, 0, 0, 0, 7.70465, 0.924336, -15.3851, 0, 0, 0, 0, 0, 0, 1.77759, 2.78423, -16.5732, 0, 0, 0, 0, 0, 0, -4.75082, 3.61585, -15.5624, 0, 0, 0, 0, 0, 0, -8.11241, 1.64981, -6.75963, 0, 0, 0, 0, 0, 0, -5.18043, 0.784087, -1.02249, 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079, -0.374125, 0.0853626, 1.27156, 0.374125, -0.0853626, -1.27156, 8.45815, -0.784242, -1.60849, -1.25533, -0.0663893, 1.75548, 1.25533, 0.0663893, -1.75548, 10.8491, 2.03713, -4.82849, 0.799932, -0.0103648, 3.77885, -0.799932, 0.0103648, -3.77885, 7.70465, 0.924336, -15.3851, 0, 0, 0, 0, 0, 0, 1.77759, 2.78423, -16.5732, 0.853559, 0.369473, -1.89753, -0.853559, -0.369473, 1.89753, -4.75082, 3.61585, -15.5624, 0.692817, 0.447992, -1.5993, -0.692817, -0.447992, 1.5993, -8.11241, 1.64981, -6.75963, 0.361962, 0.766045, -1.04849, -0.361962, -0.766045, 1.04849, -5.18043, 0.784087, -1.02249, 0, 0, 0, 0, 0, 0, 0.0120448, -0.0108113, 0.0132079 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
@@ -389,12 +389,14 @@ destination_path = NodePath("../Ender Station/PullDestination")
 curve = SubResource( 25 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( -0.188561, 0.0879616, 0.978114, 0, 0.995981, -0.0895683, -0.982062, -0.0168891, -0.187803, 0.0120448, -0.0108113, 0.0132079 )
+transform = Transform( -0.0487606, 0.0849623, 0.995039, 2.31451e-05, 0.996376, -0.0850494, -0.998806, -0.00412468, -0.0485787, 0.0233678, -0.0117788, 0.0126623 )
+offset = 0.0191993
 rotation_mode = 4
 script = ExtResource( 17 )
-speed = 0.1
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 16 )]
+transform = Transform( -0.1, 0, 8.74227e-09, 0, 0.1, 0, -8.74228e-09, 0, -0.1, 0, 0, 0 )
+lifetime = 1000.0
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58, -0.55, 3.29 )

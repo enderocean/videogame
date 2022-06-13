@@ -4,7 +4,7 @@
 shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
-uniform float time_scale: hint_range(0.0f, 10.0f) = 3.0f;
+uniform float time_scale: hint_range(0.0f, 100.0f) = 3.0f;
 uniform float side_to_side: hint_range(-1.0f, 1.0f) = 0.0f;
 uniform float wave: hint_range(-1.0f, 1.0f) = 0.0f;
 uniform float pivot: hint_range(-1.0f, 1.0f) = 0.0f;

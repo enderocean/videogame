@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 7 )
-shader_param/time_scale = 0.05
+shader_param/time_scale = 10.0
 shader_param/side_to_side = 0.0
 shader_param/wave = 0.25
 shader_param/pivot = 0.2
@@ -39,6 +39,6 @@ cast_shadow = 0
 amount = 100
 explosiveness = 1.0
 randomness = 1.0
-visibility_aabb = AABB( -0.154192, -0.169316, -0.141922, 0.308385, 0.338631, 0.283844 )
+visibility_aabb = AABB( -10.7684, -9.61777, -9.81626, 21.5368, 19.2355, 19.6325 )
 process_material = ExtResource( 2 )
 draw_pass_1 = ExtResource( 3 )

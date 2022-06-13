@@ -1,5 +1,4 @@
 shader_type particles;
-render_mode keep_data;
 
 uniform float direction: hint_range(-1.0f, 1.0f) = -1.0f;
 uniform float spread: hint_range(1.0f, 100.0f) = 20.0f;
@@ -40,7 +39,7 @@ void vertex() {
     TRANSFORM[3].xyz = position * spread;
   } else {
     //per-frame code goes here
-    VELOCITY.z = (cos(TIME + CUSTOM.x * 6.28) * 4.0 + 6.0) * direction;
-    CUSTOM.y = VELOCITY.z * 0.1;
+    // VELOCITY.z = (cos(TIME + CUSTOM.x * 6.28) * 4.0 + 6.0) * direction;
+	// CUSTOM.y = VELOCITY.z * 0.1;
   }
 }
