@@ -21,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 settings_panel_path = NodePath("Panel/SettingsPanel")
+back_to_missions_path = NodePath("Panel/MarginContainer/VBoxContainer/BackToMap")
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0

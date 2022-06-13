@@ -130,13 +130,19 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 	
 	set_physics_process(true)
 	
+	# Set Back to missions map button to default behavior
+	pause_menu.back_to_main_menu = false
+	
 	# Start the time with the given LevelData time
 	if active_level_data:
 		mission_timer.paused = false
 		mission_timer.start(active_level_data.time * 60)
 		match active_level_data.id:
-			# Show the instruction popup only on the practice level
 			"practice":
+				# Set the back to missions as back to main menu
+				pause_menu.back_to_main_menu = true
+				
+				# Show the instruction popup only on the practice level
 				instructions_popup.title.text = active_level_data.title
 				instructions_popup.description.text = active_level_data.description
 				instructions_popup.show()
