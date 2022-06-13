@@ -125,7 +125,7 @@ func _ready() -> void:
 		if node is TrapAnimal:
 		# warning-ignore:return_value_discarded
 			node.connect("animal_free", self, "_on_animal_free")
-		if node is FishingNet:
+		if node is NewFishingNet or node is FishingNet:
 		# warning-ignore:return_value_discarded
 			node.connect("net_cut", self, "_on_net_cut")
 	
