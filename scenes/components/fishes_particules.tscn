@@ -1,14 +1,44 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/shaders/fish.tres" type="Material" id=1]
+[ext_resource path="res://terrains/level_02/metal_fish/Metal038_1K_Roughness.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/shaders/fish_particles.tres" type="Material" id=2]
 [ext_resource path="res://addons/fish-shader/assets/Fish Perch.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://terrains/level_02/metal_fish/Metal038_1K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://terrains/level_02/metal_fish/Metal038_1K_Metalness.jpg" type="Texture" id=5]
+[ext_resource path="res://terrains/level_02/metal_fish/Metal038_1K_NormalGL.jpg" type="Texture" id=6]
+[ext_resource path="res://assets/shaders/fish.shader" type="Shader" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/time_scale = 0.05
+shader_param/side_to_side = 0.0
+shader_param/wave = 0.25
+shader_param/pivot = 0.2
+shader_param/twist = 0.75
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.0
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/metallic_texture_channel = Plane( 1, 0, 0, 0 )
+shader_param/roughness_texture_channel = Plane( 1, 0, 1, 0 )
+shader_param/normal_scale = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_albedo = ExtResource( 4 )
+shader_param/texture_metallic = ExtResource( 5 )
+shader_param/texture_roughness = ExtResource( 1 )
+shader_param/texture_normal = ExtResource( 6 )
 
 [node name="Fishes" type="Particles"]
-transform = Transform( 0.0974992, -3.72534e-09, -0.995238, 0.511798, 0.857641, 0.0501387, 0.853565, -0.514255, 0.0836201, -3.64362, -0.103351, -0.251497 )
-material_override = ExtResource( 1 )
+transform = Transform( 1.00001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+material_override = SubResource( 1 )
+cast_shadow = 0
 amount = 100
-lifetime = 100.0
+explosiveness = 1.0
+randomness = 1.0
 visibility_aabb = AABB( -0.154192, -0.169316, -0.141922, 0.308385, 0.338631, 0.283844 )
 process_material = ExtResource( 2 )
 draw_pass_1 = ExtResource( 3 )
