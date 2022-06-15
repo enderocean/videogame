@@ -8,13 +8,18 @@ var time: float = 0.0
 
 func set_enabled(value: bool) -> void:
 	enabled = value
+	reset()
+
+
+func reset() -> void:
 	time = 0.0
 	offset = 0.0
+	transform.origin = Vector3.ZERO
+	rotation_degrees = Vector3.ZERO
 
 
 func _ready() -> void:
-	time = 0.0
-	offset = 0.0
+	reset()
 
 
 func _physics_process(delta: float) -> void:

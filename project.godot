@@ -89,6 +89,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/hud/informations_panel.gd"
 }, {
+"base": "HBoxContainer",
+"class": "InputLine",
+"language": "GDScript",
+"path": "res://scripts/ui/settings/input_line.gd"
+}, {
+"base": "Control",
+"class": "InputSelect",
+"language": "GDScript",
+"path": "res://scripts/ui/settings/input_select.gd"
+}, {
 "base": "Popup",
 "class": "InstructionsPopup",
 "language": "GDScript",
@@ -251,6 +261,8 @@ _global_script_class_icons={
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "InformationsPanel": "",
+"InputLine": "",
+"InputSelect": "",
 "InstructionsPopup": "",
 "Level": "",
 "LevelData": "",

@@ -16,6 +16,11 @@ enum DeliveryToolType {
 
 const SEND_DATA: bool = false
 
+const LINKS: Dictionary = {
+	"session": "https://www.enderocean.com/en/training-center/",
+	"events": "https://www.enderocean.com/events/"
+}
+
 export var isHTML5: bool = false
 
 export var enable_godray: bool = true setget set_enable_godray
@@ -31,6 +36,7 @@ var levels: Dictionary
 var collectibles: Dictionary
 
 var sitl_pid: int = 0
+
 
 signal fancy_water_changed
 signal enable_godray_changed
@@ -67,6 +73,7 @@ func set_ping360(value: bool) -> void:
 	ping360_enabled = value
 	emit_signal("ping360_changed")
 
+
 static func get_files(path: String) -> PoolStringArray:
 	var files: PoolStringArray = []
 	var dir: Directory = Directory.new()
@@ -85,3 +92,6 @@ static func get_files(path: String) -> PoolStringArray:
 		file = dir.get_next()
 
 	return files
+
+
+# TODO: Save settings to file

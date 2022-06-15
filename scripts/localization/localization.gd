@@ -26,3 +26,25 @@ static func get_vehicle_tool_text(vehicle_tool) -> String:
 	elif vehicle_tool is CutterTool:
 		return "Cutter"
 	return ""
+
+
+# This code is temporary, waiting for the localization integration
+static func get_input_action_text(input_action: String) -> String:
+	var inputs: Dictionary = {
+		"forward": "Forward",
+		"backwards": "Backwards",
+		"upwards": "Upwards",
+		"downwards": "Downwards",
+		"strafe_left": "Strafe Left",
+		"strafe_right": "Strafe Right",
+		"rotate_left": "Rotate Left",
+		"rotate_right": "Rotate Right",
+		"tool_open": "Open Tool",
+		"tool_close": "Close Tool",
+		"tool_switch": "Switch Tool",
+		"camera_switch": "Switch Camera"
+	}
+	
+	if inputs.has(input_action):
+		return inputs.get(input_action)
+	return ""

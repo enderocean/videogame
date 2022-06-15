@@ -1,12 +1,20 @@
 extends Control
 
+const ICON_MUSIC = preload("res://assets/music.png")
+const ICON_MUSIC_OFF = preload("res://assets/music_off.png")
+
+export var music_icon_path: NodePath
+onready var music_icon_texture: TextureRect = get_node(music_icon_path)
+
 export var licences_popup_path: NodePath
 onready var licences_popup: AcceptDialog = get_node(licences_popup_path)
-onready var playback_position: float
+
 export var level_buttons_path: NodePath
 
-var icon_music = preload("res://assets/music.png")
-var icon_music_off = preload("res://assets/music_off.png")
+export var settings_path: NodePath
+onready var settings: Control = get_node(settings_path)
+
+var playback_position: float
 
 
 func create_level_buttons(levels: Array) -> void:
@@ -50,24 +58,23 @@ func _on_Music_pressed():
 	var audio_stream_player = get_node("AudioStreamPlayer")
 	if audio_stream_player.is_playing():
 		audio_stream_player.stop()
-		get_node("Music").set_button_icon(icon_music_off)
+		music_icon_texture.texture = ICON_MUSIC_OFF
 		playback_position = audio_stream_player.get_playback_position()
 	else:
 		audio_stream_player.play(playback_position)
-		get_node("Music").set_button_icon(icon_music)
+		music_icon_texture.texture = ICON_MUSIC
 
 
 func _on_book_session_pressed() -> void:
-	OS.shell_open("https://www.enderocean.com/en/training-center/")
+	OS.shell_open(Globals.LINKS.get("events"))
 
 
 func _on_show_events_pressed():
-	OS.shell_open("https://www.enderocean.com/events/")
+	OS.shell_open(Globals.LINKS.get("events"))
 
 
 func _on_Introduction_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/ui/introduction.tscn")
-
 
 
 func _on_Back_pressed():
@@ -76,3 +83,7 @@ func _on_Back_pressed():
 
 func _on_Close_pressed():
 	get_tree().quit()
+
+
+func _on_settings_pressed() -> void:
+	settings.show()
