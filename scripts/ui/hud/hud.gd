@@ -192,7 +192,7 @@ func _on_level_finished(update_score: bool = true) -> void:
 		update_score()
 	
 	# Save the level score
-	SaveManager.data.levels[active_level_data.id] = {
+	SaveManager.levels[active_level_data.id] = {
 		"score": active_level.score,
 		# Save the time it took to finish the mission
 		"time": (mission_timer.minutes * 60) - mission_timer.time_left

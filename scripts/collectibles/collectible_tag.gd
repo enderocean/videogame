@@ -26,11 +26,8 @@ func _on_delivered() -> void:
 		printerr('Collectible "', id, '" not found')
 		return
 	
-	if not SaveManager.data.has("collectibles"):
-		SaveManager.data["collectibles"] = {}
-	
 	# Save the collectible
-	SaveManager.data.collectibles[id] = true
+	SaveManager.collectibles[id] = true
 	
 	emit_signal("obtained", id)
 	

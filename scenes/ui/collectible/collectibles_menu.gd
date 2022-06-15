@@ -31,12 +31,12 @@ func _ready() -> void:
 			printerr("No image defined for collectible: ", collectible.id)
 			continue
 		collectible_button.image.texture = load(collectible.image)
-		collectible_button.image.self_modulate = unlocked if SaveManager.data.collectibles.has(collectible_id) else locked
+		collectible_button.image.self_modulate = unlocked if SaveManager.collectibles.has(collectible_id) else locked
 
 
 func _on_collectible_pressed(collectible_id: String) -> void:
 	sidebar.visible = true
-	var unlocked: bool = SaveManager.data.collectibles.has(collectible_id)
+	var unlocked: bool = SaveManager.collectibles.has(collectible_id)
 	collectible_panel.visible = unlocked
 	locked_label.visible = not unlocked
 	

@@ -2,7 +2,21 @@ extends Node
 
 const SAVE_FILE: String = "user://save"
 
-var data: Dictionary = {"name": "", "levels": {}, "collectibles": {}}
+var levels: Dictionary = {}
+var collectibles: Dictionary = {}
+var settings: Dictionary = {
+		"graphics": {
+			"physics_rate": 60,
+			"fancy_water": true
+		},
+		"audio": {
+			"master": 1.0,
+			"radio": 1.0
+		},
+		"inputs": {
+			"keyboard": {}
+		}
+	}
 
 
 func _ready() -> void:
@@ -19,9 +33,12 @@ func load_data() -> void:
 		printerr("Error while opening file to load save.")
 		return
 
-	data = file.get_var(true)
+	var data: Dictionary = file.get_var(true)
+	levels = data.get("levels", levels)
+	collectibles = data.get("collectibles", collectibles)
+	settings = data.get("settings", settings)
 	file.close()
-	print("Loaded data from ", SAVE_FILE)
+	print("Loaded data from ", ProjectSettings.globalize_path(SAVE_FILE))
 
 
 func save_data() -> void:
@@ -30,7 +47,14 @@ func save_data() -> void:
 	if error != OK:
 		printerr("Error while opening file to save data.")
 		return
-
+	
+	var data: Dictionary = {}
+	data["levels"] = levels
+	data["collectibles"] = collectibles
+	data["settings"] = settings
+	
 	file.store_var(data, true)
 	file.close()
-	print("Saved data in ", SAVE_FILE)
+	print("Saved data in ", ProjectSettings.globalize_path(SAVE_FILE))
+
+
