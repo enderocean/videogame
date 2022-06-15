@@ -16,6 +16,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 5 )
+master_slider_path = NodePath("ScrollContainer/MarginContainer/VBoxContainer/Master")
+effects_slider_path = NodePath("ScrollContainer/MarginContainer/VBoxContainer/Effects")
+radio_slider_path = NodePath("ScrollContainer/MarginContainer/VBoxContainer/Radio")
+music_slider_path = NodePath("ScrollContainer/MarginContainer/VBoxContainer/Music")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
@@ -23,7 +27,7 @@ anchor_bottom = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
 margin_right = 1920.0
-margin_bottom = 145.0
+margin_bottom = 255.0
 size_flags_horizontal = 3
 custom_constants/margin_right = 25
 custom_constants/margin_top = 25
@@ -34,17 +38,27 @@ custom_constants/margin_bottom = 25
 margin_left = 25.0
 margin_top = 25.0
 margin_right = 1895.0
-margin_bottom = 120.0
+margin_bottom = 230.0
 size_flags_horizontal = 3
 custom_constants/separation = 15
 
 [node name="Master" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-setting_key = "audio_master"
+setting_key = "volume_master"
 
-[node name="Radio" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+[node name="Effects" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 55.0
 margin_bottom = 95.0
-setting_key = "audio_radio"
+setting_key = "volume_effects"
+
+[node name="Radio" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 110.0
+margin_bottom = 150.0
+setting_key = "volume_radio"
+
+[node name="Music" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 165.0
+margin_bottom = 205.0
+setting_key = "volume_music"
 
 [node name="InputSelect" type="Popup" parent="."]
 anchor_right = 1.0
@@ -92,3 +106,8 @@ custom_fonts/font = SubResource( 1 )
 text = "already used"
 align = 1
 valign = 1
+
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Master" to="." method="_on_master_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Effects" to="." method="_on_effects_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Radio" to="." method="_on_radio_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Music" to="." method="_on_music_changed"]

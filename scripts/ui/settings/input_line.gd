@@ -20,6 +20,7 @@ func _ready() -> void:
 	
 	add_to_group("input")
 	input_button.connect("pressed", self, "_on_input_button_pressed")
+	label.text = Localization.get_input_action_text(action)
 	update()
 
 
@@ -34,9 +35,7 @@ func update() -> void:
 	if not has_valid_action:
 		return
 	
-	label.text = action
 	var actions: Array = InputMap.get_action_list(action)
-	
 	for action in actions:
 		if action is InputEventKey:
 			input_button.text = OS.get_scancode_string(action.scancode)

@@ -6,24 +6,36 @@
 margin_right = 1870.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
+custom_constants/separation = 20
 script = ExtResource( 1 )
 label_path = NodePath("Label")
 slider_path = NodePath("HSlider")
+value_label_path = NodePath("ValueText")
 
 [node name="Label" type="Label" parent="."]
 margin_top = 9.0
-margin_right = 1466.0
+margin_right = 1390.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "name"
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 1470.0
-margin_right = 1870.0
+margin_left = 1410.0
+margin_right = 1810.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_vertical = 1
 max_value = 1.0
-step = 0.1
+step = 0.01
+
+[node name="ValueText" type="Label" parent="."]
+margin_left = 1830.0
+margin_top = 9.0
+margin_right = 1870.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 40, 0 )
+text = "100"
+align = 1
+valign = 1
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_value_changed"]

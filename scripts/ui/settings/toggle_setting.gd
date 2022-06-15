@@ -17,4 +17,4 @@ func set_enabled(value: bool) -> void:
 
 
 func _on_toggled(button_pressed: bool) -> void:
-	enabled = button_pressed
+	set_enabled(button_pressed)

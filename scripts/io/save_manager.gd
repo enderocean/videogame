@@ -4,7 +4,9 @@ const SAVE_FILE: String = "user://save"
 
 var levels: Dictionary = {}
 var collectibles: Dictionary = {}
-var settings: Dictionary = {
+var settings: Dictionary = {}
+
+var default_settings: Dictionary = {
 		"graphics": {
 			"fullscreen": ProjectSettings.get_setting("display/window/size/fullscreen"),
 			"vsync": ProjectSettings.get_setting("display/window/vsync/use_vsync"),
@@ -13,6 +15,8 @@ var settings: Dictionary = {
 		},
 		"audio": {
 			"master": 1.0,
+			"music": 1.0,
+			"effects": 1.0,
 			"radio": 1.0
 		},
 		"inputs": {
@@ -22,6 +26,7 @@ var settings: Dictionary = {
 
 
 func _ready() -> void:
+	settings = default_settings
 	load_data()
 
 

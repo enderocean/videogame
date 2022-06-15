@@ -55,8 +55,10 @@ static func get_setting_text(setting_key: String) -> String:
 	var settings: Dictionary = {
 		"fullscreen": "Fullscreen",
 		"vsync": "Enable VSync",
-		"audio_master": "Master",
-		"audio_radio": "Radio",
+		"volume_master": "Master",
+		"volume_effects": "Effects",
+		"volume_radio": "Radio",
+		"volume_music": "Music"
 	}
 	
 	if settings.has(setting_key):

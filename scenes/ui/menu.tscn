@@ -37,6 +37,7 @@ __meta__ = {
 music_icon_path = NodePath("Footer/Music/Icon")
 licences_popup_path = NodePath("LicencesDialog")
 level_buttons_path = NodePath("HBoxContainer/LevelButtons")
+settings_path = NodePath("Settings")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -295,12 +296,13 @@ More details are available on our website : https://www.enderocean.com
 
 "
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Settings" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"
-
-[node name="Settings" parent="." instance=ExtResource( 10 )]
 
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Introduction" to="." method="_on_Introduction_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
