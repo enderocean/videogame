@@ -6,7 +6,9 @@ var levels: Dictionary = {}
 var collectibles: Dictionary = {}
 var settings: Dictionary = {
 		"graphics": {
-			"physics_rate": 60,
+			"fullscreen": ProjectSettings.get_setting("display/window/size/fullscreen"),
+			"vsync": ProjectSettings.get_setting("display/window/vsync/use_vsync"),
+			"physics_rate": ProjectSettings.get_setting("physics/common/physics_fps"),
 			"fancy_water": true
 		},
 		"audio": {

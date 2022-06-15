@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/settings/slider_setting.gd" type="Script" id=1]
+
+[node name="SliderSetting" type="HBoxContainer"]
+margin_right = 1870.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 1 )
+label_path = NodePath("Label")
+slider_path = NodePath("HSlider")
+
+[node name="Label" type="Label" parent="."]
+margin_top = 9.0
+margin_right = 1466.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "name"
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 1470.0
+margin_right = 1870.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_value_changed"]

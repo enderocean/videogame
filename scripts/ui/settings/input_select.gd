@@ -45,6 +45,9 @@ func _input(event):
 			InputMap.action_add_event(action, event)
 			SaveManager.settings.inputs
 			emit_signal("key_changed", scancode)
+		else:
+			set_process_input(false)
+			hide()
 
 
 func check_same_key(scancode: int) -> Array:

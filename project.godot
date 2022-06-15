@@ -184,10 +184,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/rope/section.gd"
 }, {
+"base": "HBoxContainer",
+"class": "SettingLine",
+"language": "GDScript",
+"path": "res://scripts/ui/settings/setting_line.gd"
+}, {
 "base": "PanelContainer",
 "class": "SettingsPanel",
 "language": "GDScript",
-"path": "res://scripts/ui/settings.gd"
+"path": "res://scripts/ui/pause_settings.gd"
+}, {
+"base": "HBoxContainer",
+"class": "SliderSetting",
+"language": "GDScript",
+"path": "res://scripts/ui/settings/slider_setting.gd"
 }, {
 "base": "SoftBody",
 "class": "SoftRope",
@@ -208,6 +218,11 @@ _global_script_classes=[ {
 "class": "TheterAnchor",
 "language": "GDScript",
 "path": "res://scripts/components/theter_anchor.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ToggleSetting",
+"language": "GDScript",
+"path": "res://scripts/ui/settings/toggle_setting.gd"
 }, {
 "base": "Node",
 "class": "TrapAnimal",
@@ -280,11 +295,14 @@ _global_script_class_icons={
 "ROVSounds": "",
 "Rope": "",
 "RopeSection": "",
+"SettingLine": "",
 "SettingsPanel": "",
+"SliderSetting": "",
 "SoftRope": "",
 "SoundTriggerArea": "",
 "Theter": "",
 "TheterAnchor": "",
+"ToggleSetting": "",
 "TrapAnimal": "",
 "UnderwaterMesh": "",
 "VacuumTool": "",
@@ -323,7 +341,6 @@ settings/stdout/print_fps=true
 
 window/size/width=1920
 window/size/height=1080
-window/size/fullscreen=true
 window/stretch/aspect="expand"
 
 [editor_plugins]

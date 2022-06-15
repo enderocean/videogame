@@ -17,7 +17,7 @@ func _on_change_key(input_line: InputLine) -> void:
 	print("change on ", input_line.action)
 	input_select.action = input_line.action
 	# Listen for the key change
-	var scancode: String = yield(input_select, "key_changed")
+	yield(input_select, "key_changed")
 	# Update UI
 	input_line.update()
 	input_select.hide()

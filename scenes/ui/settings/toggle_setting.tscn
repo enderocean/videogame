@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/settings/toggle_setting.gd" type="Script" id=1]
+
+[node name="ToggleSetting" type="HBoxContainer"]
+margin_right = 1870.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 1 )
+label_path = NodePath("Label")
+check_button_path = NodePath("CheckButton")
+
+[node name="Label" type="Label" parent="."]
+margin_top = 9.0
+margin_right = 1790.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "name"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_left = 1794.0
+margin_right = 1870.0
+margin_bottom = 40.0
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_toggled"]

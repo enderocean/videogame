@@ -48,3 +48,17 @@ static func get_input_action_text(input_action: String) -> String:
 	if inputs.has(input_action):
 		return inputs.get(input_action)
 	return ""
+
+
+# This code is temporary, waiting for the localization integration
+static func get_setting_text(setting_key: String) -> String:
+	var settings: Dictionary = {
+		"fullscreen": "Fullscreen",
+		"vsync": "Enable VSync",
+		"audio_master": "Master",
+		"audio_radio": "Radio",
+	}
+	
+	if settings.has(setting_key):
+		return settings.get(setting_key)
+	return ""

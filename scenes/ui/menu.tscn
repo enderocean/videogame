@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/bluerovheavy/bluerov cleaned decimated.gltf" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/music.png" type="Texture" id=9]
-[ext_resource path="res://scenes/ui/input_settings.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ui/settings.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -37,7 +37,6 @@ __meta__ = {
 music_icon_path = NodePath("Footer/Music/Icon")
 licences_popup_path = NodePath("LicencesDialog")
 level_buttons_path = NodePath("HBoxContainer/LevelButtons")
-settings_path = NodePath("InputSettings")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -301,8 +300,7 @@ stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"
 
-[node name="InputSettings" parent="." instance=ExtResource( 10 )]
-visible = false
+[node name="Settings" parent="." instance=ExtResource( 10 )]
 
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Introduction" to="." method="_on_Introduction_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
