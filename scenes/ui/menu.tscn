@@ -299,7 +299,7 @@ More details are available on our website : https://www.enderocean.com
 [node name="Settings" parent="." instance=ExtResource( 10 )]
 visible = false
 
-[node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"

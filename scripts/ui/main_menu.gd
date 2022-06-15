@@ -55,7 +55,7 @@ func _on_Campaign_pressed() -> void:
 
 
 func _on_Music_pressed():
-	var audio_stream_player = get_node("AudioStreamPlayer")
+	var audio_stream_player = get_node("BackgroundMusic")
 	if audio_stream_player.is_playing():
 		audio_stream_player.stop()
 		music_icon_texture.texture = ICON_MUSIC_OFF
