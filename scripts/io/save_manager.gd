@@ -8,7 +8,7 @@ var settings: Dictionary = {}
 
 var default_settings: Dictionary = {
 		"graphics": {
-			"fullscreen": ProjectSettings.get_setting("display/window/size/fullscreen"),
+			"fullscreen": true,
 			"vsync": ProjectSettings.get_setting("display/window/vsync/use_vsync"),
 			"physics_rate": ProjectSettings.get_setting("physics/common/physics_fps"),
 			"fancy_water": true
