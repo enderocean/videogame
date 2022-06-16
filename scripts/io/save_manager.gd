@@ -71,7 +71,7 @@ func get_default_inputs() -> Dictionary:
 	var actions: Array = InputMap.get_actions()
 	for action in actions:
 		# Ignore "unused" actions
-		if action.begins_with("ui_") or action.begins_with("player_") or action.begins_with("sail_"):
+		if action.begins_with("ui_"):
 			continue
 		
 		var input_events: Array = InputMap.get_action_list(action)

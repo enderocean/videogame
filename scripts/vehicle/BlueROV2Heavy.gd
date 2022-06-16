@@ -318,75 +318,76 @@ func _unhandled_input(event) -> void:
 func process_keys() -> void:
 	var force: Vector3 = Vector3.ZERO
 	var pos: Vector3 = Vector3(0, -0.05, 0)
+	
+	if Globals.can_control_rov:
+		if Input.is_action_just_pressed("speed_up"):
+			speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
+			emit_signal("speed_changed", speed_index)
 
-	if Input.is_action_just_pressed("speed_up"):
-		speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
-		emit_signal("speed_changed", speed_index)
+		if Input.is_action_just_pressed("speed_down"):
+			speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
+			emit_signal("speed_changed", speed_index)
 
-	if Input.is_action_just_pressed("speed_down"):
-		speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
-		emit_signal("speed_changed", speed_index)
+		if Input.is_action_pressed("forward"):
+			force.z = speeds[speed_index].x
+			sounds.play("move_forward")
+		else:
+			sounds.stop("move_forward")
 
-	if Input.is_action_pressed("forward"):
-		force.z = speeds[speed_index].x
-		sounds.play("move_forward")
-	else:
-		sounds.stop("move_forward")
+		if Input.is_action_pressed("backwards"):
+			force.z = -speeds[speed_index].x
+			sounds.play("move_backward")
+		else:
+			sounds.stop("move_backward")
 
-	if Input.is_action_pressed("backwards"):
-		force.z = -speeds[speed_index].x
-		sounds.play("move_backward")
-	else:
-		sounds.stop("move_backward")
+		if Input.is_action_pressed("strafe_right"):
+			force.x = -speeds[speed_index].x
+			sounds.play("move_right")
+		else:
+			sounds.stop("move_right")
 
-	if Input.is_action_pressed("strafe_right"):
-		force.x = -speeds[speed_index].x
-		sounds.play("move_right")
-	else:
-		sounds.stop("move_right")
+		if Input.is_action_pressed("strafe_left"):
+			force.x = speeds[speed_index].x
+			sounds.play("move_left")
+		else:
+			sounds.stop("move_left")
 
-	if Input.is_action_pressed("strafe_left"):
-		force.x = speeds[speed_index].x
-		sounds.play("move_left")
-	else:
-		sounds.stop("move_left")
+		if Input.is_action_pressed("upwards"):
+			force.y = speeds[speed_index].y
+			sounds.play("move_up")
+			sounds.stop("move_down")
+		elif Input.is_action_pressed("downwards"):
+			force.y = -speeds[speed_index].y
 
-	if Input.is_action_pressed("upwards"):
-		force.y = speeds[speed_index].y
-		sounds.play("move_up")
-		sounds.stop("move_down")
-	elif Input.is_action_pressed("downwards"):
-		force.y = -speeds[speed_index].y
+			sounds.stop("move_up")
+			sounds.play("move_down")
+		else:
+			sounds.stop("move_up")
+			sounds.stop("move_down")
 
-		sounds.stop("move_up")
-		sounds.play("move_down")
-	else:
-		sounds.stop("move_up")
-		sounds.stop("move_down")
+		if force != Vector3.ZERO:
+			add_force_local(force, pos)
 
-	if force != Vector3.ZERO:
-		add_force_local(force, pos)
+		var torque: Vector3 = Vector3.ZERO
+		if Input.is_action_pressed("rotate_left"):
+			torque = transform.basis.xform(Vector3(0, 20, 0))
+		elif Input.is_action_pressed("rotate_right"):
+			torque = transform.basis.xform(Vector3(0, -20, 0))
 
-	var torque: Vector3 = Vector3.ZERO
-	if Input.is_action_pressed("rotate_left"):
-		torque = transform.basis.xform(Vector3(0, 20, 0))
-	elif Input.is_action_pressed("rotate_right"):
-		torque = transform.basis.xform(Vector3(0, -20, 0))
+		if torque != Vector3.ZERO:
+			add_torque(torque)
 
-	if torque != Vector3.ZERO:
-		add_torque(torque)
-
-	if Input.is_action_pressed("camera_up"):
-		camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
-		sounds.stop("camera_down")
-		sounds.play("camera_up")
-	elif Input.is_action_pressed("camera_down"):
-		camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
-		sounds.stop("camera_up")
-		sounds.play("camera_down")
-	else:
-		sounds.stop("camera_up")
-		sounds.stop("camera_down")
+		if Input.is_action_pressed("camera_up"):
+			camera.rotation_degrees.x = min(camera.rotation_degrees.x + 0.1, 45)
+			sounds.stop("camera_down")
+			sounds.play("camera_up")
+		elif Input.is_action_pressed("camera_down"):
+			camera.rotation_degrees.x = max(camera.rotation_degrees.x - 0.1, -45)
+			sounds.stop("camera_up")
+			sounds.play("camera_down")
+		else:
+			sounds.stop("camera_up")
+			sounds.stop("camera_down")
 
 	# Switch tool
 	if Input.is_action_just_pressed("tool_switch"):

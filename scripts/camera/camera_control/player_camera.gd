@@ -34,16 +34,16 @@ export var max_speed = Vector3(15.0, 15.0, 15.0)
 export var local = true
 
 # Input Actions
-export var rotate_left_action = ""
-export var rotate_right_action = ""
+export var rotate_left_action = "rotate_left"
+export var rotate_right_action = "rotate_right"
 export var rotate_up_action = ""
 export var rotate_down_action = ""
-export var forward_action = "player_up"
-export var backward_action = "player_down"
-export var left_action = "player_left"
-export var right_action = "player_right"
-export var up_action = "camera_upwards"
-export var down_action = "camera_downwards"
+export var forward_action = "forward"
+export var backward_action = "backwards"
+export var left_action = "strafe_left"
+export var right_action = "strafe_right"
+export var up_action = "camera_up"
+export var down_action = "camera_down"
 export var trigger_action = "camera_trigger"
 
 # Gui settings
@@ -100,6 +100,9 @@ func _input(event):
 			_triggered = false
 	else:
 		_triggered = true
+	
+	Globals.can_control_rov = not _triggered
+	
 	if freelook and _triggered:
 		if event is InputEventMouseMotion:
 			_mouse_offset = event.relative
