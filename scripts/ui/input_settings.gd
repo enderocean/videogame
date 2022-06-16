@@ -32,6 +32,7 @@ func _on_change_key(input_line: InputLine) -> void:
 
 func _on_reset_key(input_line: InputLine) -> void:
 	set_action_key(input_line.action, SaveManager.default_settings.inputs.keyboard.get(input_line.action))
+	SaveManager.settings.inputs.keyboard[input_line.action] = SaveManager.default_settings.inputs.keyboard.get(input_line.action)
 	input_line.update()
 
 
