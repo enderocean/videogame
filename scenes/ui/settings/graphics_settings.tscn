@@ -97,3 +97,7 @@ custom_fonts/font = SubResource( 1 )
 text = "already used"
 align = 1
 valign = 1
+
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/VSync" to="." method="_on_vsync_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/FancyWater" to="." method="_on_fancywater_changed"]

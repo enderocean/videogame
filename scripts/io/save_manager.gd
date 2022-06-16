@@ -20,13 +20,14 @@ var default_settings: Dictionary = {
 			"radio": 1.0
 		},
 		"inputs": {
-			"keyboard": {}
+			"keyboard": {},
 		}
 	}
 
 
 func _ready() -> void:
 	settings = default_settings
+	settings.get("inputs")["keyboard"] = get_default_inputs()
 	load_data()
 
 
@@ -65,3 +66,16 @@ func save_data() -> void:
 	print("Saved data in ", ProjectSettings.globalize_path(SAVE_FILE))
 
 
+func get_default_inputs() -> Dictionary:
+	var default_inputs: Dictionary
+	var actions: Array = InputMap.get_actions()
+	for action in actions:
+		# Ignore "unused" actions
+		if action.begins_with("ui_") or action.begins_with("player_") or action.begins_with("sail_"):
+			continue
+		
+		var input_events: Array = InputMap.get_action_list(action)
+		for input_event in input_events:
+			if input_event is InputEventKey:
+				default_inputs[action] = input_event.scancode
+	return default_inputs

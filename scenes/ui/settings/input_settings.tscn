@@ -62,29 +62,29 @@ margin_right = 1920.0
 margin_bottom = 260.0
 action = "strafe_right"
 
-[node name="Upwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="RotateLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 275.0
 margin_right = 1920.0
 margin_bottom = 315.0
-action = "upwards"
-
-[node name="Downwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 330.0
-margin_right = 1920.0
-margin_bottom = 370.0
-action = "downwards"
-
-[node name="RotateLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 385.0
-margin_right = 1920.0
-margin_bottom = 425.0
 action = "rotate_left"
 
 [node name="RotateRight" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 330.0
+margin_right = 1920.0
+margin_bottom = 370.0
+action = "rotate_right"
+
+[node name="Upwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 385.0
+margin_right = 1920.0
+margin_bottom = 425.0
+action = "upwards"
+
+[node name="Downwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 440.0
 margin_right = 1920.0
 margin_bottom = 480.0
-action = "rotate_right"
+action = "downwards"
 
 [node name="Tools" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 495.0

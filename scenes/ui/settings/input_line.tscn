@@ -34,3 +34,6 @@ margin_right = 1024.0
 margin_bottom = 40.0
 size_flags_horizontal = 8
 text = "Reset"
+
+[connection signal="pressed" from="Input" to="." method="_on_input_button_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_button_pressed"]

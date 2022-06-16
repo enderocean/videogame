@@ -65,6 +65,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 200, 0 )
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = true
+pressed = true
 group = SubResource( 1 )
 text = "Graphics"
 
@@ -97,7 +98,6 @@ custom_constants/margin_top = 20
 custom_constants/margin_bottom = 20
 
 [node name="GraphicsSettings" parent="MarginContainer/VBoxContainer/PageContainer" instance=ExtResource( 5 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 20.0
@@ -136,15 +136,6 @@ margin_bottom = 50.0
 size_flags_vertical = 3
 alignment = 2
 
-[node name="Apply" type="Button" parent="MarginContainer/VBoxContainer/Footer/VBoxContainer/HBoxContainer"]
-margin_left = 1476.0
-margin_right = 1676.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 200, 0 )
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-text = "Apply changes"
-
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/Footer/VBoxContainer/HBoxContainer"]
 margin_left = 1680.0
 margin_right = 1880.0
@@ -157,3 +148,4 @@ text = "Back"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Navigation/VBoxContainer/HBoxContainer/Graphics" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Navigation/VBoxContainer/HBoxContainer/Audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Navigation/VBoxContainer/HBoxContainer/Inputs" to="." method="_on_inputs_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

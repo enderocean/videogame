@@ -19,7 +19,6 @@ func _ready() -> void:
 		return
 	
 	add_to_group("input")
-	input_button.connect("pressed", self, "_on_input_button_pressed")
 	label.text = Localization.get_input_action_text(action)
 	update()
 
@@ -31,6 +30,10 @@ func _on_input_button_pressed() -> void:
 	emit_signal("change_key")
 
 
+func _on_reset_button_pressed() -> void:
+	emit_signal("reset")
+
+
 func update() -> void:
 	if not has_valid_action:
 		return
@@ -40,5 +43,3 @@ func update() -> void:
 		if action is InputEventKey:
 			input_button.text = OS.get_scancode_string(action.scancode)
 			break
-
-

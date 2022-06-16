@@ -10,6 +10,8 @@ onready var inputs_settings = get_node(inputs_settings_path)
 
 
 func _ready() -> void:
+	inputs_settings.hide()
+	audio_settings.hide()
 	graphics_settings.show()
 
 
@@ -29,3 +31,8 @@ func _on_inputs_pressed() -> void:
 	graphics_settings.hide()
 	audio_settings.hide()
 	inputs_settings.show()
+
+
+func _on_back_pressed() -> void:
+	SaveManager.save_data()
+	hide()

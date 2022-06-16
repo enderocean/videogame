@@ -43,7 +43,10 @@ func _input(event):
 			
 			# Add the new key binding
 			InputMap.action_add_event(action, event)
-			SaveManager.settings.inputs
+			
+			# Save the assigned key
+			SaveManager.settings.inputs.keyboard[action] = event.scancode
+			
 			emit_signal("key_changed", scancode)
 		else:
 			set_process_input(false)
