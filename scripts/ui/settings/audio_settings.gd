@@ -15,13 +15,7 @@ func _ready() -> void:
 	effects_slider = get_node(effects_slider_path)
 	radio_slider = get_node(radio_slider_path)
 	music_slider = get_node(music_slider_path)
-	connect("visibility_changed", self, "_on_visibility_changed")
 	initialize_settings()
-
-
-func _on_visibility_changed() -> void:
-	if visible:
-		initialize_settings()
 
 
 func _on_master_changed(value: float) -> void:

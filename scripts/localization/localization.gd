@@ -56,6 +56,7 @@ static func get_setting_text(setting_key: String) -> String:
 		"fullscreen": "Fullscreen",
 		"vsync": "Enable VSync",
 		"fancy_water": "Fancy Water",
+		"physics_rate": "Physics Rate",
 		"volume_master": "Master",
 		"volume_effects": "Effects",
 		"volume_radio": "Radio",

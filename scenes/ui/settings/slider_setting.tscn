@@ -14,14 +14,14 @@ value_label_path = NodePath("ValueText")
 
 [node name="Label" type="Label" parent="."]
 margin_top = 9.0
-margin_right = 1390.0
+margin_right = 1370.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "name"
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_left = 1410.0
-margin_right = 1810.0
+margin_left = 1390.0
+margin_right = 1790.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_vertical = 1
@@ -29,11 +29,11 @@ max_value = 1.0
 step = 0.01
 
 [node name="ValueText" type="Label" parent="."]
-margin_left = 1830.0
+margin_left = 1810.0
 margin_top = 9.0
 margin_right = 1870.0
 margin_bottom = 31.0
-rect_min_size = Vector2( 40, 0 )
+rect_min_size = Vector2( 60, 0 )
 text = "100"
 align = 1
 valign = 1

@@ -17,6 +17,7 @@ font_data = ExtResource( 3 )
 font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -110,7 +111,7 @@ script = ExtResource( 2 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 293.0
-margin_bottom = 257.0
+margin_bottom = 297.0
 
 [node name="godrayToggle" type="CheckButton" parent="Panel/SettingsPanel/VBoxContainer"]
 margin_right = 286.0
@@ -154,13 +155,13 @@ margin_right = 286.0
 margin_bottom = 218.0
 size_flags_vertical = 2
 min_value = 60.0
-max_value = 500.0
+max_value = 200.0
 value = 60.0
 
 [node name="Back" type="Button" parent="Panel/SettingsPanel/VBoxContainer"]
-margin_top = 222.0
+margin_top = 262.0
 margin_right = 286.0
-margin_bottom = 250.0
+margin_bottom = 290.0
 text = "Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
