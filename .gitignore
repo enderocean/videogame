@@ -10,6 +10,7 @@ export_presets.cfg
 .mono/
 data_*/
 assets/models/vehicles/3parts_shipwreck/*
+android/*
 
 # Runner
 Godot_v3.4.4-stable_x11.64
