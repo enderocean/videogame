@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/camera/follow_camera.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/ender_long_blanc.png" type="Texture" id=22]
 [ext_resource path="res://assets/shaders/vignette.shader" type="Shader" id=23]
 [ext_resource path="res://scripts/effects/vignette.gd" type="Script" id=24]
+[ext_resource path="res://scenes/ui/popup/video_popup.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 23 )
@@ -73,6 +74,7 @@ anchor_bottom = 1.0
 script = ExtResource( 5 )
 instructions_popup_path = NodePath("InstructionsPopup")
 collectible_popup_path = NodePath("CollectiblePopup")
+video_popup_path = NodePath("VideoPopup")
 objectives_text_path = NodePath("HBoxContainer/GameView/MarginContainer/VBoxContainer/ObjectivesText")
 pause_menu_path = NodePath("PauseMenu")
 informations_panel_path = NodePath("HBoxContainer/InformationsPanel")
@@ -393,6 +395,7 @@ label_path = NodePath("../TimerLabel")
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 10 )]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="CollectiblePopup" parent="." instance=ExtResource( 12 )]
 
@@ -404,6 +407,8 @@ custom_fonts/font = SubResource( 6 )
 text = "00:00"
 align = 1
 valign = 1
+
+[node name="VideoPopup" parent="." instance=ExtResource( 25 )]
 
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="visibility_changed" from="InstructionsPopup" to="." method="_on_Popup_visibility_changed"]

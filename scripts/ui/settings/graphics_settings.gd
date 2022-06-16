@@ -1,6 +1,5 @@
 extends Control
 
-
 export var fullscreen_toggle_path: NodePath
 export var vsync_toggle_path: NodePath
 export var fancy_water_toggle_path: NodePath

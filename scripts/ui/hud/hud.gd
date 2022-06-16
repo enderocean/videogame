@@ -9,6 +9,9 @@ onready var instructions_popup: InstructionsPopup = get_node(instructions_popup_
 export var collectible_popup_path: NodePath
 onready var collectible_popup: CollectiblePopup = get_node(collectible_popup_path)
 
+export var video_popup_path: NodePath
+onready var video_popup: VideoPopup = get_node(video_popup_path)
+
 export var objectives_text_path: NodePath
 onready var objectives_text: RichTextLabel = get_node(objectives_text_path)
 
@@ -31,6 +34,10 @@ var active_level_data: LevelData
 
 
 func show_popup() -> void:
+	if not active_level_data.video.empty():
+		video_popup.show()
+		video_popup.play(active_level_data.video)
+	
 	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
 	mission_ended_popup.update_objectives(active_level.objectives, active_level.objectives_progress)
 	mission_ended_popup.update_time(mission_timer.time_left)
@@ -198,7 +205,7 @@ func _on_level_finished(update_score: bool = true) -> void:
 		"time": (mission_timer.minutes * 60) - mission_timer.time_left
 	}
 	SaveManager.save_data()
-
+	
 	show_popup()
 
 

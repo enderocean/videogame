@@ -118,7 +118,7 @@ valign = 1
 
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_changed"]
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/VSync" to="." method="_on_vsync_changed"]
-[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/FancyWater" to="." method="_on_fancywater_changed"]
+[connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/FancyWater" to="." method="_on_fancy_water_changed"]
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate" to="." method="_on_physics_rate_changed"]
 
 [editable path="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate"]

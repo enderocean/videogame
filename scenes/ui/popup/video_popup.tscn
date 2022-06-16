@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/popup/video_popup.gd" type="Script" id=1]
+
+[node name="VideoPopup" type="Popup"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+video_player_path = NodePath("AspectRatioContainer/VideoPlayer")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+ratio = 1.77
+
+[node name="VideoPlayer" type="VideoPlayer" parent="AspectRatioContainer"]
+margin_left = 4.20001
+margin_right = 1915.8
+margin_bottom = 1080.0
+
+[connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="." method="_on_finished"]
