@@ -12,9 +12,9 @@ onready var back_button: Button = get_node(back_button_path)
 
 
 func _ready() -> void:
-	inputs_settings.hide()
+	graphics_settings.hide()
 	audio_settings.hide()
-	graphics_settings.show()
+	inputs_settings.show()
 
 
 func _on_graphics_pressed() -> void:
