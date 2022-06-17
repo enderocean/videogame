@@ -39,9 +39,13 @@ static func get_input_action_text(input_action: String) -> String:
 		"strafe_right": "Strafe Right",
 		"rotate_left": "Rotate Left",
 		"rotate_right": "Rotate Right",
+		"speed_up": "Speed Up",
+		"speed_down": "Speed Down",
 		"tool_open": "Open Tool",
 		"tool_close": "Close Tool",
 		"tool_switch": "Switch Tool",
+		"lights_up": "Lights Up",
+		"lights_down": "Lights Down",
 		"camera_switch": "Switch Camera"
 	}
 	
