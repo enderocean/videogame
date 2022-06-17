@@ -24,14 +24,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 1920.0
-margin_bottom = 810.0
+margin_right = 800.0
+margin_bottom = 1030.0
 rect_min_size = Vector2( 800, 0 )
-size_flags_horizontal = 3
 custom_constants/separation = 15
 
 [node name="Movements" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
@@ -40,92 +39,116 @@ valign = 1
 
 [node name="Forward" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 55.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 95.0
 action = "forward"
 
 [node name="Backwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 110.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 150.0
 action = "backwards"
 
 [node name="StrafeLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 165.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 205.0
 action = "strafe_left"
 
 [node name="StrafeRight" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 220.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 260.0
 action = "strafe_right"
 
 [node name="RotateLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 275.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 315.0
 action = "rotate_left"
 
 [node name="RotateRight" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 330.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 370.0
 action = "rotate_right"
 
 [node name="Upwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 385.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 425.0
 action = "upwards"
 
 [node name="Downwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 440.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 480.0
 action = "downwards"
 
-[node name="Tools" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="SpeedUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 495.0
-margin_right = 1920.0
+margin_right = 800.0
 margin_bottom = 535.0
+action = "speed_up"
+
+[node name="SpeedDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 550.0
+margin_right = 800.0
+margin_bottom = 590.0
+action = "speed_down"
+
+[node name="Tools" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 605.0
+margin_right = 800.0
+margin_bottom = 645.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
 text = "Tools"
 valign = 1
 
 [node name="ToolOpen" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 550.0
-margin_right = 1920.0
-margin_bottom = 590.0
+margin_top = 660.0
+margin_right = 800.0
+margin_bottom = 700.0
 action = "tool_open"
 
 [node name="ToolClose" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 605.0
-margin_right = 1920.0
-margin_bottom = 645.0
+margin_top = 715.0
+margin_right = 800.0
+margin_bottom = 755.0
 action = "tool_close"
 
 [node name="ToolSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 660.0
-margin_right = 1920.0
-margin_bottom = 700.0
+margin_top = 770.0
+margin_right = 800.0
+margin_bottom = 810.0
 action = "tool_switch"
 
+[node name="LightsUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 825.0
+margin_right = 800.0
+margin_bottom = 865.0
+action = "lights_up"
+
+[node name="LightsDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 880.0
+margin_right = 800.0
+margin_bottom = 920.0
+action = "lights_down"
+
 [node name="Other" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 715.0
-margin_right = 1920.0
-margin_bottom = 755.0
+margin_top = 935.0
+margin_right = 800.0
+margin_bottom = 975.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
 text = "Other"
 valign = 1
 
 [node name="CameraSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 770.0
-margin_right = 1920.0
-margin_bottom = 810.0
+margin_top = 990.0
+margin_right = 800.0
+margin_bottom = 1030.0
 action = "camera_switch"
 
 [node name="InputSelect" type="Popup" parent="."]
