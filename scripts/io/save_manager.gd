@@ -26,8 +26,8 @@ var default_settings: Dictionary = {
 
 
 func _ready() -> void:
+	default_settings.inputs["keyboard"] = get_default_inputs()
 	settings = default_settings
-	settings.get("inputs")["keyboard"] = get_default_inputs()
 	load_data()
 
 
