@@ -38,8 +38,9 @@ func update() -> void:
 	if not has_valid_action:
 		return
 	
-	var actions: Array = InputMap.get_action_list(action)
-	for action in actions:
-		if action is InputEventKey:
-			input_button.text = OS.get_scancode_string(action.scancode)
+	var input_events: Array = InputMap.get_action_list(action)
+	for input_event in input_events:
+		if input_event is InputEventKey:
+			reset_button.disabled = input_event.scancode == SaveManager.default_settings.inputs.keyboard.get(action)
+			input_button.text = OS.get_scancode_string(input_event.scancode)
 			break
