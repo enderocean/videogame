@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/models/rocks/rock05.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://scripts/effects/godrays.gd" type="Script" id=21]
 [ext_resource path="res://assets/shaders/godrays.shader" type="Shader" id=22]
-[ext_resource path="res://terrains/level_03/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=23]
+[ext_resource path="res://terrains/level_04/chuck/Ground048_1K_Displacement.jpg" type="Texture" id=23]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=24]
 [ext_resource path="res://assets/models/tools/double_hook/14069_Pulley_Hook_ Double_fixed_eyelet_v2_L2.obj" type="ArrayMesh" id=25]
 [ext_resource path="res://assets/models/underwater/plant_53/aiStandard1.material" type="Material" id=26]
