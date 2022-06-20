@@ -7,9 +7,10 @@ script = ExtResource( 1 )
 id = "level_06"
 scene = "res://scenes/level_06.tscn"
 thumbnail = "res://assets/levels/images/level_06.jpg"
+video = ""
 title = "Level 06"
 country = "SOUDAN"
-location = "#7 - Red Sea"
+location = "#6 - Red Sea"
 description = "The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
 "
 time = 5

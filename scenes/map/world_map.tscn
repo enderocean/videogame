@@ -29,10 +29,6 @@ default_color = Color( 1, 1, 1, 1 )
 position = Vector2( 30, -1295 )
 scale = Vector2( 1.66667, 1.66667 )
 
-[node name="Level 00" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( -29, -35 )
-mission_id = "level_00"
-
 [node name="Level 01" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( -80, -146 )
 mission_id = "level_01"
@@ -42,11 +38,11 @@ position = Vector2( 91, -113 )
 mission_id = "level_02"
 
 [node name="Level 03" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 81, 3 )
+position = Vector2( -29, -35 )
 mission_id = "level_03"
 
 [node name="Level 04" parent="Missions" instance=ExtResource( 6 )]
-position = Vector2( 238, 131 )
+position = Vector2( 81, 3 )
 mission_id = "level_04"
 
 [node name="Level 05" parent="Missions" instance=ExtResource( 6 )]
@@ -96,6 +92,10 @@ mission_id = "level_15"
 [node name="Level 16" parent="Missions" instance=ExtResource( 6 )]
 position = Vector2( 2417, 157 )
 mission_id = "level_16"
+
+[node name="Level 17" parent="Missions" instance=ExtResource( 6 )]
+position = Vector2( 238, 131 )
+mission_id = "level_17"
 
 [node name="LeftWorld" type="Sprite" parent="."]
 position = Vector2( -10800, 0 )
