@@ -139,7 +139,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 25 )
-shader_param/timer = 116.337
+shader_param/timer = 5.91832
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
@@ -201,7 +201,6 @@ _data = {
 extents = Vector3( 4.19099, 2.05776, 4.32709 )
 
 [node name="level_02" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2.90376, 0 )
 script = ExtResource( 13 )
 objectives_target = {
 "cutter": 0,

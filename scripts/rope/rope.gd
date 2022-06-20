@@ -58,10 +58,10 @@ func _ready() -> void:
 
 	# Create the rope
 	# Set the first body to be the "From"
-	var parent: RigidBody = from_body
+	var parent: PhysicsBody = from_body
 	# Link each section of the rope
 	for i in range(length):
-		var child: RigidBody = add_section(i)
+		var child: PhysicsBody = add_section(i)
 		# Please don't judge me for this
 		if i == 0:
 			child.get_node("MeshInstance").visible = false
@@ -94,8 +94,8 @@ func _ready() -> void:
 	from_body.global_transform.origin = from_origin
 
 
-func add_section(i: int) -> RigidBody:
-	var part: RigidBody = section.instance()
+func add_section(i: int) -> PhysicsBody:
+	var part: PhysicsBody = section.instance()
 	part.name = "Section %s" % i
 	add_child(part)
 
@@ -106,7 +106,7 @@ func add_section(i: int) -> RigidBody:
 	return part
 
 
-func add_link(parent: RigidBody, current: RigidBody, i: int, move_to_end: bool = false) -> Joint:
+func add_link(parent: PhysicsBody, current: PhysicsBody, i: int, move_to_end: bool = false) -> Joint:
 	var current_original_position: Vector3 = current.global_transform.origin
 	var pin: Generic6DOFJoint = joint.instance()
 	parent.add_child(pin)

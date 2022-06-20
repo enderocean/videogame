@@ -31,12 +31,6 @@
 [ext_resource path="res://assets/models/toys/beach/11672_bucket_v1_L3.obj" type="ArrayMesh" id=29]
 [ext_resource path="res://assets/models/toys/boats/15211_Wakeboard_v1_NEW.obj" type="ArrayMesh" id=30]
 
-[sub_resource type="Environment" id=108]
-ambient_light_color = Color( 0.768627, 0.768627, 0.6, 1 )
-ambient_light_sky_contribution = 0.0
-fog_enabled = true
-fog_depth_end = 20.0
-
 [sub_resource type="Resource" id=2]
 script = ExtResource( 1 )
 mode = 0
@@ -354,8 +348,13 @@ albedo_texture = ExtResource( 19 )
 [sub_resource type="SpatialMaterial" id=12]
 albedo_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 
+[sub_resource type="Curve3D" id=108]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 9.03954, 1.08746, -9.48913, 0, 0, 0, 0, 0, 0, 15.6402, 0.863946, -19.3447 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
 [node name="level_01" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -4.61078, 3 )
 script = ExtResource( 13 )
 objectives_target = {
 "cutter": 0,
@@ -366,7 +365,6 @@ objectives_target = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 108 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )
@@ -400,11 +398,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="BlueRov" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37259, 4.34787, -5.67305 )
 starting_tool = 1
-
-[node name="Theter" parent="." instance=ExtResource( 21 )]
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-length = 200
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.10687, 0, 0.169052, 0, 0.2, 0, -0.169052, 0, 0.10687, 6.34815, 5.83718, -17.784 )
@@ -1664,3 +1657,8 @@ material/247 = SubResource( 11 )
 material/248 = SubResource( 11 )
 material/249 = SubResource( 11 )
 material/250 = SubResource( 11 )
+
+[node name="Theter" parent="." instance=ExtResource( 21 )]
+curve = SubResource( 108 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")

@@ -210,11 +210,6 @@ _global_script_classes=[ {
 "path": "res://scripts/sounds/sound_trigger_area.gd"
 }, {
 "base": "Spatial",
-"class": "Theter",
-"language": "GDScript",
-"path": "res://scripts/rope/theter.gd"
-}, {
-"base": "Spatial",
 "class": "TheterAnchor",
 "language": "GDScript",
 "path": "res://scripts/components/theter_anchor.gd"
@@ -305,7 +300,6 @@ _global_script_class_icons={
 "SliderSetting": "",
 "SoftRope": "",
 "SoundTriggerArea": "",
-"Theter": "",
 "TheterAnchor": "",
 "ToggleSetting": "",
 "TrapAnimal": "",
