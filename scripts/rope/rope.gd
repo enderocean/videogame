@@ -78,8 +78,19 @@ func _ready() -> void:
 		var section_count: int = ceil(distance / RopeSection.LENGTH)
 		
 		for j in range(section_count - 1):
-			sections[i + j].global_transform.origin = points[i] -offset + (direction * -RopeSection.LENGTH) * j
-	
+			if (i + j) > sections.size() - 1:
+				continue
+
+			# Get the correct position in the path
+			var position: Vector3 = points[i] -offset + (direction * -RopeSection.LENGTH) * j
+			if i < points.size() - 1:
+				var next_position: Vector3 = points[i + 1] -offset + (direction * -RopeSection.LENGTH) * j
+				# Make the section look at the next one
+				sections[i + j].look_at_from_position(position, next_position, Vector3.UP)
+			else:
+				# Only set the position
+				sections[i + j].global_transform.origin = position
+
 	from_body.global_transform.origin = from_origin
 
 
