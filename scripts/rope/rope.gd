@@ -7,7 +7,6 @@ export var joint: PackedScene
 
 export var from: NodePath
 export var to: NodePath
-export(int, 1, 1000) var length: int = 1
 
 var offset: Vector3 = Vector3(0, 0, -0.434)
 var sections: Array
@@ -48,7 +47,7 @@ func _ready() -> void:
 	
 	var points: PoolVector3Array = curve.get_baked_points()
 	# Get the rope length from the path
-	length = 0
+	var length: int = 0
 	for i in range(points.size() - 1):
 		var distance: float = points[i].distance_to(points[i + 1])
 		var section_count: int = floor(distance / RopeSection.LENGTH)

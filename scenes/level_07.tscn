@@ -281,7 +281,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.735, 1.519, -1.994 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station2/TheterAnchor")
-length = 300
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 3.5, -64 )

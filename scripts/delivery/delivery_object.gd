@@ -2,7 +2,6 @@ extends RigidBody
 class_name DeliveryObject
 
 export(Globals.ObjectiveType) var objective_type = Globals.ObjectiveType.GRIPPER
-export(float, 0.0, 2.0) var object_gravity_scale: float = 0.1
 
 var carried: bool = false setget set_carried
 var delivered: bool = false setget set_delivered
