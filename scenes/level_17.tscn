@@ -1,0 +1,271 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=5]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=6]
+[ext_resource path="res://terrains/level_17/data.hterrain" type="Resource" id=7]
+[ext_resource path="res://terrains/level_17/black/Rock035_1K_Color.jpg" type="Texture" id=8]
+[ext_resource path="res://terrains/level_17/black/Rock035_1K_NormalGL.jpg" type="Texture" id=9]
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=10]
+[ext_resource path="res://scripts/lemniscate.gd" type="Script" id=11]
+[ext_resource path="res://addons/fish-shader/shader/fish.tres" type="Material" id=12]
+[ext_resource path="res://assets/models/animals/tuna/TUNA.OBJ" type="ArrayMesh" id=13]
+[ext_resource path="res://addons/fish-shader/scripts/fish.gd" type="Script" id=14]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=15]
+[ext_resource path="res://scenes/net/new_fishing_net.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/models/vehicles/ship.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
+[ext_resource path="res://assets/models/animals/green_sea_turtle/grnSeatturtle1f3UVriggedf.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scripts/components/trap_animal.gd" type="Script" id=25]
+
+[sub_resource type="Environment" id=58]
+fog_enabled = true
+fog_color = Color( 0.682353, 0.768627, 0.972549, 1 )
+fog_depth_begin = 20.0
+fog_depth_end = 50.0
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 6 )
+mode = 0
+textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
+
+[sub_resource type="SpatialMaterial" id=24]
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_color = Color( 0.192157, 0.513726, 0.792157, 1 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_color = Color( 0.784314, 0.968627, 0.984314, 1 )
+
+[sub_resource type="SpatialMaterial" id=33]
+albedo_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=34]
+
+[sub_resource type="SpatialMaterial" id=28]
+albedo_color = Color( 0.188235, 0.188235, 0.188235, 1 )
+
+[sub_resource type="SpatialMaterial" id=29]
+
+[sub_resource type="SpatialMaterial" id=30]
+albedo_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_color = Color( 0.8, 0.278431, 0.0705882, 1 )
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0.996078, 1, 0.501961, 1 )
+
+[sub_resource type="CubeMesh" id=22]
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 23 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492, 0, 0, 0, 0, 0, 0, 59.8376, 0, -5.30757, 0, 0, 0, 0, 0, 0, 60.4929, -0.0230522, -4.39468, 0, 0, 0, 0, 0, 0, 60.9325, 0, -3.4198, 0, 0, 0, 0, 0, 0, 61.1034, -0.163525, -2.05242, 0, 0, 0, 0, 0, 0, 60.8569, 0, -0.588137, 0, 0, 0, 0, 0, 0, 59.9131, 0, 1.71495, 0, 0, 0, 0, 0, 0, 59.2017, 0, 3.58222, 0, 0, 0, 0, 0, 0, 58.48, 0, 5.15353, 0, 0, 0, 0, 0, 0, 57.7584, 0, 6.81861, 0, 0, 0, 0, 0, 0, 57.3674, 0, 8.16722, 0, 0, 0, 0, 0, 0, 57.7269, 0, 9.84479, 0, 0, 0, 0, 0, 0, 58.2025, 0, 10.7593, 0, 0, 0, 0, 0, 0, 59.045, 0, 11.5224, 0, 0, 0, 0, 0, 0, 60.3671, 0, 12.1746, 0, 0, 0, 0, 0, 0, 61.8386, 0, 12.1732, 0, 0, 0, 0, 0, 0, 63.4187, 0, 11.762, 0, 0, 0, 0, 0, 0, 64.8213, 0, 10.9273, 0, 0, 0, 0, 0, 0, 66.0284, 0, 9.53825, 0, 0, 0, 0, 0, 0, 66.6713, 0, 7.75582, 0, 0, 0, 0, 0, 0, 66.709, 0, 5.79254, 0, 0, 0, 0, 0, 0, 66.2504, 0, 4.5985, 0, 0, 0, 0, 0, 0, 65.5009, 0, 3.33843, 0, 0, 0, 0, 0, 0, 63.5376, 0, 1.90372, 0, 0, 0, 0, 0, 0, 62.1029, 0, 1.29964, 0, 0, 0, 0, 0, 0, 57.9067, 0, 0.558241, 0, 0, 0, 0, 0, 0, 53.4191, 0, 0.469016, 0, 0, 0, 0, 0, 0, 50.0211, 0, 0.733304, 0, 0, 0, 0, 0, 0, 48.9024, 0.0087347, 0.486998, 0, 0, 0, 0, 0, 0, 48.0578, 0, -0.0218053, 0, 0, 0, 0, 0, 0, 47.416, 0, -1.07896, 0, 0, 0, 0, 0, 0, 47.416, 0, -2.24938, 0, 0, 0, 0, 0, 0, 47.718, 0, -3.26877, 0, 0, 0, 0, 0, 0, 49.0395, 0, -4.17491, 0, 0, 0, 0, 0, 0, 51.2563, 0, -4.95378, 0, 0, 0, 0, 0, 0, 53.5929, 0, -5.43308, 0, 0, 0, 0, 0, 0, 55.9295, 0, -5.85248, 0, 0, 0, 0, 0, 0, 57.7232, 0, -6.02492 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="ConvexPolygonShape" id=5]
+margin = 0.1
+points = PoolVector3Array( -145.549, 127.992, 117.339, 112.97, 43.7607, 87.0661, 72.0895, 103.996, 336.824, -104.28, 1.18721, -34.2061, 51.0807, 204.106, -29.2079, -121.107, 26.4132, 242.841, -84.8893, 204.998, 206.674, -122.678, 194.911, -34.6332, 106.914, 31.7165, -33.4832, 68.9511, 15.6053, 159.094, -128.131, 122.074, 304.05, 39.4705, 145.382, 318.554, -32.4527, 59.4672, 324.667, 105.394, 175.431, -31.2219, -126.549, 205.098, 141.413, 68.3925, 186.12, 123.971, 94.7299, 67.9272, 279.645, -139.772, 31.9375, 147.309, -84.788, 15.1267, 230.315, 99.6021, 14.6704, 57.9414, -74.3472, 134.37, 323.626, 85.2097, 150.644, 252.079, -93.0067, 73.4144, 324.553, -115.609, 20.0114, -26.7711, -109.35, 211.792, 99.4551, -144.129, 145.562, 200.654, -138.687, 32.5988, 218.751, 33.0234, 191.7, 159.007, 82.3728, 74.0552, 315.179, 87.3665, 115.928, 325.544, 82.38, 199.997, -32.6675, -19.5383, 4.15004, -29.0418, -72.9732, 9.07836, 188.86, 105.076, 151.523, 159.148, -1.44423, 134.313, 335.404, -145.029, 157.785, 135.378, 95.3145, 23.8202, 153.132, 101.629, 19.1247, -10.3992, -121.441, 92.0693, 309.079, -97.0794, 139.807, 314.254, -37.472, 145.758, 320.203, 113.405, 31.4521, 68.6941, -108.555, 198.999, -30.7435, -127.771, 116.012, 3.01494, -139.61, 44.0423, 111.336, 94.2719, 98.0416, 297.077, -56.3549, 73.3727, 330.874, 44.4442, 156.432, 281.107, -117.153, 116.139, 317.877, -66.1097, 16.733, 228.917, -127.832, 25.8538, 231.452, -84.7191, 9.29336, 176.925, -127.616, 188.036, -8.78743, 100.121, 68.1311, 243.046, 46.0339, 133.848, 332.249, 77.5722, 85.7823, 329.512, -145.6, 109.994, 123.345, 27.4066, 151.028, 311.644, 79.663, 168.267, 188.187, -138.699, 44.5092, 230.673, 81.2016, 15.1774, 135.494, -96.9934, 211.29, 81.8042, -121.794, 134.057, -33.0926, -7.44125, 104, 336.574 )
+
+[sub_resource type="ConvexPolygonShape" id=6]
+margin = 0.1
+points = PoolVector3Array( 90.4626, 195.694, -47.6732, -19.765, 32.2655, -295.563, -19.765, 56.3799, -294.942, -152.572, 152.115, -67.5886, -19.765, 3.4628, -52.1369, -78.6732, 174.538, -246.841, -127.596, 2.02436, -218.132, 99.7521, 44.1151, -223.997, 108.15, 36.8575, -48.3276, 102.883, 162.237, -187.777, -115.005, 199.111, -51.1291, -108.088, 9.6237, -52.4505, -120.382, 115.66, -259.017, 55.9678, 202.899, -147.006, -64.1603, 2.39099, -277.874, -159.317, 179.939, -106.622, 68.3149, 21.6565, -176.118, 113.127, 176.308, -152.103, -134.022, 13.6599, -92.0469, -77.1119, 201.377, -153.165, 14.8053, 69.3086, -285.56, -120.944, 20.5562, -265.444, 64.1086, 205.715, -50.3829, 107.672, 176.655, -48.7944, 96.0454, 150.154, -205.06, -103.694, 205.783, -74.2928, 33.4082, 21.1426, -258.889, -121.825, 193.887, -50.1428, 105.612, 50.13, -206.05, -37.5281, 86.0692, -288.916, 80.6214, 86.1561, -241.117, 3.94402, 38.621, -294.822, -121.205, 198.979, -119.325, -152.151, 115.857, -73.9367, 101.322, 31.2199, -49.0871, -127.461, 8.14561, -74.498, -95.6761, 4.59129, -53.4979, -65.9152, 173.103, -245.347, -96.9322, 103.862, -271.166, 79.5893, 191.5, -158.652, 3.20706, 69.396, -291.042, 112.792, 176.126, -97.917, -66.8172, 180.352, -235.016, 99.0333, 38.5238, -205.882, -85.3579, 169.425, -247.717, -55.6844, 205.703, -50.3974, -85.4598, 20.2702, -277.721, 56.5345, 21.7029, -223.09, 83.1994, 200.731, -49.0526, -151.059, 115.758, -110.562, 63.0073, 38.8255, -253.029, -127.804, 13.8335, -68.1852, 3.99825, 20.6453, -277.252, 50.9147, 68.5394, -264.492, 112.047, 181.721, -104.328, 92.5003, 186.553, -158.491, -114.513, 109.757, -265.025, -125.696, 121.489, -240.89, -13.8011, 68.0706, -295.573, -120.362, 121.585, -253.087, -114.769, 14.7593, -265.274, -152.923, 164.348, -73.3575, -19.765, 3.69316, -70.1049, 68.5131, 21.4715, -164.407 )
+
+[sub_resource type="Curve3D" id=35]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0127106, 0.0398941, 0.0203162, 0, 0, 0, 0, 0, 0, 1.47286, 0.104237, -0.0213952, 0, 0, 0, 0, 0, 0, 1.94983, 0.585033, -0.624794, 0, 0, 0, 0, 0, 0, 2.51213, 1.00463, -1.90838, 0, 0, 0, 0, 0, 0, 0.774822, 1.33105, -8.18718, 0, 0, 0, 0, 0, 0, -8.56483, 5.5644, -25.1114, 0, 0, 0, 0, 0, 0, -20.9953, 9.77443, -58.8606 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="CylinderShape" id=59]
+radius = 3.51649
+height = 3.01119
+
+[node name="level_17" type="Spatial"]
+script = ExtResource( 10 )
+objectives_target = {
+"animal": 1,
+"cutter": 4,
+"grappling_hook": 0,
+"gripper": 0,
+"magnet": 0,
+"vacuum": 0
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 58 )
+
+[node name="water" parent="." instance=ExtResource( 1 )]
+transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 128, -20, 0, -20 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.752234, 0.358815, -0.552627, 0.0223754, 0.824321, 0.565681, 0.658516, -0.437889, 0.612053, -4.83536, 9.97851, 3.5621 )
+visible = true
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, -30, -150 )
+script = ExtResource( 5 )
+_terrain_data = ExtResource( 7 )
+chunk_size = 16
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 2 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="BlueRov" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42839, -8.50991, -1.62699 )
+starting_tool = 2
+
+[node name="Theter" parent="." instance=ExtResource( 2 )]
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+length = 400
+
+[node name="ship" type="MeshInstance" parent="."]
+transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 13.2019, -1.54428, -18.067 )
+mesh = ExtResource( 21 )
+material/0 = SubResource( 24 )
+material/1 = SubResource( 24 )
+material/2 = SubResource( 24 )
+material/3 = SubResource( 24 )
+material/4 = SubResource( 24 )
+material/5 = SubResource( 25 )
+material/6 = SubResource( 25 )
+material/7 = SubResource( 24 )
+material/8 = SubResource( 25 )
+material/9 = SubResource( 25 )
+material/10 = SubResource( 26 )
+material/11 = SubResource( 27 )
+material/12 = SubResource( 33 )
+material/13 = SubResource( 26 )
+material/14 = SubResource( 34 )
+material/15 = SubResource( 26 )
+material/16 = SubResource( 27 )
+material/17 = SubResource( 28 )
+material/18 = SubResource( 29 )
+material/19 = SubResource( 30 )
+material/20 = SubResource( 29 )
+material/21 = SubResource( 29 )
+material/22 = SubResource( 31 )
+material/23 = SubResource( 28 )
+material/24 = SubResource( 32 )
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 0.399999, 0, 0, 0, 0.4, 0, 0, 0, 0.399999, 19.5168, 1.7656, -17.608 )
+mesh = SubResource( 22 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 23 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 22 )]
+transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -22, 16 )
+curve = SubResource( 4 )
+script = ExtResource( 11 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( -0.229835, 0, -0.973229, 0, 1, 0, 0.973229, 0, -0.229835, 57.7232, 0, -6.02492 )
+
+[node name="fish" type="MeshInstance" parent="Path/PathFollow"]
+transform = Transform( -1, -8.74228e-08, 0, -8.74228e-08, 1, -8.74228e-08, 7.64274e-15, -8.74228e-08, -1, 0, 0, 0 )
+mesh = ExtResource( 13 )
+skeleton = NodePath("../../..")
+material/0 = ExtResource( 12 )
+script = ExtResource( 14 )
+fish_translatex = 0.2
+fish_yaw = -0.01
+fish_twist = 0.481
+fish_s = 0.1
+fish_head_z = -1.16
+fish_head_color = Color( 0.497255, 0.144431, 0.55, 0.11051 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
+
+[node name="Pospin1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6174, -36.183, 0.0314092 )
+
+[node name="Pospin2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6179, -36.185, 0.029733 )
+
+[node name="Pospin3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6236, -36.1743, -1.97196 )
+
+[node name="Pospin4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6295, -36.183, -1.96993 )
+
+[node name="new_fishing_net" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.618, -36.1522, -0.969146 )
+skeleton = NodePath("")
+
+[node name="Rock" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2267, -28.4929, 16.6823 )
+
+[node name="rock02" type="MeshInstance" parent="Rock"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 57.3555, -10.0156, -18.044 )
+mesh = ExtResource( 17 )
+skeleton = NodePath("")
+material/0 = SubResource( 20 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Rock"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 57.3555, -10.0156, -18.044 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rock"]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 57.3555, -10.0156, -18.044 )
+shape = SubResource( 6 )
+
+[node name="Path2" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.4561, -36, -1.15689 )
+curve = SubResource( 35 )
+
+[node name="PathFollow" type="PathFollow" parent="Path2"]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.0127106, 0.0398941, 0.0203162 )
+
+[node name="grnSeatturtle" parent="Path2/PathFollow" instance=ExtResource( 24 )]
+transform = Transform( -4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.232933, -0.464851, 0.167665 )
+script = ExtResource( 25 )
+fish_net_path = NodePath("../../../new_fishing_net")
+path_follow_path = NodePath("..")
+speed = 0.8
+dist_tofinish = 30.0
+
+[node name="AnimationPlayer" parent="Path2/PathFollow/grnSeatturtle" index="1"]
+reset_on_save = false
+
+[node name="StaticBody" type="StaticBody" parent="Path2/PathFollow/grnSeatturtle"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/grnSeatturtle/StaticBody"]
+transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0.336121, 0 )
+shape = SubResource( 59 )
+
+[editable path="Path2/PathFollow/grnSeatturtle"]

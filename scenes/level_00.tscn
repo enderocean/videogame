@@ -283,7 +283,6 @@ transform = Transform( 3, 0, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 autoplay = true
-bus = "Sounds"
 
 [node name="Milk" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.880047, -0.474887, 0, 0.474887, 0.880047, -3.42986, -2.49292, -2.59516 )
