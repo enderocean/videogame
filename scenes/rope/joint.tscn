@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="SphereMesh" id=1]
 radius = 0.01
 height = 0.02
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
 
 [node name="joint" type="Generic6DOFJoint"]
 angular_limit_x/enabled = false
@@ -14,6 +17,5 @@ angular_spring_y/stiffness = 0.173
 angular_limit_z/enabled = false
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-visible = false
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = SubResource( 2 )

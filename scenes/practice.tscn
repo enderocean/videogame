@@ -279,7 +279,6 @@ once = false
 curve = SubResource( 27 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 200
 
 [node name="Ads_panel_01" type="MeshInstance" parent="."]
 transform = Transform( 1.50996e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 2, 7.54979e-08, -6.60024e-15, 19.348, 3, -1.73744 )

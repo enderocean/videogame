@@ -621,7 +621,7 @@ shape = SubResource( 52 )
 transform = Transform( 1, -1.74213e-15, 2.55795e-13, -2.26277e-14, 0.999999, 1.49214e-13, 3.12639e-13, 4.44089e-14, 0.999999, -0.0800091, 0.0195205, 0.0417869 )
 
 [node name="TheterAnchor" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.19, 0.29 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.18863, 0.283598 )
 
 [node name="HingeJoint" parent="TheterAnchor" index="0"]
 nodes/node_a = NodePath("../../BlueRov")
