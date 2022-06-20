@@ -2,6 +2,7 @@ extends RigidBody
 class_name DeliveryObject
 
 export(Globals.ObjectiveType) var objective_type = Globals.ObjectiveType.GRIPPER
+export(float, 0.0, 2.0) var object_gravity_scale: float = 0.1
 
 var carried: bool = false setget set_carried
 var delivered: bool = false setget set_delivered
@@ -13,6 +14,7 @@ signal delivered
 
 
 func _ready() -> void:
+	gravity_scale = object_gravity_scale
 	add_to_group("objective_%s" % str(objective_type))
 #	print("Added to group: ", "objective_%s" % str(objective_type))
 	# Set the "catchable" collision layer automatically
