@@ -10,6 +10,7 @@ export var to: NodePath
 
 var offset: Vector3 = Vector3(0, 0, -0.434)
 var sections: Array
+var joints: Array
 
 var from_body: PhysicsBody
 var to_body: PhysicsBody
@@ -17,11 +18,20 @@ var to_body: PhysicsBody
 var from_origin: Vector3
 var to_origin: Vector3
 
+var line_renderer: LineRenderer
+var created: bool = false
+
+signal created
+
 
 func _ready() -> void:
 	if not enabled:
 		return
+	
+	add_to_group("ropes")
 
+
+func initialize():
 	var from_node = get_node_or_null(from)
 	if not from_node:
 		printerr('Path "from" of "', name, '" is not set')
@@ -50,106 +60,97 @@ func _ready() -> void:
 	curve.add_point(to_body.global_transform.origin)
 	
 	var points: PoolVector3Array = curve.get_baked_points()
-	# Get the rope length from the path
-	var length: int = 0
-	for i in range(points.size() - 1):
-		var distance: float = points[i].distance_to(points[i + 1])
-		var section_count: int = (distance / RopeSection.LENGTH)
-		length += section_count
-#	print(name, " created ", length, " sections.")
-
-	# Make the rope follow the path
+	
+	# Create the rope along the path
 	for i in range(points.size() - 1):
 		var direction: Vector3 = points[i].direction_to(points[i + 1])
 		var distance: float = points[i].distance_to(points[i + 1])
-		var section_count: int = floor(distance / RopeSection.LENGTH)
+		var section_count: int = distance / RopeSection.LENGTH
 		
 		# Create sections between the current and next point in the path 
 		for j in range(section_count):
 			var section_index: int = i + j
 			# Get the correct position in the path
-			var position: Vector3 = points[i] -offset + (direction * -RopeSection.LENGTH) * j
-			var next_position: Vector3 = points[i + 1] -offset + (direction * -RopeSection.LENGTH) * j
+			var position: Vector3 = points[i] + (direction * -distance) * j
+			var next_position: Vector3 = points[i + 1] + (direction * -distance) * j
+#			var distance_between: float = position.distance_to(next_position)
 			
-			# Create section
-			var section: RigidBody = self.section.instance()
-			var shape: CapsuleShape = section.get_node("CollisionShape").shape
-			var mesh: CapsuleMesh = section.get_node("MeshInstance").mesh
-			mesh.mid_height = distance
-			shape.height = distance
-			section.name = "Section %s" % section_index
-			add_child(section)
-			section.global_transform.origin = position
+#			print(distance_between)
+			if i == 0:
+				position = from_body.global_transform.origin
+			# If last section, set the next position to the connected body's position
+			if i > points.size() - 1:
+				next_position = to_body.global_transform.origin
 			
-			if i < points.size() - 1:
-				# Make the section look at the next one
-				section.look_at_from_position(position, next_position, Vector3.UP)
-			else:
-				# Only set the position
-				section.global_transform.origin = position
+			var section: RigidBody = create_section(position, distance)
+			# Make the section look at the next position
+			section.look_at_from_position(position, next_position, Vector3.UP)
 			
 			# Joint
 			var previous: PhysicsBody = null
 			var joint_section: bool = false
+			var joint_position: Vector3 = section.global_transform.origin - direction * (distance / 2)
 			if section_index == 0:
 				previous = from_body
-			elif section_index == length - 1:
-				previous = to_body
+				joint_position = from_body.global_transform.origin
 			else:
 				previous = sections[section_index - 1]
 			
-			var joint: Generic6DOFJoint = self.joint.instance()
-			previous.add_child(joint)
-			
-			joint.global_transform.origin = section.global_transform.origin - direction * (distance / 2)
-#			current.global_transform.origin = joint.global_transform.origin - Vector3(0, 0, RopeSection.LENGTH / 2)
-
-			# Setting joint parameters
-			joint.set_node_a(previous.get_path())
-			joint.set_node_b(section.get_path())
-			
+			var joint: Joint = joint(joint_position, previous, section)
 			sections.append(section)
-
+			joints.append(joint)
+		
+		# Wait a little bit, this is necessary because we are modifying collision shapes
+		# Not waiting here will increase the load time of the scene
+		yield(get_tree().create_timer(0.001), "timeout")
+	
+	# Joint to connect the last section to the connected body
+	joint(to_body.global_transform.origin, sections[sections.size() - 1], to_body)
+	
+	# Rope visuals
+#	line_renderer = LineRenderer.new()
+#	line_renderer.startThickness = 0.01
+#	line_renderer.endThickness = 0.01
+#	line_renderer.drawCaps = true
+#	line_renderer.drawCorners = false
+#	line_renderer.points.clear()
+#
+#	for section in sections:
+#		line_renderer.points.append(section.global_transform.origin)
+#
+#	add_child(line_renderer)
+	
 #	get_tree().paused = true
+	emit_signal("created")
+	created = true
 
 
-func add_link(parent: PhysicsBody, current: PhysicsBody, i: int) -> Joint:
-	var current_original_position: Vector3 = current.global_transform.origin
-	var pin: Generic6DOFJoint = joint.instance()
-	parent.add_child(pin)
+#func _physics_process(delta: float) -> void:
+#	if created:
+#		for i in sections.size():
+#			line_renderer.points[i] = sections[i].global_transform.origin
+
+
+func create_section(pos: Vector3, section_len: float) -> RigidBody:
+	var section: RigidBody = self.section.instance()
+	add_child(section)
 	
-	pin.global_transform.origin = parent.global_transform.origin - Vector3(0, 0, RopeSection.LENGTH / 2)
-	current.global_transform.origin = pin.global_transform.origin - Vector3(0, 0, RopeSection.LENGTH / 2)
-#	parent.global_transform.origin = pin.global_transform.origin + Vector3(0, 0, RopeSection.LENGTH / 2)
-#	parent.global_transform.origin = pin.global_transform.origin + Vector3(0, 0, RopeSection.LENGTH / 2)
-#	if move_to_end:
-#		current.global_transform.origin = pin.global_transform.origin + Vector3(0, 0, RopeSection.LENGTH)
+	section.length = section_len
+	section.global_transform.origin = pos
 	
+	return section
+
+
+func joint(pos: Vector3, a: PhysicsBody, b: PhysicsBody) -> Joint:
+	var joint: Joint = self.joint.instance()
+	a.add_child(joint)
+	
+	joint.global_transform.origin = pos
 	# Setting joint parameters
-	pin.set_node_a(parent.get_path())
-	pin.set_node_b(current.get_path())
+	joint.set_node_a(a.get_path())
+	joint.set_node_b(b.get_path())
+	return joint
 	
-#	current.global_transform.origin = current_original_position
-#	parent.global_transform.origin = from_origin
-	
-	# Setting priority with rope section index
-#	pin.set_solver_priority(i)
-	return pin
-
-
-func joint(a: PhysicsBody, b: PhysicsBody):
-	# Joining the last section with the to_body
-	var pin: Generic6DOFJoint = joint.instance()
-	b.add_child(pin)
-	
-	# Moves the body and the last section at the same position
-	pin.global_transform.origin = b.global_transform.origin -Vector3(0, 0, RopeSection.LENGTH / 2)
-	a.global_transform.origin = b.global_transform.origin
-	
-	# Setting joint parameters
-	pin.set_node_a(a.get_path())
-	pin.set_node_b(b.get_path())
-
 
 # Used to get the starting position of the rope
 func get_starting_point(node) -> Vector3:

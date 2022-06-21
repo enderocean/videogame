@@ -14,6 +14,7 @@ var wait_frames: int = 0
 
 var label: Label
 var root: Node
+var wait_before_new_scene: bool = false
 
 signal scene_loaded
 signal scenes_loaded
@@ -77,6 +78,9 @@ func _process(_delta: float) -> void:
 	# Not loading
 	if not loader:
 		if loading_queue.size() == 0:
+			while(wait_before_new_scene):
+				yield(get_tree().create_timer(0.1), "timeout")
+		
 			set_process(false)
 			# Remove loading node from the tree
 			if loading_scene:
@@ -129,7 +133,7 @@ func update_progress() -> void:
 
 func set_new_scene(scene_resource: PackedScene) -> void:
 	print("loaded: ", scene_resource.resource_path)
-
+	
 	var scene = scene_resource.instance()
 	root.add_child(scene)
 
@@ -139,4 +143,5 @@ func set_new_scene(scene_resource: PackedScene) -> void:
 
 	root.remove_child(loading_scene)
 	root.add_child(loading_scene)
+	
 	emit_signal("scene_loaded", scene_data)

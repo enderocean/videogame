@@ -1,15 +1,15 @@
 extends ImmediateGeometry
 class_name LineRenderer
 
-export var points = [Vector3(0,0,0),Vector3(0,5,0)]
-export var startThickness = 0.1
-export var endThickness = 0.1
-export var cornerSmooth = 5
-export var capSmooth = 5
-export var drawCaps = true
-export var drawCorners = true
-export var globalCoords = true
-export var scaleTexture = true
+export var points: Array = [Vector3(0,0,0),Vector3(0,5,0)]
+export var startThickness: float = 0.1
+export var endThickness: float = 0.1
+export var cornerSmooth: float = 5
+export var capSmooth: float = 5
+export var drawCaps: bool = true
+export var drawCorners: bool = true
+export var globalCoords: bool = true
+export var scaleTexture: bool = true
 
 var camera
 var cameraOrigin
@@ -139,9 +139,13 @@ func corner(center, start, end, smoothing):
 	array[0] = start;
 	array[smoothing] = end;
 	
+	
 	var axis = start.cross(end).normalized()
 	var offset = start - center
 	var angle = offset.angle_to(end - center)
+		
+	if axis == Vector3.ZERO:
+		return
 	
 	for i in range(1, smoothing):
 		array[i] = center + offset.rotated(axis, lerp(0, angle, float(i) / smoothing));

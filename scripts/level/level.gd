@@ -134,6 +134,20 @@ func _ready() -> void:
 		if node is CollectibleTag:
 			node.connect("obtained", self, "_on_collectible_obtained")
 
+	for node in get_tree().get_nodes_in_group("ropes"):
+		if node is Rope:
+			SceneLoader.wait_before_new_scene = true
+			node.connect("created", self, "_on_rope_created", [node])
+			node.initialize()
+
+
+var ropes: Array
+func _on_rope_created(rope: Rope) -> void:
+	print("Created ", rope.name, " with ", rope.sections.size(), " sections.")
+	ropes.append(rope)
+	if ropes.size() == get_tree().get_nodes_in_group("ropes").size():
+		SceneLoader.wait_before_new_scene = false
+
 
 func calculate_buoyancy_and_ballast():
 	var vehicles = get_tree().get_nodes_in_group("buoyant")

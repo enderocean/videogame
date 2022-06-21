@@ -369,28 +369,26 @@ once = false
 curve = SubResource( 31 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 200
 
 [node name="MagnetPullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 32 )
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
-length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 
 [node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 1 )
+enabled = false
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
-length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 
 [node name="Path" type="Path" parent="."]
 curve = SubResource( 25 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( -0.0487606, 0.0849623, 0.995039, 2.31451e-05, 0.996376, -0.0850494, -0.998806, -0.00412468, -0.0485787, 0.0233678, -0.0117788, 0.0126623 )
-offset = 0.0191993
+transform = Transform( 0.925713, -0.146151, -0.348783, 0.0812787, 0.977645, -0.193879, 0.369379, 0.151152, 0.916759, -5.53528, 3.2177, -13.6204 )
+offset = 41.7031
 rotation_mode = 4
 script = ExtResource( 17 )
 
