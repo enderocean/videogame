@@ -60,62 +60,39 @@ func initialize():
 	curve.add_point(to_body.global_transform.origin)
 	
 	var points: PoolVector3Array = curve.get_baked_points()
+	var iterate_from_start: bool = true
 	
 	# Create the rope along the path
-	for i in range(points.size() - 1):
-		var direction: Vector3 = points[i].direction_to(points[i + 1])
-		var distance: float = points[i].distance_to(points[i + 1])
-		var section_count: int = distance / RopeSection.LENGTH
+	for i in range(points.size()):
+		var index: int = i if iterate_from_start else (points.size() - 1) - i
+		var previous_index: int = index - 1 if iterate_from_start else index + 1
+		var next_index: int = index + 1 if iterate_from_start else index - 1
 		
-		# Create sections between the current and next point in the path 
-		for j in range(section_count):
-			var section_index: int = i + j
-			# Get the correct position in the path
-			var position: Vector3 = points[i] + (direction * -distance) * j
-			var next_position: Vector3 = points[i + 1] + (direction * -distance) * j
-			var joint_position: Vector3 = position - direction * (distance / 2)
-			var next_joint_position: Vector3 = next_position - direction * (distance / 2)
-			var joints_direction: Vector3 = joint_position.direction_to(next_joint_position)
-			
-			if section_index == 0:
-				position = from_body.global_transform.origin
-				joint_position = position - (joints_direction * -distance)
-			# If last section, set the next position to the connected body's position
-			elif section_index == points.size() - 1:
-				next_position = to_body.global_transform.origin
-			
-			var distance_joints: float = joint_position.distance_to(next_joint_position)
-			if section_index == 0:
-				position = position - (joints_direction * -distance_joints / 2)
-
-			var distance_positions: float = position.distance_to(next_position)
-			
-			# Section
-			var section: RigidBody = create_section(joint_position, distance_joints)
-			
-			# Make the section look at the next position
-			section.look_at_from_position(position, next_position, Vector3.UP)
-			
-			# Joint
-			var previous: PhysicsBody = null
-#			var joint_position: Vector3 = section.global_transform.origin - direction * (distance / 2)
-			if section_index == 0:
-				previous = from_body
-				joint_position = from_body.global_transform.origin
-			else:
-				previous = sections[section_index - 1]
-			
-			var joint: Joint = joint(joint_position, previous, section)
-			sections.append(section)
-			joints.append(joint)
-
+		if iterate_from_start and next_index > points.size() - 1:
+			continue
+		elif not iterate_from_start and next_index > points.size() - 1:
+			continue
 		
-		# Wait a little bit, this is necessary because we are modifying collision shapes
-		# Not waiting here will increase the load time of the scene
-		yield(get_tree().create_timer(0.001), "timeout")
+		# Joint
+		var previous: PhysicsBody = null
+		if i == 0:
+			previous = from_body if iterate_from_start else to_body
+		else:
+			previous = sections[i - 1]
+		
+		var direction: Vector3 = points[index].direction_to(points[next_index])
+		var distance: float = points[index].distance_to(points[next_index])
+		var section: RigidBody = create_section(distance)
+		section.look_at_from_position(points[index] + (direction * (distance / 2)), points[next_index], Vector3.UP)
+		
+		var joint: Joint = joint(points[index], previous, section)
+		sections.append(section)
 	
 	# Joint to connect the last section to the connected body
-	joint(to_body.global_transform.origin, sections[sections.size() - 1], to_body)
+	if iterate_from_start:
+		joint(to_body.global_transform.origin, sections[sections.size() - 1], to_body)
+	else:
+		joint(to_body.global_transform.origin, sections[0], to_body)
 	
 	# Rope visuals
 #	line_renderer = LineRenderer.new()
@@ -141,13 +118,10 @@ func initialize():
 #			line_renderer.points[i] = sections[i].global_transform.origin
 
 
-func create_section(pos: Vector3, section_len: float) -> RigidBody:
+func create_section(section_len: float) -> RigidBody:
 	var section: RigidBody = self.section.instance()
 	add_child(section)
-	
 	section.length = section_len
-	section.global_transform.origin = pos
-	
 	return section
 
 
