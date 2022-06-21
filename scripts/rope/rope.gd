@@ -73,23 +73,32 @@ func initialize():
 			# Get the correct position in the path
 			var position: Vector3 = points[i] + (direction * -distance) * j
 			var next_position: Vector3 = points[i + 1] + (direction * -distance) * j
-#			var distance_between: float = position.distance_to(next_position)
+			var joint_position: Vector3 = position - direction * (distance / 2)
+			var next_joint_position: Vector3 = next_position - direction * (distance / 2)
+			var joints_direction: Vector3 = joint_position.direction_to(next_joint_position)
 			
-#			print(distance_between)
-			if i == 0:
+			if section_index == 0:
 				position = from_body.global_transform.origin
+				joint_position = position - (joints_direction * -distance)
 			# If last section, set the next position to the connected body's position
-			if i > points.size() - 1:
+			elif section_index == points.size() - 1:
 				next_position = to_body.global_transform.origin
 			
-			var section: RigidBody = create_section(position, distance)
+			var distance_joints: float = joint_position.distance_to(next_joint_position)
+			if section_index == 0:
+				position = position - (joints_direction * -distance_joints / 2)
+
+			var distance_positions: float = position.distance_to(next_position)
+			
+			# Section
+			var section: RigidBody = create_section(joint_position, distance_joints)
+			
 			# Make the section look at the next position
 			section.look_at_from_position(position, next_position, Vector3.UP)
 			
 			# Joint
 			var previous: PhysicsBody = null
-			var joint_section: bool = false
-			var joint_position: Vector3 = section.global_transform.origin - direction * (distance / 2)
+#			var joint_position: Vector3 = section.global_transform.origin - direction * (distance / 2)
 			if section_index == 0:
 				previous = from_body
 				joint_position = from_body.global_transform.origin
@@ -99,6 +108,7 @@ func initialize():
 			var joint: Joint = joint(joint_position, previous, section)
 			sections.append(section)
 			joints.append(joint)
+
 		
 		# Wait a little bit, this is necessary because we are modifying collision shapes
 		# Not waiting here will increase the load time of the scene
