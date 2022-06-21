@@ -56,7 +56,7 @@ shape = SubResource( 32 )
 transform = Transform( 0.015, 0, 0, 0, -0.015, 2.26494e-09, 0, -2.26494e-09, -0.015, 0.00637705, 0.252167, -0.00545176 )
 
 [node name="TheterAnchor" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
 
 [node name="HingeJoint" parent="TheterAnchor" index="0"]
 nodes/node_a = NodePath("../../GrapplingHook")

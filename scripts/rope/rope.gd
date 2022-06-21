@@ -60,7 +60,7 @@ func initialize():
 	curve.add_point(to_body.global_transform.origin)
 	
 	var points: PoolVector3Array = curve.get_baked_points()
-	var iterate_from_start: bool = true
+	var iterate_from_start: bool = points[0].distance_to(from_body.global_transform.origin) < points[0].distance_to(to_body.global_transform.origin)
 	
 	# Create the rope along the path
 	for i in range(points.size()):
@@ -107,7 +107,6 @@ func initialize():
 #
 #	add_child(line_renderer)
 	
-#	get_tree().paused = true
 	emit_signal("created")
 	created = true
 
