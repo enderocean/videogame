@@ -172,7 +172,7 @@ func _ready() -> void:
 	# Fill tools array
 	for child in get_parent().get_children():
 		if not child is VehicleTool:
-			continue	
+			continue
 		if not child.enabled:
 			continue
 		
@@ -193,7 +193,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-
+	
 	phys_time = phys_time + 1.0 / Globals.physics_rate
 	process_keys()
 
@@ -327,38 +327,45 @@ func process_keys() -> void:
 		if Input.is_action_just_pressed("speed_down"):
 			speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
 			emit_signal("speed_changed", speed_index)
-
+		
+		var input_horizontal: Vector2 = Vector2(
+			Input.get_action_strength("strafe_left") - Input.get_action_strength("strafe_right"),
+			Input.get_action_strength("forward") - Input.get_action_strength("backwards")
+		)
+		
+		var input_vertical: Vector2 = Vector2(
+			Input.get_action_strength("rotate_left") - Input.get_action_strength("rotate_right"),
+			Input.get_action_strength("upwards") - Input.get_action_strength("downwards")
+		)
+		
+		force.z = speeds[speed_index].x * input_horizontal.y
 		if Input.is_action_pressed("forward"):
-			force.z = speeds[speed_index].x
 			sounds.play("move_forward")
 		else:
 			sounds.stop("move_forward")
 
 		if Input.is_action_pressed("backwards"):
-			force.z = -speeds[speed_index].x
 			sounds.play("move_backward")
 		else:
 			sounds.stop("move_backward")
 
+
+		force.x = speeds[speed_index].x * input_horizontal.x
 		if Input.is_action_pressed("strafe_right"):
-			force.x = -speeds[speed_index].x
 			sounds.play("move_right")
 		else:
 			sounds.stop("move_right")
 
 		if Input.is_action_pressed("strafe_left"):
-			force.x = speeds[speed_index].x
 			sounds.play("move_left")
 		else:
 			sounds.stop("move_left")
 
+		force.y = speeds[speed_index].y * input_vertical.y
 		if Input.is_action_pressed("upwards"):
-			force.y = speeds[speed_index].y
 			sounds.play("move_up")
 			sounds.stop("move_down")
 		elif Input.is_action_pressed("downwards"):
-			force.y = -speeds[speed_index].y
-
 			sounds.stop("move_up")
 			sounds.play("move_down")
 		else:
@@ -369,10 +376,7 @@ func process_keys() -> void:
 			add_force_local(force, pos)
 
 		var torque: Vector3 = Vector3.ZERO
-		if Input.is_action_pressed("rotate_left"):
-			torque = transform.basis.xform(Vector3(0, 20, 0))
-		elif Input.is_action_pressed("rotate_right"):
-			torque = transform.basis.xform(Vector3(0, -20, 0))
+		torque = transform.basis.xform(Vector3(0, 20, 0)) * input_vertical.x
 
 		if torque != Vector3.ZERO:
 			add_torque(torque)
@@ -388,7 +392,7 @@ func process_keys() -> void:
 		else:
 			sounds.stop("camera_up")
 			sounds.stop("camera_down")
-
+	
 	# Switch tool
 	if Input.is_action_just_pressed("tool_switch"):
 		vehicle_tool_index = (vehicle_tool_index + 1) % vehicle_tools.size()

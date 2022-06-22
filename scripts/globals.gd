@@ -36,7 +36,7 @@ var levels: Dictionary
 var collectibles: Dictionary
 
 var sitl_pid: int = 0
-var can_control_rov: bool = false
+var can_control_rov: bool = true
 
 signal fancy_water_changed
 signal enable_godray_changed
