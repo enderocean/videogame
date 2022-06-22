@@ -1,7 +1,7 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=2]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=5]
@@ -17,6 +17,8 @@
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=15]
 [ext_resource path="res://scenes/net/new_fishing_net.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/models/rocks/rock02.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/models/vehicles/ship.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=23]
@@ -97,6 +99,12 @@ _data = {
 radius = 3.51649
 height = 3.01119
 
+[sub_resource type="Curve3D" id=60]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 30.2782, -4.19617e-05, -10.7919, 0, 0, 0, 0, 0, 0, -13.0806, -3.43323e-05, -7.90871 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
 [node name="level_17" type="Spatial"]
 script = ExtResource( 10 )
 objectives_target = {
@@ -142,11 +150,6 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42839, -8.50991, -1.62699 )
 starting_tool = 2
-
-[node name="Theter" parent="." instance=ExtResource( 2 )]
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-length = 400
 
 [node name="ship" type="MeshInstance" parent="."]
 transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 13.2019, -1.54428, -18.067 )
@@ -267,5 +270,13 @@ reset_on_save = false
 [node name="CollisionShape" type="CollisionShape" parent="Path2/PathFollow/grnSeatturtle/StaticBody"]
 transform = Transform( 1, 0, 7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0.336121, 0 )
 shape = SubResource( 59 )
+
+[node name="Tether" type="Path" parent="."]
+curve = SubResource( 60 )
+script = ExtResource( 2 )
+section = ExtResource( 18 )
+joint = ExtResource( 19 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
 
 [editable path="Path2/PathFollow/grnSeatturtle"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=138 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/vehicles/cargo.obj" type="ArrayMesh" id=2]
@@ -30,6 +30,11 @@
 [ext_resource path="res://assets/models/toys/beach/13511_Toy_Hand_Rake_v1_L3.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://assets/models/toys/beach/11672_bucket_v1_L3.obj" type="ArrayMesh" id=29]
 [ext_resource path="res://assets/models/toys/boats/15211_Wakeboard_v1_NEW.obj" type="ArrayMesh" id=30]
+
+[sub_resource type="Environment" id=109]
+fog_enabled = true
+fog_depth_begin = 5.0
+fog_depth_end = 20.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 1 )
@@ -365,6 +370,7 @@ objectives_target = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 109 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
 transform = Transform( 128, 0, 0, 0, 128, 0, 0, 0, 140.8, -20.568, 5, -13.625 )

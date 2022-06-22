@@ -1,7 +1,7 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
-[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=2]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=4]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=5]
@@ -41,6 +41,8 @@
 [ext_resource path="res://assets/models/waste/hanging_package.obj" type="ArrayMesh" id=39]
 [ext_resource path="res://assets/models/waste/ballon_tige.obj" type="ArrayMesh" id=40]
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=41]
+[ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=42]
+[ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=43]
 
 [sub_resource type="Environment" id=66]
 ambient_light_color = Color( 1, 0.988235, 0.654902, 1 )
@@ -50,6 +52,12 @@ fog_color = Color( 0.619608, 0.729412, 0.792157, 1 )
 fog_sun_color = Color( 0.917647, 0.917647, 0.917647, 1 )
 fog_depth_begin = 20.0
 fog_depth_end = 40.0
+
+[sub_resource type="Curve3D" id=81]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 3.7111, 0, -7.39276, 0, 0, 0, 0, 0, 0, 22.2684, 0, -5.28054 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [sub_resource type="CylinderMesh" id=39]
 
@@ -300,14 +308,16 @@ autoplay = true
 [node name="BlueRov" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84667, -0.519426, -21.4412 )
 
-[node name="Theter" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-length = 300
-
 [node name="DeliveryNet" parent="." instance=ExtResource( 33 )]
 transform = Transform( -4.18097e-08, 0, -0.890293, 0, 1, 0, 0.956494, 0, -3.89159e-08, 27.1556, -2.44602, -23.9968 )
+
+[node name="Tether" type="Path" parent="."]
+curve = SubResource( 81 )
+script = ExtResource( 2 )
+section = ExtResource( 43 )
+joint = ExtResource( 42 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
 
 [node name="Rope" type="MeshInstance" parent="."]
 transform = Transform( 0.01, 0, 0, 0, 1.21977, -0.00521933, 0, 0.746364, 0.00852987, 27.1573, -1.27486, -24.7369 )

@@ -253,6 +253,7 @@ shape = SubResource( 19 )
 transform = Transform( 1.85, 0, 0, 0, 2, 0, 0, 0, 1.51077, 14.4432, 0.668856, 4.32866 )
 
 [node name="playerCamera" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.402299, 0.36904, -0.837834, 0, 0.915157, 0.403098, 0.915508, 0.162166, -0.368167, -11.3226, 20.2377, -4.97545 )
 visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 3 )]

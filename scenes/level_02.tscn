@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://terrains/level_02/data.hterrain" type="Resource" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/models/deco/cone_worksite.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://scenes/components/sound_trigger_area.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scripts/delivery/delivery_object.gd" type="Script" id=18]
+[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=19]
 [ext_resource path="res://assets/models/waste/barrier.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/plants/matteucia_struthiopteris_1.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://assets/models/plants/textures/Moss03/Moss003_1K_Color.jpg" type="Texture" id=22]
@@ -26,20 +27,29 @@
 [ext_resource path="res://terrains/level_02/grey_sand/Ground049C_1K_Roughness.jpg" type="Texture" id=25]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=26]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=29]
-[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=32]
 
 [sub_resource type="Environment" id=24]
 ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
 fog_color = Color( 0.792157, 0.921569, 0.772549, 1 )
 fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_end = 20.0
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
 mode = 0
 textures = [ [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ], [ null, ExtResource( 7 ), ExtResource( 7 ), ExtResource( 25 ) ] ]
+
+[sub_resource type="Curve3D" id=26]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -12.3186, 4.09665, 20.3069 ),
+"tilts": PoolRealArray( 0 )
+}
 
 [sub_resource type="CubeMesh" id=14]
 
@@ -139,7 +149,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 25 )
-shader_param/timer = 5.91832
+shader_param/timer = 514.425
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
@@ -246,10 +256,13 @@ visible = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.09859, 11.4746 )
 starting_tool = 1
 
-[node name="Theter" parent="." instance=ExtResource( 30 )]
+[node name="Tether" type="Path" parent="."]
+curve = SubResource( 26 )
+script = ExtResource( 19 )
+section = ExtResource( 30 )
+joint = ExtResource( 28 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 100
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.330329, 0, 0.225572, 0, 0.4, 0, -0.225572, 0, 0.330329, 11.3377, 6.55861, 13.9939 )

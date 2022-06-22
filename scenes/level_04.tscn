@@ -235,7 +235,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
 curve = SubResource( 59 )
 from = NodePath("../BlueRov")
 to = NodePath("../MovingBoat/Ender Station/TheterAnchor")
-length = 250
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

@@ -1,8 +1,8 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
-[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=3]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=4]
 [ext_resource path="res://terrains/level_13/data.hterrain" type="Resource" id=5]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=6]
@@ -29,6 +29,8 @@
 [ext_resource path="res://scenes/components/delivery_magnet.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/models/vehicles/fiat.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scripts/collectibles/collectible_tag.gd" type="Script" id=29]
+[ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=31]
 
 [sub_resource type="Environment" id=30]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -112,6 +114,12 @@ points = PoolVector3Array( 0.365373, 7.91245, 0.191045, -0.284691, 2, -0.283693,
 
 [sub_resource type="CubeMesh" id=28]
 
+[sub_resource type="Curve3D" id=32]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -15.4429, -3.75735, -27.6039, 0, 0, 0, 0, 0, 0, -28.4847, -4.47649, -24.588 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
 [node name="Level_13" type="Spatial"]
 script = ExtResource( 15 )
 objectives_target = {
@@ -144,12 +152,6 @@ autoplay = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4003, 3.29379, -18.992 )
-
-[node name="Theter" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.59847 )
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station/TheterAnchor")
-length = 450
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -13.92, 1.85129, -38.2299 )
@@ -711,5 +713,12 @@ transform = Transform( 0.96281, 0, -0.27018, 0, 1, 0, 0.27018, 0, 0.96281, -20.2
 [node name="MagnetTheter" parent="." instance=ExtResource( 26 )]
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
-length = 350
 destination_path = NodePath("../Ender Station/MagnetTheterAnchor/PullDestination")
+
+[node name="Tether" type="Path" parent="."]
+curve = SubResource( 32 )
+script = ExtResource( 3 )
+section = ExtResource( 31 )
+joint = ExtResource( 30 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")

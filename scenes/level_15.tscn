@@ -30,7 +30,7 @@
 [ext_resource path="res://assets/models/underwater/plant_53/plant_53.obj" type="ArrayMesh" id=28]
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/models/animals/tropical_fishes/ReefFish7/ReefFish7.obj" type="ArrayMesh" id=30]
-[ext_resource path="res://scripts/components/fishes_path_follow.gd" type="Script" id=31]
+[ext_resource path="res://scripts/lemniscate.gd" type="Script" id=31]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse.obj" type="ArrayMesh" id=32]
 [ext_resource path="res://assets/models/animals/tropical_fishes/SeaHorse/SeaHorse_Base_Color.png" type="Texture" id=33]
 [ext_resource path="res://scenes/components/fishes_multimesh.tscn" type="PackedScene" id=34]
@@ -42,7 +42,7 @@
 
 [sub_resource type="Environment" id=37]
 ambient_light_color = Color( 0.839216, 0.839216, 0.839216, 1 )
-fog_color = Color( 0.14902, 0.333333, 0.592157, 1 )
+fog_color = Color( 0.313726, 0.490196, 0.741176, 1 )
 fog_depth_begin = 15.0
 fog_depth_end = 50.0
 
@@ -79,7 +79,7 @@ size = Vector2( 1, 10 )
 
 [sub_resource type="Curve3D" id=47]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 60.3509, 5.72205e-06, -36.7662, 0, 0, 0, 0, 0, 0, 67.1769, 5.72205e-06, -30.7769, 0, 0, 0, 0, 0, 0, 63.0372, 5.72205e-06, -25.4042, 0, 0, 0, 0, 0, 0, 52.9083, 5.72205e-06, -24.5674, 0, 0, 0, 0, 0, 0, 42.6032, 5.72205e-06, -27.9584, 0, 0, 0, 0, 0, 0, 36.9662, 5.72205e-06, -36.0175, 0, 0, 0, 0, 0, 0, 38.5516, 5.72205e-06, -39.3205 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 60.3509, 5.72205e-06, -36.7662, 0, 0, 0, 0, 0, 0, 67.1769, 5.72205e-06, -30.7769, 0, 0, 0, 0, 0, 0, 63.0372, 5.72205e-06, -25.4042, 0, 0, 0, 0, 0, 0, 52.9083, 5.72205e-06, -24.5674, 0, 0, 0, 0, 0, 0, 45.2187, 5.72205e-06, -30.7674, 0, 0, 0, 0, 0, 0, 36.9662, 5.72205e-06, -36.0175, 0, 0, 0, 0, 0, 0, 38.5516, 5.72205e-06, -39.3205 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
 }
 
@@ -257,14 +257,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3939, -3.8841, -6.91276 )
 curve = SubResource( 47 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 900
 
 [node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 37 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8932, -10.7531, -49.5049 )
 curve = SubResource( 51 )
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
-length = 200
 destination_path = NodePath("../Ender Station/PullDestination")
 pulling_speed = 50.0
 
@@ -710,15 +708,15 @@ material/0 = SubResource( 36 )
 [node name="Path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74216, -10.4848, -37.1934 )
 curve = SubResource( 48 )
+script = ExtResource( 31 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.00101923, 0.0688855, 0.997621, 0, 0.997625, -0.0688853, -1, 7.02104e-05, 0.00101681, 3.94491, 1.8465, -1.46452 )
+transform = Transform( -0.961558, 0.0772329, -0.263187, 0.071304, 0.996951, 0.0319878, 0.264882, 0.0119952, -0.964016, 10.5426, 1.61663, -6.34243 )
+offset = 10.3982
 rotation_mode = 4
-script = ExtResource( 31 )
-speed = 0.03
 
 [node name="Fishes" parent="Path/PathFollow" instance=ExtResource( 34 )]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0 )
+transform = Transform( 0.049933, 5.75127e-06, 0.00260286, 8.29467e-05, 0.0499708, -0.00170127, -0.0026021, 0.00170385, 0.0499037, -0.0123062, 0.00821781, -0.296856 )
 material_override = ExtResource( 35 )
 multimesh = SubResource( 49 )
 

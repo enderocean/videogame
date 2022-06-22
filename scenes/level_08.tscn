@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/rope/rope.gd" type="Script" id=7]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=8]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=9]
 [ext_resource path="res://terrains/level_08/data.hterrain" type="Resource" id=10]
@@ -21,6 +21,8 @@
 [ext_resource path="res://scenes/components/delivery_net.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/models/tools/dasti_hookers.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://assets/models/vehicles/Marlow66.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://scenes/rope/section.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/rope/joint.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Environment" id=105]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -329,6 +331,12 @@ albedo_color = Color( 0, 0.321569, 0.580392, 1 )
 albedo_texture = ExtResource( 3 )
 uv1_scale = Vector3( 3, 2, 1 )
 
+[sub_resource type="Curve3D" id=106]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -34.2736, 0, -21.1796, 0, 0, 0, 0, 0, 0, -41.039, 0, -10.0126 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
 [node name="level_08" type="Spatial"]
 script = ExtResource( 1 )
 objectives_target = {
@@ -355,12 +363,6 @@ visible = true
 
 [node name="BlueRov" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -34.3789, 1.51891, -1.21395 )
-
-[node name="Theter" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4406, 0, -6.91276 )
-from = NodePath("../BlueRov")
-to = NodePath("../Ender Station2/TheterAnchor")
-length = 250
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, -2, -64 )
@@ -1425,3 +1427,11 @@ material/15 = null
 
 [node name="DeliveryNet" parent="Dasti net" instance=ExtResource( 19 )]
 transform = Transform( -0.994443, 0, -0.872256, 0, 1.42857, 0, 0.937116, 0, -0.925615, 6.13819, -7.84937, -0.0298462 )
+
+[node name="Tether" type="Path" parent="."]
+curve = SubResource( 106 )
+script = ExtResource( 7 )
+section = ExtResource( 22 )
+joint = ExtResource( 23 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station2/TheterAnchor")

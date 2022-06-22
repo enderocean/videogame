@@ -269,7 +269,6 @@ transform = Transform( 0.954865, 0, 0.297041, 0, 1, 0, -0.297041, 0, 0.954865, -
 curve = SubResource( 97 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-length = 200
 
 [node name="Ender Station" type="MeshInstance" parent="."]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -10.6668, 3.71717, -22.3692 )
