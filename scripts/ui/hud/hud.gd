@@ -34,7 +34,7 @@ var active_level_data: LevelData
 
 
 func show_popup() -> void:
-	if not active_level_data.video.empty():
+	if Globals.is_valid_file_path(active_level_data.video):
 		video_popup.show()
 		video_popup.play(active_level_data.video)
 	

@@ -94,4 +94,12 @@ static func get_files(path: String) -> PoolStringArray:
 	return files
 
 
-# TODO: Save settings to file
+func is_valid_file_path(path: String) -> bool:
+	if path.empty():
+		return false
+
+	var file: File = File.new()
+	return file.file_exists(path)
+
+	return true
+	
