@@ -22,6 +22,7 @@ const LINKS: Dictionary = {
 }
 
 export var isHTML5: bool = false
+export var isMobile: bool = false
 
 export var enable_godray: bool = true setget set_enable_godray
 export var fancy_water: bool = true setget set_fancy_water
@@ -47,7 +48,10 @@ signal ping360_changed
 func _ready() -> void:
 	# Ensure this node is not being paused
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	isHTML5 = OS.get_name() == "HTML5"
+	
+	var os_name: String = OS.get_name()
+	isHTML5 = os_name == "HTML5"
+	isMobile = os_name == "Android" or os_name == "iOS"
 
 	# Load levels data
 	levels = LevelData.get_levels()

@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/hud/informations_panel.gd"
 }, {
+"base": "Button",
+"class": "InputEmitButton",
+"language": "GDScript",
+"path": "res://scripts/ui/input_emit_button.gd"
+}, {
 "base": "HBoxContainer",
 "class": "InputLine",
 "language": "GDScript",
@@ -281,6 +286,7 @@ _global_script_class_icons={
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "InformationsPanel": "",
+"InputEmitButton": "",
 "InputLine": "",
 "InputSelect": "",
 "InstructionsPopup": "",
@@ -496,10 +502,6 @@ help={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":72,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
