@@ -46,6 +46,8 @@ static func get_input_action_text(input_action: String) -> String:
 		"tool_switch": "Switch Tool",
 		"lights_up": "Lights Up",
 		"lights_down": "Lights Down",
+		"camera_up": "Camera Up",
+		"camera_down": "Camera Down",
 		"camera_switch": "Switch Camera"
 	}
 	

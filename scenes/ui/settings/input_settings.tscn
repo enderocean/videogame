@@ -25,7 +25,7 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 800.0
-margin_bottom = 1030.0
+margin_bottom = 1140.0
 rect_min_size = Vector2( 800, 0 )
 custom_constants/separation = 15
 
@@ -136,19 +136,31 @@ margin_right = 800.0
 margin_bottom = 920.0
 action = "lights_down"
 
-[node name="Other" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="Camera" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 935.0
 margin_right = 800.0
 margin_bottom = 975.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
-text = "Other"
+text = "Camera"
 valign = 1
 
-[node name="CameraSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="CameraUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 990.0
 margin_right = 800.0
 margin_bottom = 1030.0
+action = "camera_up"
+
+[node name="CameraDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 1045.0
+margin_right = 800.0
+margin_bottom = 1085.0
+action = "camera_down"
+
+[node name="CameraSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 1100.0
+margin_right = 800.0
+margin_bottom = 1140.0
 action = "camera_switch"
 
 [node name="InputSelect" type="Popup" parent="."]
