@@ -4,8 +4,7 @@
 [ext_resource path="res://scenes/rope/section_material.tres" type="Material" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-margin = 0.001
-radius = 0.00733885
+radius = 0.01
 height = 0.140908
 
 [sub_resource type="CapsuleMesh" id=2]
