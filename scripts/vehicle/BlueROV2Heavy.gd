@@ -321,11 +321,16 @@ func process_keys() -> void:
 	
 	if Globals.can_control_rov:
 		if Input.is_action_just_pressed("speed_up"):
-			speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
+#			speed_index = clamp(speed_index + 1, 0, speeds.size() - 1)
+			speed_index = (speed_index + 1) % speeds.size()
 			emit_signal("speed_changed", speed_index)
 
 		if Input.is_action_just_pressed("speed_down"):
-			speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
+#			speed_index = clamp(speed_index - 1, 0, speeds.size() - 1)
+			speed_index -= 1
+			if speed_index < 0:
+				speed_index = speeds.size() - 1
+			
 			emit_signal("speed_changed", speed_index)
 		
 		var input_horizontal: Vector2 = Vector2(
