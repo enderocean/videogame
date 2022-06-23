@@ -6,7 +6,9 @@ export var action: String
 
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	connect("button_down", self, "_on_button_down")
+# warning-ignore:return_value_discarded
 	connect("button_up", self, "_on_button_up")
 	
 	if action.empty():

@@ -411,9 +411,8 @@ text = "00:00"
 align = 1
 valign = 1
 
-[node name="VideoPopup" parent="." instance=ExtResource( 25 )]
-
 [node name="Mobile" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -502,6 +501,8 @@ margin_bottom = -23.0
 text = "Switch"
 script = ExtResource( 27 )
 action = "tool_switch"
+
+[node name="VideoPopup" parent="." instance=ExtResource( 25 )]
 
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="visibility_changed" from="InstructionsPopup" to="." method="_on_Popup_visibility_changed"]
