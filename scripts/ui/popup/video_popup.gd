@@ -55,7 +55,7 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	# Skip video
-	if (event is InputEventKey or event is InputEventJoypadButton) and event.pressed:
+	if (event is InputEventKey or event is InputEventJoypadButton or event is InputEventScreenTouch) and event.pressed:
 		skip_progress_bar.visible = true
 		set_process(true)
 	else:
