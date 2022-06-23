@@ -5,13 +5,8 @@ const LENGTH: float = 0.145
 
 var length: float setget set_length, get_length
 
-
-
 var collision_shape: CollisionShape
 var mesh_instance: MeshInstance
-
-#var mesh: CapsuleMesh
-#var shape: CapsuleShape
 
 
 func _ready() -> void:

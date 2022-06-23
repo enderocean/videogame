@@ -63,6 +63,7 @@ var _speed = Vector3(0.0, 0.0, 0.0)
 var _gui
 
 var _triggered = false
+var camera: Camera
 
 const ROTATION_MULTIPLIER = 500
 
@@ -83,6 +84,8 @@ func _ready():
 			rotate_down_action
 		]
 	)
+	
+	camera = get_child(0)
 
 	if privot:
 		privot = get_node(privot)
@@ -101,7 +104,8 @@ func _input(event):
 	else:
 		_triggered = true
 	
-	Globals.can_control_rov = not _triggered
+	if camera.is_current():
+		Globals.can_control_rov = not _triggered
 	
 	if freelook and _triggered:
 		if event is InputEventMouseMotion:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/defaultEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://scripts/camera/follow_camera.gd" type="Script" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://assets/shaders/vignette.shader" type="Shader" id=23]
 [ext_resource path="res://scripts/effects/vignette.gd" type="Script" id=24]
 [ext_resource path="res://scenes/ui/popup/video_popup.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/ui/joystick/virtual_joystick.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scripts/ui/input_emit_button.gd" type="Script" id=27]
 
 [sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 23 )
@@ -81,6 +83,7 @@ informations_panel_path = NodePath("HBoxContainer/InformationsPanel")
 camera_follow_path = NodePath("HBoxContainer/GameView/ViewportFollowCamera/Viewport/FollowCamera")
 camera_lookat_path = NodePath("HBoxContainer/GameView/ViewportLookAtCamera/Viewport/LookAtCamera")
 vignette_path = NodePath("VignetteEffect")
+mobile_path = NodePath("Mobile")
 
 [node name="VignetteEffect" type="ColorRect" parent="."]
 material = SubResource( 13 )
@@ -407,6 +410,97 @@ custom_fonts/font = SubResource( 6 )
 text = "00:00"
 align = 1
 valign = 1
+
+[node name="Mobile" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="JoystickLeft" parent="Mobile" instance=ExtResource( 26 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 75.0
+margin_top = -275.0
+margin_right = 275.0
+margin_bottom = -75.0
+
+[node name="SpeedDown" type="Button" parent="Mobile/JoystickLeft"]
+margin_left = 44.0
+margin_top = -119.0
+margin_right = 119.0
+margin_bottom = -44.0
+text = "Speed -"
+script = ExtResource( 27 )
+action = "speed_down"
+
+[node name="SpeedUp" type="Button" parent="Mobile/JoystickLeft"]
+margin_left = 156.0
+margin_top = -116.0
+margin_right = 233.0
+margin_bottom = -41.0
+text = "Speed +"
+script = ExtResource( 27 )
+action = "speed_up"
+
+[node name="LightsUp" type="Button" parent="Mobile/JoystickLeft"]
+margin_left = 234.0
+margin_top = -15.0
+margin_right = 309.0
+margin_bottom = 60.0
+text = "Lights +"
+script = ExtResource( 27 )
+action = "lights_up"
+
+[node name="LightsDown" type="Button" parent="Mobile/JoystickLeft"]
+margin_left = 235.0
+margin_top = 95.0
+margin_right = 310.0
+margin_bottom = 170.0
+text = "Lights -"
+script = ExtResource( 27 )
+action = "lights_down"
+
+[node name="JoystickRight" parent="Mobile" instance=ExtResource( 26 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -275.0
+margin_top = -275.0
+margin_right = -75.0
+margin_bottom = -75.0
+action_left = "rotate_left"
+action_right = "rotate_right"
+action_up = "forward"
+action_down = "backwards"
+
+[node name="ToolClose" type="Button" parent="Mobile/JoystickRight"]
+margin_left = -112.0
+margin_top = 77.0
+margin_right = -37.0
+margin_bottom = 152.0
+text = "Close"
+script = ExtResource( 27 )
+action = "tool_close"
+
+[node name="ToolOpen" type="Button" parent="Mobile/JoystickRight"]
+margin_left = -90.0
+margin_top = -51.0
+margin_right = -15.0
+margin_bottom = 24.0
+text = "Open"
+script = ExtResource( 27 )
+action = "tool_open"
+
+[node name="ToolSwitch" type="Button" parent="Mobile/JoystickRight"]
+margin_left = 42.0
+margin_top = -98.0
+margin_right = 117.0
+margin_bottom = -23.0
+text = "Switch"
+script = ExtResource( 27 )
+action = "tool_switch"
 
 [node name="VideoPopup" parent="." instance=ExtResource( 25 )]
 

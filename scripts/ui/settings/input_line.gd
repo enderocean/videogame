@@ -16,6 +16,7 @@ signal reset()
 func _ready() -> void:
 	has_valid_action = InputMap.has_action(action)
 	if not has_valid_action:
+		printerr("No valid action for input line: ", name)
 		return
 	
 	add_to_group("input")

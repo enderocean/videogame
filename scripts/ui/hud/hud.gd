@@ -29,6 +29,9 @@ onready var camera_lookat: LookAtCamera = get_node(camera_lookat_path)
 export var vignette_path: NodePath
 onready var vignette: VignetteEffect = get_node(vignette_path)
 
+export var mobile_path: NodePath
+onready var mobile: Control = get_node(mobile_path)
+
 var active_level: Level
 var active_level_data: LevelData
 
@@ -75,6 +78,8 @@ func _ready():
 	set_physics_process(false)
 # warning-ignore:return_value_discarded
 	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
+	
+	mobile.visible = Globals.isMobile
 
 
 func _physics_process(delta: float) -> void:

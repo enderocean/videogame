@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/hud/informations_panel.gd"
 }, {
+"base": "Button",
+"class": "InputEmitButton",
+"language": "GDScript",
+"path": "res://scripts/ui/input_emit_button.gd"
+}, {
 "base": "HBoxContainer",
 "class": "InputLine",
 "language": "GDScript",
@@ -254,6 +259,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/effects/vignette.gd"
 }, {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://scripts/ui/joystick/virtual_joystick.gd"
+}, {
 "base": "Node2D",
 "class": "WorldMap",
 "language": "GDScript",
@@ -276,6 +286,7 @@ _global_script_class_icons={
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "InformationsPanel": "",
+"InputEmitButton": "",
 "InputLine": "",
 "InputSelect": "",
 "InstructionsPopup": "",
@@ -309,6 +320,7 @@ _global_script_class_icons={
 "VehicleTool": "",
 "VideoPopup": "",
 "VignetteEffect": "",
+"VirtualJoystick": "",
 "WorldMap": ""
 }
 
@@ -446,13 +458,13 @@ tool_switch={
 camera_up={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":59,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 camera_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":76,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 camera_switch={
