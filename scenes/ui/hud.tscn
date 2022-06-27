@@ -126,7 +126,6 @@ cull_mask = 1048573
 environment = ExtResource( 1 )
 far = 497.4
 script = ExtResource( 2 )
-speed = 2.0
 
 [node name="ViewportLookAtCamera" type="ViewportContainer" parent="HBoxContainer/GameView"]
 pause_mode = 2
