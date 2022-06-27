@@ -21,8 +21,8 @@ const LINKS: Dictionary = {
 	"events": "https://www.enderocean.com/events/"
 }
 
-export var isHTML5: bool = false
-export var isMobile: bool = false
+export var is_html5: bool = false
+export var is_mobile: bool = false
 
 export var enable_godray: bool = true setget set_enable_godray
 export var fancy_water: bool = true setget set_fancy_water
@@ -50,8 +50,12 @@ func _ready() -> void:
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	
 	var os_name: String = OS.get_name()
-	isHTML5 = os_name == "HTML5"
-	isMobile = os_name == "Android" or os_name == "iOS"
+	is_html5 = os_name == "HTML5"
+	is_mobile = os_name == "Android" or os_name == "iOS"
+	
+	if is_mobile:
+		# Change game stretch mode for better UI scaling
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1920, 1080), 1.5)
 
 	# Load levels data
 	levels = LevelData.get_levels()

@@ -186,7 +186,7 @@ func _ready() -> void:
 	_initial_position = global_transform.origin
 	set_physics_process(true)
 	
-	if not Globals.isHTML5:
+	if not Globals.is_html5:
 		connect_fmd_in()
 
 
@@ -197,7 +197,7 @@ func _physics_process(delta: float) -> void:
 	phys_time = phys_time + 1.0 / Globals.physics_rate
 	process_keys()
 
-	if Globals.isHTML5:
+	if Globals.is_html5:
 		return
 
 	calculated_acceleration = (linear_velocity - last_velocity) / delta

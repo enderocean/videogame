@@ -79,7 +79,7 @@ func _ready():
 # warning-ignore:return_value_discarded
 	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
 	
-	mobile.visible = Globals.isMobile
+	mobile.visible = Globals.is_mobile
 
 
 func _physics_process(delta: float) -> void:
