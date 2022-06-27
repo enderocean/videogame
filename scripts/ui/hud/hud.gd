@@ -21,8 +21,12 @@ onready var pause_menu: PauseMenu = get_node(pause_menu_path)
 export var informations_panel_path: NodePath
 onready var informations_panel: InformationsPanel = get_node(informations_panel_path)
 
+export var camera_follow_viewport_path: NodePath
+onready var camera_follow_viewport: ViewportContainer = get_node(camera_follow_viewport_path)
+
 export var camera_follow_path: NodePath
 onready var camera_follow: FollowCamera = get_node(camera_follow_path)
+
 export var camera_lookat_path: NodePath
 onready var camera_lookat: LookAtCamera = get_node(camera_lookat_path)
 
@@ -95,6 +99,9 @@ func _input(event: InputEvent) -> void:
 			pause_menu.hide()
 		else:
 			pause_menu.show()
+	
+	if event.is_action_pressed("camera_external_toggle"):
+		camera_follow_viewport.visible = not camera_follow_viewport.visible
 
 
 func _on_scene_loaded(scene_data: Dictionary) -> void:
