@@ -48,7 +48,8 @@ static func get_input_action_text(input_action: String) -> String:
 		"lights_down": "Lights Down",
 		"camera_up": "Camera Up",
 		"camera_down": "Camera Down",
-		"camera_switch": "Switch Camera"
+		"camera_switch": "Switch Camera",
+		"camera_external_toggle": "Toggle External Camera"
 	}
 	
 	if inputs.has(input_action):
