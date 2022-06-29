@@ -41,13 +41,13 @@ var active_level_data: LevelData
 
 
 func show_popup() -> void:
-	if Globals.is_valid_file_path(active_level_data.video):
-		video_popup.show()
-		video_popup.play(active_level_data.video)
-	
 	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
 	mission_ended_popup.update_objectives(active_level.objectives, active_level.objectives_progress)
 	mission_ended_popup.update_time(mission_timer.time_left)
+	
+	if Globals.is_valid_file_path(active_level_data.video):
+		mission_ended_popup.play_video(active_level_data.video)
+	
 	mission_ended_popup.show()
 
 

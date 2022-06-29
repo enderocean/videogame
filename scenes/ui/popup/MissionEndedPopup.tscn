@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/ui/popup/mission_ended_popup.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/textures/star.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/shaders/star_material.tres" type="Material" id=7]
+[ext_resource path="res://scripts/ui/popup/mission_ended_popup/video_panel.gd" type="Script" id=8]
+[ext_resource path="res://scripts/ui/popup/mission_ended_popup/normal_panel.gd" type="Script" id=9]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 2 )
@@ -20,30 +22,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 1 )
 script = ExtResource( 1 )
-title_label_path = NodePath("Normal/MarginContainer/VBoxContainer/Title")
-time_label_path = NodePath("Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/Time")
-objectives_list_path = NodePath("Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer/Objectives")
-normal_panel_path = NodePath("Normal")
+normal_panel_path = NodePath("HBoxContainer/Normal")
+video_panel_path = NodePath("HBoxContainer/Video")
 user_panel_path = NodePath("User")
 username_path = NodePath("User/MarginContainer/VBoxContainer/LineEdit")
-stars_path = NodePath("Normal/MarginContainer/VBoxContainer/Stars")
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.5 )
 
-[node name="Normal" type="Panel" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -200.0
-margin_right = 200.0
-margin_bottom = 200.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Normal"]
+[node name="Normal" type="Panel" parent="HBoxContainer"]
+margin_left = 760.0
+margin_top = 340.0
+margin_right = 1160.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 400, 400 )
+size_flags_vertical = 4
+script = ExtResource( 9 )
+title_label_path = NodePath("MarginContainer/VBoxContainer/Title")
+time_label_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer/Time")
+objectives_list_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer/Objectives")
+stars_path = NodePath("MarginContainer/VBoxContainer/Stars")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Normal"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
@@ -51,14 +58,14 @@ custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Normal/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Normal/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 380.0
 margin_bottom = 380.0
 custom_constants/separation = 10
 
-[node name="Title" type="Label" parent="Normal/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer"]
 margin_right = 360.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 3 )
@@ -66,14 +73,14 @@ text = "Mission ended"
 align = 1
 valign = 1
 
-[node name="Stars" type="HBoxContainer" parent="Normal/MarginContainer/VBoxContainer"]
+[node name="Stars" type="HBoxContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer"]
 margin_top = 48.0
 margin_right = 360.0
 margin_bottom = 78.0
 custom_constants/separation = 20
 alignment = 1
 
-[node name="Star1" type="TextureRect" parent="Normal/MarginContainer/VBoxContainer/Stars"]
+[node name="Star1" type="TextureRect" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/Stars"]
 material = ExtResource( 7 )
 margin_left = 65.0
 margin_right = 95.0
@@ -83,7 +90,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Star2" type="TextureRect" parent="Normal/MarginContainer/VBoxContainer/Stars"]
+[node name="Star2" type="TextureRect" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/Stars"]
 material = ExtResource( 7 )
 margin_left = 115.0
 margin_right = 145.0
@@ -93,7 +100,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Star3" type="TextureRect" parent="Normal/MarginContainer/VBoxContainer/Stars"]
+[node name="Star3" type="TextureRect" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/Stars"]
 material = ExtResource( 7 )
 margin_left = 165.0
 margin_right = 195.0
@@ -103,7 +110,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Star4" type="TextureRect" parent="Normal/MarginContainer/VBoxContainer/Stars"]
+[node name="Star4" type="TextureRect" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/Stars"]
 material = ExtResource( 7 )
 margin_left = 215.0
 margin_right = 245.0
@@ -113,7 +120,7 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Star5" type="TextureRect" parent="Normal/MarginContainer/VBoxContainer/Stars"]
+[node name="Star5" type="TextureRect" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/Stars"]
 material = ExtResource( 7 )
 margin_left = 265.0
 margin_right = 295.0
@@ -123,54 +130,54 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer"]
 margin_top = 88.0
 margin_right = 360.0
 margin_bottom = 360.0
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_right = 360.0
 margin_bottom = 144.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_right = 360.0
 margin_bottom = 22.0
 
-[node name="TimeLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
+[node name="TimeLabel" type="Label" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
 margin_right = 82.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 4 )
 text = "Time left: "
 
-[node name="Time" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
+[node name="Time" type="Label" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/HBoxContainer"]
 margin_left = 316.0
 margin_right = 360.0
 margin_bottom = 22.0
 size_flags_horizontal = 10
 text = "10:01"
 
-[node name="ObjectivesLabel" type="Label" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="ObjectivesLabel" type="Label" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_top = 32.0
 margin_right = 360.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 4 )
 text = "Objectives: "
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer"]
 margin_top = 64.0
 margin_right = 360.0
 margin_bottom = 144.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Objectives" type="VBoxContainer" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer"]
+[node name="Objectives" type="VBoxContainer" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/VBoxContainer/ScrollContainer"]
 margin_right = 360.0
 size_flags_horizontal = 3
 
-[node name="Back" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+[node name="Back" type="Button" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_top = 148.0
 margin_right = 360.0
 margin_bottom = 208.0
@@ -178,13 +185,52 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "NEXT MISSION"
 
-[node name="Restart" type="Button" parent="Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
+[node name="Restart" type="Button" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_top = 212.0
 margin_right = 360.0
 margin_bottom = 272.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "RESTART"
+
+[node name="Video" type="Panel" parent="HBoxContainer"]
+pause_mode = 2
+visible = false
+margin_left = 862.0
+margin_top = 340.0
+margin_right = 1462.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 600, 400 )
+size_flags_vertical = 4
+script = ExtResource( 8 )
+video_player_path = NodePath("MarginContainer/AspectRatioContainer/VideoPlayer")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="BackgroundColor" type="ColorRect" parent="HBoxContainer/Video/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 580.0
+margin_bottom = 380.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/Video/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 580.0
+margin_bottom = 380.0
+ratio = 1.77
+
+[node name="VideoPlayer" type="VideoPlayer" parent="HBoxContainer/Video/MarginContainer/AspectRatioContainer"]
+margin_top = 21.8079
+margin_right = 560.0
+margin_bottom = 338.192
 
 [node name="User" type="Panel" parent="."]
 visible = false
@@ -234,13 +280,13 @@ size_flags_vertical = 2
 placeholder_text = "Please enter your name..."
 
 [node name="Ok" type="Button" parent="User/MarginContainer/VBoxContainer"]
-margin_top = 136.0
+margin_top = 220.0
 margin_right = 380.0
-margin_bottom = 196.0
+margin_bottom = 280.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "BACK TO MISSIONS"
 
-[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="User/MarginContainer/VBoxContainer/Ok" to="." method="_on_ok_pressed"]

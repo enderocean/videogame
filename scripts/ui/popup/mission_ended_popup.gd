@@ -1,18 +1,10 @@
 extends Popup
 
-const objective_line: PackedScene = preload("res://scenes/ui/objective_line.tscn")
-
-export var title_label_path: NodePath
-onready var title_label: Label = get_node(title_label_path)
-
-export var time_label_path: NodePath
-onready var time_label: Label = get_node(time_label_path)
-
-export var objectives_list_path: NodePath
-onready var objectives_list: VBoxContainer = get_node(objectives_list_path)
-
 export var normal_panel_path: NodePath
 onready var normal_panel: Panel = get_node(normal_panel_path)
+
+export var video_panel_path: NodePath
+onready var video_panel: Panel = get_node(video_panel_path)
 
 export var user_panel_path: NodePath
 onready var user_panel: Panel = get_node(user_panel_path)
@@ -20,60 +12,26 @@ onready var user_panel: Panel = get_node(user_panel_path)
 export var username_path: NodePath
 onready var username: LineEdit = get_node(username_path)
 
-export var stars_path: NodePath
-onready var stars: HBoxContainer = get_node(stars_path)
-
 
 func _ready() -> void:
-	# Make stars materials unique
-	for star in stars.get_children():
-		var material: ShaderMaterial = star.material
-#		star.material.shader = material.shader.duplicate() 
-		star.material = star.material.duplicate()
+	video_panel.hide()
+
+
+func play_video(path: String) -> void:
+	video_panel.play(path)
+	video_panel.show()
+
 
 func update_stars(score: int, stars_enabled: bool) -> void:
-	stars.visible = stars_enabled
-	
-	if not stars_enabled:
-		return
-	
-	var score_stars: float = score / 1000.0
-	for i in range(stars.get_child_count()):
-		var star: TextureRect = stars.get_child(i)
-		var cut_value: float = 1.0
-		# Set the cut value of a star in case the stars score is not a plain value (e.g 2.5 stars)
-		if (i + 1) > score_stars:
-			cut_value = 1.0 - clamp((float(i + 1) - score_stars), 0.0, 1.0)
-
-		star.material.set_shader_param("cut", cut_value)
+	normal_panel.update_stars(score, stars_enabled)
 
 
 func update_time(time: float) -> void:
-	time_label.text = MissionTimer.format_time(time)
+	normal_panel.update_time(time)
 
 
 func update_objectives(objectives: Dictionary, objectives_progress: Dictionary) -> void:
-	if objectives.size() == 0:
-		return
-
-	for i in range(objectives.keys().size()):
-		# Try to get existing line
-		var line: ObjectiveLine = null
-		if i < objectives_list.get_child_count():
-			line = objectives_list.get_child(i)
-
-		# Create new line
-		if not line:
-			line = objective_line.instance()
-			objectives_list.add_child(line)
-		
-		# Set the progress of the objective
-		var value: int = 0
-		if objectives_progress.has(objectives.keys()[i]):
-			value = objectives_progress.get(objectives.keys()[i])
-		
-		line.title.text = Localization.get_objective_text(objectives.keys()[i])
-		line.value.text = "%s / %s" % [value, objectives.values()[i]]
+	normal_panel.update_objectives(objectives, objectives_progress)
 
 
 func _on_visibility_changed() -> void:
@@ -83,6 +41,7 @@ func _on_visibility_changed() -> void:
 	normal_panel.visible = false
 	user_panel.visible = true
 	username.editable = true
+	video_panel.hide()
 
 
 func _on_ok_pressed() -> void:
