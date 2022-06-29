@@ -396,7 +396,6 @@ label_path = NodePath("../TimerLabel")
 [node name="InstructionsPopup" parent="." instance=ExtResource( 11 )]
 
 [node name="MissionEndedPopup" parent="." instance=ExtResource( 10 )]
-visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource( 9 )]
 visible = false

@@ -7,6 +7,7 @@ script = ExtResource( 1 )
 id = "practice"
 scene = "res://scenes/practice.tscn"
 thumbnail = "res://assets/background.jpg"
+video = ""
 title = "Practice"
 country = "France"
 location = "Pool"
