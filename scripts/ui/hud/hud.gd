@@ -201,22 +201,23 @@ func _on_level_objectives_changed() -> void:
 
 
 func _on_MissionTimer_timeout() -> void:
-	_on_level_finished()
+	_on_level_finished(true, false)
 
 
-func _on_level_finished(update_score: bool = true) -> void:
+func _on_level_finished(update_score: bool = true, save_score: bool = true) -> void:
 	mission_timer.paused = true
 	
 	if update_score:
 		update_score()
 	
-	# Save the level score
-	SaveManager.levels[active_level_data.id] = {
-		"score": active_level.score,
-		# Save the time it took to finish the mission
-		"time": (mission_timer.minutes * 60) - mission_timer.time_left
-	}
-	SaveManager.save_data()
+	if save_score:
+		# Save the level score
+		SaveManager.levels[active_level_data.id] = {
+			"score": active_level.score,
+			# Save the time it took to finish the mission
+			"time": (mission_timer.minutes * 60) - mission_timer.time_left
+		}
+		SaveManager.save_data()
 	
 	show_popup()
 
