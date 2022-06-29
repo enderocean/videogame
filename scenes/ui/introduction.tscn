@@ -51,8 +51,9 @@ margin_right = 972.0
 margin_bottom = 539.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CenterContainer"]
+margin_top = 32.0
 margin_right = 972.0
-margin_bottom = 539.0
+margin_bottom = 507.0
 alignment = 1
 
 [node name="Label" type="Label" parent="HBoxContainer/CenterContainer/VBoxContainer"]
@@ -322,20 +323,17 @@ margin_right = 972.0
 margin_bottom = 475.0
 rect_min_size = Vector2( 0, 15 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer"]
-margin_top = 479.0
-margin_right = 972.0
-margin_bottom = 539.0
-
-[node name="Back" type="Button" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer"]
-margin_right = 220.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 220, 60 )
-custom_fonts/font = ExtResource( 4 )
-text = "BACK TO MAIN MENU"
+[node name="Close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -70.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 70.0
+text = "X"
 
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer/Campaign" to="." method="_on_Campaign_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/HBoxContainer/BookSession" to="." method="_on_book_session_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/HBoxContainer/ShowEvents" to="." method="_on_show_events_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_Close_Gameplay_pressed"]

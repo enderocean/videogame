@@ -77,13 +77,13 @@ func _on_Introduction_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/ui/introduction.tscn")
 
 
-func _on_Back_pressed():
-	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
-
-
 func _on_Close_pressed():
 	get_tree().quit()
 
 
 func _on_settings_pressed() -> void:
 	settings.show()
+
+
+func _on_Close_Gameplay_pressed():
+	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
