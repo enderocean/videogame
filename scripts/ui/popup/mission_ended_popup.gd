@@ -76,10 +76,16 @@ func _on_restart_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	visible = false
+	
+	if back_to_main_menu:
+		SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+		return
+	
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
 
 
 func set_back_to_main_menu(value: bool) -> void:
+	back_to_main_menu = value
 	if value:
 		normal_panel.back_to_missions_button.text = "BACK TO MAIN MENU"
 	else:
