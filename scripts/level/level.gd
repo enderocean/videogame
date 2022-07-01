@@ -135,6 +135,10 @@ func _ready() -> void:
 			node.connect("arrived", self, "_on_destination_arrived")
 			destinations.append(node)
 	
+	# Add the destinations as objectives
+	if destinations.size() > 0:
+		objectives[Globals.ObjectiveType.DESTINATION] = destinations.size()
+	
 	# Connect to all objective areas
 	for node in get_tree().get_nodes_in_group("collectible_tags"):
 		if node is CollectibleTag:
@@ -318,21 +322,21 @@ func _on_collectible_obtained(id: String) -> void:
 func _on_destination_arrived(node: DestinationTriggerArea) -> void:
 	var index: int = destinations.find(node)
 	if index == -1:
-		printerr(node.name, "not found in current scene destinations.")
+		printerr(node.name, " not found in current scene destinations.")
 		return
 	
-	# Check if there are already destinations done
 	if not objectives_progress.has(Globals.ObjectiveType.DESTINATION):
-		objectives_progress[Globals.ObjectiveType.DESTINATION] = []
-
-	if index != objectives_progress[Globals.ObjectiveType.DESTINATION].size():
+		objectives_progress[Globals.ObjectiveType.DESTINATION] = 0
+	
+	if index != objectives_progress[Globals.ObjectiveType.DESTINATION]:
 		return
 	
-	objectives_progress[Globals.ObjectiveType.DESTINATION].append(node.name)
-	print("Arrived: ", objectives_progress.get(Globals.ObjectiveType.DESTINATION).size(), " / ", destinations.size())
+	objectives_progress[Globals.ObjectiveType.DESTINATION] += 1
 	
-	if objectives_progress[Globals.ObjectiveType.DESTINATION].size() < destinations.size():
-		destinations_next_index = objectives_progress[Globals.ObjectiveType.DESTINATION].size()
+	print("Arrived: ", objectives_progress.get(Globals.ObjectiveType.DESTINATION), " / ", destinations.size())
+	
+	if objectives_progress.get(Globals.ObjectiveType.DESTINATION) < destinations.size():
+		destinations_next_index = objectives_progress.get(Globals.ObjectiveType.DESTINATION)
 	
 	check_objectives()
 	emit_signal("objectives_changed")
@@ -363,9 +367,11 @@ func check_objectives() -> void:
 		if not objectives.has(objective):
 			continue
 		
+		# Don't already have this objective in progress or done
 		if not objectives_progress.has(objective):
 			continue
 		
+		# Objective in progress
 		if objectives_progress.get(objective) < objectives.get(objective):
 			finished = false
 
