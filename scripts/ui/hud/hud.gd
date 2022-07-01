@@ -39,6 +39,8 @@ onready var mobile: Control = get_node(mobile_path)
 var active_level: Level
 var active_level_data: LevelData
 
+var is_tutorial: bool = false
+
 
 func show_popup() -> void:
 	mission_ended_popup.back_to_main_menu = pause_menu.back_to_main_menu
@@ -162,14 +164,16 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 	# Set Back to missions map button to default behavior
 	pause_menu.back_to_main_menu = false
 	mission_ended_popup.back_to_main_menu = false
+	is_tutorial = false
 	
 	# Start the time with the given LevelData time
 	if active_level_data:
 		mission_timer.paused = false
 		mission_timer.start(active_level_data.time * 60)
 		
-		# if it's a tutorial level
-		if "tutorial" in active_level_data.id or active_level_data.id == "practice":
+		# Check if the level id contains "tutorial" or "practice"
+		is_tutorial = "tutorial" in active_level_data.id or "practice" in active_level_data.id
+		if is_tutorial:
 			# Set the back to missions as back to main menu
 			pause_menu.back_to_main_menu = true
 			mission_ended_popup.back_to_main_menu = true
@@ -224,12 +228,19 @@ func _on_level_finished(update_score: bool = true, save_score: bool = true) -> v
 		update_score()
 	
 	if save_score:
-		# Save the level score
-		SaveManager.levels[active_level_data.id] = {
+		
+		var data: Dictionary = {
 			"score": active_level.score,
 			# Save the time it took to finish the mission
 			"time": (mission_timer.minutes * 60) - mission_timer.time_left
 		}
+		
+		# Save the level score
+		if is_tutorial:
+			SaveManager.tutorials[active_level_data.id] = data
+		else:
+			SaveManager.levels[active_level_data.id] = data
+			
 		SaveManager.save_data()
 	
 	show_popup()
