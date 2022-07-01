@@ -12,6 +12,8 @@ onready var user_panel: Panel = get_node(user_panel_path)
 export var username_path: NodePath
 onready var username: LineEdit = get_node(username_path)
 
+var back_to_main_menu: bool = false setget set_back_to_main_menu
+
 
 func _ready() -> void:
 	video_panel.hide()
@@ -75,3 +77,10 @@ func _on_restart_pressed() -> void:
 func _on_back_pressed() -> void:
 	visible = false
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+
+
+func set_back_to_main_menu(value: bool) -> void:
+	if value:
+		normal_panel.back_to_missions_button.text = "BACK TO MAIN MENU"
+	else:
+		normal_panel.back_to_missions_button.text = "BACK TO MISSIONS MAP"

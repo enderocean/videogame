@@ -15,6 +15,8 @@ static func get_objective_text(objective_type) -> String:
 			return "Collected with the Grappling hook"
 		Globals.ObjectiveType.ANIMAL:
 			return "Freed animals"
+		Globals.ObjectiveType.DESTINATION:
+			return "Go to the destination"
 	return ""
 
 # This code is temporary, waiting for the localization integration

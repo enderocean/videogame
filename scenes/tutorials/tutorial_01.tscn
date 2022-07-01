@@ -10,7 +10,7 @@
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/components/destination_trigger_area.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/models/tutorial/hoop.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=13]
 
@@ -80,10 +80,14 @@ transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.
 
 [node name="Destinations" type="Spatial" parent="."]
 
-[node name="DestinationTriggerArea" parent="Destinations" instance=ExtResource( 11 )]
+[node name="hoop" parent="Destinations" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0 )
 
-[node name="DestinationTriggerArea2" parent="Destinations" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.7 )
+[node name="hoop2" parent="Destinations" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84, -7.56 )
+
+[node name="hoop3" parent="Destinations" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -16.43 )
 
 [node name="Theter" parent="." instance=ExtResource( 12 )]
 curve = SubResource( 27 )

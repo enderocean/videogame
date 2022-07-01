@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto/title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/ui/tutorials_menu.gd" type="Script" id=3]
+[ext_resource path="res://assets/home-bg.png" type="Texture" id=8]
+
+[node name="Tutorials" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+buttons_list_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.137255, 0.129412, 0.172549, 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 60
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 1900.0
+margin_bottom = 1020.0
+custom_constants/separation = 25
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 1880.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorials"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 940.0
+margin_top = 63.0
+margin_right = 940.0
+margin_bottom = 875.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 790.0
+margin_top = 900.0
+margin_right = 1090.0
+margin_bottom = 960.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+text = "BACK TO MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

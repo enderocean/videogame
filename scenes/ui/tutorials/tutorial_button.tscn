@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="TutorialButton" type="Button"]
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+text = "Button"

@@ -21,8 +21,11 @@ export var stars_enabled: bool = true
 # e.g. The player needs to complete the level in 60 seconds to have 5 stars (without any penalities)
 export var stars: PoolIntArray = [900, 600, 300, 180, 60]
 
-static func get_levels() -> Dictionary:
-	var path: String = "res://assets/levels/"
+static func get_levels(path: String) -> Dictionary:
+	if not Globals.is_valid_directory_path(path):
+		printerr("The given path is not valid")
+		return {}
+	
 	var files: PoolStringArray = Globals.get_files(path)
 	var levels: Dictionary = {}
 	var file: File = File.new()

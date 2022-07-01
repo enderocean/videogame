@@ -3,19 +3,28 @@ extends Panel
 const objective_line: PackedScene = preload("res://scenes/ui/objective_line.tscn")
 
 export var title_label_path: NodePath
-onready var title_label: Label = get_node(title_label_path)
+var title_label: Label
 
 export var time_label_path: NodePath
-onready var time_label: Label = get_node(time_label_path)
+var time_label: Label
 
 export var objectives_list_path: NodePath
-onready var objectives_list: VBoxContainer = get_node(objectives_list_path)
+var objectives_list: VBoxContainer
 
 export var stars_path: NodePath
-onready var stars: HBoxContainer = get_node(stars_path)
+var stars: HBoxContainer
+
+export var back_to_missions_button_path: NodePath
+var back_to_missions_button: Button
 
 
 func _ready() -> void:
+	title_label = get_node(title_label_path)
+	time_label = get_node(time_label_path)
+	stars = get_node(stars_path)
+	objectives_list = get_node(objectives_list_path)
+	back_to_missions_button = get_node(back_to_missions_button_path)
+	
 	# Make stars materials unique
 	for star in stars.get_children():
 		var material: ShaderMaterial = star.material

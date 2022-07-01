@@ -17,7 +17,6 @@ var root: Node
 var wait_before_new_scene: bool = false
 
 signal scene_loaded
-signal scenes_loaded
 
 
 func _ready() -> void:
