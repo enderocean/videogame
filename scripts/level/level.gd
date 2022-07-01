@@ -32,13 +32,15 @@ export var objectives_target: Dictionary = {
 	"cutter": 0,
 	"grappling_hook": 0,
 	"magnet": 0,
-	"animal": 0,
+	"animal": 0
 }
 
 var objectives: Dictionary = {}
 var objectives_progress: Dictionary = {}
 var penalties: Array = []
 var score: int = 0
+var destinations: Array
+var destinations_next_index: int = 0
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -128,6 +130,10 @@ func _ready() -> void:
 		if node is NewFishingNet or node is FishingNet:
 		# warning-ignore:return_value_discarded
 			node.connect("net_cut", self, "_on_net_cut")
+		if node is DestinationTriggerArea:
+		# warning-ignore:return_value_discarded
+			node.connect("arrived", self, "_on_destination_arrived")
+			destinations.append(node)
 	
 	# Connect to all objective areas
 	for node in get_tree().get_nodes_in_group("collectible_tags"):
@@ -307,6 +313,29 @@ func _on_animal_free(animal: TrapAnimal) -> void:
 
 func _on_collectible_obtained(id: String) -> void:
 	emit_signal("collectible_obtained", id)
+
+
+func _on_destination_arrived(node: DestinationTriggerArea) -> void:
+	var index: int = destinations.find(node)
+	if index == -1:
+		printerr(node.name, "not found in current scene destinations.")
+		return
+	
+	# Check if there are already destinations done
+	if not objectives_progress.has(Globals.ObjectiveType.DESTINATION):
+		objectives_progress[Globals.ObjectiveType.DESTINATION] = []
+
+	if index != objectives_progress[Globals.ObjectiveType.DESTINATION].size():
+		return
+	
+	objectives_progress[Globals.ObjectiveType.DESTINATION].append(node.name)
+	print("Arrived: ", objectives_progress.get(Globals.ObjectiveType.DESTINATION).size(), " / ", destinations.size())
+	
+	if objectives_progress[Globals.ObjectiveType.DESTINATION].size() < destinations.size():
+		destinations_next_index = objectives_progress[Globals.ObjectiveType.DESTINATION].size()
+	
+	check_objectives()
+	emit_signal("objectives_changed")
 
 
 func _on_vehicle_body_entered(body: Node) -> void:

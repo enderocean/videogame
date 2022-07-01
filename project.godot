@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/delivery/delivery_vaccum.gd"
 }, {
+"base": "Area",
+"class": "DestinationTriggerArea",
+"language": "GDScript",
+"path": "res://scripts/components/destination_trigger_area.gd"
+}, {
 "base": "Spatial",
 "class": "FishingNet",
 "language": "GDScript",
@@ -279,6 +284,7 @@ _global_script_class_icons={
 "DeliveryObject": "",
 "DeliveryTool": "",
 "DeliveryVaccum": "",
+"DestinationTriggerArea": "",
 "FishingNet": "",
 "FollowCamera": "",
 "GrapplingHookDeliveryTool": "",

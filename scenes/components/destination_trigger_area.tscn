@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/components/destination_trigger_area.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=29]
+radius = 2.0
+
+[node name="DestinationTriggerArea" type="Area"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 29 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

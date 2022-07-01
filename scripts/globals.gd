@@ -7,6 +7,7 @@ enum ObjectiveType {
 	GRAPPLING_HOOK,
 	MAGNET,
 	ANIMAL,
+	DESTINATION
 }
 
 enum DeliveryToolType {

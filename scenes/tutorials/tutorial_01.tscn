@@ -1,0 +1,106 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=1]
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/logo_ecodds.png" type="Texture" id=3]
+[ext_resource path="res://assets/logo_rna.png" type="Texture" id=4]
+[ext_resource path="res://assets/your-logo-here.png" type="Texture" id=5]
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=7]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/components/destination_trigger_area.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Environment" id=28]
+ambient_light_color = Color( 0.494118, 0.854902, 0.952941, 1 )
+ambient_light_energy = 1.52
+fog_enabled = true
+fog_sun_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CubeMesh" id=20]
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Curve3D" id=27]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.88777, 3.50615, 5.03815, 0, 0, 0, 0, 0, 0, -16.0124, 0.976059, -5.19813, 0, 0, 0, 0, 0, 0, 19.6084, 10.1517, -2.97513 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+
+[sub_resource type="PlaneMesh" id=22]
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_texture = ExtResource( 4 )
+
+[node name="Tutorial 01" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 28 )
+
+[node name="pool" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0375569, 4.96145, -0.166545 )
+
+[node name="water" parent="." instance=ExtResource( 2 )]
+transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 6.317, -11.9919 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 4, 0, 0, 0, 2.46193, 3.1526, 0, -3.1526, 2.46193, 0, 33.518, -56 )
+shadow_enabled = true
+
+[node name="playerCamera" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.402299, 0.36904, -0.837834, 0, 0.915157, 0.403098, 0.915508, 0.162166, -0.368167, -11.3226, 20.2377, -4.97545 )
+visible = true
+
+[node name="BlueRov" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 13 )]
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
+
+[node name="Destinations" type="Spatial" parent="."]
+
+[node name="DestinationTriggerArea" parent="Destinations" instance=ExtResource( 11 )]
+
+[node name="DestinationTriggerArea2" parent="Destinations" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.7 )
+
+[node name="Theter" parent="." instance=ExtResource( 12 )]
+curve = SubResource( 27 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+
+[node name="Ads_panel_01" type="MeshInstance" parent="."]
+transform = Transform( 1.50996e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 2, 7.54979e-08, -6.60024e-15, 19.348, 3, -1.73744 )
+mesh = SubResource( 22 )
+material/0 = SubResource( 26 )
+
+[node name="Ads_panel_02" type="MeshInstance" parent="."]
+transform = Transform( 6.55671e-07, -1, 7.64274e-15, 2.18557e-07, 1.91069e-15, -2, 5, 1.31134e-07, 8.74228e-08, 19.348, 3, 7.65464 )
+mesh = SubResource( 22 )
+material/0 = SubResource( 23 )
+
+[node name="Ads_panel_03" type="MeshInstance" parent="."]
+transform = Transform( 3.01992e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 4, 7.54979e-08, -6.60024e-15, 19.348, 3, -10.0963 )
+mesh = SubResource( 22 )
+material/0 = SubResource( 25 )
