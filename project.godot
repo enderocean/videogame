@@ -164,6 +164,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/objective_line.gd"
 }, {
+"base": "PathFollow",
+"class": "PathFollower",
+"language": "GDScript",
+"path": "res://scripts/components/path_follower.gd"
+}, {
 "base": "Popup",
 "class": "PauseMenu",
 "language": "GDScript",
@@ -301,6 +306,7 @@ _global_script_class_icons={
 "MissionTimer": "",
 "NewFishingNet": "",
 "ObjectiveLine": "",
+"PathFollower": "",
 "PauseMenu": "",
 "PenaltyCollisionTag": "",
 "ROVSounds": "",
