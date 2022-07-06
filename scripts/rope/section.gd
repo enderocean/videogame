@@ -4,12 +4,14 @@ class_name RopeSection
 const LENGTH: float = 0.145
 
 var length: float setget set_length, get_length
-
+#var buoyancy = mass * (ProjectSettings.get_setting("physics/3d/default_gravity") * gravity_scale)
+var buoyancy = mass * 0.25
 var collision_shape: CollisionShape
 var mesh_instance: MeshInstance
 
 
 func _ready() -> void:
+	add_to_group("buoyant")
 	collision_shape = get_node("CollisionShape")
 	mesh_instance = get_node("MeshInstance")
 	# Making shape and mesh unique for each section because each have a different size

@@ -164,14 +164,14 @@ func _on_rope_created(rope: Rope) -> void:
 		SceneLoader.wait_before_new_scene = false
 
 
-func calculate_buoyancy_and_ballast():
-	var vehicles = get_tree().get_nodes_in_group("buoyant")
-	for vehicle in vehicles:
-		if not vehicle is RigidBody:
-			push_warning("Component %s does not inherit RigidBody." % vehicle.name)
+func calculate_buoyancy():
+	var buoyants = get_tree().get_nodes_in_group("buoyant")
+	for rigidbody in buoyants:
+		if not rigidbody is RigidBody:
+			push_warning("Component %s does not inherit RigidBody." % rigidbody.name)
 			continue
 
-		var buoys = vehicle.find_node("buoys")
+		var buoys = rigidbody.find_node("buoys")
 		if buoys:
 			var children = buoys.get_children()
 			for buoy in children:
@@ -186,19 +186,21 @@ func calculate_buoyancy_and_ballast():
 
 				vehicle.add_force_local_pos(Vector3.UP * buoyancy, buoy.transform.origin)
 		else:
-			var buoyancy: float = vehicle.buoyancy
-			if vehicle.global_transform.origin.y > surface_altitude:
+			var buoyancy: float = rigidbody.buoyancy
+			if rigidbody.global_transform.origin.y > surface_altitude:
 				buoyancy = 0
 
-			vehicle.add_force(Vector3.UP * buoyancy, vehicle.transform.basis.y * 0.07)
+			rigidbody.add_force(Vector3.UP * buoyancy, rigidbody.transform.basis.y * 0.07)
 
-		var ballasts = vehicle.find_node("ballasts")
-		if ballasts:
-			var children = ballasts.get_children()
-			for ballast in children:
-				vehicle.add_force_local_pos(
-					Vector3(0, -vehicle.ballast_kg * 9.8, 0), ballast.transform.origin
-				)
+
+func calculate_ballasts() -> void:
+	var ballasts = vehicle.find_node("ballasts")
+	if ballasts:
+		var children = ballasts.get_children()
+		for ballast in children:
+			vehicle.add_force_local_pos(
+				Vector3(0, -vehicle.ballast_kg * 9.8, 0), ballast.transform.origin
+			)
 
 
 func update_fog():
@@ -250,7 +252,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	calculate_buoyancy_and_ballast()
+	calculate_buoyancy()
+	calculate_ballasts()
 	
 	for underwater_mesh in underwater_meshes:
 		if not underwater_mesh._target:
