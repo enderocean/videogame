@@ -168,7 +168,10 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		calculate_motors_matrix()
 		return
-
+	
+	# Switch lights off at start
+	set_lights_percentage(0)
+	
 	# Fill tools array
 	for child in get_parent().get_children():
 		if not child is VehicleTool:
@@ -295,28 +298,10 @@ func _unhandled_input(event) -> void:
 				camera.set_current(true)
 
 	if event.is_action("lights_up"):
-		var percentage = min(max(0, lights[0].light_energy + 0.1), 5)
-		if percentage > 0:
-			for light in light_glows:
-				if light.is_inside_tree():
-					continue
-				add_child(light)
-
-		for i in range(lights.size()):
-			lights[i].light_energy = percentage
-		scatterlight.light_energy = percentage * 0.5
-
+		set_lights_percentage(min(max(0, lights[0].light_energy + 0.1), 5))
+	
 	if event.is_action("lights_down"):
-		var percentage: float = min(max(0, lights[0].light_energy - 0.1), 5)
-		if percentage == 0:
-			for light in light_glows:
-				if not light.is_inside_tree():
-					continue
-				remove_child(light)
-
-		for i in range(lights.size()):
-			lights[i].light_energy = percentage
-		scatterlight.light_energy = percentage * 0.5
+		set_lights_percentage(min(max(0, lights[0].light_energy - 0.1), 5))
 
 
 func process_keys() -> void:
@@ -451,3 +436,21 @@ func set_current_tool_from_index(index: int) -> void:
 func set_current_tool_from_type(tool_type: int) -> void:
 	var index: int = get_tool_index(tool_type)
 	set_current_tool_from_index(index)
+
+
+func set_lights_percentage(percentage: float) -> void:
+	if percentage > 0:
+		for light in light_glows:
+			if light.is_inside_tree():
+				continue
+			add_child(light)
+	elif percentage <= 0:
+		for light in light_glows:
+			if not light.is_inside_tree():
+				continue
+			remove_child(light)
+
+	for i in range(lights.size()):
+		lights[i].light_energy = percentage
+	
+	scatterlight.light_energy = percentage * 0.5

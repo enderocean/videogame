@@ -1,15 +1,12 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/logo_ender.png" type="Texture" id=1]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/logo_ecodds.png" type="Texture" id=3]
-[ext_resource path="res://assets/logo_rna.png" type="Texture" id=4]
-[ext_resource path="res://assets/your-logo-here.png" type="Texture" id=5]
+[ext_resource path="res://scenes/tutorials/tutorial_base.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=6]
 [ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/models/tutorial/hoop.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=13]
@@ -32,25 +29,13 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
-[sub_resource type="PlaneMesh" id=22]
-
-[sub_resource type="SpatialMaterial" id=26]
-albedo_texture = ExtResource( 3 )
-
-[sub_resource type="SpatialMaterial" id=23]
-albedo_texture = ExtResource( 5 )
-
-[sub_resource type="SpatialMaterial" id=25]
-albedo_texture = ExtResource( 4 )
-
 [node name="Tutorial 01" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 28 )
 
-[node name="pool" parent="." instance=ExtResource( 10 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0375569, 4.96145, -0.166545 )
+[node name="TutorialBase" parent="." instance=ExtResource( 3 )]
 
 [node name="water" parent="." instance=ExtResource( 2 )]
 transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 6.317, -11.9919 )
@@ -93,18 +78,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -16.43 )
 curve = SubResource( 27 )
 from = NodePath("../BlueRov")
 to = NodePath("../Ender Station/TheterAnchor")
-
-[node name="Ads_panel_01" type="MeshInstance" parent="."]
-transform = Transform( 1.50996e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 2, 7.54979e-08, -6.60024e-15, 19.348, 3, -1.73744 )
-mesh = SubResource( 22 )
-material/0 = SubResource( 26 )
-
-[node name="Ads_panel_02" type="MeshInstance" parent="."]
-transform = Transform( 6.55671e-07, -1, 7.64274e-15, 2.18557e-07, 1.91069e-15, -2, 5, 1.31134e-07, 8.74228e-08, 19.348, 3, 7.65464 )
-mesh = SubResource( 22 )
-material/0 = SubResource( 23 )
-
-[node name="Ads_panel_03" type="MeshInstance" parent="."]
-transform = Transform( 3.01992e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 4, 7.54979e-08, -6.60024e-15, 19.348, 3, -10.0963 )
-mesh = SubResource( 22 )
-material/0 = SubResource( 25 )

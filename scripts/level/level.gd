@@ -6,6 +6,7 @@ const HEIGHT: float = 2.4  # TODO: get this programatically
 
 export var depth_max: float = 100.0
 export var fog_depth_min: float = 5.0
+export var update_environment: bool = true
 
 # Default Environments
 var surface_ambient: Dictionary
@@ -13,6 +14,7 @@ var underwater_color: Color
 
 var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
 var underwater_env: Environment = load("res://assets/underwaterEnvironment.tres")
+var underwater_env_original: Environment
 var underwater_mesh_scene: PackedScene = load("res://scenes/components/underwater_mesh.tscn")
 var underwater_meshes: Array
 
@@ -22,7 +24,7 @@ onready var water: MeshInstance = get_node(water_path)
 onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 
 export var sun_path: NodePath = "sun"
-onready var sun: Light = get_node(sun_path)
+onready var sun: Light = get_node_or_null(sun_path)
 
 var vehicle: Vehicle
 
@@ -73,7 +75,10 @@ func _ready() -> void:
 			vehicle = node
 		# warning-ignore:return_value_discarded
 			vehicle.vehicle_body.connect("body_entered", self, "_on_vehicle_body_entered")
-			
+	
+	# Save the original environment values before changing it
+	underwater_env_original = underwater_env.duplicate()
+	
 	# Add the underwater meshes for each camera
 	for i in range(cameras.size()):
 		var camera: Camera = cameras[i]
@@ -96,7 +101,7 @@ func _ready() -> void:
 	# Get base surface values
 	surface_ambient = {
 		"color": underwater_env.fog_color,
-		"depth_end": underwater_env.fog_depth_end,
+		"depth_end": underwater_env.fog_depth_end
 	}
 	
 	set_physics_process(true)
@@ -207,9 +212,9 @@ func update_fog():
 		depth = rov_camera.global_transform.origin.y - surface_altitude
 		last_depth = depth
 		var normalized_depth: float = clamp(1.0 - ((depth_max - abs(depth)) / depth_max), 0.0, 1.0)
-		var new_color: Color = surface_ambient.color.darkened(normalized_depth)
+		var new_color: Color = underwater_env_original.fog_color.darkened(normalized_depth)
 
-		underwater_env.fog_depth_end = max(fog_depth_min, surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end))
+		underwater_env.fog_depth_end = max(fog_depth_min, underwater_env_original.fog_depth_end - (normalized_depth * underwater_env_original.fog_depth_end))
 		underwater_env.background_color = new_color
 		
 		if underwater_env.background_sky:
@@ -238,6 +243,9 @@ func update_fog():
 
 
 func _process(_delta: float) -> void:
+	if not update_environment:
+		return
+	
 	update_fog()
 
 
