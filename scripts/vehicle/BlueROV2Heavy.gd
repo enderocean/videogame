@@ -298,6 +298,8 @@ func _unhandled_input(event) -> void:
 		var percentage = min(max(0, lights[0].light_energy + 0.1), 5)
 		if percentage > 0:
 			for light in light_glows:
+				if light.is_inside_tree():
+					continue
 				add_child(light)
 
 		for i in range(lights.size()):
@@ -308,6 +310,8 @@ func _unhandled_input(event) -> void:
 		var percentage: float = min(max(0, lights[0].light_energy - 0.1), 5)
 		if percentage == 0:
 			for light in light_glows:
+				if not light.is_inside_tree():
+					continue
 				remove_child(light)
 
 		for i in range(lights.size()):
