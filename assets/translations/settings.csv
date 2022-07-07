@@ -23,5 +23,9 @@ LIGHTS_UP,Lights up,Augmenter les lumières
 LIGHTS_DOWN,Lights down,Diminuer les lumières
 CAMERA_UP,Camera up,Monter la caméra
 CAMERA_DOWN,Camera down,Descendre la caméra
-CAMERA_SWITCH,Camera down,Descendre la caméra
+CAMERA_SWITCH,Switch camera,Changer de caméra
 CAMERA_EXTERNAL_TOGGLE,Toggle external camera,Activer/Désactiver la caméra externe
+FULLSCREEN,Fullscreen,Plein écran
+VSYNC,Vertical Synchronization,Synchronisation Verticale
+FANCY_WATER,Fancy water,Jolie eau
+PHYSICS_RATE,Physics rate,Taux de rafraichissement de la physique

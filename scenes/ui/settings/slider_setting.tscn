@@ -9,7 +9,6 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 custom_constants/separation = 20
 script = ExtResource( 1 )
-label_path = NodePath("Label")
 slider_path = NodePath("HSlider")
 value_label_path = NodePath("ValueText")
 
