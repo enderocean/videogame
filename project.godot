@@ -234,6 +234,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/settings/toggle_setting.gd"
 }, {
+"base": "Button",
+"class": "TranslatedButton",
+"language": "GDScript",
+"path": "res://scripts/translations/translated_button.gd"
+}, {
+"base": "Label",
+"class": "TranslatedLabel",
+"language": "GDScript",
+"path": "res://scripts/translations/translated_label.gd"
+}, {
 "base": "Node",
 "class": "TrapAnimal",
 "language": "GDScript",
@@ -325,6 +335,8 @@ _global_script_class_icons={
 "SoundTriggerArea": "",
 "TheterAnchor": "",
 "ToggleSetting": "",
+"TranslatedButton": "",
+"TranslatedLabel": "",
 "TrapAnimal": "",
 "UnderwaterMesh": "",
 "VacuumTool": "",
@@ -527,6 +539,11 @@ help={
 3d_physics/layer_3="Vehicle"
 3d_physics/layer_4="DeliveryTool"
 3d_physics/layer_5="CutArea"
+
+[locale]
+
+translations=PoolStringArray( "res://assets/translations/ui.en.translation", "res://assets/translations/ui.fr.translation", "res://assets/translations/tutorials.en.translation", "res://assets/translations/tutorials.fr.translation", "res://assets/translations/levels.en.translation", "res://assets/translations/levels.fr.translation", "res://assets/translations/settings.en.translation", "res://assets/translations/settings.fr.translation" )
+locale_filter=[ 0, [  ] ]
 
 [physics]
 

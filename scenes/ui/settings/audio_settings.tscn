@@ -45,20 +45,32 @@ custom_constants/separation = 15
 [node name="Master" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 setting_key = "volume_master"
 
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Master" index="0"]
+text = "MASTER"
+
 [node name="Effects" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 55.0
 margin_bottom = 95.0
 setting_key = "volume_effects"
+
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Effects" index="0"]
+text = "EFFECTS"
 
 [node name="Radio" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 110.0
 margin_bottom = 150.0
 setting_key = "volume_radio"
 
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Radio" index="0"]
+text = "RADIO"
+
 [node name="Music" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 165.0
 margin_bottom = 205.0
 setting_key = "volume_music"
+
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Music" index="0"]
+text = "MUSIC"
 
 [node name="InputSelect" type="Popup" parent="."]
 anchor_right = 1.0
@@ -111,3 +123,8 @@ valign = 1
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Effects" to="." method="_on_effects_changed"]
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Radio" to="." method="_on_radio_changed"]
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/Music" to="." method="_on_music_changed"]
+
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/Master"]
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/Effects"]
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/Radio"]
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/Music"]
