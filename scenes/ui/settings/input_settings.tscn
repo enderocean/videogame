@@ -498,15 +498,16 @@ margin_top = 494.0
 margin_right = 1920.0
 margin_bottom = 532.0
 custom_fonts/font = ExtResource( 4 )
-text = "Press any key"
+text = "PRESS_ANY_KEY"
 align = 1
 valign = 1
+script = ExtResource( 3 )
 
 [node name="Cancel" type="Label" parent="InputSelect/VBoxContainer"]
 margin_top = 536.0
 margin_right = 1920.0
 margin_bottom = 558.0
-text = "Cancel with the Escape key"
+text = "CANCEL_WITH_ESCAPE"
 align = 1
 valign = 1
 

@@ -23,9 +23,10 @@ func _input(event):
 			var scancode: String = OS.get_scancode_string(event.scancode)
 			var already_used: Array = check_same_key(event.scancode)
 			if already_used.size() > 0:
-				already_used_label.text = "\"%s\" already used in:\n" % scancode
+				var already_text: String = tr("ALREADY_USED_BY").format({"key": "\"" + str(scancode) + "\""})
+				already_used_label.text = already_text + ":\n"
 				for i in range(already_used.size()):
-					already_used_label.text += already_used[i]
+					already_used_label.text += "- " + tr(already_used[i].to_upper())
 					if i < already_used.size() - 1:
 						already_used_label.text += "\n"
 				
