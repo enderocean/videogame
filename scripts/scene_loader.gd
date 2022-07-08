@@ -122,7 +122,7 @@ func _process(_delta: float) -> void:
 			break
 
 
-func update_progress() -> void:
+func update_progress() -> void:	
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	if not label:
 		label = loading_scene.get_node("Label")

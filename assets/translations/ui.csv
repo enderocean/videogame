@@ -8,11 +8,19 @@ BOOK_SESSION,Book session,Réserver une séssion
 RESET,Reset,Rétablir
 CANCEL,Cancel,Annuler
 BACK,Back,Retour
+BACK_TO_MISSIONS_MAP,Back to missions map,Retour à la carte des missions
 BACK_TO_MAIN_MENU,Back to main menu,Retour au menu principal
 MAIN_MENU,Main menu,Menu principal
-START_MISSION,Start mission,Démarrer la mission
+MISSION_START,Start mission,Démarrer la mission
 DEPTH,Depth,Profondeur
 ORIENTATION,Orientation,Orientation
 SPEED,Speed,Vitesse
 LOADING,Loading…,Chargement…
 LOADING_PROGRESS,Loading… {percentage},Chargement… {percentage}
+MISSION_ENDED,Mission ended,Fin de mission
+RESTART,Restart,Relancer
+MISSION_NEXT,Next mission,Mission suivante
+CONTINUE,Continue,Continuer
+MISSION_RESTART,Restart mission,Relancer la mission
+RETURN_TO_GAME,Return to game,Reprendre le jeu
+PAUSE,Pause,Pause

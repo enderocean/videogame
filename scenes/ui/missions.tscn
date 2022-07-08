@@ -173,7 +173,7 @@ margin_right = 433.0
 margin_bottom = 942.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 3 )
-text = "START_MISSION"
+text = "MISSION_START"
 script = ExtResource( 15 )
 uppercase = true
 

@@ -289,4 +289,4 @@ func _on_vehicle_speed_changed(index: int) -> void:
 
 func _on_vehicle_tool_changed(index: int) -> void:
 	var vehicle_body = active_level.vehicle.vehicle_body
-	informations_panel.tool_value.text = Localization.get_vehicle_tool_text(vehicle_body.vehicle_tools[vehicle_body.vehicle_tool_index])
+	informations_panel.tool_value.text = tr(Localization.get_vehicle_tool_text(vehicle_body.vehicle_tools[vehicle_body.vehicle_tool_index]))

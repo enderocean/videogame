@@ -19,14 +19,13 @@ static func get_objective_text(objective_type) -> String:
 			return "Go to the destination"
 	return ""
 
-# This code is temporary, waiting for the localization integration
 static func get_vehicle_tool_text(vehicle_tool) -> String:
 	if vehicle_tool is GripperTool:
-		return "Gripper"
+		return "GRIPPER"
 	elif vehicle_tool is VacuumTool:
-		return "Vacuum"
+		return "VACUUM"
 	elif vehicle_tool is CutterTool:
-		return "Cutter"
+		return "CUTTER"
 	return ""
 
 
