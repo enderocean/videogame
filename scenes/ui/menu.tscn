@@ -120,6 +120,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "GAMEPLAY"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="Tutorials" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 70.0
@@ -129,6 +130,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "TUTORIALS"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="Campaign" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 140.0
@@ -138,6 +140,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "PLAY"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 210.0
@@ -147,6 +150,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "BOOK_SESSION"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="Footer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
