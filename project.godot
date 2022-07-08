@@ -542,7 +542,7 @@ help={
 
 [locale]
 
-translations=PoolStringArray( "res://assets/translations/ui.en.translation", "res://assets/translations/ui.fr.translation", "res://assets/translations/tutorials.en.translation", "res://assets/translations/tutorials.fr.translation", "res://assets/translations/levels.en.translation", "res://assets/translations/levels.fr.translation", "res://assets/translations/settings.en.translation", "res://assets/translations/settings.fr.translation" )
+translations=PoolStringArray( "res://assets/translations/ui.en.translation", "res://assets/translations/ui.fr.translation", "res://assets/translations/tutorials.en.translation", "res://assets/translations/tutorials.fr.translation", "res://assets/translations/levels.en.translation", "res://assets/translations/levels.fr.translation", "res://assets/translations/settings.en.translation", "res://assets/translations/settings.fr.translation", "res://assets/translations/collectibles.en.translation", "res://assets/translations/collectibles.fr.translation", "res://assets/translations/tools.en.translation", "res://assets/translations/tools.fr.translation", "res://assets/translations/objectives.en.translation", "res://assets/translations/objectives.fr.translation" )
 locale_filter=[ 0, [  ] ]
 
 [physics]

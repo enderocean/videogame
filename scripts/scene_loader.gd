@@ -127,7 +127,7 @@ func update_progress() -> void:
 	if not label:
 		label = loading_scene.get_node("Label")
 
-	label.text = "Loading.. (%d %%)" % (progress * 100)
+	label.text = tr("LOADING_PROGRESS").format({"percentage": "%d" % (progress * 100)}) + " %"
 
 
 func set_new_scene(scene_resource: PackedScene) -> void:
