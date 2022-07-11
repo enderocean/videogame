@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/net/area_script.gd"
 }, {
+"base": "Node",
+"class": "AuthRequester",
+"language": "GDScript",
+"path": "res://scripts/api/auth_requester.gd"
+}, {
 "base": "Resource",
 "class": "CollectibleData",
 "language": "GDScript",
@@ -291,6 +296,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AreaRope": "",
+"AuthRequester": "",
 "CollectibleData": "",
 "CollectiblePopup": "",
 "CollectibleTag": "",
@@ -362,6 +368,7 @@ config/windows_native_icon="res://assets/logo_ender.ico"
 [autoload]
 
 Globals="*res://scripts/globals.gd"
+APIManager="*res://scripts/api/api_manager.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
 LevelLoader="*res://scripts/level/level_loader.gd"
 Leaderboard="*res://scripts/networking/leaderboard.gd"

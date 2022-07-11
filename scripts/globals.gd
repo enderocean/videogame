@@ -58,7 +58,7 @@ func _ready() -> void:
 	if is_mobile:
 		# Change game stretch mode for better UI scaling
 		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1920, 1080), 1.5)
-
+	
 	# Load levels data
 	tutorials = LevelData.get_levels("res://assets/levels/tutorials/")
 	levels = LevelData.get_levels("res://assets/levels/")
