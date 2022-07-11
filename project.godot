@@ -174,6 +174,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/objective_line.gd"
 }, {
+"base": "Node",
+"class": "ObjectiveTag",
+"language": "GDScript",
+"path": "res://scripts/objective_tag.gd"
+}, {
+"base": "Node",
+"class": "ObjectivesManager",
+"language": "GDScript",
+"path": "res://scripts/objectives_manager.gd"
+}, {
 "base": "PathFollow",
 "class": "PathFollower",
 "language": "GDScript",
@@ -328,6 +338,8 @@ _global_script_class_icons={
 "MissionTimer": "",
 "NewFishingNet": "",
 "ObjectiveLine": "",
+"ObjectiveTag": "",
+"ObjectivesManager": "",
 "PathFollower": "",
 "PauseMenu": "",
 "PenaltyCollisionTag": "",
@@ -372,8 +384,8 @@ APIManager="*res://scripts/api/api_manager.gd"
 SceneLoader="*res://scripts/scene_loader.gd"
 LevelLoader="*res://scripts/level/level_loader.gd"
 SaveManager="*res://scripts/io/save_manager.gd"
-RadioSounds="*res://scripts/sounds/radio_sounds.gd"
 Localization="*res://scripts/localization/localization.gd"
+RadioSounds="*res://scripts/sounds/radio_sounds.gd"
 
 [debug]
 

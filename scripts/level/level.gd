@@ -1,8 +1,8 @@
 extends Node
 class_name Level
 
-const BUOYANCY: float = 10.0  # newtons?
-const HEIGHT: float = 2.4  # TODO: get this programatically
+export(String, FILE, "*.tres") var level_data_path: String
+var level_data: LevelData
 
 export var depth_max: float = 100.0
 export var fog_depth_min: float = 5.0
@@ -37,12 +37,12 @@ export var objectives_target: Dictionary = {
 	"animal": 0
 }
 
-var objectives: Dictionary = {}
-var objectives_progress: Dictionary = {}
+#var objectives: Dictionary = {}
+#var objectives_progress: Dictionary = {}
 var penalties: Array = []
 var score: int = 0
-var destinations: Array
-var destinations_next_index: int = 0
+#var destinations: Array
+#var destinations_next_index: int = 0
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -57,13 +57,16 @@ onready var last_depth: float = 0
 
 var finished: bool = false
 
-signal objectives_changed()
+#signal objectives_changed()
 signal finished()
 signal collectible_obtained(id)
 signal penality_added()
 signal vehicle_collided()
 
+
 func _ready() -> void:
+	level_data = load(level_data_path)
+	
 	for node in get_children():
 		# Replace the default underwater environment by the one in the scene
 		if node is WorldEnvironment:
@@ -111,49 +114,53 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
-	# Add all objectives
-	for type in Globals.ObjectiveType.values():
-		var type_name: String = Globals.ObjectiveType.keys()[type].to_lower()
-		if not objectives_target.has(type_name):
-			continue
-		if not objectives_target.get(type_name):
-			continue
-		objectives[type] = objectives_target.get(type_name)
+#	# Add all objectives
+#	for type in Globals.ObjectiveType.values():
+#		var type_name: String = Globals.ObjectiveType.keys()[type].to_lower()
+#		if not objectives_target.has(type_name):
+#			continue
+#		if not objectives_target.get(type_name):
+#			continue
+#		objectives[type] = objectives_target.get(type_name)
+#
+#	# Connect to all objectives nodes
+#	for node in get_tree().get_nodes_in_group("objectives_nodes"):
+#		var objective_tag: ObjectiveTag = ObjectivesManager.get_objective_tag(node)
+#		if level_data and level_data.gripper_objectives_count == 0:
+#			pass
+#
+#		if node is DeliveryArea:
+#		# warning-ignore:return_value_discarded
+#			node.connect("objects_changed", self, "_on_objects_changed")
+#		if node is DeliveryTool:
+#			node.surface_altitude = surface_altitude
+#		# warning-ignore:return_value_discarded
+#			node.connect("delivered", self, "_on_tool_delivered")
+#		if node is TrapAnimal:
+#		# warning-ignore:return_value_discarded
+#			node.connect("animal_free", self, "_on_animal_free")
+#		if node is NewFishingNet or node is FishingNet:
+#		# warning-ignore:return_value_discarded
+#			node.connect("net_cut", self, "_on_net_cut")
+#		if node is DestinationTriggerArea:
+#		# warning-ignore:return_value_discarded
+#			node.connect("arrived", self, "_on_destination_arrived")
+#			destinations.append(node)
+	
+#	# Add the destinations as objectives
+#	if destinations.size() > 0:
+#		objectives[Globals.ObjectiveType.DESTINATION] = destinations.size()
 	
 	# Connect to all objective areas
-	for node in get_tree().get_nodes_in_group("objectives_nodes"):
-		if node is DeliveryArea:
-		# warning-ignore:return_value_discarded
-			node.connect("objects_changed", self, "_on_objects_changed")
-		if node is DeliveryTool:
-			node.surface_altitude = surface_altitude
-		# warning-ignore:return_value_discarded
-			node.connect("delivered", self, "_on_tool_delivered")
-		if node is TrapAnimal:
-		# warning-ignore:return_value_discarded
-			node.connect("animal_free", self, "_on_animal_free")
-		if node is NewFishingNet or node is FishingNet:
-		# warning-ignore:return_value_discarded
-			node.connect("net_cut", self, "_on_net_cut")
-		if node is DestinationTriggerArea:
-		# warning-ignore:return_value_discarded
-			node.connect("arrived", self, "_on_destination_arrived")
-			destinations.append(node)
-	
-	# Add the destinations as objectives
-	if destinations.size() > 0:
-		objectives[Globals.ObjectiveType.DESTINATION] = destinations.size()
-	
-	# Connect to all objective areas
-	for node in get_tree().get_nodes_in_group("collectible_tags"):
-		if node is CollectibleTag:
-			node.connect("obtained", self, "_on_collectible_obtained")
-
-	for node in get_tree().get_nodes_in_group("ropes"):
-		if node is Rope:
-			SceneLoader.wait_before_new_scene = true
-			node.connect("created", self, "_on_rope_created", [node])
-			node.initialize()
+#	for node in get_tree().get_nodes_in_group("collectible_tags"):
+#		if node is CollectibleTag:
+#			node.connect("obtained", self, "_on_collectible_obtained")
+#
+#	for node in get_tree().get_nodes_in_group("ropes"):
+#		if node is Rope:
+#			SceneLoader.wait_before_new_scene = true
+#			node.connect("created", self, "_on_rope_created", [node])
+#			node.initialize()
 
 
 var ropes: Array
@@ -273,33 +280,33 @@ func _on_fancy_water_changed() -> void:
 		underwater.set_surface_material(0, simple_water)
 
 
-func _on_objects_changed(area, objects: Array) -> void:
-	if finished or not area:
-		return
-	
-	match area.objective_type:
-		Globals.ObjectiveType.GRIPPER:
-			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
-			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
+#func _on_objects_changed(area, objects: Array) -> void:
+#	if finished or not area:
+#		return
+#
+#	match area.objective_type:
+#		Globals.ObjectiveType.GRIPPER:
+#			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
+#			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
+#
+#		Globals.ObjectiveType.VACUUM:
+#			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
+#			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
+#
+#	check_objectives()
+#	emit_signal("objectives_changed")
 
-		Globals.ObjectiveType.VACUUM:
-			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
-			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
 
-
-func _on_tool_delivered(objective_type) -> void:
-	if objectives_progress.has(objective_type):
-		objectives_progress[objective_type] += 1
-	else:
-		objectives_progress[objective_type] = 1
-	
-	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
+#func _on_tool_delivered(objective_type) -> void:
+#	if objectives_progress.has(objective_type):
+#		objectives_progress[objective_type] += 1
+#	else:
+#		objectives_progress[objective_type] = 1
+#
+#	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
+#
+#	check_objectives()
+#	emit_signal("objectives_changed")
 
 
 func _on_net_cut(nb_cut: int) -> void:
@@ -355,6 +362,7 @@ func _on_destination_arrived(node: DestinationTriggerArea) -> void:
 
 func _on_vehicle_body_entered(body: Node) -> void:
 	var collision_tag: PenaltyCollisionTag = null
+	var reason: String
 	for child in body.get_children():
 		if child is PenaltyCollisionTag:
 			collision_tag = child
