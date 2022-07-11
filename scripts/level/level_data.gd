@@ -10,11 +10,12 @@ export var title: String = ""
 export var country: String = ""
 export var location: String = ""
 export(String, MULTILINE) var description: String = ""
+export var objectives: PoolStringArray
+export var tools: PoolStringArray
 
 # Time in minutes
 export var time: int = 15
-export var objectives: PoolStringArray
-export var tools: PoolStringArray
+
 
 export var stars_enabled: bool = true
 # Must be an array of 5 intergers, which indicates the time elapsed in seconds for each stars
@@ -23,11 +24,15 @@ export var stars: PoolIntArray = [900, 600, 300, 180, 60]
 
 
 func _ready() -> void:
-	# Translate objectives
+	# Apply translations
+	title = tr(title)
+	country = tr(country)
+	location = tr(location)
+	description = tr(description)
+	
 	for i in range(objectives.size()):
 		objectives[i] = tr(objectives[i])
 	
-	# Translate tools
 	for i in range(tools.size()):
 		tools[i] = tr(tools[i])
 
