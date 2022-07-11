@@ -18,8 +18,11 @@ signal score_error(error)
 
 
 func request_auth(username: String, password: String) -> void:
-	var requester = 
-
+	var requester: AuthRequester = AuthRequester.new()
+	add_child(requester)
+	requester.username = username
+	requester.password = password
+	requester.request()
 
 func request_send_score() -> void:
 	pass
