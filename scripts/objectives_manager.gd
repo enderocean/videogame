@@ -59,7 +59,7 @@ func add_objective_target_from(node: Node) -> void:
 				add_objective_target(ObjectiveType.MAGNET, 1)
 			ObjectiveType.GRAPPLING_HOOK:
 				add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
-			
+	
 	elif node is GrapplingHookDeliveryTool:
 		add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
 	elif node is MagnetDeliveryTool:
@@ -86,12 +86,11 @@ func set_objective_progress(objective_type, count: int = 1, additive: bool = tru
 	if not objectives_progress.has(objective_type):
 		objectives_progress[objective_type] = 0
 	
-	# if we want to set a fix value instead of adding it
-	if not additive:
+	# if we want to add the value
+	if additive:
+		objectives_progress[objective_type] += count
+	else:
 		objectives_progress[objective_type] = count
-		return
-	
-	objectives_progress[objective_type] += count
 	
 	check_objectives()
 	emit_signal("objectives_changed")
