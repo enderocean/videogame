@@ -15,6 +15,7 @@ var objectives_progress: Dictionary = {}
 var destinations: Array
 var destinations_next_index: int = 0
 var finished: bool = false
+var level_data: LevelData
 
 signal objectives_changed()
 signal finished()
@@ -96,6 +97,13 @@ func set_objective_progress(objective_type, count: int = 1, additive: bool = tru
 	emit_signal("objectives_changed")
 
 
+func has_objective_tag(node: Node) -> bool:
+	for child in node.get_children():
+		if child is ObjectiveTag:
+			return true
+	return false
+
+
 func initialize(level_data: LevelData) -> void:
 	objectives.clear()
 	objectives_progress.clear()
@@ -103,12 +111,13 @@ func initialize(level_data: LevelData) -> void:
 	destinations_next_index = 0
 	finished = false
 
-#	# Add all objectives
-#	for type in ObjectiveType.values():
-#		if objectives.has(type):
-#			continue
-#
-#		objectives[type] = 0
+	if level_data:
+		if level_data.gripper_objectives_count > 0:
+			objectives[ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
+		if level_data.vacuum_objectives_count > 0:
+			objectives[ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
+		if level_data.cutter_objectives_count > 0:
+			objectives[ObjectiveType.CUTTER] = level_data.cutter_objectives_count
 
 	# Connect to all objectives nodes
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
@@ -144,9 +153,8 @@ func _ready() -> void:
 
 
 func _on_scene_loaded(scene_data: Dictionary) -> void:
-	var level_data: LevelData = scene_data.level_data
+	level_data = scene_data.level_data
 	if level_data:
-		print(level_data.title)
 		initialize(level_data)
 
 
