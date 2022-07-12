@@ -1,5 +1,4 @@
 extends Node
-class_name ObjectivesManager
 
 enum ObjectiveType {
 	GRIPPER,
@@ -9,11 +8,6 @@ enum ObjectiveType {
 	MAGNET,
 	ANIMAL,
 	DESTINATION
-}
-
-enum DeliveryToolType {
-	GRAPPLING_HOOK,
-	MAGNET,
 }
 
 var objectives: Dictionary = {}
@@ -40,9 +34,6 @@ func check_objectives() -> void:
 	
 	finished = true
 	for objective in objectives.keys():
-		if not objectives.has(objective):
-			continue
-		
 		# Don't already have this objective in progress or done
 		if not objectives_progress.has(objective):
 			continue
@@ -55,7 +46,70 @@ func check_objectives() -> void:
 		emit_signal("finished")
 
 
-func _ready() -> void:
+# Add to the objectives target the given node
+func add_objective_target_from(node: Node) -> void:
+	if node is DeliveryObject:
+		match node.objective_type:
+			ObjectiveType.GRIPPER:
+				add_objective_target(ObjectiveType.GRIPPER, 1)
+			ObjectiveType.VACUUM:
+				add_objective_target(ObjectiveType.VACUUM, 1)
+			ObjectiveType.MAGNET:
+				add_objective_target(ObjectiveType.MAGNET, 1)
+			ObjectiveType.GRAPPLING_HOOK:
+				add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
+			
+	elif node is GrapplingHookDeliveryTool:
+		add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
+	elif node is MagnetDeliveryTool:
+		add_objective_target(ObjectiveType.MAGNET, 1)
+	elif node is TrapAnimal:
+		add_objective_target(ObjectiveType.ANIMAL, 1)
+	elif node is NewFishingNet:
+		add_objective_target(ObjectiveType.CUTTER, node.cut_areas)
+	elif node is DestinationTriggerArea:
+		add_objective_target(ObjectiveType.DESTINATION, 1)
+
+
+# Used to quickly add a new objective
+func add_objective_target(objective_type, count: int = 1) -> void:
+	if not objectives.has(objective_type):
+		objectives[objective_type] = 0
+		
+	objectives[objective_type] += count
+
+
+# Used to quickly add progression for an objective
+func set_objective_progress(objective_type, count: int = 1, additive: bool = true) -> void:
+	# Check if the objective type is present
+	if not objectives_progress.has(objective_type):
+		objectives_progress[objective_type] = 0
+	
+	# if we want to set a fix value instead of adding it
+	if not additive:
+		objectives_progress[objective_type] = count
+		return
+	
+	objectives_progress[objective_type] += count
+	
+	check_objectives()
+	emit_signal("objectives_changed")
+
+
+func initialize(level_data: LevelData) -> void:
+	objectives.clear()
+	objectives_progress.clear()
+	destinations.clear()
+	destinations_next_index = 0
+	finished = false
+
+#	# Add all objectives
+#	for type in ObjectiveType.values():
+#		if objectives.has(type):
+#			continue
+#
+#		objectives[type] = 0
+
 	# Connect to all objectives nodes
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
 		if node is DeliveryArea:
@@ -77,21 +131,23 @@ func _ready() -> void:
 	
 	# Add the destinations as objectives
 	if destinations.size() > 0:
-		objectives[Globals.ObjectiveType.DESTINATION] = destinations.size()
+		add_objective_target(ObjectiveType.DESTINATION, destinations.size())
 	
 	for node in get_tree().get_nodes_in_group("objective_tags"):
 		if node is ObjectiveTag:
-			node.connect("obtained", self, "_on_collectible_obtained")
-	
-	for node in get_tree().get_nodes_in_group("collectible_tags"):
-		if node is CollectibleTag:
-			node.connect("obtained", self, "_on_collectible_obtained")
-	
-	for node in get_tree().get_nodes_in_group("ropes"):
-		if node is Rope:
-			SceneLoader.wait_before_new_scene = true
-			node.connect("created", self, "_on_rope_created", [node])
-			node.initialize()
+			add_objective_target_from(node.get_parent())
+
+
+func _ready() -> void:
+	pause_mode = PAUSE_MODE_PROCESS
+	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")
+
+
+func _on_scene_loaded(scene_data: Dictionary) -> void:
+	var level_data: LevelData = scene_data.level_data
+	if level_data:
+		print(level_data.title)
+		initialize(level_data)
 
 
 func _on_objects_changed(area, objects: Array) -> void:
@@ -100,51 +156,27 @@ func _on_objects_changed(area, objects: Array) -> void:
 	
 	match area.objective_type:
 		Globals.ObjectiveType.GRIPPER:
-			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
-			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
+			set_objective_progress(ObjectiveType.GRIPPER, objects.size(), false)
+			print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
 
 		Globals.ObjectiveType.VACUUM:
-			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
-			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
+			set_objective_progress(ObjectiveType.VACUUM, objects.size(), false)
+			print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
 
 
 func _on_tool_delivered(objective_type) -> void:
-	if objectives_progress.has(objective_type):
-		objectives_progress[objective_type] += 1
-	else:
-		objectives_progress[objective_type] = 1
-	
+	set_objective_progress(objective_type, 1, true)
 	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
 
 
 func _on_net_cut(nb_cut: int) -> void:
-	if objectives_progress.has(Globals.ObjectiveType.CUTTER):
-		objectives_progress[Globals.ObjectiveType.CUTTER] += 1
-	else:
-		objectives_progress[Globals.ObjectiveType.CUTTER] = 1
-	
+	set_objective_progress(ObjectiveType.CUTTER, 1, true)
 	print("Cutted: ", objectives_progress.get(Globals.ObjectiveType.CUTTER), " / ", objectives.get(Globals.ObjectiveType.CUTTER))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
 
 
 func _on_animal_free(animal: TrapAnimal) -> void:
-	if objectives_progress.has(Globals.ObjectiveType.ANIMAL):
-		objectives_progress[Globals.ObjectiveType.ANIMAL] += 1
-	else:
-		objectives_progress[Globals.ObjectiveType.ANIMAL] = 1
-
+	set_objective_progress(ObjectiveType.ANIMAL, 1, true)
 	print("Animaled: ", objectives_progress.get(Globals.ObjectiveType.ANIMAL), " / ", objectives.get(Globals.ObjectiveType.ANIMAL))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
 
 
 func _on_destination_arrived(node: DestinationTriggerArea) -> void:

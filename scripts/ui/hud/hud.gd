@@ -45,7 +45,7 @@ var is_tutorial: bool = false
 func show_popup() -> void:
 	mission_ended_popup.back_to_main_menu = pause_menu.back_to_main_menu
 	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
-	mission_ended_popup.update_objectives(active_level.objectives, active_level.objectives_progress)
+	mission_ended_popup.update_objectives(ObjectivesManager.objectives, ObjectivesManager.objectives_progress)
 	mission_ended_popup.update_time(mission_timer.time_left)
 	
 	if Globals.is_valid_file_path(active_level_data.video):
@@ -113,26 +113,12 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 		return
 
 	active_level = scene_data.scene
-
-	# Get the LevelData of the current scene/level
-	for level_data in Globals.levels.values():
-		if level_data.scene != scene_data.path:
-			continue
-
-		active_level_data = level_data
-		break
-	
-	for level_data in Globals.tutorials.values():
-		if level_data.scene != scene_data.path:
-			continue
-
-		active_level_data = level_data
-		break
+	active_level_data = scene_data.level_data
 	
 # warning-ignore:return_value_discarded
-	active_level.connect("finished", self, "_on_level_finished")
+	ObjectivesManager.connect("finished", self, "_on_level_finished")
 # warning-ignore:return_value_discarded
-	active_level.connect("objectives_changed", self, "_on_level_objectives_changed")
+	ObjectivesManager.connect("objectives_changed", self, "_on_level_objectives_changed")
 # warning-ignore:return_value_discarded
 	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
 # warning-ignore:return_value_discarded
@@ -188,17 +174,17 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 
 func _on_level_objectives_changed() -> void:
 	# Write the text for all objectives in the level
-	var text: String = "[b]Objectives[/b]:\n"
-	for i in range(active_level.objectives.keys().size()):
-		var objective_key = active_level.objectives.keys()[i]
-		var objective_value = active_level.objectives.values()[i]
+	var text: String = str("[b]", tr("OBJECTIVES"), "[/b]:\n")
+	for i in range(ObjectivesManager.objectives.keys().size()):
+		var objective_key = ObjectivesManager.objectives.keys()[i]
+		var objective_value = ObjectivesManager.objectives.values()[i]
 		var progress_value
 		
-		if not active_level.objectives.has(objective_key):
+		if not ObjectivesManager.objectives.has(objective_key):
 			continue
 		
-		if active_level.objectives_progress.has(objective_key):
-			progress_value = active_level.objectives_progress.get(objective_key)
+		if ObjectivesManager.objectives_progress.has(objective_key):
+			progress_value = ObjectivesManager.objectives_progress.get(objective_key)
 		else:
 			progress_value = 0
 		
@@ -210,9 +196,9 @@ func _on_level_objectives_changed() -> void:
 		
 		# Strikethrough for finished objectives
 		if progress_value >= objective_value:
-			line = "[s]" + line + "[/s]"
+			line = str("[s]", line, "[/s]")
 		
-		text += line + "\n"
+		text += str(line, "\n")
 
 	objectives_text.bbcode_text = text
 

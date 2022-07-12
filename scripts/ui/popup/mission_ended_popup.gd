@@ -56,7 +56,8 @@ func _on_ok_pressed() -> void:
 
 	SaveManager.data.name = username.text
 	if Globals.SEND_DATA:
-		Leaderboard.send_score()
+#		Leaderboard.send_score()
+		pass
 
 	normal_panel.visible = true
 	user_panel.visible = false
