@@ -18,7 +18,9 @@ func _ready() -> void:
 #	print("Added to group: ", "objective_%s" % str(objective_type))
 	# Set the "catchable" collision layer automatically
 	set_collision_layer_bit(1, true)
-
+	
+	if not ObjectivesManager.has_objective_tag(self):
+		add_child(ObjectiveTag.new())
 
 
 func set_carried(value: bool) -> void:

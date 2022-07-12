@@ -28,15 +28,6 @@ onready var sun: Light = get_node_or_null(sun_path)
 
 var vehicle: Vehicle
 
-export var objectives_target: Dictionary = {
-	"gripper": 0,
-	"vacuum": 0,
-	"cutter": 0,
-	"grappling_hook": 0,
-	"magnet": 0,
-	"animal": 0
-}
-
 #var objectives: Dictionary = {}
 #var objectives_progress: Dictionary = {}
 var penalties: Array = []

@@ -49,7 +49,6 @@ func _on_body_entered(body: Node) -> void:
 		return
 	
 	detected_object = object
-	print()
 
 
 func _on_body_exited(body: Node) -> void:

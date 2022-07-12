@@ -49,6 +49,9 @@ func check_objectives() -> void:
 
 # Add to the objectives target the given node
 func add_objective_target_from(node: Node) -> void:
+	if not node:
+		return
+	
 	if node is DeliveryObject:
 		match node.objective_type:
 			ObjectiveType.GRIPPER:
@@ -141,8 +144,24 @@ func initialize(level_data: LevelData) -> void:
 	if destinations.size() > 0:
 		add_objective_target(ObjectiveType.DESTINATION, destinations.size())
 	
+	# Check for ObjectiveTags in the scene
 	for node in get_tree().get_nodes_in_group("objective_tags"):
 		if node is ObjectiveTag:
+			var parent = node.get_parent()
+			if parent is DeliveryObject:
+				# Check if a fixed number is set for the following objectives, ignore it if set
+				match parent.objective_type:
+					ObjectiveType.GRIPPER:
+						if level_data.gripper_objectives_count > 0:
+							continue
+					ObjectiveType.VACUUM:
+						if level_data.vacuum_objectives_count > 0:
+							continue
+					ObjectiveType.CUTTER:
+						if level_data.cutter_objectives_count > 0:
+							continue
+			
+			# Add to the target objectives
 			add_objective_target_from(node.get_parent())
 
 
