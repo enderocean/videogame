@@ -165,6 +165,25 @@ func initialize(level_data: LevelData) -> void:
 			add_objective_target_from(node.get_parent())
 
 
+func get_objective_text(objective_type) -> String:
+	match objective_type:
+		ObjectiveType.GRIPPER:
+			return tr("OBJECTIVE_GRIPPER_TEXT")
+		ObjectiveType.VACUUM:
+			return tr("OBJECTIVE_VACUUM_TEXT")
+		ObjectiveType.CUTTER:
+			return tr("OBJECTIVE_CUTTER_TEXT")
+		ObjectiveType.MAGNET:
+			return tr("OBJECTIVE_MAGNET_TEXT")
+		ObjectiveType.GRAPPLING_HOOK:
+			return tr("OBJECTIVE_GRAPPLING_HOOK_TEXT")
+		ObjectiveType.ANIMAL:
+			return tr("OBJECTIVE_ANIMAL_TEXT")
+		ObjectiveType.DESTINATION:
+			return tr("OBJECTIVE_DESTINATION_TEXT")
+	return ""
+
+
 func _ready() -> void:
 	pause_mode = PAUSE_MODE_PROCESS
 	SceneLoader.connect("scene_loaded", self, "_on_scene_loaded")

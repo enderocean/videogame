@@ -73,5 +73,5 @@ func update_objectives(objectives: Dictionary, objectives_progress: Dictionary) 
 		if objectives_progress.has(objectives.keys()[i]):
 			value = objectives_progress.get(objectives.keys()[i])
 		
-		line.title.text = Localization.get_objective_text(objectives.keys()[i])
+		line.title.text = ObjectivesManager.get_objective_text(objectives.keys()[i])
 		line.value.text = "%s / %s" % [value, objectives.values()[i]]

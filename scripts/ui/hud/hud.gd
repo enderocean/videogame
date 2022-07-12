@@ -189,7 +189,7 @@ func _on_level_objectives_changed() -> void:
 			progress_value = 0
 		
 		var line: String = "{0}: {1} / {2}".format([
-			Localization.get_objective_text(objective_key),
+			ObjectivesManager.get_objective_text(objective_key),
 			progress_value,
 			objective_value
 		])
