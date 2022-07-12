@@ -15,8 +15,11 @@ description = "Each day, over 191.6 million microplastics are discharged towards
 we’ll send you see it yourself.
 
 Your task will be to collect at least 50 microbullets in 3 minutes."
-time = 4
 objectives = PoolStringArray( "Collect as many microplastics as you can", "Have fun!" )
 tools = PoolStringArray( "Vacuum cleaner", "Lights" )
+time = 4
+gripper_objectives_count = 0
+vacuum_objectives_count = 50
+cutter_objectives_count = 0
 stars_enabled = true
 stars = PoolIntArray( 240, 200, 160, 120, 80 )

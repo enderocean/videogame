@@ -14,8 +14,11 @@ location = "#16 - Osaka"
 description = "Local researchers estimate that Osaka Bay contains as many as 3 million plastic bags, the dire impact of using single-use plastics for everything.
 
 "
-time = 10
 objectives = PoolStringArray( "Collect 65 plastics" )
 tools = PoolStringArray( "Vaccum cleaner", "Lights" )
+time = 10
+gripper_objectives_count = 0
+vacuum_objectives_count = 65
+cutter_objectives_count = 0
 stars_enabled = true
 stars = PoolIntArray( 600, 420, 360, 300, 240 )

@@ -16,8 +16,11 @@ It has a very rich but fragile biodiversity that has been gravely impacted by th
 
 These species must be protected from the
 many toxic wastes that could impact them."
-time = 5
 objectives = PoolStringArray( "Cut the top of 4 fishing net ropes to free the animal" )
 tools = PoolStringArray( "Cutter", "Lights" )
+time = 5
+gripper_objectives_count = 0
+vacuum_objectives_count = 0
+cutter_objectives_count = 4
 stars_enabled = true
 stars = PoolIntArray( 360, 300, 240, 210, 180 )
