@@ -165,8 +165,8 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 			mission_ended_popup.back_to_main_menu = true
 			
 			# Show the instruction popup
-			instructions_popup.title.text = active_level_data.title
-			instructions_popup.description.text = active_level_data.description
+			instructions_popup.title.text = tr(active_level_data.title)
+			instructions_popup.description.text = tr(active_level_data.description)
 			instructions_popup.show()
 	else:
 		printerr("LevelData not found for ", scene_data.path)

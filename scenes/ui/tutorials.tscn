@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/translations/translated_label.gd" type="Script" id=2]
 [ext_resource path="res://scripts/ui/tutorials_menu.gd" type="Script" id=3]
+[ext_resource path="res://scripts/translations/translated_button.gd" type="Script" id=4]
 [ext_resource path="res://assets/home-bg.png" type="Texture" id=8]
 
 [node name="Tutorials" type="Control"]
@@ -44,9 +46,11 @@ custom_constants/separation = 25
 margin_right = 1880.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 1 )
-text = "Tutorials"
+text = "TUTORIALS"
 align = 1
 valign = 1
+uppercase = true
+script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_left = 940.0
@@ -65,6 +69,8 @@ margin_right = 1090.0
 margin_bottom = 960.0
 rect_min_size = Vector2( 300, 60 )
 size_flags_horizontal = 4
-text = "BACK TO MAIN MENU"
+text = "BACK_TO_MAIN_MENU"
+script = ExtResource( 4 )
+uppercase = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

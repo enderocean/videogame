@@ -192,6 +192,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "MISSION_NEXT"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="Restart" type="Button" parent="HBoxContainer/Normal/MarginContainer/VBoxContainer/VBoxContainer3"]
 margin_top = 312.0
@@ -201,6 +202,7 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 2 )
 text = "RESTART"
 script = ExtResource( 11 )
+uppercase = true
 
 [node name="Video" type="Panel" parent="HBoxContainer"]
 pause_mode = 2

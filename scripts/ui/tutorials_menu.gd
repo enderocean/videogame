@@ -13,7 +13,7 @@ func _ready() -> void:
 		var button: Button = button_scene.instance()
 		var level_data: LevelData = Globals.tutorials.values()[i]
 		buttons_list.add_child(button)
-		button.text = level_data.title
+		button.text = tr(level_data.title)
 		button.connect("pressed", self, "_on_button_pressed", [i])
 
 
