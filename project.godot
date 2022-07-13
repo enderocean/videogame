@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/settings/input_line.gd"
 }, {
+"base": "Node",
+"class": "InputObjective",
+"language": "GDScript",
+"path": "res://scripts/components/input_objective.gd"
+}, {
 "base": "Control",
 "class": "InputSelect",
 "language": "GDScript",
@@ -177,7 +182,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "ObjectiveTag",
 "language": "GDScript",
-"path": "res://scripts/objective_tag.gd"
+"path": "res://scripts/objectives/objective_tag.gd"
 }, {
 "base": "PathFollow",
 "class": "PathFollower",
@@ -294,6 +299,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/joystick/virtual_joystick.gd"
 }, {
+"base": "Spatial",
+"class": "VisionArea",
+"language": "GDScript",
+"path": "res://scripts/vehicle/vision_area.gd"
+}, {
 "base": "Node2D",
 "class": "WorldMap",
 "language": "GDScript",
@@ -320,6 +330,7 @@ _global_script_class_icons={
 "InformationsPanel": "",
 "InputEmitButton": "",
 "InputLine": "",
+"InputObjective": "",
 "InputSelect": "",
 "InstructionsPopup": "",
 "Level": "",
@@ -357,6 +368,7 @@ _global_script_class_icons={
 "VideoPopup": "",
 "VignetteEffect": "",
 "VirtualJoystick": "",
+"VisionArea": "",
 "WorldMap": ""
 }
 
@@ -379,11 +391,12 @@ SceneLoader="*res://scripts/scene_loader.gd"
 LevelLoader="*res://scripts/level/level_loader.gd"
 SaveManager="*res://scripts/io/save_manager.gd"
 Localization="*res://scripts/localization/localization.gd"
-ObjectivesManager="*res://scripts/objectives_manager.gd"
+ObjectivesManager="*res://scripts/objectives/objectives_manager.gd"
 RadioSounds="*res://scripts/sounds/radio_sounds.gd"
 
 [debug]
 
+settings/fps/force_fps=100
 settings/stdout/print_fps=true
 
 [display]

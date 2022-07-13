@@ -14,7 +14,7 @@ signal delivered
 
 func _ready() -> void:
 	gravity_scale = 0.1
-	add_to_group("objective_%s" % str(objective_type))
+#	add_to_group("objective_%s" % str(objective_type))
 #	print("Added to group: ", "objective_%s" % str(objective_type))
 	# Set the "catchable" collision layer automatically
 	set_collision_layer_bit(1, true)

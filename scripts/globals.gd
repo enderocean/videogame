@@ -7,12 +7,9 @@ enum ObjectiveType {
 	GRAPPLING_HOOK,
 	MAGNET,
 	ANIMAL,
-	DESTINATION
-}
-
-enum DeliveryToolType {
-	GRAPPLING_HOOK,
-	MAGNET,
+	DESTINATION,
+	FIND,
+	INPUT
 }
 
 const SEND_DATA: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/vehicle/BlueROV2Heavy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/newton/newton.tscn" type="PackedScene" id=2]
@@ -16,53 +16,54 @@
 [ext_resource path="res://scripts/vehicle/vacuum_tool.gd" type="Script" id=14]
 [ext_resource path="res://scripts/delivery/delivery_vaccum.gd" type="Script" id=15]
 [ext_resource path="res://scenes/components/theter_anchor_moving.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/vehicle/vision_area.gd" type="Script" id=17]
 
 [sub_resource type="PhysicsMaterial" id=61]
 friction = 0.0
 
-[sub_resource type="SpatialMaterial" id=63]
+[sub_resource type="SpatialMaterial" id=72]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=64]
+[sub_resource type="SpatialMaterial" id=73]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=65]
+[sub_resource type="SpatialMaterial" id=74]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=66]
+[sub_resource type="SpatialMaterial" id=75]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=67]
+[sub_resource type="SpatialMaterial" id=76]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=68]
+[sub_resource type="SpatialMaterial" id=77]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=69]
+[sub_resource type="SpatialMaterial" id=78]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
 albedo_color = Color( 1, 1, 1, 0.8 )
 
-[sub_resource type="SpatialMaterial" id=70]
+[sub_resource type="SpatialMaterial" id=79]
 render_priority = 127
 flags_unshaded = true
 flags_no_depth_test = true
@@ -70,6 +71,9 @@ albedo_color = Color( 1, 1, 1, 0.8 )
 
 [sub_resource type="BoxShape" id=13]
 extents = Vector3( 0.527838, 0.22, 0.457 )
+
+[sub_resource type="SphereShape" id=71]
+radius = 2.0
 
 [sub_resource type="CylinderMesh" id=14]
 
@@ -224,7 +228,7 @@ sounds_path = NodePath("../ROVSounds")
 
 [node name="t1" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, -0.186456, 3.03776e-08, 0, -4.29603e-08, -0.263689, 0.186456, 0.186456, -3.03776e-08, -0.192815, -0.125495, 0.284096 )
-material_override = SubResource( 63 )
+material_override = SubResource( 72 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -233,7 +237,7 @@ pitch_factor = false
 
 [node name="t2" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, -0.186456, 3.03776e-08, 0, -4.29604e-08, -0.263689, 0.186456, -0.186456, 3.03776e-08, 0.175115, -0.125495, 0.284096 )
-material_override = SubResource( 64 )
+material_override = SubResource( 73 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -242,7 +246,7 @@ pitch_factor = false
 
 [node name="t3" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, 0.186456, -3.03776e-08, -0.198316, -0.125495, -0.320506 )
-material_override = SubResource( 65 )
+material_override = SubResource( 74 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -251,7 +255,7 @@ pitch_factor = false
 
 [node name="t4" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( -0.186456, 0.186456, -3.03776e-08, 0, -4.29604e-08, -0.263689, -0.186456, -0.186456, 3.03776e-08, 0.197343, -0.125495, -0.33162 )
-material_override = SubResource( 66 )
+material_override = SubResource( 75 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -260,28 +264,28 @@ pitch_factor = false
 
 [node name="t5" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 8.88178e-16, 0.263689, -0.432878, 0.032324, 0.228526 )
-material_override = SubResource( 67 )
+material_override = SubResource( 76 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t6" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.434015, 0.032324, 0.228526 )
-material_override = SubResource( 68 )
+material_override = SubResource( 77 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t7" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, -0.437324, 0.032324, -0.247154 )
-material_override = SubResource( 69 )
+material_override = SubResource( 78 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
 
 [node name="t8" type="ImmediateGeometry" parent="BlueRov"]
 transform = Transform( 0.00654368, -0.263608, 0, 0.263608, 0.00654368, 7.10543e-15, 1.77636e-15, 6.38378e-16, 0.263689, 0.42957, 0.032324, -0.247154 )
-material_override = SubResource( 70 )
+material_override = SubResource( 79 )
 script = ExtResource( 8 )
 thickness = 0.1
 height = 0.5
@@ -338,6 +342,16 @@ environment = ExtResource( 4 )
 current = true
 fov = 80.0
 far = 640.7
+
+[node name="VisionArea" type="Area" parent="BlueRov/Camera"]
+transform = Transform( 1, -1.77636e-14, 0, -1.77636e-14, 1, -2.98023e-08, -2.4869e-14, 1.49012e-07, 1, 9.31323e-10, -2.98023e-08, -2 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 17 )
+objective_type = 7
+
+[node name="CollisionShape" type="CollisionShape" parent="BlueRov/Camera/VisionArea"]
+shape = SubResource( 71 )
 
 [node name="bluerov cleaned decimated" parent="BlueRov" instance=ExtResource( 7 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.176097, -0.0977513, -0.116651 )

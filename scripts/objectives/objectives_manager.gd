@@ -1,15 +1,5 @@
 extends Node
 
-enum ObjectiveType {
-	GRIPPER,
-	VACUUM,
-	CUTTER,
-	GRAPPLING_HOOK,
-	MAGNET,
-	ANIMAL,
-	DESTINATION
-}
-
 var objectives: Dictionary = {}
 var objectives_progress: Dictionary = {}
 var destinations: Array
@@ -38,10 +28,15 @@ func check_objectives() -> void:
 		# Don't already have this objective in progress or done
 		if not objectives_progress.has(objective):
 			continue
-		
+
 		# Objective in progress
-		if objectives_progress.get(objective) < objectives.get(objective):
-			finished = false
+		var objective_progress = objectives_progress.get(objective)
+		if objective_progress is Array:
+			if objective_progress.size() < objectives.get(objective).size():
+				finished = false
+		else:
+			if objective_progress < objectives.get(objective):
+				finished = false
 
 	if finished:
 		emit_signal("finished")
@@ -54,25 +49,29 @@ func add_objective_target_from(node: Node) -> void:
 	
 	if node is DeliveryObject:
 		match node.objective_type:
-			ObjectiveType.GRIPPER:
-				add_objective_target(ObjectiveType.GRIPPER, 1)
-			ObjectiveType.VACUUM:
-				add_objective_target(ObjectiveType.VACUUM, 1)
-			ObjectiveType.MAGNET:
-				add_objective_target(ObjectiveType.MAGNET, 1)
-			ObjectiveType.GRAPPLING_HOOK:
-				add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
+			Globals.ObjectiveType.GRIPPER:
+				add_objective_target(Globals.ObjectiveType.GRIPPER, 1)
+			Globals.ObjectiveType.VACUUM:
+				add_objective_target(Globals.ObjectiveType.VACUUM, 1)
+			Globals.ObjectiveType.MAGNET:
+				add_objective_target(Globals.ObjectiveType.MAGNET, 1)
+			Globals.ObjectiveType.GRAPPLING_HOOK:
+				add_objective_target(Globals.ObjectiveType.GRAPPLING_HOOK, 1)
+			Globals.ObjectiveType.FIND:
+				add_objective_target(Globals.ObjectiveType.FIND, 1)
 	
 	elif node is GrapplingHookDeliveryTool:
-		add_objective_target(ObjectiveType.GRAPPLING_HOOK, 1)
+		add_objective_target(Globals.ObjectiveType.GRAPPLING_HOOK, 1)
 	elif node is MagnetDeliveryTool:
-		add_objective_target(ObjectiveType.MAGNET, 1)
+		add_objective_target(Globals.ObjectiveType.MAGNET, 1)
 	elif node is TrapAnimal:
-		add_objective_target(ObjectiveType.ANIMAL, 1)
+		add_objective_target(Globals.ObjectiveType.ANIMAL, 1)
 	elif node is NewFishingNet:
-		add_objective_target(ObjectiveType.CUTTER, node.cut_areas)
+		add_objective_target(Globals.ObjectiveType.CUTTER, node.cut_areas)
 	elif node is DestinationTriggerArea:
-		add_objective_target(ObjectiveType.DESTINATION, 1)
+		add_objective_target(Globals.ObjectiveType.DESTINATION, 1)
+	elif node is InputObjective:
+		add_objective_target(Globals.ObjectiveType.INPUT, 1)
 
 
 # Used to quickly add a new objective
@@ -81,6 +80,14 @@ func add_objective_target(objective_type, count: int = 1) -> void:
 		objectives[objective_type] = 0
 		
 	objectives[objective_type] += count
+
+
+# Used to quickly add a new objective node
+func add_objective_target_node(objective_type, node: Node) -> void:
+	if not objectives.has(objective_type):
+		objectives[objective_type] = []
+		
+	objectives[objective_type].append(node)
 
 
 # Used to quickly add progression for an objective
@@ -115,11 +122,11 @@ func initialize(level_data: LevelData) -> void:
 
 	if level_data:
 		if level_data.gripper_objectives_count > 0:
-			objectives[ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
+			objectives[Globals.ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
 		if level_data.vacuum_objectives_count > 0:
-			objectives[ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
+			objectives[Globals.ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
 		if level_data.cutter_objectives_count > 0:
-			objectives[ObjectiveType.CUTTER] = level_data.cutter_objectives_count
+			objectives[Globals.ObjectiveType.CUTTER] = level_data.cutter_objectives_count
 
 	# Connect to all objectives nodes
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
@@ -135,14 +142,19 @@ func initialize(level_data: LevelData) -> void:
 		if node is NewFishingNet or node is FishingNet:
 		# warning-ignore:return_value_discarded
 			node.connect("net_cut", self, "_on_net_cut")
+			add_objective_target_from(node)
 		if node is DestinationTriggerArea:
 		# warning-ignore:return_value_discarded
 			node.connect("arrived", self, "_on_destination_arrived")
 			destinations.append(node)
+		if node is InputObjective:
+		# warning-ignore:return_value_discarded
+			node.connect("completed", self, "_on_input_objective_completed", [node])
+
 	
 	# Add the destinations as objectives
 	if destinations.size() > 0:
-		add_objective_target(ObjectiveType.DESTINATION, destinations.size())
+		add_objective_target(Globals.ObjectiveType.DESTINATION, destinations.size())
 	
 	# Check for ObjectiveTags in the scene
 	for node in get_tree().get_nodes_in_group("objective_tags"):
@@ -151,13 +163,13 @@ func initialize(level_data: LevelData) -> void:
 			if parent is DeliveryObject:
 				# Check if a fixed number is set for the following objectives, ignore it if set
 				match parent.objective_type:
-					ObjectiveType.GRIPPER:
+					Globals.ObjectiveType.GRIPPER:
 						if level_data.gripper_objectives_count > 0:
 							continue
-					ObjectiveType.VACUUM:
+					Globals.ObjectiveType.VACUUM:
 						if level_data.vacuum_objectives_count > 0:
 							continue
-					ObjectiveType.CUTTER:
+					Globals.ObjectiveType.CUTTER:
 						if level_data.cutter_objectives_count > 0:
 							continue
 			
@@ -167,20 +179,24 @@ func initialize(level_data: LevelData) -> void:
 
 func get_objective_text(objective_type) -> String:
 	match objective_type:
-		ObjectiveType.GRIPPER:
+		Globals.ObjectiveType.GRIPPER:
 			return tr("OBJECTIVE_GRIPPER_TEXT")
-		ObjectiveType.VACUUM:
+		Globals.ObjectiveType.VACUUM:
 			return tr("OBJECTIVE_VACUUM_TEXT")
-		ObjectiveType.CUTTER:
+		Globals.ObjectiveType.CUTTER:
 			return tr("OBJECTIVE_CUTTER_TEXT")
-		ObjectiveType.MAGNET:
+		Globals.ObjectiveType.MAGNET:
 			return tr("OBJECTIVE_MAGNET_TEXT")
-		ObjectiveType.GRAPPLING_HOOK:
+		Globals.ObjectiveType.GRAPPLING_HOOK:
 			return tr("OBJECTIVE_GRAPPLING_HOOK_TEXT")
-		ObjectiveType.ANIMAL:
+		Globals.ObjectiveType.ANIMAL:
 			return tr("OBJECTIVE_ANIMAL_TEXT")
-		ObjectiveType.DESTINATION:
+		Globals.ObjectiveType.DESTINATION:
 			return tr("OBJECTIVE_DESTINATION_TEXT")
+		Globals.ObjectiveType.FIND:
+			return tr("OBJECTIVE_FIND_TEXT")
+		Globals.ObjectiveType.INPUT:
+			return tr("OBJECTIVE_INPUT_TEXT")
 	return ""
 
 
@@ -201,26 +217,30 @@ func _on_objects_changed(area, objects: Array) -> void:
 	
 	match area.objective_type:
 		Globals.ObjectiveType.GRIPPER:
-			set_objective_progress(ObjectiveType.GRIPPER, objects.size(), false)
-			print("Delivered: ", objectives_progress.get(ObjectiveType.GRIPPER), " / ", objectives.get(ObjectiveType.GRIPPER))
+			set_objective_progress(Globals.ObjectiveType.GRIPPER, objects.size(), false)
+			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
 
 		Globals.ObjectiveType.VACUUM:
-			set_objective_progress(ObjectiveType.VACUUM, objects.size(), false)
-			print("Vacuumed: ", objectives_progress.get(ObjectiveType.VACUUM), " / ", objectives.get(ObjectiveType.VACUUM))
+			set_objective_progress(Globals.ObjectiveType.VACUUM, objects.size(), false)
+			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
+			
+		Globals.ObjectiveType.FIND:
+			set_objective_progress(Globals.ObjectiveType.FIND, objects.size(), false)
+			print("Found: ", objectives_progress.get(Globals.ObjectiveType.FIND), " / ", objectives.get(Globals.ObjectiveType.FIND))
 
 
 func _on_tool_delivered(objective_type) -> void:
 	set_objective_progress(objective_type, 1, true)
-	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
+	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(Globals.objective_type))
 
 
 func _on_net_cut(nb_cut: int) -> void:
-	set_objective_progress(ObjectiveType.CUTTER, 1, true)
+	set_objective_progress(Globals.ObjectiveType.CUTTER, 1, true)
 	print("Cutted: ", objectives_progress.get(Globals.ObjectiveType.CUTTER), " / ", objectives.get(Globals.ObjectiveType.CUTTER))
 
 
 func _on_animal_free(animal: TrapAnimal) -> void:
-	set_objective_progress(ObjectiveType.ANIMAL, 1, true)
+	set_objective_progress(Globals.ObjectiveType.ANIMAL, 1, true)
 	print("Animaled: ", objectives_progress.get(Globals.ObjectiveType.ANIMAL), " / ", objectives.get(Globals.ObjectiveType.ANIMAL))
 
 
@@ -245,3 +265,7 @@ func _on_destination_arrived(node: DestinationTriggerArea) -> void:
 	
 	check_objectives()
 	emit_signal("objectives_changed")
+
+
+func _on_input_objective_completed(input_objective: InputObjective) -> void:
+	print(input_objective.action_name, " completed")

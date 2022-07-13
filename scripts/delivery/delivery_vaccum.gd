@@ -28,7 +28,9 @@ func _on_body_entered(body: Node) -> void:
 	var object: DeliveryObject = body
 
 	# Check if the object has the same objective_type
-	if not object.is_in_group(group):
+#	if not object.is_in_group(group):
+#		return
+	if object.objective_type != objective_type:
 		return
 
 	# Make sure the object is not already in the area
@@ -48,9 +50,12 @@ func _on_body_exited(body: Node) -> void:
 	# Make sure the body is a Deliverable
 	if not body is DeliveryObject:
 		return
-
+	
 	# Make sure the object is in the area
 	var object: DeliveryObject = body
+	if object.objective_type != objective_type:
+		return
+	
 	var id: int = object.get_instance_id()
 	var index: int = objects.find(id)
 	if index == -1:
