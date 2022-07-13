@@ -9,7 +9,6 @@ onready var tool_body: RigidBody = get_node(tool_body_path)
 
 var objective_type = Globals.ObjectiveType.MAGNET
 var carried: bool = false
-var group: String
 var above_surface: bool = false
 
 var surface_altitude: float

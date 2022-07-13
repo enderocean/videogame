@@ -75,7 +75,7 @@ func _on_body_exited(body: Node) -> void:
 	var object: DeliveryObject = body
 
 	# Check if the object has the same objective_type
-	if not object.is_in_group(group):
+	if not object.objective_type == objective_type:
 		return
 	
 	# Make sure the object is not already in the area
