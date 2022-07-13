@@ -5,7 +5,7 @@ class_name ObjectiveTag
 # Of course it needs to be a supported type
 
 # Specific text to objective
-export var text_key: String
+export var text: String
 
 func _ready() -> void:
 	add_to_group("objective_tags")

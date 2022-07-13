@@ -150,6 +150,7 @@ func initialize(level_data: LevelData) -> void:
 		if node is InputObjective:
 		# warning-ignore:return_value_discarded
 			node.connect("completed", self, "_on_input_objective_completed", [node])
+			add_objective_target_from(node)
 
 	
 	# Add the destinations as objectives
@@ -268,4 +269,5 @@ func _on_destination_arrived(node: DestinationTriggerArea) -> void:
 
 
 func _on_input_objective_completed(input_objective: InputObjective) -> void:
-	print(input_objective.action_name, " completed")
+	set_objective_progress(Globals.ObjectiveType.INPUT, 1, true)
+	print("Pressed: ", input_objective.action_name)

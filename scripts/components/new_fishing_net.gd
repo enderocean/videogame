@@ -18,7 +18,7 @@ export var to_cut_indices: Array = [
 var mesh_data_tool: MeshDataTool = MeshDataTool.new()
 var removed: bool = false
 var cut_count: int = 0
-var cut_areas: int = 0
+var cut_areas: Array
 
 
 func net_removed() -> void:
@@ -44,7 +44,7 @@ func cut(area: Area) -> void:
 	cut_count += 1
 	emit_signal("net_cut", cut_count)
 	
-	var remaining: int = cut_areas - cut_count
+	var remaining: int = cut_areas.size() - cut_count
 	# No more cut to 
 	if remaining <= 0:
 		net_removed()
@@ -88,5 +88,4 @@ func _ready() -> void:
 		
 		net_cut.look_at_from_position(mid_position, positions[0], Vector3.UP)
 		add_child(net_cut)
-		
-		cut_areas += 1
+		cut_areas.append(net_cut)

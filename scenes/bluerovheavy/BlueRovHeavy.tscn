@@ -349,6 +349,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 17 )
 objective_type = 7
+vehicle_path = NodePath("../../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="BlueRov/Camera/VisionArea"]
 shape = SubResource( 71 )

@@ -370,7 +370,6 @@ destination_path = NodePath("../Ender Station/PullDestination")
 
 [node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 1 )
-enabled = false
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 destination_path = NodePath("../Ender Station/PullDestination")
@@ -379,8 +378,8 @@ destination_path = NodePath("../Ender Station/PullDestination")
 curve = SubResource( 25 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( -0.882094, -0.248041, 0.400419, 0.17733, 0.612771, 0.769986, -0.436422, 0.750325, -0.496458, 8.99498, -0.0487087, -2.65677 )
-offset = 10.2339
+transform = Transform( -0.183067, 0.0901123, 0.978808, 0.0118816, 0.99592, -0.0894374, -0.983028, -0.004744, -0.183362, 5.91854, -0.52901, -0.588577 )
+offset = 5.96216
 rotation_mode = 4
 script = ExtResource( 17 )
 

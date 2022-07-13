@@ -361,13 +361,6 @@ _data = {
 
 [node name="level_01" type="Spatial"]
 script = ExtResource( 13 )
-objectives_target = {
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 0,
-"magnet": 0,
-"vacuum": 18
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 109 )
