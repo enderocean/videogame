@@ -1,9 +1,6 @@
 extends Node
 class_name Level
 
-#export(String, FILE, "*.tres") var level_data_path: String
-#var level_data: LevelData
-
 export var depth_max: float = 100.0
 export var fog_depth_min: float = 5.0
 export var update_environment: bool = true
@@ -28,12 +25,8 @@ onready var sun: Light = get_node_or_null(sun_path)
 
 var vehicle: Vehicle
 
-#var objectives: Dictionary = {}
-#var objectives_progress: Dictionary = {}
 var penalties: Array = []
 var score: int = 0
-#var destinations: Array
-#var destinations_next_index: int = 0
 
 # darkest it gets
 onready var cameras = get_tree().get_nodes_in_group("cameras")
@@ -56,8 +49,6 @@ signal vehicle_collided()
 
 
 func _ready() -> void:
-#	level_data = load(level_data_path)
-	
 	for node in get_children():
 		# Replace the default underwater environment by the one in the scene
 		if node is WorldEnvironment:
@@ -104,6 +95,12 @@ func _ready() -> void:
 	
 # warning-ignore:return_value_discarded
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
+
+	# Set needed values for nodes
+	for node in get_tree().get_nodes_in_group("objectives_nodes"):
+		if node is DeliveryTool:
+			node.surface_altitude = surface_altitude
+
 
 	for node in get_tree().get_nodes_in_group("collectible_tags"):
 		if node is CollectibleTag:

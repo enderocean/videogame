@@ -13,8 +13,6 @@ export(Globals.ObjectiveType) var objective_type = Globals.ObjectiveType.GRIPPER
 ## Emit signal only when objects enter the area
 export var only_enter: bool = false
 
-#onready var group: String = "objective_%s" % str(objective_type).to_lower()
-
 var objects: Array
 
 signal objects_changed(area, objects)

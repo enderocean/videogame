@@ -28,8 +28,6 @@ func _on_body_entered(body: Node) -> void:
 	var object: DeliveryObject = body
 
 	# Check if the object has the same objective_type
-#	if not object.is_in_group(group):
-#		return
 	if object.objective_type != objective_type:
 		return
 

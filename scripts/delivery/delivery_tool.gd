@@ -10,6 +10,7 @@ onready var tool_body: RigidBody = get_node(tool_body_path)
 var objective_type = Globals.ObjectiveType.MAGNET
 var carried: bool = false
 var group: String
+var above_surface: bool = false
 
 var surface_altitude: float
 
@@ -22,7 +23,13 @@ func _ready() -> void:
 
 
 func check_delivered(object: Spatial) -> void:
+	if above_surface:
+		return
+	
 	if object.global_transform.origin.y > surface_altitude:
+		above_surface = true
+		yield(get_tree().create_timer(1.0), "timeout")
 		emit_signal("delivered", objective_type)
+		yield(get_tree().create_timer(1.0), "timeout")
 		object.queue_free()
 		queue_free()

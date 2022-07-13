@@ -8,7 +8,6 @@ var joint: HingeJoint
 
 func _ready() -> void:
 	objective_type = Globals.ObjectiveType.GRAPPLING_HOOK
-	group = "objective_%s" % str(objective_type).to_lower()
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +40,7 @@ func _on_body_entered(body: Node) -> void:
 	var object: DeliveryObject = body
 
 	# Check if the object has the same objective_type
-	if not object.is_in_group(group):
+	if not object.objective_type == objective_type:
 		return
 	
 	# Make sure the object is not already in the area
@@ -59,7 +58,7 @@ func _on_body_exited(body: Node) -> void:
 	var object: DeliveryObject = body
 
 	# Check if the object has the same objective_type
-	if not object.is_in_group(group):
+	if not object.objective_type == objective_type:
 		return
 	
 	# Make sure the object is not already in the area

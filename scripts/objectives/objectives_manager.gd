@@ -231,7 +231,7 @@ func _on_objects_changed(area, objects: Array) -> void:
 
 func _on_tool_delivered(objective_type) -> void:
 	set_objective_progress(objective_type, 1, true)
-	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(Globals.objective_type))
+	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
 
 
 func _on_net_cut(nb_cut: int) -> void:
