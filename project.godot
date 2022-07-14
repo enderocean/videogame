@@ -219,6 +219,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/rope/section.gd"
 }, {
+"base": "Node",
+"class": "ScoreRequester",
+"language": "GDScript",
+"path": "res://scripts/api/score_requester.gd"
+}, {
 "base": "HBoxContainer",
 "class": "SettingLine",
 "language": "GDScript",
@@ -357,6 +362,7 @@ _global_script_class_icons={
 "ROVSounds": "",
 "Rope": "",
 "RopeSection": "",
+"ScoreRequester": "",
 "SettingLine": "",
 "SettingsPanel": "",
 "SliderSetting": "",

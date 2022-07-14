@@ -16,8 +16,9 @@ func _on_login_pressed() -> void:
 	var username: String = clean_text(username_field.text)
 	var password: String = clean_text(password_field.text)
 	APIManager.request_auth(username, password)
-#	yield(APIManager, "auth_completed")
-#	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+	yield(APIManager, "auth_completed")
+	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+
 
 func _on_continue_without_login_pressed() -> void:
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")

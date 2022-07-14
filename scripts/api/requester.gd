@@ -1,7 +1,11 @@
 extends Node
 
 var http_request: HTTPRequest
+var errors: Array
 
+signal completed(success)
+signal success()
+signal failed()
 
 func request() -> void:
 	pass
