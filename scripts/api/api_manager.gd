@@ -2,12 +2,13 @@ extends Node
 
 const ENABLED: bool = true
 const TEST: bool = true
-const URL_PRODUCTION: String = "https://leaderboard.enderocean.com/"
-const URL_TEST: String = "https://app-leaderboard.nodea.studio/"
+const URL_LOGIN: String = "https://leaderboard.enderocean.com/"
+const URL_LEADERBOARD: String = "https://leaderboard.enderocean.com/"
+const URL_LEADERBOARD_TEST: String = "https://app-leaderboard.nodea.studio/"
 const KEY: String = "t4m12tbJ0X2xs6N"
 const SECRET: String = "UJPoKlYMAwy54IH"
 
-var url: String
+var url_leaderboard: String
 # Used for encrypted request
 var HMAC: HMACContext
 
@@ -28,34 +29,12 @@ func request_send_score() -> void:
 	pass
 
 
-func check_result(result: int) -> void:
-	match result:
-		HTTPRequest.RESULT_SUCCESS:
-			print("request succeeded")
-		HTTPRequest.RESULT_REQUEST_FAILED:
-			print("request failed")
-		HTTPRequest.RESULT_TIMEOUT:
-			print("request timedout")
-
-
 func _ready() -> void:
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	
 	if TEST:
-		url = URL_TEST
+		url_leaderboard = URL_LEADERBOARD_TEST
 	else:
-		url = URL_PRODUCTION
+		url_leaderboard = URL_LEADERBOARD
 
 	HMAC = HMACContext.new()
-
-
-func _on_request_auth_completed(http_request: HTTPRequest, result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	check_result(result)
-	
-	match response_code:
-		200:
-			pass
-		400:
-			pass
-		401:
-			pass

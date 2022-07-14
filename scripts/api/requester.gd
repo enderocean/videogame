@@ -7,6 +7,20 @@ func request() -> void:
 	pass
 
 
+func check_result(result: int) -> bool:
+	match result:
+		HTTPRequest.RESULT_SUCCESS:
+			print("SUCCESS")
+			return true
+		HTTPRequest.RESULT_REQUEST_FAILED:
+			printerr(get_class(), "REQUEST_FAILED")
+		HTTPRequest.RESULT_TIMEOUT:
+			printerr("TIMEOUT")
+		HTTPRequest.RESULT_BODY_SIZE_LIMIT_EXCEEDED:
+			printerr("BODY_SIZE_LIMIT_EXCEEDED")
+	return false
+
+
 func _ready() -> void:
 	# Execute request
 	var http_request: HTTPRequest = HTTPRequest.new()
