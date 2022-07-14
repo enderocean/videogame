@@ -24,3 +24,7 @@ CONTINUE,Continue,Continuer
 MISSION_RESTART,Restart mission,Relancer la mission
 RETURN_TO_GAME,Return to game,Reprendre le jeu
 PAUSE,Pause,Pause
+LOGIN,Login,Se connecter
+CONTINUE_WITHOUT_LOGIN,Continue without login,Continuer sans se connecter
+USERNAME,Username,Nom d’utilisateur
+PASSWORD,Password,Mot de passe
