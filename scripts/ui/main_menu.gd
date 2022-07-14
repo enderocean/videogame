@@ -50,7 +50,7 @@ func _on_Practice_pressed() -> void:
 
 
 func _on_Campaign_pressed() -> void:
-	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+	SceneLoader.load_scene("res://scenes/ui/login.tscn")
 
 
 func _on_Music_pressed():

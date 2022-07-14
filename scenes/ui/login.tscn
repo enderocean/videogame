@@ -12,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
+username_field_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer/UsernameField")
+password_field_path = NodePath("MarginContainer/VBoxContainer/VBoxContainer/PasswordField")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 anchor_right = 1.0
