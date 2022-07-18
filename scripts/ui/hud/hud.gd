@@ -39,10 +39,13 @@ onready var mobile: Control = get_node(mobile_path)
 var active_level: Level
 var active_level_data: LevelData
 
+var is_tutorial: bool = false
+
 
 func show_popup() -> void:
+	mission_ended_popup.back_to_main_menu = pause_menu.back_to_main_menu
 	mission_ended_popup.update_stars(active_level.score, active_level_data.stars_enabled)
-	mission_ended_popup.update_objectives(active_level.objectives, active_level.objectives_progress)
+	mission_ended_popup.update_objectives(ObjectivesManager.objectives, ObjectivesManager.objectives_progress)
 	mission_ended_popup.update_time(mission_timer.time_left)
 	
 	if Globals.is_valid_file_path(active_level_data.video):
@@ -104,23 +107,18 @@ func _input(event: InputEvent) -> void:
 		camera_follow_viewport.visible = not camera_follow_viewport.visible
 
 
+# TODO: Improve and separate from the HUD
 func _on_scene_loaded(scene_data: Dictionary) -> void:
 	if not scene_data.scene is Level:
 		return
 
 	active_level = scene_data.scene
-
-	# Get the LevelData of the current scene/level
-	for level_data in Globals.levels.values():
-		if level_data.scene != scene_data.path:
-			continue
-
-		active_level_data = level_data
-		break
+	active_level_data = scene_data.level_data
+	
 # warning-ignore:return_value_discarded
-	active_level.connect("finished", self, "_on_level_finished")
+	ObjectivesManager.connect("finished", self, "_on_level_finished")
 # warning-ignore:return_value_discarded
-	active_level.connect("objectives_changed", self, "_on_level_objectives_changed")
+	ObjectivesManager.connect("objectives_changed", self, "_on_level_objectives_changed")
 # warning-ignore:return_value_discarded
 	active_level.connect("collectible_obtained", self, "_on_collectible_obtained")
 # warning-ignore:return_value_discarded
@@ -151,51 +149,56 @@ func _on_scene_loaded(scene_data: Dictionary) -> void:
 	
 	# Set Back to missions map button to default behavior
 	pause_menu.back_to_main_menu = false
+	mission_ended_popup.back_to_main_menu = false
+	is_tutorial = false
 	
 	# Start the time with the given LevelData time
 	if active_level_data:
 		mission_timer.paused = false
 		mission_timer.start(active_level_data.time * 60)
-		match active_level_data.id:
-			"practice":
-				# Set the back to missions as back to main menu
-				pause_menu.back_to_main_menu = true
-				
-				# Show the instruction popup only on the practice level
-				instructions_popup.title.text = active_level_data.title
-				instructions_popup.description.text = active_level_data.description
-				instructions_popup.show()
+		
+		# Check if the level id contains "tutorial" or "practice"
+		is_tutorial = "tutorial" in active_level_data.id or "practice" in active_level_data.id
+		if is_tutorial:
+			# Set the back to missions as back to main menu
+			pause_menu.back_to_main_menu = true
+			mission_ended_popup.back_to_main_menu = true
+			
+			# Show the instruction popup
+			instructions_popup.title.text = tr(active_level_data.title)
+			instructions_popup.description.text = tr(active_level_data.description)
+			instructions_popup.show()
 	else:
 		printerr("LevelData not found for ", scene_data.path)
 
 
 func _on_level_objectives_changed() -> void:
 	# Write the text for all objectives in the level
-	var text: String = "[b]Objectives[/b]:\n"
-	for i in range(active_level.objectives.keys().size()):
-		var objective_key = active_level.objectives.keys()[i]
-		var objective_value = active_level.objectives.values()[i]
+	var text: String = str("[b]", tr("OBJECTIVES"), "[/b]:\n")
+	for i in range(ObjectivesManager.objectives.keys().size()):
+		var objective_key = ObjectivesManager.objectives.keys()[i]
+		var objective_value = ObjectivesManager.objectives.values()[i]
 		var progress_value
 		
-		if not active_level.objectives.has(objective_key):
+		if not ObjectivesManager.objectives.has(objective_key):
 			continue
 		
-		if active_level.objectives_progress.has(objective_key):
-			progress_value = active_level.objectives_progress.get(objective_key)
+		if ObjectivesManager.objectives_progress.has(objective_key):
+			progress_value = ObjectivesManager.objectives_progress.get(objective_key)
 		else:
 			progress_value = 0
 		
 		var line: String = "{0}: {1} / {2}".format([
-			Localization.get_objective_text(objective_key),
+			ObjectivesManager.get_objective_text(objective_key),
 			progress_value,
 			objective_value
 		])
 		
 		# Strikethrough for finished objectives
 		if progress_value >= objective_value:
-			line = "[s]" + line + "[/s]"
+			line = str("[s]", line, "[/s]")
 		
-		text += line + "\n"
+		text += str(line, "\n")
 
 	objectives_text.bbcode_text = text
 
@@ -211,12 +214,19 @@ func _on_level_finished(update_score: bool = true, save_score: bool = true) -> v
 		update_score()
 	
 	if save_score:
-		# Save the level score
-		SaveManager.levels[active_level_data.id] = {
+		
+		var data: Dictionary = {
 			"score": active_level.score,
 			# Save the time it took to finish the mission
 			"time": (mission_timer.minutes * 60) - mission_timer.time_left
 		}
+		
+		# Save the level score
+		if is_tutorial:
+			SaveManager.tutorials[active_level_data.id] = data
+		else:
+			SaveManager.levels[active_level_data.id] = data
+			
 		SaveManager.save_data()
 	
 	show_popup()
@@ -265,4 +275,4 @@ func _on_vehicle_speed_changed(index: int) -> void:
 
 func _on_vehicle_tool_changed(index: int) -> void:
 	var vehicle_body = active_level.vehicle.vehicle_body
-	informations_panel.tool_value.text = Localization.get_vehicle_tool_text(vehicle_body.vehicle_tools[vehicle_body.vehicle_tool_index])
+	informations_panel.tool_value.text = tr(Localization.get_vehicle_tool_text(vehicle_body.vehicle_tools[vehicle_body.vehicle_tool_index]))

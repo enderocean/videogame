@@ -1,0 +1,14 @@
+keys,en,fr
+OBJECTIVE,Objective,Objectif
+OBJECTIVES,Objectives,Objectifs
+OBJECTIVES_COLON,Objectives :,Objectifs :
+TIME_LEFT,Time left :,Temps restant :
+OBJECTIVE_GRIPPER_TEXT,Delivered objects with the Gripper,Objets livrés avec la pince
+OBJECTIVE_VACUUM_TEXT,Collected objects with the Vacuum,Objets aspirés
+OBJECTIVE_CUTTER_TEXT,Cut nets ropes with the Cutter,Cordes coupées avec la pince coupante
+OBJECTIVE_MAGNET_TEXT,Collected with the Magnet,Collectés avec l’aimant
+OBJECTIVE_GRAPPLING_HOOK_TEXT,Collected with the Grappling hook,Collectés avec le grappin
+OBJECTIVE_ANIMAL_TEXT,Freed animals,Animaux liberés
+OBJECTIVE_DESTINATION_TEXT,Go to the destination,Aller à la destination
+OBJECTIVE_FIND_TEXT,Found hidden objects,Objets caché trouvés
+OBJECTIVE_INPUT_TEXT,Press {input_action},Appuyez sur {input_action}

@@ -46,12 +46,11 @@ func _on_licences_pressed():
 
 
 func _on_Practice_pressed() -> void:
-	SceneLoader.load_scene("res://scenes/ui/hud.tscn")
-	SceneLoader.load_scene("res://scenes/practice.tscn", true)
+	SceneLoader.load_scene("res://scenes/ui/tutorials.tscn")
 
 
 func _on_Campaign_pressed() -> void:
-	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+	SceneLoader.load_scene("res://scenes/ui/login.tscn")
 
 
 func _on_Music_pressed():

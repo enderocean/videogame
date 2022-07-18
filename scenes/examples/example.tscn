@@ -141,14 +141,6 @@ script = ExtResource( 7 )
 __meta__ = {
 "_editor_description_": "A scene to showcase and test differents gameplay elements"
 }
-objectives_target = {
-"animal": 0,
-"cutter": 0,
-"grappling_hook": 1,
-"gripper": 3,
-"magnet": 1,
-"vacuum": 0
-}
 
 [node name="pool" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0375569, 4.96145, -0.166545 )
@@ -378,7 +370,6 @@ destination_path = NodePath("../Ender Station/PullDestination")
 
 [node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 14 )]
 curve = SubResource( 1 )
-enabled = false
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 destination_path = NodePath("../Ender Station/PullDestination")
@@ -387,8 +378,8 @@ destination_path = NodePath("../Ender Station/PullDestination")
 curve = SubResource( 25 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.925713, -0.146151, -0.348783, 0.0812787, 0.977645, -0.193879, 0.369379, 0.151152, 0.916759, -5.53528, 3.2177, -13.6204 )
-offset = 41.7031
+transform = Transform( -0.183067, 0.0901123, 0.978808, 0.0118816, 0.99592, -0.0894374, -0.983028, -0.004744, -0.183362, 5.91854, -0.52901, -0.588577 )
+offset = 5.96216
 rotation_mode = 4
 script = ExtResource( 17 )
 

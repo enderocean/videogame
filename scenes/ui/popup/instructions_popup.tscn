@@ -54,6 +54,7 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Mission"
 valign = 1
+autowrap = true
 
 [node name="Description" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 48.0

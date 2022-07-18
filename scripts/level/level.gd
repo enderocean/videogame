@@ -1,11 +1,9 @@
 extends Node
 class_name Level
 
-const BUOYANCY: float = 10.0  # newtons?
-const HEIGHT: float = 2.4  # TODO: get this programatically
-
 export var depth_max: float = 100.0
 export var fog_depth_min: float = 5.0
+export var update_environment: bool = true
 
 # Default Environments
 var surface_ambient: Dictionary
@@ -13,6 +11,7 @@ var underwater_color: Color
 
 var surface_env: Environment = load("res://assets/defaultEnvironment.tres")
 var underwater_env: Environment = load("res://assets/underwaterEnvironment.tres")
+var underwater_env_original: Environment
 var underwater_mesh_scene: PackedScene = load("res://scenes/components/underwater_mesh.tscn")
 var underwater_meshes: Array
 
@@ -22,21 +21,10 @@ onready var water: MeshInstance = get_node(water_path)
 onready var underwater: MeshInstance = get_node(water_path).get_child(0)
 
 export var sun_path: NodePath = "sun"
-onready var sun: Light = get_node(sun_path)
+onready var sun: Light = get_node_or_null(sun_path)
 
 var vehicle: Vehicle
 
-export var objectives_target: Dictionary = {
-	"gripper": 0,
-	"vacuum": 0,
-	"cutter": 0,
-	"grappling_hook": 0,
-	"magnet": 0,
-	"animal": 0,
-}
-
-var objectives: Dictionary = {}
-var objectives_progress: Dictionary = {}
 var penalties: Array = []
 var score: int = 0
 
@@ -53,11 +41,12 @@ onready var last_depth: float = 0
 
 var finished: bool = false
 
-signal objectives_changed()
+#signal objectives_changed()
 signal finished()
 signal collectible_obtained(id)
 signal penality_added()
 signal vehicle_collided()
+
 
 func _ready() -> void:
 	for node in get_children():
@@ -71,7 +60,10 @@ func _ready() -> void:
 			vehicle = node
 		# warning-ignore:return_value_discarded
 			vehicle.vehicle_body.connect("body_entered", self, "_on_vehicle_body_entered")
-			
+	
+	# Save the original environment values before changing it
+	underwater_env_original = underwater_env.duplicate()
+	
 	# Add the underwater meshes for each camera
 	for i in range(cameras.size()):
 		var camera: Camera = cameras[i]
@@ -94,7 +86,7 @@ func _ready() -> void:
 	# Get base surface values
 	surface_ambient = {
 		"color": underwater_env.fog_color,
-		"depth_end": underwater_env.fog_depth_end,
+		"depth_end": underwater_env.fog_depth_end
 	}
 	
 	set_physics_process(true)
@@ -104,35 +96,16 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Globals.connect("fancy_water_changed", self, "_on_fancy_water_changed")
 
-	# Add all objectives
-	for type in Globals.ObjectiveType.values():
-		var type_name: String = Globals.ObjectiveType.keys()[type].to_lower()
-		if not objectives_target.has(type_name):
-			continue
-		if not objectives_target.get(type_name):
-			continue
-		objectives[type] = objectives_target.get(type_name)
-	
-	# Connect to all objective areas
+	# Set needed values for nodes
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
-		if node is DeliveryArea:
-		# warning-ignore:return_value_discarded
-			node.connect("objects_changed", self, "_on_objects_changed")
 		if node is DeliveryTool:
 			node.surface_altitude = surface_altitude
-		# warning-ignore:return_value_discarded
-			node.connect("delivered", self, "_on_tool_delivered")
-		if node is TrapAnimal:
-		# warning-ignore:return_value_discarded
-			node.connect("animal_free", self, "_on_animal_free")
-		if node is NewFishingNet or node is FishingNet:
-		# warning-ignore:return_value_discarded
-			node.connect("net_cut", self, "_on_net_cut")
-	
-	# Connect to all objective areas
+
+
 	for node in get_tree().get_nodes_in_group("collectible_tags"):
 		if node is CollectibleTag:
 			node.connect("obtained", self, "_on_collectible_obtained")
+		
 
 	for node in get_tree().get_nodes_in_group("ropes"):
 		if node is Rope:
@@ -149,14 +122,14 @@ func _on_rope_created(rope: Rope) -> void:
 		SceneLoader.wait_before_new_scene = false
 
 
-func calculate_buoyancy_and_ballast():
-	var vehicles = get_tree().get_nodes_in_group("buoyant")
-	for vehicle in vehicles:
-		if not vehicle is RigidBody:
-			push_warning("Component %s does not inherit RigidBody." % vehicle.name)
+func calculate_buoyancy():
+	var buoyants = get_tree().get_nodes_in_group("buoyant")
+	for rigidbody in buoyants:
+		if not rigidbody is RigidBody:
+			push_warning("Component %s does not inherit RigidBody." % rigidbody.name)
 			continue
 
-		var buoys = vehicle.find_node("buoys")
+		var buoys = rigidbody.find_node("buoys")
 		if buoys:
 			var children = buoys.get_children()
 			for buoy in children:
@@ -171,19 +144,21 @@ func calculate_buoyancy_and_ballast():
 
 				vehicle.add_force_local_pos(Vector3.UP * buoyancy, buoy.transform.origin)
 		else:
-			var buoyancy: float = vehicle.buoyancy
-			if vehicle.global_transform.origin.y > surface_altitude:
+			var buoyancy: float = rigidbody.buoyancy
+			if rigidbody.global_transform.origin.y > surface_altitude:
 				buoyancy = 0
 
-			vehicle.add_force(Vector3.UP * buoyancy, vehicle.transform.basis.y * 0.07)
+			rigidbody.add_force(Vector3.UP * buoyancy, rigidbody.transform.basis.y * 0.07)
 
-		var ballasts = vehicle.find_node("ballasts")
-		if ballasts:
-			var children = ballasts.get_children()
-			for ballast in children:
-				vehicle.add_force_local_pos(
-					Vector3(0, -vehicle.ballast_kg * 9.8, 0), ballast.transform.origin
-				)
+
+func calculate_ballasts() -> void:
+	var ballasts = vehicle.find_node("ballasts")
+	if ballasts:
+		var children = ballasts.get_children()
+		for ballast in children:
+			vehicle.add_force_local_pos(
+				Vector3(0, -vehicle.ballast_kg * 9.8, 0), ballast.transform.origin
+			)
 
 
 func update_fog():
@@ -197,9 +172,9 @@ func update_fog():
 		depth = rov_camera.global_transform.origin.y - surface_altitude
 		last_depth = depth
 		var normalized_depth: float = clamp(1.0 - ((depth_max - abs(depth)) / depth_max), 0.0, 1.0)
-		var new_color: Color = surface_ambient.color.darkened(normalized_depth)
+		var new_color: Color = underwater_env_original.fog_color.darkened(normalized_depth)
 
-		underwater_env.fog_depth_end = max(fog_depth_min, surface_ambient.depth_end - (normalized_depth * surface_ambient.depth_end))
+		underwater_env.fog_depth_end = max(fog_depth_min, underwater_env_original.fog_depth_end - (normalized_depth * underwater_env_original.fog_depth_end))
 		underwater_env.background_color = new_color
 		
 		if underwater_env.background_sky:
@@ -228,11 +203,15 @@ func update_fog():
 
 
 func _process(_delta: float) -> void:
+	if not update_environment:
+		return
+	
 	update_fog()
 
 
 func _physics_process(_delta: float) -> void:
-	calculate_buoyancy_and_ballast()
+	calculate_buoyancy()
+	calculate_ballasts()
 	
 	for underwater_mesh in underwater_meshes:
 		if not underwater_mesh._target:
@@ -252,65 +231,13 @@ func _on_fancy_water_changed() -> void:
 		underwater.set_surface_material(0, simple_water)
 
 
-func _on_objects_changed(area, objects: Array) -> void:
-	if finished or not area:
-		return
-	
-	match area.objective_type:
-		Globals.ObjectiveType.GRIPPER:
-			objectives_progress[Globals.ObjectiveType.GRIPPER] = objects.size()
-			print("Delivered: ", objectives_progress.get(Globals.ObjectiveType.GRIPPER), " / ", objectives.get(Globals.ObjectiveType.GRIPPER))
-
-		Globals.ObjectiveType.VACUUM:
-			objectives_progress[Globals.ObjectiveType.VACUUM] = objects.size()
-			print("Vacuumed: ", objectives_progress.get(Globals.ObjectiveType.VACUUM), " / ", objectives.get(Globals.ObjectiveType.VACUUM))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
-
-
-func _on_tool_delivered(objective_type) -> void:
-	if objectives_progress.has(objective_type):
-		objectives_progress[objective_type] += 1
-	else:
-		objectives_progress[objective_type] = 1
-	
-	print("Tool delivered: ", objectives_progress.get(objective_type), " / ", objectives.get(objective_type))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
-
-
-func _on_net_cut(nb_cut: int) -> void:
-	if objectives_progress.has(Globals.ObjectiveType.CUTTER):
-		objectives_progress[Globals.ObjectiveType.CUTTER] += 1
-	else:
-		objectives_progress[Globals.ObjectiveType.CUTTER] = 1
-	
-	print("Cutted: ", objectives_progress.get(Globals.ObjectiveType.CUTTER), " / ", objectives.get(Globals.ObjectiveType.CUTTER))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
-
-
-func _on_animal_free(animal: TrapAnimal) -> void:
-	if objectives_progress.has(Globals.ObjectiveType.ANIMAL):
-		objectives_progress[Globals.ObjectiveType.ANIMAL] += 1
-	else:
-		objectives_progress[Globals.ObjectiveType.ANIMAL] = 1
-
-	print("Animaled: ", objectives_progress.get(Globals.ObjectiveType.ANIMAL), " / ", objectives.get(Globals.ObjectiveType.ANIMAL))
-	
-	check_objectives()
-	emit_signal("objectives_changed")
-
-
 func _on_collectible_obtained(id: String) -> void:
 	emit_signal("collectible_obtained", id)
 
 
 func _on_vehicle_body_entered(body: Node) -> void:
 	var collision_tag: PenaltyCollisionTag = null
+	var reason: String
 	for child in body.get_children():
 		if child is PenaltyCollisionTag:
 			collision_tag = child
@@ -322,26 +249,6 @@ func _on_vehicle_body_entered(body: Node) -> void:
 	vehicle.vehicle_body.sounds.play("collision")
 	emit_signal("vehicle_collided")
 	add_penalty("Collided with %s" % body.name, collision_tag.points)
-
-
-func check_objectives() -> void:
-	# First check if all the objectives are in the progress dictionary
-	if objectives.keys().size() != objectives_progress.keys().size():
-		return
-	
-	finished = true
-	for objective in objectives.keys():
-		if not objectives.has(objective):
-			continue
-		
-		if not objectives_progress.has(objective):
-			continue
-		
-		if objectives_progress.get(objective) < objectives.get(objective):
-			finished = false
-
-	if finished:
-		emit_signal("finished")
 
 
 # Add a penalty with a reason which could be used

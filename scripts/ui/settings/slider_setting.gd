@@ -17,7 +17,6 @@ var value: float setget set_value
 func _ready() -> void:
 	slider = get_node(slider_path)
 	value_label = get_node(value_label_path)
-	label.text = Localization.get_setting_text(setting_key)
 
 
 func set_value(new_value: float) -> void:

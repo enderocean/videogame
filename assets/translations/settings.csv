@@ -1,0 +1,37 @@
+keys,en,fr
+INPUTS,Inputs,Contrôles
+GRAPHICS,Graphics,Graphique
+AUDIO,Audio,Audio
+SETTINGS,Settings,Paramètres
+MASTER,Master,Général
+EFFECTS,Effects,Effets
+MUSIC,Music,Musique
+RADIO,Radio,Radio
+MOVEMENTS,Movements,Mouvements
+PRESS_ANY_KEY,Press any key,Appuyez sur une touche
+CANCEL_WITH_ESCAPE,Cancel with the escape key,Annuler avec la touche Echap
+ALREADY_USED_BY,{key} is already used by,{key} est déjà utilisé par
+CAMERA,Camera,Caméra
+FORWARD,Forward,Avancer
+BACKWARDS,Backwards,Reculer
+STRAFE_LEFT,Strafe left,Virer à gauche
+STRAFE_RIGHT,Strafe right,Virer à droite
+ROTATE_LEFT,Backwards,Tourner à gauche
+ROTATE_RIGHT,Backwards,Tourner à droite
+UPWARDS,Upwards,Monter
+DOWNWARDS,Downwards,Descendre
+SPEED_UP,Speed up,Monter la vitesse
+SPEED_DOWN,Speed down,Descendre la vitesse
+TOOL_OPEN,Open tool,Ouvrir l’outil
+TOOL_CLOSE,Close tool,Fermer l’outil
+TOOL_SWITCH,Switch tool,Changer d’outil
+LIGHTS_UP,Lights up,Augmenter les lumières
+LIGHTS_DOWN,Lights down,Diminuer les lumières
+CAMERA_UP,Camera up,Monter la caméra
+CAMERA_DOWN,Camera down,Descendre la caméra
+CAMERA_SWITCH,Switch camera,Changer de caméra
+CAMERA_EXTERNAL_TOGGLE,Toggle external camera,Activer/Désactiver la caméra externe
+FULLSCREEN,Fullscreen,Plein écran
+VSYNC,Vertical Synchronization,Synchronisation Verticale
+FANCY_WATER,Fancy water,Jolie eau
+PHYSICS_RATE,Physics rate,Taux de rafraichissement de la physique

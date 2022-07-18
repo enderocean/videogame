@@ -46,15 +46,24 @@ custom_constants/separation = 15
 [node name="Fullscreen" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
 setting_key = "fullscreen"
 
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/Fullscreen" index="0"]
+text = "FULLSCREEN"
+
 [node name="VSync" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 55.0
 margin_bottom = 95.0
 setting_key = "vsync"
 
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/VSync" index="0"]
+text = "VSYNC"
+
 [node name="FancyWater" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_top = 110.0
 margin_bottom = 150.0
 setting_key = "fancy_water"
+
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/FancyWater" index="0"]
+text = "FANCY_WATER"
 
 [node name="PhysicsRate" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
 margin_top = 165.0
@@ -62,6 +71,9 @@ margin_bottom = 205.0
 setting_key = "physics_rate"
 use_value = true
 value_suffix = "Hz"
+
+[node name="Label" parent="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate" index="0"]
+text = "PHYSICS_RATE"
 
 [node name="HSlider" parent="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate" index="1"]
 min_value = 60.0
@@ -121,4 +133,7 @@ valign = 1
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/FancyWater" to="." method="_on_fancy_water_changed"]
 [connection signal="changed" from="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate" to="." method="_on_physics_rate_changed"]
 
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/Fullscreen"]
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/VSync"]
+[editable path="ScrollContainer/MarginContainer/VBoxContainer/FancyWater"]
 [editable path="ScrollContainer/MarginContainer/VBoxContainer/PhysicsRate"]

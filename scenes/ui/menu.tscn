@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sounds/intro.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/ui/popup/licences_dialog.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/music.png" type="Texture" id=9]
 [ext_resource path="res://scenes/ui/settings.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/translations/translated_button.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=2]
 length = 5.0
@@ -118,14 +119,18 @@ margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "GAMEPLAY"
+script = ExtResource( 11 )
+uppercase = true
 
-[node name="Practice" type="Button" parent="HBoxContainer/LevelButtons"]
+[node name="Tutorials" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 70.0
 margin_right = 250.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "PRACTICE"
+text = "TUTORIALS"
+script = ExtResource( 11 )
+uppercase = true
 
 [node name="Campaign" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 140.0
@@ -134,6 +139,8 @@ margin_bottom = 200.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "PLAY"
+script = ExtResource( 11 )
+uppercase = true
 
 [node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 210.0
@@ -141,7 +148,9 @@ margin_right = 250.0
 margin_bottom = 270.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
-text = "BOOK SESSION"
+text = "BOOK_SESSION"
+script = ExtResource( 11 )
+uppercase = true
 
 [node name="Footer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -154,9 +163,9 @@ custom_constants/separation = 10
 alignment = 2
 
 [node name="Music" type="Button" parent="Footer"]
-margin_left = 1602.0
+margin_left = 1561.0
 margin_top = 19.0
-margin_right = 1652.0
+margin_right = 1611.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_vertical = 4
@@ -176,34 +185,37 @@ expand = true
 stretch_mode = 6
 
 [node name="Settings" type="Button" parent="Footer"]
-margin_left = 1662.0
+margin_left = 1621.0
 margin_top = 19.0
-margin_right = 1740.0
+margin_right = 1717.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
-text = "Settings"
+text = "SETTINGS"
 flat = true
+script = ExtResource( 11 )
 
 [node name="Credits" type="Button" parent="Footer"]
-margin_left = 1750.0
+margin_left = 1727.0
 margin_top = 19.0
-margin_right = 1819.0
+margin_right = 1811.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
-text = "Credits"
+text = "CREDITS"
 flat = true
+script = ExtResource( 11 )
 
 [node name="Close" type="Button" parent="Footer"]
-margin_left = 1829.0
+margin_left = 1821.0
 margin_top = 19.0
 margin_right = 1870.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
-text = "Exit"
+text = "EXIT"
 flat = true
+script = ExtResource( 11 )
 
 [node name="LicencesDialog" type="AcceptDialog" parent="."]
 anchor_left = 0.5
@@ -305,7 +317,7 @@ autoplay = true
 bus = "Music"
 
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Introduction" to="." method="_on_Introduction_pressed"]
-[connection signal="pressed" from="HBoxContainer/LevelButtons/Practice" to="." method="_on_Practice_pressed"]
+[connection signal="pressed" from="HBoxContainer/LevelButtons/Tutorials" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/Campaign" to="." method="_on_Campaign_pressed"]
 [connection signal="pressed" from="HBoxContainer/LevelButtons/BookSession" to="." method="_on_book_session_pressed"]
 [connection signal="pressed" from="Footer/Music" to="." method="_on_Music_pressed"]

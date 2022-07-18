@@ -121,7 +121,7 @@ func is_valid_body(body: Node) -> bool:
 		return false
 	
 	if body is DeliveryObject:
-		if not body.is_in_group("objective_%s" % str(tool_type).to_lower()):
+		if not body.objective_type == tool_type:
 			return false
 		return true
 	

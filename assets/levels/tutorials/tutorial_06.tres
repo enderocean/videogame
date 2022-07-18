@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/level/level_data.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "tutorial_06"
+scene = "res://scenes/tutorials/tutorial_06.tscn"
+thumbnail = ""
+video = ""
+title = "Cutter tutorial"
+country = ""
+location = ""
+description = "Learn how to use the cutter tool."
+objectives = PoolStringArray(  )
+tools = PoolStringArray(  )
+time = 15
+gripper_objectives_count = 0
+vacuum_objectives_count = 0
+cutter_objectives_count = 4
+stars_enabled = false
+stars = PoolIntArray( 900, 600, 300, 180, 60 )

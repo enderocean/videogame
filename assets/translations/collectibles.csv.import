@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://assets/translations/collectibles.en.translation", "res://assets/translations/collectibles.fr.translation" ]
+
+source_file="res://assets/translations/collectibles.csv"
+dest_files=[ "res://assets/translations/collectibles.en.translation", "res://assets/translations/collectibles.fr.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

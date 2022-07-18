@@ -194,13 +194,6 @@ extents = Vector3( 2.88053, 1.55012, 4.17198 )
 
 [node name="level_00" type="Spatial"]
 script = ExtResource( 13 )
-objectives_target = {
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 4,
-"magnet": 0,
-"vacuum": 0
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 98 )

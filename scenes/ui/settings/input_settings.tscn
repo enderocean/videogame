@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold-Text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/ui/settings/input_line.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/translations/translated_label.gd" type="Script" id=3]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/ui/themes/menu_theme.tres" type="Theme" id=5]
 [ext_resource path="res://scripts/ui/settings/input_select.gd" type="Script" id=6]
@@ -34,8 +35,9 @@ margin_right = 800.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
-text = "Movements"
+text = "MOVEMENTS"
 valign = 1
+script = ExtResource( 3 )
 
 [node name="Forward" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 55.0
@@ -43,11 +45,43 @@ margin_right = 800.0
 margin_bottom = 95.0
 action = "forward"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/Forward" index="0"]
+margin_right = 503.0
+text = "FORWARD"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/Forward" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/Forward" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/Forward" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="Backwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 110.0
 margin_right = 800.0
 margin_bottom = 150.0
 action = "backwards"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/Backwards" index="0"]
+margin_right = 503.0
+text = "BACKWARDS"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/Backwards" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/Backwards" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/Backwards" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="StrafeLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 165.0
@@ -55,11 +89,43 @@ margin_right = 800.0
 margin_bottom = 205.0
 action = "strafe_left"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/StrafeLeft" index="0"]
+margin_right = 503.0
+text = "STRAFE_LEFT"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/StrafeLeft" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/StrafeLeft" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/StrafeLeft" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="StrafeRight" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 220.0
 margin_right = 800.0
 margin_bottom = 260.0
 action = "strafe_right"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/StrafeRight" index="0"]
+margin_right = 503.0
+text = "STRAFE_RIGHT"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/StrafeRight" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/StrafeRight" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/StrafeRight" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="RotateLeft" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 275.0
@@ -67,11 +133,43 @@ margin_right = 800.0
 margin_bottom = 315.0
 action = "rotate_left"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/RotateLeft" index="0"]
+margin_right = 503.0
+text = "ROTATE_LEFT"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/RotateLeft" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/RotateLeft" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/RotateLeft" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="RotateRight" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 330.0
 margin_right = 800.0
 margin_bottom = 370.0
 action = "rotate_right"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/RotateRight" index="0"]
+margin_right = 503.0
+text = "ROTATE_RIGHT"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/RotateRight" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/RotateRight" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/RotateRight" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="Upwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 385.0
@@ -79,11 +177,43 @@ margin_right = 800.0
 margin_bottom = 425.0
 action = "upwards"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/Upwards" index="0"]
+margin_right = 503.0
+text = "UPWARDS"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/Upwards" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/Upwards" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/Upwards" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="Downwards" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 440.0
 margin_right = 800.0
 margin_bottom = 480.0
 action = "downwards"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/Downwards" index="0"]
+margin_right = 503.0
+text = "DOWNWARDS"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/Downwards" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/Downwards" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/Downwards" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="SpeedUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 495.0
@@ -91,11 +221,43 @@ margin_right = 800.0
 margin_bottom = 535.0
 action = "speed_up"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/SpeedUp" index="0"]
+margin_right = 503.0
+text = "SPEED_UP"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/SpeedUp" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/SpeedUp" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/SpeedUp" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="SpeedDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 550.0
 margin_right = 800.0
 margin_bottom = 590.0
 action = "speed_down"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/SpeedDown" index="0"]
+margin_right = 503.0
+text = "SPEED_DOWN"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/SpeedDown" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/SpeedDown" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/SpeedDown" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="Tools" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 605.0
@@ -103,8 +265,9 @@ margin_right = 800.0
 margin_bottom = 645.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
-text = "Tools"
+text = "TOOLS"
 valign = 1
+script = ExtResource( 3 )
 
 [node name="ToolOpen" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 660.0
@@ -112,11 +275,43 @@ margin_right = 800.0
 margin_bottom = 700.0
 action = "tool_open"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/ToolOpen" index="0"]
+margin_right = 503.0
+text = "TOOL_OPEN"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/ToolOpen" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/ToolOpen" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/ToolOpen" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="ToolClose" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 715.0
 margin_right = 800.0
 margin_bottom = 755.0
 action = "tool_close"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/ToolClose" index="0"]
+margin_right = 503.0
+text = "TOOL_CLOSE"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/ToolClose" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/ToolClose" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/ToolClose" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="ToolSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 770.0
@@ -124,11 +319,43 @@ margin_right = 800.0
 margin_bottom = 810.0
 action = "tool_switch"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/ToolSwitch" index="0"]
+margin_right = 503.0
+text = "TOOL_SWITCH"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/ToolSwitch" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/ToolSwitch" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/ToolSwitch" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="LightsUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 825.0
 margin_right = 800.0
 margin_bottom = 865.0
 action = "lights_up"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/LightsUp" index="0"]
+margin_right = 503.0
+text = "LIGHTS_UP"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/LightsUp" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/LightsUp" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/LightsUp" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="LightsDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 880.0
@@ -136,14 +363,31 @@ margin_right = 800.0
 margin_bottom = 920.0
 action = "lights_down"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/LightsDown" index="0"]
+margin_right = 503.0
+text = "LIGHTS_DOWN"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/LightsDown" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/LightsDown" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/LightsDown" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="Camera" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 935.0
 margin_right = 800.0
 margin_bottom = 975.0
 rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
-text = "Camera"
+text = "CAMERA"
 valign = 1
+script = ExtResource( 3 )
 
 [node name="CameraUp" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 990.0
@@ -151,11 +395,43 @@ margin_right = 800.0
 margin_bottom = 1030.0
 action = "camera_up"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/CameraUp" index="0"]
+margin_right = 503.0
+text = "CAMERA_UP"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/CameraUp" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/CameraUp" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/CameraUp" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="CameraDown" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 1045.0
 margin_right = 800.0
 margin_bottom = 1085.0
 action = "camera_down"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/CameraDown" index="0"]
+margin_right = 503.0
+text = "CAMERA_DOWN"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/CameraDown" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/CameraDown" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/CameraDown" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="CameraSwitch" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 1100.0
@@ -163,11 +439,43 @@ margin_right = 800.0
 margin_bottom = 1140.0
 action = "camera_switch"
 
+[node name="Label" parent="ScrollContainer/VBoxContainer/CameraSwitch" index="0"]
+margin_right = 503.0
+text = "CAMERA_SWITCH"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/CameraSwitch" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/CameraSwitch" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/CameraSwitch" index="3"]
+margin_left = 735.0
+margin_right = 800.0
+
 [node name="CameraExternalToggle" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 1155.0
 margin_right = 800.0
 margin_bottom = 1195.0
 action = "camera_external_toggle"
+
+[node name="Label" parent="ScrollContainer/VBoxContainer/CameraExternalToggle" index="0"]
+margin_right = 503.0
+text = "CAMERA_EXTERNAL_TOGGLE"
+
+[node name="Input" parent="ScrollContainer/VBoxContainer/CameraExternalToggle" index="1"]
+margin_left = 507.0
+margin_right = 707.0
+
+[node name="Space" parent="ScrollContainer/VBoxContainer/CameraExternalToggle" index="2"]
+margin_left = 711.0
+margin_right = 731.0
+
+[node name="Reset" parent="ScrollContainer/VBoxContainer/CameraExternalToggle" index="3"]
+margin_left = 735.0
+margin_right = 800.0
 
 [node name="InputSelect" type="Popup" parent="."]
 anchor_right = 1.0
@@ -190,15 +498,16 @@ margin_top = 494.0
 margin_right = 1920.0
 margin_bottom = 532.0
 custom_fonts/font = ExtResource( 4 )
-text = "Press any key"
+text = "PRESS_ANY_KEY"
 align = 1
 valign = 1
+script = ExtResource( 3 )
 
 [node name="Cancel" type="Label" parent="InputSelect/VBoxContainer"]
 margin_top = 536.0
 margin_right = 1920.0
 margin_bottom = 558.0
-text = "Cancel with the Escape key"
+text = "CANCEL_WITH_ESCAPE"
 align = 1
 valign = 1
 
@@ -211,3 +520,23 @@ custom_fonts/font = SubResource( 1 )
 text = "already used"
 align = 1
 valign = 1
+
+[editable path="ScrollContainer/VBoxContainer/Forward"]
+[editable path="ScrollContainer/VBoxContainer/Backwards"]
+[editable path="ScrollContainer/VBoxContainer/StrafeLeft"]
+[editable path="ScrollContainer/VBoxContainer/StrafeRight"]
+[editable path="ScrollContainer/VBoxContainer/RotateLeft"]
+[editable path="ScrollContainer/VBoxContainer/RotateRight"]
+[editable path="ScrollContainer/VBoxContainer/Upwards"]
+[editable path="ScrollContainer/VBoxContainer/Downwards"]
+[editable path="ScrollContainer/VBoxContainer/SpeedUp"]
+[editable path="ScrollContainer/VBoxContainer/SpeedDown"]
+[editable path="ScrollContainer/VBoxContainer/ToolOpen"]
+[editable path="ScrollContainer/VBoxContainer/ToolClose"]
+[editable path="ScrollContainer/VBoxContainer/ToolSwitch"]
+[editable path="ScrollContainer/VBoxContainer/LightsUp"]
+[editable path="ScrollContainer/VBoxContainer/LightsDown"]
+[editable path="ScrollContainer/VBoxContainer/CameraUp"]
+[editable path="ScrollContainer/VBoxContainer/CameraDown"]
+[editable path="ScrollContainer/VBoxContainer/CameraSwitch"]
+[editable path="ScrollContainer/VBoxContainer/CameraExternalToggle"]

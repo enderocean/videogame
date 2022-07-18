@@ -12,6 +12,8 @@ onready var user_panel: Panel = get_node(user_panel_path)
 export var username_path: NodePath
 onready var username: LineEdit = get_node(username_path)
 
+var back_to_main_menu: bool = false setget set_back_to_main_menu
+
 
 func _ready() -> void:
 	video_panel.hide()
@@ -54,7 +56,8 @@ func _on_ok_pressed() -> void:
 
 	SaveManager.data.name = username.text
 	if Globals.SEND_DATA:
-		Leaderboard.send_score()
+#		Leaderboard.send_score()
+		pass
 
 	normal_panel.visible = true
 	user_panel.visible = false
@@ -74,4 +77,19 @@ func _on_restart_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	visible = false
+	
+	if back_to_main_menu:
+		SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+		return
+	
 	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
+
+
+func set_back_to_main_menu(value: bool) -> void:
+	back_to_main_menu = value
+	if value:
+		normal_panel.back_to_missions_button.key = "BACK_TO_MAIN_MENU"
+		normal_panel.back_to_missions_button.update_text()
+	else:
+		normal_panel.back_to_missions_button.key = "BACK_TO_MISSION_MAP"
+		normal_panel.back_to_missions_button.update_text()

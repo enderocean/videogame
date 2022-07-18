@@ -7,11 +7,9 @@ enum ObjectiveType {
 	GRAPPLING_HOOK,
 	MAGNET,
 	ANIMAL,
-}
-
-enum DeliveryToolType {
-	GRAPPLING_HOOK,
-	MAGNET,
+	DESTINATION,
+	FIND,
+	INPUT
 }
 
 const SEND_DATA: bool = false
@@ -33,6 +31,7 @@ export var physics_rate: int = 60 setget set_physics_rate
 export var wind_dir: float = 0.0
 export var wind_speed: float = 5.0
 
+var tutorials: Dictionary
 var levels: Dictionary
 var collectibles: Dictionary
 
@@ -56,9 +55,10 @@ func _ready() -> void:
 	if is_mobile:
 		# Change game stretch mode for better UI scaling
 		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1920, 1080), 1.5)
-
+	
 	# Load levels data
-	levels = LevelData.get_levels()
+	tutorials = LevelData.get_levels("res://assets/levels/tutorials/")
+	levels = LevelData.get_levels("res://assets/levels/")
 	collectibles = CollectibleData.get_collectibles()
 
 
@@ -105,9 +105,12 @@ static func get_files(path: String) -> PoolStringArray:
 func is_valid_file_path(path: String) -> bool:
 	if path.empty():
 		return false
-
 	var file: File = File.new()
 	return file.file_exists(path)
 
-	return true
-	
+
+func is_valid_directory_path(path: String) -> bool:
+	if path.empty():
+		return false
+	var directory: Directory = Directory.new()
+	return directory.dir_exists(path)

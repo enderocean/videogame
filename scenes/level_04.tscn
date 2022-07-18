@@ -38,6 +38,7 @@
 [ext_resource path="res://assets/textures/metal/Metal022_1K_Color.jpg" type="Texture" id=37]
 [ext_resource path="res://scenes/net/fishing_net.tscn" type="PackedScene" id=38]
 [ext_resource path="res://scripts/components/path_follower.gd" type="Script" id=39]
+[ext_resource path="res://scripts/sounds/path_follower_sound_trigger.gd" type="Script" id=40]
 
 [sub_resource type="Environment" id=58]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -186,13 +187,6 @@ surfaces/0 = {
 
 [node name="level_04" type="Spatial"]
 script = ExtResource( 11 )
-objectives_target = {
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 3,
-"magnet": 0,
-"vacuum": 0
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 58 )
@@ -232,7 +226,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.272, -9.247, 54.29 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0153, 0, 34.484 )
 curve = SubResource( 59 )
 from = NodePath("../BlueRov")
-to = NodePath("../BoatPath/PathFollow/Ender Station/TheterAnchor")
+to = NodePath("../BoatPath/PathFollower/Ender Station/TheterAnchor")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -241,14 +235,14 @@ autoplay = true
 [node name="BoatPath" type="Path" parent="."]
 curve = SubResource( 48 )
 
-[node name="PathFollow" type="PathFollow" parent="BoatPath"]
+[node name="PathFollower" type="PathFollow" parent="BoatPath"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.9555, 0, 54.5619 )
 loop = false
 script = ExtResource( 39 )
 speed = 0.5
 use_unit_offset = false
 
-[node name="Marlow66" type="MeshInstance" parent="BoatPath/PathFollow"]
+[node name="Marlow66" type="MeshInstance" parent="BoatPath/PathFollower"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00300598, -0.0999999, 1.7833 )
 mesh = ExtResource( 24 )
 skeleton = NodePath("../../..")
@@ -280,16 +274,16 @@ material/24 = null
 material/25 = null
 material/26 = null
 
-[node name="Ender Station" type="MeshInstance" parent="BoatPath/PathFollow"]
+[node name="Ender Station" type="MeshInstance" parent="BoatPath/PathFollower"]
 transform = Transform( 0.399999, 0, -7.45058e-08, 0, 0.4, 0, 7.45058e-08, 0, 0.399999, 0.118462, 0.57565, -8.543 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 2 )
 
-[node name="TheterAnchor" parent="BoatPath/PathFollow/Ender Station" instance=ExtResource( 19 )]
+[node name="TheterAnchor" parent="BoatPath/PathFollower/Ender Station" instance=ExtResource( 19 )]
 transform = Transform( 3, 2.11758e-22, 0, 0, 2, -2.98023e-08, 0, 2.98023e-08, 2, -0.000862122, -0.723376, -0.52121 )
 
-[node name="Dasti net" type="MeshInstance" parent="BoatPath/PathFollow"]
+[node name="Dasti net" type="MeshInstance" parent="BoatPath/PathFollower"]
 transform = Transform( -0.699309, 0, 0.0310826, 0, 0.7, 0, -0.0310826, 0, -0.699309, -0.0580902, -0.48762, -5.21231 )
 mesh = ExtResource( 27 )
 skeleton = NodePath("../../../BlueRov")
@@ -310,8 +304,13 @@ material/13 = null
 material/14 = null
 material/15 = null
 
-[node name="DeliveryNet" parent="BoatPath/PathFollow/Dasti net" instance=ExtResource( 26 )]
+[node name="DeliveryNet" parent="BoatPath/PathFollower/Dasti net" instance=ExtResource( 26 )]
 transform = Transform( -0.994443, 0, -0.872256, 0, 1.42857, 0, 0.937116, 0, -0.925615, 6.13819, -7.84937, -0.0298462 )
+
+[node name="PathFollowerSoundTrigger" type="Node" parent="BoatPath/PathFollower"]
+script = ExtResource( 40 )
+started_radio_sound = "boat_started"
+stopped_radio_sound = "boat_stopped"
 
 [node name="Rock01" type="StaticBody" parent="."]
 
@@ -765,6 +764,9 @@ attach4 = NodePath("../Attach4")
 
 [node name="fishing_net" parent="Spatial" index="0"]
 mesh = SubResource( 57 )
+
+[connection signal="started" from="BoatPath/PathFollower" to="BoatPath/PathFollower/PathFollowerSoundTrigger" method="_on_path_follower_started"]
+[connection signal="stopped" from="BoatPath/PathFollower" to="BoatPath/PathFollower/PathFollowerSoundTrigger" method="_on_path_follower_stopped"]
 
 [editable path="BewareRocks"]
 [editable path="Spatial"]

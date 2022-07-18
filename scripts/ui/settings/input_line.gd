@@ -20,7 +20,6 @@ func _ready() -> void:
 		return
 	
 	add_to_group("input")
-	label.text = Localization.get_input_action_text(action)
 	update()
 
 

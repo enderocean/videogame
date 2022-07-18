@@ -1,0 +1,139 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/tutorials/tutorial_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tutorials/tutorial_03.tres" type="Environment" id=3]
+[ext_resource path="res://scripts/delivery/findable_object.gd" type="Script" id=4]
+[ext_resource path="res://assets/sounds/Ender-Ambient-Underwater-Loop.wav" type="AudioStream" id=6]
+[ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/theter_anchor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/logo_ender.png" type="Texture" id=10]
+[ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=13]
+
+[sub_resource type="CubeMesh" id=20]
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_texture = ExtResource( 10 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="Curve3D" id=27]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.88777, 3.50615, 5.03815, 0, 0, 0, 0, 0, 0, -16.0124, 0.976059, -5.19813, 0, 0, 0, 0, 0, 0, 19.6084, 10.1517, -2.97513 ),
+"tilts": PoolRealArray( 0, 0, 0 )
+}
+
+[sub_resource type="CylinderMesh" id=28]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.125
+
+[sub_resource type="SpatialMaterial" id=29]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CylinderShape" id=30]
+radius = 0.05
+height = 0.124861
+
+[sub_resource type="CubeMesh" id=31]
+size = Vector3( 0.125, 0.125, 0.125 )
+
+[sub_resource type="BoxShape" id=32]
+extents = Vector3( 0.063, 0.063, 0.063 )
+
+[sub_resource type="SphereMesh" id=33]
+radius = 0.063
+height = 0.125
+
+[sub_resource type="SphereShape" id=34]
+radius = 0.0629077
+
+[node name="Tutorial 03" type="Spatial"]
+script = ExtResource( 1 )
+update_environment = false
+sun_path = NodePath("")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="TutorialBase" parent="." instance=ExtResource( 2 )]
+
+[node name="water" parent="." instance=ExtResource( 9 )]
+transform = Transform( 32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 6.317, -11.9919 )
+
+[node name="playerCamera" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.402299, 0.36904, -0.837834, 0, 0.915157, 0.403098, 0.915508, 0.162166, -0.368167, -11.3226, 20.2377, -4.97545 )
+visible = true
+
+[node name="BlueRov" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75404, 2.59743, 4.9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Ender Station" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3545, 9.99423, -2.74722 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 8 )]
+transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
+
+[node name="Theter" parent="." instance=ExtResource( 12 )]
+curve = SubResource( 27 )
+from = NodePath("../BlueRov")
+to = NodePath("../Ender Station/TheterAnchor")
+
+[node name="Cylinder" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965169, -1.482, 5.20185 )
+collision_layer = 2
+collision_mask = 3
+mass = 10.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+need_lights = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinder"]
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cylinder"]
+shape = SubResource( 30 )
+
+[node name="Cube" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384999, -1.472, 4.83661 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+need_lights = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Cube"]
+mesh = SubResource( 31 )
+material/0 = SubResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube"]
+shape = SubResource( 32 )
+
+[node name="Sphere" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80654, -1.482, 4.31858 )
+collision_layer = 2
+mass = 10.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+need_lights = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Sphere"]
+mesh = SubResource( 33 )
+material/0 = SubResource( 29 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Sphere"]
+shape = SubResource( 34 )

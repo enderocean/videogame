@@ -39,9 +39,16 @@ func _on_Ping360Toggle_toggled(button_pressed: bool) -> void:
 
 
 func _on_visibility_changed() -> void:
+	var text: String = "BACK"
+	
 	if back_to_main_menu:
-		back_to_missions_button.text = "BACK TO MAIN MENU"
+		text = tr("BACK_TO_MAIN_MENU")
 	else:
-		back_to_missions_button.text = "BACK TO MISSIONS MAP"
+		text = tr("BACK_TO_MISSIONS_MAP")
+		
+	if back_to_missions_button.uppercase:
+		text = text.to_upper()
+		
+	back_to_missions_button.text = text
 	
 	settings_panel.visible = false

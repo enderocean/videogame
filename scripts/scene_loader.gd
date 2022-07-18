@@ -16,8 +16,7 @@ var label: Label
 var root: Node
 var wait_before_new_scene: bool = false
 
-signal scene_loaded
-signal scenes_loaded
+signal scene_loaded(scene_data)
 
 
 func _ready() -> void:
@@ -45,7 +44,8 @@ func load_scene(path: String, additive: bool = false) -> void:
 
 	if not loading_scene:
 		loading_scene = load("res://scenes/ui/loading.tscn").instance()
-		root.add_child(loading_scene)
+#		root.add_child(loading_scene)
+		root.call_deferred("add_child", loading_scene)
 
 	loading_queue.append(path)
 
@@ -123,12 +123,12 @@ func _process(_delta: float) -> void:
 			break
 
 
-func update_progress() -> void:
+func update_progress() -> void:	
 	var progress = float(loader.get_stage()) / loader.get_stage_count()
 	if not label:
 		label = loading_scene.get_node("Label")
 
-	label.text = "Loading.. (%d %%)" % (progress * 100)
+	label.text = tr("LOADING_PROGRESS").format({"percentage": "%d" % (progress * 100)}) + " %"
 
 
 func set_new_scene(scene_resource: PackedScene) -> void:
@@ -136,8 +136,24 @@ func set_new_scene(scene_resource: PackedScene) -> void:
 	
 	var scene = scene_resource.instance()
 	root.add_child(scene)
+	
+	# Try to get the LevelData of the current scene
+	var active_level_data: LevelData = null
+	for level_data in Globals.levels.values():
+		if level_data.scene != scene_resource.resource_path:
+			continue
 
-	var scene_data: Dictionary = {"path": loading_queue[0], "scene": scene}
+		active_level_data = level_data
+		break
+	
+	for level_data in Globals.tutorials.values():
+		if level_data.scene != scene_resource.resource_path:
+			continue
+
+		active_level_data = level_data
+		break
+
+	var scene_data: Dictionary = {"path": loading_queue[0], "scene": scene, "level_data": active_level_data}
 	current_scenes.append(scene_data)
 	loading_queue.remove(0)
 
