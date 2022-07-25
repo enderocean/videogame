@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/ui/themes/menu_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/home-bg.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/translations/translated_button.gd" type="Script" id=4]
 [ext_resource path="res://scripts/translations/translated_label.gd" type="Script" id=5]
 [ext_resource path="res://assets/fonts/Roboto/title.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/logo_ender_blanc.png" type="Texture" id=7]
 
 [node name="Login" type="Control"]
 anchor_right = 1.0
@@ -42,9 +43,29 @@ margin_right = 1900.0
 margin_bottom = 1020.0
 custom_constants/separation = 25
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 margin_right = 1880.0
-margin_bottom = 38.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 150, 150 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 790.0
+margin_top = 175.0
+margin_right = 1090.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 300, 500 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 179.0
+margin_right = 300.0
+margin_bottom = 217.0
 custom_fonts/font = ExtResource( 6 )
 text = "LOGIN"
 align = 1
@@ -52,49 +73,38 @@ valign = 1
 uppercase = true
 script = ExtResource( 5 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_left = 790.0
-margin_top = 63.0
-margin_right = 1090.0
-margin_bottom = 875.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 4
-size_flags_vertical = 3
-custom_constants/separation = 20
-alignment = 1
-
 [node name="UsernameLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 264.0
+margin_top = 237.0
 margin_right = 300.0
-margin_bottom = 286.0
+margin_bottom = 259.0
 text = "USERNAME"
 script = ExtResource( 5 )
 
 [node name="UsernameField" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 306.0
+margin_top = 279.0
 margin_right = 300.0
-margin_bottom = 356.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="PasswordLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 376.0
+margin_top = 349.0
 margin_right = 300.0
-margin_bottom = 398.0
+margin_bottom = 371.0
 text = "PASSWORD"
 script = ExtResource( 5 )
 
 [node name="PasswordField" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 418.0
+margin_top = 391.0
 margin_right = 300.0
-margin_bottom = 468.0
+margin_bottom = 441.0
 rect_min_size = Vector2( 0, 50 )
 secret = true
 caret_blink = true
 
 [node name="Login" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 488.0
+margin_top = 461.0
 margin_right = 300.0
-margin_bottom = 548.0
+margin_bottom = 521.0
 rect_min_size = Vector2( 300, 60 )
 size_flags_horizontal = 4
 text = "LOGIN"

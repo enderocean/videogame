@@ -120,7 +120,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "GAMEPLAY"
 script = ExtResource( 11 )
-uppercase = true
 
 [node name="Tutorials" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 70.0
@@ -130,7 +129,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "TUTORIALS"
 script = ExtResource( 11 )
-uppercase = true
 
 [node name="Campaign" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 140.0
@@ -140,7 +138,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "PLAY"
 script = ExtResource( 11 )
-uppercase = true
 
 [node name="BookSession" type="Button" parent="HBoxContainer/LevelButtons"]
 margin_top = 210.0
@@ -150,7 +147,6 @@ rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = ExtResource( 8 )
 text = "BOOK_SESSION"
 script = ExtResource( 11 )
-uppercase = true
 
 [node name="Footer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -163,9 +159,9 @@ custom_constants/separation = 10
 alignment = 2
 
 [node name="Music" type="Button" parent="Footer"]
-margin_left = 1561.0
+margin_left = 1514.0
 margin_top = 19.0
-margin_right = 1611.0
+margin_right = 1564.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_vertical = 4
@@ -185,13 +181,13 @@ expand = true
 stretch_mode = 6
 
 [node name="Settings" type="Button" parent="Footer"]
-margin_left = 1621.0
+margin_left = 1574.0
 margin_top = 19.0
 margin_right = 1717.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
-text = "SETTINGS"
+text = "SETTINGS_LINK"
 flat = true
 script = ExtResource( 11 )
 
@@ -250,8 +246,6 @@ Licenses : This game is published under Open Source License - Affero GPL (AGPL).
 
 2. Music & Sounds
 - Composition & Arrangements / Keyboards - Denis Bled
-- Saxophone - Julien Deforges
-- Drums & Percussions - Alexandre Castera
 
 3. Sponsors
 - BNP Paribas
@@ -285,8 +279,6 @@ Licenses : This game is published under Open Source License - Affero GPL (AGPL).
 
 2. Music & Sounds
 - Composition & Arrangements / Keyboards - Denis Bled
-- Saxophone - Julien Deforges
-- Drums & Percussions - Alexandre Castera
 
 3. Sponsors
 - BNP Paribas

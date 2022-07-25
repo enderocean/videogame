@@ -1,8 +1,8 @@
 keys,en,fr
-OBJECTIVE,Objective,Objectif
-OBJECTIVES,Objectives,Objectifs
-OBJECTIVES_COLON,Objectives :,Objectifs :
-TIME_LEFT,Time left :,Temps restant :
+OBJECTIVE,OBJECTIVE,Objectif
+OBJECTIVES,OBJECTIVES,Objectifs
+OBJECTIVES_COLON,OBJECTIVES :,Objectifs :
+TIME_LEFT,TIME LEFT :,Temps restant :
 OBJECTIVE_GRIPPER_TEXT,Delivered objects with the Gripper,Objets livrés avec la pince
 OBJECTIVE_VACUUM_TEXT,Collected objects with the Vacuum,Objets aspirés
 OBJECTIVE_CUTTER_TEXT,Cut nets ropes with the Cutter,Cordes coupées avec la pince coupante

@@ -67,7 +67,7 @@ func add_objective_target_from(node: Node) -> void:
 	elif node is TrapAnimal:
 		add_objective_target(Globals.ObjectiveType.ANIMAL, 1)
 	elif node is NewFishingNet:
-		add_objective_target(Globals.ObjectiveType.CUTTER, node.cut_areas)
+		add_objective_target(Globals.ObjectiveType.CUTTER, 1) # , node.cut_areas)
 	elif node is DestinationTriggerArea:
 		add_objective_target(Globals.ObjectiveType.DESTINATION, 1)
 	elif node is InputObjective:

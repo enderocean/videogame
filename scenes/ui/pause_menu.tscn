@@ -76,6 +76,7 @@ script = ExtResource( 5 )
 uppercase = true
 
 [node name="Settings" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+visible = false
 margin_top = 64.0
 margin_right = 280.0
 margin_bottom = 124.0

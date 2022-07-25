@@ -71,6 +71,5 @@ rect_min_size = Vector2( 300, 60 )
 size_flags_horizontal = 4
 text = "BACK_TO_MAIN_MENU"
 script = ExtResource( 4 )
-uppercase = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -64,7 +64,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 32
+size = 28
 font_data = ExtResource( 8 )
 
 [sub_resource type="ShaderMaterial" id=5]
@@ -325,22 +325,22 @@ script = ExtResource( 35 )
 [node name="DepthValue" type="Label" parent="HBoxContainer/InformationsPanel/MarginContainer/VBoxContainer"]
 margin_top = 224.0
 margin_right = 150.0
-margin_bottom = 262.0
+margin_bottom = 257.0
 custom_fonts/font = SubResource( 11 )
 text = "-20.2m"
 align = 1
 
 [node name="SpeedLabel" type="Label" parent="HBoxContainer/InformationsPanel/MarginContainer/VBoxContainer"]
-margin_top = 282.0
+margin_top = 277.0
 margin_right = 150.0
-margin_bottom = 304.0
+margin_bottom = 299.0
 text = "SPEED"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/InformationsPanel/MarginContainer/VBoxContainer"]
-margin_top = 324.0
+margin_top = 319.0
 margin_right = 150.0
-margin_bottom = 374.0
+margin_bottom = 369.0
 custom_constants/margin_right = 20
 custom_constants/margin_left = 20
 
@@ -353,17 +353,17 @@ custom_constants/separation = 10
 alignment = 1
 
 [node name="ToolLabel" type="Label" parent="HBoxContainer/InformationsPanel/MarginContainer/VBoxContainer"]
-margin_top = 394.0
+margin_top = 389.0
 margin_right = 150.0
-margin_bottom = 416.0
+margin_bottom = 411.0
 text = "TOOL"
 align = 1
 script = ExtResource( 35 )
 
 [node name="ToolValue" type="Label" parent="HBoxContainer/InformationsPanel/MarginContainer/VBoxContainer"]
-margin_top = 436.0
+margin_top = 431.0
 margin_right = 150.0
-margin_bottom = 474.0
+margin_bottom = 464.0
 custom_fonts/font = SubResource( 11 )
 text = "Gripper"
 align = 1

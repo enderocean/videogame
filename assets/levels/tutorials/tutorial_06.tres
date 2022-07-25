@@ -17,6 +17,6 @@ tools = PoolStringArray(  )
 time = 15
 gripper_objectives_count = 0
 vacuum_objectives_count = 0
-cutter_objectives_count = 4
+cutter_objectives_count = 3
 stars_enabled = false
 stars = PoolIntArray( 900, 600, 300, 180, 60 )
