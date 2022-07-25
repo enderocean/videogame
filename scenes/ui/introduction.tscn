@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/practice.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://assets/training_center.png" type="Texture" id=6]
 [ext_resource path="res://scripts/ui/main_menu.gd" type="Script" id=7]
 [ext_resource path="res://assets/journey.png" type="Texture" id=8]
+[ext_resource path="res://scripts/translations/translated_label.gd" type="Script" id=9]
+[ext_resource path="res://scripts/translations/translated_richtextlabel.gd" type="Script" id=10]
+[ext_resource path="res://scripts/translations/translated_button.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -60,9 +63,10 @@ alignment = 1
 margin_right = 972.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
-text = "Gameplay"
+text = "GAMEPLAY"
 align = 1
 valign = 1
+script = ExtResource( 9 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 42.0
@@ -85,7 +89,8 @@ margin_top = 34.0
 margin_right = 240.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
-text = "1 - Practice"
+text = "01_Title"
+script = ExtResource( 9 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 67.0
@@ -117,7 +122,8 @@ margin_top = 250.0
 margin_right = 240.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 0, 100 )
-text = "Learn the basics to control a ROV - Remotely Operated Vehicle"
+text = "01_Description"
+script = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 354.0
@@ -129,7 +135,8 @@ margin_right = 220.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 220, 60 )
 custom_fonts/font = ExtResource( 4 )
-text = "PRACTICE"
+text = "01_Button"
+script = ExtResource( 11 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 244.0
@@ -147,7 +154,8 @@ margin_top = 34.0
 margin_right = 240.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
-text = "2 - World tour"
+text = "02_Title"
+script = ExtResource( 9 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_top = 67.0
@@ -179,7 +187,8 @@ margin_top = 250.0
 margin_right = 240.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 0, 100 )
-text = "Perform virtual missions and improve your skills in various situations"
+text = "02_Description"
+script = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_top = 354.0
@@ -191,7 +200,8 @@ margin_right = 220.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 220, 60 )
 custom_fonts/font = ExtResource( 4 )
-text = "WORLD TOUR"
+text = "02_Button"
+script = ExtResource( 11 )
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 488.0
@@ -209,7 +219,8 @@ margin_top = 34.0
 margin_right = 240.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
-text = "3 - Driving license"
+text = "03_Title"
+script = ExtResource( 9 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
 margin_top = 67.0
@@ -241,7 +252,8 @@ margin_top = 250.0
 margin_right = 240.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 0, 100 )
-text = "Control a real ROV in our Training Center and get your driving license"
+text = "03_Description"
+script = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
 margin_top = 354.0
@@ -253,7 +265,8 @@ margin_right = 220.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 220, 60 )
 custom_fonts/font = ExtResource( 4 )
-text = "BOOK MY EXAM"
+text = "03_Button"
+script = ExtResource( 11 )
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 732.0
@@ -271,7 +284,8 @@ margin_top = 34.0
 margin_right = 240.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 2 )
-text = "4 - Outdoor missions"
+text = "04_Title"
+script = ExtResource( 9 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 margin_top = 67.0
@@ -303,7 +317,8 @@ margin_top = 250.0
 margin_right = 240.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 0, 100 )
-text = "Participate to our events and collect as many waste as you can"
+text = "04_Description"
+script = ExtResource( 10 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 margin_top = 354.0
@@ -315,7 +330,8 @@ margin_right = 220.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 220, 60 )
 custom_fonts/font = ExtResource( 4 )
-text = "SHOW EVENTS"
+text = "04_Button"
+script = ExtResource( 11 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/CenterContainer/VBoxContainer"]
 margin_top = 460.0

@@ -9,11 +9,14 @@ var buttons_list: VBoxContainer
 func _ready() -> void:
 	buttons_list = get_node(buttons_list_path)
 	
+	var sa = 
+	
+	
 	for i in Globals.tutorials.values().size():
 		var button: Button = button_scene.instance()
 		var level_data: LevelData = Globals.tutorials.values()[i]
 		buttons_list.add_child(button)
-		button.text = tr(level_data.title)
+		button.text = tr(level_data.id).to_upper()
 		button.connect("pressed", self, "_on_button_pressed", [i])
 
 

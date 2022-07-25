@@ -1,3 +1,8 @@
 keys,en,fr
-TUTORIAL_01_TITLE,Tutorial 01 title,Titre du tutoriel 01
-TUTORIAL_01_DESCRIPTION,Tutorial 01 description,Description du tutoriel 01
+tutorial_01,MOVING,MOUVEMENTS
+tutorial_02,SPEED,VITESSE
+tutorial_03,LIGHTS,LUMIÈRES
+tutorial_04,GRIPPER,PINCE
+tutorial_05,VACUUM,ASPIRATEUR
+tutorial_06,CUTTER,CISAILLE
+tutorial_07,MAGNET & GRAPPLING HOOK,AIMANT & GRAPPIN
