@@ -120,14 +120,6 @@ func initialize(level_data: LevelData) -> void:
 	destinations_next_index = 0
 	finished = false
 
-	if level_data:
-		if level_data.gripper_objectives_count > 0:
-			objectives[Globals.ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
-		if level_data.vacuum_objectives_count > 0:
-			objectives[Globals.ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
-		if level_data.cutter_objectives_count > 0:
-			objectives[Globals.ObjectiveType.CUTTER] = level_data.cutter_objectives_count
-
 	# Connect to all objectives nodes
 	for node in get_tree().get_nodes_in_group("objectives_nodes"):
 		if node is DeliveryArea:
@@ -160,22 +152,17 @@ func initialize(level_data: LevelData) -> void:
 	# Check for ObjectiveTags in the scene
 	for node in get_tree().get_nodes_in_group("objective_tags"):
 		if node is ObjectiveTag:
-			var parent = node.get_parent()
-			if parent is DeliveryObject:
-				# Check if a fixed number is set for the following objectives, ignore it if set
-				match parent.objective_type:
-					Globals.ObjectiveType.GRIPPER:
-						if level_data.gripper_objectives_count > 0:
-							continue
-					Globals.ObjectiveType.VACUUM:
-						if level_data.vacuum_objectives_count > 0:
-							continue
-					Globals.ObjectiveType.CUTTER:
-						if level_data.cutter_objectives_count > 0:
-							continue
-			
 			# Add to the target objectives
 			add_objective_target_from(node.get_parent())
+	
+	# Set correct objectives count from the level_data
+	if level_data:
+		if level_data.gripper_objectives_count > 0:
+			objectives[Globals.ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
+		if level_data.vacuum_objectives_count > 0:
+			objectives[Globals.ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
+		if level_data.cutter_objectives_count > 0:
+			objectives[Globals.ObjectiveType.CUTTER] = level_data.cutter_objectives_count
 
 
 func get_objective_text(objective_type) -> String:
