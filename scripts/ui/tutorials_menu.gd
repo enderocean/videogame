@@ -9,12 +9,15 @@ var buttons_list: VBoxContainer
 func _ready() -> void:
 	buttons_list = get_node(buttons_list_path)
 	
-	var sa = 
+	# Sort tutorials by id
+	var sorted_tutorials_id: Array = Globals.tutorials.keys()
+	sorted_tutorials_id.sort()
 	
-	
-	for i in Globals.tutorials.values().size():
+	# Create tutorials button
+	for i in range(sorted_tutorials_id.size()):
+		var tutorial_id: String = sorted_tutorials_id[i]
 		var button: Button = button_scene.instance()
-		var level_data: LevelData = Globals.tutorials.values()[i]
+		var level_data: LevelData = Globals.tutorials.get(tutorial_id)
 		buttons_list.add_child(button)
 		button.text = tr(level_data.id).to_upper()
 		button.connect("pressed", self, "_on_button_pressed", [i])
