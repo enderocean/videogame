@@ -159,11 +159,18 @@ func initialize(level_data: LevelData) -> void:
 	if level_data:
 		if level_data.gripper_objectives_count > 0:
 			objectives[Globals.ObjectiveType.GRIPPER] = level_data.gripper_objectives_count
+		elif level_data.gripper_objectives_count == 0:
+			objectives.erase(Globals.ObjectiveType.GRIPPER)
+		
 		if level_data.vacuum_objectives_count > 0:
 			objectives[Globals.ObjectiveType.VACUUM] = level_data.vacuum_objectives_count
+		elif level_data.vacuum_objectives_count == 0:
+			objectives.erase(Globals.ObjectiveType.VACUUM)
+		
 		if level_data.cutter_objectives_count > 0:
 			objectives[Globals.ObjectiveType.CUTTER] = level_data.cutter_objectives_count
-
+		elif level_data.cutter_objectives_count == 0:
+			objectives.erase(Globals.ObjectiveType.CUTTER)
 
 func get_objective_text(objective_type) -> String:
 	match objective_type:

@@ -16,7 +16,7 @@ export var tools: PoolStringArray
 # Time in minutes
 export var time: int = 15
 
-# For each objectives count vars, if it's value is 0, it will look for Delivery objects in the level instead with an ObjectiveTag instead
+# For each objectives count vars, if it's value is -1, it will look for Delivery objects in the level instead with an ObjectiveTag instead
 # This gives more freedom on doing different approach for the same type of objective
 export var gripper_objectives_count: int = 0
 export var vacuum_objectives_count: int = 0
