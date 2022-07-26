@@ -590,14 +590,6 @@ material = SubResource( 52 )
 
 [node name="level_15" type="Spatial"]
 script = ExtResource( 15 )
-objectives_target = {
-"animal": 0,
-"cutter": 0,
-"grappling_hook": 1,
-"gripper": 1,
-"magnet": 0,
-"vacuum": 0
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 37 )
@@ -615,7 +607,6 @@ script = ExtResource( 21 )
 
 [node name="water" parent="." instance=ExtResource( 6 )]
 transform = Transform( 128, 0, 0, 0, 64, 0, 0, 0, 128, 0.443, 16.0103, -0.292 )
-visible = false
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.615483, 0.78815, 0, -0.78815, 0.615483, 0, 33.518, -56 )

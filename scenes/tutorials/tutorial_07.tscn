@@ -38,7 +38,7 @@ _data = {
 
 [sub_resource type="Curve3D" id=29]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.07964, 1.00127, -1.33365, 0, 0, 0, 0, 0, 0, 8.35992, 2.02562, -1.39162, 0, 0, 0, 0, 0, 0, 12.9145, 4.11417, -1.93025, 0, 0, 0, 0, 0, 0, 16.7893, 7.33286, -2.79143, 0, 0, 0, 0, 0, 0, 18.3207, 9.85962, -2.90651 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -11.544, 1.78366, -1.24126, 0, 0, 0, 0, 0, 0, 8.35992, 2.02562, -1.39162, 0, 0, 0, 0, 0, 0, 12.9145, 4.11417, -1.93025, 0, 0, 0, 0, 0, 0, 16.7893, 7.33286, -2.79143, 0, 0, 0, 0, 0, 0, 18.3207, 9.85962, -2.90651 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
@@ -113,12 +113,14 @@ curve = SubResource( 29 )
 from = NodePath("../MagnetDeliveryTool")
 to = NodePath("../Ender Station/MagnetTheterAnchor")
 destination_path = NodePath("../Ender Station/PullDestination")
+pulling_speed = 100.0
 
 [node name="GrapplingHookPullingTheter" parent="." instance=ExtResource( 11 )]
 curve = SubResource( 30 )
 from = NodePath("../GrapplingHookDeliveryTool")
 to = NodePath("../Ender Station/GrapplingHookTheterAnchor")
 destination_path = NodePath("../Ender Station/PullDestination")
+pulling_speed = 100.0
 
 [node name="Ads_panel_01" type="MeshInstance" parent="."]
 transform = Transform( 1.50996e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 2, 7.54979e-08, -6.60024e-15, 19.348, 3, -1.73744 )

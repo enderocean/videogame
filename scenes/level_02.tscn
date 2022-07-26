@@ -149,7 +149,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 25 )
-shader_param/timer = 514.425
+shader_param/timer = 13.0195
 shader_param/twist_factor = -0.51
 shader_param/twist_factor_frequency = -5.0
 shader_param/s_factor = 0.38
@@ -212,13 +212,6 @@ extents = Vector3( 4.19099, 2.05776, 4.32709 )
 
 [node name="level_02" type="Spatial"]
 script = ExtResource( 13 )
-objectives_target = {
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 0,
-"magnet": 0,
-"vacuum": 50
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 24 )
