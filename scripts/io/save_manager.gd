@@ -6,6 +6,7 @@ var tutorials: Dictionary = {}
 var levels: Dictionary = {}
 var collectibles: Dictionary = {}
 var settings: Dictionary = {}
+var user: Dictionary = {}
 
 var default_settings: Dictionary = {
 		"graphics": {
@@ -46,6 +47,7 @@ func load_data() -> void:
 	levels = data.get("levels", levels)
 	collectibles = data.get("collectibles", collectibles)
 	settings = data.get("settings", settings)
+	user = data.get("user", user)
 	file.close()
 	print("Loaded data from ", ProjectSettings.globalize_path(SAVE_FILE))
 
@@ -62,6 +64,7 @@ func save_data() -> void:
 	data["levels"] = levels
 	data["collectibles"] = collectibles
 	data["settings"] = settings
+	data["user"] = user
 	
 	file.store_var(data, true)
 	file.close()

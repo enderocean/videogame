@@ -25,19 +25,12 @@ func _init(username: String, level: String, time: int, score: int) -> void:
 	self.score = score
 
 
-func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var can_parse: bool = check_result(result)
-	if not can_parse:
-		errors.append(result)
-		emit_signal("failed")
-		return
-	
-	var json: Dictionary = parse_json(body.get_string_from_utf8())
+func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:	
 	match response_code:
 		200:
 			emit_signal("success")
 		_:
+			var json: Dictionary = parse_json(body.get_string_from_utf8())
 			if json.has("error"):
-				errors = [json.error, json.error_description]
-				print("returned: ", errors)
+				error = json.error
 			emit_signal("failed")

@@ -6,13 +6,12 @@ var password: String
 
 
 func request() -> void:
-	errors.clear()
 	var url: String = str(APIManager.URL_LOGIN, "wp-json/wp/v2/posts")
 	var headers: PoolStringArray = [
-		str("Authentification: Basic base64encoded ", Marshalls.utf8_to_base64("%s:%s" % [username, password]))
+		str("Authorization:Basic ", Marshalls.utf8_to_base64("%s:%s" % [username, password]))
 	]
 	print(headers)
-	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_POST)
+	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_GET)
 	if error != OK:
 		printerr("Error occured while executing auth request")
 
@@ -23,18 +22,15 @@ func _init(username: String, password: String) -> void:
 
 
 func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var can_parse: bool = check_result(result)
-	if not can_parse:
-		errors.append(result)
-		emit_signal("failed")
-		return
-	
-	var json: Dictionary = parse_json(body.get_string_from_utf8())
 	match response_code:
 		200:
-			emit_signal("success")
+			emit_signal("completed", true)
 		_:
+			var json: Dictionary = parse_json(body.get_string_from_utf8())
 			if json.has("error"):
-				errors = [json.error, json.error_description]
-				print("returned: ", errors)
-			emit_signal("failed")
+				error = json.error
+			emit_signal("completed", false)
+	
+	# Reset values
+	username = ""
+	password = ""
