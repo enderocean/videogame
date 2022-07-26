@@ -27,20 +27,6 @@ export var stars_enabled: bool = true
 # e.g. The player needs to complete the level in 60 seconds to have 5 stars (without any penalities)
 export var stars: PoolIntArray = [900, 600, 300, 180, 60]
 
-# TODO: Get the translation in the UI code instead
-#func _ready() -> void:
-#	# Apply translations
-#	title = tr(title)
-#	country = tr(country)
-#	location = tr(location)
-#	description = tr(description)
-#
-#	for i in range(objectives.size()):
-#		objectives[i] = tr(objectives[i])
-#
-#	for i in range(tools.size()):
-#		tools[i] = tr(tools[i])
-
 
 static func get_levels(path: String) -> Dictionary:
 	if not Globals.is_valid_directory_path(path):

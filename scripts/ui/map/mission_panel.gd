@@ -27,17 +27,17 @@ func show_mission(level_data: LevelData, can_start: bool) -> void:
 	if level_data.thumbnail:
 		thumbnail.texture = load(level_data.thumbnail)
 	
-	country.text = level_data.country
-	location.text = level_data.location
-	description.bbcode_text = level_data.description
+	country.text = tr(level_data.country)
+	location.text = tr(level_data.location)
+	description.bbcode_text = tr(level_data.description)
 	
 	objective.bbcode_text = tr("OBJECTIVES") + ":\n"
 	for text in level_data.objectives:
-		objective.bbcode_text += " - " + text + "\n"
+		objective.bbcode_text += " - " + tr(text) + "\n"
 	
 	tools.bbcode_text = tr("TOOLS") + ": "
 	for i in range(level_data.tools.size()):
-		tools.bbcode_text += level_data.tools[i]
+		tools.bbcode_text += tr(level_data.tools[i])
 
 		if i < level_data.tools.size() - 1:
 			tools.bbcode_text += ", "
