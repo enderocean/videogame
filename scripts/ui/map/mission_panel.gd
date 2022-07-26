@@ -22,6 +22,17 @@ onready var tools: RichTextLabel = get_node(tools_path)
 export var start_button_path: NodePath
 onready var start_button: Button = get_node(start_button_path)
 
+export var account_state_label_path: NodePath
+onready var account_state_label: Label = get_node(account_state_label_path)
+
+
+func _ready() -> void:
+	if SaveManager.user.empty():
+		account_state_label.text = tr("YOU_ARE_NOT_CONNECTED")
+		return
+	
+	account_state_label.text = tr("YOU_ARE_CONNECTED")
+
 
 func show_mission(level_data: LevelData, can_start: bool) -> void:
 	if level_data.thumbnail:
