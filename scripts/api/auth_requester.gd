@@ -10,7 +10,10 @@ func request() -> void:
 	var headers: PoolStringArray = [
 		str("Authorization:Basic ", Marshalls.utf8_to_base64("%s:%s" % [username, password]))
 	]
+	
+	print(url)
 	print(headers)
+	
 	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_GET)
 	if error != OK:
 		printerr("Error occured while executing auth request")
@@ -22,6 +25,10 @@ func _init(username: String, password: String) -> void:
 
 
 func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	._on_request_completed(result, response_code, headers, body)
+	if not result == HTTPRequest.RESULT_SUCCESS:
+		return
+	
 	match response_code:
 		200:
 			emit_signal("completed", true)
