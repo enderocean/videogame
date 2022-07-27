@@ -75,8 +75,7 @@ But even worst, malfunctions from the oil extracting industry has caused leakage
 ","Le lac Maracaibo a fait l'objet de beaucoup de négligence : comme beaucoup d'autres endroits, les déchets des villes environnantes y ont été piégés.
 
 Mais pire encore, les dysfonctionnements de l'industrie de l'extraction pétrolière ont provoqué des fuites. Le lac est devenu une mer noire permanente qui affecte tous les plastiques et se déverse dans la mer des Caraïbes."
-LEVEL_09_OBJECTIVES_01,Catch 4 plastics,Attrapez 4 plastiques
-LEVEL_09_OBJECTIVES_02,Retrieve micro-platics bullets,Récupérez les balles en micro-plastique
+LEVEL_09_OBJECTIVES_01,Retrieve micro-platics bullets,Récupérez les balles en micro-plastique
 LEVEL_10_COUNTRY,CUBA,CUBA
 LEVEL_10_LOCATION,#10 - Havana river,#10 - Rivière La Havane
 LEVEL_10_DESCRIPTION,"The Quibú river spans over 30km in Havana and is commonly used as a trashbin along its course. Plastic accumulates so much that it even create small plastic islands before they reach the sea.
@@ -110,6 +109,7 @@ Some items felt down in the river during construction. It's time to bring them b
 Certains objets sont tombés dans la rivière pendant la construction. Il est temps de les ramener à la surface et de nettoyer la zone."
 LEVEL_13_OBJECTIVES_01,Put the magnet on the car to remove it,Mettez l'aimant sur la voiture pour le retirer
 LEVEL_13_OBJECTIVES_02,Collect bottles,Collecter les bouteilles
+LEVEL_13_OBJECTIVES_03,Find the ring,Trouver la bague
 LEVEL_14_COUNTRY,SINGAPORE,SINGAPOUR
 LEVEL_14_LOCATION,#14 - Straits of Singapore,#14 - Détroit de Singapour
 LEVEL_14_DESCRIPTION,"Clean the area of island. Remove all plastics in the zone. It's a pledge for the animals.

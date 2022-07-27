@@ -244,9 +244,9 @@ func _on_collectible_obtained(id: String) -> void:
 	var collectible: CollectibleData = Globals.collectibles.get(id)
 	if not collectible:
 		return
-	
-	collectible_popup.title.text = collectible.title
-	collectible_popup.description.bbcode_text = collectible.description
+
+	collectible_popup.title.text = tr(collectible.title)
+	collectible_popup.description.bbcode_text = tr(collectible.description)
 	if collectible.image:
 		collectible_popup.image.texture = load(collectible.image)
 	

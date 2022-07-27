@@ -11,3 +11,4 @@ onready var image: TextureRect = get_node(image_path)
 
 func _on_Continue_pressed() -> void:
 	hide()
+

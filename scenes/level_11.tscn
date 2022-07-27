@@ -278,14 +278,6 @@ height = 0.340111
 
 [node name="level_11" type="Spatial"]
 script = ExtResource( 1 )
-objectives_target = {
-"animal": 0,
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 6,
-"magnet": 0,
-"vacuum": 0
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 66 )
