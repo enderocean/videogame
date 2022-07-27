@@ -7,13 +7,18 @@ var time: int
 var score: int
 
 func request() -> void:
-	var url: String = str(APIManager.URL_LOGIN, "wp-json/wp/v2/posts")
+	var url: String = str(APIManager.url_leaderboard, "api/leaderboard/?token=", APIManager.token_leaderboard)
 	var headers: PoolStringArray = [
-		str("Authentification: Basic base64encoded ", Marshalls.utf8_to_base64("%s:%s" % [APIManager.KEY, APIManager.SECRET])),
 		"Content-Type: application/json",
 	]
+	var json: String = JSON.print({
+		"f_player": username,
+		"f_level": level,
+		"f_time": time,
+		"f_score": score
+	})
 	print(headers)
-	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_POST)
+	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_POST, json)
 	if error != OK:
 		printerr("Error occured while executing score request")
 

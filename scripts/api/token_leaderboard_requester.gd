@@ -1,14 +1,13 @@
 extends "res://scripts/api/requester.gd"
-class_name AuthRequester
+class_name TokenLeaderboardRequester
 
-var username: String
-var password: String
-
+var token: String
 
 func request() -> void:
-	var url: String = str(APIManager.login_url, "wp-json/wp/v2/posts")
+	var url: String = str(APIManager.leaderboard_url, "api/getToken")
 	var headers: PoolStringArray = [
-		str("Authorization:Basic ", Marshalls.utf8_to_base64("%s:%s" % [username, password]))
+		"Content-Type: application/json",
+		str("Authorization: Basic ", Marshalls.utf8_to_base64("%s:%s" % [APIManager.leaderboard_key, APIManager.leaderboard_secret]))
 	]
 	print(headers)
 	var error: int = http_request.request(url, headers, APIManager.SSL_VALIDATE_DOMAIN, HTTPClient.METHOD_GET)
@@ -16,21 +15,16 @@ func request() -> void:
 		printerr("Error occured while executing auth request")
 
 
-func _init(username: String, password: String) -> void:
-	self.username = username
-	self.password = password
-
-
 func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var json: Dictionary = parse_json(body.get_string_from_utf8())
 	match response_code:
 		200:
+			if not json.has("token"):
+				printerr("Token not found in the response JSON.")
+				return
+			token = json.token
 			emit_signal("completed", true)
 		_:
-			var json: Dictionary = parse_json(body.get_string_from_utf8())
 			if json.has("error"):
 				error = json.error
 			emit_signal("completed", false)
-	
-	# Reset values
-	username = ""
-	password = ""
