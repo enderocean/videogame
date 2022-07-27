@@ -2,11 +2,11 @@ extends Node
 
 static func get_vehicle_tool_text(vehicle_tool) -> String:
 	if vehicle_tool is GripperTool:
-		return "GRIPPER"
+		return "TOOL_GRIPPER"
 	elif vehicle_tool is VacuumTool:
-		return "VACUUM"
+		return "TOOL_VACUUM"
 	elif vehicle_tool is CutterTool:
-		return "CUTTER"
+		return "TOOL_CUTTER"
 	return ""
 
 
