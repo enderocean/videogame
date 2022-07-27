@@ -14,6 +14,10 @@ export var level_buttons_path: NodePath
 export var settings_path: NodePath
 onready var settings: Control = get_node(settings_path)
 
+export var disconnect_button_path: NodePath
+onready var disconnect_button: Button = get_node(disconnect_button_path)
+
+
 var playback_position: float
 
 
@@ -31,9 +35,15 @@ func find_external_levels():
 	create_level_buttons(levels)
 
 
+func set_disconnect_button(visible: bool) -> void:
+	disconnect_button.visible = visible
+	disconnect_button.disabled = not visible
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #	find_external_levels()
+	set_disconnect_button(not SaveManager.user.empty())
 	pass
 
 
@@ -50,7 +60,12 @@ func _on_Practice_pressed() -> void:
 
 
 func _on_Campaign_pressed() -> void:
-	SceneLoader.load_scene("res://scenes/ui/login.tscn")
+	# User is not connected
+	if SaveManager.user.empty():
+		SceneLoader.load_scene("res://scenes/ui/login.tscn")
+		return
+	
+	SceneLoader.load_scene("res://scenes/ui/missions.tscn")
 
 
 func _on_Music_pressed():
@@ -86,3 +101,9 @@ func _on_settings_pressed() -> void:
 
 func _on_Close_Gameplay_pressed():
 	SceneLoader.load_scene("res://scenes/ui/menu.tscn")
+
+
+func _on_disconnect_pressed() -> void:
+	SaveManager.user.clear()
+	SaveManager.save_data()
+	set_disconnect_button(false)

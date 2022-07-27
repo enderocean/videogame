@@ -1,36 +1,30 @@
 extends Node
 
 var http_request: HTTPRequest
-var errors: Array
+var error: String
 
 signal completed(success)
 signal success()
 signal failed()
 
 func request() -> void:
-	pass
+	error = ""
 
 
 func check_result(result: int) -> bool:
-	match result:
-		HTTPRequest.RESULT_SUCCESS:
-			print("SUCCESS")
-			return true
-		HTTPRequest.RESULT_REQUEST_FAILED:
-			printerr(get_class(), "REQUEST_FAILED")
-		HTTPRequest.RESULT_TIMEOUT:
-			printerr("TIMEOUT")
-		HTTPRequest.RESULT_BODY_SIZE_LIMIT_EXCEEDED:
-			printerr("BODY_SIZE_LIMIT_EXCEEDED")
-	return false
+	return result == HTTPRequest.RESULT_SUCCESS
 
 
 func _ready() -> void:
 	# Execute request
-	var http_request: HTTPRequest = HTTPRequest.new()
-	http_request.connect("request_completed", self, "_on_request_auth_completed")
+	http_request = HTTPRequest.new()
+	http_request.connect("request_completed", self, "_on_request_completed")
 	add_child(http_request)
 
 
 func _on_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	http_request.queue_free()
+	var can_parse: bool = check_result(result)
+	if not can_parse:
+		error = HTTPRequest.Result.keys()[result]
+		emit_signal("failed", false)
+		return

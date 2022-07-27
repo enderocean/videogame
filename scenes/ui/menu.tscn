@@ -39,6 +39,7 @@ music_icon_path = NodePath("Footer/Music/Icon")
 licences_popup_path = NodePath("LicencesDialog")
 level_buttons_path = NodePath("HBoxContainer/LevelButtons")
 settings_path = NodePath("Settings")
+disconnect_button_path = NodePath("Footer/Disconnect")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -159,9 +160,9 @@ custom_constants/separation = 10
 alignment = 2
 
 [node name="Music" type="Button" parent="Footer"]
-margin_left = 1514.0
+margin_left = 1381.0
 margin_top = 19.0
-margin_right = 1564.0
+margin_right = 1431.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_vertical = 4
@@ -181,9 +182,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Settings" type="Button" parent="Footer"]
-margin_left = 1574.0
+margin_left = 1441.0
 margin_top = 19.0
-margin_right = 1717.0
+margin_right = 1584.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
@@ -192,13 +193,24 @@ flat = true
 script = ExtResource( 11 )
 
 [node name="Credits" type="Button" parent="Footer"]
-margin_left = 1727.0
+margin_left = 1594.0
+margin_top = 19.0
+margin_right = 1678.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 4
+text = "CREDITS"
+flat = true
+script = ExtResource( 11 )
+
+[node name="Disconnect" type="Button" parent="Footer"]
+margin_left = 1688.0
 margin_top = 19.0
 margin_right = 1811.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 4
-text = "CREDITS"
+text = "DISCONNECT"
 flat = true
 script = ExtResource( 11 )
 
@@ -315,5 +327,6 @@ bus = "Music"
 [connection signal="pressed" from="Footer/Music" to="." method="_on_Music_pressed"]
 [connection signal="pressed" from="Footer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Footer/Credits" to="." method="_on_licences_pressed"]
+[connection signal="pressed" from="Footer/Disconnect" to="." method="_on_disconnect_pressed"]
 [connection signal="pressed" from="Footer/Close" to="." method="_on_Close_pressed"]
 [connection signal="meta_clicked" from="LicencesDialog/RichTextLabel" to="LicencesDialog" method="_on_meta_clicked"]
