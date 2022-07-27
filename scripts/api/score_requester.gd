@@ -12,7 +12,7 @@ func request() -> void:
 		"Content-Type: application/json",
 	]
 	var json: String = JSON.print({
-		"f_player": username,
+		"f_login": username,
 		"f_niveau": level,
 		"f_temps": time,
 		"f_score": score
