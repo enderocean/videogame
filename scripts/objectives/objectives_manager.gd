@@ -172,6 +172,7 @@ func initialize(level_data: LevelData) -> void:
 		elif level_data.cutter_objectives_count == 0:
 			objectives.erase(Globals.ObjectiveType.CUTTER)
 
+
 func get_objective_text(objective_type) -> String:
 	match objective_type:
 		Globals.ObjectiveType.GRIPPER:
