@@ -73,7 +73,7 @@ margin_bottom = 1075.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer"]
 margin_right = 433.0
-margin_bottom = 855.0
+margin_bottom = 829.0
 size_flags_vertical = 3
 custom_constants/margin_right = 25
 custom_constants/margin_top = 5
@@ -83,7 +83,7 @@ custom_constants/margin_left = 25
 margin_left = 25.0
 margin_top = 5.0
 margin_right = 408.0
-margin_bottom = 855.0
+margin_bottom = 829.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
@@ -121,7 +121,7 @@ autowrap = true
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 312.0
 margin_right = 383.0
-margin_bottom = 850.0
+margin_bottom = 824.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
@@ -169,13 +169,18 @@ text = "Tools : Claw, Vacuum Cleaner, Lights"
 fit_content_height = true
 
 [node name="AccountState" type="Label" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer"]
-margin_top = 859.0
+margin_top = 833.0
 margin_right = 433.0
-margin_bottom = 878.0
+margin_bottom = 852.0
 custom_fonts/font = ExtResource( 5 )
 text = "account state"
 align = 1
 autowrap = true
+
+[node name="EmptyLabel" type="Label" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer"]
+margin_top = 856.0
+margin_right = 433.0
+margin_bottom = 878.0
 
 [node name="StartMission" type="Button" parent="HBoxContainer/MissionPanel/MarginContainer/VBoxContainer"]
 margin_top = 882.0
