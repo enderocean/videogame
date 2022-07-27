@@ -29,6 +29,9 @@ LOGIN,LOGIN,Se connecter
 CONTINUE_WITHOUT_LOGIN,CONTINUE WITHOUT LOGIN,Continuer sans se connecter
 USERNAME,USERNAME,Nom d’utilisateur
 PASSWORD,PASSWORD,Mot de passe
+DISCONNECT,Logout,Se déconnecter
+YOU_ARE_CONNECTED,Logged in,Connecté au serveur
+YOU_ARE_NOT_CONNECTED,Not logged in,Non connecté au serveur
 01_Title,01 - Practice,01 - Entraînement
 01_Description,"Learn the basics to control a ROV - Remotely Operated Vehicle","Apprenez à piloter un robot sous-marin"
 01_Button,PRACTICE,PRACTICE
