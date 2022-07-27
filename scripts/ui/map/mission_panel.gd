@@ -31,7 +31,7 @@ func _ready() -> void:
 		account_state_label.text = tr("YOU_ARE_NOT_CONNECTED")
 		return
 	
-	account_state_label.text = tr("YOU_ARE_CONNECTED")
+	account_state_label.text = tr("YOU_ARE_CONNECTED").format({"username": SaveManager.user.username})
 
 
 func show_mission(level_data: LevelData, can_start: bool) -> void:

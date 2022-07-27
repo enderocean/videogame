@@ -30,10 +30,10 @@ CONTINUE_WITHOUT_LOGIN,CONTINUE WITHOUT LOGIN,Continuer sans se connecter
 USERNAME,USERNAME,Nom d’utilisateur
 PASSWORD,PASSWORD,Mot de passe
 DISCONNECT,Logout,Se déconnecter
-YOU_ARE_CONNECTED,Logged in,Connecté au serveur
+YOU_ARE_CONNECTED,Logged in as : {username},Connecté en tant que : {username}
 YOU_ARE_NOT_CONNECTED,Not logged in,Non connecté au serveur
 01_Title,01 - Practice,01 - Entraînement
-01_Description,"Learn the basics to control a ROV - Remotely Operated Vehicle","Apprenez à piloter un robot sous-marin"
+01_Description,Learn the basics to control a ROV - Remotely Operated Vehicle,Apprenez à piloter un robot sous-marin
 01_Button,PRACTICE,PRACTICE
 02_Title,2 - World tour,2 - Tour du monde
 02_Description,Perform virtual missions and improve your skills in various situations,Effectuez des missions virtuelles et améliorez vos compétences de pilotage
@@ -42,7 +42,7 @@ YOU_ARE_NOT_CONNECTED,Not logged in,Non connecté au serveur
 03_Description,Control a real ROV in our Training Center and get your driving license,Contrôlez un vrai robot dans notre Centre d'entraînement et obtenez votre permis de conduire
 03_Button,BOOK MY EXAM,PERMIS DE CONDUIRE
 04_Title,04 - Outdoor missions,04 - Missions réelles
-04_Description,"Participate to our events and collect as many waste as you can","Participez à nos événements et collectez un maximum de déchets"
+04_Description,Participate to our events and collect as many waste as you can,Participez à nos événements et collectez un maximum de déchets
 04_Button,SHOW EVENTS,EVENEMENTS
 HELP,"
 H - Toggle Help (this)
