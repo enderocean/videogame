@@ -44,3 +44,41 @@ YOU_ARE_NOT_CONNECTED,Not logged in,Non connecté au serveur
 04_Title,04 - Outdoor missions,04 - Missions réelles
 04_Description,"Participate to our events and collect as many waste as you can","Participez à nos événements et collectez un maximum de déchets"
 04_Button,SHOW EVENTS,EVENEMENTS
+HELP,"
+H - Toggle Help (this)
+ESC - Pause menu
+
+ROV:
+Z (or W) / S: Forward/Backwards
+Q (or A) / D: Strafe left/right
+Up: Rise
+Down: Dive
+Left/Right: Yaw left/right
+L/M: Camera tilt down/up
+A (or Q) / E: Open/close gripper
+F1/F2: Decrease/Increase speed
+F3/F4: Decrease/Increase lights
+U: Change tool
+
+C - Free external camera <> Vehicle
+To use free external camera:
+Hold left button + A/W/S/D + Q/E
+","H - Afficher l'aide (cette page)
+ESC - Menu Pause
+
+ROV :
+Z (ou W) / S : Avant/Arrière
+Q (ou A) / D : Déplacement gauche/droite
+Vers le haut : Remonter vers la surface
+Vers le bas : Plonger
+Gauche/Droite : Tourner à gauche/droite
+L/M : Inclinaison de la caméra vers le bas/haut
+A (ou Q) / E : Ouvrir/fermer la pince
+F1/F2 : Diminuer/Augmenter la vitesse
+F3/F4 : Diminuer/Augmenter les lumières
+U : Changer d'outil
+
+C - Caméra externe libre <> Véhicule
+Pour utiliser la caméra externe :
+Maintenez le bouton gauche + A/W/S/D + Q/E
+"

@@ -177,25 +177,7 @@ margin_bottom = 479.0
 margin_right = 279.0
 margin_bottom = 472.0
 rect_pivot_offset = Vector2( -32, 6 )
-text = "H - Toggle Help (this)
-ESC - Pause menu
-
-ROV:
-Z (or W) / S: Forward/Backwards
-Q (or A) / D: Yaw left/right
-Up: Rise
-Down: Dive
-Left/Right: Strafe left/right
-L/M: Camera tilt down/up
-A (or Q) / E: Open/close gripper
-F1/F2: Increase/decrease speed
-F3/F4: Increase/decrease lights
-U: Change tool
-
-C - Free external camera <> Vehicle
-To use free external camera:
-Hold left button + A/W/S/D + Q/E
-"
+text = "HELP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -412,7 +394,6 @@ label_path = NodePath("../TimerLabel")
 [node name="PauseMenu" parent="." instance=ExtResource( 9 )]
 
 [node name="CollectiblePopup" parent="." instance=ExtResource( 12 )]
-visible = false
 
 [node name="TimerLabel" type="Label" parent="."]
 anchor_right = 1.0
