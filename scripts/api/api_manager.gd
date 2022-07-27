@@ -108,6 +108,7 @@ func _ready() -> void:
 			section = "LEADERBOARD_TEST"
 		
 		# Get values from the config file
+		login_url = config.get_value("LOGIN", "url", "")
 		leaderboard_url = config.get_value(section, "url", "")
 		leaderboard_key = config.get_value(section, "key", "")
 		leaderboard_secret = config.get_value(section, "secret", "")
