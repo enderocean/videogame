@@ -1,3 +1,144 @@
 keys,en,fr
-LEVEL_01_TITLE,Level 01 title,Titre du niveau 01
-LEVEL_01_DESCRIPTION,Level 01 description,Description du niveau 01
+LEVEL_01_COUNTRY,UNITED KINGDOM,ROYAUME-UNI
+LEVEL_01_LOCATION,#1 - The Bristol Channel,#1 - Le Canal de Bristol
+LEVEL _01_DESCRIPTION,"Back in 1997, the Tokio Express cargo got caught in the middle of a storm and lost most of its containers at sea. While the majority stayed intact in the sea bed, some of them were breached and leaked their content into the ocean.
+
+We’ve localized one that contained many legos and other plastic toys. Ironically, most of them had a nautical theme.
+","En 1997, la cargaison Tokio Express a été prise au milieu d'une tempête et a perdu la plupart de ses conteneurs en mer. Alors que la majorité est restée intacte dans le fond marin, certains d'entre eux ont été percés et ont laissé échapper leur contenu dans l'océan.
+
+Nous en avons localisé un qui contenait de nombreux legos et autres jouets en plastique. Ironiquement, la plupart d'entre eux avaient un thème nautique."
+LEVEL_01_OBJECTIVES_01,Find the lost container,Retrouvez le conteneur perdu
+LEVEL_01_OBJECTIVES_02,Clean it of the plastic it still contains,Nettoyez le de tout le plastique qu'il contient encore
+LEVEL_01_TOOLS_01,Vacuum Cleaner,Aspirateur
+LEVEL_01_TOOLS_02,Lights,Lumières
+LEVEL_02_COUNTRY,GERMANY,ALLEMAGNE
+LEVEL_02_LOCATION,#2 - The Rhine,#2 - Le Rhin
+LEVEL_02_DESCRIPTION,"Each day, over 191.6 million microplastics are discharged towards the North Sea from the Rhine due to the many industries set around it. It’s hard to realize what that means, so we’ll send you see it yourself.
+
+Your task will be to collect at least 50 microbullets in 4 minutes.
+","Chaque jour, plus de 191,6 millions de microplastiques sont rejetés vers la mer du Nord depuis le Rhin en raison des nombreuses industries installées dans la zone. Il est difficile de réaliser ce que cela signifie, alors nous vous envoyons sur site pour le constater par vous-même.
+
+Votre tâche sera de collecter au moins 50 microbilles de plastique en 4 minutes."
+LEVEL_02_OBJECTIVES_01,Collect as many microplastics as you can,Collectez autant de micro-plastiques que vous pouvez
+LEVEL_02_OBJECTIVES_02,Have fun!,Amusez-vous!
+LEVEL_03_COUNTRY,FRANCE,FRANCE
+LEVEL_03_LOCATION,#3 - Bordeaux stone quarry,#3 - Carrière de pierre Bordelaise
+LEVEL_03_DESCRIPTION,"Still in 2022, many quaries near Bordeaux are invaded by savage pollution. Authorities do not know anymore how to fight against incivilities. 
+
+Please help to clean the area ! And be careful with algues...
+","Toujours en 2022, de nombreuses carrières près de Bordeaux sont envahies par une pollution sauvage. Les autorités ne savent plus comment lutter contre les incivilités.
+
+S'il vous plaît, aidez-nous à nettoyer la zone ! Et faîtes attention aux algues..."
+LEVEL_03_OBJECTIVES_01,Collect 4 items,Collectez 4 objets
+LEVEL_03_OBJECTIVES_02,Drop it into the net,Déposez-les dans le filet
+LEVEL_04_COUNTRY,FRANCE,FRANCE
+LEVEL_04_LOCATION,#4 - The Marseille Bay,#4 - La baie de Marseille
+LEVEL_04_DESCRIPTION,"Marseille is considered the 10th most polluted coastal town in the Mediterannean sea. This issue can get problematic in many unexpected ways : for environment as well as human activities.
+
+We’ve been asked to localize and deal with
+a disturbance on an underwater cable in the area. These cables connect Europe with many other continents online, it would cause a lot of trouble if they were damaged.
+","Marseille est considérée comme la 10ème ville côtière la plus polluée de la mer Méditerranée. Cette question peut devenir problématique de bien des manières, pour l'environnement comme pour les activités humaines.
+
+Nous avons été mandatés pour traiter une perturbation sur un câble sous-marin dans la zone. Ces câbles relient l'Europe à de nombreux autres continents en ligne, cela causerait beaucoup de problèmes s'ils étaient endommagés."
+LEVEL_04_OBJECTIVES_01,Find what cause the cable to beunstable,Trouvez ce qui rend le câble instable
+LEVEL_04_OBJECTIVES_02,Collect items on the way,Collectez des objets sur la route
+LEVEL_05_COUNTRY,EGYPT,EGYPTE
+LEVEL_05_LOCATION,#5 - The Nile Delta,#5 - Le Delta du Nil
+LEVEL_05_DESCRIPTION,"With all of its population living accross the Nile, it’s not surprising to see that Egypt is one of the main source of plastic pollution of the mediterranean sea, especially with the biggest plastic production of the arabic world.
+
+To help against this, we implemented a few ROVs along the most problematic parts of its delta. Try to catch everything every plastic you'll find!
+","Avec toute sa population vivant de l'autre côté du Nil, il n'est pas surprenant de voir que l'Egypte est l'une des principales sources de pollution plastique de la mer méditerranée, notamment avec la plus grande production de plastique du monde arabe.
+
+Pour contrer cela, nous avons mis en place quelques ROV le long des parties les plus problématiques de son delta. Essayez d'attraper tous les déchets que vous trouverez !"
+LEVEL_05_OBJECTIVES_01,Catch 4 items beforethey get lost into the mediterranean sea,Attrapez 4 objets avant qu'ils ne se perdent dans la mer Méditerranée
+LEVEL_06_COUNTRY,SOUDAN,SOUDAN
+LEVEL_06_LOCATION,#6 - Red Sea,#6 - La Mer Rouge
+LEVEL_06_DESCRIPTION,"The Red Sea is one of the only coral reefs that hasn’t been affected by climate change. Nevertheless, it is still particularly endangered due to human activity.
+","La mer Rouge est l'un des seuls récifs coralliens qui n'a pas été affecté par le changement climatique. Néanmoins, il est encore particulièrement menacé en raison de l'activité humaine."
+LEVEL_06_OBJECTIVES_01,Catch items left by divers and sailers,Attrapez les objets laissés par les plongeurs et les marins
+LEVEL_07_COUNTRY,SOUTH AFRICA,AFRIQUE DU SUD
+LEVEL_07_LOCATION,#7- Cape Town,#7 - Le Cap
+LEVEL_07_DESCRIPTION,"Our ROV isn’t always fit for all types of environements. The area isn’t only polluted, but also has a large amount of algaes that could entangle our ROV. Collect plastics and micro-plastics while taking care of plants.
+","Notre ROV n'est pas adapté à tous les types d'environnements. La zone n'est pas seulement polluée, mais contient également une grande quantité d'algues qui pourraient emmêler notre ROV. Collectez les plastiques et micro-plastiques tout en prenant soin des plantes."
+LEVEL_07_OBJECTIVES_01,Catch 5 items,Attrapez 5 déchets
+LEVEL_07_OBJECTIVES_02,Retrieve micro-platics spread,Récupérer les micro-plastiques sur la zone
+LEVEL_08_COUNTRY,GHANA,GHANA
+LEVEL_08_LOCATION,#8 - Accra Coast,#8 - La Côte d'Accra
+LEVEL_08_DESCRIPTION,"Ghana recently started a new oil extraction system on the side of its coast, but issues already started to occure. The numerous extraction pipes have been invaded by litter that could cause harm to this system if we do not intervene.
+","Le Ghana a récemment lancé un nouveau système d'extraction de pétrole sur le côté de sa côte, mais des problèmes ont déjà commencé à se produire. Les nombreux tuyaux d'extraction ont été envahis par des détritus qui pourraient endommager ce système si nous n'intervenons pas."
+LEVEL_08_OBJECTIVES_01,Catch all waste in the area,Attrapez tous les plastiques de la zone 
+LEVEL_09_COUNTRY,VENUZUELA,VENUZUELA
+LEVEL_09_LOCATION,#9 - The Lake Maracaibo,#9 - La Lac Maracaibo
+LEVEL_09_DESCRIPTION,"The Lake Maracaibo has been the subject of a lot negligence :  like many other places, the litter from surrounding towns has been trapped into it.
+
+But even worst, malfunctions from the oil extracting industry has caused leakages. The Lake has becomed a permanent black sea that affectes all plastics and leaks into the Carribean sea.
+","Le lac Maracaibo a fait l'objet de beaucoup de négligence : comme beaucoup d'autres endroits, les déchets des villes environnantes y ont été piégés.
+
+Mais pire encore, les dysfonctionnements de l'industrie de l'extraction pétrolière ont provoqué des fuites. Le lac est devenu une mer noire permanente qui affecte tous les plastiques et se déverse dans la mer des Caraïbes."
+LEVEL_09_OBJECTIVES_01,Catch 4 plastics,Attrapez 4 plastiques
+LEVEL_09_OBJECTIVES_02,Retrieve micro-platics bullets,Récupérez les balles en micro-plastique
+LEVEL_10_COUNTRY,CUBA,CUBA
+LEVEL_10_LOCATION,#10 - Havana river,#10 - Rivière La Havane
+LEVEL_10_DESCRIPTION,"The Quibú river spans over 30km in Havana and is commonly used as a trashbin along its course. Plastic accumulates so much that it even create small plastic islands before they reach the sea.
+
+We’ve been told that a barril filled with toxic chemicals has been lost in the river and couldn’t be found yet, but you might help.
+There are so much plastics and rubbish here that you will need to make your own way to progress.
+","La rivière Quibú s'étend sur plus de 30 km à La Havane et est couramment utilisée comme poubelle le long de son cours. Le plastique s'accumule tellement qu'il crée même de petites îles de plastique avant qu'elles n'atteignent la mer.
+
+On nous a dit qu'un baril rempli de produits chimiques toxiques a été perdu dans la rivière et n'a pas encore pu être retrouvé...
+Il y a tellement de plastiques et de déchets ici que vous devrez faire votre propre chemin pour progresser."
+LEVEL_10_OBJECTIVES_01,Catch 8 plastic wastes,Attrapez 8 déchets plastiques
+LEVEL_10_OBJECTIVES_02,Remove barril from water,Retirez le baril de l'eau
+LEVEL_11_COUNTRY,FLORIDA,FLORIDE
+LEVEL_11_LOCATION,#11 - Miami,#11 - Miami
+LEVEL_11_DESCRIPTION,"So many boats are going to Miami harbour. The place needs to be cleaned regularly in order to avoid accumulation of waste in the area.
+","Tant de bateaux vont au port de Miami. L'endroit doit être nettoyé régulièrement afin d'éviter l'accumulation de déchets dans la zone."
+LEVEL_11_OBJECTIVES_01,Catch 6 items in harbour,Attrapez 6 objets dans le port
+LEVEL_11_OBJECTIVES_02,Find the door keys,Trouvez le trousseau de clés
+LEVEL_12_COUNTRY,CALIFORNIA,CALIFORNIE
+LEVEL_12_LOCATION,#12 - The Lighthouse,#12 - Le Phare
+LEVEL_12_DESCRIPTION,"The area is full of little holes around 4 meters deep. Things fall in them which attracts marine life that congregates there, but a third of them end up trapping all types of human wastes instead.
+","La zone est pleine de petits trous d'environ 4 mètres de profondeur. Des choses y tombent qui attirent la vie marine qui s'y rassemble, mais 1/3 d'entre eux finissent par piéger tous les types de déchets humains à la place."
+LEVEL_12_OBJECTIVES_01,Catch 5 items,Attrapez 5 objets
+LEVEL_13_COUNTRY,CHINA,CHINE
+LEVEL_13_LOCATION,#13 - Guandi dam,#13 - Barrage de Guandi
+LEVEL_13_DESCRIPTION,"The dam of Guandi is the second most powerful dam in the world.
+
+Some items felt down in the river during construction. It's time to bring them back to the surface and clean the area.
+","Le barrage de Guandi est le deuxième barrage le plus puissant du monde.
+
+Certains objets sont tombés dans la rivière pendant la construction. Il est temps de les ramener à la surface et de nettoyer la zone."
+LEVEL_13_OBJECTIVES_01,Put the magnet on the car to remove it,Mettez l'aimant sur la voiture pour le retirer
+LEVEL_13_OBJECTIVES_02,Collect bottles,Collecter les bouteilles
+LEVEL_14_COUNTRY,SINGAPORE,SINGAPOUR
+LEVEL_14_LOCATION,#14 - Straits of Singapore,#14 - Détroit de Singapour
+LEVEL_14_DESCRIPTION,"Clean the area of island. Remove all plastics in the zone. It's a pledge for the animals.
+","Nettoyez la zone de l'île. Retirez tous les plastiques de la zone. C'est un calvaire pour les animaux."
+LEVEL_14_OBJECTIVES_01,Retrieve 40 plastic bags,Récupérez 40 sacs plastiques
+LEVEL_15_COUNTRY,FILIPINAS,PHILIPPINES
+LEVEL_15_LOCATION,#15 - Manila,#15 - Manille
+LEVEL_15_DESCRIPTION,"Sometimes you find underwater unexpected items...
+","Parfois, vous trouvez des objets inattendus sous l'eau..."
+LEVEL_15_OBJECTIVES_01,Find losts items,Retrouvez les objets perdus
+LEVEL_15_OBJECTIVES_02,Bring it back to the surface,Ramenez-les à la surface
+LEVEL_16_COUNTRY,JAPAN,JAPON
+LEVEL_16_LOCATION,#16 - Osaka,#16 - Osaka
+LEVEL_16_DESCRIPTION,"Local researchers estimate that Osaka Bay contains as many as 3 million plastic bags, the dire impact of using single-use plastics for everything.
+
+
+","Des chercheurs locaux estiment que la baie d'Osaka contient jusqu'à 3 millions de sacs en plastique, un impact désastreux de l'utilisation de plastiques à usage unique pour tout.
+
+"
+LEVEL_16_OBJECTIVES_01,Collect 65 plastics,Récupérez 65 plastiques
+LEVEL_17_COUNTRY,REPUBLIC OF MALTA,REPUBLIQUE DE MALTE
+LEVEL_17_LOCATION,#17 - The island of Malta,#17 - L'île de Malte
+LEVEL_17_DESCRIPTION,"Malta was a late adopter of recycling, its gestion of plastic waste has been shown to be one of the worst in europe.
+It has a very rich but fragile biodiversity that has been gravely impacted by the pollution.
+
+These species must be protected from the
+many toxic wastes that could impact them.
+","Malte a adopté tardivement le recyclage, sa gestion des déchets plastiques s'est avérée être l'une des pires d'europe.
+L'île possède une biodiversité très riche mais fragile qui a été gravement impactée par la pollution.
+
+Ces espèces doivent être protégées de nombreux déchets toxiques qui pourraient les impacter."
+LEVEL_17_OBJECTIVES_01,Cut the top of 4 fishing net ropes to free the animal,Coupez le haut des 4 cordes du filet de pêche pour libérer l'animal

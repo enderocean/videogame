@@ -82,7 +82,7 @@ margin_bottom = 124.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_vertical = 2
 custom_fonts/font = SubResource( 2 )
-text = "SETTINGS"
+text = "OPTIONS"
 script = ExtResource( 5 )
 uppercase = true
 

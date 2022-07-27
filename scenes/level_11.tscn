@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=139 format=2]
 
 [ext_resource path="res://scripts/level/level.gd" type="Script" id=1]
 [ext_resource path="res://scripts/rope/rope.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://scenes/components/player_camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/components/water.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/textures/planks/Planks016_1K_Color.jpg" type="Texture" id=9]
 [ext_resource path="res://terrains/level_11/concrete/Concrete031_1K_Color.jpg" type="Texture" id=10]
 [ext_resource path="res://assets/models/chairs/bench/Burri_Maro_mRL.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://assets/models/vehicles/fisher/obj/untitled.obj" type="ArrayMesh" id=12]
@@ -87,14 +86,70 @@ points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1,
 [sub_resource type="ConvexPolygonShape" id=80]
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
 
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 9 )
-uv1_scale = Vector3( 10, 2, 1 )
-
 [sub_resource type="CubeMesh" id=28]
 
 [sub_resource type="SpatialMaterial" id=29]
 albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=98]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=99]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=100]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=101]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=94]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=95]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=96]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=97]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=86]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=87]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=88]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=89]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=90]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=91]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=92]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=93]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=82]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=83]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=84]
+points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=85]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
 
 [sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.682353, 0.247059, 0.247059, 1 )
@@ -278,14 +333,6 @@ height = 0.340111
 
 [node name="level_11" type="Spatial"]
 script = ExtResource( 1 )
-objectives_target = {
-"animal": 0,
-"cutter": 0,
-"grappling_hook": 0,
-"gripper": 6,
-"magnet": 0,
-"vacuum": 0
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 66 )
@@ -383,35 +430,47 @@ material/0 = SubResource( 4 )
 transform = Transform( -2.79753e-06, 0, 10, 0, 6, 0, -64, 0, -4.37114e-07, 54, -5, 0 )
 shape = SubResource( 80 )
 
-[node name="Pontoon 1" type="MeshInstance" parent="."]
+[node name="Pontoon 1" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 54.8342 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Pontoon 1"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -0.596054 )
 mesh = SubResource( 28 )
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -0.596054 )
+shape = SubResource( 98 )
+
 [node name="MeshInstance2" type="MeshInstance" parent="Pontoon 1"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 0.644201 )
 mesh = SubResource( 28 )
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 0.644201 )
+shape = SubResource( 99 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Pontoon 1"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -0.596054 )
 mesh = SubResource( 28 )
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -0.596054 )
+shape = SubResource( 100 )
+
 [node name="MeshInstance4" type="MeshInstance" parent="Pontoon 1"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 0.644201 )
 mesh = SubResource( 28 )
 material/0 = SubResource( 29 )
 
-[node name="Pontoon 2" type="MeshInstance" parent="."]
+[node name="CollisionShape4" type="CollisionShape" parent="Pontoon 1"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 0.644201 )
+shape = SubResource( 101 )
+
+[node name="Pontoon 2" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37, 0.5, -23.9755 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="Pontoon 2"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 29.3695 )
@@ -419,11 +478,19 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 29.3695 )
+shape = SubResource( 94 )
+
 [node name="MeshInstance6" type="MeshInstance" parent="Pontoon 2"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 30.6098 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.902414, -6.51996, 30.6098 )
+shape = SubResource( 95 )
 
 [node name="MeshInstance7" type="MeshInstance" parent="Pontoon 2"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 29.3695 )
@@ -431,16 +498,22 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 29.3695 )
+shape = SubResource( 96 )
+
 [node name="MeshInstance8" type="MeshInstance" parent="Pontoon 2"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 30.6098 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
-[node name="Pontoon 3" type="MeshInstance" parent="."]
+[node name="CollisionShape4" type="CollisionShape" parent="Pontoon 2"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.446099, -6.51996, 30.6098 )
+shape = SubResource( 97 )
+
+[node name="Pontoon 3" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, -3.97549 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="MeshInstance9" type="MeshInstance" parent="Pontoon 3"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 9.36616 )
@@ -448,11 +521,19 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 9.36616 )
+shape = SubResource( 86 )
+
 [node name="MeshInstance10" type="MeshInstance" parent="Pontoon 3"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 10.6064 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, 10.6064 )
+shape = SubResource( 87 )
 
 [node name="MeshInstance11" type="MeshInstance" parent="Pontoon 3"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 9.36616 )
@@ -460,16 +541,22 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 9.36616 )
+shape = SubResource( 88 )
+
 [node name="MeshInstance12" type="MeshInstance" parent="Pontoon 3"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 10.6064 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
-[node name="Pontoon 4" type="MeshInstance" parent="."]
+[node name="CollisionShape4" type="CollisionShape" parent="Pontoon 3"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, 10.6064 )
+shape = SubResource( 89 )
+
+[node name="Pontoon 4" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 16.0245 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="MeshInstance13" type="MeshInstance" parent="Pontoon 4"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -10.6355 )
@@ -477,11 +564,19 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -10.6355 )
+shape = SubResource( 90 )
+
 [node name="MeshInstance14" type="MeshInstance" parent="Pontoon 4"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -9.3952 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -9.3952 )
+shape = SubResource( 91 )
 
 [node name="MeshInstance15" type="MeshInstance" parent="Pontoon 4"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -10.6355 )
@@ -489,16 +584,22 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -10.6355 )
+shape = SubResource( 92 )
+
 [node name="MeshInstance16" type="MeshInstance" parent="Pontoon 4"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -9.3952 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
-[node name="Pontoon 5" type="MeshInstance" parent="."]
+[node name="CollisionShape4" type="CollisionShape" parent="Pontoon 4"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -9.3952 )
+shape = SubResource( 93 )
+
+[node name="Pontoon 5" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 2, 37.134, 0.5, 36.0245 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
 
 [node name="MeshInstance17" type="MeshInstance" parent="Pontoon 5"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -30.63 )
@@ -506,11 +607,19 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape" type="CollisionShape" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -30.63 )
+shape = SubResource( 82 )
+
 [node name="MeshInstance18" type="MeshInstance" parent="Pontoon 5"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -29.3898 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, -0.915813, -6.51996, -29.3898 )
+shape = SubResource( 83 )
 
 [node name="MeshInstance19" type="MeshInstance" parent="Pontoon 5"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -30.63 )
@@ -518,11 +627,19 @@ mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
 
+[node name="CollisionShape3" type="CollisionShape" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -30.63 )
+shape = SubResource( 84 )
+
 [node name="MeshInstance20" type="MeshInstance" parent="Pontoon 5"]
 transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -29.3898 )
 mesh = SubResource( 28 )
 skeleton = NodePath("../../Pontoon 1")
 material/0 = SubResource( 29 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Pontoon 5"]
+transform = Transform( 0.05, 0, 0, 0, 6, 0, 0, 0, 0.3, 0.432699, -6.51996, -29.3898 )
+shape = SubResource( 85 )
 
 [node name="Burri_Maro_mRL" type="MeshInstance" parent="."]
 transform = Transform( -8.74228e-10, 0.02, 8.74228e-10, 0, -8.74228e-10, 0.02, 0.02, 8.74228e-10, 3.82137e-17, 57.4766, 1, 11.8675 )

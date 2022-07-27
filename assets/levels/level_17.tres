@@ -9,15 +9,11 @@ scene = "res://scenes/level_17.tscn"
 thumbnail = "res://assets/levels/images/level_17.jpg"
 video = "res://assets/levels/videos/level_17.webm"
 title = "Level 17"
-country = "REPUBLIC OF MALTA"
-location = "#17 - The island of Malta"
-description = "Malta was a late adopter of recycling, its gestion of plastic waste has been shown to be one of the worst in europe.
-It has a very rich but fragile biodiversity that has been gravely impacted by the pollution.
-
-These species must be protected from the
-many toxic wastes that could impact them."
-objectives = PoolStringArray( "Cut the top of 4 fishing net ropes to free the animal" )
-tools = PoolStringArray( "Cutter", "Lights" )
+country = "LEVEL_17_COUNTRY"
+location = "LEVEL_17_LOCATION"
+description = "LEVEL_17_DESCRIPTION"
+objectives = PoolStringArray( "LEVEL_17_OBJECTIVES_01" )
+tools = PoolStringArray( "CUTTER", "LIGHTS" )
 time = 5
 gripper_objectives_count = 0
 vacuum_objectives_count = 0

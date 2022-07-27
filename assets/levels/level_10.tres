@@ -9,14 +9,11 @@ scene = "res://scenes/level_10.tscn"
 thumbnail = "res://assets/levels/images/level_10.jpg"
 video = ""
 title = "Level 10"
-country = "CUBA"
-location = "#10 - Havana river"
-description = "The Quibú river spans over 30km in Havana and is commonly used as a trashbin along its course. Plastic accumulates so much that it even create small plastic islands before they reach the sea.
-
-We’ve been told that a barril filled with toxic chemicals has been lost in the river and couldn’t be found yet, but you might help.
-There are so much plastics and rubbish here that you will need to make your own way to progress."
-objectives = PoolStringArray( "Catch 8 plastics", "Remove barril from water" )
-tools = PoolStringArray( "Gripper", "Lights" )
+country = "LEVEL_10_COUNTRY"
+location = "LEVEL_10_LOCATION"
+description = "LEVEL_10_DESCRIPTION"
+objectives = PoolStringArray( "LEVEL_10_OBJECTIVES_01", "LEVEL_10_OBJECTIVES_02" )
+tools = PoolStringArray( "GRIPPER", "LIGHTS" )
 time = 8
 gripper_objectives_count = 8
 vacuum_objectives_count = 0

@@ -5,3 +5,5 @@ GRIPPER,Gripper,Pince
 VACUUM,Vacuum,Aspirateur
 CUTTER,Cutter,Cisaille
 LIGHTS,Lights,Lumières
+MAGNET,Magnet,Aimant
+CLIMB,Climb gripper,Grappin

@@ -9,14 +9,11 @@ scene = "res://scenes/level_04.tscn"
 thumbnail = "res://assets/levels/images/level_04.jpg"
 video = ""
 title = "level_04"
-country = "FRANCE"
-location = "#4 - The Marseille Bay"
-description = "Marseille is considered the 10th most polluted coastal town in the Mediterannean sea. This issue can get problematic in many unexpected ways : for environment as well as human activities.
-
-We’ve been asked to localize and deal with
-a disturbance on an underwater cable in the area. These cables connect Europe with many other continents online, it would cause a lot of trouble if they were damaged."
-objectives = PoolStringArray( "Find what cause the cable to beunstable", "Collect items on the way" )
-tools = PoolStringArray( "Gripper", "Lights" )
+country = "LEVEL_04_COUNTRY"
+location = "LEVEL_04_LOCATION"
+description = "LEVEL_04_DESCRIPTION"
+objectives = PoolStringArray( "LEVEL_04_OBJECTIVES_01", "LEVEL_04_OBJECTIVES_02" )
+tools = PoolStringArray( "GRIPPER", "LIGHTS" )
 time = 5
 gripper_objectives_count = 3
 vacuum_objectives_count = 0
