@@ -5,8 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "04_tire"
-title = "Tire"
-description = "But how did that tire get here?...
-
-According to a study published in the journal Nature Communications, more than 200,000 tons of tiny plastic particles emanating from the tires and brake pads of our vehicles are carried away every year by the wind, from the roads to the oceans. "
+title = "COLLECTIBLE_TITLE_04"
+description = "COLLECTIBLE_DESCRIPTION_04"
 image = "res://assets/collectibles/images/04_tire.png"

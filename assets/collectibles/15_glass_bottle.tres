@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "15_glass_bottle"
-title = "Glass bottle"
-description = "A bottle in the sea ! Did you look inside ? Maybe we can find a hidden message...
-Glass takes the longest to decompose, requiring an average of 4,000 years to do so. However, it is still far less problematic than plastic, especially plastic bags, as 76.1% of glass was recycled in France in 2016, and this rate continues to rise."
+title = "COLLECTIBLE_TITLE_15"
+description = "COLLECTIBLE_DESCRIPTION_15"
 image = "res://assets/collectibles/images/15_glass_bottle.png"

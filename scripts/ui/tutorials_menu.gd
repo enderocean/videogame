@@ -19,8 +19,9 @@ func _ready() -> void:
 		var tutorial_id: String = sorted_tutorials_id[i]
 		var button: Button = button_scene.instance()
 		var level_data: LevelData = Globals.tutorials.get(tutorial_id)
+		var txt = tr(level_data.id).to_upper()
 		buttons_list.add_child(button)
-		button.text = tr(level_data.id).to_upper()
+		button.text = txt
 		button.connect("pressed", self, "_on_button_pressed", [i])
 
 

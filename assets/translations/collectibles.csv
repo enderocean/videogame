@@ -1,4 +1,122 @@
 keys,en,fr
-COLLECTIBLES,COLLECTIBLES,Ma collection
-COLLECTIBLE_OBTAINED,Collectible obtained!,Objet récolté !
-COLLECTIBLE_NOT_FOUND_YET,You haven't found this object yet!,Vous n’avez pas encore trouvé cet objet !
+COLLECTIBLE_NOT_FOUND_YET,Collectible not found yet...,Objet non trouvé...
+COLLECTIBLE_TITLE_01,Milk pack,Brique de lait
+COLLECTIBLE_DESCRIPTION_01,"The brick is recycling...and it’s very good. So it’s a shame to find it underwater. 
+
+Generally, it consists of 75% cardboard, 20% plastic (polyethylene) and 5% aluminum. So go to the recycling bin (yellow) and forget the garbage bin (grey).
+","La brique se recycle… et même très bien. Il est donc fort dommage d’en retrouver au fond de nos océans.
+-
+De manière générale, elle est composée de 75 % de carton, 20% de plastique (polyéthylène) et 5% d’aluminium. Donc direction le bac de recyclage (jaune) et oubliez le bac des ordures ménagères (gris).
+"
+COLLECTIBLE_TITLE_02,Plastic soldier,Soldat en plastique
+COLLECTIBLE_DESCRIPTION_02,"Sometimes, as a result of boat accidents, cargo ends up in the water and is never recovered. It is therefore not surprising that you find this little soldier. The poor must feel alone without his brothers in arms. 
+The most famous plastic toy is certainly the Barbie doll, which has made its appearance in the late 1950s. Its sales have now exceeded the billion!
+","Il arrive que suite à des accidents de bateaux des cargaisons se retrouvent à l’eau et ne sont jamais récupérer. Il n’est donc pas surprenant que vous trouviez ce petit soldat. Le pauvre doit se sentir seul sans ses frères d’armes.
+-
+La poupée Barbie a quant à elle fait son apparition à la fin des années 1950. Ses ventes ont aujourd’hui dépassé le milliard !
+"
+COLLECTIBLE_TITLE_03,Plastic bag,Sac plastique
+COLLECTIBLE_DESCRIPTION_03,"Turtles often mistakenly confuse plastic bags with jellyfish, which are part of their diet. Limiting their use saves them and limits the pollution of our oceans.
+
+Alternatives: 
+    • A multi-purpose fabric bag
+    • Reusable packaging
+    • Favour biodegradable bags
+","Les tortues confondent souvent à tort les sacs plastiques et les méduses, qui font partie de leur alimentation. Limiter leur usage permet de les sauver et de limiter la pollution de nos océans.
+-
+Alternatives :
+- un sac en tissu multi-usage
+- des emballages réutilisable
+- privilégier des sacs biodégradables
+"
+COLLECTIBLE_TITLE_04,Tire,Pneu
+COLLECTIBLE_DESCRIPTION_04,Bu"t how did that tire get here?...
+
+According to a study published in the journal Nature Communications, more than 200,000 tons of tiny plastic particles emanating from the tires and brake pads of our vehicles are carried away every year by the wind, from the roads to the oceans. 
+","Mais comment ce pneu a-t-il pu rouler jusqu’ici ?...
+-
+Selon une étude publiée dans la revue Nature Communications, plus de 200.000 tonnes de minuscules particules de plastique émanant des pneus et des plaquettes de frein de nos véhicules sont emportées chaque année par le vent, des routes jusque dans les océans.
+"
+COLLECTIBLE_TITLE_05,Sailboat pulley,Poulie de bateau
+COLLECTIBLE_DESCRIPTION_05,"Oh oh… A traveller who is going to be disappointed when he will realize that he is missing this key item on his sailboat.
+In 2020, the number of pleasure craft registered in marine waters was 1.041 million, up 0.7% from 2019. The fleet remained largely dominated by 773,333 engine units, accounting for 74%.
+","Oh oh… Un voyageur qui va être déçu quand il va se rendre compte qui lui manque un objet important sur son voilier. On espère pour lui qu’il en a une de rechange pour attacher ses haubans.
+-
+En 2020, le nombre de bateaux de plaisance immatriculés en eaux maritimes s'élevait à 1,041 million, en hausse de 0,7 % par rapport à 2019. La flotte restait grandement dominée par les 773 333 unités à moteur, comptant pour 74 %.
+"
+COLLECTIBLE_TITLE_06,Cotton swab,Coton tige
+COLLECTIBLE_DESCRIPTION_06,"A cotton swab? Fish don’t have ears! How do they get to our beaches?
+
+Unfortunately, many of us throw them in the toilet bowl instead of putting them in a garbage can. In the same way as condoms, sanitary napkins or tampon applicators, they are flushed and held at the entrance of the treatment plants.
+","Un coton tige ? Les poissons n’ont pourtant pas d’oreilles ! Comment arrivent-ils sur nos plages ?
+-
+Malheureusement, bon nombre d’entre nous les jette dans la cuvette des toilettes au lieu de les mettre dans une poubelle. De la même manière que les préservatifs, les serviettes hygiéniques ou les applicateurs de tampons, ils sont évacués avec la chasse d’eau et sont retenus à l’entrée des stations d’épuration.
+"
+COLLECTIBLE_TITLE_07,Plastic straw,Paille en plastique
+COLLECTIBLE_DESCRIPTION_07,"Although straws are only a tiny fraction of the plastic polluting the oceans, their size makes them one of the most harmful polluters because they become entangled and marine animals and fish consume them. 
+-
+Cotton swabs, straws, cutlery and other single-use plastic products can no longer be sold in the European Union. A small step for Man, a big step for the Planet.
+","Bien que les pailles ne représentent qu'une infime fraction du plastique polluant les océans, leur taille en font l'un des pollueurs les plus nocifs car ils s'enchevêtrent et les animaux marins et les poissons les consomment.
+-
+Les cotons-tiges, pailles, couverts et autres produits à usage unique en plastique ne peuvent plus être mis en vente aujourd’hui dans l’Union européenne. Un petit pas pour l’Homme, un grand pas pour la Planète.
+"
+COLLECTIBLE_TITLE_08,Ring,Bague
+COLLECTIBLE_DESCRIPTION_08,"It is not uncommon to find any type of jewels on the coasts. Tourists are passing through and losing them in spite of themselves.
+Sunglasses, books, headphones, jewelry or more serious, doudou, many are those who forget an object on the beaches during the holidays. Every year, thousands of objects are found on the beaches of France. 
+","Il n’est pas rare de retrouver tout type de bijoux sur les côtes. Les touristes sont de passage et les perdent malgré eux.
+-
+Lunettes de soleil, livre, écouteurs, bijoux ou plus grave, doudou, nombreux sont ceux qui oublient un objet sur les plages pendant les vacances. Chaque année, des milliers d’objets sont retrouvés sur les plages de France.
+"
+COLLECTIBLE_TITLE_09,Cigarette butt,Mégot de cigarette
+COLLECTIBLE_DESCRIPTION_09,"Did you know that a single cigarette butt can pollute up to 500 litres of water? It alone contains a hundred harmful substances, even carcinogens, which contaminate water, air and soil. In addition to the damage caused by deforestation, CO2 emissions and soil acidification, cigarette butts are the main source of pollution in the oceans.
+","Personne n’a dit aux poissons qu’il est dangereux pour la santé de fumer ? Ce n’est pas très sérieux tout ça…
+-
+Saviez-vous qu’un seul mégot peut polluer jusqu’à 500 litres d’eau ? A lui-seul, il contient une centaine de substances nocives, voire cancérigènes, qui contaminent à la fois, l’eau, l’air et les sols. En plus des dégâts générés en matière de déforestation, émissions de CO2 et acidification des sols, les mégots de cigarettes sont la principale source de pollution des océans.
+"
+COLLECTIBLE_TITLE_10,Plastic cutlery,Couverts en plastiques
+COLLECTIBLE_DESCRIPTION_10,"Hum… Going for an underwater picnic? 
+
+8 million tonnes of plastic waste end up in the oceans every year. It’s almost ubiquitous, used every day. Even more worrisome, studies show that an individual ingests an average of 5 grams of plastic each week. 
+","Hum… Partant pour un pique nique subaquatique ?
+-
+8 millions de tonnes de déchets plastiques se retrouvent dans les océans chaque année. Il est quasi omniprésent, utilisé au quotidien. Plus inquiétant encore, des études montrent qu’un individu ingère en moyenne 5 grammes de plastique chaque semaine. Pour le gouvernement, il devient impératif de changer les modes de production et de consommation afin de supprimer tous les produits à usage unique qui en contiennent d’ici 2040.
+"
+COLLECTIBLE_TITLE_11,Gun,Pistolet
+COLLECTIBLE_DESCRIPTION_11,"Sometimes we find strange objects from crime scenes underwater. In order to hide evidences and never get caught, thugs often get rid of their weapons into the sea. In 2011, a diver recovered a batch of firearms, submerged at a depth of 4 metres. In this type of situation, it is recommended to contact the maritime gendarmerie services.
+","Parfois, au fond de l’eau, on retrouve des objets étranges provenant de scènes de crime. Afin de cacher les preuves, les malfrats se débarrassent de leurs armes et les jettent à la mer dans le but de ne jamais se faire attraper. Attention, peut-être que la prochaine fois, c’est autre chose que vous retrouverez.
+-
+A Marseille, il n’est pas rare de faire ce genre de trouvaille. En 2011, un plongeur a retrouvé un lot d'armes à feu, immergé à 4 mètres de profondeur. Dans ce genre de situation, il est recommandé de contacter les services de la gendarmerie maritimes.
+"
+COLLECTIBLE_TITLE_12,Plastic cup,
+COLLECTIBLE_DESCRIPTION_12,"How many cups of water are there in all the oceans of Earth?
+Answer : too many...
+
+100M soft drink are sold in plastic cups with plastic lids everyday. Plastic lids alone contribute to 80M pounds of plastic pollution in our oceans every year.
+","Combien y a-t-il de gobelets d'eau dans tous les océans de la Terre ?
+Réponse : trop...
+
+100M de boissons gazeuses sont vendues dans des gobelets en plastique avec des couvercles en plastique tous les jours. Les couvercles en plastique contribuent à eux seuls à 80 millions de tonnes de pollution plastique dans nos océans chaque année."
+COLLECTIBLE_TITLE_13,Pads and sanitary napkins,Tampon
+COLLECTIBLE_DESCRIPTION_13,"Ah! I’m sure you didn’t expect to find this!
+
+On average, a woman uses 10,000 pads or sanitary napkins in her lifetime. And unfortunately, most of them end up in our rivers or oceans. It is important to dispose of this waste with household garbage and especially not to flush it down the toilet! 
+","Ah ! Je suis sûr que vous ne vous attendiez pas à trouver ça !
+-
+En moyenne, une femme utilise 10 000 tampons ou serviettes hygiéniques au cours de sa vie. Et malheureusement, la plupart se retrouvent dans nos océans. Il est important de jeter ces déchets avec les ordures ménagères et de ne surtout pas les jeter dans les toilettes !
+
+"
+COLLECTIBLE_TITLE_14,Balloon,Ballon de baudruche
+COLLECTIBLE_DESCRIPTION_14,"Um… it doesn’t look so much like a balloon anymore… 
+-
+Every year, billions of balloons are produced around the world, some from plastic, and unfortunately, many of them end their lives in nature where they join the list of multiple wastes that already pollute the oceans. 
+","Hum… Il ne ressemble plus tellement à un ballon maintenant…
+-
+Chaque année, des milliards de ballons de baudruche sont produits à travers le monde, certains à partir de plastique, et malheureusement, nombre d'entre eux finissent leur vie dans la nature où ils rejoignent la liste des multiples déchets qui polluent déjà les océans.
+"
+COLLECTIBLE_TITLE_15,Glass bottle,Bouteille en verre
+COLLECTIBLE_DESCRIPTION_15,"A bottle in the sea ! Did you look inside ? Maybe we can find a hidden message...
+Glass takes the longest to decompose, requiring an average of 4,000 years to do so. However, it is still far less problematic than plastic, especially plastic bags, as 76.1% of glass was recycled in France in 2016, and this rate continues to rise.
+","Une bouteille à la mer !! Avez-vous regardé dedans ? Peut-être pourrons-nous y trouver un message caché…
+-
+Le verre est le plus long à se décomposer en nécessitant en moyenne 4 000 ans pour le faire. Cependant, il est tout de même bien moins problématique que le plastique, surtout les sacs plastiques, car 76,1% du verre était recyclé en France en 2016, et ce taux continue de progresser.
+"

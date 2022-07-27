@@ -43,8 +43,8 @@ func _on_collectible_pressed(collectible_id: String) -> void:
 	if unlocked:
 		var collectible: CollectibleData = Globals.collectibles[collectible_id]
 		collectible_panel.image.texture = load(collectible.image)
-		collectible_panel.title.text = collectible.title
-		collectible_panel.description.bbcode_text = collectible.description
+		collectible_panel.title.text = tr(collectible.title)
+		collectible_panel.description.bbcode_text = tr(collectible.description)
 
 
 func _on_close_pressed() -> void:

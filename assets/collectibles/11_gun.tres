@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "11_gun"
-title = "Gun"
-description = "Sometimes we find strange objects from crime scenes underwater. In order to hide evidences and never get caught, thugs often get rid of their weapons into the sea. In 2011, a diver recovered a batch of firearms, submerged at a depth of 4 metres. In this type of situation, it is recommended to contact the maritime gendarmerie services."
+title = "COLLECTIBLE_TITLE_11"
+description = "COLLECTIBLE_DESCRIPTION_11"
 image = "res://assets/collectibles/images/11_gun.png"

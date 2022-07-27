@@ -5,11 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "03_plastic_bag"
-title = "Plastic bag"
-description = "Turtles often mistakenly confuse plastic bags with jellyfish, which are part of their diet. Limiting their use saves them and limits the pollution of our oceans.
-
-Alternatives: 
-    • A multi-purpose fabric bag
-    • Reusable packaging
-    • Favour biodegradable bags"
+title = "COLLECTIBLE_TITLE_03"
+description = "COLLECTIBLE_DESCRIPTION_03"
 image = "res://assets/collectibles/images/03_plastic_bag.png"

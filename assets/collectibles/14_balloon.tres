@@ -5,8 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "14_balloon"
-title = "Balloon"
-description = "Um… it doesn’t look so much like a balloon anymore… 
--
-Every year, billions of balloons are produced around the world, some from plastic, and unfortunately, many of them end their lives in nature where they join the list of multiple wastes that already pollute the oceans. "
+title = "COLLECTIBLE_TITLE_14"
+description = "COLLECTIBLE_DESCRIPTION_14"
 image = "res://assets/collectibles/images/14_balloon.png"

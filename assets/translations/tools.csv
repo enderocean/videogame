@@ -1,9 +1,9 @@
 keys,en,fr
 TOOL,Tool,Outil
 TOOLS,Tools,Outils
-GRIPPER,Gripper,Pince
-VACUUM,Vacuum,Aspirateur
-CUTTER,Cutter,Cisaille
-LIGHTS,Lights,Lumières
-MAGNET,Magnet,Aimant
-CLIMB,Climb gripper,Grappin
+TOOL_GRIPPER,Gripper,Pince
+TOOL_VACUUM,Vacuum,Aspirateur
+TOOL_CUTTER,Cutter,Cisaille
+TOOL_LIGHTS,Lights,Lumières
+TOOL_MAGNET,Magnet,Aimant
+TOOL_CLIMB,Climb gripper,Grappin

@@ -36,8 +36,9 @@ func find_external_levels():
 
 
 func set_disconnect_button(visible: bool) -> void:
-	disconnect_button.visible = visible
-	disconnect_button.disabled = not visible
+	if (disconnect_button):
+		disconnect_button.visible = visible
+		disconnect_button.disabled = not visible
 
 
 # Called when the node enters the scene tree for the first time.

@@ -5,9 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "12_cup"
-title = "Plastic cup"
-description = "How many cups of water are there in all the oceans of Earth?
-Answer : too many...
-
-100M soft drink are sold in plastic cups with plastic lids everyday. Plastic lids alone contribute to 80M pounds of plastic pollution in our oceans every year."
+title = "COLLECTIBLE_TITLE_12"
+description = "COLLECTIBLE_DESCRIPTION_12"
 image = "res://assets/collectibles/images/12_cup.png"

@@ -5,8 +5,6 @@
 [resource]
 script = ExtResource( 1 )
 id = "07_plastic_straw"
-title = "Plastic straw"
-description = "Although straws are only a tiny fraction of the plastic polluting the oceans, their size makes them one of the most harmful polluters because they become entangled and marine animals and fish consume them. 
--
-Cotton swabs, straws, cutlery and other single-use plastic products can no longer be sold in the European Union. A small step for Man, a big step for the Planet."
+title = "COLLECTIBLE_TITLE_07"
+description = "COLLECTIBLE_DESCRIPTION_07"
 image = "res://assets/collectibles/images/07_plastic_straw.png"
