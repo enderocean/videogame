@@ -103,7 +103,7 @@ margin_right = 280.0
 margin_bottom = 252.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 4 )
-text = "BACK_TO_MISSION_MAP"
+text = "BACK_TO_MISSIONS_MAP"
 script = ExtResource( 5 )
 uppercase = true
 

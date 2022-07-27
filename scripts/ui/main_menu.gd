@@ -65,7 +65,7 @@ func _on_Music_pressed():
 
 
 func _on_book_session_pressed() -> void:
-	OS.shell_open(Globals.LINKS.get("events"))
+	OS.shell_open(Globals.LINKS.get("session"))
 
 
 func _on_show_events_pressed():

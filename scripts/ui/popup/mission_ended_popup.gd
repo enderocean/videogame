@@ -91,5 +91,5 @@ func set_back_to_main_menu(value: bool) -> void:
 		normal_panel.back_to_missions_button.key = "BACK_TO_MAIN_MENU"
 		normal_panel.back_to_missions_button.update_text()
 	else:
-		normal_panel.back_to_missions_button.key = "BACK_TO_MISSION_MAP"
+		normal_panel.back_to_missions_button.key = "BACK_TO_MISSIONS_MAP"
 		normal_panel.back_to_missions_button.update_text()

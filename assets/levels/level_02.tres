@@ -14,7 +14,7 @@ location = "#2 - The Rhine"
 description = "Each day, over 191.6 million microplastics are discharged towards the North Sea from the Rhine due to the many industries set around it. It’s hard to realize what that means, so for your first mission,
 we’ll send you see it yourself.
 
-Your task will be to collect at least 50 microbullets in 3 minutes."
+Your task will be to collect at least 50 microbullets in 4 minutes."
 objectives = PoolStringArray( "Collect as many microplastics as you can", "Have fun!" )
 tools = PoolStringArray( "Vacuum cleaner", "Lights" )
 time = 4
@@ -22,4 +22,4 @@ gripper_objectives_count = 0
 vacuum_objectives_count = 50
 cutter_objectives_count = 0
 stars_enabled = true
-stars = PoolIntArray( 240, 200, 160, 120, 80 )
+stars = PoolIntArray( 240, 200, 160, 140, 120 )

@@ -16,9 +16,9 @@ description = "With all of its population living accross the Nile, it’s not su
 To help against this, we implemented a few ROVs along the most problematic parts of its delta. Try to catch everything every plastic you'll find!"
 objectives = PoolStringArray( "Catch 4 moving items beforethey get lost into the mediterranean sea" )
 tools = PoolStringArray( "Gripper", "Lights" )
-time = 5
+time = 6
 gripper_objectives_count = 4
 vacuum_objectives_count = 0
 cutter_objectives_count = 0
 stars_enabled = true
-stars = PoolIntArray( 360, 300, 240, 180, 120 )
+stars = PoolIntArray( 360, 300, 240, 210, 180 )
