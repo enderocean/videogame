@@ -259,6 +259,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/ui/settings/toggle_setting.gd"
 }, {
+"base": "Node",
+"class": "TokenLeaderboardRequester",
+"language": "GDScript",
+"path": "res://scripts/api/token_leaderboard_requester.gd"
+}, {
 "base": "Button",
 "class": "TranslatedButton",
 "language": "GDScript",
@@ -375,6 +380,7 @@ _global_script_class_icons={
 "SoundTriggerArea": "",
 "TheterAnchor": "",
 "ToggleSetting": "",
+"TokenLeaderboardRequester": "",
 "TranslatedButton": "",
 "TranslatedLabel": "",
 "TranslatedRichTextLabel": "",

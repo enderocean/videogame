@@ -214,7 +214,6 @@ func _on_level_finished(update_score: bool = true, save_score: bool = true) -> v
 		update_score()
 	
 	if save_score:
-		
 		var data: Dictionary = {
 			"score": active_level.score,
 			# Save the time it took to finish the mission
@@ -228,7 +227,16 @@ func _on_level_finished(update_score: bool = true, save_score: bool = true) -> v
 			SaveManager.levels[active_level_data.id] = data
 			
 		SaveManager.save_data()
-	
+		
+		# Send score to leaderboard if the user is logged in
+		if not SaveManager.user.empty():
+			APIManager.request_send_score(
+				SaveManager.user.username,
+				active_level_data.id,
+				data.time,
+				data.score
+			)
+
 	show_popup()
 
 

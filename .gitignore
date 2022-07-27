@@ -14,3 +14,6 @@ android/*
 
 # Runner
 Godot_v3.4.4-stable_x11.64
+
+# Project ignores
+api.cfg

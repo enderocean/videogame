@@ -4,8 +4,6 @@ var http_request: HTTPRequest
 var error: String
 
 signal completed(success)
-signal success()
-signal failed()
 
 func request() -> void:
 	error = ""
@@ -26,5 +24,5 @@ func _on_request_completed(result: int, response_code: int, headers: PoolStringA
 	var can_parse: bool = check_result(result)
 	if not can_parse:
 		error = HTTPRequest.Result.keys()[result]
-		emit_signal("failed", false)
+		emit_signal("completed", false)
 		return
