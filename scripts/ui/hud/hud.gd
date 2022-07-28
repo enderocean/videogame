@@ -217,7 +217,7 @@ func _on_level_finished(update_score: bool = true, save_score: bool = true) -> v
 		var data: Dictionary = {
 			"score": active_level.score,
 			# Save the time it took to finish the mission
-			"time": (mission_timer.minutes * 60) - mission_timer.time_left
+			"time": mission_timer.wait_time - mission_timer.time_left
 		}
 		
 		# Save the level score
