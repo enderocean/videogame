@@ -37,7 +37,3 @@ func _on_request_completed(result: int, response_code: int, headers: PoolStringA
 			if json.has("error"):
 				error = json.error
 			emit_signal("completed", false)
-	
-	# Reset values
-	username = ""
-	password = ""

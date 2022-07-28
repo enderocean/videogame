@@ -29,7 +29,6 @@ func request_auth(username: String, password: String) -> void:
 		# Save user data
 		# TODO: Save a token instead of user credentials please
 		SaveManager.user["username"] = username
-		SaveManager.user["password"] = password
 		SaveManager.save_data()
 		
 		emit_signal("auth_success")
