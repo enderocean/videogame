@@ -9,7 +9,8 @@ enum ObjectiveType {
 	ANIMAL,
 	DESTINATION,
 	FIND,
-	INPUT
+	INPUT,
+	SPEED
 }
 
 const SEND_DATA: bool = false

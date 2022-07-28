@@ -70,6 +70,8 @@ func add_objective_target_from(node: Node) -> void:
 		add_objective_target(Globals.ObjectiveType.CUTTER, 1) # , node.cut_areas)
 	elif node is DestinationTriggerArea:
 		add_objective_target(Globals.ObjectiveType.DESTINATION, 1)
+	elif node is SpeedsObjective:
+		add_objective_target(Globals.ObjectiveType.SPEED, node.speeds_count)
 	elif node is InputObjective:
 		add_objective_target(Globals.ObjectiveType.INPUT, 1)
 
@@ -139,6 +141,10 @@ func initialize(level_data: LevelData) -> void:
 		# warning-ignore:return_value_discarded
 			node.connect("arrived", self, "_on_destination_arrived")
 			destinations.append(node)
+		if node is SpeedsObjective:
+		# warning-ignore:return_value_discarded
+			node.connect("completed", self, "_on_speeds_objective_completed")
+			add_objective_target_from(node)
 		if node is InputObjective:
 		# warning-ignore:return_value_discarded
 			node.connect("completed", self, "_on_input_objective_completed", [node])
@@ -191,6 +197,8 @@ func get_objective_text(objective_type) -> String:
 			return tr("OBJECTIVE_DESTINATION_TEXT")
 		Globals.ObjectiveType.FIND:
 			return tr("OBJECTIVE_FIND_TEXT")
+		Globals.ObjectiveType.SPEED:
+			return tr("OBJECTIVE_SPEEDS_TEXT")
 		Globals.ObjectiveType.INPUT:
 			return tr("OBJECTIVE_INPUT_TEXT")
 	return ""
@@ -261,6 +269,11 @@ func _on_destination_arrived(node: DestinationTriggerArea) -> void:
 	
 	check_objectives()
 	emit_signal("objectives_changed")
+
+
+func _on_speeds_objective_completed(speeds_done: int) -> void:
+	set_objective_progress(Globals.ObjectiveType.SPEED, speeds_done, false)
+	print("Speeds done: ", objectives_progress.get(Globals.ObjectiveType.SPEED), " / ", objectives.get(Globals.ObjectiveType.SPEED))
 
 
 func _on_input_objective_completed(input_objective: InputObjective) -> void:

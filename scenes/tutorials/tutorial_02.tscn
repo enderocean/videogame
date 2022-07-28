@@ -12,7 +12,7 @@
 [ext_resource path="res://scenes/bluerovheavy/BlueRovHeavy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/models/pool/pool.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/components/theter.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/models/tutorial/hoop.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/objectives/speeds_objective.gd" type="Script" id=13]
 
 [sub_resource type="Environment" id=28]
 ambient_light_color = Color( 0.494118, 0.854902, 0.952941, 1 )
@@ -78,17 +78,6 @@ material/0 = SubResource( 21 )
 [node name="TheterAnchor" parent="Ender Station" instance=ExtResource( 8 )]
 transform = Transform( 1.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.909155, 0.0875902, 0.34411 )
 
-[node name="Destinations" type="Spatial" parent="."]
-
-[node name="hoop" parent="Destinations" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0 )
-
-[node name="hoop2" parent="Destinations" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84, -7.56 )
-
-[node name="hoop3" parent="Destinations" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -16.43 )
-
 [node name="Theter" parent="." instance=ExtResource( 12 )]
 curve = SubResource( 27 )
 from = NodePath("../BlueRov")
@@ -108,3 +97,7 @@ material/0 = SubResource( 23 )
 transform = Transform( 3.01992e-07, -1, 8.74228e-08, 0, -4.37114e-08, -2, 4, 7.54979e-08, -6.60024e-15, 19.348, 3, -10.0963 )
 mesh = SubResource( 22 )
 material/0 = SubResource( 25 )
+
+[node name="SpeedsObjective" type="Node" parent="."]
+script = ExtResource( 13 )
+vehicle_path = NodePath("../BlueRov")
