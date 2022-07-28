@@ -10,5 +10,6 @@ OBJECTIVE_MAGNET_TEXT,Collected with the Magnet,Collectés avec l’aimant
 OBJECTIVE_GRAPPLING_HOOK_TEXT,Collected with the Grappling hook,Collectés avec le grappin
 OBJECTIVE_ANIMAL_TEXT,Freed animals,Animaux liberés
 OBJECTIVE_DESTINATION_TEXT,Go through the rings,Passer au sein des anneaux
+OBJECTIVE_SPEEDS_TEXT,Change ROV speed,Changer la vitesse du ROV
 OBJECTIVE_FIND_TEXT,Found hidden objects,Objets caché trouvés
 OBJECTIVE_INPUT_TEXT,Press {input_action},Appuyez sur {input_action}
