@@ -21,3 +21,4 @@ func update_text() -> void:
 	
 	if uppercase:
 		text = text.to_upper()
+

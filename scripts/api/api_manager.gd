@@ -1,7 +1,7 @@
 extends Node
 
 const ENABLED: bool = true
-const TEST: bool = true
+const TEST: bool = false
 const SSL_VALIDATE_DOMAIN: bool = true
 
 var login_url: String

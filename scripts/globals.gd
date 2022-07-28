@@ -17,7 +17,8 @@ const SEND_DATA: bool = false
 
 const LINKS: Dictionary = {
 	"session": "https://www.enderocean.com/en/training-center/",
-	"events": "https://www.enderocean.com/events/"
+	"events": "https://www.enderocean.com/events/",
+	"create_account": "https://www.enderocean.com/sinscrire/"
 }
 
 export var is_html5: bool = false

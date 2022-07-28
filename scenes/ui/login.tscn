@@ -58,7 +58,7 @@ stretch_mode = 6
 margin_left = 790.0
 margin_top = 175.0
 margin_right = 1090.0
-margin_bottom = 875.0
+margin_bottom = 790.0
 rect_min_size = Vector2( 300, 500 )
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -66,9 +66,9 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 179.0
+margin_top = 136.0
 margin_right = 300.0
-margin_bottom = 217.0
+margin_bottom = 174.0
 custom_fonts/font = ExtResource( 6 )
 text = "LOGIN"
 align = 1
@@ -77,44 +77,55 @@ uppercase = true
 script = ExtResource( 5 )
 
 [node name="UsernameLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 237.0
+margin_top = 194.0
 margin_right = 300.0
-margin_bottom = 259.0
+margin_bottom = 216.0
 text = "USERNAME"
 script = ExtResource( 5 )
 
 [node name="UsernameField" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 279.0
+margin_top = 236.0
 margin_right = 300.0
-margin_bottom = 329.0
+margin_bottom = 286.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="PasswordLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 349.0
+margin_top = 306.0
 margin_right = 300.0
-margin_bottom = 371.0
+margin_bottom = 328.0
 text = "PASSWORD"
 script = ExtResource( 5 )
 
 [node name="PasswordField" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 391.0
+margin_top = 348.0
 margin_right = 300.0
-margin_bottom = 441.0
+margin_bottom = 398.0
 rect_min_size = Vector2( 0, 50 )
 secret = true
 caret_blink = true
 
 [node name="Login" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 461.0
+margin_top = 418.0
 margin_right = 300.0
-margin_bottom = 521.0
+margin_bottom = 478.0
 rect_min_size = Vector2( 300, 60 )
 size_flags_horizontal = 4
 text = "LOGIN"
 script = ExtResource( 4 )
 uppercase = true
 
-[node name="ContinueWithoutLogin" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CreateAccount" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 790.0
+margin_top = 815.0
+margin_right = 1090.0
+margin_bottom = 875.0
+rect_min_size = Vector2( 300, 60 )
+size_flags_horizontal = 4
+text = "CREATE_ACCOUNT"
+script = ExtResource( 4 )
+uppercase = true
+
+[node name="ContinueWithoutLogin2" type="Button" parent="MarginContainer/VBoxContainer"]
 margin_left = 790.0
 margin_top = 900.0
 margin_right = 1090.0
@@ -183,5 +194,6 @@ rect_min_size = Vector2( 40, 40 )
 text = "OK"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueWithoutLogin" to="." method="_on_continue_without_login_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreateAccount" to="." method="_on_CreateAccount_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueWithoutLogin2" to="." method="_on_continue_without_login_pressed"]
 [connection signal="pressed" from="ErrorPopup/Panel/MarginContainer/VBoxContainer/ErrorOk" to="." method="_on_ok_pressed"]

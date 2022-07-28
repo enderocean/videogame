@@ -48,6 +48,10 @@ func _on_continue_without_login_pressed() -> void:
 	goto_missions()
 
 
+func _on_CreateAccount_pressed():
+	OS.shell_open(Globals.LINKS.get("create_account"))
+
+
 func _on_auth_success() -> void:
 	goto_missions()
 

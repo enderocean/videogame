@@ -27,6 +27,7 @@ SETTINGS_LINK,Settings,Paramètres
 PAUSE,PAUSE,Pause
 LOGIN,LOGIN,Se connecter
 CONTINUE_WITHOUT_LOGIN,CONTINUE WITHOUT LOGIN,Continuer sans se connecter
+CREATE_ACCOUNT,CREATE ACCOUNT,Se créer un compte
 USERNAME,USERNAME,Nom d’utilisateur
 PASSWORD,PASSWORD,Mot de passe
 DISCONNECT,Logout,Se déconnecter
