@@ -33,6 +33,8 @@ PASSWORD,PASSWORD,Mot de passe
 DISCONNECT,Logout,Se déconnecter
 YOU_ARE_CONNECTED,Logged in as : {username},Connecté en tant que : {username}
 YOU_ARE_NOT_CONNECTED,Not logged in,Non connecté au serveur
+ERROR_SOMETHING_WRONG_HAPPENED,Error during connection,Erreur rencontrée lors de la connexion
+ERROR_INVALID_CREDENTIALS,Invalid credentials,Identifiants non valides
 01_Title,01 - Practice,01 - Entraînement
 01_Description,Learn the basics to control a ROV - Remotely Operated Vehicle,Apprenez à piloter un robot sous-marin
 01_Button,PRACTICE,PRACTICE
